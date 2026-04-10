@@ -1,45 +1,45 @@
 /* FOOTER & INTERACTION BUNDLE */
 
+
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. INJECT NAVIGATION WITH SMART PATHS
+    // 1. INJECT NAVIGATION (Using absolute paths for GitHub Pages)
     const navPlaceholder = document.querySelector('.navbar');
     if (navPlaceholder) {
+        // We define the root of your website here
+        const root = "https://sameheltaybani.github.io/my-website/";
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        
-        // This check tells the code if we are in a sub-folder
-        const isSubPage = window.location.pathname.includes("/pages/");
-        const base = isSubPage ? "../../" : "";
 
         navPlaceholder.innerHTML = `
             <div class="text-white mr-10 font-bold" style="font-size:16px; letter-spacing:-0.5px;">DR. SAMEH ELTAYBANI</div>
             <div class="nav-links" style="display:flex; align-items:center;">
-                <a href="${base}index.html" class="nav-item ${currentPage === 'index.html' ? 'active' : ''}">Home</a>
-                <a href="${base}pages/research/research.html" class="nav-item ${currentPage === 'research.html' ? 'active' : ''}">Research</a>
-                <a href="${base}pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
-                <a href="${base}pages/data-analysis/data-analysis.html" class="nav-item ${currentPage === 'data-analysis.html' ? 'active' : ''}">Data Analysis</a>
-                <a href="${base}pages/Teaching&Mentorship/teaching.html" class="nav-item ${currentPage === 'teaching.html' ? 'active' : ''}">Teaching</a>
-                <a href="${base}pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
-                <a href="${base}pages/contact/contact.html" class="nav-item ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a>
+                <a href="${root}index.html" class="nav-item ${currentPage === 'index.html' ? 'active' : ''}">Home</a>
+                <a href="${root}pages/research/research.html" class="nav-item">Research</a>
+                <a href="${root}pages/publications/publications.html" class="nav-item">Publications</a>
+                <a href="${root}pages/data-analysis/data-analysis.html" class="nav-item">Data Analysis</a>
+                <a href="${root}pages/Teaching&Mentorship/teaching.html" class="nav-item">Teaching</a>
+                <a href="${root}pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
+                <a href="${root}pages/contact/contact.html" class="nav-item">Contact</a>
             </div>
         `;
     }
 
-    // 2. INJECT FOOTER
+    // 2. INJECT FOOTER (Using same root logic)
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
+        const root = "https://sameheltaybani.github.io/my-website/";
         footerPlaceholder.innerHTML = `
         <footer class="site-footer">
             <div style="display:grid; grid-template-columns: 1fr 2fr; gap:60px; max-width:1000px; margin:0 auto;">
                 <div>
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Site Map</h4>
-                    <a href="index.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Home</a>
-                    <a href="pages/research/research.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Research</a>
+                    <a href="${root}index.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Home</a>
+                    <a href="${root}pages/blog/blog.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Blog</a>
                 </div>
                 <div>
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Professional Disclaimer</h4>
                     <p style="font-size:13px; line-height:1.8; color:rgba(255,255,255,0.6); text-align:justify;">
-                        The content and research presented on this website are for informational purposes only. All views expressed are exclusively my own.
+                        The content and research presented on this website are for informational purposes only. All views, opinions, and data interpretations expressed herein are exclusively my own.
                     </p>
                 </div>
             </div>
