@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sameh Eltaybani | Home</title>
-    
     <link rel="stylesheet" href="assets/css/custom-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,14 +11,13 @@
 <body>
 
     <div class="master-container">
-        
         <nav class="navbar"></nav>
 
         <div class="breadcrumb-bar">
-            <span class="text-slate-400">HOME</span>
+            <span>HOME</span>
         </div>
 
-        <div class="p-6">
+        <div class="p-4">
             <div class="reel-viewport" id="reel-viewport">
                 <img src="assets/images/reel-5-trial.webp" class="reel-slide">
                 <img src="assets/images/reel-1-trial.webp" class="reel-slide active">
@@ -27,54 +25,48 @@
                 <img src="assets/images/reel-3-trial.webp" class="reel-slide">
                 <img src="assets/images/reel-4-trial.webp" class="reel-slide">
             </div>
-            
-            <div class="flex justify-center gap-4 mt-4">
-                <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-700 hover:text-white px-4 py-2 rounded-full font-bold transition">❮ PREV</button>
-                <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-700 hover:text-white px-4 py-2 rounded-full font-bold transition">NEXT ❯</button>
+            <div class="flex justify-center gap-4">
+                <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
+                <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
             </div>
         </div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
-            <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6">Advancing Gerontological Care Through Data Science</h1>
+            <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6 tracking-tight">Advancing Gerontological Care Through Data Science</h1>
             <p class="text-slate-600 leading-relaxed text-lg">
-                As a Senior Lecturer at the University of Tokyo, my work sits at the intersection of geriatric nursing and advanced data analytics. I specialize in leveraging longitudinal data and AI to improve healthcare outcomes for aging populations.
+                As a Senior Lecturer at the University of Tokyo, my work sits at the intersection of geriatric nursing and advanced data analytics.
             </p>
         </div>
 
         <div class="p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="pages/research/research.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Research</h3>
-                <p class="text-slate-500 text-sm mb-6">Exploring cognitive health, long-term care systems, and nursing technology.</p>
+                <p class="text-slate-500 text-sm mb-6">Exploring cognitive health and nursing technology.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
-
             <a href="pages/publications/publications.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Publications</h3>
-                <p class="text-slate-500 text-sm mb-6">Peer-reviewed articles and chapters in high-impact medical journals.</p>
+                <p class="text-slate-500 text-sm mb-6">Peer-reviewed articles in high-impact journals.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
-
             <a href="pages/data-analysis/data-analysis.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Data Analysis</h3>
-                <p class="text-slate-500 text-sm mb-6">Methodologies and insights derived from complex clinical datasets.</p>
+                <p class="text-slate-500 text-sm mb-6">Methodologies derived from clinical datasets.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
-
             <a href="pages/Teaching&Mentorship/teaching.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Teaching</h3>
-                <p class="text-slate-500 text-sm mb-6">Mentorship programs and curriculum development at UTokyo.</p>
+                <p class="text-slate-500 text-sm mb-6">Mentorship and curriculum at UTokyo.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
-
             <a href="pages/blog/blog.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Insights Blog</h3>
-                <p class="text-slate-500 text-sm mb-6">Weekly reflections on healthcare trends and academic life.</p>
+                <p class="text-slate-500 text-sm mb-6">Reflections on healthcare and academia.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
-
             <a href="pages/contact/contact.html" class="feature-card">
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Contact</h3>
-                <p class="text-slate-500 text-sm mb-6">Inquiries regarding collaborations, speaking, or mentorship.</p>
+                <p class="text-slate-500 text-sm mb-6">Collaboration and speaking inquiries.</p>
                 <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
         </div>
@@ -84,25 +76,18 @@
 
     <script src="assets/js/footer-bundle.js"></script>
     <script>
-        // Carousel Logic for "3-Image" View
-        let currentIndex = 1; // Start at the middle image
+        let currentIndex = 1;
         const slides = document.querySelectorAll('.reel-slide');
 
         function moveCarousel(step) {
             slides[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + step + slides.length) % slides.length;
             slides[currentIndex].classList.add('active');
-            
-            // Scroll the active slide into view smoothly
-            slides[currentIndex].scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
-            });
+            slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
-        // Auto-scroll every 5 seconds
-        setInterval(() => moveCarousel(1), 5000);
+        // TIMER SHORTENED TO 3 SECONDS
+        setInterval(() => moveCarousel(1), 3000);
     </script>
 </body>
 </html>
