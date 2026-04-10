@@ -1,1 +1,141 @@
-Under construction
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis | Dr. Sameh Eltaybani</title>
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Container for the stacked sections */
+        .analysis-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Space between the images */
+            padding-bottom: 100px;
+        }
+
+        /* The Box for each analysis point */
+        .analysis-row {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Fixed height for consistency */
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* The background image */
+        .analysis-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* The Blurred Opaque Layer on the right */
+        .info-sidebar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 40%; /* Covers the right side */
+            background: rgba(15, 23, 42, 0.6); /* Transparent dark midnight */
+            backdrop-filter: blur(12px); /* The "Blurred" effect */
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .point-title {
+            color: var(--amber); /* Your theme color */
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .point-description {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .analysis-row { height: auto; flex-direction: column; }
+            .info-sidebar { 
+                position: relative; 
+                width: 100%; 
+                backdrop-filter: none; 
+                background: var(--midnight); 
+                padding: 30px;
+            }
+            .analysis-image { position: relative; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+        <nav class="navbar"></nav>
+
+        <div class="breadcrumb-bar">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
+        </div>
+
+        <main class="px-8 py-16">
+            <section class="max-w-4xl mx-auto mb-16 text-center">
+                <h1 class="text-5xl font-extrabold mb-6" style="color: var(--midnight);">Data Insights Portfolio</h1>
+                <p class="text-xl text-slate-600">
+                    A visual deep-dive into complex datasets, statistical modeling, and healthcare analytics.
+                </p>
+            </section>
+
+            <div class="analysis-container" id="analysis-list">
+                </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="../../assets/js/footer-bundle.js"></script>
+    <script>
+        const analysisData = [
+            { title: "Longitudinal Trends", text: "Advanced visualization of cognitive decline trajectories over a decade of patient monitoring." },
+            { title: "Predictive Analytics", text: "Using machine learning to identify high-risk readmission patterns in geriatric nursing." },
+            { title: "Geospatial Mapping", text: "Mapping healthcare access disparities across urban and rural sectors using GIS data." },
+            { title: "Survival Estimates", text: "Implementing Kaplan-Meier curves to assess recovery success in postoperative critical care." },
+            { title: "Cluster Analysis", text: "Identifying patient archetypes through unsupervised learning to personalize care plans." },
+            { title: "Bibliometric Networks", text: "Visualizing the global evolution of nursing research topics and collaboration hubs." },
+            { title: "Regression Modeling", text: "Controlling for socio-environmental variables in Myanmar migrant health risk studies." },
+            { title: "Staffing Optimization", text: "Statistical modeling to balance nurse-to-patient ratios for maximum care quality." },
+            { title: "Sentiment Mining", text: "Analyzing semi-structured interview data to identify hidden stressors in ICU staff." },
+            { title: "Resource Distribution", text: "Quantifying the impact of palliative care integration on hospital resource efficiency." }
+        ];
+
+        const container = document.getElementById('analysis-list');
+
+        container.innerHTML = analysisData.map((item, index) => `
+            <div class="analysis-row">
+                <img src="../../assets/img/analyst-${index + 1}.JPG" alt="${item.title}" class="analysis-image">
+                <div class="info-sidebar">
+                    <h2 class="point-title">${item.title}</h2>
+                    <p class="point-description">${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
