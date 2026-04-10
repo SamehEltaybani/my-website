@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,50 +20,69 @@
 
         .pub-controls { 
             position: sticky !important; 
-            /* Use the dynamic breadcrumb height variable we'll create in JS */
             top: calc(var(--nav-height, 70px) + var(--bc-height, 40px) - 1px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
-            padding: 15px 40px !important; 
+            padding: 15px 20px !important; /* Reduced padding for mobile */
             border-bottom: 1px solid #e2e8f0 !important; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
             margin-top: 0 !important;
         }
 
-        /* 2. PC WIDESCREEN RENDER FIX */
         @media (min-width: 1024px) {
             .pub-controls {
-                /* Overlap by 1px to prevent the "white hairline" on high-res screens */
+                padding: 15px 40px !important;
                 margin-top: -1px !important;
             }
         }
         
-        /* Filter Styles */
+        /* Filter Styles - Removed Bold, Fixed Mobile Width */
         .filter-select { 
             padding: 8px 12px; 
             border-radius: 8px; 
-            border: 1px solid #D97706; /* Match Sort Button Border */
+            border: 1px solid #D97706; 
             font-size: 13px; 
             color: #1e293b; 
-            min-width: 160px; 
-            background-color: #fffbeb; /* Match Sort Button Background */
+            width: 100%; /* Full width on mobile */
+            max-width: 100%;
+            background-color: #fffbeb; 
             cursor: pointer; 
-            font-weight: 700;
+            font-weight: 400; /* Removed Bold */
         }
+        
+        @media (min-width: 768px) {
+            .filter-select { width: auto; min-width: 160px; }
+        }
+
         .search-box-styled {
             padding: 8px 12px; 
             border-radius: 8px; 
-            border: 1px solid #D97706; /* Match Sort Button Border */
+            border: 1px solid #D97706; 
             font-size: 13px; 
             color: #1e293b; 
-            background-color: white; /* Keep background white as requested */
+            background-color: white; 
             outline: none;
+            width: 100%;
         }
-        .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid #D97706; border-radius: 8px; }
-        .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; }
-        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; outline: none; }
         
-        /* Reset Button: Blue background, white font */
+        .sort-group { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            padding: 4px 12px; 
+            background: #fffbeb; 
+            border: 1px solid #D97706; 
+            border-radius: 8px; 
+            width: 100%; /* Full width on mobile */
+        }
+        
+        @media (min-width: 768px) {
+            .sort-group { width: auto; }
+        }
+
+        .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 400; color: #1e293b; cursor: pointer; outline: none; width: 100%; }
+        
         .reset-btn { 
             font-size: 11px; 
             font-weight: 800; 
@@ -74,26 +91,44 @@
             padding: 8px 16px; 
             border-radius: 6px; 
             transition: 0.3s; 
-            background: #1e3a8a; /* Navy blue matching heading */
+            background: #1e3a8a; 
+            width: 100%; /* Full width on mobile */
         }
+        
+        @media (min-width: 768px) {
+            .reset-btn { width: auto; }
+        }
+
         .reset-btn:hover { background: #172554; border-color: #172554; }
 
-        /* Card Styles */
-        .pub-card { border: 1px solid #e2e8f0; background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s ease, shadow 0.3s ease; }
-        .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #D97706; }
+        /* Card Styles - Updated to match the "Blog" reference style */
+        .pub-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #D97706; /* Thick Orange Left Border */
+            border-right: 5px solid #1e3a8a; /* Thick Navy Blue Right Border */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pub-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
         
         /* Authorship Pills */
         .authorship-pill { padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
-        .btn-green-pill { background: #dcfce7; color: #166534; } /* Light green for First/Corresponding */
-        .btn-orange-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; } /* Light orange for Co-author */
+        .btn-green-pill { background: #dcfce7; color: #166534; } 
+        .btn-orange-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; } 
         
         .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; color: white !important; }
         .action-link:hover { transform: scale(1.05); opacity: 0.9; }
         
-        /* Specific Button Colors */
-        .journal-link { background: #0d9488; } /* Professional Teal for Journal Website */
-        .pubmed-link { background: #0071bc; } /* PubMed Blue */
-        .insight-link { background: #D97706 !important; } /* Original Orange */
+        .journal-link { background: #0d9488; } 
+        .pubmed-link { background: #0071bc; } 
+        .insight-link { background: #D97706 !important; } 
     </style>
 </head>
 <body>
@@ -106,10 +141,10 @@
         </div>
 
         <div class="pub-controls sticky-controls">
-            <div class="max-w-7xl mx-auto flex flex-wrap gap-6 items-center justify-between">
-                <input type="text" id="pubSearch" class="search-box-styled w-full md:w-64" placeholder="Search by title keywords...">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+                <input type="text" id="pubSearch" class="search-box-styled md:w-64" placeholder="Search by title keywords...">
                 
-                <div class="flex flex-wrap gap-4 items-center">
+                <div class="flex flex-col md:flex-row gap-4 items-center w-full md:w-auto">
                     <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
                     <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
                         <option value="all">All Authorship Status</option>
@@ -132,7 +167,7 @@
             </div>
         </div>
 
-        <div id="pub-container" class="p-10 max-w-7xl mx-auto grid grid-cols-1 gap-8"></div>
+        <div id="pub-container" class="p-6 md:p-10 max-w-7xl mx-auto grid grid-cols-1 gap-8"></div>
 
         <div class="text-center pb-20">
             <button id="loadMoreBtn" onclick="loadMore()" class="bg-slate-800 text-white px-10 py-3 rounded-full font-bold hover:bg-amber-700 transition">Load More Publications</button>
@@ -144,20 +179,13 @@
     <script src="../../assets/js/footer-bundle.js"></script>
     <script src="../../assets/js/publication-registry.js"></script>
     <script>
-        // 1. THE OBSERVER SCRIPT: Fixes the resize/widescreen gap
         const syncStickyHeights = () => {
             const nav = document.querySelector('.navbar');
             const bc = document.querySelector('.breadcrumb-bar');
-            
-            if (nav) {
-                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
-            }
-            if (bc) {
-                document.documentElement.style.setProperty('--bc-height', bc.offsetHeight + 'px');
-            }
+            if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+            if (bc) document.documentElement.style.setProperty('--bc-height', bc.offsetHeight + 'px');
         };
 
-        // Watch for any changes in the navbar or breadcrumb size
         const resizeObserver = new ResizeObserver(() => syncStickyHeights());
         
         window.onload = () => {
@@ -169,7 +197,6 @@
             syncStickyHeights();
         };
 
-        // 2. THE PUBLICATIONS LOGIC
         let visibleCount = 10;
         
         function initPubs() {
@@ -205,11 +232,9 @@
 
             const displayList = filtered.slice(0, visibleCount);
             container.innerHTML = displayList.map(p => {
-                // Handle text casing for authorship
                 let authorshipText = p.authorship;
                 if (authorshipText.toLowerCase() === "first/corresponding") authorshipText = "First/Corresponding";
                 if (authorshipText.toLowerCase() === "co-author") authorshipText = "Co-author";
-
                 const pillClass = authorshipText === "First/Corresponding" ? "btn-green-pill" : "btn-orange-pill";
 
                 return `
