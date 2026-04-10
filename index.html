@@ -29,9 +29,10 @@
     </div>
     
     <div class="flex justify-center gap-4 mt-2">
-        <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
-        <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
-    </div>
+    <button onclick="manualMove(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
+    <button onclick="manualMove(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
+</div>
+           
 </div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
@@ -79,34 +80,50 @@
 
     <script src="assets/js/footer-bundle.js"></script>
     <script>
-    let currentIndex = 1; // Starting at reel-1
+    let currentIndex = 1; 
     const track = document.getElementById('reel-track');
     const slides = document.querySelectorAll('.reel-slide');
 
     function moveCarousel(step) {
-        // Remove active class from old slide
+        // 1. Remove active class from old slide
         slides[currentIndex].classList.remove('active');
         
-        // Calculate new index
+        // 2. Calculate new index
         currentIndex = (currentIndex + step + slides.length) % slides.length;
         
-        // Add active class to new slide
+        // 3. Add active class to new slide
         slides[currentIndex].classList.add('active');
         
-        // Calculate the movement distance
-        // We want the active slide to be exactly in the center
-        const slideWidth = slides[0].offsetWidth + 20; // width + gap
-        const containerWidth = document.querySelector('.reel-viewport').offsetWidth;
-        const offset = (containerWidth / 2) - (slideWidth * currentIndex) - (slideWidth / 2);
+        // 4. Calculate center position
+        const viewport = document.querySelector('.reel-viewport');
+        const viewportWidth = viewport.offsetWidth;
+        const activeSlide = slides[currentIndex];
         
-        track.style.transform = `translateX(${offset}px)`;
+        // Find the center point of the viewport
+        const centerPoint = viewportWidth / 2;
+        
+        // Find how far the slide is from the start of the track
+        const slideCenterOffset = activeSlide.offsetLeft + (activeSlide.offsetWidth / 2);
+        
+        // Calculate movement
+        const finalTransform = centerPoint - slideCenterOffset;
+        
+        track.style.transform = `translateX(${finalTransform}px)`;
     }
 
-    // Initial position setup
+    // Initialize position and handle window resizing
     window.onload = () => moveCarousel(0);
+    window.addEventListener('resize', () => moveCarousel(0));
 
-    // 3 Second Timer
-    setInterval(() => moveCarousel(1), 3000);
+    // 4 Second Timer (increased slightly for better readability)
+    let autoPlay = setInterval(() => moveCarousel(1), 4000);
+
+    // Pause timer if user manually clicks
+    function manualMove(step) {
+        clearInterval(autoPlay);
+        moveCarousel(step);
+        autoPlay = setInterval(() => moveCarousel(1), 4000);
+    }
 </script>
 </body>
 </html>
