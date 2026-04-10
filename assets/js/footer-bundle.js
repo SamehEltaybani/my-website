@@ -65,4 +65,18 @@ document.addEventListener("DOMContentLoaded", function() {
             topBtn.style.display = "none";
         }
     };
+
+    // 4. DYNAMIC HEIGHT CALCULATOR
+    function updateNavHeight() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const height = navbar.offsetHeight;
+            // This sends the actual height to the CSS variable --nav-height
+            document.documentElement.style.setProperty('--nav-height', height + 'px');
+        }
+    }
+
+    // Run it on load, on scroll, and when the window is resized
+    updateNavHeight();
+    window.addEventListener('resize', updateNavHeight);
 });
