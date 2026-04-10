@@ -8,89 +8,74 @@
     <link rel="stylesheet" href="assets/css/custom-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        /* Highlight Reel Styling */
-        .reel-container { position: relative; height: 450px; overflow: hidden; border-radius: 20px; margin: 20px; }
-        .reel-slide { display: none; width: 100%; height: 100%; object-fit: cover; }
-        .active-slide { display: block; }
-        .reel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; padding: 15px; cursor: pointer; border-radius: 50%; border: none; font-weight: bold; }
-        .reel-btn:hover { background: var(--amber); }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-
-        /* Featured Cards */
-        .feature-card { background: var(--card-tint); border: 1px solid #e2e8f0; border-radius: 20px; padding: 30px; transition: all 0.3s; cursor: pointer; text-decoration: none; display: block; }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--amber); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    </style>
 </head>
 <body>
 
     <div class="master-container">
         
-        <nav class="navbar">
-            <div class="nav-logo text-white mr-10 font-bold">DR. SAMEH ELTAYBANI</div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-item active">Home</a>
-                <a href="pages/research/research.html" class="nav-item">Research</a>
-                <a href="pages/publications/publications.html" class="nav-item">Publications</a>
-                <a href="pages/blog/blog.html" class="nav-item">Blog</a>
-            </div>
-        </nav>
+        <nav class="navbar"></nav>
 
-        <div class="reel-container">
-            <img src="assets/images/reel-1-trial.webp" class="reel-slide active-slide">
-            <img src="assets/images/reel-2-trial.webp" class="reel-slide">
-            <img src="assets/images/reel-3-trial.webp" class="reel-slide">
-            <img src="assets/images/reel-4-trial.webp" class="reel-slide">
-            <img src="assets/images/reel-5-trial.webp" class="reel-slide">
+        <div class="breadcrumb-bar">
+            <span class="text-slate-400">HOME</span>
+        </div>
+
+        <div class="p-6">
+            <div class="reel-viewport" id="reel-viewport">
+                <img src="assets/images/reel-5-trial.webp" class="reel-slide">
+                <img src="assets/images/reel-1-trial.webp" class="reel-slide active">
+                <img src="assets/images/reel-2-trial.webp" class="reel-slide">
+                <img src="assets/images/reel-3-trial.webp" class="reel-slide">
+                <img src="assets/images/reel-4-trial.webp" class="reel-slide">
+            </div>
             
-            <button class="reel-btn prev" onclick="changeSlide(-1)">❮</button>
-            <button class="reel-btn next" onclick="changeSlide(1)">❯</button>
+            <div class="flex justify-center gap-4 mt-4">
+                <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-700 hover:text-white px-4 py-2 rounded-full font-bold transition">❮ PREV</button>
+                <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-700 hover:text-white px-4 py-2 rounded-full font-bold transition">NEXT ❯</button>
+            </div>
         </div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
             <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6">Advancing Gerontological Care Through Data Science</h1>
             <p class="text-slate-600 leading-relaxed text-lg">
-                As a Senior Lecturer at the University of Tokyo, my work sits at the intersection of geriatric nursing and advanced data analytics. I specialize in leveraging longitudinal data and AI to improve healthcare outcomes for aging populations. This platform serves as a repository for my research findings, teaching methodologies, and insights into the future of digital health in Japan and beyond.
+                As a Senior Lecturer at the University of Tokyo, my work sits at the intersection of geriatric nursing and advanced data analytics. I specialize in leveraging longitudinal data and AI to improve healthcare outcomes for aging populations.
             </p>
         </div>
 
         <div class="p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="pages/research/research.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 01</h4>
-                <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Research Interests</h3>
-                <p class="text-slate-500 text-sm">Exploring cognitive health, long-term care systems, and nursing technology.</p>
+                <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Research</h3>
+                <p class="text-slate-500 text-sm mb-6">Exploring cognitive health, long-term care systems, and nursing technology.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
 
             <a href="pages/publications/publications.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 02</h4>
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Publications</h3>
-                <p class="text-slate-500 text-sm">Peer-reviewed articles and book chapters in high-impact journals.</p>
+                <p class="text-slate-500 text-sm mb-6">Peer-reviewed articles and chapters in high-impact medical journals.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
 
             <a href="pages/data-analysis/data-analysis.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 03</h4>
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Data Analysis</h3>
-                <p class="text-slate-500 text-sm">Methodologies and insights derived from complex clinical datasets.</p>
+                <p class="text-slate-500 text-sm mb-6">Methodologies and insights derived from complex clinical datasets.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
 
             <a href="pages/Teaching&Mentorship/teaching.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 04</h4>
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Teaching</h3>
-                <p class="text-slate-500 text-sm">Mentorship programs and curriculum development at UTokyo.</p>
+                <p class="text-slate-500 text-sm mb-6">Mentorship programs and curriculum development at UTokyo.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
 
             <a href="pages/blog/blog.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 05</h4>
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Insights Blog</h3>
-                <p class="text-slate-500 text-sm">Weekly reflections on healthcare trends and academic life.</p>
+                <p class="text-slate-500 text-sm mb-6">Weekly reflections on healthcare trends and academic life.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
 
             <a href="pages/contact/contact.html" class="feature-card">
-                <h4 style="color: var(--amber);" class="font-bold text-xs uppercase tracking-widest mb-2">Section 06</h4>
                 <h3 style="color: var(--midnight);" class="text-xl font-bold mb-3">Contact</h3>
-                <p class="text-slate-500 text-sm">Get in touch for collaborations, speaking, or mentorship.</p>
+                <p class="text-slate-500 text-sm mb-6">Inquiries regarding collaborations, speaking, or mentorship.</p>
+                <span style="color: var(--amber);" class="text-xs font-bold uppercase tracking-widest">Explore Section ❯</span>
             </a>
         </div>
 
@@ -99,19 +84,25 @@
 
     <script src="assets/js/footer-bundle.js"></script>
     <script>
-        let currentSlide = 0;
+        // Carousel Logic for "3-Image" View
+        let currentIndex = 1; // Start at the middle image
         const slides = document.querySelectorAll('.reel-slide');
 
-        function showSlide(n) {
-            slides.forEach(s => s.classList.remove('active-slide'));
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active-slide');
+        function moveCarousel(step) {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + step + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+            
+            // Scroll the active slide into view smoothly
+            slides[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
         }
 
-        function changeSlide(n) { showSlide(currentSlide + n); }
-
-        // Auto-move every 5 seconds
-        setInterval(() => changeSlide(1), 5000);
+        // Auto-scroll every 5 seconds
+        setInterval(() => moveCarousel(1), 5000);
     </script>
 </body>
 </html>
