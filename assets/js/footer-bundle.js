@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="nav-links" style="display:flex; align-items:center;">
                 <a href="${root}index.html" class="nav-item ${currentPage === 'index.html' ? 'active' : ''}">Home</a>
                 <a href="${root}pages/research/research.html" class="nav-item">Research</a>
-                <a href="${root}pages/publications/publications.html" class="nav-item">Publications</a>
+                <a href="${root}pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
                 <a href="${root}pages/data-analysis/data-analysis.html" class="nav-item">Data Analysis</a>
                 <a href="${root}pages/Teaching&Mentorship/teaching.html" class="nav-item">Teaching</a>
                 <a href="${root}pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
