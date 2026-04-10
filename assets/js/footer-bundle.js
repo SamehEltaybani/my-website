@@ -34,7 +34,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div>
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Site Map</h4>
                     <a href="${root}index.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Home</a>
+                    <a href="${root}pages/research/research.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Research</a>
+                    <a href="${root}pages/publications/publications.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Publications</a>
+                    <a href="${root}pages/data-analysis/data-analysis.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Data Analysis</a>
+                    <a href="${root}pages/Teaching&Mentorship/teaching.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Teaching</a>
                     <a href="${root}pages/blog/blog.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Blog</a>
+                    <a href="${root}pages/contact/contact.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Contact</a>
                 </div>
                 <div>
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Professional Disclaimer</h4>
