@@ -8,37 +8,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* FORCE-SNAP LOGIC: This overrides all external CSS gaps */
+        /* 1. THE NEGATIVE-SANDWICH FIX */
         
+        /* Force the breadcrumb to stay exactly at the bottom of the nav */
         .breadcrumb-bar {
             position: sticky !important;
             top: var(--nav-height, 70px) !important;
             z-index: 1001 !important;
             margin: 0 !important;
             padding: 12px 20px !important;
-            /* This ensures it "hides" the gap behind the navbar */
-            border-top: none !important; 
+            background-color: #F8FAFC !important;
+            border-bottom: 1px solid #E2E8F0 !important;
         }
 
+        /* The "Seal": We set the top to slightly LESS than the actual height 
+           to force the white bar to slide 1-2 pixels UNDER the breadcrumb. */
         .pub-controls { 
             position: sticky !important; 
-            /* We use a slightly smaller offset to ensure an overlap seal */
-            top: calc(var(--nav-height, 70px) + 37px) !important; 
+            top: calc(var(--nav-height, 70px) + 36px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
             padding: 15px 40px !important; 
             border-bottom: 1px solid #e2e8f0 !important; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
-            /* Pull the controls UP by 1 pixel to seal any browser rendering lines */
-            margin-top: -1px !important;
+            
+            /* These three lines physically lock the bars together */
+            margin-top: 0 !important;
             margin-bottom: 0 !important;
+            transform: translateY(0); 
         }
 
-        /* Fix for desktop layout to ensure no horizontal shifting */
-        .max-w-7xl {
-            width: 100% !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+        /* 2. PC-SPECIFIC RENDERING FIX */
+        @media (min-width: 1024px) {
+            .pub-controls {
+                /* Pulls the search bar up slightly on wide screens to hide the gap */
+                margin-top: -2px !important; 
+            }
         }
         
         /* Filter Selects */
@@ -128,15 +133,10 @@
 
         function renderPubs() {
             const container = document.getElementById('pub-container');
-            const searchInput = document.getElementById('pubSearch');
-            const journalSelect = document.getElementById('filterJournal');
-            const authorshipSelect = document.getElementById('filterAuthorship');
-            const sortSelect = document.getElementById('sortOrder');
-
-            const search = searchInput.value.toLowerCase();
-            const jFilter = journalSelect.value;
-            const aFilter = authorshipSelect.value;
-            const sortVal = sortSelect.value;
+            const search = document.getElementById('pubSearch').value.toLowerCase();
+            const jFilter = document.getElementById('filterJournal').value;
+            const aFilter = document.getElementById('filterAuthorship').value;
+            const sortVal = document.getElementById('sortOrder').value;
 
             let filtered = publications.filter(p => {
                 const matchSearch = p.title.toLowerCase().includes(search);
