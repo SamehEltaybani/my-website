@@ -8,62 +8,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. THE ULTIMATE "GHOST GAP" FIX */
-        
-        /* Force the whole page's "under-layer" to be the same color as the bars 
-           so gaps become invisible */
-        body, html { 
-            background-color: #F8FAFC !important; 
-            margin: 0; 
-            padding: 0; 
-        }
+        /* FINAL STICKY SEAL STRATEGY */
 
+        /* 1. Ensure the master container isn't forcing a gap */
         .master-container {
-            background-color: transparent !important;
+            display: block !important; /* Forces vertical stacking without flex gaps */
+            gap: 0 !important;
         }
 
+        /* 2. Breadcrumb: High Z-index to sit ON TOP of the controls */
         .breadcrumb-bar {
             position: sticky !important;
             top: var(--nav-height, 70px) !important;
-            z-index: 1001 !important;
-            background-color: #F8FAFC !important; /* Matches body */
+            z-index: 1010 !important; /* Higher than controls */
             margin: 0 !important;
+            background-color: #F8FAFC !important;
             border-bottom: 1px solid #E2E8F0 !important;
-            /* Remove sub-pixel rounding errors */
-            outline: 1px solid #F8FAFC; 
+            height: 40px; /* Fixed height for precise calculation */
+            display: flex;
+            align-items: center;
         }
 
+        /* 3. Pub Controls: Lower Z-index, sliding UNDER the breadcrumb */
         .pub-controls { 
             position: sticky !important; 
-            /* Push it 1px HIGHER than the mathematical bottom of the breadcrumb */
-            top: calc(var(--nav-height, 70px) + 38px) !important; 
+            /* Match the exact top of the breadcrumb height */
+            top: calc(var(--nav-height, 70px) + 39px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
             padding: 15px 40px !important; 
             border-bottom: 1px solid #e2e8f0 !important; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-            /* Force the overlap */
-            margin-top: -2px !important; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+            
+            /* The "Bleed" Fix: We add a pseudo-element that extends 10px UP 
+               behind the breadcrumb to act as a safety seal. */
+            margin-top: 0 !important;
         }
 
-        /* 2. RE-COLORING THE CONTENT AREA */
-        /* Since we changed the body color to Grey, we ensure the 
-           publications area looks clean on white cards. */
-        #pub-container {
-            background-color: transparent !important;
+        .pub-controls::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: white; /* Matches the control bar color */
+            z-index: -1;
         }
 
-        /* Filter Selects */
-        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: #1e293b; min-width: 160px; background-color: #ffffff; cursor: pointer; }
+        /* 4. Desktop Specific: Force tight alignment */
+        @media (min-width: 1024px) {
+            .pub-controls {
+                margin-top: -1px !important;
+            }
+        }
         
-        /* Distinct Sort Style */
+        /* Filter Selects */
+        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: #1e293b; min-width: 160px; background-color: #f8fafc; cursor: pointer; }
+        
+        /* Sort Style */
         .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid #D97706; border-radius: 8px; }
         .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; }
         .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; outline: none; }
 
+        /* Reset Button */
         .reset-btn { font-size: 11px; font-weight: 800; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; transition: 0.3s; background: white; }
         .reset-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fecaca; }
 
+        /* Card Styling */
         .pub-card { border: 1px solid #e2e8f0; background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s ease, shadow 0.3s ease; }
         .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #D97706; }
 
@@ -133,17 +145,19 @@
                 journals.forEach(j => jSelect.innerHTML += `<option value="${j}">${j}</option>`);
             }
             renderPubs();
+            // Force a height update once page content loads
+            if (typeof updateNavHeight === 'function') updateNavHeight();
         }
 
         function renderPubs() {
             const container = document.getElementById('pub-container');
-            const search = document.getElementById('pubSearch').value.toLowerCase();
+            const searchVal = document.getElementById('pubSearch').value.toLowerCase();
             const jFilter = document.getElementById('filterJournal').value;
             const aFilter = document.getElementById('filterAuthorship').value;
             const sortVal = document.getElementById('sortOrder').value;
 
             let filtered = publications.filter(p => {
-                const matchSearch = p.title.toLowerCase().includes(search);
+                const matchSearch = p.title.toLowerCase().includes(searchVal);
                 const matchJ = jFilter === 'all' || p.journal === jFilter;
                 const matchA = aFilter === 'all' || p.authorship === aFilter;
                 return matchSearch && matchJ && matchA;
@@ -158,6 +172,7 @@
             });
 
             const displayList = filtered.slice(0, visibleCount);
+            
             container.innerHTML = displayList.map(p => `
                 <div class="pub-card">
                     <div class="flex justify-between items-start">
@@ -166,6 +181,7 @@
                     </div>
                     <h3 class="text-2xl font-extrabold mb-2 text-slate-800 leading-tight">${p.title}</h3>
                     <p class="text-slate-500 mb-6 font-semibold">${p.journal}</p>
+                    
                     <div class="flex flex-wrap gap-2">
                         <a href="${p.journalLink}" target="_blank" class="action-link">Journal Website ❯</a>
                         ${p.pubmedLink ? `<a href="${p.pubmedLink}" target="_blank" class="action-link">PubMed ❯</a>` : ''}
