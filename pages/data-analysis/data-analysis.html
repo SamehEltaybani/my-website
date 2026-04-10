@@ -14,26 +14,26 @@
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 60px; /* Space between rows */
+            gap: 80px;
         }
 
-        /* The wrapper for each point */
         .analysis-row {
             position: relative;
             display: flex;
             align-items: center;
             width: 100%;
-            min-height: 400px;
+            min-height: 450px;
         }
 
-        /* 1 & 2: The Image Box (Left and Middle) */
+        /* The 16:9 Slide Area */
         .image-box {
-            width: 66.66%; /* Occupies 2/3 of the width */
+            width: 70%; 
             aspect-ratio: 16 / 9;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             z-index: 1;
+            background: #f1f5f9; /* Placeholder color while loading */
         }
 
         .image-box img {
@@ -42,56 +42,47 @@
             object-fit: cover;
         }
 
-        /* 2 & 3: The Text Box (Middle and Right) */
+        /* The Overlapping Text Box */
         .text-box {
             position: absolute;
             right: 0;
-            width: 66.66%; /* Occupies 2/3 of the width, overlapping the middle */
-            padding: 50px;
-            border-radius: 12px;
+            width: 60%; 
+            padding: 60px;
+            border-radius: 15px;
             z-index: 2;
-            
-            /* The Fade Effect: 
-               Transparent at the left (middle section) 
-               Solid Dark Grey at the right */
+            /* Gradient: Transparent middle to Solid Right */
             background: linear-gradient(to right, 
-                rgba(30, 41, 59, 0.4) 0%, 
-                rgba(30, 41, 59, 0.9) 30%, 
-                rgba(15, 23, 42, 1) 100%
+                rgba(15, 23, 42, 0.4) 0%, 
+                rgba(15, 23, 42, 0.9) 25%, 
+                rgba(10, 15, 30, 1) 100%
             );
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-right: 4px solid var(--amber);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-right: 6px solid var(--amber);
         }
 
         .point-title {
             color: var(--amber);
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .point-description {
-            color: #f8fafc;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            max-width: 90%;
+            color: #ffffff;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
-        /* Responsive: Stack them on mobile */
         @media (max-width: 992px) {
             .analysis-row { flex-direction: column; min-height: auto; }
             .image-box { width: 100%; }
             .text-box { 
-                position: relative; 
-                width: 100%; 
-                margin-top: -40px; 
-                background: var(--midnight); 
+                position: relative; width: 100%; margin-top: -50px; 
+                background: #0f172a; border-right: none; border-bottom: 6px solid var(--amber);
                 padding: 30px;
-                border-right: none;
-                border-bottom: 4px solid var(--amber);
             }
         }
     </style>
@@ -105,41 +96,32 @@
             <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
         </div>
 
-        <main class="analysis-container" id="gallery-container">
+        <main class="analysis-container">
+            <div class="analysis-row">
+                <div class="image-box">
+                    <img src="../../assets/img/analyst-1.JPG" alt="Point 1">
+                </div>
+                <div class="text-box">
+                    <h2 class="point-title">Longitudinal Aging Trends</h2>
+                    <p class="point-description">Advanced visualization of cognitive decline markers over a decade of patient monitoring, utilizing multi-level modeling to identify risk factors.</p>
+                </div>
+            </div>
+
+            <div class="analysis-row">
+                <div class="image-box">
+                    <img src="../../assets/img/analyst-2.JPG" alt="Point 2">
+                </div>
+                <div class="text-box">
+                    <h2 class="point-title">Predictive Health Modeling</h2>
+                    <p class="point-description">Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations.</p>
+                </div>
+            </div>
+
             </main>
 
         <div id="footer-placeholder"></div>
     </div>
 
     <script src="../../assets/js/footer-bundle.js"></script>
-    <script>
-        const analysisPoints = [
-            { title: "Longitudinal Aging Trends", text: "Advanced visualization of cognitive decline markers over a decade of patient monitoring, utilizing multi-level modeling to identify risk factors." },
-            { title: "Predictive Health Modeling", text: "Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations." },
-            { title: "Geospatial Service Analysis", text: "Mapping the accessibility of nursing facilities in urban environments to identify 'healthcare deserts' and resource gaps." },
-            { title: "Survival Analysis Models", text: "Kaplan-Meier estimates used to evaluate recovery success phases for patients transitioning from intensive care to long-term wards." },
-            { title: "Network Analysis", text: "Quantifying inter-professional communication patterns in intensive care units to improve clinical team coordination." },
-            { title: "Bibliometric Visualizations", text: "Mapping the global landscape of critical care nursing research to identify emerging trends and collaboration clusters." },
-            { title: "Multivariate Regression", text: "Sophisticated adjustment for socio-environmental factors in large-scale studies exploring health risks among migrant workers." },
-            { title: "Staffing Optimization", text: "Data-driven approach to optimizing nurse-to-patient ratios, balancing workforce well-being with clinical care quality." },
-            { title: "Sentiment Mining", text: "Natural language processing applied to qualitative interviews to extract key stressors and facilitators in clinical nursing environments." },
-            { title: "Resource Allocation", text: "Economic modeling and statistical analysis of hospital resource efficiency following the integration of specialized palliative care teams." }
-        ];
-
-        const container = document.getElementById('gallery-container');
-
-        // Using .JPG (CAPITALIZED) to match your GitHub file extensions
-        container.innerHTML = analysisPoints.map((point, index) => `
-            <div class="analysis-row">
-                <div class="image-box">
-                    <img src="../../assets/img/analyst-${index + 1}.JPG" alt="${point.title}" onerror="this.src='https://via.placeholder.com/800x450?text=Check+Image+Path'">
-                </div>
-                <div class="text-box">
-                    <h2 class="point-title">${point.title}</h2>
-                    <p class="point-description">${point.text}</p>
-                </div>
-            </div>
-        `).join('');
-    </script>
 </body>
 </html>
