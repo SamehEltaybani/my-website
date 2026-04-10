@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
         navPlaceholder.innerHTML = `
-            <div class="text-white mr-10 font-bold" style="font-size:16px; letter-spacing:-0.5px; flex-shrink:0;">DR. SAMEH ELTAYBANI</div>
-            <div class="nav-links" style="white-space: nowrap;">
+            <div class="text-white font-bold w-full text-center md:w-auto md:text-left md:mr-10" style="font-size:16px; letter-spacing:-0.5px; padding-bottom:10px; md:padding-bottom:0;">
+                DR. SAMEH ELTAYBANI
+            </div>
+            <div class="nav-links" style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <a href="${root}index.html" class="nav-item ${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}">Home</a>
                 <a href="${root}pages/research/research.html" class="nav-item ${currentPage === 'research.html' ? 'active' : ''}">Research</a>
                 <a href="${root}pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
