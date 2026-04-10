@@ -12,15 +12,15 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--slate-bg);
     margin: 0;
-    padding: 20px;
+    /* Removed padding: 20px to allow sticky header to touch screen edges on mobile */
 }
 
 .master-container {
     max-width: 1100px;
-    margin: 40px auto;
+    margin: 0 auto; /* Removed top/bottom margin to fix sticky behavior */
     background: var(--white);
-    border-radius: 24px;
-    overflow: hidden;
+    border-radius: 0; /* Reset for mobile, will add back for desktop below */
+    overflow: visible; /* CRITICAL: Must be visible for sticky to work */
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
@@ -29,11 +29,20 @@ body {
     background-color: var(--midnight);
     display: flex;
     align-items: center;
-    padding: 10px 30px;
+    padding: 0 20px;
     position: sticky;
     top: 0;
-    z-index: 2000; /* Higher priority */
+    z-index: 2000;
     height: 70px;
+    /* Added overflow-x: auto so you can swipe the menu on small phones */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth swiping on iPhone */
+}
+
+/* Hide scrollbar for navbar but keep functionality */
+.navbar::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-item {
@@ -41,11 +50,11 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 12px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     transition: 0.3s;
+    flex-shrink: 0; /* Prevents text from squishing */
 }
 
-/* Highlighting logic */
 .nav-item.active {
     background-color: var(--amber);
     color: var(--white) !important;
@@ -56,49 +65,61 @@ body {
 .breadcrumb-bar {
     background-color: #F8FAFC;
     border-bottom: 1px solid #E2E8F0;
-    padding: 12px 40px;
+    padding: 12px 20px;
     position: sticky;
-    top: 70px; /* Sits exactly under navbar */
+    top: 70px; 
     z-index: 1999;
     font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.1em;
 }
 
-
-/* REEL / CAROUSEL UPDATED */
+/* 3. REEL / CAROUSEL - MOBILE FRIENDLY */
 .reel-viewport {
     position: relative;
     width: 100%;
-    height: 400px;
-    overflow: hidden; /* Hide the images that are "off-stage" */
+    height: auto; /* Changed from 400px to auto */
+    min-height: 250px;
+    overflow: hidden;
     display: flex;
     align-items: center;
+    padding: 20px 0;
 }
 
 .reel-track {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth movement */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
 }
 
 .reel-slide {
-    width: 60%; /* Center takes 60% */
+    width: 80%; /* Wider on mobile for better view */
     flex-shrink: 0;
     margin: 0 10px;
     border-radius: 15px;
-    opacity: 0.3; /* Neighbors are dimmed */
+    opacity: 0.3;
     transform: scale(0.9);
     transition: all 0.5s ease;
-    height: 350px;
+    height: auto; /* Let height adjust to image ratio */
+    aspect-ratio: 16 / 9; /* Keeps slides consistent */
     object-fit: cover;
 }
 
 .reel-slide.active {
-    opacity: 1; /* Center is bright */
-    transform: scale(1.0); /* Center is full size */
+    opacity: 1;
+    transform: scale(1.0);
 }
 
+/* DESKTOP SPECIFIC ADJUSTMENTS */
+@media (min-width: 1024px) {
+    body { padding: 20px; }
+    .master-container { 
+        margin: 40px auto; 
+        border-radius: 24px; 
+    }
+    .reel-slide { width: 60%; }
+    .navbar { padding: 10px 30px; border-radius: 24px 24px 0 0; }
+}
 
 /* FEATURED CARDS */
 .feature-card {
