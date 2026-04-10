@@ -17,19 +17,22 @@
             <span>HOME</span>
         </div>
 
-        <div class="p-4">
-            <div class="reel-viewport" id="reel-viewport">
-                <img src="assets/images/reel-5-trial.webp" class="reel-slide">
-                <img src="assets/images/reel-1-trial.webp" class="reel-slide active">
-                <img src="assets/images/reel-2-trial.webp" class="reel-slide">
-                <img src="assets/images/reel-3-trial.webp" class="reel-slide">
-                <img src="assets/images/reel-4-trial.webp" class="reel-slide">
-            </div>
-            <div class="flex justify-center gap-4">
-                <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
-                <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
-            </div>
+       <div class="p-4 overflow-hidden">
+    <div class="reel-viewport">
+        <div class="reel-track" id="reel-track">
+            <img src="assets/images/reel-5-trial.webp" class="reel-slide">
+            <img src="assets/images/reel-1-trial.webp" class="reel-slide active">
+            <img src="assets/images/reel-2-trial.webp" class="reel-slide">
+            <img src="assets/images/reel-3-trial.webp" class="reel-slide">
+            <img src="assets/images/reel-4-trial.webp" class="reel-slide">
         </div>
+    </div>
+    
+    <div class="flex justify-center gap-4 mt-2">
+        <button onclick="moveCarousel(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
+        <button onclick="moveCarousel(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
+    </div>
+</div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
             <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6 tracking-tight">Advancing Gerontological Care Through Data Science</h1>
@@ -76,18 +79,34 @@
 
     <script src="assets/js/footer-bundle.js"></script>
     <script>
-        let currentIndex = 1;
-        const slides = document.querySelectorAll('.reel-slide');
+    let currentIndex = 1; // Starting at reel-1
+    const track = document.getElementById('reel-track');
+    const slides = document.querySelectorAll('.reel-slide');
 
-        function moveCarousel(step) {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + step + slides.length) % slides.length;
-            slides[currentIndex].classList.add('active');
-            slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
+    function moveCarousel(step) {
+        // Remove active class from old slide
+        slides[currentIndex].classList.remove('active');
+        
+        // Calculate new index
+        currentIndex = (currentIndex + step + slides.length) % slides.length;
+        
+        // Add active class to new slide
+        slides[currentIndex].classList.add('active');
+        
+        // Calculate the movement distance
+        // We want the active slide to be exactly in the center
+        const slideWidth = slides[0].offsetWidth + 20; // width + gap
+        const containerWidth = document.querySelector('.reel-viewport').offsetWidth;
+        const offset = (containerWidth / 2) - (slideWidth * currentIndex) - (slideWidth / 2);
+        
+        track.style.transform = `translateX(${offset}px)`;
+    }
 
-        // TIMER SHORTENED TO 3 SECONDS
-        setInterval(() => moveCarousel(1), 3000);
-    </script>
+    // Initial position setup
+    window.onload = () => moveCarousel(0);
+
+    // 3 Second Timer
+    setInterval(() => moveCarousel(1), 3000);
+</script>
 </body>
 </html>
