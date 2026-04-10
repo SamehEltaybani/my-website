@@ -25,34 +25,30 @@ body {
 }
 
 /* 1. FIXED STICKY NAVIGATION */
+
 .navbar {
     background-color: var(--midnight);
     display: flex;
+    flex-wrap: wrap; /* Allows items to move to a second row */
     align-items: center;
-    padding: 0 20px;
+    justify-content: center; /* Centers the menu items on mobile */
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 2000;
-    height: 70px;
-    /* Added overflow-x: auto so you can swipe the menu on small phones */
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch; /* Smooth swiping on iPhone */
-}
-
-/* Hide scrollbar for navbar but keep functionality */
-.navbar::-webkit-scrollbar {
-    display: none;
+    min-height: 70px; /* Changed from height to min-height */
+    height: auto; /* Allows it to grow if items wrap */
 }
 
 .nav-item {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-weight: 700;
-    font-size: 12px;
-    padding: 10px 15px;
+    font-size: 11px; /* Slightly smaller to help fit more items */
+    padding: 8px 12px;
     transition: 0.3s;
-    flex-shrink: 0; /* Prevents text from squishing */
+    flex-shrink: 0;
+    display: inline-block;
 }
 
 .nav-item.active {
