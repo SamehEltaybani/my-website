@@ -2,21 +2,25 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. INJECT NAVIGATION WITH AUTO-HIGHLIGHT
+    // 1. INJECT NAVIGATION WITH SMART PATHS
     const navPlaceholder = document.querySelector('.navbar');
     if (navPlaceholder) {
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
         
+        // This check tells the code if we are in a sub-folder
+        const isSubPage = window.location.pathname.includes("/pages/");
+        const base = isSubPage ? "../../" : "";
+
         navPlaceholder.innerHTML = `
             <div class="text-white mr-10 font-bold" style="font-size:16px; letter-spacing:-0.5px;">DR. SAMEH ELTAYBANI</div>
             <div class="nav-links" style="display:flex; align-items:center;">
-                <a href="index.html" class="nav-item ${currentPage === 'index.html' ? 'active' : ''}">Home</a>
-                <a href="pages/research/research.html" class="nav-item ${currentPage === 'research.html' ? 'active' : ''}">Research</a>
-                <a href="pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
-                <a href="pages/data-analysis/data-analysis.html" class="nav-item ${currentPage === 'data-analysis.html' ? 'active' : ''}">Data Analysis</a>
-                <a href="pages/Teaching&Mentorship/teaching.html" class="nav-item ${currentPage === 'teaching.html' ? 'active' : ''}">Teaching</a>
-                <a href="pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
-                <a href="pages/contact/contact.html" class="nav-item ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a>
+                <a href="${base}index.html" class="nav-item ${currentPage === 'index.html' ? 'active' : ''}">Home</a>
+                <a href="${base}pages/research/research.html" class="nav-item ${currentPage === 'research.html' ? 'active' : ''}">Research</a>
+                <a href="${base}pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
+                <a href="${base}pages/data-analysis/data-analysis.html" class="nav-item ${currentPage === 'data-analysis.html' ? 'active' : ''}">Data Analysis</a>
+                <a href="${base}pages/Teaching&Mentorship/teaching.html" class="nav-item ${currentPage === 'teaching.html' ? 'active' : ''}">Teaching</a>
+                <a href="${base}pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
+                <a href="${base}pages/contact/contact.html" class="nav-item ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a>
             </div>
         `;
     }
@@ -31,16 +35,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Site Map</h4>
                     <a href="index.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Home</a>
                     <a href="pages/research/research.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Research</a>
-                    <a href="pages/publications/publications.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Publications</a>
-                    <a href="pages/data-analysis/data-analysis.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Data Analysis</a>
-                    <a href="pages/Teaching&Mentorship/teaching.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Teaching</a>
-                    <a href="pages/blog/blog.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Blog</a>
-                    <a href="pages/contact/contact.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Contact</a>
                 </div>
                 <div>
                     <h4 style="color:var(--amber); font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:20px;">Professional Disclaimer</h4>
                     <p style="font-size:13px; line-height:1.8; color:rgba(255,255,255,0.6); text-align:justify;">
-                        The content and research presented on this website are for informational purposes only. This platform is not sponsored by, endorsed by, or representative of any academic, clinical, or corporate entities I have been affiliated with in the past, currently serve, or may work for in the future. All views, opinions, and data interpretations expressed herein are exclusively my own and do not reflect the official policy or position of any employer or organization.
+                        The content and research presented on this website are for informational purposes only. All views expressed are exclusively my own.
                     </p>
                 </div>
             </div>
