@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Dr. Sameh Eltaybani</title>
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .pub-controls { position: sticky; top: 70px; z-index: 1000; background: white; padding: 20px 40px; border-bottom: 1px solid #e2e8f0; }
+        .filter-select { padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; color: var(--midnight); min-width: 150px; }
+        .authorship-pill { padding: 6px 15px; border-radius: 50px; font-size: 11px; font-weight: 800; text-transform: uppercase; display: inline-block; }
+        .btn-amber { background: var(--amber); color: white; }
+        .btn-slate { background: #64748b; color: white; }
+        .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0; display: inline-block; margin-right: 8px; margin-top: 8px; }
+        .action-link:hover { background: #f8fafc; border-color: var(--amber); color: var(--amber); }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+        <nav class="navbar"></nav>
+
+        <div class="breadcrumb-bar">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ PUBLICATIONS
+        </div>
+
+        <div class="pub-controls">
+            <div class="max-w-7xl mx-auto flex flex-wrap gap-4 items-center justify-between">
+                <input type="text" id="pubSearch" class="p-2 border rounded-md w-full md:w-64" placeholder="Search titles...">
+                
+                <div class="flex flex-wrap gap-3">
+                    <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
+                    <select id="filterYear" class="filter-select" onchange="applyFilters()"><option value="all">All Years</option></select>
+                    <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
+                        <option value="all">All Authorship</option>
+                        <option value="First/Corresponding">First/Corresponding</option>
+                        <option value="Co-author">Co-author</option>
+                    </select>
+                    <button onclick="resetFilters()" class="text-xs font-bold text-slate-400 hover:text-amber-600">RESET ALL</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pub-container" class="p-10 max-w-7xl mx-auto grid grid-cols-1 gap-6">
+            </div>
+
+        <div class="text-center pb-20">
+            <button id="loadMoreBtn" onclick="loadMore()" class="bg-slate-800 text-white px-10 py-3 rounded-full font-bold hover:bg-amber-700 transition">Load More Publications</button>
+        </div>
+
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="../../assets/js/footer-bundle.js"></script>
+    <script src="../../assets/js/publication-registry.js"></script>
+    <script>
+        let visibleCount = 10;
+        
+        function initPubs() {
+            // Populate Dropdowns
+            const journals = [...new Set(publications.map(p => p.journal))].sort();
+            const years = [...new Set(publications.map(p => p.year))].sort((a,b) => b-a);
+            
+            const jSelect = document.getElementById('filterJournal');
+            journals.forEach(j => jSelect.innerHTML += `<option value="${j}">${j}</option>`);
+            
+            const ySelect = document.getElementById('filterYear');
+            years.forEach(y => ySelect.innerHTML += `<option value="${y}">${y}</option>`);
+            
+            renderPubs();
+        }
+
+        function renderPubs() {
+            const container = document.getElementById('pub-container');
+            const search = document.getElementById('pubSearch').value.toLowerCase();
+            const jFilter = document.getElementById('filterJournal').value;
+            const yFilter = document.getElementById('filterYear').value;
+            const aFilter = document.getElementById('filterAuthorship').value;
+
+            const filtered = publications.filter(p => {
+                const matchSearch = p.title.toLowerCase().includes(search);
+                const matchJ = jFilter === 'all' || p.journal === jFilter;
+                const matchY = yFilter === 'all' || p.year === yFilter;
+                const matchA = aFilter === 'all' || p.authorship === aFilter;
+                return matchSearch && matchJ && matchY && matchA;
+            }).sort((a,b) => b.year - a.year);
+
+            const displayList = filtered.slice(0, visibleCount);
+            
+            container.innerHTML = displayList.map(p => `
+                <div class="feature-card border-l-4 ${p.authorship.includes('First') ? 'border-amber-500' : 'border-slate-400'} bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="authorship-pill ${p.authorship.includes('First') ? 'btn-amber' : 'btn-slate'}">${p.authorship}</span>
+                        <span class="font-mono text-sm text-slate-400">${p.year}</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-slate-800">${p.title}</h3>
+                    <p class="italic text-slate-500 mb-4">${p.journal}</p>
+                    
+                    <div class="flex flex-wrap">
+                        <a href="${p.journalLink}" target="_blank" class="action-link">Read on Journal Website ❯</a>
+                        ${p.pubmedLink ? `<a href="${p.pubmedLink}" target="_blank" class="action-link">PubMed ❯</a>` : ''}
+                        ${p.blogLink ? `<a href="../blog/${p.blogLink}.html" class="action-link" style="color:var(--amber); border-color:var(--amber);">Read My Insights ❯</a>` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('loadMoreBtn').style.display = visibleCount >= filtered.length ? 'none' : 'inline-block';
+        }
+
+        function applyFilters() { visibleCount = 10; renderPubs(); }
+        function loadMore() { visibleCount += 10; renderPubs(); }
+        function resetFilters() {
+            document.getElementById('pubSearch').value = '';
+            document.getElementById('filterJournal').value = 'all';
+            document.getElementById('filterYear').value = 'all';
+            document.getElementById('filterAuthorship').value = 'all';
+            applyFilters();
+        }
+
+        document.getElementById('pubSearch').addEventListener('input', applyFilters);
+        window.onload = initPubs;
+    </script>
+</body>
+</html>
