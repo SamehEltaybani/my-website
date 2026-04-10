@@ -6,6 +6,32 @@
 */
 
 document.addEventListener("DOMContentLoaded", function() {
+    // 1. INJECT NAVIGATION
+    const navHTML = `
+        <div class="nav-logo text-white mr-10 font-bold">DR. SAMEH ELTAYBANI</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="pages/research/research.html" class="nav-item">Research</a>
+            <a href="pages/publications/publications.html" class="nav-item">Publications</a>
+            <a href="pages/data-analysis/data-analysis.html" class="nav-item">Data Analysis</a>
+            <a href="pages/Teaching&Mentorship/teaching.html" class="nav-item">Teaching</a>
+            <a href="pages/blog/blog.html" class="nav-item">Blog</a>
+            <a href="pages/contact/contact.html" class="nav-item">Contact</a>
+        </div>
+    `;
+    const navPlaceholder = document.querySelector('.navbar');
+    if (navPlaceholder) navPlaceholder.innerHTML = navHTML;
+
+    // ... (Keep your existing Footer code here)
+});
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
     
     const footerHTML = `
     <footer class="site-footer">
