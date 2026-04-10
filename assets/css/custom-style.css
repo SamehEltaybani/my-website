@@ -65,30 +65,40 @@ body {
     letter-spacing: 0.1em;
 }
 
-/* REEL / CAROUSEL */
+
+/* REEL / CAROUSEL UPDATED */
 .reel-viewport {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden; /* Hide the images that are "off-stage" */
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    overflow: hidden;
-    padding: 40px 0;
+}
+
+.reel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth movement */
+    width: 100%;
 }
 
 .reel-slide {
-    width: 60%;
+    width: 60%; /* Center takes 60% */
     flex-shrink: 0;
+    margin: 0 10px;
     border-radius: 15px;
-    opacity: 0.3;
+    opacity: 0.3; /* Neighbors are dimmed */
+    transform: scale(0.9);
     transition: all 0.5s ease;
     height: 350px;
     object-fit: cover;
 }
 
 .reel-slide.active {
-    opacity: 1;
-    transform: scale(1.05);
+    opacity: 1; /* Center is bright */
+    transform: scale(1.0); /* Center is full size */
 }
+
 
 /* FEATURED CARDS */
 .feature-card {
