@@ -8,25 +8,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Updated to use the dynamic height from custom-style.css */
+        /* 1. DYNAMIC STICKY LOGIC - MATCHES BLOG PAGE */
         .pub-controls { 
-    position: sticky; 
-    top: calc(var(--nav-height, 70px) + 39px); 
-    z-index: 1000; 
-    background: white; 
-    padding: 20px 40px; 
-    border-bottom: 1px solid #e2e8f0; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-top: 0 !important; /* Forces the gap to disappear */
-}
+            position: sticky; 
+            /* Sits exactly under Navbar + Breadcrumb */
+            top: calc(var(--nav-height, 70px) + 38px); 
+            z-index: 1000; 
+            background: white; 
+            padding: 15px 40px; 
+            border-bottom: 1px solid #e2e8f0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            /* Force removal of gaps */
+            margin: 0 !important;
+        }
+
+        /* 2. WIDESCREEN GAP SEAL (For PC scrolling) */
+        @media (min-width: 1024px) {
+            .pub-controls {
+                margin-top: -1px !important;
+            }
+        }
         
         /* Filter Selects */
         .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: var(--midnight); min-width: 160px; background-color: #f8fafc; cursor: pointer; }
         
         /* Distinct Sort Style */
-        .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid var(--amber); border-radius: 8px; }
-        .sort-label { font-size: 11px; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.5px; }
-        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: var(--midnight); cursor: pointer; outline: none; }
+        .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid #D97706; border-radius: 8px; }
+        .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; outline: none; }
 
         /* Enhanced Reset Button */
         .reset-btn { font-size: 11px; font-weight: 800; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; transition: 0.3s; background: white; }
@@ -34,16 +43,16 @@
 
         /* Card Styling */
         .pub-card { border: 1px solid #e2e8f0; background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s ease, shadow 0.3s ease; }
-        .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: var(--amber); }
+        .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #D97706; }
 
         .authorship-pill { padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
         .btn-amber-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; }
         .btn-slate-pill { background: rgba(71, 85, 105, 0.1); color: #475569; }
 
         /* Action Buttons */
-        .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; background: var(--midnight); color: white !important; }
-        .action-link:hover { background: var(--amber); transform: scale(1.05); }
-        .insight-link { background: var(--amber) !important; }
+        .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; background: #0f172a; color: white !important; }
+        .action-link:hover { background: #D97706; transform: scale(1.05); }
+        .insight-link { background: #D97706 !important; }
     </style>
 </head>
 <body>
@@ -99,7 +108,9 @@
         function initPubs() {
             const journals = [...new Set(publications.map(p => p.journal))].sort();
             const jSelect = document.getElementById('filterJournal');
-            journals.forEach(j => jSelect.innerHTML += `<option value="${j}">${j}</option>`);
+            if (jSelect) {
+                journals.forEach(j => jSelect.innerHTML += `<option value="${j}">${j}</option>`);
+            }
             renderPubs();
         }
 
