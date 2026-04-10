@@ -8,33 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .pub-controls { position: sticky; top: 70px; z-index: 1000; background: white; padding: 20px 40px; border-bottom: 1px solid #e2e8f0; }
-        .filter-select { padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; color: var(--midnight); min-width: 150px; background-color: #f8fafc; }
+        .pub-controls { position: sticky; top: 70px; z-index: 1000; background: white; padding: 20px 40px; border-bottom: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         
-        /* Matching Blog Featured Card Style */
+        /* Filter Selects */
+        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: var(--midnight); min-width: 160px; background-color: #f8fafc; cursor: pointer; }
+        
+        /* Distinct Sort Style */
+        .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid var(--amber); border-radius: 8px; }
+        .sort-label { font-size: 11px; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.5px; }
+        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: var(--midnight); cursor: pointer; outline: none; }
+
+        /* Enhanced Reset Button */
+        .reset-btn { font-size: 11px; font-weight: 800; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; transition: 0.3s; background: white; }
+        .reset-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fecaca; }
+
+        /* Card Styling */
         .pub-card { border: 1px solid #e2e8f0; background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s ease, shadow 0.3s ease; }
         .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: var(--amber); }
 
         .authorship-pill { padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
-        .btn-amber-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; } /* Subtle Amber */
-        .btn-slate-pill { background: rgba(71, 85, 105, 0.1); color: #475569; } /* Subtle Slate */
+        .btn-amber-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; }
+        .btn-slate-pill { background: rgba(71, 85, 105, 0.1); color: #475569; }
 
-        /* Highlighting Action Buttons */
-        .action-link { 
-            font-size: 12px; 
-            font-weight: 700; 
-            text-decoration: none; 
-            transition: 0.3s; 
-            padding: 10px 18px; 
-            border-radius: 8px; 
-            display: inline-block; 
-            margin-right: 10px; 
-            margin-top: 10px;
-            background: var(--midnight);
-            color: white !important; /* High Visibility */
-        }
+        /* Action Buttons */
+        .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; background: var(--midnight); color: white !important; }
         .action-link:hover { background: var(--amber); transform: scale(1.05); }
-        .insight-link { background: var(--amber) !important; } /* Distinctive color for Insights */
+        .insight-link { background: var(--amber) !important; }
     </style>
 </head>
 <body>
@@ -47,31 +46,33 @@
         </div>
 
         <div class="pub-controls">
-            <div class="max-w-7xl mx-auto flex flex-wrap gap-4 items-center justify-between">
-                <input type="text" id="pubSearch" class="p-2 border rounded-md w-full md:w-64" placeholder="Search titles...">
+            <div class="max-w-7xl mx-auto flex flex-wrap gap-6 items-center justify-between">
+                <input type="text" id="pubSearch" class="p-2 border rounded-md w-full md:w-64" placeholder="Search by title keywords...">
                 
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-4 items-center">
                     <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
                     <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
-                        <option value="all">All Authorship</option>
+                        <option value="all">All Authorship Status</option>
                         <option value="First/Corresponding">First/Corresponding</option>
                         <option value="Co-author">Co-author</option>
                     </select>
                     
-                    <select id="sortOrder" class="filter-select" onchange="applyFilters()" style="border-color: var(--amber); font-weight: bold;">
-                        <option value="yearDesc">Year (Newest)</option>
-                        <option value="yearAsc">Year (Oldest)</option>
-                        <option value="journalAlpha">Journal (A-Z)</option>
-                        <option value="authorAlpha">Authorship (A-Z)</option>
-                    </select>
+                    <div class="sort-group">
+                        <span class="sort-label">Sort By:</span>
+                        <select id="sortOrder" class="sort-select" onchange="applyFilters()">
+                            <option value="yearDesc">Year (Newest First)</option>
+                            <option value="yearAsc">Year (Oldest First)</option>
+                            <option value="journalAlpha">Journal (A to Z)</option>
+                            <option value="authorAlpha">Authorship Status</option>
+                        </select>
+                    </div>
 
-                    <button onclick="resetFilters()" class="text-xs font-bold text-slate-400 hover:text-amber-600">RESET</button>
+                    <button onclick="resetFilters()" class="reset-btn">RESET FILTERS</button>
                 </div>
             </div>
         </div>
 
-        <div id="pub-container" class="p-10 max-w-7xl mx-auto grid grid-cols-1 gap-8">
-            </div>
+        <div id="pub-container" class="p-10 max-w-7xl mx-auto grid grid-cols-1 gap-8"></div>
 
         <div class="text-center pb-20">
             <button id="loadMoreBtn" onclick="loadMore()" class="bg-slate-800 text-white px-10 py-3 rounded-full font-bold hover:bg-amber-700 transition">Load More Publications</button>
@@ -106,7 +107,6 @@
                 return matchSearch && matchJ && matchA;
             });
 
-            // Sorting Logic
             filtered.sort((a, b) => {
                 if (sortVal === "yearDesc") return b.year - a.year;
                 if (sortVal === "yearAsc") return a.year - b.year;
