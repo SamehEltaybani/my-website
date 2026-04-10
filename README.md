@@ -1,2 +1,2 @@
 # my-website
-This is for my Azure Static Website
+This is for my website
