@@ -1,1 +1,150 @@
-xxxxx
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Dr. Sameh Eltaybani</title>
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Progress Bar Styling */
+        #progress-container {
+            position: sticky;
+            top: 115px; /* Sits exactly under Nav and Breadcrumbs */
+            width: 100%;
+            height: 4px;
+            background: #f1f5f9;
+            z-index: 1001;
+        }
+        #progress-bar {
+            height: 100%;
+            background: var(--amber);
+            width: 0%;
+        }
+        .highlights-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--midnight);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .blog-content h2 { 
+            color: var(--midnight); 
+            font-weight: 800; 
+            font-size: 1.5rem; 
+            margin-top: 40px; 
+            margin-bottom: 15px;
+        }
+        .image-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .recommendation-link {
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--midnight);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .recommendation-link:hover {
+            color: var(--amber);
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+        <nav class="navbar"></nav> <div class="breadcrumb-bar" style="position: sticky; top: 70px; z-index: 1001;">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ 
+            <a href="blog.html" style="text-decoration:none; color:inherit;">BLOG</a> ❯ 
+            <span id="breadcrumb-title">Advancing Biostatistical Methods</span>
+        </div>
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
+            <h1 id="post-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);">Advancing Biostatistical Methods in Gerontology</h1>
+            <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
+                <span id="post-date">April 10, 2026</span>
+                <div id="post-categories" class="flex gap-2">
+                    </div>
+            </div>
+
+            <div class="highlights-box">
+                <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
+                <ul class="list-disc ml-5 space-y-2 text-slate-700">
+                    <li>Key finding regarding longitudinal data in aging populations.</li>
+                    <li>Implementation of advanced Python-based analytics.</li>
+                    <li>Ethical considerations in nursing data management.</li>
+                </ul>
+            </div>
+
+            <div class="leading-relaxed text-slate-800 text-lg space-y-6">
+                <p>Starting your article text here... This is where the main narrative goes.</p>
+                
+                <h2>Methodology and Data Integrity</h2>
+                <p>Discussing your specific research headings and sub-headings here.</p>
+
+                <div class="image-placeholder">
+                    <p class="text-slate-400 font-mono text-xs mb-2">[ IMAGE FILENAME: data-chart-01.png ]</p>
+                    <p class="italic text-sm text-slate-500">Figure 1: Distribution of cognitive health scores across the study cohort.</p>
+                </div>
+
+                <p>More text continues here after the image...</p>
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-slate-200">
+                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">
+                    Explore more insights ❯
+                </a>
+
+                <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
+                <div id="recommended-list">
+                    </div>
+            </div>
+        </article>
+
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="../../assets/js/footer-bundle.js"></script>
+    <script src="../../assets/js/blog-registry.js"></script>
+    <script>
+        // PROGRESS BAR LOGIC
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        // RECOMMENDATION LOGIC
+        function loadRecommendations() {
+            const currentTitle = document.getElementById('post-title').innerText;
+            const recContainer = document.getElementById('recommended-list');
+            
+            // Filter out current post and take first 5
+            const recommendations = blogPosts
+                .filter(post => post.title !== currentTitle)
+                .slice(0, 5);
+
+            recContainer.innerHTML = recommendations.map(post => `
+                <a href="${post.link}" class="recommendation-link">
+                    ${post.title} <span class="text-slate-300 text-xs ml-2">— ${post.date}</span>
+                </a>
+            `).join('');
+        }
+
+        window.onload = loadRecommendations;
+    </script>
+</body>
+</html>
