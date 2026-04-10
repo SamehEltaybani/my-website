@@ -8,57 +8,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. THE NEGATIVE-SANDWICH FIX */
+        /* 1. THE ULTIMATE "GHOST GAP" FIX */
         
-        /* Force the breadcrumb to stay exactly at the bottom of the nav */
+        /* Force the whole page's "under-layer" to be the same color as the bars 
+           so gaps become invisible */
+        body, html { 
+            background-color: #F8FAFC !important; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .master-container {
+            background-color: transparent !important;
+        }
+
         .breadcrumb-bar {
             position: sticky !important;
             top: var(--nav-height, 70px) !important;
             z-index: 1001 !important;
+            background-color: #F8FAFC !important; /* Matches body */
             margin: 0 !important;
-            padding: 12px 20px !important;
-            background-color: #F8FAFC !important;
             border-bottom: 1px solid #E2E8F0 !important;
+            /* Remove sub-pixel rounding errors */
+            outline: 1px solid #F8FAFC; 
         }
 
-        /* The "Seal": We set the top to slightly LESS than the actual height 
-           to force the white bar to slide 1-2 pixels UNDER the breadcrumb. */
         .pub-controls { 
             position: sticky !important; 
-            top: calc(var(--nav-height, 70px) + 36px) !important; 
+            /* Push it 1px HIGHER than the mathematical bottom of the breadcrumb */
+            top: calc(var(--nav-height, 70px) + 38px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
             padding: 15px 40px !important; 
             border-bottom: 1px solid #e2e8f0 !important; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
-            
-            /* These three lines physically lock the bars together */
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            transform: translateY(0); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+            /* Force the overlap */
+            margin-top: -2px !important; 
         }
 
-        /* 2. PC-SPECIFIC RENDERING FIX */
-        @media (min-width: 1024px) {
-            .pub-controls {
-                /* Pulls the search bar up slightly on wide screens to hide the gap */
-                margin-top: -2px !important; 
-            }
+        /* 2. RE-COLORING THE CONTENT AREA */
+        /* Since we changed the body color to Grey, we ensure the 
+           publications area looks clean on white cards. */
+        #pub-container {
+            background-color: transparent !important;
         }
-        
+
         /* Filter Selects */
-        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: #1e293b; min-width: 160px; background-color: #f8fafc; cursor: pointer; }
+        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: #1e293b; min-width: 160px; background-color: #ffffff; cursor: pointer; }
         
         /* Distinct Sort Style */
         .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid #D97706; border-radius: 8px; }
         .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; }
         .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; outline: none; }
 
-        /* Enhanced Reset Button */
         .reset-btn { font-size: 11px; font-weight: 800; color: #64748b; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; transition: 0.3s; background: white; }
         .reset-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fecaca; }
 
-        /* Card Styling */
         .pub-card { border: 1px solid #e2e8f0; background: white; padding: 30px; border-radius: 12px; transition: transform 0.3s ease, shadow 0.3s ease; }
         .pub-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #D97706; }
 
@@ -66,7 +71,6 @@
         .btn-amber-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; }
         .btn-slate-pill { background: rgba(71, 85, 105, 0.1); color: #475569; }
 
-        /* Action Buttons */
         .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; background: #0f172a; color: white !important; }
         .action-link:hover { background: #D97706; transform: scale(1.05); }
         .insight-link { background: #D97706 !important; }
@@ -154,7 +158,6 @@
             });
 
             const displayList = filtered.slice(0, visibleCount);
-            
             container.innerHTML = displayList.map(p => `
                 <div class="pub-card">
                     <div class="flex justify-between items-start">
@@ -163,7 +166,6 @@
                     </div>
                     <h3 class="text-2xl font-extrabold mb-2 text-slate-800 leading-tight">${p.title}</h3>
                     <p class="text-slate-500 mb-6 font-semibold">${p.journal}</p>
-                    
                     <div class="flex flex-wrap gap-2">
                         <a href="${p.journalLink}" target="_blank" class="action-link">Journal Website ❯</a>
                         ${p.pubmedLink ? `<a href="${p.pubmedLink}" target="_blank" class="action-link">PubMed ❯</a>` : ''}
