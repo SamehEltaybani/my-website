@@ -63,23 +63,24 @@ body {
     border-bottom: 1px solid #E2E8F0;
     padding: 12px 20px;
     position: sticky;
-    /* This variable will be set by JS based on the actual height of the navbar */
     top: var(--nav-height, 70px); 
     z-index: 1999;
     font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.1em;
+    /* Ensure no extra margin pushes it away from the nav */
+    margin-top: 0 !important; 
 }
 
 /* Fix for Publication/Blog search and filters */
-/* Add this class to your search/filter container in those pages */
 .sticky-controls {
     position: sticky;
-    /* This sits under the navbar AND the breadcrumb */
-    top: calc(var(--nav-height, 70px) + 40px); 
+    /* We use the breadcrumb height (approx 40px) plus the nav height */
+    top: calc(var(--nav-height, 70px) + 39px); 
     z-index: 1998;
-    background: var(--white);
-    padding: 15px 0;
+    background: white;
+    /* Remove any top margin that causes gaps on widescreen */
+    margin-top: 0 !important;
 }
 
 /* 3. REEL / CAROUSEL - MOBILE FRIENDLY */
