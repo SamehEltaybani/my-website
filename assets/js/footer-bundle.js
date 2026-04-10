@@ -6,28 +6,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. INJECT NAVIGATION (Using absolute paths for GitHub Pages)
     const navPlaceholder = document.querySelector('.navbar');
     if (navPlaceholder) {
-        // We define the root of your website here
         const root = "https://sameheltaybani.github.io/my-website/";
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-       navPlaceholder.innerHTML = `
-            <div class="text-white mr-10 font-bold" style="font-size:16px; letter-spacing:-0.5px;">DR. SAMEH ELTAYBANI</div>
-            <div class="nav-links" style="display:flex; align-items:center;">
+        navPlaceholder.innerHTML = `
+            <div class="text-white mr-10 font-bold" style="font-size:16px; letter-spacing:-0.5px; flex-shrink:0;">DR. SAMEH ELTAYBANI</div>
+            <div class="nav-links" style="white-space: nowrap;">
                 <a href="${root}index.html" class="nav-item ${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}">Home</a>
-                
                 <a href="${root}pages/research/research.html" class="nav-item ${currentPage === 'research.html' ? 'active' : ''}">Research</a>
-                
                 <a href="${root}pages/publications/publications.html" class="nav-item ${currentPage === 'publications.html' ? 'active' : ''}">Publications</a>
-                
                 <a href="${root}pages/data-analysis/data-analysis.html" class="nav-item ${currentPage === 'data-analysis.html' ? 'active' : ''}">Data Analysis</a>
-                
                 <a href="${root}pages/teaching/teaching.html" class="nav-item ${currentPage === 'teaching.html' ? 'active' : ''}">Teaching</a>
-                
                 <a href="${root}pages/blog/blog.html" class="nav-item ${currentPage === 'blog.html' ? 'active' : ''}">Blog</a>
-                
                 <a href="${root}pages/contact/contact.html" class="nav-item ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a>
             </div>
-    `;
+        `;
     }
 
     // 2. INJECT FOOTER (Using same root logic)
@@ -43,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="${root}pages/research/research.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Research</a>
                     <a href="${root}pages/publications/publications.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Publications</a>
                     <a href="${root}pages/data-analysis/data-analysis.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Data Analysis</a>
-                    <a href="${root}pages/Teaching/teaching.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Teaching</a>
+                    <a href="${root}pages/teaching/teaching.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Teaching</a>
                     <a href="${root}pages/blog/blog.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Blog</a>
                     <a href="${root}pages/contact/contact.html" style="display:block; color:rgba(255,255,255,0.7); margin-bottom:8px; text-decoration:none; font-size:14px;">Contact</a>
                 </div>
