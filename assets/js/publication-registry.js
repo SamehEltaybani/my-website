@@ -530,5 +530,5 @@ const publications = [
         journalLink: "https://doi.org/10.1016/j.ijnurstu.2018.01.008",
         blogLink: "blog-47",
         pubmedLink: "https://pubmed.ncbi.nlm.nih.gov/29407345/"
-    }
+    },
 ];
