@@ -8,29 +8,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. DYNAMIC STICKY LOGIC - MATCHES BLOG PAGE */
-        .pub-controls { 
-            position: sticky; 
-            /* Sits exactly under Navbar + Breadcrumb */
-            top: calc(var(--nav-height, 70px) + 38px); 
-            z-index: 1000; 
-            background: white; 
-            padding: 15px 40px; 
-            border-bottom: 1px solid #e2e8f0; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            /* Force removal of gaps */
+        /* FORCE-SNAP LOGIC: This overrides all external CSS gaps */
+        
+        .breadcrumb-bar {
+            position: sticky !important;
+            top: var(--nav-height, 70px) !important;
+            z-index: 1001 !important;
             margin: 0 !important;
+            padding: 12px 20px !important;
+            /* This ensures it "hides" the gap behind the navbar */
+            border-top: none !important; 
         }
 
-        /* 2. WIDESCREEN GAP SEAL (For PC scrolling) */
-        @media (min-width: 1024px) {
-            .pub-controls {
-                margin-top: -1px !important;
-            }
+        .pub-controls { 
+            position: sticky !important; 
+            /* We use a slightly smaller offset to ensure an overlap seal */
+            top: calc(var(--nav-height, 70px) + 37px) !important; 
+            z-index: 1000 !important; 
+            background: white !important; 
+            padding: 15px 40px !important; 
+            border-bottom: 1px solid #e2e8f0 !important; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+            /* Pull the controls UP by 1 pixel to seal any browser rendering lines */
+            margin-top: -1px !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Fix for desktop layout to ensure no horizontal shifting */
+        .max-w-7xl {
+            width: 100% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
         
         /* Filter Selects */
-        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: var(--midnight); min-width: 160px; background-color: #f8fafc; cursor: pointer; }
+        .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 13px; color: #1e293b; min-width: 160px; background-color: #f8fafc; cursor: pointer; }
         
         /* Distinct Sort Style */
         .sort-group { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #fffbeb; border: 1px solid #D97706; border-radius: 8px; }
@@ -116,10 +128,15 @@
 
         function renderPubs() {
             const container = document.getElementById('pub-container');
-            const search = document.getElementById('pubSearch').value.toLowerCase();
-            const jFilter = document.getElementById('filterJournal').value;
-            const aFilter = document.getElementById('filterAuthorship').value;
-            const sortVal = document.getElementById('sortOrder').value;
+            const searchInput = document.getElementById('pubSearch');
+            const journalSelect = document.getElementById('filterJournal');
+            const authorshipSelect = document.getElementById('filterAuthorship');
+            const sortSelect = document.getElementById('sortOrder');
+
+            const search = searchInput.value.toLowerCase();
+            const jFilter = journalSelect.value;
+            const aFilter = authorshipSelect.value;
+            const sortVal = sortSelect.value;
 
             let filtered = publications.filter(p => {
                 const matchSearch = p.title.toLowerCase().includes(search);
