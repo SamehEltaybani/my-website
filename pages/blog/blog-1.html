@@ -8,108 +8,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Progress Bar Styling */
-        #progress-container {
-            position: sticky;
-            top: 115px; /* Sits exactly under Nav and Breadcrumbs */
-            width: 100%;
-            height: 4px;
-            background: #f1f5f9;
-            z-index: 1001;
-        }
-        #progress-bar {
-            height: 100%;
-            background: var(--amber);
-            width: 0%;
-        }
-        .highlights-box {
-            background-color: #f8fafc;
-            border-left: 4px solid var(--midnight);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        .blog-content h2 { 
-            color: var(--midnight); 
-            font-weight: 800; 
-            font-size: 1.5rem; 
-            margin-top: 40px; 
-            margin-bottom: 15px;
-        }
-        .image-placeholder {
-            background: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            padding: 40px;
-            text-align: center;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-        .recommendation-link {
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid #e2e8f0;
-            color: var(--midnight);
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        .recommendation-link:hover {
-            color: var(--amber);
-            padding-left: 5px;
-        }
+        #progress-container { position: sticky; top: 115px; width: 100%; height: 4px; background: #f1f5f9; z-index: 1001; }
+        #progress-bar { height: 100%; background: var(--amber); width: 0%; }
+        .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; }
+        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
+        .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
+        .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
     </style>
 </head>
 <body>
 
+<script>
+    
+    
+    /* ==========================================================
+       EDIT YOUR CONTENT HERE
+       ========================================================== */
+    
+    const postData = {
+        title: "Advancing Biostatistical Methods in Gerontology",
+        date: "April 10, 2026",
+        categories: ["Biostatistics", "Research Integrity"],
+        highlights: [
+            "Key finding regarding longitudinal data in aging populations.",
+            "Implementation of advanced Python-based analytics.",
+            "Ethical considerations in nursing data management."
+        ],
+        heading1: "Introduction to Longitudinal Analysis",
+        content1: "This is where your first paragraph goes. You can write as much as you want here between the quotation marks.",
+        
+        heading2: "Methodology and Data Integrity",
+        content2: "This is the content for your second section. You can describe your methods or findings here.",
+        
+        imageCaption: "Figure 1: Distribution of cognitive health scores across the study cohort.",
+        imageFilename: "data-chart-01.png"
+    };
+    /* ========================================================== */
+
+    
+</script>
+
     <div class="master-container">
-        <nav class="navbar"></nav> <div class="breadcrumb-bar" style="position: sticky; top: 70px; z-index: 1001;">
+        <nav class="navbar"></nav>
+        
+        <div class="breadcrumb-bar" style="position: sticky; top: 70px; z-index: 1001;">
             <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ 
             <a href="blog.html" style="text-decoration:none; color:inherit;">BLOG</a> ❯ 
-            <span id="breadcrumb-title">Advancing Biostatistical Methods</span>
+            <span id="inject-breadcrumb"></span>
         </div>
 
-        <div id="progress-container">
-            <div id="progress-bar"></div>
-        </div>
+        <div id="progress-container"><div id="progress-bar"></div></div>
 
         <article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
-            <h1 id="post-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);">Advancing Biostatistical Methods in Gerontology</h1>
+            <h1 id="inject-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
+            
             <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
-                <span id="post-date">April 10, 2026</span>
-                <div id="post-categories" class="flex gap-2">
-                    </div>
+                <span id="inject-date"></span>
+                <div id="inject-categories" class="flex gap-2"></div>
             </div>
 
             <div class="highlights-box">
                 <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
-                <ul class="list-disc ml-5 space-y-2 text-slate-700">
-                    <li>Key finding regarding longitudinal data in aging populations.</li>
-                    <li>Implementation of advanced Python-based analytics.</li>
-                    <li>Ethical considerations in nursing data management.</li>
-                </ul>
+                <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
             </div>
 
             <div class="leading-relaxed text-slate-800 text-lg space-y-6">
-                <p>Starting your article text here... This is where the main narrative goes.</p>
-                
-                <h2>Methodology and Data Integrity</h2>
-                <p>Discussing your specific research headings and sub-headings here.</p>
+                <h2 id="inject-h1"></h2>
+                <p id="inject-c1"></p>
 
                 <div class="image-placeholder">
-                    <p class="text-slate-400 font-mono text-xs mb-2">[ IMAGE FILENAME: data-chart-01.png ]</p>
-                    <p class="italic text-sm text-slate-500">Figure 1: Distribution of cognitive health scores across the study cohort.</p>
+                    <p id="inject-img-file" class="text-slate-400 font-mono text-xs mb-2"></p>
+                    <p id="inject-img-cap" class="italic text-sm text-slate-500"></p>
                 </div>
 
-                <p>More text continues here after the image...</p>
+                <h2 id="inject-h2"></h2>
+                <p id="inject-c2"></p>
             </div>
 
             <div class="mt-20 pt-10 border-t border-slate-200">
-                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">
-                    Explore more insights ❯
-                </a>
-
+                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
                 <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
-                <div id="recommended-list">
-                    </div>
+                <div id="recommended-list"></div>
             </div>
         </article>
 
@@ -119,32 +99,48 @@
     <script src="../../assets/js/footer-bundle.js"></script>
     <script src="../../assets/js/blog-registry.js"></script>
     <script>
-        // PROGRESS BAR LOGIC
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
+       
+        // INJECTION LOGIC 
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fill Text Data
+            document.getElementById('inject-breadcrumb').innerText = postData.title;
+            document.getElementById('inject-title').innerText = postData.title;
+            document.getElementById('inject-date').innerText = postData.date;
+            document.getElementById('inject-h1').innerText = postData.heading1;
+            document.getElementById('inject-c1').innerText = postData.content1;
+            document.getElementById('inject-h2').innerText = postData.heading2;
+            document.getElementById('inject-c2').innerText = postData.content2;
 
-        // RECOMMENDATION LOGIC
-        function loadRecommendations() {
-            const currentTitle = document.getElementById('post-title').innerText;
-            const recContainer = document.getElementById('recommended-list');
-            
-            // Filter out current post and take first 5
-            const recommendations = blogPosts
-                .filter(post => post.title !== currentTitle)
-                .slice(0, 5);
+            // Handle Image Visibility
+            const imageBox = document.querySelector('.image-placeholder');
+            if (postData.imageFilename === "") {
+                imageBox.style.display = "none"; 
+            } else {
+                imageBox.style.display = "block";
+                document.getElementById('inject-img-file').innerText = "[ IMAGE: " + postData.imageFilename + " ]";
+                document.getElementById('inject-img-cap').innerText = postData.imageCaption;
+            }
 
-            recContainer.innerHTML = recommendations.map(post => `
-                <a href="${post.link}" class="recommendation-link">
-                    ${post.title} <span class="text-slate-300 text-xs ml-2">— ${post.date}</span>
-                </a>
+            // Inject Categories
+            document.getElementById('inject-categories').innerHTML = postData.categories.map(c => 
+                `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
+            ).join('');
+
+            // Inject Highlights
+            document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
+
+            // Progress Bar & Recommendations
+            window.onscroll = function() {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+            };
+
+            const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
+            document.getElementById('recommended-list').innerHTML = recs.map(p => `
+                <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
             `).join('');
-        }
-
-        window.onload = loadRecommendations;
+        });
     </script>
 </body>
 </html>
