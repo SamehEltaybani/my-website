@@ -196,10 +196,10 @@
                     
                     <!-- Sort Group -->
                     <div class="sort-group">
-                        <span class="sort-label">Sort:</span>
+                        <span class="sort-label">Sort by:</span>
                         <select id="sortOrder" class="sort-select" onchange="applyFilters()">
-                            <option value="yearDesc">Year (Newest)</option>
-                            <option value="yearAsc">Year (Oldest)</option>
+                            <option value="yearDesc">Year (Newest First)</option>
+                            <option value="yearAsc">Year (Oldest First)</option>
                             <option value="journalAlpha">Journal (A-Z)</option>
                             <option value="authorAlpha">Authorship</option>
                         </select>
@@ -270,7 +270,7 @@
                 if (sortVal === "yearDesc") return b.year - a.year;
                 if (sortVal === "yearAsc") return a.year - b.year;
                 if (sortVal === "journalAlpha") return a.journal.localeCompare(b.journal);
-                if (sortVal === "authorAlpha") return a.authorship.localeCompare(b.authorship);
+                if (sortVal === "authorAlpha") return b.authorship.localeCompare(a.authorship);
                 return 0;
             });
 
