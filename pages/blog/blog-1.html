@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* --- STICKY NAVIGATION FIXES --- */
         .sticky-header-container {
             position: sticky;
             top: var(--nav-height, 70px);
@@ -16,190 +17,210 @@
             width: 100%;
         }
 
-        #progress-container { width: 100%; height: 4px; background: #f1f5f9; }
-        #progress-bar { height: 100%; background: var(--amber); width: 0%; }
+        #progress-container { 
+            width: 100%; 
+            height: 4px; 
+            background: #f1f5f9; 
+        }
 
+        #progress-bar { 
+            height: 100%; 
+            background: var(--amber); 
+            width: 0%; 
+        }
+
+        /* --- ORIGINAL STYLES PRESERVED --- */
         .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
         .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; }
-        .blog-content h3 { font-weight: 700; margin-top: 20px; }
         .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
         .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
+        .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
 
-        .tip-box { background:#ecfdf5; border-left:4px solid #10b981; padding:15px; margin:20px 0; border-radius:8px; }
-        .warning-box { background:#fef2f2; border-left:4px solid #ef4444; padding:15px; margin:20px 0; border-radius:8px; }
-
+        /* Back to Top Arrow */
         #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--amber);
-            color: white;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            z-index: 3000;
-        }
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    width: 45px;
+                    height: 45px;
+                    background-color: var(--amber);
+                    color: white;
+                    border-radius: 50%;
+                    display: none; /* Logic in JS will change this to 'flex' */
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    z-index: 3000;
+                    transition: 0.3s;
+                }
+                
+                #backToTop:hover {
+                    background-color: var(--midnight);
+                    transform: translateY(-5px);
+                }
+        #backToTop.visible { opacity: 1; }
     </style>
 </head>
 <body>
 
 <script>
-const postData = {
-    title: "Advancing Biostatistical Methods in Gerontology",
-    shortTitle: "Gerontology Methods",
-    date: "April 10, 2026",
-    categories: ["Biostatistics", "Research Integrity"],
-
-    highlights: [
-        "Longitudinal data improves predictive modeling.",
-        "Machine learning enhances aging research.",
-        "Ethics remain central in healthcare data."
-    ],
-
-    tip: "Always validate your dataset before applying complex statistical models.",
-    warning: "Ignoring missing data can significantly bias your results.",
-
-    heading1: "Introduction to Longitudinal Analysis",
-    content1: "Longitudinal analysis is essential in understanding how aging impacts populations over time. It allows researchers to observe trends and causal relationships.",
-    subheading1a: "Why Longitudinal Data Matters",
-    subcontent1a: "Tracking the same individuals over time provides deeper insights compared to cross-sectional studies.",
-    subheading1b: "Key Challenges",
-    subcontent1b: "Handling missing data and participant dropout are major methodological concerns.",
-
-    heading2: "Methodology and Data Integrity",
-    content2: "Ensuring data integrity is fundamental in research. Proper validation and cleaning processes must be followed.",
-    subheading2a: "Data Cleaning Techniques",
-    subcontent2a: "Outlier detection and normalization are key steps in preparing data.",
-    subheading2b: "Ethical Considerations",
-    subcontent2b: "Researchers must ensure confidentiality and transparency in handling patient data.",
-
-    imageCaption: "Figure 1: Sample data distribution in aging research.",
-    imageFilename: "data-chart-01.png"
-};
+    
+    /* ==========================================================
+       EDIT YOUR CONTENT HERE
+       ========================================================== */
+    const postData = {
+        title: "Advancing Biostatistical Methods in Gerontology",
+        shortTitle: "Gerontology Methods", // Used for the sticky breadcrumb
+        date: "April 10, 2026",
+        categories: ["Biostatistics", "Research Integrity"],
+        highlights: [
+            "Key finding regarding longitudinal data in aging populations.",
+            "Implementation of advanced Python-based analytics.",
+            "Ethical considerations in nursing data management."
+        ],
+        heading1: "Introduction to Longitudinal Analysis",
+        content1: "This is where your first paragraph goes. You can write as much as you want here between the quotation marks.",
+        heading2: "Methodology and Data Integrity",
+        content2: "This is the content for your second section. You can describe your methods or findings here.",
+        imageCaption: "Figure 1: Distribution of cognitive health scores across the study cohort.",
+        imageFilename: "data-chart-01.png"
+    };
+    /* ========================================================== */
+    
 </script>
 
-<div class="master-container">
-<nav class="navbar"></nav>
+    <div class="master-container">
+        <nav class="navbar"></nav>
+        
+        <div class="sticky-header-container">
+            <div class="breadcrumb-bar" style="border-bottom: 1px solid #f1f5f9;">
+                <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ 
+                <a href="blog.html" style="text-decoration:none; color:inherit;">BLOG</a> ❯ 
+                <span id="inject-breadcrumb"></span>
+            </div>
+            <div id="progress-container"><div id="progress-bar"></div></div>
+        </div>
 
-<div class="sticky-header-container">
-<div class="breadcrumb-bar">
-HOME ❯ BLOG ❯ <span id="inject-breadcrumb"></span>
-</div>
-<div id="progress-container"><div id="progress-bar"></div></div>
-</div>
+        <article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
+            <h1 id="inject-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
+            
+            <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
+                <span id="inject-date"></span>
+                <div id="inject-categories" class="flex gap-2"></div>
+            </div>
 
-<article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
+            <div class="highlights-box">
+                <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
+                <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
+            </div>
 
-<h1 id="inject-title"></h1>
-<div id="meta-container">
-<span id="inject-date"></span>
-<div id="inject-categories"></div>
-</div>
+            <div class="leading-relaxed text-slate-800 text-lg space-y-6">
+                <h2 id="inject-h1"></h2>
+                <p id="inject-c1"></p>
 
-<div id="highlights-container" class="highlights-box">
-<ul id="inject-highlights"></ul>
-</div>
+                <div class="image-placeholder">
+                    <p id="inject-img-file" class="text-slate-400 font-mono text-xs mb-2"></p>
+                    <p id="inject-img-cap" class="italic text-sm text-slate-500"></p>
+                </div>
 
-<div id="tip-box" class="tip-box"></div>
-<div id="warning-box" class="warning-box"></div>
+                <h2 id="inject-h2"></h2>
+                <p id="inject-c2"></p>
+            </div>
 
-<div class="leading-relaxed text-lg space-y-6">
+            <div class="mt-20 pt-10 border-t border-slate-200">
+                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
+                <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
+                <div id="recommended-list"></div>
+            </div>
+        </article>
 
-<div id="section1">
-<h2 id="inject-h1"></h2>
-<p id="inject-c1"></p>
+        <a href="#" id="backToTop" style="display:none; text-decoration:none;">↑</a>
+        <div id="footer-placeholder"></div>
+    </div>
 
-<h3 id="inject-sh1a"></h3>
-<p id="inject-sc1a"></p>
+    <script src="../../assets/js/footer-bundle.js"></script>
+    <script src="../../assets/js/blog-registry.js"></script>
+   
+    <script>
+        // 1. DYNAMIC NAVIGATION OBSERVER
+        const syncNav = () => {
+            const nav = document.querySelector('.navbar');
+            if (nav) {
+                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+            }
+        };
+        const resizeObs = new ResizeObserver(() => syncNav());
 
-<h3 id="inject-sh1b"></h3>
-<p id="inject-sc1b"></p>
-</div>
+        document.addEventListener("DOMContentLoaded", function() {
 
-<div class="image-placeholder" id="image-box">
-<p id="inject-img-file"></p>
-<p id="inject-img-cap"></p>
-</div>
+                         
+            // Observe Navbar for height changes
+            const nav = document.querySelector('.navbar');
+            if (nav) resizeObs.observe(nav);
+            syncNav();
 
-<div id="section2">
-<h2 id="inject-h2"></h2>
-<p id="inject-c2"></p>
+            // Injection Logic
+            document.getElementById('inject-breadcrumb').innerText = postData.shortTitle || postData.title;
+            document.getElementById('inject-title').innerText = postData.title;
+            document.getElementById('inject-date').innerText = postData.date;
+            document.getElementById('inject-h1').innerText = postData.heading1;
+            document.getElementById('inject-c1').innerText = postData.content1;
+            document.getElementById('inject-h2').innerText = postData.heading2;
+            document.getElementById('inject-c2').innerText = postData.content2;
 
-<h3 id="inject-sh2a"></h3>
-<p id="inject-sc2a"></p>
+            const imageBox = document.querySelector('.image-placeholder');
+            if (postData.imageFilename === "") {
+                imageBox.style.display = "none"; 
+            } else {
+                imageBox.style.display = "block";
+                document.getElementById('inject-img-file').innerText = "[ IMAGE: " + postData.imageFilename + " ]";
+                document.getElementById('inject-img-cap').innerText = postData.imageCaption;
+            }
 
-<h3 id="inject-sh2b"></h3>
-<p id="inject-sc2b"></p>
-</div>
+            document.getElementById('inject-categories').innerHTML = postData.categories.map(c => 
+                `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
+            ).join('');
 
-</div>
+            document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
 
-<div class="mt-20 pt-10 border-t">
-<h4>Recommended for you</h4>
-<div id="recommended-list"></div>
-</div>
+            // Scroll Logic (Progress Bar & Back to Top)
+                        const btt = document.getElementById('backToTop');
+                        window.onscroll = function() {
+                            let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                            
+                            // Progress bar update
+                            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+                            
+                            // Back to Top visibility
+                            if (winScroll > 300) {
+                                btt.style.display = "flex";
+                            } else {
+                                btt.style.display = "none";
+                            }
+                        };
+                        
+                        // Smooth scroll to top
+                        btt.onclick = (e) => {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        };
+                                    
+                    const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
+            document.getElementById('recommended-list').innerHTML = recs.map(p => `
+                <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
+            `).join('');
 
-</article>
-
-<a href="#" id="backToTop">↑</a>
-<div id="footer-placeholder"></div>
-</div>
-
-<script src="../../assets/js/footer-bundle.js"></script>
-<script src="../../assets/js/blog-registry.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-const setText = (id, value) => {
-    const el = document.getElementById(id);
-    if (!value) { el.style.display = "none"; }
-    else { el.innerText = value; }
-};
-
-const setHTML = (id, value) => {
-    const el = document.getElementById(id);
-    if (!value || value.length === 0) { el.style.display = "none"; }
-    else { el.innerHTML = value; }
-};
-
-setText('inject-title', postData.title);
-setText('inject-breadcrumb', postData.shortTitle || postData.title);
-setText('inject-date', postData.date);
-
-setHTML('inject-categories', postData.categories?.map(c => `<span>${c}</span>`).join(''));
-setHTML('inject-highlights', postData.highlights?.map(h => `<li>${h}</li>`).join(''));
-
-setText('tip-box', postData.tip);
-setText('warning-box', postData.warning);
-
-setText('inject-h1', postData.heading1);
-setText('inject-c1', postData.content1);
-setText('inject-sh1a', postData.subheading1a);
-setText('inject-sc1a', postData.subcontent1a);
-setText('inject-sh1b', postData.subheading1b);
-setText('inject-sc1b', postData.subcontent1b);
-
-setText('inject-h2', postData.heading2);
-setText('inject-c2', postData.content2);
-setText('inject-sh2a', postData.subheading2a);
-setText('inject-sc2a', postData.subcontent2a);
-setText('inject-sh2b', postData.subheading2b);
-setText('inject-sc2b', postData.subcontent2b);
-
-if (!postData.imageFilename) {
-    document.getElementById("image-box").style.display = "none";
-} else {
-    setText('inject-img-file', "[ IMAGE: " + postData.imageFilename + " ]");
-    setText('inject-img-cap', postData.imageCaption);
-}
-
-});
-</script>
-
+            // Force highlight the 'Blog' tab instantly
+                            const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
+                            if (blogLink) {
+                                // We add the classes individually so it doesn't "reset" the button first
+                                blogLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
+                                // This removes any "transition" animation for the first half-second to prevent the blink
+                                blogLink.style.transition = "none"; 
+                            }
+                   
+        });
+    </script>
 </body>
 </html>
