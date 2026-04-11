@@ -16,7 +16,7 @@
             margin: 0 !important;
             background-color: #F8FAFC !important;
             border-bottom: 1px solid #E2E8F0 !important;
-            padding: 8px 20px !important;
+            padding: 6px 20px !important;
             font-size: 11px;
         }
 
@@ -25,47 +25,73 @@
             top: calc(var(--nav-height, 70px) + var(--bc-height, 40px) - 1px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
-            padding: 8px 15px !important; /* Minimal padding for mobile */
+            padding: 8px 15px !important;
             border-bottom: 1px solid #e2e8f0 !important; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         @media (min-width: 1024px) {
-            .pub-controls { padding: 12px 40px !important; }
+            .pub-controls { padding: 10px 40px !important; }
         }
         
-        /* Filter Styles - Ultra-Robust Responsive Layout */
+        /* Grid-Based Filter Layout - Robust for all screens */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Stack on mobile portrait */
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Tablet and Landscape Phone: 2 columns */
+        @media (min-width: 640px) {
+            .controls-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Desktop and Wide Screens: 5 columns (Search, Journal, Authorship, Sort, Reset) */
+        @media (min-width: 1024px) {
+            .controls-grid {
+                grid-template-columns: 1.5fr 1fr 1fr 1.2fr 0.6fr;
+                align-items: center;
+            }
+        }
+
+        .filter-select, .search-box-styled, .sort-group, .reset-btn {
+            height: 34px !important;
+            box-sizing: border-box !important;
+            font-size: 12px !important;
+            border-radius: 6px !important;
+            width: 100% !important;
+            margin: 0 !important;
+        }
+
+        @media (min-width: 1024px) {
+            .filter-select, .search-box-styled, .sort-group, .reset-btn {
+                height: 38px !important;
+                font-size: 13px !important;
+            }
+        }
+
         .filter-select { 
             padding: 0 8px; 
-            border-radius: 6px; 
             border: 1px solid #D97706; 
-            font-size: 12px; 
             color: #1e293b; 
             background-color: #fffbeb; 
             cursor: pointer; 
-            height: 32px;
-            width: 100%;
+            font-weight: 400;
             outline: none;
-        }
-        
-        @media (min-width: 768px) {
-            .filter-select { padding: 0 12px; font-size: 13px; width: auto; min-width: 150px; height: 36px; }
         }
 
         .search-box-styled {
             padding: 0 10px; 
-            border-radius: 6px; 
             border: 1px solid #D97706; 
-            font-size: 12px; 
             color: #1e293b; 
             background-color: white; 
             outline: none;
-            width: 100%;
-            height: 32px;
-        }
-
-        @media (min-width: 768px) {
-            .search-box-styled { padding: 0 12px; font-size: 13px; width: 220px; height: 36px; }
         }
         
         .sort-group { 
@@ -75,44 +101,27 @@
             padding: 0 8px; 
             background: #fffbeb; 
             border: 1px solid #D97706; 
-            border-radius: 6px; 
-            height: 32px;
-            flex: 1;
-            min-width: 140px;
-        }
-        
-        @media (min-width: 768px) {
-            .sort-group { padding: 0 12px; height: 36px; flex: none; width: auto; }
         }
 
         .sort-label { font-size: 9px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; }
         .sort-select { background: transparent; border: none; font-size: 11px; color: #1e293b; cursor: pointer; outline: none; width: 100%; height: 100%; }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .sort-select { font-size: 13px; }
         }
 
         .reset-btn { 
-            font-size: 10px; 
             font-weight: 800; 
             color: white; 
             border: 1px solid #1e3a8a; 
-            padding: 0 10px; 
-            border-radius: 6px; 
-            transition: 0.3s; 
             background: #1e3a8a; 
-            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
-            flex: 1;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        
-        @media (min-width: 768px) {
-            .reset-btn { width: auto; padding: 0 16px; font-size: 11px; height: 36px; flex: none; }
-        }
-
         .reset-btn:hover { background: #172554; border-color: #172554; }
 
         /* Card Styles */
@@ -168,37 +177,36 @@
         </div>
 
         <div class="pub-controls sticky-controls">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-2 items-center justify-between">
-                <!-- Search Box - Full width on mobile, fixed on desktop -->
-                <div class="w-full md:w-auto">
+            <div class="max-w-7xl mx-auto">
+                <div class="controls-grid">
+                    <!-- Search Box -->
                     <input type="text" id="pubSearch" class="search-box-styled" placeholder="Search by title keywords...">
-                </div>
-                
-                <!-- Filters Group - Two rows on mobile, one row on desktop -->
-                <div class="flex flex-col sm:flex-row gap-2 items-center w-full md:w-auto">
-                    <!-- Journal & Authorship -->
-                    <div class="flex gap-2 w-full sm:w-auto">
-                        <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
-                        <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
-                            <option value="all">All Authorship Status</option>
-                            <option value="First/Corresponding">First/Corresponding</option>
-                            <option value="Co-author">Co-author</option>
+                    
+                    <!-- Journal Filter -->
+                    <select id="filterJournal" class="filter-select" onchange="applyFilters()">
+                        <option value="all">All Journals</option>
+                    </select>
+                    
+                    <!-- Authorship Filter -->
+                    <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
+                        <option value="all">All Authorship Status</option>
+                        <option value="First/Corresponding">First/Corresponding</option>
+                        <option value="Co-author">Co-author</option>
+                    </select>
+                    
+                    <!-- Sort Group -->
+                    <div class="sort-group">
+                        <span class="sort-label">Sort:</span>
+                        <select id="sortOrder" class="sort-select" onchange="applyFilters()">
+                            <option value="yearDesc">Year (Newest)</option>
+                            <option value="yearAsc">Year (Oldest)</option>
+                            <option value="journalAlpha">Journal (A-Z)</option>
+                            <option value="authorAlpha">Authorship</option>
                         </select>
                     </div>
-                    
-                    <!-- Sort & Reset -->
-                    <div class="flex gap-2 w-full sm:w-auto">
-                        <div class="sort-group">
-                            <span class="sort-label">Sort:</span>
-                            <select id="sortOrder" class="sort-select" onchange="applyFilters()">
-                                <option value="yearDesc">Year (Newest)</option>
-                                <option value="yearAsc">Year (Oldest)</option>
-                                <option value="journalAlpha">Journal (A-Z)</option>
-                                <option value="authorAlpha">Authorship</option>
-                            </select>
-                        </div>
-                        <button onclick="resetFilters()" class="reset-btn">RESET</button>
-                    </div>
+
+                    <!-- Reset Button -->
+                    <button onclick="resetFilters()" class="reset-btn">RESET</button>
                 </div>
             </div>
         </div>
