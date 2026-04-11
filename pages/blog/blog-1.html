@@ -38,13 +38,26 @@
 
         /* Back to Top Arrow */
         #backToTop {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--midnight); color: white;
-            width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; opacity: 0; transition: 0.3s; z-index: 2000;
-            border: none;
-        }
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    width: 45px;
+                    height: 45px;
+                    background-color: var(--amber);
+                    color: white;
+                    border-radius: 50%;
+                    display: none; /* Logic in JS will change this to 'flex' */
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    z-index: 3000;
+                    transition: 0.3s;
+                }
+                
+                #backToTop:hover {
+                    background-color: var(--midnight);
+                    transform: translateY(-5px);
+                }
         #backToTop.visible { opacity: 1; }
     </style>
 </head>
@@ -119,7 +132,7 @@
             </div>
         </article>
 
-        <button id="backToTop">▲</button>
+        <a href="#" id="backToTop" style="display:none; text-decoration:none;">↑</a>
         <div id="footer-placeholder"></div>
     </div>
 
@@ -166,17 +179,29 @@
             document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
 
             // Scroll Logic (Progress Bar & Back to Top)
-            const btt = document.getElementById('backToTop');
-            window.onscroll = function() {
-                let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
-                
-                if (winScroll > 300) btt.classList.add('visible');
-                else btt.classList.remove('visible');
-            };
-
-            btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                        const btt = document.getElementById('backToTop');
+                        window.onscroll = function() {
+                            let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                            
+                            // Progress bar update
+                            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+                            
+                            // Back to Top visibility
+                            if (winScroll > 300) {
+                                btt.style.display = "flex";
+                            } else {
+                                btt.style.display = "none";
+                            }
+                        };
+                        
+                        // Smooth scroll to top
+                        btt.onclick = (e) => {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        };
+                                    
+            
 
             const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
             document.getElementById('recommended-list').innerHTML = recs.map(p => `
