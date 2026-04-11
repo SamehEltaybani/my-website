@@ -23,8 +23,9 @@
         .tip-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 20px; border-radius: 8px; margin: 30px 0; }
         .warning-box { background-color: #fff7ed; border-left: 4px solid #f97316; padding: 20px; border-radius: 8px; margin: 30px 0; }
 
-        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; }
-        .blog-content h3 { margin-top: 20px; font-weight: 600; }
+        .blog-content h2 {color: var(--midnight);font-weight: 800;font-size: 1.5rem;margin-top: 40px;margin-bottom: 15px;line-height: 1.2;}
+        .blog-content h3 {margin-top: 20px;font-weight: 800;position: relative;padding-left: 20px;}
+        .blog-content h3::before {content: "▶";position: absolute;left: 0;color: var(--amber);font-size: 0.8rem;top: 2px;}
 
         .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
         .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
@@ -92,7 +93,7 @@ const postData = {
     sub2b_content: "",
 
     imageCaption: "Figure 1: this should be the figure name.",
-    imageFilename: "data-chart-01.png"
+    imageFilename: "reel-5-trial.webp"
 };
     
 /* ========================================================== */
@@ -112,7 +113,7 @@ const postData = {
     </div>
 
     <article class="max-w-5xl mx-auto p-6 md:p-16 blog-content">
-        <h1 id="inject-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
+        <h1 id="inject-title" class="text-3xl md:text-4xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
         
         <div class="flex items-center gap-4 mb-8 text-sm text-slate-500" id="meta-container">
             <span id="inject-date"></span>
