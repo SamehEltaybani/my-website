@@ -27,7 +27,7 @@
         .blog-content h3 {margin-top: 20px;font-weight: 800;position: relative;padding-left: 20px;}
         .blog-content h3::before {content: "▶";position: absolute;left: 0;color: var(--amber);font-size: 0.8rem;top: 2px;}
 
-        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
+        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 10px; text-align: center; border-radius: 12px; margin: 30px 0; }
         .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
         .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
 
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (section.imageFilename) {
-            html += `<div class="image-placeholder"> <img src="${section.imageFilename}" style="max-width:100%; border-radius:8px; margin-bottom:10px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
+            html += `<div class="image-placeholder"> <img src="${section.imageFilename}" style="max-width:100%; height:auto; display:block; margin:0 auto 10px; border-radius:8px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
         }
 
         if (section.between) html += `<p>${section.between}</p>`;
