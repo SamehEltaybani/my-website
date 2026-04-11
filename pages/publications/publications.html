@@ -16,6 +16,8 @@
             margin: 0 !important;
             background-color: #F8FAFC !important;
             border-bottom: 1px solid #E2E8F0 !important;
+            padding: 8px 20px !important;
+            font-size: 11px;
         }
 
         .pub-controls { 
@@ -23,75 +25,71 @@
             top: calc(var(--nav-height, 70px) + var(--bc-height, 40px) - 1px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
-            padding: 10px 15px !important; 
+            padding: 8px 15px !important; /* Minimal padding for mobile */
             border-bottom: 1px solid #e2e8f0 !important; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
-            margin-top: 0 !important;
         }
 
         @media (min-width: 1024px) {
-            .pub-controls {
-                padding: 12px 40px !important; /* Slightly reduced padding on PC */
-                margin-top: -1px !important;
-            }
+            .pub-controls { padding: 12px 40px !important; }
         }
         
-        /* Filter Styles - Robust Responsive Layout */
+        /* Filter Styles - Ultra-Robust Responsive Layout */
         .filter-select { 
-            padding: 6px 10px; 
-            border-radius: 8px; 
+            padding: 0 8px; 
+            border-radius: 6px; 
             border: 1px solid #D97706; 
             font-size: 12px; 
             color: #1e293b; 
-            width: 100%; 
             background-color: #fffbeb; 
             cursor: pointer; 
-            font-weight: 400;
-            height: 36px; /* Fixed height to prevent "tall" boxes */
+            height: 32px;
+            width: 100%;
+            outline: none;
         }
         
         @media (min-width: 768px) {
-            .filter-select { padding: 8px 12px; font-size: 13px; width: auto; min-width: 180px; height: 40px; }
+            .filter-select { padding: 0 12px; font-size: 13px; width: auto; min-width: 150px; height: 36px; }
         }
 
         .search-box-styled {
-            padding: 6px 10px; 
-            border-radius: 8px; 
+            padding: 0 10px; 
+            border-radius: 6px; 
             border: 1px solid #D97706; 
             font-size: 12px; 
             color: #1e293b; 
             background-color: white; 
             outline: none;
             width: 100%;
-            height: 36px;
+            height: 32px;
         }
 
         @media (min-width: 768px) {
-            .search-box-styled { padding: 8px 12px; font-size: 13px; width: 260px; height: 40px; }
+            .search-box-styled { padding: 0 12px; font-size: 13px; width: 220px; height: 36px; }
         }
         
         .sort-group { 
             display: flex; 
             align-items: center; 
-            gap: 6px; 
-            padding: 0 10px; 
+            gap: 4px; 
+            padding: 0 8px; 
             background: #fffbeb; 
             border: 1px solid #D97706; 
-            border-radius: 8px; 
-            width: 100%; 
-            height: 36px;
-            flex-shrink: 0; /* Prevent shrinking on PC */
+            border-radius: 6px; 
+            height: 32px;
+            flex: 1;
+            min-width: 140px;
         }
         
         @media (min-width: 768px) {
-            .sort-group { width: auto; padding: 0 12px; height: 40px; }
+            .sort-group { padding: 0 12px; height: 36px; flex: none; width: auto; }
         }
 
-        .sort-label { font-size: 10px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-        .sort-select { background: transparent; border: none; font-size: 12px; font-weight: 400; color: #1e293b; cursor: pointer; outline: none; width: 100%; height: 100%; }
+        .sort-label { font-size: 9px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; }
+        .sort-select { background: transparent; border: none; font-size: 11px; color: #1e293b; cursor: pointer; outline: none; width: 100%; height: 100%; }
         
         @media (min-width: 768px) {
-            .sort-select { font-size: 13px; width: auto; min-width: 140px; }
+            .sort-select { font-size: 13px; }
         }
 
         .reset-btn { 
@@ -99,25 +97,25 @@
             font-weight: 800; 
             color: white; 
             border: 1px solid #1e3a8a; 
-            padding: 0 12px; 
+            padding: 0 10px; 
             border-radius: 6px; 
             transition: 0.3s; 
             background: #1e3a8a; 
-            width: 100%; 
-            height: 36px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
+            flex: 1;
         }
         
         @media (min-width: 768px) {
-            .reset-btn { width: auto; padding: 0 16px; font-size: 11px; height: 40px; }
+            .reset-btn { width: auto; padding: 0 16px; font-size: 11px; height: 36px; flex: none; }
         }
 
         .reset-btn:hover { background: #172554; border-color: #172554; }
 
-        /* Card Styles - Optimized for PC and Mobile */
+        /* Card Styles */
         .pub-card { 
             background: white; 
             padding: 15px; 
@@ -130,7 +128,7 @@
         }
 
         @media (min-width: 768px) {
-            .pub-card { padding: 20px 30px; } /* Reduced vertical padding on PC */
+            .pub-card { padding: 20px 30px; }
         }
         
         .pub-card:hover { 
@@ -138,7 +136,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
         }
         
-        /* Authorship Pills */
         .authorship-pill { padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 800; display: inline-block; margin-bottom: 8px; }
         @media (min-width: 768px) {
             .authorship-pill { padding: 4px 12px; font-size: 10px; margin-bottom: 12px; }
@@ -157,10 +154,7 @@
         .pubmed-link { background: #0071bc; } 
         .insight-link { background: #D97706 !important; } 
 
-        /* Publication Title: Non-bold as requested */
         .pub-title { font-weight: 400; color: #1e293b; line-height: 1.3; }
-
-        /* Journal Name: Italic and not bold */
         .journal-name { font-style: italic; font-weight: 400; color: #64748b; margin-bottom: 0.75rem; }
     </style>
 </head>
@@ -174,14 +168,15 @@
         </div>
 
         <div class="pub-controls sticky-controls">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-3 items-center justify-between">
-                <!-- Search Box -->
-                <div class="w-full lg:w-auto">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-2 items-center justify-between">
+                <!-- Search Box - Full width on mobile, fixed on desktop -->
+                <div class="w-full md:w-auto">
                     <input type="text" id="pubSearch" class="search-box-styled" placeholder="Search by title keywords...">
                 </div>
                 
-                <!-- Filters Group -->
-                <div class="flex flex-wrap lg:flex-nowrap gap-2 md:gap-3 items-center w-full lg:w-auto justify-center lg:justify-end">
+                <!-- Filters Group - Two rows on mobile, one row on desktop -->
+                <div class="flex flex-col sm:flex-row gap-2 items-center w-full md:w-auto">
+                    <!-- Journal & Authorship -->
                     <div class="flex gap-2 w-full sm:w-auto">
                         <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
                         <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
@@ -191,18 +186,18 @@
                         </select>
                     </div>
                     
+                    <!-- Sort & Reset -->
                     <div class="flex gap-2 w-full sm:w-auto">
                         <div class="sort-group">
-                            <span class="sort-label">Sort By:</span>
+                            <span class="sort-label">Sort:</span>
                             <select id="sortOrder" class="sort-select" onchange="applyFilters()">
-                                <option value="yearDesc">Year (Newest First)</option>
-                                <option value="yearAsc">Year (Oldest First)</option>
-                                <option value="journalAlpha">Journal (A to Z)</option>
-                                <option value="authorAlpha">Authorship Status</option>
+                                <option value="yearDesc">Year (Newest)</option>
+                                <option value="yearAsc">Year (Oldest)</option>
+                                <option value="journalAlpha">Journal (A-Z)</option>
+                                <option value="authorAlpha">Authorship</option>
                             </select>
                         </div>
-
-                        <button onclick="resetFilters()" class="reset-btn">RESET FILTERS</button>
+                        <button onclick="resetFilters()" class="reset-btn">RESET</button>
                     </div>
                 </div>
             </div>
