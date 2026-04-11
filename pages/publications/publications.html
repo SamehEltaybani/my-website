@@ -23,7 +23,7 @@
             top: calc(var(--nav-height, 70px) + var(--bc-height, 40px) - 1px) !important; 
             z-index: 1000 !important; 
             background: white !important; 
-            padding: 15px 20px !important; /* Reduced padding for mobile */
+            padding: 10px 15px !important; /* Reduced padding for mobile */
             border-bottom: 1px solid #e2e8f0 !important; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
             margin-top: 0 !important;
@@ -36,81 +36,92 @@
             }
         }
         
-        /* Filter Styles - Removed Bold, Fixed Mobile Width */
+        /* Filter Styles - Optimized for Mobile */
         .filter-select { 
-            padding: 8px 12px; 
+            padding: 6px 10px; /* Reduced padding */
             border-radius: 8px; 
             border: 1px solid #D97706; 
-            font-size: 13px; 
+            font-size: 12px; /* Smaller font for mobile */
             color: #1e293b; 
-            width: 100%; /* Full width on mobile */
-            max-width: 100%;
+            width: 100%; 
             background-color: #fffbeb; 
             cursor: pointer; 
-            font-weight: 400; /* Removed Bold */
+            font-weight: 400;
         }
         
         @media (min-width: 768px) {
-            .filter-select { width: auto; min-width: 160px; }
+            .filter-select { padding: 8px 12px; font-size: 13px; width: auto; min-width: 160px; }
         }
 
         .search-box-styled {
-            padding: 8px 12px; 
+            padding: 6px 10px; /* Reduced padding */
             border-radius: 8px; 
             border: 1px solid #D97706; 
-            font-size: 13px; 
+            font-size: 12px; /* Smaller font for mobile */
             color: #1e293b; 
             background-color: white; 
             outline: none;
             width: 100%;
         }
+
+        @media (min-width: 768px) {
+            .search-box-styled { padding: 8px 12px; font-size: 13px; }
+        }
         
         .sort-group { 
             display: flex; 
             align-items: center; 
-            gap: 8px; 
-            padding: 4px 12px; 
+            gap: 6px; 
+            padding: 4px 10px; 
             background: #fffbeb; 
             border: 1px solid #D97706; 
             border-radius: 8px; 
-            width: 100%; /* Full width on mobile */
+            width: 100%; 
         }
         
         @media (min-width: 768px) {
-            .sort-group { width: auto; }
+            .sort-group { width: auto; padding: 4px 12px; }
         }
 
-        .sort-label { font-size: 11px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-        .sort-select { background: transparent; border: none; font-size: 13px; font-weight: 400; color: #1e293b; cursor: pointer; outline: none; width: 100%; }
+        .sort-label { font-size: 10px; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        .sort-select { background: transparent; border: none; font-size: 12px; font-weight: 400; color: #1e293b; cursor: pointer; outline: none; width: 100%; }
         
+        @media (min-width: 768px) {
+            .sort-select { font-size: 13px; }
+        }
+
         .reset-btn { 
-            font-size: 11px; 
+            font-size: 10px; 
             font-weight: 800; 
             color: white; 
             border: 1px solid #1e3a8a; 
-            padding: 8px 16px; 
+            padding: 6px 12px; /* Reduced padding */
             border-radius: 6px; 
             transition: 0.3s; 
             background: #1e3a8a; 
-            width: 100%; /* Full width on mobile */
+            width: 100%; 
         }
         
         @media (min-width: 768px) {
-            .reset-btn { width: auto; }
+            .reset-btn { width: auto; padding: 8px 16px; font-size: 11px; }
         }
 
         .reset-btn:hover { background: #172554; border-color: #172554; }
 
-        /* Card Styles - Updated to match the "Blog" reference style */
+        /* Card Styles - Optimized for Mobile */
         .pub-card { 
             background: white; 
-            padding: 30px; 
+            padding: 15px; /* Reduced padding for mobile */
             border-radius: 12px; 
             transition: transform 0.3s ease, box-shadow 0.3s ease; 
             border: 1px solid #e2e8f0;
-            border-left: 5px solid #D97706; /* Thick Orange Left Border */
-            border-right: 5px solid #1e3a8a; /* Thick Navy Blue Right Border */
+            border-left: 5px solid #D97706; 
+            border-right: 5px solid #1e3a8a; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        @media (min-width: 768px) {
+            .pub-card { padding: 30px; }
         }
         
         .pub-card:hover { 
@@ -119,16 +130,26 @@
         }
         
         /* Authorship Pills */
-        .authorship-pill { padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
+        .authorship-pill { padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 800; display: inline-block; margin-bottom: 10px; }
+        @media (min-width: 768px) {
+            .authorship-pill { padding: 4px 12px; font-size: 10px; margin-bottom: 15px; }
+        }
+
         .btn-green-pill { background: #dcfce7; color: #166534; } 
         .btn-orange-pill { background: rgba(217, 119, 6, 0.1); color: #b45309; } 
         
-        .action-link { font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 10px 18px; border-radius: 8px; display: inline-block; margin-right: 10px; margin-top: 10px; color: white !important; }
+        .action-link { font-size: 11px; font-weight: 700; text-decoration: none; transition: 0.3s; padding: 6px 12px; border-radius: 8px; display: inline-block; margin-right: 8px; margin-top: 8px; color: white !important; }
+        @media (min-width: 768px) {
+            .action-link { font-size: 12px; padding: 10px 18px; margin-right: 10px; margin-top: 10px; }
+        }
         .action-link:hover { transform: scale(1.05); opacity: 0.9; }
         
         .journal-link { background: #0d9488; } 
         .pubmed-link { background: #0071bc; } 
         .insight-link { background: #D97706 !important; } 
+
+        /* Journal Name: Italic and not bold */
+        .journal-name { font-style: italic; font-weight: 400; color: #64748b; margin-bottom: 1rem; }
     </style>
 </head>
 <body>
@@ -141,33 +162,37 @@
         </div>
 
         <div class="pub-controls sticky-controls">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-between">
                 <input type="text" id="pubSearch" class="search-box-styled md:w-64" placeholder="Search by title keywords...">
                 
-                <div class="flex flex-col md:flex-row gap-4 items-center w-full md:w-auto">
-                    <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
-                    <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
-                        <option value="all">All Authorship Status</option>
-                        <option value="First/Corresponding">First/Corresponding</option>
-                        <option value="Co-author">Co-author</option>
-                    </select>
-                    
-                    <div class="sort-group">
-                        <span class="sort-label">Sort By:</span>
-                        <select id="sortOrder" class="sort-select" onchange="applyFilters()">
-                            <option value="yearDesc">Year (Newest First)</option>
-                            <option value="yearAsc">Year (Oldest First)</option>
-                            <option value="journalAlpha">Journal (A to Z)</option>
-                            <option value="authorAlpha">Authorship Status</option>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-center w-full md:w-auto">
+                    <div class="flex gap-2 w-full md:w-auto">
+                        <select id="filterJournal" class="filter-select" onchange="applyFilters()"><option value="all">All Journals</option></select>
+                        <select id="filterAuthorship" class="filter-select" onchange="applyFilters()">
+                            <option value="all">All Authorship Status</option>
+                            <option value="First/Corresponding">First/Corresponding</option>
+                            <option value="Co-author">Co-author</option>
                         </select>
                     </div>
+                    
+                    <div class="flex gap-2 w-full md:w-auto">
+                        <div class="sort-group">
+                            <span class="sort-label">Sort By:</span>
+                            <select id="sortOrder" class="sort-select" onchange="applyFilters()">
+                                <option value="yearDesc">Year (Newest First)</option>
+                                <option value="yearAsc">Year (Oldest First)</option>
+                                <option value="journalAlpha">Journal (A to Z)</option>
+                                <option value="authorAlpha">Authorship Status</option>
+                            </select>
+                        </div>
 
-                    <button onclick="resetFilters()" class="reset-btn">RESET FILTERS</button>
+                        <button onclick="resetFilters()" class="reset-btn">RESET FILTERS</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="pub-container" class="p-6 md:p-10 max-w-7xl mx-auto grid grid-cols-1 gap-8"></div>
+        <div id="pub-container" class="p-4 md:p-10 max-w-7xl mx-auto grid grid-cols-1 gap-6 md:gap-8"></div>
 
         <div class="text-center pb-20">
             <button id="loadMoreBtn" onclick="loadMore()" class="bg-slate-800 text-white px-10 py-3 rounded-full font-bold hover:bg-amber-700 transition">Load More Publications</button>
@@ -241,11 +266,11 @@
                 <div class="pub-card">
                     <div class="flex justify-between items-start">
                         <span class="authorship-pill ${pillClass}">${authorshipText}</span>
-                        <span class="font-bold text-sm text-slate-400">${p.year}</span>
+                        <span class="font-bold text-xs md:text-sm text-slate-400">${p.year}</span>
                     </div>
-                    <h3 class="text-2xl font-extrabold mb-2 text-slate-800 leading-tight">${p.title}</h3>
-                    <p class="text-slate-500 mb-6 font-semibold">${p.journal}</p>
-                    <div class="flex flex-wrap gap-2">
+                    <h3 class="text-lg md:text-2xl font-extrabold mb-2 text-slate-800 leading-tight">${p.title}</h3>
+                    <p class="journal-name text-sm md:text-base">${p.journal}</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2">
                         <a href="${p.journalLink}" target="_blank" class="action-link journal-link">Journal Website ❯</a>
                         ${p.pubmedLink ? `<a href="${p.pubmedLink}" target="_blank" class="action-link pubmed-link">PubMed ❯</a>` : ''}
                         ${p.blogLink ? `<a href="../blog/${p.blogLink}.html" class="action-link insight-link">Read My Insights ❯</a>` : ''}
