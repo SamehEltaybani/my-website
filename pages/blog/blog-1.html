@@ -1,253 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Dr. Sameh Eltaybani</title>
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .sticky-header-container {
+            position: sticky;
+            top: var(--nav-height, 70px);
+            z-index: 1001;
+            background: white;
+            width: 100%;
+        }
 
-<title>Blog Post | Dr. Sameh Eltaybani</title>
+        #progress-container { width: 100%; height: 4px; background: #f1f5f9; }
+        #progress-bar { height: 100%; background: var(--amber); width: 0%; }
 
-<link rel="stylesheet" href="../../assets/css/custom-style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+        .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; }
+        .blog-content h3 { font-weight: 700; margin-top: 20px; }
+        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
+        .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
 
-<style>
-/* ===== Layout adjustment (HALF margins) ===== */
-.blog-wrapper {
-    max-width: 900px; /* reduced from ~1200+ */
-    margin: auto;
-    padding: 40px 20px;
-}
+        .tip-box { background:#ecfdf5; border-left:4px solid #10b981; padding:15px; margin:20px 0; border-radius:8px; }
+        .warning-box { background:#fef2f2; border-left:4px solid #ef4444; padding:15px; margin:20px 0; border-radius:8px; }
 
-/* ===== Existing styles kept ===== */
-.highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
-.blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; }
-.blog-content h3 { color: var(--midnight); font-weight: 700; font-size: 1.2rem; margin-top: 25px; }
-.image-placeholder { margin: 30px 0; }
-.recommendation-link { display:block; padding:10px 0; border-bottom:1px solid #e2e8f0; }
-
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    background: var(--amber);
-    color: white;
-    border-radius: 50%;
-    display:none;
-    align-items:center;
-    justify-content:center;
-}
-</style>
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--amber);
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 3000;
+        }
+    </style>
 </head>
-
 <body>
 
 <script>
-/* ===============================
-   EDIT ONLY THIS SECTION
-================================ */
 const postData = {
+    title: "Advancing Biostatistical Methods in Gerontology",
+    shortTitle: "Gerontology Methods",
+    date: "April 10, 2026",
+    categories: ["Biostatistics", "Research Integrity"],
 
-title: "Advancing Biostatistical Methods in Gerontology",
-shortTitle: "Gerontology Methods",
-date: "April 10, 2026",
+    highlights: [
+        "Longitudinal data improves predictive modeling.",
+        "Machine learning enhances aging research.",
+        "Ethics remain central in healthcare data."
+    ],
 
-intro: "This article explores modern statistical approaches in aging research. You can also explore related work at <a href='https://www.ncbi.nlm.nih.gov' target='_blank'>this external resource</a>.",
+    tip: "Always validate your dataset before applying complex statistical models.",
+    warning: "Ignoring missing data can significantly bias your results.",
 
-categories: ["Biostatistics","Aging","Data Science"],
+    heading1: "Introduction to Longitudinal Analysis",
+    content1: "Longitudinal analysis is essential in understanding how aging impacts populations over time. It allows researchers to observe trends and causal relationships.",
+    subheading1a: "Why Longitudinal Data Matters",
+    subcontent1a: "Tracking the same individuals over time provides deeper insights compared to cross-sectional studies.",
+    subheading1b: "Key Challenges",
+    subcontent1b: "Handling missing data and participant dropout are major methodological concerns.",
 
-highlights: [
-"Longitudinal modeling improves accuracy",
-"Python enhances reproducibility",
-"Ethics is critical in healthcare data"
-],
+    heading2: "Methodology and Data Integrity",
+    content2: "Ensuring data integrity is fundamental in research. Proper validation and cleaning processes must be followed.",
+    subheading2a: "Data Cleaning Techniques",
+    subcontent2a: "Outlier detection and normalization are key steps in preparing data.",
+    subheading2b: "Ethical Considerations",
+    subcontent2b: "Researchers must ensure confidentiality and transparency in handling patient data.",
 
-sections: [
-
-{
-type:"text",
-heading:"Introduction to Longitudinal Analysis",
-content:"Longitudinal data tracks individuals over time. For example, you can review <a href='https://en.wikipedia.org/wiki/Longitudinal_study' target='_blank'>this explanation of longitudinal studies</a>."
-},
-
-{
-type:"subsection",
-subheading:"Why it matters",
-content:"Understanding changes over time is essential in gerontology."
-},
-
-{
-type:"image",
-src:"../../assets/img/reel-5-trial.webp",
-caption:"Study design overview"
-},
-
-{
-type:"text",
-heading:"Methodology",
-content:"Data integrity ensures reliability of results."
-},
-
-{
-type:"subsection",
-subheading:"Missing Data Handling",
-content:"Missing data must be handled carefully to avoid bias."
-},
-
-{
-type:"quote",
-content:"Good data tells a story — great analysis reveals truth.",
-author:"Dr. Sameh"
-},
-
-{
-type:"tip",
-content:"Always validate your dataset before analysis."
-},
-
-{
-type:"warning",
-content:"Ignoring missing data can invalidate your study."
-},
-
-{
-type:"image",
-src:"../../assets/img/analyst-6.JPG",
-caption:"Analytical workflow"
-}
-
-]
-
+    imageCaption: "Figure 1: Sample data distribution in aging research.",
+    imageFilename: "data-chart-01.png"
 };
-/* =============================== */
 </script>
 
 <div class="master-container">
 <nav class="navbar"></nav>
 
-<article class="blog-wrapper blog-content">
-
-<h1 id="title"></h1>
-
-<div id="meta"></div>
-
-<div id="highlights-box" class="highlights-box">
-<h4>Highlights</h4>
-<ul id="highlights"></ul>
+<div class="sticky-header-container">
+<div class="breadcrumb-bar">
+HOME ❯ BLOG ❯ <span id="inject-breadcrumb"></span>
+</div>
+<div id="progress-container"><div id="progress-bar"></div></div>
 </div>
 
-<div id="toc"></div>
+<article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
 
-<div id="intro"></div>
+<h1 id="inject-title"></h1>
+<div id="meta-container">
+<span id="inject-date"></span>
+<div id="inject-categories"></div>
+</div>
 
-<div id="content"></div>
+<div id="highlights-container" class="highlights-box">
+<ul id="inject-highlights"></ul>
+</div>
+
+<div id="tip-box" class="tip-box"></div>
+<div id="warning-box" class="warning-box"></div>
+
+<div class="leading-relaxed text-lg space-y-6">
+
+<div id="section1">
+<h2 id="inject-h1"></h2>
+<p id="inject-c1"></p>
+
+<h3 id="inject-sh1a"></h3>
+<p id="inject-sc1a"></p>
+
+<h3 id="inject-sh1b"></h3>
+<p id="inject-sc1b"></p>
+</div>
+
+<div class="image-placeholder" id="image-box">
+<p id="inject-img-file"></p>
+<p id="inject-img-cap"></p>
+</div>
+
+<div id="section2">
+<h2 id="inject-h2"></h2>
+<p id="inject-c2"></p>
+
+<h3 id="inject-sh2a"></h3>
+<p id="inject-sc2a"></p>
+
+<h3 id="inject-sh2b"></h3>
+<p id="inject-sc2b"></p>
+</div>
+
+</div>
+
+<div class="mt-20 pt-10 border-t">
+<h4>Recommended for you</h4>
+<div id="recommended-list"></div>
+</div>
 
 </article>
 
 <a href="#" id="backToTop">↑</a>
-
+<div id="footer-placeholder"></div>
 </div>
 
+<script src="../../assets/js/footer-bundle.js"></script>
+<script src="../../assets/js/blog-registry.js"></script>
+
 <script>
+document.addEventListener("DOMContentLoaded", function() {
 
-/* ===== Helper ===== */
-const safe = v => v && v.trim() !== "";
+const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (!value) { el.style.display = "none"; }
+    else { el.innerText = value; }
+};
 
-/* ===== Basic ===== */
-document.getElementById("title").innerHTML = postData.title;
+const setHTML = (id, value) => {
+    const el = document.getElementById(id);
+    if (!value || value.length === 0) { el.style.display = "none"; }
+    else { el.innerHTML = value; }
+};
 
-let metaHTML = postData.date;
+setText('inject-title', postData.title);
+setText('inject-breadcrumb', postData.shortTitle || postData.title);
+setText('inject-date', postData.date);
 
-/* Reading time */
-const words = JSON.stringify(postData).split(" ").length;
-metaHTML += " • " + Math.ceil(words/200) + " min read";
+setHTML('inject-categories', postData.categories?.map(c => `<span>${c}</span>`).join(''));
+setHTML('inject-highlights', postData.highlights?.map(h => `<li>${h}</li>`).join(''));
 
-document.getElementById("meta").innerHTML = metaHTML;
+setText('tip-box', postData.tip);
+setText('warning-box', postData.warning);
 
-/* ===== Highlights ===== */
-if(postData.highlights?.length){
-document.getElementById("highlights").innerHTML =
-postData.highlights.map(h=>`<li>${h}</li>`).join("");
-}else{
-document.getElementById("highlights-box").style.display="none";
-}
+setText('inject-h1', postData.heading1);
+setText('inject-c1', postData.content1);
+setText('inject-sh1a', postData.subheading1a);
+setText('inject-sc1a', postData.subcontent1a);
+setText('inject-sh1b', postData.subheading1b);
+setText('inject-sc1b', postData.subcontent1b);
 
-/* ===== Intro ===== */
-if(safe(postData.intro)){
-document.getElementById("intro").innerHTML = `<p>${postData.intro}</p>`;
-}
+setText('inject-h2', postData.heading2);
+setText('inject-c2', postData.content2);
+setText('inject-sh2a', postData.subheading2a);
+setText('inject-sc2a', postData.subcontent2a);
+setText('inject-sh2b', postData.subheading2b);
+setText('inject-sc2b', postData.subcontent2b);
 
-/* ===== Sections + TOC ===== */
-let tocItems = [];
-let contentHTML = "";
-
-postData.sections.forEach((sec,i)=>{
-
-if(sec.type==="text" && safe(sec.content)){
-if(safe(sec.heading)){
-let id="sec-"+i;
-tocItems.push(`<li><a href="#${id}">${sec.heading}</a></li>`);
-contentHTML += `<h2 id="${id}">${sec.heading}</h2>`;
-}
-contentHTML += `<p>${sec.content}</p>`;
-}
-
-if(sec.type==="subsection" && safe(sec.content)){
-let id="sub-"+i;
-tocItems.push(`<li style="margin-left:15px;"><a href="#${id}">${sec.subheading}</a></li>`);
-contentHTML += `<h3 id="${id}">${sec.subheading}</h3>`;
-contentHTML += `<p>${sec.content}</p>`;
-}
-
-if(sec.type==="image" && safe(sec.src)){
-contentHTML += `
-<div class="image-placeholder">
-<img src="${sec.src}" style="border-radius:10px;">
-${safe(sec.caption)?`<p>${sec.caption}</p>`:""}
-</div>`;
-}
-
-if(sec.type==="quote" && safe(sec.content)){
-contentHTML += `
-<div style="border-left:4px solid var(--amber); padding:15px; background:#fff7ed;">
-<p>"${sec.content}"</p>
-${safe(sec.author)?`<p>— ${sec.author}</p>`:""}
-</div>`;
-}
-
-if(sec.type==="tip" && safe(sec.content)){
-contentHTML += `<div style="background:#ecfeff;padding:15px;"><b>Tip:</b> ${sec.content}</div>`;
-}
-
-if(sec.type==="warning" && safe(sec.content)){
-contentHTML += `<div style="background:#fef2f2;padding:15px;"><b>Warning:</b> ${sec.content}</div>`;
+if (!postData.imageFilename) {
+    document.getElementById("image-box").style.display = "none";
+} else {
+    setText('inject-img-file', "[ IMAGE: " + postData.imageFilename + " ]");
+    setText('inject-img-cap', postData.imageCaption);
 }
 
 });
-
-document.getElementById("content").innerHTML = contentHTML;
-
-/* ===== TOC ===== */
-if(tocItems.length){
-document.getElementById("toc").innerHTML = `
-<div class="highlights-box">
-<h4>Contents</h4>
-<ul>${tocItems.join("")}</ul>
-</div>`;
-}
-
-/* ===== Back to top ===== */
-const btt=document.getElementById("backToTop");
-window.onscroll=()=>{
-if(window.scrollY>300){btt.style.display="flex";}
-else{btt.style.display="none";}
-};
-btt.onclick=e=>{
-e.preventDefault();
-window.scrollTo({top:0,behavior:"smooth"});
-};
-
 </script>
 
 </body>
