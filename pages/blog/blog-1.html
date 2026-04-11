@@ -8,29 +8,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. STICKY HEADER STACK */
+        /* 1. NARROW SCREEN STICKY FIX */
         .sticky-header-group {
+            position: -webkit-sticky; /* Support for older Safari */
             position: sticky;
-            top: 70px; /* Sits under Navbar */
-            z-index: 1001;
+            top: 70px; 
+            z-index: 1100; /* Higher than other elements */
             background: white;
             width: 100%;
+            display: block !important; /* Forces visibility in all screen sizes */
         }
         
         #progress-container { width: 100%; height: 4px; background: #f1f5f9; }
         #progress-bar { height: 100%; background: #D97706; width: 0%; }
 
-        /* 2. LAYOUT & TYPOGRAPHY */
-        .blog-content h2 { color: #0f172a; font-weight: 800; font-size: 1.8rem; margin-top: 40px; margin-bottom: 5px; }
+        /* 2. CONSISTENT BLUE BRANDING (MIDNIGHT) */
+        :root { --midnight-blue: #0f172a; }
+
+        .highlights-box { 
+            background-color: #f8fafc; 
+            border-left: 4px solid var(--midnight-blue); 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 30px 0; 
+        }
+        
+        .section-title { color: var(--midnight-blue); font-weight: 800; }
+        .recommendation-link { 
+            display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; 
+            color: var(--midnight-blue); text-decoration: none; transition: 0.2s; 
+        }
+
+        /* 3. TYPOGRAPHY */
+        .blog-content h2 { color: var(--midnight-blue); font-weight: 800; font-size: 1.8rem; margin-top: 40px; margin-bottom: 5px; }
+        .lead-in-text { color: #334155; font-size: 1.1rem; font-style: italic; margin-bottom: 10px; }
         .sub-heading { color: #64748b; font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.4; }
         
-        .highlights-box { background-color: #f8fafc; border-left: 4px solid #0f172a; padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
-        
-        /* 3. BACK TO TOP BUTTON */
         #backToTop {
             position: fixed; bottom: 30px; right: 30px;
-            background: #0f172a; color: white;
+            background: var(--midnight-blue); color: white;
             width: 45px; height: 45px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; opacity: 0; transition: 0.3s; z-index: 2000;
@@ -38,22 +54,17 @@
         }
         #backToTop.visible { opacity: 1; }
         #backToTop:hover { background: #D97706; transform: translateY(-3px); }
-
-        .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #0f172a; text-decoration: none; transition: 0.2s; }
-        .recommendation-link:hover { color: #D97706; padding-left: 5px; }
     </style>
 </head>
 <body>
 
 <script>
-    
     /* ==========================================================
        EDIT YOUR CONTENT HERE
        ========================================================== */
-    
     const postData = {
         title: "Advancing Biostatistical Methods in Gerontology",
-        shortTitle: "Gerontology Methods", // Appears in the breadcrumb
+        shortTitle: "Gerontology Methods",
         date: "April 10, 2026",
         categories: ["Biostatistics", "Research Integrity"],
         
@@ -63,29 +74,28 @@
             "Ethical considerations in nursing data management."
         ],
 
+        // SECTION 1
         heading1: "Introduction to Longitudinal Analysis",
-        subHeading1: "Exploring the foundational frameworks of aging data", // Leave as "" to hide
-        content1: "This is where your first paragraph goes. You can write as much as you want here between the quotation marks.",
+        leadIn1: "Before diving into specific models, we must understand the temporal nature of aging.", 
+        subHeading1: "Exploring the foundational frameworks of aging data", 
+        content1: "This is where your first paragraph goes. You can write as much as you want here.",
         
+        // SECTION 2
         heading2: "Methodology and Data Integrity",
-        subHeading2: "Ensuring accuracy in complex nursing datasets", // Leave as "" to hide
-        content2: "This is the content for your second section. You can describe your methods or findings here.",
+        leadIn2: "Accuracy is the bedrock of any clinical research study.",
+        subHeading2: "Ensuring accuracy in complex nursing datasets", 
+        content2: "This is the content for your second section.",
         
         imageCaption: "Figure 1: Distribution of cognitive health scores across the study cohort.",
-        imageFilename: "data-chart-01.png" // Leave as "" to hide image box
+        imageFilename: "data-chart-01.png" 
     };
-
-    
-    /* ========================================================== */
-
-    
 </script>
 
     <div class="master-container">
         <nav class="navbar"></nav>
         
         <div class="sticky-header-group">
-            <div class="breadcrumb-bar" style="border-bottom: 1px solid #f1f5f9;">
+            <div class="breadcrumb-bar" style="border-bottom: 1px solid #f1f5f9; padding: 10px 20px;">
                 <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ 
                 <a href="blog.html" style="text-decoration:none; color:inherit;">BLOG</a> ❯ 
                 <span id="inject-breadcrumb" class="font-bold text-slate-400"></span>
@@ -94,7 +104,7 @@
         </div>
 
         <article class="max-w-6xl mx-auto p-8 md:p-16 blog-content">
-            <h1 id="inject-title" class="text-4xl md:text-6xl font-extrabold mb-4" style="color: #0f172a;"></h1>
+            <h1 id="inject-title" class="text-4xl md:text-6xl font-extrabold mb-4" style="color: var(--midnight-blue);"></h1>
             
             <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
                 <span id="inject-date"></span>
@@ -106,9 +116,10 @@
                 <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
             </div>
 
-            <div class="leading-relaxed text-slate-800 text-lg space-y-6">
+            <div class="leading-relaxed text-slate-800 text-lg space-y-10">
                 <div>
                     <h2 id="inject-h1"></h2>
+                    <div id="inject-lead1" class="lead-in-text"></div>
                     <div id="inject-sub1" class="sub-heading"></div>
                     <p id="inject-c1"></p>
                 </div>
@@ -120,6 +131,7 @@
 
                 <div>
                     <h2 id="inject-h2"></h2>
+                    <div id="inject-lead2" class="lead-in-text"></div>
                     <div id="inject-sub2" class="sub-heading"></div>
                     <p id="inject-c2"></p>
                 </div>
@@ -127,12 +139,12 @@
 
             <div class="mt-20 pt-10 border-t border-slate-200">
                 <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
-                <h4 class="font-bold text-xl mb-6" style="color: #0f172a;">Recommended for you</h4>
+                <h4 class="section-title text-xl mb-6">Recommended for you</h4>
                 <div id="recommended-list"></div>
             </div>
         </article>
 
-        <button id="backToTop" title="Go to top">▲</button>
+        <button id="backToTop">▲</button>
         <div id="footer-placeholder"></div>
     </div>
 
@@ -140,55 +152,48 @@
     <script src="../../assets/js/blog-registry.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 1. Injections
+            // Text Injections
             document.getElementById('inject-breadcrumb').innerText = postData.shortTitle || postData.title;
             document.getElementById('inject-title').innerText = postData.title;
             document.getElementById('inject-date').innerText = postData.date;
             
-            document.getElementById('inject-h1').innerText = postData.heading1;
-            document.getElementById('inject-c1').innerText = postData.content1;
-            
-            // Sub-heading logic: Hide if empty
-            const sub1 = document.getElementById('inject-sub1');
-            if(postData.subHeading1) { sub1.innerText = postData.subHeading1; } 
-            else { sub1.style.display = "none"; }
+            // Logic for Optional Lead-ins and Sub-headings
+            const fields = ['h1', 'lead1', 'sub1', 'c1', 'h2', 'lead2', 'sub2', 'c2'];
+            fields.forEach(field => {
+                const el = document.getElementById('inject-' + field);
+                const dataKey = field.replace('h', 'heading').replace('c', 'content').replace('lead', 'leadIn').replace('sub', 'subHeading');
+                if(postData[dataKey]) { 
+                    el.innerText = postData[dataKey]; 
+                } else { 
+                    el.style.display = "none"; 
+                }
+            });
 
-            document.getElementById('inject-h2').innerText = postData.heading2;
-            document.getElementById('inject-c2').innerText = postData.content2;
-            
-            const sub2 = document.getElementById('inject-sub2');
-            if(postData.subHeading2) { sub2.innerText = postData.subHeading2; } 
-            else { sub2.style.display = "none"; }
-
-            // Handle Image Visibility
+            // Image Logic
             const imageBox = document.getElementById('image-box');
-            if (!postData.imageFilename) {
-                imageBox.style.display = "none"; 
-            } else {
+            if (!postData.imageFilename) { imageBox.style.display = "none"; } 
+            else {
                 document.getElementById('inject-img-file').innerText = "[ IMAGE: " + postData.imageFilename + " ]";
                 document.getElementById('inject-img-cap').innerText = postData.imageCaption;
             }
 
-            // Categories & Highlights
+            // Categories
             document.getElementById('inject-categories').innerHTML = postData.categories.map(c => 
                 `<span style="background:rgba(15,23,42,0.1); color:#0f172a; padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
             ).join('');
             document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
 
-            // 2. Scroll Logic: Progress Bar & Back to Top
+            // Scroll Logic
             const btt = document.getElementById('backToTop');
             window.onscroll = function() {
                 let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
-                
-                if (winScroll > 300) { btt.classList.add('visible'); } 
-                else { btt.classList.remove('visible'); }
+                if (winScroll > 300) btt.classList.add('visible'); else btt.classList.remove('visible');
             };
-
             btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // 3. Recommendations
+            // Recommendations
             if (typeof blogPosts !== 'undefined') {
                 const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
                 document.getElementById('recommended-list').innerHTML = recs.map(p => `
