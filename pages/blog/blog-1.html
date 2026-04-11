@@ -101,7 +101,7 @@ const postData = {
             warning: "",
 
             imageCaption: "",
-            imageFilename: "",
+            imageFilename: "../../assets/img/analyst-1.JPG",
 
             subheadings: [
                 {
@@ -130,7 +130,7 @@ const postData = {
             warning: "",
 
             imageCaption: "",
-            imageFilename: "",
+            imageFilename: "../../assets/img/analyst-1.JPG",
 
             subheadings: [
                 {
@@ -160,7 +160,7 @@ const postData = {
             warning: "",
 
             imageCaption: "",
-            imageFilename: "",
+            imageFilename: "../../assets/img/analyst-1.JPG",
 
             subheadings: [
                 {
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (section.imageFilename) {
-            html += `<div class="image-placeholder"><p class="text-slate-400 font-mono text-xs mb-2">[ IMAGE: ${section.imageFilename} ]</p><p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p></div>`;
+            html += `<div class="image-placeholder"> <img src="${section.imageFilename}" style="max-width:100%; border-radius:8px; margin-bottom:10px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
         }
 
         if (section.between) html += `<p>${section.between}</p>`;
