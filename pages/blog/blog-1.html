@@ -201,12 +201,16 @@
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         };
                                     
-            
-
-            const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
+                    const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
             document.getElementById('recommended-list').innerHTML = recs.map(p => `
                 <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
             `).join('');
+        
+            // Force highlight the 'Blog' tab in the navbar
+            const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
+            if (blogLink) {
+                blogLink.classList.add('active'); 
+            }
         });
     </script>
 </body>
