@@ -57,11 +57,10 @@
 <body>
 
 <script>
-    
 /* ==========================================================
    EDIT YOUR CONTENT HERE
    ========================================================== */
-    
+
 const postData = {
     title: "Advancing Biostatistical Methods in Gerontology or Whatever Title comes here and it may be too long",
     shortTitle: "Gerontology methods is my short title",
@@ -76,28 +75,46 @@ const postData = {
     tip: "This is where I write my first tip",
     warning: "This is a very important warning",
 
-    heading1: "Introduction to Longitudinal Analysis is my first Heading",
-    content1: "I can write here any paragraph. I acn also leave it bank as it is an optional content under my main heading xxxxxxxxxxxxxxxxxxxxxxxxxx.I can write here any paragraph. I acn also leave it bank as it is an optional content under my main heading xxxxxxxxxxxxxxxxxxxxxxxxxx ",
-    sub1a: "This is my sub-heading 1 and good",
-    sub1a_content: " contnt under the subheading. mmmmmmm. I can write here any paragraph. I acn also leave it bank as it is an optional content under my main heading xxxxxxxxxxxxxxxxxxxxxxxxxx",
-    sub1b: "This is another Sub-heading",
-    sub1b_content: "content under the subheading and of course can be removed. I can write here any paragraph. I acn also leave it bank as it is an optional content under my main heading xxxxxxxxxxxxxxxxxxxxxxxxxx",
+    sections: [
+        {
+            heading: "Introduction to Longitudinal Analysis is my first Heading",
+            content: "Main paragraph here...",
+            between: "Optional paragraph between sections",
 
-    between1: "What is this between? is it between heading 1 and 2? Probaby I can write here any paragraph. I acn also leave it bank as it is an optional content under my main heading xxxxxxxxxxxxxxxxxxxxxxxxxx",
-    
-    heading2: "Methodology and Data Integrity",
-    content2: "",
-    sub2a: "",
-    sub2a_content: "",
-    sub2b: "",
-    sub2b_content: "",
+            tip: "",
+            warning: "",
 
-    imageCaption: "Figure 1: this should be the figure name.",
-    imageFilename: "assets/img/analyst-1.JPG"
+            imageCaption: "",
+            imageFilename: "",
+
+            subheadings: [
+                {
+                    title: "This is my sub-heading 1 and good",
+                    content: "Content under subheading"
+                },
+                {
+                    title: "This is another Sub-heading",
+                    content: "More content"
+                }
+            ]
+        },
+        {
+            heading: "Methodology and Data Integrity",
+            content: "",
+            between: "",
+
+            tip: "",
+            warning: "",
+
+            imageCaption: "Figure 1: this should be the figure name.",
+            imageFilename: "assets/img/analyst-1.JPG",
+
+            subheadings: []
+        }
+    ]
 };
-    
+
 /* ========================================================== */
-    
 </script>
 
 <div class="master-container">
@@ -115,7 +132,7 @@ const postData = {
     <article class="max-w-5xl mx-auto p-6 md:p-16 blog-content">
         <h1 id="inject-title" class="text-3xl md:text-4xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
         
-        <div class="flex items-center gap-4 mb-8 text-sm text-slate-500" id="meta-container">
+        <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
             <span id="inject-date"></span>
             <div id="inject-categories" class="flex gap-2"></div>
         </div>
@@ -135,34 +152,7 @@ const postData = {
             <p id="inject-warning"></p>
         </div>
 
-        <div class="leading-relaxed text-slate-800 text-lg space-y-6">
-
-            <h2 id="inject-h1"></h2>
-            <p id="inject-c1"></p>
-
-            <h3 id="inject-sub1a"></h3>
-            <p id="inject-sub1a-c"></p>
-
-            <h3 id="inject-sub1b"></h3>
-            <p id="inject-sub1b-c"></p>
-
-            <p id="inject-between1"></p>
-
-            <div class="image-placeholder">
-                <p id="inject-img-file" class="text-slate-400 font-mono text-xs mb-2"></p>
-                <p id="inject-img-cap" class="italic text-sm text-slate-500"></p>
-            </div>
-
-            <h2 id="inject-h2"></h2>
-            <p id="inject-c2"></p>
-
-            <h3 id="inject-sub2a"></h3>
-            <p id="inject-sub2a-c"></p>
-
-            <h3 id="inject-sub2b"></h3>
-            <p id="inject-sub2b-c"></p>
-
-        </div>
+        <div id="dynamic-content" class="leading-relaxed text-slate-800 text-lg space-y-6"></div>
 
         <div class="mt-20 pt-10 border-t border-slate-200">
             <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
@@ -184,13 +174,6 @@ const setOrHide = (id, value) => {
     if (!el) return;
     if (!value || value === "") el.style.display = "none";
     else el.innerText = value;
-};
-
-const hideContainerIfEmpty = (containerId, value) => {
-    if (!value || value === "") {
-        const el = document.getElementById(containerId);
-        if (el) el.style.display = "none";
-    }
 };
 
 const syncNav = () => {
@@ -218,33 +201,46 @@ document.addEventListener("DOMContentLoaded", function() {
     else document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
 
     setOrHide('inject-tip', postData.tip);
-    hideContainerIfEmpty('tip-box', postData.tip);
+    if (!postData.tip) document.getElementById('tip-box').style.display = "none";
 
     setOrHide('inject-warning', postData.warning);
-    hideContainerIfEmpty('warning-box', postData.warning);
+    if (!postData.warning) document.getElementById('warning-box').style.display = "none";
 
-    setOrHide('inject-h1', postData.heading1);
-    setOrHide('inject-c1', postData.content1);
-    setOrHide('inject-sub1a', postData.sub1a);
-    setOrHide('inject-sub1a-c', postData.sub1a_content);
-    setOrHide('inject-sub1b', postData.sub1b);
-    setOrHide('inject-sub1b-c', postData.sub1b_content);
+    const container = document.getElementById('dynamic-content');
 
-    setOrHide('inject-between1', postData.between1);
+    postData.sections.forEach(section => {
 
-    setOrHide('inject-h2', postData.heading2);
-    setOrHide('inject-c2', postData.content2);
-    setOrHide('inject-sub2a', postData.sub2a);
-    setOrHide('inject-sub2a-c', postData.sub2a_content);
-    setOrHide('inject-sub2b', postData.sub2b);
-    setOrHide('inject-sub2b-c', postData.sub2b_content);
+        if (!section.heading && !section.content && (!section.subheadings || section.subheadings.length === 0)) return;
 
-    const imageBox = document.querySelector('.image-placeholder');
-    if (!postData.imageFilename) imageBox.style.display = "none";
-    else {
-        document.getElementById('inject-img-file').innerText = "[ IMAGE: " + postData.imageFilename + " ]";
-        document.getElementById('inject-img-cap').innerText = postData.imageCaption;
-    }
+        let html = "";
+
+        if (section.heading) html += `<h2>${section.heading}</h2>`;
+        if (section.content) html += `<p>${section.content}</p>`;
+
+        if (section.subheadings) {
+            section.subheadings.forEach(sub => {
+                if (sub.title) html += `<h3>${sub.title}</h3>`;
+                if (sub.content) html += `<p>${sub.content}</p>`;
+            });
+        }
+
+        if (section.tip) {
+            html += `<div class="tip-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#06b6d4;">Tip</h4><p>${section.tip}</p></div>`;
+        }
+
+        if (section.warning) {
+            html += `<div class="warning-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#f97316;">Warning</h4><p>${section.warning}</p></div>`;
+        }
+
+        if (section.imageFilename) {
+            html += `<div class="image-placeholder"><p class="text-slate-400 font-mono text-xs mb-2">[ IMAGE: ${section.imageFilename} ]</p><p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p></div>`;
+        }
+
+        if (section.between) html += `<p>${section.between}</p>`;
+
+        container.innerHTML += html;
+
+    });
 
     const btt = document.getElementById('backToTop');
     window.onscroll = function() {
@@ -271,5 +267,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 </script>
+
 </body>
 </html>
