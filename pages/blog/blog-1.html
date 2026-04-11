@@ -1,222 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post | Dr. Sameh Eltaybani</title>
-    <link rel="stylesheet" href="../../assets/css/custom-style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* --- STICKY NAVIGATION FIXES --- */
-        .sticky-header-container {
-            position: sticky;
-            top: var(--nav-height, 70px);
-            z-index: 1001;
-            background: white;
-            width: 100%;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        #progress-container { 
-            width: 100%; 
-            height: 4px; 
-            background: #f1f5f9; 
-        }
+<title>Blog Post | Dr. Sameh Eltaybani</title>
 
-        #progress-bar { 
-            height: 100%; 
-            background: var(--amber); 
-            width: 0%; 
-        }
+<link rel="stylesheet" href="../../assets/css/custom-style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-        /* --- ORIGINAL STYLES PRESERVED --- */
-        .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; }
-        .image-placeholder { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 40px; text-align: center; border-radius: 12px; margin: 30px 0; }
-        .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
-        .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
+<style>
+/* ===== Layout adjustment (HALF margins) ===== */
+.blog-wrapper {
+    max-width: 900px; /* reduced from ~1200+ */
+    margin: auto;
+    padding: 40px 20px;
+}
 
-        /* Back to Top Arrow */
-        #backToTop {
-                    position: fixed;
-                    bottom: 30px;
-                    right: 30px;
-                    width: 45px;
-                    height: 45px;
-                    background-color: var(--amber);
-                    color: white;
-                    border-radius: 50%;
-                    display: none; /* Logic in JS will change this to 'flex' */
-                    align-items: center;
-                    justify-content: center;
-                    text-decoration: none;
-                    z-index: 3000;
-                    transition: 0.3s;
-                }
-                
-                #backToTop:hover {
-                    background-color: var(--midnight);
-                    transform: translateY(-5px);
-                }
-        #backToTop.visible { opacity: 1; }
-    </style>
+/* ===== Existing styles kept ===== */
+.highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
+.blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.5rem; margin-top: 40px; }
+.blog-content h3 { color: var(--midnight); font-weight: 700; font-size: 1.2rem; margin-top: 25px; }
+.image-placeholder { margin: 30px 0; }
+.recommendation-link { display:block; padding:10px 0; border-bottom:1px solid #e2e8f0; }
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--amber);
+    color: white;
+    border-radius: 50%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+</style>
 </head>
+
 <body>
 
 <script>
-    /* ==========================================================
-       EDIT YOUR CONTENT HERE
-       ========================================================== */
-    const postData = {
-        title: "Advancing Biostatistical Methods in Gerontology",
-        shortTitle: "Gerontology Methods", // Used for the sticky breadcrumb
-        date: "April 10, 2026",
-        categories: ["Biostatistics", "Research Integrity"],
-        highlights: [
-            "Key finding regarding longitudinal data in aging populations.",
-            "Implementation of advanced Python-based analytics.",
-            "Ethical considerations in nursing data management."
-        ],
-        heading1: "Introduction to Longitudinal Analysis",
-        content1: "This is where your first paragraph goes. You can write as much as you want here between the quotation marks.",
-        heading2: "Methodology and Data Integrity",
-        content2: "This is the content for your second section. You can describe your methods or findings here.",
-        imageCaption: "Figure 1: Distribution of cognitive health scores across the study cohort.",
-        imageFilename: "data-chart-01.png"
-    };
-    /* ========================================================== */
+/* ===============================
+   EDIT ONLY THIS SECTION
+================================ */
+const postData = {
+
+title: "Advancing Biostatistical Methods in Gerontology",
+shortTitle: "Gerontology Methods",
+date: "April 10, 2026",
+
+intro: "This article explores modern statistical approaches in aging research. You can also explore related work at <a href='https://www.ncbi.nlm.nih.gov' target='_blank'>this external resource</a>.",
+
+categories: ["Biostatistics","Aging","Data Science"],
+
+highlights: [
+"Longitudinal modeling improves accuracy",
+"Python enhances reproducibility",
+"Ethics is critical in healthcare data"
+],
+
+sections: [
+
+{
+type:"text",
+heading:"Introduction to Longitudinal Analysis",
+content:"Longitudinal data tracks individuals over time. For example, you can review <a href='https://en.wikipedia.org/wiki/Longitudinal_study' target='_blank'>this explanation of longitudinal studies</a>."
+},
+
+{
+type:"subsection",
+subheading:"Why it matters",
+content:"Understanding changes over time is essential in gerontology."
+},
+
+{
+type:"image",
+src:"../../assets/img/reel-5-trial.webp",
+caption:"Study design overview"
+},
+
+{
+type:"text",
+heading:"Methodology",
+content:"Data integrity ensures reliability of results."
+},
+
+{
+type:"subsection",
+subheading:"Missing Data Handling",
+content:"Missing data must be handled carefully to avoid bias."
+},
+
+{
+type:"quote",
+content:"Good data tells a story — great analysis reveals truth.",
+author:"Dr. Sameh"
+},
+
+{
+type:"tip",
+content:"Always validate your dataset before analysis."
+},
+
+{
+type:"warning",
+content:"Ignoring missing data can invalidate your study."
+},
+
+{
+type:"image",
+src:"../../assets/img/analyst-6.JPG",
+caption:"Analytical workflow"
+}
+
+]
+
+};
+/* =============================== */
 </script>
 
-    <div class="master-container">
-        <nav class="navbar"></nav>
-        
-        <div class="sticky-header-container">
-            <div class="breadcrumb-bar" style="border-bottom: 1px solid #f1f5f9;">
-                <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ 
-                <a href="blog.html" style="text-decoration:none; color:inherit;">BLOG</a> ❯ 
-                <span id="inject-breadcrumb"></span>
-            </div>
-            <div id="progress-container"><div id="progress-bar"></div></div>
-        </div>
+<div class="master-container">
+<nav class="navbar"></nav>
 
-        <article class="max-w-4xl mx-auto p-8 md:p-16 blog-content">
-            <h1 id="inject-title" class="text-4xl md:text-5xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
-            
-            <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
-                <span id="inject-date"></span>
-                <div id="inject-categories" class="flex gap-2"></div>
-            </div>
+<article class="blog-wrapper blog-content">
 
-            <div class="highlights-box">
-                <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
-                <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
-            </div>
+<h1 id="title"></h1>
 
-            <div class="leading-relaxed text-slate-800 text-lg space-y-6">
-                <h2 id="inject-h1"></h2>
-                <p id="inject-c1"></p>
+<div id="meta"></div>
 
-                <div class="image-placeholder">
-                    <p id="inject-img-file" class="text-slate-400 font-mono text-xs mb-2"></p>
-                    <p id="inject-img-cap" class="italic text-sm text-slate-500"></p>
-                </div>
+<div id="highlights-box" class="highlights-box">
+<h4>Highlights</h4>
+<ul id="highlights"></ul>
+</div>
 
-                <h2 id="inject-h2"></h2>
-                <p id="inject-c2"></p>
-            </div>
+<div id="toc"></div>
 
-            <div class="mt-20 pt-10 border-t border-slate-200">
-                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
-                <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
-                <div id="recommended-list"></div>
-            </div>
-        </article>
+<div id="intro"></div>
 
-        <a href="#" id="backToTop" style="display:none; text-decoration:none;">↑</a>
-        <div id="footer-placeholder"></div>
-    </div>
+<div id="content"></div>
 
-    <script src="../../assets/js/footer-bundle.js"></script>
-    <script src="../../assets/js/blog-registry.js"></script>
-    <script>
-        // 1. DYNAMIC NAVIGATION OBSERVER
-        const syncNav = () => {
-            const nav = document.querySelector('.navbar');
-            if (nav) {
-                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
-            }
-        };
-        const resizeObs = new ResizeObserver(() => syncNav());
+</article>
 
-        document.addEventListener("DOMContentLoaded", function() {
+<a href="#" id="backToTop">↑</a>
 
-             // Force highlight the 'Blog' tab instantly
-                            const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
-                            if (blogLink) {
-                                // We add the classes individually so it doesn't "reset" the button first
-                                blogLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
-                                // This removes any "transition" animation for the first half-second to prevent the blink
-                                blogLink.style.transition = "none"; 
-                            }
-            
-            // Observe Navbar for height changes
-            const nav = document.querySelector('.navbar');
-            if (nav) resizeObs.observe(nav);
-            syncNav();
+</div>
 
-            // Injection Logic
-            document.getElementById('inject-breadcrumb').innerText = postData.shortTitle || postData.title;
-            document.getElementById('inject-title').innerText = postData.title;
-            document.getElementById('inject-date').innerText = postData.date;
-            document.getElementById('inject-h1').innerText = postData.heading1;
-            document.getElementById('inject-c1').innerText = postData.content1;
-            document.getElementById('inject-h2').innerText = postData.heading2;
-            document.getElementById('inject-c2').innerText = postData.content2;
+<script>
 
-            const imageBox = document.querySelector('.image-placeholder');
-            if (postData.imageFilename === "") {
-                imageBox.style.display = "none"; 
-            } else {
-                imageBox.style.display = "block";
-                document.getElementById('inject-img-file').innerText = "[ IMAGE: " + postData.imageFilename + " ]";
-                document.getElementById('inject-img-cap').innerText = postData.imageCaption;
-            }
+/* ===== Helper ===== */
+const safe = v => v && v.trim() !== "";
 
-            document.getElementById('inject-categories').innerHTML = postData.categories.map(c => 
-                `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
-            ).join('');
+/* ===== Basic ===== */
+document.getElementById("title").innerHTML = postData.title;
 
-            document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
+let metaHTML = postData.date;
 
-            // Scroll Logic (Progress Bar & Back to Top)
-                        const btt = document.getElementById('backToTop');
-                        window.onscroll = function() {
-                            let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                            
-                            // Progress bar update
-                            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
-                            
-                            // Back to Top visibility
-                            if (winScroll > 300) {
-                                btt.style.display = "flex";
-                            } else {
-                                btt.style.display = "none";
-                            }
-                        };
-                        
-                        // Smooth scroll to top
-                        btt.onclick = (e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        };
-                                    
-                    const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
-            document.getElementById('recommended-list').innerHTML = recs.map(p => `
-                <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
-            `).join('');
-                   
-        });
-    </script>
+/* Reading time */
+const words = JSON.stringify(postData).split(" ").length;
+metaHTML += " • " + Math.ceil(words/200) + " min read";
+
+document.getElementById("meta").innerHTML = metaHTML;
+
+/* ===== Highlights ===== */
+if(postData.highlights?.length){
+document.getElementById("highlights").innerHTML =
+postData.highlights.map(h=>`<li>${h}</li>`).join("");
+}else{
+document.getElementById("highlights-box").style.display="none";
+}
+
+/* ===== Intro ===== */
+if(safe(postData.intro)){
+document.getElementById("intro").innerHTML = `<p>${postData.intro}</p>`;
+}
+
+/* ===== Sections + TOC ===== */
+let tocItems = [];
+let contentHTML = "";
+
+postData.sections.forEach((sec,i)=>{
+
+if(sec.type==="text" && safe(sec.content)){
+if(safe(sec.heading)){
+let id="sec-"+i;
+tocItems.push(`<li><a href="#${id}">${sec.heading}</a></li>`);
+contentHTML += `<h2 id="${id}">${sec.heading}</h2>`;
+}
+contentHTML += `<p>${sec.content}</p>`;
+}
+
+if(sec.type==="subsection" && safe(sec.content)){
+let id="sub-"+i;
+tocItems.push(`<li style="margin-left:15px;"><a href="#${id}">${sec.subheading}</a></li>`);
+contentHTML += `<h3 id="${id}">${sec.subheading}</h3>`;
+contentHTML += `<p>${sec.content}</p>`;
+}
+
+if(sec.type==="image" && safe(sec.src)){
+contentHTML += `
+<div class="image-placeholder">
+<img src="${sec.src}" style="border-radius:10px;">
+${safe(sec.caption)?`<p>${sec.caption}</p>`:""}
+</div>`;
+}
+
+if(sec.type==="quote" && safe(sec.content)){
+contentHTML += `
+<div style="border-left:4px solid var(--amber); padding:15px; background:#fff7ed;">
+<p>"${sec.content}"</p>
+${safe(sec.author)?`<p>— ${sec.author}</p>`:""}
+</div>`;
+}
+
+if(sec.type==="tip" && safe(sec.content)){
+contentHTML += `<div style="background:#ecfeff;padding:15px;"><b>Tip:</b> ${sec.content}</div>`;
+}
+
+if(sec.type==="warning" && safe(sec.content)){
+contentHTML += `<div style="background:#fef2f2;padding:15px;"><b>Warning:</b> ${sec.content}</div>`;
+}
+
+});
+
+document.getElementById("content").innerHTML = contentHTML;
+
+/* ===== TOC ===== */
+if(tocItems.length){
+document.getElementById("toc").innerHTML = `
+<div class="highlights-box">
+<h4>Contents</h4>
+<ul>${tocItems.join("")}</ul>
+</div>`;
+}
+
+/* ===== Back to top ===== */
+const btt=document.getElementById("backToTop");
+window.onscroll=()=>{
+if(window.scrollY>300){btt.style.display="flex";}
+else{btt.style.display="none";}
+};
+btt.onclick=e=>{
+e.preventDefault();
+window.scrollTo({top:0,behavior:"smooth"});
+};
+
+</script>
+
 </body>
 </html>
