@@ -101,7 +101,7 @@ const postData = {
             warning: "",
 
             imageCaption: "This is the figure explaining everything",
-            imageFilename: "../../assets/img/analyst-1.JPG",
+            imageFilename: "analyst-1.JPG",
 
             subheadings: [
                 {
@@ -130,7 +130,7 @@ const postData = {
             warning: "",
 
             imageCaption: "",
-            imageFilename: "../../assets/img/analyst-1.JPG",
+            imageFilename: "",
 
             subheadings: [
                 {
@@ -160,7 +160,7 @@ const postData = {
             warning: "",
 
             imageCaption: "",
-            imageFilename: "../../assets/img/analyst-1.JPG",
+            imageFilename: "analyst-1.JPG",
 
             subheadings: [
                 {
@@ -249,7 +249,8 @@ const postData = {
 <script src="../../assets/js/blog-registry.js"></script>
 
 <script>
-const setOrHide = (id, value) => {
+    const IMAGE_BASE_PATH = "../../assets/img/";
+    const setOrHide = (id, value) => {
     const el = document.getElementById(id);
     if (!el) return;
     if (!value || value === "") el.style.display = "none";
@@ -313,7 +314,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (section.imageFilename) {
-            html += `<div class="image-placeholder"> <img src="${section.imageFilename}" style="max-width:100%; height:auto; display:block; margin:0 auto 10px; border-radius:8px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
+            html += `<div class="image-placeholder"> 
+            <img src="${section.imageFilename.startsWith('http') || section.imageFilename.includes('/') ? section.imageFilename 
+    : IMAGE_BASE_PATH + section.imageFilename}" style="max-width:100%; height:auto; display:block; margin:0 auto 10px; border-radius:8px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
         }
 
         if (section.between) html += `<p>${section.between}</p>`;
