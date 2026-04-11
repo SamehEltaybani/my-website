@@ -149,6 +149,16 @@
         const resizeObs = new ResizeObserver(() => syncNav());
 
         document.addEventListener("DOMContentLoaded", function() {
+
+             // Force highlight the 'Blog' tab instantly
+                            const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
+                            if (blogLink) {
+                                // We add the classes individually so it doesn't "reset" the button first
+                                blogLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
+                                // This removes any "transition" animation for the first half-second to prevent the blink
+                                blogLink.style.transition = "none"; 
+                            }
+            
             // Observe Navbar for height changes
             const nav = document.querySelector('.navbar');
             if (nav) resizeObs.observe(nav);
@@ -205,12 +215,7 @@
             document.getElementById('recommended-list').innerHTML = recs.map(p => `
                 <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
             `).join('');
-        
-            // Force highlight the 'Blog' tab in the navbar
-            const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
-            if (blogLink) {
-                blogLink.classList.add('active'); 
-            }
+                   
         });
     </script>
 </body>
