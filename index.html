@@ -120,26 +120,66 @@
     <script>
     let currentIndex = 1; 
     const track = document.getElementById('reel-track');
-    const slides = document.querySelectorAll('.reel-slide');
+    let slides = Array.from(document.querySelectorAll('.reel-slide'));
 
-    function moveCarousel(step) {
-        if (!slides.length) return;
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + step + slides.length) % slides.length;
-        slides[currentIndex].classList.add('active');
+    // 1. Setup Infinite Loop (Clone slides)
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    
+    track.appendChild(firstClone); // Add first at the end
+    track.insertBefore(lastClone, track.firstChild); // Add last at the beginning
+
+    // Update slides list to include clones
+    const allSlides = document.querySelectorAll('.reel-slide');
+
+    function moveCarousel(step, instant = false) {
+        // Remove active class from current
+        allSlides.forEach(s => s.classList.remove('active'));
         
+        currentIndex += step;
+
+        if (!instant) {
+            track.style.transition = "transform 0.5s ease-in-out";
+        } else {
+            track.style.transition = "none";
+        }
+
+        // Calculate Position
         const viewport = document.querySelector('.reel-viewport');
         const viewportWidth = viewport.offsetWidth;
-        const activeSlide = slides[currentIndex];
+        const activeSlide = allSlides[currentIndex];
         const centerPoint = viewportWidth / 2;
         const slideCenterOffset = activeSlide.offsetLeft + (activeSlide.offsetWidth / 2);
         const finalTransform = centerPoint - slideCenterOffset;
-        
+
         track.style.transform = `translateX(${finalTransform}px)`;
+        activeSlide.classList.add('active');
+
+        // 2. The "Seamless" Jump Logic
+        track.addEventListener('transitionend', () => {
+            // If we are on the "Last Clone" (at the very start)
+            if (allSlides[currentIndex] === lastClone) {
+                track.style.transition = "none";
+                currentIndex = allSlides.length - 2; // Jump to real last slide
+                moveCarousel(0, true);
+            }
+            // If we are on the "First Clone" (at the very end)
+            if (allSlides[currentIndex] === firstClone) {
+                track.style.transition = "none";
+                currentIndex = 1; // Jump to real first slide
+                moveCarousel(0, true);
+            }
+        });
     }
 
-    window.onload = () => moveCarousel(0);
-    window.addEventListener('resize', () => moveCarousel(0));
+    // Initialize
+    window.onload = () => {
+        // Start at 1 because index 0 is now a clone
+        currentIndex = 1;
+        moveCarousel(0, true);
+    };
+
+    window.addEventListener('resize', () => moveCarousel(0, true));
 
     let autoPlay = setInterval(() => moveCarousel(1), 4000);
 
