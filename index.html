@@ -32,14 +32,15 @@
         }
 
         /* Fading Divider Line */
+        
         .fading-line {
-            height: 1px;
-            width: 70%;
-            max-width: 600px;
-            margin: 40px auto 10px auto;
-            background: linear-gradient(to right, transparent, #b45309, transparent);
-            opacity: 0.5;
-        }
+    height: 1px;
+    width: 100%; /* Change to 100% so the gradient has full room to fade */
+    max-width: 800px; /* Limits how wide the "bold" center gets on PC */
+    margin: 20px auto 10px auto;
+    background: linear-gradient(to right, transparent, #b45309, transparent);
+    opacity: 0.5;
+                    }
     </style>
 </head>
 <body>
@@ -67,8 +68,10 @@
                 <button onclick="manualMove(1)" class="reel-btn">NEXT ❯</button>
             </div>
 
-            <div class="fading-line"></div>
-        </div>
+            
+        </div> 
+        
+        <div class="fading-line"></div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
             <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6 tracking-tight">Advancing Gerontological Care Through Data Science</h1>
