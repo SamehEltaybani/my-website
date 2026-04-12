@@ -7,6 +7,40 @@
     <link rel="stylesheet" href="assets/css/custom-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Modern Button Styling */
+        .reel-btn {
+            background-color: #f1f5f9; /* Matches slate-100 */
+            color: #0f172a;           /* Matches midnight blue */
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .reel-btn:hover {
+            background-color: var(--amber, #b45309);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(180, 83, 9, 0.2);
+            border-color: #b45309;
+        }
+
+        /* Fading Divider Line */
+        .fading-line {
+            height: 1px;
+            width: 70%;
+            max-width: 600px;
+            margin: 40px auto 10px auto;
+            background: linear-gradient(to right, transparent, #b45309, transparent);
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,23 +51,24 @@
             <span>HOME</span>
         </div>
 
-       <div class="p-4 overflow-hidden">
-    <div class="reel-viewport">
-        <div class="reel-track" id="reel-track">
-            <img src="assets/img/reel-5-trial.webp" class="reel-slide">
-            <img src="assets/img/reel-1-trial.webp" class="reel-slide active">
-            <img src="assets/img/reel-2-trial.webp" class="reel-slide">
-            <img src="assets/img/reel-3-trial.webp" class="reel-slide">
-            <img src="assets/img/reel-4-trial.webp" class="reel-slide">
+        <div class="p-4 overflow-hidden">
+            <div class="reel-viewport">
+                <div class="reel-track" id="reel-track">
+                    <img src="assets/img/reel-5-trial.webp" class="reel-slide">
+                    <img src="assets/img/reel-1-trial.webp" class="reel-slide active">
+                    <img src="assets/img/reel-2-trial.webp" class="reel-slide">
+                    <img src="assets/img/reel-3-trial.webp" class="reel-slide">
+                    <img src="assets/img/reel-4-trial.webp" class="reel-slide">
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-6 mt-6">
+                <button onclick="manualMove(-1)" class="reel-btn">❮ PREV</button>
+                <button onclick="manualMove(1)" class="reel-btn">NEXT ❯</button>
+            </div>
+
+            <div class="fading-line"></div>
         </div>
-    </div>
-    
-    <div class="flex justify-center gap-4 mt-2">
-    <button onclick="manualMove(-1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">❮ PREV</button>
-    <button onclick="manualMove(1)" class="bg-slate-200 hover:bg-amber-800 hover:text-white px-5 py-2 rounded-full text-xs font-black transition">NEXT ❯</button>
-</div>
-           
-</div>
 
         <div class="p-12 text-center max-w-4xl mx-auto">
             <h1 style="color: var(--midnight);" class="text-4xl font-extrabold mb-6 tracking-tight">Advancing Gerontological Care Through Data Science</h1>
@@ -85,45 +120,31 @@
     const slides = document.querySelectorAll('.reel-slide');
 
     function moveCarousel(step) {
-        // 1. Remove active class from old slide
+        if (!slides.length) return;
         slides[currentIndex].classList.remove('active');
-        
-        // 2. Calculate new index
         currentIndex = (currentIndex + step + slides.length) % slides.length;
-        
-        // 3. Add active class to new slide
         slides[currentIndex].classList.add('active');
         
-        // 4. Calculate center position
         const viewport = document.querySelector('.reel-viewport');
         const viewportWidth = viewport.offsetWidth;
         const activeSlide = slides[currentIndex];
-        
-        // Find the center point of the viewport
         const centerPoint = viewportWidth / 2;
-        
-        // Find how far the slide is from the start of the track
         const slideCenterOffset = activeSlide.offsetLeft + (activeSlide.offsetWidth / 2);
-        
-        // Calculate movement
         const finalTransform = centerPoint - slideCenterOffset;
         
         track.style.transform = `translateX(${finalTransform}px)`;
     }
 
-    // Initialize position and handle window resizing
     window.onload = () => moveCarousel(0);
     window.addEventListener('resize', () => moveCarousel(0));
 
-    // 4 Second Timer (increased slightly for better readability)
     let autoPlay = setInterval(() => moveCarousel(1), 4000);
 
-    // Pause timer if user manually clicks
     function manualMove(step) {
         clearInterval(autoPlay);
         moveCarousel(step);
         autoPlay = setInterval(() => moveCarousel(1), 4000);
     }
-</script>
+    </script>
 </body>
 </html>
