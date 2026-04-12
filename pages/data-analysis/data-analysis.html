@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- PHILOSOPHY & HIGHLIGHTS SECTION --- */
+        
+        /* --- PHILOSOPHY & HIGHLIGHTS --- */
         .vision-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e293b 100%);
+            background: linear-gradient(to bottom, #1e3a8a 0%, #1e293b 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -42,7 +43,7 @@
         }
 
         @media (min-width: 768px) {
-            .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+            .highlights-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         .highlight-item {
@@ -62,6 +63,7 @@
         }
 
         /* --- 10 PILLARS GRID SECTION --- */
+        
         .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
@@ -83,7 +85,7 @@
         }
 
         .pillar-card {
-            background: white;
+            background: #F8FAFC;
             border-radius: 15px;
             overflow: hidden;
             display: flex;
@@ -135,7 +137,7 @@
 
         .pillar-desc {
             font-size: 0.95rem;
-            color: #64748b;
+            color: #000000;
             line-height: 1.6;
             margin-bottom: 20px;
             flex-grow: 1;
@@ -201,12 +203,13 @@
 
     <script src="../../assets/js/footer-bundle.js"></script>
     <script>
+        
         /* 
            =========================================
-           DATA ANALYSIS REGISTRY (EASY TO AMEND)
+           DATA ANALYSIS POINTS
            =========================================
-           To update content, simply edit the values below.
         */
+        
         const analysisPillars = [
             {
                 title: "Longitudinal Aging Trends",
@@ -270,6 +273,7 @@
             }
         ];
 
+       
         // Function to render the pillars
         function renderPillars() {
             const grid = document.getElementById('pillars-grid');
