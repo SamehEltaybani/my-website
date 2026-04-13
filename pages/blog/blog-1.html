@@ -19,15 +19,26 @@
         #progress-container { width: 100%; height: 4px; background: #f1f5f9; }
         #progress-bar { height: 100%; background: var(--amber); width: 0%; }
 
+        /* Callout Boxes */
         .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
         .tip-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 20px; border-radius: 8px; margin: 30px 0; }
         .warning-box { background-color: #fff7ed; border-left: 4px solid #f97316; padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .note-box { background-color: #eff6ff; border-left: 4px solid #1e3a8a; padding: 20px; border-radius: 8px; margin: 30px 0; }
 
-        .blog-content h2 {color: var(--midnight);font-weight: 800;font-size: 1.5rem;margin-top: 40px;margin-bottom: 15px;line-height: 1.2;}
-        .blog-content h3 {margin-top: 20px;font-weight: 800;position: relative;padding-left: 20px;}
-        .blog-content h3::before {content: "";position: absolute;left: 0;top: 6px;width: 4px;height: 70%;background-color: var(--amber);border-radius: 2px;}
+        /* Content Styling */
+        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.75rem; margin-top: 45px; margin-bottom: 20px; line-height: 1.2; }
+        .blog-content h3 { margin-top: 30px; margin-bottom: 15px; font-weight: 800; font-size: 1.3rem; position: relative; padding-left: 20px; color: var(--midnight); }
+        .blog-content h3::before { content: ""; position: absolute; left: 0; top: 6px; width: 4px; height: 70%; background-color: var(--amber); border-radius: 2px; }
+        
+        .blog-content p { margin-bottom: 20px; line-height: 1.8; }
+        .blog-content ul.bullet-list { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 20px; }
+        .blog-content ol.numbered-list { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 20px; }
+        .blog-content li { margin-bottom: 8px; }
 
-        .image-placeholder { padding: 0px; text-align: center; margin: 30px 0; }
+        .image-container { text-align: center; margin: 40px 0; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 12px; }
+        .image-caption { font-style: italic; font-size: 0.9rem; color: #64748b; }
+
         .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
         .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
 
@@ -47,146 +58,95 @@
             z-index: 3000;
             transition: 0.3s;
         }
-
-        #backToTop:hover {
-            background-color: var(--midnight);
-            transform: translateY(-5px);
-        }
+        #backToTop:hover { background-color: var(--midnight); transform: translateY(-5px); }
     </style>
 </head>
 <body>
 
 <script>
-    
 /* ==========================================================
    EDIT YOUR CONTENT HERE
    ========================================================== */
 
 const postData = {
+    // 1. Basic Information
+    title: "The Future of Healthcare Data Analytics",
+    shortTitle: "Healthcare Analytics",
+    date: "April 13, 2026",
+    categories: ["Data Science", "Healthcare", "Innovation"],
 
-
-
-
-
-    
-    
-    title: "Topic title here",
-    shortTitle: "Short title here",
-    date: "April 10, 2026",
-    categories: ["Biostatistics", "Research Integrity"],
+    // 2. Top Section Highlights (Leave empty [] to hide)
     highlights: [
-        "Highlight first point here.",
-        "Highlight second point here.",
-        "Highlight third point here."
+        "Predictive modeling is transforming patient readmission rates.",
+        "Real-time data integration improves clinical decision-making.",
+        "Ethical AI frameworks are essential for patient trust."
     ],
 
-    tip: "Tip here at the top",
-    warning: "Warning here at the top",
-
-
-
-
-
-    
-    
-    sections: [
-       
-        
-        {
-            heading: "Heading 1 is here",
-            content: "Content under heading 1 Main paragraph here...",
-            between: " between under coontent of heading 1 Optional paragraph between sections",
-
-            tip: " the first tip",
-            warning: "the first warning",
-
-            imageCaption: "This is the figure explaining everything",
-            imageFilename: "analyst-1.JPG",
-
-            subheadings: [
-                {
-                    title: "subheading 1 under heading 1 This is my sub-heading 1 and good",
-                    content: "Content under subheading 1 of the heading 1"
-                },
-                {
-                    title: "subheading 2 under heading 1 This is another Sub-heading",
-                    content: "More content is here under subheading 2 if heading 1"
-                }
-            ]
+    // 3. FLEXIBLE CONTENT ARRAY
+    // You can place these in ANY order. 
+    // Types: 'paragraph', 'heading', 'subheading', 'bulletList', 'numberedList', 'image', 'tip', 'warning', 'note'
+    content: [
+        { 
+            type: 'paragraph', 
+            text: "In the rapidly evolving landscape of modern medicine, <b>data analysis</b> has emerged as a cornerstone of clinical excellence. By leveraging <i>advanced statistical methods</i>, healthcare providers can now move beyond reactive care toward a more proactive, predictive model." 
         },
-
-
-
-
-
-        
-        
-        {
-            heading: " heading 2 Introduction to Longitudinal Analysis is my first Heading",
-            content: "Main paragraph here under heading 2 ...",
-            between: "Optional paragraph between sections under heading 2",
-            content: "several international journals",
-            between: "research areas include care quality, patient safety, palliative care, end-of-life care, critical care, and gerontology. Dr. Eltaybani has published several quantitative, qualitative, and mixed-method research, as well as systematic reviews and study protocols in top international academic journals. He also serves as an Editorial member, statistical reviewer, and ad hoc reviewer for several international journals",
-            content: "  His research areas include care quality, p",
-            between: " healthcare quality for vulnerable populations, particularly older people and those in intensive care units. His research areas include care quality, p",
-
-            tip: "",
-            warning: "",
-
-            imageCaption: "",
-            imageFilename: "",
-
-            subheadings: [
-                {
-                    title: "This is my sub-heading 1 and good",
-                    content: "Content under subheading"
-                },
-                {
-                    title: "This is another Sub-heading",
-                    content: "More content"
-                }
-            ]
+        { 
+            type: 'tip', 
+            text: "Always ensure your data sources are cleaned and validated before running complex multivariate regressions." 
         },
-
-
-
-
-      
-        
-        
-        
-        {
-            heading: "Introduction to Longitudinal Analysis is my first Heading",
-            content: "Main paragraph here...",
-            between: "Optional paragraph between sections",
-
-            tip: "",
-            warning: "",
-
-            imageCaption: "",
-            imageFilename: "analyst-1.JPG",
-
-            subheadings: [
-                {
-                    title: "This is my sub-heading 1 and good",
-                    content: "Content under subheading"
-                },
-                {
-                    title: "This is another Sub-heading",
-                    content: "More content"
-                }
-                    },
-
-        
-
-        
+        { 
+            type: 'heading', 
+            text: "The Power of Predictive Modeling" 
+        },
+        { 
+            type: 'paragraph', 
+            text: "Predictive models allow us to identify high-risk patients before complications arise. This is particularly useful in geriatric care, where early intervention can significantly improve quality of life." 
+        },
+        { 
+            type: 'image', 
+            src: "../../assets/img/analyst-1.JPG", 
+            caption: "Figure 1: Visualization of longitudinal aging trends and cognitive decline." 
+        },
+        { 
+            type: 'subheading', 
+            text: "Key Benefits of Data Integration" 
+        },
+        { 
+            type: 'bulletList', 
+            items: [
+                "Reduced operational costs through staffing optimization.",
+                "Enhanced patient safety via real-time monitoring.",
+                "Improved resource distribution in rural sectors."
+            ] 
+        },
+        { 
+            type: 'note', 
+            text: "Note: This analysis assumes a standardized electronic health record (EHR) system is in place across all departments." 
+        },
+        { 
+            type: 'heading', 
+            text: "Implementation Challenges" 
+        },
+        { 
+            type: 'numberedList', 
+            items: [
+                "1. Data privacy and HIPAA compliance.",
+                "2. Interoperability between different hospital systems.",
+                "3. Resistance to change among clinical staff."
+            ] 
+        },
+        { 
+            type: 'warning', 
+            text: "Warning: Over-reliance on automated models without clinical oversight can lead to algorithmic bias." 
+        },
+        { 
+            type: 'paragraph', 
+            text: "To learn more about these topics, visit our <u>Research</u> section or check out the <sub>subscript</sub> and <sup>superscript</sup> examples here." 
+        }
     ]
 };
 
 /* ========================================================== */
-
-
-    
 </script>
 
 <div class="master-container">
@@ -202,30 +162,24 @@ const postData = {
     </div>
 
     <article class="max-w-5xl mx-auto p-6 md:p-16 blog-content">
-        <h1 id="inject-title" class="text-3xl md:text-4xl font-extrabold mb-4" style="color: var(--midnight);"></h1>
+        <!-- Title & Meta -->
+        <h1 id="inject-title" class="text-3xl md:text-5xl font-extrabold mb-6" style="color: var(--midnight);"></h1>
         
-        <div class="flex items-center gap-4 mb-8 text-sm text-slate-500">
+        <div class="flex items-center gap-4 mb-10 text-sm text-slate-500">
             <span id="inject-date"></span>
             <div id="inject-categories" class="flex gap-2"></div>
         </div>
 
+        <!-- Highlights Box -->
         <div class="highlights-box" id="highlights-box">
             <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
             <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
         </div>
 
-        <div class="tip-box" id="tip-box">
-            <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#06b6d4;">Tip</h4>
-            <p id="inject-tip"></p>
-        </div>
+        <!-- Dynamic Content Area -->
+        <div id="dynamic-content" class="leading-relaxed text-slate-800 text-lg"></div>
 
-        <div class="warning-box" id="warning-box">
-            <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#f97316;">Warning</h4>
-            <p id="inject-warning"></p>
-        </div>
-
-        <div id="dynamic-content" class="leading-relaxed text-slate-800 text-lg space-y-6"></div>
-
+        <!-- Footer Section -->
         <div class="mt-20 pt-10 border-t border-slate-200">
             <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
             <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
@@ -233,7 +187,7 @@ const postData = {
         </div>
     </article>
 
-    <a href="#" id="backToTop" style="display:none; text-decoration:none;">↑</a>
+    <a href="#" id="backToTop">↑</a>
     <div id="footer-placeholder"></div>
 </div>
 
@@ -241,82 +195,94 @@ const postData = {
 <script src="../../assets/js/blog-registry.js"></script>
 
 <script>
-    const IMAGE_BASE_PATH = "../../assets/img/";
-    const setOrHide = (id, value) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (!value || value === "") el.style.display = "none";
-    else el.innerText = value;
-};
-
-const syncNav = () => {
-    const nav = document.querySelector('.navbar');
-    if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
-};
-const resizeObs = new ResizeObserver(() => syncNav());
-
 document.addEventListener("DOMContentLoaded", function() {
-
+    // 1. Sync Navigation Height
+    const syncNav = () => {
+        const nav = document.querySelector('.navbar');
+        if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+    };
+    const resizeObs = new ResizeObserver(() => syncNav());
     const nav = document.querySelector('.navbar');
     if (nav) resizeObs.observe(nav);
     syncNav();
 
+    // 2. Inject Basic Info
     document.getElementById('inject-breadcrumb').innerText = postData.shortTitle || postData.title;
+    document.getElementById('inject-title').innerText = postData.title;
+    document.getElementById('inject-date').innerText = postData.date;
 
-    setOrHide('inject-title', postData.title);
-    setOrHide('inject-date', postData.date);
+    // 3. Inject Categories
+    const catContainer = document.getElementById('inject-categories');
+    if (postData.categories && postData.categories.length > 0) {
+        catContainer.innerHTML = postData.categories.map(c => 
+            `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
+        ).join('');
+    }
 
-    document.getElementById('inject-categories').innerHTML = postData.categories.map(c => 
-        `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
-    ).join('');
+    // 4. Inject Highlights
+    const highBox = document.getElementById('highlights-box');
+    if (!postData.highlights || postData.highlights.length === 0) {
+        highBox.style.display = "none";
+    } else {
+        document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
+    }
 
-    if (!postData.highlights.length) document.getElementById('highlights-box').style.display = "none";
-    else document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
-
-    setOrHide('inject-tip', postData.tip);
-    if (!postData.tip) document.getElementById('tip-box').style.display = "none";
-
-    setOrHide('inject-warning', postData.warning);
-    if (!postData.warning) document.getElementById('warning-box').style.display = "none";
-
+    // 5. RENDER DYNAMIC CONTENT
     const container = document.getElementById('dynamic-content');
+    let finalHtml = "";
 
-    postData.sections.forEach(section => {
+    postData.content.forEach(item => {
+        if (!item.text && !item.items && !item.src) return; // Skip empty items
 
-        if (!section.heading && !section.content && (!section.subheadings || section.subheadings.length === 0)) return;
-
-        let html = "";
-
-        if (section.heading) html += `<h2>${section.heading}</h2>`;
-        if (section.content) html += `<p>${section.content}</p>`;
-
-        if (section.subheadings) {
-            section.subheadings.forEach(sub => {
-                if (sub.title) html += `<h3>${sub.title}</h3>`;
-                if (sub.content) html += `<p>${sub.content}</p>`;
-            });
+        switch(item.type) {
+            case 'paragraph':
+                finalHtml += `<p>${item.text}</p>`;
+                break;
+            case 'heading':
+                finalHtml += `<h2>${item.text}</h2>`;
+                break;
+            case 'subheading':
+                finalHtml += `<h3>${item.text}</h3>`;
+                break;
+            case 'bulletList':
+                finalHtml += `<ul class="bullet-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ul>`;
+                break;
+            case 'numberedList':
+                finalHtml += `<ol class="numbered-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ol>`;
+                break;
+            case 'image':
+                finalHtml += `
+                    <div class="image-container">
+                        <img src="${item.src}" alt="${item.caption || 'Blog Image'}">
+                        ${item.caption ? `<p class="image-caption">${item.caption}</p>` : ''}
+                    </div>`;
+                break;
+            case 'tip':
+                finalHtml += `
+                    <div class="tip-box">
+                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#06b6d4;">Tip</h4>
+                        <p>${item.text}</p>
+                    </div>`;
+                break;
+            case 'warning':
+                finalHtml += `
+                    <div class="warning-box">
+                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#f97316;">Warning</h4>
+                        <p>${item.text}</p>
+                    </div>`;
+                break;
+            case 'note':
+                finalHtml += `
+                    <div class="note-box">
+                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#1e3a8a;">Note</h4>
+                        <p>${item.text}</p>
+                    </div>`;
+                break;
         }
-
-        if (section.tip) {
-            html += `<div class="tip-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#06b6d4;">Tip</h4><p>${section.tip}</p></div>`;
-        }
-
-        if (section.warning) {
-            html += `<div class="warning-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#f97316;">Warning</h4><p>${section.warning}</p></div>`;
-        }
-
-        if (section.imageFilename) {
-            html += `<div class="image-placeholder"> 
-            <img src="${section.imageFilename.startsWith('http') || section.imageFilename.includes('/') ? section.imageFilename 
-    : IMAGE_BASE_PATH + section.imageFilename}" style="max-width:100%; height:auto; display:block; margin:0 auto 10px; border-radius:8px;"> <p class="italic text-sm text-slate-500">${section.imageCaption || ""}</p> </div>`;
-        }
-
-        if (section.between) html += `<p>${section.between}</p>`;
-
-        container.innerHTML += html;
-
     });
+    container.innerHTML = finalHtml;
 
+    // 6. Progress Bar & Back to Top
     const btt = document.getElementById('backToTop');
     window.onscroll = function() {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -324,17 +290,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
         btt.style.display = winScroll > 300 ? "flex" : "none";
     };
+    btt.onclick = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-    btt.onclick = (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    // 7. Recommendations
+    if (typeof blogPosts !== 'undefined') {
+        const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
+        document.getElementById('recommended-list').innerHTML = recs.map(p => `
+            <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
+        `).join('');
+    }
 
-    const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
-    document.getElementById('recommended-list').innerHTML = recs.map(p => `
-        <a href="${p.link}" class="recommendation-link">${p.title} <span class="text-slate-300 text-xs ml-2">— ${p.date}</span></a>
-    `).join('');
-
+    // 8. Navigation Highlight
     const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
     if (blogLink) {
         blogLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
