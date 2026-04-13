@@ -19,25 +19,48 @@
         #progress-container { width: 100%; height: 4px; background: #f1f5f9; }
         #progress-bar { height: 100%; background: var(--amber); width: 0%; }
 
-        /* Callout Boxes */
-        .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .tip-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .warning-box { background-color: #fff7ed; border-left: 4px solid #f97316; padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .note-box { background-color: #eff6ff; border-left: 4px solid #1e3a8a; padding: 20px; border-radius: 8px; margin: 30px 0; }
+        /* Callout Boxes - Compacted */
+        .highlights-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
+        .tip-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
+        .warning-box { background-color: #fff7ed; border-left: 4px solid #f97316; padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
+        .note-box { background-color: #f8fafc; border-left: 4px solid var(--midnight); padding: 15px 20px; border-radius: 8px; margin: 20px 0; }
 
-        /* Content Styling */
-        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.75rem; margin-top: 45px; margin-bottom: 20px; line-height: 1.2; }
-        .blog-content h3 { margin-top: 30px; margin-bottom: 15px; font-weight: 800; font-size: 1.3rem; position: relative; padding-left: 20px; color: var(--midnight); }
+        /* Action Boxes (With Buttons) */
+        .action-box { position: relative; padding-bottom: 50px !important; }
+        .action-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            background: #1e293b;
+            color: white !important;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .action-btn:hover { background: var(--amber); transform: translateY(-2px); }
+
+        /* Content Styling - Dark Black Text */
+        .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.75rem; margin-top: 40px; margin-bottom: 15px; line-height: 1.2; }
+        .blog-content h3 { margin-top: 25px; margin-bottom: 12px; font-weight: 800; font-size: 1.3rem; position: relative; padding-left: 20px; color: var(--midnight); }
         .blog-content h3::before { content: ""; position: absolute; left: 0; top: 6px; width: 4px; height: 70%; background-color: var(--amber); border-radius: 2px; }
         
-        .blog-content p { margin-bottom: 20px; line-height: 1.8; }
-        .blog-content ul.bullet-list { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 20px; }
-        .blog-content ol.numbered-list { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 20px; }
-        .blog-content li { margin-bottom: 8px; }
+        .blog-content p, .blog-content li, .tip-box p, .warning-box p, .note-box p { 
+            color: #000000 !important; 
+            margin-bottom: 18px; 
+            line-height: 1.8; 
+        }
+        
+        .blog-content ul.bullet-list { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 18px; }
+        .blog-content ol.numbered-list { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 18px; }
+        .blog-content li { margin-bottom: 6px; }
 
-        .image-container { text-align: center; margin: 40px 0; }
-        .image-container img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 12px; }
-        .image-caption { font-style: italic; font-size: 0.9rem; color: #64748b; }
+        .image-container { text-align: center; margin: 35px 0; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); margin-bottom: 10px; }
+        .image-caption { font-style: italic; font-size: 0.85rem; color: #64748b; }
 
         .recommendation-link { display: block; padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: var(--midnight); text-decoration: none; transition: 0.2s; }
         .recommendation-link:hover { color: var(--amber); padding-left: 5px; }
@@ -69,79 +92,71 @@
    ========================================================== */
 
 const postData = {
-    // 1. Basic Information
-    title: "The Future of Healthcare Data Analytics",
-    shortTitle: "Healthcare Analytics",
+    title: "Advanced Clinical Data Management",
+    shortTitle: "Data Management",
     date: "April 13, 2026",
-    categories: ["Data Science", "Healthcare", "Innovation"],
+    categories: ["Clinical Research", "Data Integrity"],
 
-    // 2. Top Section Highlights (Leave empty [] to hide)
     highlights: [
-        "Predictive modeling is transforming patient readmission rates.",
-        "Real-time data integration improves clinical decision-making.",
-        "Ethical AI frameworks are essential for patient trust."
+        "Ensuring data quality through rigorous validation protocols.",
+        "Implementing secure cloud-based storage for patient records.",
+        "Streamlining data entry workflows for clinical staff."
     ],
 
-    // 3. FLEXIBLE CONTENT ARRAY
-    // You can place these in ANY order. 
+    // FLEXIBLE CONTENT ARRAY
     // Types: 'paragraph', 'heading', 'subheading', 'bulletList', 'numberedList', 'image', 'tip', 'warning', 'note'
+    // Action Types: 'tipAction', 'warningAction', 'noteAction' (Includes a button)
     content: [
         { 
             type: 'paragraph', 
-            text: "In the rapidly evolving landscape of modern medicine, <b>data analysis</b> has emerged as a cornerstone of clinical excellence. By leveraging <i>advanced statistical methods</i>, healthcare providers can now move beyond reactive care toward a more proactive, predictive model." 
+            text: "Effective data management is the backbone of any successful clinical study. By ensuring that information is captured accurately and stored securely, researchers can maintain the <b>integrity</b> of their findings and protect patient privacy." 
         },
         { 
-            type: 'tip', 
-            text: "Always ensure your data sources are cleaned and validated before running complex multivariate regressions." 
+            type: 'note', 
+            text: "This note box now matches the highlights style with a light gray background and navy border, and it is more compact vertically." 
         },
         { 
             type: 'heading', 
-            text: "The Power of Predictive Modeling" 
+            text: "Data Validation Strategies" 
         },
         { 
             type: 'paragraph', 
-            text: "Predictive models allow us to identify high-risk patients before complications arise. This is particularly useful in geriatric care, where early intervention can significantly improve quality of life." 
+            text: "Validation should occur at multiple stages, from initial entry to final analysis. This prevents errors from propagating through the dataset." 
         },
         { 
-            type: 'image', 
-            src: "../../assets/img/analyst-1.JPG", 
-            caption: "Figure 1: Visualization of longitudinal aging trends and cognitive decline." 
+            type: 'tipAction', 
+            text: "Check out our full guide on data validation protocols for more detailed steps.",
+            btnText: "Click that button to go >",
+            btnUrl: "https://example.com/validation-guide"
         },
         { 
             type: 'subheading', 
-            text: "Key Benefits of Data Integration" 
+            text: "Common Pitfalls" 
         },
         { 
             type: 'bulletList', 
             items: [
-                "Reduced operational costs through staffing optimization.",
-                "Enhanced patient safety via real-time monitoring.",
-                "Improved resource distribution in rural sectors."
+                "Inconsistent unit measurements across different sites.",
+                "Missing data points due to poor form design.",
+                "Lack of standardized naming conventions."
             ] 
         },
         { 
-            type: 'note', 
-            text: "Note: This analysis assumes a standardized electronic health record (EHR) system is in place across all departments." 
+            type: 'warningAction', 
+            text: "Security breaches can occur if encryption is not applied to data in transit.",
+            btnText: "Security Protocol >",
+            btnUrl: "https://example.com/security"
         },
         { 
-            type: 'heading', 
-            text: "Implementation Challenges" 
+            type: 'image', 
+            src: "../../assets/img/analyst-2.JPG", 
+            caption: "Figure 1: Overview of a secure clinical data pipeline." 
         },
         { 
-            type: 'numberedList', 
-            items: [
-                "1. Data privacy and HIPAA compliance.",
-                "2. Interoperability between different hospital systems.",
-                "3. Resistance to change among clinical staff."
-            ] 
-        },
-        { 
-            type: 'warning', 
-            text: "Warning: Over-reliance on automated models without clinical oversight can lead to algorithmic bias." 
-        },
-        { 
-            type: 'paragraph', 
-            text: "To learn more about these topics, visit our <u>Research</u> section or check out the <sub>subscript</sub> and <sup>superscript</sup> examples here." 
+            type: 'noteAction', 
+            text: "You can also use these action boxes for external resources or related blog posts.",
+            btnText: "Read Related Post >",
+            btnUrl: "https://example.com/blog-205"
         }
     ]
 };
@@ -162,7 +177,6 @@ const postData = {
     </div>
 
     <article class="max-w-5xl mx-auto p-6 md:p-16 blog-content">
-        <!-- Title & Meta -->
         <h1 id="inject-title" class="text-3xl md:text-5xl font-extrabold mb-6" style="color: var(--midnight);"></h1>
         
         <div class="flex items-center gap-4 mb-10 text-sm text-slate-500">
@@ -170,16 +184,13 @@ const postData = {
             <div id="inject-categories" class="flex gap-2"></div>
         </div>
 
-        <!-- Highlights Box -->
         <div class="highlights-box" id="highlights-box">
             <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color: var(--amber);">Highlights</h4>
-            <ul id="inject-highlights" class="list-disc ml-5 space-y-2 text-slate-700"></ul>
+            <ul id="inject-highlights" class="list-disc ml-5 space-y-2"></ul>
         </div>
 
-        <!-- Dynamic Content Area -->
-        <div id="dynamic-content" class="leading-relaxed text-slate-800 text-lg"></div>
+        <div id="dynamic-content"></div>
 
-        <!-- Footer Section -->
         <div class="mt-20 pt-10 border-t border-slate-200">
             <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
             <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
@@ -196,7 +207,6 @@ const postData = {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Sync Navigation Height
     const syncNav = () => {
         const nav = document.querySelector('.navbar');
         if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
@@ -206,20 +216,17 @@ document.addEventListener("DOMContentLoaded", function() {
     if (nav) resizeObs.observe(nav);
     syncNav();
 
-    // 2. Inject Basic Info
     document.getElementById('inject-breadcrumb').innerText = postData.shortTitle || postData.title;
     document.getElementById('inject-title').innerText = postData.title;
     document.getElementById('inject-date').innerText = postData.date;
 
-    // 3. Inject Categories
     const catContainer = document.getElementById('inject-categories');
-    if (postData.categories && postData.categories.length > 0) {
+    if (postData.categories) {
         catContainer.innerHTML = postData.categories.map(c => 
             `<span style="background:rgba(30,58,138,0.1); color:var(--midnight); padding:2px 10px; border-radius:4px; font-size:10px; font-weight:800; text-transform:uppercase;">${c}</span>`
         ).join('');
     }
 
-    // 4. Inject Highlights
     const highBox = document.getElementById('highlights-box');
     if (!postData.highlights || postData.highlights.length === 0) {
         highBox.style.display = "none";
@@ -227,62 +234,41 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('inject-highlights').innerHTML = postData.highlights.map(h => `<li>${h}</li>`).join('');
     }
 
-    // 5. RENDER DYNAMIC CONTENT
     const container = document.getElementById('dynamic-content');
     let finalHtml = "";
 
     postData.content.forEach(item => {
-        if (!item.text && !item.items && !item.src) return; // Skip empty items
-
         switch(item.type) {
-            case 'paragraph':
-                finalHtml += `<p>${item.text}</p>`;
-                break;
-            case 'heading':
-                finalHtml += `<h2>${item.text}</h2>`;
-                break;
-            case 'subheading':
-                finalHtml += `<h3>${item.text}</h3>`;
-                break;
-            case 'bulletList':
-                finalHtml += `<ul class="bullet-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ul>`;
-                break;
-            case 'numberedList':
-                finalHtml += `<ol class="numbered-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ol>`;
-                break;
+            case 'paragraph': finalHtml += `<p>${item.text}</p>`; break;
+            case 'heading': finalHtml += `<h2>${item.text}</h2>`; break;
+            case 'subheading': finalHtml += `<h3>${item.text}</h3>`; break;
+            case 'bulletList': finalHtml += `<ul class="bullet-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ul>`; break;
+            case 'numberedList': finalHtml += `<ol class="numbered-list">${item.items.map(li => `<li>${li}</li>`).join('')}</ol>`; break;
             case 'image':
-                finalHtml += `
-                    <div class="image-container">
-                        <img src="${item.src}" alt="${item.caption || 'Blog Image'}">
-                        ${item.caption ? `<p class="image-caption">${item.caption}</p>` : ''}
-                    </div>`;
+                finalHtml += `<div class="image-container"><img src="${item.src}" alt="${item.caption || ''}">${item.caption ? `<p class="image-caption">${item.caption}</p>` : ''}</div>`;
                 break;
             case 'tip':
-                finalHtml += `
-                    <div class="tip-box">
-                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#06b6d4;">Tip</h4>
-                        <p>${item.text}</p>
-                    </div>`;
+                finalHtml += `<div class="tip-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:#06b6d4;">Tip</h4><p>${item.text}</p></div>`;
                 break;
             case 'warning':
-                finalHtml += `
-                    <div class="warning-box">
-                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#f97316;">Warning</h4>
-                        <p>${item.text}</p>
-                    </div>`;
+                finalHtml += `<div class="warning-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:#f97316;">Warning</h4><p>${item.text}</p></div>`;
                 break;
             case 'note':
-                finalHtml += `
-                    <div class="note-box">
-                        <h4 class="uppercase tracking-widest text-xs font-bold mb-3" style="color:#1e3a8a;">Note</h4>
-                        <p>${item.text}</p>
-                    </div>`;
+                finalHtml += `<div class="note-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:var(--midnight);">Note</h4><p>${item.text}</p></div>`;
+                break;
+            case 'tipAction':
+                finalHtml += `<div class="tip-box action-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:#06b6d4;">Tip</h4><p>${item.text}</p><a href="${item.btnUrl}" target="_blank" class="action-btn">${item.btnText}</a></div>`;
+                break;
+            case 'warningAction':
+                finalHtml += `<div class="warning-box action-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:#f97316;">Warning</h4><p>${item.text}</p><a href="${item.btnUrl}" target="_blank" class="action-btn">${item.btnText}</a></div>`;
+                break;
+            case 'noteAction':
+                finalHtml += `<div class="note-box action-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:var(--midnight);">Note</h4><p>${item.text}</p><a href="${item.btnUrl}" target="_blank" class="action-btn">${item.btnText}</a></div>`;
                 break;
         }
     });
     container.innerHTML = finalHtml;
 
-    // 6. Progress Bar & Back to Top
     const btt = document.getElementById('backToTop');
     window.onscroll = function() {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -292,7 +278,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     btt.onclick = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-    // 7. Recommendations
     if (typeof blogPosts !== 'undefined') {
         const recs = blogPosts.filter(p => p.title !== postData.title).slice(0, 5);
         document.getElementById('recommended-list').innerHTML = recs.map(p => `
@@ -300,7 +285,6 @@ document.addEventListener("DOMContentLoaded", function() {
         `).join('');
     }
 
-    // 8. Navigation Highlight
     const blogLink = document.querySelector('.navbar a[href*="blog.html"]');
     if (blogLink) {
         blogLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
