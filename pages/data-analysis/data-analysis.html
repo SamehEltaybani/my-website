@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analysis | Dr. Sameh Eltaybani</title>
-
-    <!-- ✅ RESTORED CORRECTLY -->
-    <link rel="stylesheet" href="../../assetsnk href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheetcom
-
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        
         /* --- PHILOSOPHY & HIGHLIGHTS --- */
         .vision-header {
             background: linear-gradient(to top, #1e3a8a 0%, #1e293b 100%);
@@ -30,8 +30,40 @@
             margin: 0 auto 40px;
             font-size: 1.2rem;
             line-height: 1.8;
+            font-weight: 300;
+            opacity: 0.9;
         }
 
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fbbf24;
+        }
+
+        .highlight-sep {
+            font-weight: 800;
+            color: #D97706;
+            font-size: 1.5rem;
+        }
+
+        /* --- 10 PILLARS GRID SECTION --- */
+        
         .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
@@ -48,24 +80,49 @@
             .pillars-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
+        @media (min-width: 1024px) {
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         .pillar-card {
             background: #F8FAFC;
             border-radius: 15px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            border: 1px solid #e2e8f0;
             border-left: 5px solid #D97706;
             border-right: 5px solid #1e3a8a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .pillar-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pillar-img-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .pillar-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pillar-card:hover .pillar-img-box img {
+            transform: scale(1.05);
         }
 
         .pillar-content {
             padding: 25px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
@@ -73,24 +130,32 @@
         .pillar-title {
             font-size: 1.25rem;
             font-weight: 800;
+            color: #1e293b;
             margin-bottom: 12px;
+            line-height: 1.3;
         }
 
         .pillar-desc {
-            flex-grow: 1;
+            font-size: 0.95rem;
+            color: #000000;
+            line-height: 1.6;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .read-more-btn {
+            align-self: flex-start;
             background: #1e3a8a;
-            color: white;
+            color: white !important;
             padding: 8px 20px;
             border-radius: 6px;
             font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
-            text-decoration: none;
+            letter-spacing: 0.5px;
             transition: 0.3s;
-            align-self: flex-start;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .read-more-btn:hover {
@@ -99,65 +164,139 @@
         }
     </style>
 </head>
-
 <body>
 
-<div class="master-container">
+    <div class="master-container">
+        <nav class="navbar"></nav>
 
-    <nav class="navbar"></nav>
+        <div class="breadcrumb-bar">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
+        </div>
 
-    <div class="breadcrumb-bar">
-        <a href="../../index.html" DATA ANALYSIS
+        <!-- VISION & PHILOSOPHY SECTION -->
+        <header class="vision-header">
+            <div class="max-w-5xl mx-auto px-4">
+                <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
+                <p class="vision-text" id="vision-placeholder">
+                    <!-- Developed Vision Statement -->
+                    My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
+                </p>
+                
+                <!-- THREE KEY HIGHLIGHTS -->
+                <div class="highlights-grid">
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 10 PILLARS OF UNIQUENESS -->
+        <main class="pillars-container">
+            <div id="pillars-grid" class="pillars-grid">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
     </div>
 
-    <header class="vision-header">
-        <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
-        <p class="vision-text">
-            Every data point represents a human story waiting to be told.
-        </p>
-    </header>
+    <script src="../../assets/js/footer-bundle.js"></script>
+    <script>
+        
+        /* 
+           =========================================
+           DATA ANALYSIS POINTS
+           =========================================
+        */
+        
+        const analysisPillars = [
+            {
+                title: "Longitudinal Aging Trends",
+                desc: "Advanced visualization of cognitive decline trajectories over a decade of patient monitoring, identifying critical intervention windows.",
+                img: "../../assets/img/analyst-1.JPG",
+                blogId: "201"
+            },
+            {
+                title: "Predictive Health Modeling",
+                desc: "Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations.",
+                img: "../../assets/img/analyst-2.JPG",
+                blogId: "202"
+            },
+            {
+                title: "Geospatial Service Analysis",
+                desc: "Mapping healthcare access disparities across urban and rural sectors using GIS data to optimize resource distribution.",
+                img: "../../assets/img/analyst-3.JPG",
+                blogId: "203"
+            },
+            {
+                title: "Survival Analysis Models",
+                desc: "Implementing Kaplan-Meier curves to assess recovery success phases for patients transitioning from intensive care to long-term wards.",
+                img: "../../assets/img/analyst-4.JPG",
+                blogId: "204"
+            },
+            {
+                title: "Cluster Analysis",
+                desc: "Identifying patient archetypes through unsupervised learning to personalize care plans and improve clinical outcomes.",
+                img: "../../assets/img/analyst-5.JPG",
+                blogId: "205"
+            },
+            {
+                title: "Bibliometric Networks",
+                desc: "Visualizing the global evolution of nursing research topics and collaboration hubs using science mapping techniques.",
+                img: "../../assets/img/analyst-6.JPG",
+                blogId: "206"
+            },
+            {
+                title: "Multivariate Regression",
+                desc: "Sophisticated adjustment for socio-environmental variables in large-scale studies exploring health risks among vulnerable populations.",
+                img: "../../assets/img/analyst-7.JPG",
+                blogId: "207"
+            },
+            {
+                title: "Staffing Optimization",
+                desc: "Statistical modeling to balance nurse-to-patient ratios, ensuring workforce well-being while maintaining high care standards.",
+                img: "../../assets/img/analyst-8.JPG",
+                blogId: "208"
+            },
+            {
+                title: "Sentiment Mining",
+                desc: "Natural language processing applied to clinical interviews to extract hidden stressors and facilitators in healthcare environments.",
+                img: "../../assets/img/analyst-9.JPG",
+                blogId: "209"
+            },
+            {
+                title: "Resource Distribution",
+                desc: "Quantifying the impact of clinical integration on hospital efficiency and palliative care accessibility through economic modeling.",
+                img: "../../assets/img/analyst-10.JPG",
+                blogId: "210"
+            }
+        ];
 
-    <main class="pillars-container">
-        <div id="pillars-grid" class="pillars-grid"></div>
-    </main>
-
-    <div id="footer-placeholder"></div>
-</div>
-
-<!-- ✅ RESTORED CORRECTLY -->
-<script src="../../assets/jse.js</script>
-
-<script>
-    const analysisPillars = [
-        { title:"Longitudinal Aging Trends", desc:"Advanced visualization of cognitive decline.", blogId:"201" },
-        { title:"Predictive Health Modeling", desc:"Machine learning for readmission risk.", blogId:"202" },
-        { title:"Geospatial Service Analysis", desc:"Mapping healthcare access.", blogId:"203" },
-        { title:"Survival Analysis Models", desc:"Kaplan‑Meier recovery studies.", blogId:"204" },
-        { title:"Cluster Analysis", desc:"Patient archetype identification.", blogId:"205" },
-        { title:"Bibliometric Networks", desc:"Evolution of nursing research.", blogId:"206" },
-        { title:"Multivariate Regression", desc:"Socio‑environmental risk modeling.", blogId:"207" },
-        { title:"Staffing Optimization", desc:"Balancing nurse‑patient ratios.", blogId:"208" },
-        { title:"Sentiment Mining", desc:"NLP on clinical interviews.", blogId:"209" },
-        { title:"Resource Distribution", desc:"Hospital efficiency modeling.", blogId:"210" }
-    ];
-
-    function renderPillars() {
-        document.getElementById("pillars-grid").innerHTML =
-            analysisPillars.map(p => `
+       
+        // Function to render the pillars
+        function renderPillars() {
+            const grid = document.getElementById('pillars-grid');
+            grid.innerHTML = analysisPillars.map(p => `
                 <div class="pillar-card">
+                    <div class="pillar-img-box">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                    </div>
                     <div class="pillar-content">
                         <h3 class="pillar-title">${p.title}</h3>
                         <p class="pillar-desc">${p.desc}</p>
-                        <a href="pages/blog/blog-${phtml
-                            Read more >>
-                        </a>
+                        <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn">Read more >></a>
                     </div>
                 </div>
-            `).join("");
-    }
+            `).join('');
+        }
 
-    window.onload = renderPillars;
-</script>
-
+        // Initialize page
+        window.onload = () => {
+            renderPillars();
+            // Ensure navigation highlight remains (handled by your site-wide scripts, 
+            // but we ensure the structure allows it)
+        };
+    </script>
 </body>
 </html>
