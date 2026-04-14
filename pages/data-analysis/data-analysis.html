@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analysis | Dr. Sameh Eltaybani</title>
 
-    <link rel="stylesheet" href="../../assets/css/custom-style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External styles -->
+    <link relets/css/custom-style.css
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&displaycript src="httpsndcss.com
 
     <style>
         /* --- PHILOSOPHY & HIGHLIGHTS --- */
@@ -109,7 +109,7 @@
 
         .pillar-section-text-1 {
             background: #F1F5F9;
-            color: #000000;
+            color: #000;
             padding: 20px;
             font-size: 0.95rem;
             line-height: 1.6;
@@ -117,7 +117,7 @@
 
         .pillar-section-text-2 {
             background: #FEF3C7;
-            color: #000000;
+            color: #000;
             padding: 20px;
             font-size: 0.95rem;
             line-height: 1.6;
@@ -152,15 +152,14 @@
     <nav class="navbar"></nav>
 
     <div class="breadcrumb-bar">
-        <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
-    </div>
+        <a href="../../index.html" style="text-decorationv>
 
     <!-- VISION SECTION -->
     <header class="vision-header">
         <div class="max-w-5xl mx-auto px-4">
             <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
             <p class="vision-text">
-                My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
+                My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights.
             </p>
 
             <div class="highlights-grid">
@@ -179,20 +178,25 @@
     <div id="footer-placeholder"></div>
 </div>
 
-<script src="../../assets/js/footer-bundle.js"></script>
-
+<script src="../../assets/js/footer-bundle
 <script>
     const analysisPillars = [
-        { blogId: "201" }, { blogId: "202" }, { blogId: "203" }, { blogId: "204" },
-        { blogId: "205" }, { blogId: "206" }, { blogId: "207" }, { blogId: "208" },
-        { blogId: "209" }, { blogId: "210" }
+        "201","202","203","204","205",
+        "206","207","208","209","210"
     ];
 
     function renderPillars() {
-        const grid = document.getElementById('pillars-grid');
-        grid.innerHTML = analysisPillars.map(p => `
+        const grid = document.getElementById("pillars-grid");
+        grid.innerHTML = analysisPillars.map(id => `
             <div class="pillar-card">
                 <div class="pillar-section-heading">Heading here</div>
                 <div class="pillar-section-text-1">Text 1 here</div>
                 <div class="pillar-section-text-2">Text 2 here</div>
-                <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn
+                <a href="pages/blog/blog-${id}.html" class="read-more        </div>
+        `).join("");
+    }
+
+    window.onload = renderPillars;
+</script>
+</body>
+</html>
