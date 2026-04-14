@@ -70,46 +70,36 @@
             font-size: 1.4rem;
         }
 
-        /* --- CALL TO ACTION BUTTONS --- */
+        /* --- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) --- */
         .cta-section {
             max-width: 1200px;
             margin: 40px auto 0;
             padding: 0 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column; /* Stacked vertically */
+            align-items: center; /* Centered horizontally */
+            gap: 15px;
         }
 
         .cta-btn {
-            padding: 12px 25px;
+            width: 100%;
+            max-width: 450px; /* Fixed maximum width for uniformity */
+            padding: 14px 25px;
             border-radius: 8px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
             transition: 0.3s;
             text-align: center;
-            min-width: 280px;
-        }
-
-        .btn-amber {
-            background: #D97706;
-            color: white !important;
-            border: 2px solid #D97706;
-        }
-        .btn-amber:hover {
-            background: transparent;
-            color: #D97706 !important;
-        }
-
-        .btn-navy {
-            background: #1e3a8a;
+            background: #1e3a8a; /* Uniform Navy Color */
             color: white !important;
             border: 2px solid #1e3a8a;
         }
-        .btn-navy:hover {
-            background: transparent;
-            color: #1e3a8a !important;
+
+        .cta-btn:hover {
+            background: #D97706;
+            border-color: #D97706;
+            transform: translateY(-2px);
         }
 
         /* --- EXPERIENCE CARDS GRID --- */
@@ -132,6 +122,7 @@
         .exp-card {
             background: white;
             padding: 30px;
+            padding-bottom: 60px; /* Space for the button */
             border-radius: 15px;
             display: flex;
             flex-direction: column;
@@ -140,6 +131,7 @@
             border-right: 5px solid #1e3a8a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .exp-card:hover {
@@ -160,6 +152,24 @@
             color: #000000;
             line-height: 1.7;
             font-weight: 400;
+        }
+
+        .read-more-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #D97706 !important;
+            text-decoration: none;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .read-more-btn:hover {
+            color: #1e3a8a !important;
+            transform: translateX(5px);
         }
     </style>
 </head>
@@ -191,10 +201,10 @@
             </div>
         </header>
 
-        <!-- CALL TO ACTION BUTTONS -->
+        <!-- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) -->
         <section class="cta-section">
-            <a href="pages/blog/blog-400.html" class="cta-btn btn-amber">Read my insights on exceptional teaching ❯</a>
-            <a href="pages/teaching/teaching-profile.html" class="cta-btn btn-navy">Explore my teaching profile ❯</a>
+            <a href="pages/blog/blog-400.html" class="cta-btn">Read my insights on exceptional teaching ❯</a>
+            <a href="https://sameheltaybani.github.io/my-website/pages/teaching/teaching-profile.html" class="cta-btn">Explore my teaching profile ❯</a>
         </section>
 
         <!-- 8 EXPERIENCE CARDS -->
@@ -218,35 +228,43 @@
         const teachingExperience = [
             {
                 title: "Advanced Nursing Research",
-                text: "Leading graduate-level courses focused on quantitative and qualitative methodologies, ensuring students can design and execute high-impact clinical studies."
+                text: "Leading graduate-level courses focused on quantitative and qualitative methodologies, ensuring students can design and execute high-impact clinical studies.",
+                blogId: "401"
             },
             {
                 title: "Statistical Methods in Healthcare",
-                text: "Simplifying complex biostatistical concepts for healthcare professionals, enabling them to interpret data and apply evidence-based findings to patient care."
+                text: "Simplifying complex biostatistical concepts for healthcare professionals, enabling them to interpret data and apply evidence-based findings to patient care.",
+                blogId: "402"
             },
             {
                 title: "Clinical Mentorship",
-                text: "Providing hands-on guidance to intern nurses and graduate students, fostering professional growth and clinical competence in intensive care environments."
+                text: "Providing hands-on guidance to intern nurses and graduate students, fostering professional growth and clinical competence in intensive care environments.",
+                blogId: "403"
             },
             {
                 title: "Bibliometric Science Mapping",
-                text: "Teaching innovative science mapping techniques to help researchers visualize global trends and identify collaboration hubs in nursing science."
+                text: "Teaching innovative science mapping techniques to help researchers visualize global trends and identify collaboration hubs in nursing science.",
+                blogId: "404"
             },
             {
                 title: "Evidence-Based Practice",
-                text: "Integrating the latest research findings into clinical workflows, teaching students how to bridge the gap between theory and bedside application."
+                text: "Integrating the latest research findings into clinical workflows, teaching students how to bridge the gap between theory and bedside application.",
+                blogId: "405"
             },
             {
                 title: "Gerontological Care Excellence",
-                text: "Specialized instruction on the unique needs of aging populations, focusing on quality of life, palliative care, and ethical decision-making."
+                text: "Specialized instruction on the unique needs of aging populations, focusing on quality of life, palliative care, and ethical decision-making.",
+                blogId: "406"
             },
             {
                 title: "Critical Care Foundations",
-                text: "Developing comprehensive curricula for intensive care nursing, emphasizing rapid assessment, technical proficiency, and patient-centered communication."
+                text: "Developing comprehensive curricula for intensive care nursing, emphasizing rapid assessment, technical proficiency, and patient-centered communication.",
+                blogId: "407"
             },
             {
                 title: "Academic Leadership",
-                text: "Contributing to curriculum development and quality assurance in nursing education, ensuring programs meet the highest international standards."
+                text: "Contributing to curriculum development and quality assurance in nursing education, ensuring programs meet the highest international standards.",
+                blogId: "408"
             }
         ];
 
@@ -257,6 +275,7 @@
                 <div class="exp-card">
                     <h3 class="exp-title">${exp.title}</h3>
                     <p class="exp-text">${exp.text}</p>
+                    <a href="pages/blog/blog-${exp.blogId}.html" class="read-more-btn">Read More >></a>
                 </div>
             `).join('');
         }
