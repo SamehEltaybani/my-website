@@ -8,10 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        
         /* --- PHILOSOPHY & HIGHLIGHTS --- */
         .vision-header {
-            background: linear-gradient(to top, #1e3a8a 0%, #1e293b 100%);
+            background: linear-gradient(to bottom, #1e3a8a 0%, #1e293b 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -62,8 +61,39 @@
             font-size: 1.5rem;
         }
 
+        /* --- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) --- */
+        .cta-section {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column; /* Stacked vertically */
+            align-items: center; /* Centered horizontally */
+            gap: 15px;
+        }
+
+        .cta-btn {
+            width: 100%;
+            max-width: 450px; /* Fixed maximum width for uniformity */
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.3s;
+            text-align: center;
+            background: #1e3a8a; /* Uniform Navy Color */
+            color: white !important;
+            border: 2px solid #1e3a8a;
+        }
+
+        .cta-btn:hover {
+            background: #D97706;
+            border-color: #D97706;
+            transform: translateY(-2px);
+        }
+
         /* --- 10 PILLARS GRID SECTION --- */
-        
         .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
@@ -77,10 +107,6 @@
         }
 
         @media (min-width: 768px) {
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 1024px) {
             .pillars-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -178,7 +204,6 @@
             <div class="max-w-5xl mx-auto px-4">
                 <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
                 <p class="vision-text" id="vision-placeholder">
-                    <!-- Developed Vision Statement -->
                     My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
                 </p>
                 
@@ -190,6 +215,12 @@
                 </div>
             </div>
         </header>
+
+        <!-- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) -->
+        <section class="cta-section">
+            <a href="pages/blog/blog-199.html" class="cta-btn">Read my insights on who is the best data analyst ❯</a>
+            <a href="https://sameheltaybani.github.io/my-website/pages/data-analysis/data-profile.html" class="cta-btn">Explore my data analysis portfolio ❯</a>
+        </section>
 
         <!-- 10 PILLARS OF UNIQUENESS -->
         <main class="pillars-container">
@@ -203,13 +234,6 @@
 
     <script src="../../assets/js/footer-bundle.js"></script>
     <script>
-        
-        /* 
-           =========================================
-           DATA ANALYSIS POINTS
-           =========================================
-        */
-        
         const analysisPillars = [
             {
                 title: "Longitudinal Aging Trends",
@@ -273,8 +297,6 @@
             }
         ];
 
-       
-        // Function to render the pillars
         function renderPillars() {
             const grid = document.getElementById('pillars-grid');
             grid.innerHTML = analysisPillars.map(p => `
@@ -291,11 +313,13 @@
             `).join('');
         }
 
-        // Initialize page
         window.onload = () => {
             renderPillars();
-            // Ensure navigation highlight remains (handled by your site-wide scripts, 
-            // but we ensure the structure allows it)
+            const dataLink = document.querySelector('.navbar a[href*="data-analysis.html"]');
+            if (dataLink) {
+                dataLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
+                dataLink.style.transition = "none"; 
+            }
         };
     </script>
 </body>
