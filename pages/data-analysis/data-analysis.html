@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/custom-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         /* --- PHILOSOPHY & HIGHLIGHTS --- */
         .vision-header {
@@ -62,6 +63,7 @@
         }
 
         /* --- 10 PILLARS GRID SECTION --- */
+
         .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
@@ -75,6 +77,10 @@
         }
 
         @media (min-width: 768px) {
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
             .pillars-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -94,24 +100,6 @@
         .pillar-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .pillar-img-box {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            background: #f1f5f9;
-        }
-
-        .pillar-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .pillar-card:hover .pillar-img-box img {
-            transform: scale(1.05);
         }
 
         .pillar-content {
@@ -158,64 +146,59 @@
         }
     </style>
 </head>
+
 <body>
+    <div class="master-container">
+        <nav class="navbar"></nav>
 
-<div class="master-container">
-    <nav class="navbar"></nav>
+        <div class="breadcrumb-bar">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
+        </div>
 
-    <div class="breadcrumb-bar">
-        <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
+        <!-- VISION & PHILOSOPHY SECTION -->
+        <header class="vision-header">
+            <div class="max-w-5xl mx-auto px-4">
+                <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
+                <p class="vision-text">
+                    My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
+                </p>
+
+                <div class="highlights-grid">
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 10 PILLARS OF UNIQUENESS -->
+        <main class="pillars-container">
+            <div id="pillars-grid" class="pillars-grid"></div>
+        </main>
+
+        <div id="footer-placeholder"></div>
     </div>
 
-    <header class="vision-header">
-        <div class="max-w-5xl mx-auto px-4">
-            <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
-            <p class="vision-text">
-                My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
-            </p>
+    <script src="../../assets/js/footer-bundle.js"></script>
 
-            <div class="highlights-grid">
-                <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
-                <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
-                <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
-            </div>
-        </div>
-    </header>
+    <script>
+        const analysisPillars = [
+            { title: "Longitudinal Aging Trends", desc: "Advanced visualization of cognitive decline trajectories over a decade of patient monitoring, identifying critical intervention windows.", blogId: "201" },
+            { title: "Predictive Health Modeling", desc: "Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations.", blogId: "202" },
+            { title: "Geospatial Service Analysis", desc: "Mapping healthcare access disparities across urban and rural sectors using GIS data to optimize resource distribution.", blogId: "203" },
+            { title: "Survival Analysis Models", desc: "Implementing Kaplan-Meier curves to assess recovery success phases for patients transitioning from intensive care to long-term wards.", blogId: "204" },
+            { title: "Cluster Analysis", desc: "Identifying patient archetypes through unsupervised learning to personalize care plans and improve clinical outcomes.", blogId: "205" },
+            { title: "Bibliometric Networks", desc: "Visualizing the global evolution of nursing research topics and collaboration hubs using science mapping techniques.", blogId: "206" },
+            { title: "Multivariate Regression", desc: "Sophisticated adjustment for socio-environmental variables in large-scale studies exploring health risks among vulnerable populations.", blogId: "207" },
+            { title: "Staffing Optimization", desc: "Statistical modeling to balance nurse-to-patient ratios, ensuring workforce well-being while maintaining high care standards.", blogId: "208" },
+            { title: "Sentiment Mining", desc: "Natural language processing applied to clinical interviews to extract hidden stressors and facilitators in healthcare environments.", blogId: "209" },
+            { title: "Resource Distribution", desc: "Quantifying the impact of clinical integration on hospital efficiency and palliative care accessibility through economic modeling.", blogId: "210" }
+        ];
 
-    <main class="pillars-container">
-        <div id="pillars-grid" class="pillars-grid"></div>
-    </main>
-
-    <div id="footer-placeholder"></div>
-</div>
-
-<script src="../../assets/js/footer-bundle.js"></script>
-<script>
-    const analysisPillars = [
-        { title: "Longitudinal Aging Trends", desc: "Advanced visualization of cognitive decline trajectories over a decade of patient monitoring, identifying critical intervention windows.", img: "../../assets/img/analyst-1.JPG", blogId: "201" },
-        { title: "Predictive Health Modeling", desc: "Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations.", img: "../../assets/img/analyst-2.JPG", blogId: "202" },
-        { title: "Geospatial Service Analysis", desc: "Mapping healthcare access disparities across urban and rural sectors using GIS data to optimize resource distribution.", img: "../../assets/img/analyst-3.JPG", blogId: "203" },
-        { title: "Survival Analysis Models", desc: "Implementing Kaplan-Meier curves to assess recovery success phases for patients transitioning from intensive care to long-term wards.", img: "../../assets/img/analyst-4.JPG", blogId: "204" },
-        { title: "Cluster Analysis", desc: "Identifying patient archetypes through unsupervised learning to personalize care plans and improve clinical outcomes.", img: "../../assets/img/analyst-5.JPG", blogId: "205" },
-        { title: "Bibliometric Networks", desc: "Visualizing the global evolution of nursing research topics and collaboration hubs using science mapping techniques.", img: "../../assets/img/analyst-6.JPG", blogId: "206" },
-        { title: "Multivariate Regression", desc: "Sophisticated adjustment for socio-environmental variables in large-scale studies exploring health risks among vulnerable populations.", img: "../../assets/img/analyst-7.JPG", blogId: "207" },
-        { title: "Staffing Optimization", desc: "Statistical modeling to balance nurse-to-patient ratios, ensuring workforce well-being while maintaining high care standards.", img: "../../assets/img/analyst-8.JPG", blogId: "208" },
-        { title: "Sentiment Mining", desc: "Natural language processing applied to clinical interviews to extract hidden stressors and facilitators in healthcare environments.", img: "../../assets/img/analyst-9.JPG", blogId: "209" },
-        { title: "Resource Distribution", desc: "Quantifying the impact of clinical integration on hospital efficiency and palliative care accessibility through economic modeling.", img: "../../assets/img/analyst-10.JPG", blogId: "210" }
-    ];
-
-    function renderPillars() {
-        const grid = document.getElementById('pillars-grid');
-        grid.innerHTML = analysisPillars.map(p => `
-            <div class="pillar-card">
-                <div class="pillar-img-box">
-                    <img src="${p.img}" alt="${p.title}" loading="lazy       <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn  </div>
-            </div>
-        `).join('');
-    }
-
-    window.onload = renderPillars;
-</script>
-
-</body>
-</html>
+        function renderPillars() {
+            document.getElementById('pillars-grid').innerHTML = analysisPillars.map(p => `
+                <div class="pillar-card">
+                    <div class="pillar-content">
+                        <h3 class="pillar-title">${p.title}</h3>
+                        <p class="pillar-desc">${p.desc}</p>
+                        <a href="pages/blog/blog-${p.blogId}.html" class="read-more
