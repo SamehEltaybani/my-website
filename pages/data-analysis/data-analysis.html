@@ -1,188 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Analysis | Dr. Sameh Eltaybani</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis | Dr. Sameh Eltaybani</title>
 
-<!-- External styles -->
-<link rel="stylesheet" href="../../assets/css/custom-style.cssogleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="://cdn.tailscript>
+    <!-- REQUIRED ASSETS -->
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-/* --- VISION --- */
-.vision-header {
-    background: linear-gradient(to top, #1e3a8a 0%, #1e293b 100%);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 5px solid #D97706;
-}
-.vision-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-.vision-subtitle {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #fbbf24;
-    margin-bottom: 25px;
-}
-.vision-text {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    opacity: 0.9;
-}
+    <style>
+        /* ----- VISION ----- */
+        .vision-header {
+            background: linear-gradient(to top, #1e3a8a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid #D97706;
+        }
 
-/* Highlights */
-.highlights-grid {
-    display: grid;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-@media (min-width: 768px) {
-    .highlights-grid { grid-template-columns: repeat(3, 1fr); }
-}
-.highlight-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #fbbf24;
-}
-.highlight-sep {
-    font-weight: 800;
-    color: #D97706;
-    font-size: 1.5rem;
-}
+        .vision-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-/* CTA */
-.cta-section {
-    text-align: center;
-    margin: 50px 0;
-}
-.cta-btn {
-    background: #334155;
-    color: white;
-    padding: 14px 30px;
-    border-radius: 8px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    text-decoration: none;
-}
-.cta-btn:hover {
-    background: #475569;
-    transform: translateY(-3px);
-}
+        .vision-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 25px;
+        }
 
-/* Cards */
-.pillars-container {
-    max-width: 1200px;
-    margin: 40px auto 70px;
-    padding: 0 20px;
-}
-.pillars-grid {
-    display: grid;
-    gap: 30px;
-}
-@media (min-width: 768px) {
-    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.pillar-card {
-    background: #f8fafc;
-    border-radius: 15px;
-    border-left: 5px solid #D97706;
-    border-right: 5px solid #1e3a8a;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    transition: transform .3s ease, box-shadow .3s ease;
-}
-.pillar-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-}
-.pillar-header {
-    background: #f1f5f9;
-    padding: 20px;
-    font-size: 1.25rem;
-    font-weight: 800;
-}
-.pillar-experience {
-    background: #ecfeff;
-    padding: 20px 25px;
-}
-.pillar-impact {
-    background: #f0fdf4;
-    padding: 20px 25px;
-}
-.pillar-flow {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #64748b;
-}
-.pillar-footer {
-    padding: 15px 25px 25px;
-    display: flex;
-    justify-content: flex-end;
-}
-.read-more-btn {
-    background: #1e3a8a;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 6px;
-    font-size: .85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: .3s;
-    text-decoration: none;
-}
-.read-more-btn:hover {
-    background: #D97706;
-    transform: translateX(5px);
-}
-</style>
+        .vision-text {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Highlights */
+        .highlights-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .highlight-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .highlight-sep {
+            font-size: 1.5rem;
+            color: #D97706;
+            font-weight: 800;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-btn {
+            background: #334155;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: #475569;
+            transform: translateY(-3px);
+        }
+
+        /* CARDS */
+        .pillars-container {
+            max-width: 1200px;
+            margin: 40px auto 70px;
+            padding: 0 20px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .pillar-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            border-left: 5px solid #D97706;
+            border-right: 5px solid #1e3a8a;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .pillar-header {
+            background: #f1f5f9;
+            padding: 20px;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .pillar-experience {
+            background: #ecfeff;
+            padding: 20px 25px;
+        }
+
+        .pillar-impact {
+            background: #f0fdf4;
+            padding: 20px 25px;
+        }
+
+        .pillar-flow {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #64748b;
+        }
+
+        .pillar-footer {
+            padding: 15px 25px 25px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .read-more-btn {
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: .85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .read-more-btn:hover {
+            background: #D97706;
+            transform: translateX(5px);
+        }
+    </style>
 </head>
 
 <body>
+
 <div class="master-container">
-<nav class="navbar"></nav>
+    <nav class="navbar"></nav>
 
-<div class="breadcrumb-bar">
-    <a href="../../index.html">HOME</a> ❯ DATA ANALYSIS
-</div>
-
-<header class="vision-header">
-    <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
-    <div class="vision-subtitle">Reliable, Understandable, Actionable, and Meaningful</div>
-
-    <p class="vision-text">
-        My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told.
-    </p>
-
-    <div class="highlights-grid">
-        <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
-        <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
-        <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+    <div class="breadcrumb-bar">
+        <a href="../../index.html">HOME</a> ❯ DATA ANALYSIS
     </div>
-</header>
 
-<div class="cta-section">
-    <a href="pages/blog/blog-300.html" class="cta-btn">
-        Read my insights on the best data analyst
-    </a>
-</div>
+    <header class="vision-header">
+        <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
+        <div class="vision-subtitle">Reliable, Understandable, Actionable, and Meaningful</div>
 
-<main class="pillars-container">
-    <div id="pillars-grid" class="pillars-grid"></div>
-</main>
+        <p class="vision-text">
+            My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told.
+        </p>
 
-<div id="footer-placeholder"></div>
+        <div class="highlights-grid">
+            <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
+            <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
+            <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+        </div>
+    </header>
+
+    <div class="cta-section">
+        <a href="pages/blog/blog-300.html" class="cta-btn">
+            Read my insights on the best data analyst
+        </a>
+    </div>
+
+    <main class="pillars-container">
+        <div id="pillars-grid" class="pillars-grid"></div>
+    </main>
+
+    <div id="footer-placeholder"></div>
 </div>
 
 <script src="../../assets/js/footer-bundle.js"></script>
@@ -192,7 +213,7 @@ const analysisPillars = [
     {
         title: "Longitudinal Aging Trends",
         experience: [
-            "Analyzed multi-year cognitive trajectories.",
+            "Analyzed long-term cognitive trajectories.",
             "Identified early decline inflection points."
         ],
         impact: [
@@ -204,12 +225,12 @@ const analysisPillars = [
     {
         title: "Predictive Health Modeling",
         experience: [
-            "Built ML readmission risk models.",
-            "Validated outputs with clinicians."
+            "Built machine-learning readmission models.",
+            "Collaborated with clinicians to validate outputs."
         ],
         impact: [
-            "Reduces avoidable readmissions.",
-            "Improves patient safety."
+            "Reduces avoidable hospital readmissions.",
+            "Supports safer, data-driven care."
         ],
         blogId: "202"
     }
@@ -231,4 +252,4 @@ analysisPillars.map(p => `
     </div>
 
     <div class="pillar-footer">
-        <a href="pages/blog/blog-${p.blogId}.html" class="read-more
+        <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn
