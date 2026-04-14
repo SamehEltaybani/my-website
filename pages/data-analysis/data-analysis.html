@@ -10,8 +10,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* --- EXISTING STYLES UNTOUCHED --- */
+        /* --- PHILOSOPHY & HIGHLIGHTS --- */
+        .vision-header {
+            background: linear-gradient(to top, #1e3a8a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid #D97706;
+        }
 
+        .vision-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .vision-text {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fbbf24;
+        }
+
+        .highlight-sep {
+            font-weight: 800;
+            color: #D97706;
+            font-size: 1.5rem;
+        }
+
+        /* --- PILLARS GRID --- */
         .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
@@ -46,51 +98,35 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* --- NEW CARD SECTIONS (REPLACING IMAGE ONLY) --- */
-
-        .pillar-header {
-            background: #f1f5f9;
+        /* --- CARD SECTIONS (DEFINED ONCE) --- */
+        .pillar-section-heading {
+            background: #1e293b;
+            color: white;
             padding: 20px;
-        }
-
-        .pillar-title {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #1e293b;
-            line-height: 1.3;
         }
 
-        .pillar-section.experience {
-            background: #ecfeff;
-            padding: 18px 25px;
-        }
-
-        .pillar-section.impact {
-            background: #f0fdf4;
-            padding: 18px 25px;
-        }
-
-        .pillar-section ul {
-            list-style: disc;
-            padding-left: 20px;
+        .pillar-section-text-1 {
+            background: #F1F5F9;
+            color: #000000;
+            padding: 20px;
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .pillar-section-text-2 {
+            background: #FEF3C7;
             color: #000000;
-        }
-
-        .pillar-flow {
-            text-align: center;
-            font-size: 1.4rem;
-            color: #64748b;
-        }
-
-        .pillar-footer {
-            padding: 15px 25px 25px;
-            display: flex;
-            justify-content: flex-end;
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
         .read-more-btn {
+            margin: 20px;
+            align-self: flex-start;
             background: #1e3a8a;
             color: white !important;
             padding: 8px 20px;
@@ -101,6 +137,7 @@
             letter-spacing: 0.5px;
             transition: 0.3s;
             text-decoration: none;
+            display: inline-block;
         }
 
         .read-more-btn:hover {
@@ -111,7 +148,6 @@
 </head>
 
 <body>
-
 <div class="master-container">
     <nav class="navbar"></nav>
 
@@ -119,17 +155,23 @@
         <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
     </div>
 
-    <!-- KEEP ORIGINAL HEADER EXACTLY AS IS -->
+    <!-- VISION SECTION -->
     <header class="vision-header">
         <div class="max-w-5xl mx-auto px-4">
             <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
             <p class="vision-text">
-                My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told.
+                My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights, ensuring that data doesn't just sit in reports but actively drives better patient outcomes and organizational excellence.
             </p>
+
+            <div class="highlights-grid">
+                <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
+                <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
+                <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+            </div>
         </div>
     </header>
 
-    <!-- CARDS -->
+    <!-- PILLARS -->
     <main class="pillars-container">
         <div id="pillars-grid" class="pillars-grid"></div>
     </main>
@@ -140,40 +182,17 @@
 <script src="../../assets/js/footer-bundle.js"></script>
 
 <script>
-const analysisPillars = [
-    {
-        title: "Longitudinal Aging Trends",
-        blogId: "201"
-    },
-    {
-        title: "Predictive Health Modeling",
-        blogId: "202"
-    }
-];
+    const analysisPillars = [
+        { blogId: "201" }, { blogId: "202" }, { blogId: "203" }, { blogId: "204" },
+        { blogId: "205" }, { blogId: "206" }, { blogId: "207" }, { blogId: "208" },
+        { blogId: "209" }, { blogId: "210" }
+    ];
 
-function renderPillars() {
-    const grid = document.getElementById('pillars-grid');
-    grid.innerHTML = analysisPillars.map(p => `
-        <div class="pillar-card">
-            <div class="pillar-header">
-                <h3 class="pillar-title">${p.title}</h3>
-            </div>
-
-            <div class="pillar-section experience">
-                <ul>
-                    <li>Designed and analyzed longitudinal patient datasets.</li>
-                    <li>Applied advanced statistical modeling techniques.</li>
-                </ul>
-            </div>
-
-            <div class="pillar-flow">⬇</div>
-
-            <div class="pillar-section impact">
-                <ul>
-                    <li>Enables earlier clinical intervention strategies.</li>
-                    <li>Improves data-driven decision making.</li>
-                </ul>
-            </div>
-
-            <div class="pillar-footer">
+    function renderPillars() {
+        const grid = document.getElementById('pillars-grid');
+        grid.innerHTML = analysisPillars.map(p => `
+            <div class="pillar-card">
+                <div class="pillar-section-heading">Heading here</div>
+                <div class="pillar-section-text-1">Text 1 here</div>
+                <div class="pillar-section-text-2">Text 2 here</div>
                 <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn
