@@ -7,33 +7,271 @@
     <link rel="stylesheet" href="../../assets/css/custom-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* --- VISION & PHILOSOPHY SECTION --- */
+        .vision-header {
+            background: linear-gradient(to bottom, #1e3a8a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid #D97706;
+        }
+
+        .vision-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .vision-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .vision-text {
+            max-width: 850px;
+            margin: 0 auto 40px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
+            opacity: 0.95;
+            color: #ffffff;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .highlights-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fbbf24;
+        }
+
+        .highlight-sep {
+            font-weight: 800;
+            color: #D97706;
+            font-size: 1.4rem;
+        }
+
+        /* --- CALL TO ACTION BUTTONS --- */
+        .cta-section {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.3s;
+            text-align: center;
+            min-width: 280px;
+        }
+
+        .btn-amber {
+            background: #D97706;
+            color: white !important;
+            border: 2px solid #D97706;
+        }
+        .btn-amber:hover {
+            background: transparent;
+            color: #D97706 !important;
+        }
+
+        .btn-navy {
+            background: #1e3a8a;
+            color: white !important;
+            border: 2px solid #1e3a8a;
+        }
+        .btn-navy:hover {
+            background: transparent;
+            color: #1e3a8a !important;
+        }
+
+        /* --- EXPERIENCE CARDS GRID --- */
+        .experience-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .experience-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .exp-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #D97706;
+            border-right: 5px solid #1e3a8a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .exp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .exp-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .exp-text {
+            font-size: 1rem;
+            color: #000000;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body>
+
     <div class="master-container">
         <nav class="navbar"></nav>
-        <div class="breadcrumb-bar"><a href="../../index.html">HOME</a> ❯ TEACHING</div>
 
-        <main class="max-w-5xl mx-auto px-8 py-16">
-            <h1 class="text-4xl font-extrabold mb-10 text-slate-800">Teaching & Mentorship</h1>
+        <div class="breadcrumb-bar">
+            <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ TEACHING
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-50 p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4 text-amber-600">Courses Taught</h3>
-                    <ul class="space-y-3 text-slate-700">
-                        <li>• Advanced Nursing Research</li>
-                        <li>• Statistical Methods in Healthcare</li>
-                        <li>• Critical Care Foundations</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-50 p-6 rounded-xl">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">Student Mentorship</h3>
-                    <p class="text-slate-600">I have mentored over 20+ intern nurses and graduate students in clinical research methodology and bibliometric analysis.</p>
+        <!-- VISION & PHILOSOPHY SECTION -->
+        <header class="vision-header">
+            <div class="max-w-5xl mx-auto px-4">
+                <h1 class="vision-title">Empowering the Next Generation of Healthcare Leaders</h1>
+                <h2 class="vision-subtitle">Bridging Clinical Excellence and Academic Rigor</h2>
+                <p class="vision-text">
+                    My teaching philosophy is rooted in the belief that education is a transformative journey that extends beyond the classroom. I am committed to fostering a student-centered environment where evidence-based practice, critical thinking, and compassionate care converge to prepare future nurses and researchers for the complexities of modern healthcare.
+                </p>
+                
+                <!-- FOUR KEY HIGHLIGHTS -->
+                <div class="highlights-grid">
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Student-Centered Learning</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Pedagogy</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Clinical Mentorship</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Research Excellence</div>
                 </div>
             </div>
+        </header>
+
+        <!-- CALL TO ACTION BUTTONS -->
+        <section class="cta-section">
+            <a href="pages/blog/blog-400.html" class="cta-btn btn-amber">Read my insights on exceptional teaching ❯</a>
+            <a href="pages/teaching/teaching-profile.html" class="cta-btn btn-navy">Explore my teaching profile ❯</a>
+        </section>
+
+        <!-- 8 EXPERIENCE CARDS -->
+        <main class="experience-container">
+            <div id="experience-grid" class="experience-grid">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
         </main>
+
         <div id="footer-placeholder"></div>
     </div>
+
     <script src="../../assets/js/footer-bundle.js"></script>
+    <script>
+        /* 
+           =========================================
+           TEACHING EXPERIENCE REGISTRY
+           =========================================
+           To update content, simply edit the values below.
+        */
+        const teachingExperience = [
+            {
+                title: "Advanced Nursing Research",
+                text: "Leading graduate-level courses focused on quantitative and qualitative methodologies, ensuring students can design and execute high-impact clinical studies."
+            },
+            {
+                title: "Statistical Methods in Healthcare",
+                text: "Simplifying complex biostatistical concepts for healthcare professionals, enabling them to interpret data and apply evidence-based findings to patient care."
+            },
+            {
+                title: "Clinical Mentorship",
+                text: "Providing hands-on guidance to intern nurses and graduate students, fostering professional growth and clinical competence in intensive care environments."
+            },
+            {
+                title: "Bibliometric Science Mapping",
+                text: "Teaching innovative science mapping techniques to help researchers visualize global trends and identify collaboration hubs in nursing science."
+            },
+            {
+                title: "Evidence-Based Practice",
+                text: "Integrating the latest research findings into clinical workflows, teaching students how to bridge the gap between theory and bedside application."
+            },
+            {
+                title: "Gerontological Care Excellence",
+                text: "Specialized instruction on the unique needs of aging populations, focusing on quality of life, palliative care, and ethical decision-making."
+            },
+            {
+                title: "Critical Care Foundations",
+                text: "Developing comprehensive curricula for intensive care nursing, emphasizing rapid assessment, technical proficiency, and patient-centered communication."
+            },
+            {
+                title: "Academic Leadership",
+                text: "Contributing to curriculum development and quality assurance in nursing education, ensuring programs meet the highest international standards."
+            }
+        ];
+
+        // Function to render the experience cards
+        function renderExperience() {
+            const grid = document.getElementById('experience-grid');
+            grid.innerHTML = teachingExperience.map(exp => `
+                <div class="exp-card">
+                    <h3 class="exp-title">${exp.title}</h3>
+                    <p class="exp-text">${exp.text}</p>
+                </div>
+            `).join('');
+        }
+
+        // Initialize page
+        window.onload = () => {
+            renderExperience();
+            
+            // Ensure navigation highlight remains
+            const teachingLink = document.querySelector('.navbar a[href*="teaching.html"]');
+            if (teachingLink) {
+                teachingLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
+                teachingLink.style.transition = "none"; 
+            }
+        };
+    </script>
 </body>
 </html>
