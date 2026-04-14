@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analysis | Dr. Sameh Eltaybani</title>
 
-    <!-- External styles -->
-    <link relets/css/custom-style.css
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&displaycript src="httpsndcss.com
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         /* --- PHILOSOPHY & HIGHLIGHTS --- */
@@ -44,7 +44,9 @@
         }
 
         @media (min-width: 768px) {
-            .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+            .highlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .highlight-item {
@@ -77,7 +79,9 @@
         }
 
         @media (min-width: 768px) {
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .pillar-card {
@@ -90,15 +94,15 @@
             border-left: 5px solid #D97706;
             border-right: 5px solid #1e3a8a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
         .pillar-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
-        /* --- CARD SECTIONS (DEFINED ONCE) --- */
+        /* --- CARD SECTIONS --- */
         .pillar-section-heading {
             background: #1e293b;
             color: white;
@@ -149,15 +153,17 @@
 
 <body>
 <div class="master-container">
+
     <nav class="navbar"></nav>
 
     <div class="breadcrumb-bar">
-        <a href="../../index.html" style="text-decorationv>
+        <a href="../../index.html" style="text-decoration:none; color:inherit;">HOME</a> ❯ DATA ANALYSIS
+    </div>
 
-    <!-- VISION SECTION -->
     <header class="vision-header">
         <div class="max-w-5xl mx-auto px-4">
             <h1 class="vision-title">Data Analysis is Not Merely Tools or Reports</h1>
+
             <p class="vision-text">
                 My philosophy as a healthcare data analyst centers on the belief that every data point represents a human story waiting to be told. I bridge the gap between complex statistical modeling and actionable clinical insights.
             </p>
@@ -170,7 +176,6 @@
         </div>
     </header>
 
-    <!-- PILLARS -->
     <main class="pillars-container">
         <div id="pillars-grid" class="pillars-grid"></div>
     </main>
@@ -178,7 +183,8 @@
     <div id="footer-placeholder"></div>
 </div>
 
-<script src="../../assets/js/footer-bundle
+<script src="../../assets/js/footer-bundle.js"></script>
+
 <script>
     const analysisPillars = [
         "201","202","203","204","205",
@@ -192,11 +198,4 @@
                 <div class="pillar-section-heading">Heading here</div>
                 <div class="pillar-section-text-1">Text 1 here</div>
                 <div class="pillar-section-text-2">Text 2 here</div>
-                <a href="pages/blog/blog-${id}.html" class="read-more        </div>
-        `).join("");
-    }
-
-    window.onload = renderPillars;
-</script>
-</body>
-</html>
+                <a href="pages/blog/blog-${id}.html" class
