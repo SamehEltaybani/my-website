@@ -132,7 +132,7 @@ body {
 
 /* FEATURED CARDS */
 .feature-card {
-    background: var(--card-tint);
+    background: var(--white);
     border: 1px solid #e2e8f0;
     border-left: 5px solid var(--amber);
     border-right: 5px solid var(--midnight);
