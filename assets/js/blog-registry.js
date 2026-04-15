@@ -22,7 +22,7 @@ const blogPosts = [
         excerpt: ""
     },
     {
-        title: "New Publication: Cognitive Health Trends in Japan",
+        title: "Cognitive Health Trends in Japan",
         date: "2026-02-15",
         categories: ["My Publications"],
         link: "blog-1.html",
