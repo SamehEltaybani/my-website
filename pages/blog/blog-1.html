@@ -126,7 +126,7 @@ const postData = {
         { 
             type: 'tipAction', 
             text: "Check out our full guide on data validation protocols for more detailed steps.",
-            btnText: "Click that button to go >",
+            btnText: "Click that button to go  ❯❯",
             btnUrl: "https://example.com/validation-guide"
         },
         { 
@@ -144,7 +144,7 @@ const postData = {
         { 
             type: 'warningAction', 
             text: "Security breaches can occur if encryption is not applied to data in transit.",
-            btnText: "Security Protocol >",
+            btnText: "Security Protocol ❯❯",
             btnUrl: "https://example.com/security"
         },
         { 
@@ -155,7 +155,7 @@ const postData = {
         { 
             type: 'noteAction', 
             text: "You can also use these action boxes for external resources or related blog posts.",
-            btnText: "Read Related Post >",
+            btnText: "Read Related Post  ❯❯",
             btnUrl: "https://example.com/blog-205"
         }
     ]
@@ -192,7 +192,9 @@ const postData = {
         <div id="dynamic-content"></div>
 
         <div class="mt-20 pt-10 border-t border-slate-200">
-            <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights ❯</a>
+            <div class="text-right">
+                <a href="blog.html" class="inline-block bg-slate-800 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition mb-10">Explore more insights  ❯❯</a>
+            </div>
             <h4 class="font-bold text-xl mb-6" style="color: var(--midnight);">Recommended for you</h4>
             <div id="recommended-list"></div>
         </div>
