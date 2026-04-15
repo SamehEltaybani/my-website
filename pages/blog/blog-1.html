@@ -181,6 +181,7 @@ const postData = {
         
         <div class="flex items-center gap-4 mb-10 text-sm text-slate-500">
             <span id="inject-date"></span>
+            <span id="inject-read-time" class="italic"></span>
             <div id="inject-categories" class="flex gap-2"></div>
         </div>
 
@@ -222,6 +223,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('inject-title').innerText = postData.title;
     document.getElementById('inject-date').innerText = postData.date;
 
+    
+    // Calculate reading time (approx 200 words per minute)
+        const textContent = postData.content.map(item => item.text || "").join(" ");
+        const wordCount = textContent.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / 200);
+        document.getElementById('inject-read-time').innerText = `• ${readTime} min read`;
+    
+    
     const catContainer = document.getElementById('inject-categories');
     if (postData.categories) {
         catContainer.innerHTML = postData.categories.map(c => 
