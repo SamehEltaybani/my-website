@@ -87,6 +87,7 @@
 <body>
 
 <script>
+    
 /* ==========================================================
    EDIT YOUR CONTENT HERE
    ========================================================== */
@@ -106,54 +107,76 @@ const postData = {
     // FLEXIBLE CONTENT ARRAY
     // Types: 'paragraph', 'heading', 'subheading', 'bulletList', 'numberedList', 'image', 'tip', 'warning', 'note'
     // Action Types: 'tipAction', 'warningAction', 'noteAction' (Includes a button)
+   
     content: [
-        { 
-            type: 'paragraph', 
+        
+        {type: 'paragraph', 
             text: "Effective data management is the backbone of any successful clinical study. By ensuring that information is captured accurately and stored securely, researchers can maintain the <b>integrity</b> of their findings and protect patient privacy." 
         },
-        { 
-            type: 'note', 
+       
+       
+        {type: 'note', 
             text: "This note box now matches the highlights style with a light gray background and navy border, and it is more compact vertically." 
         },
-        { 
-            type: 'heading', 
+
+         {type: 'warning', 
+            text: "This note box is to write a warning." 
+        },
+
+         {type: 'tip', 
+            text: "This note box is to write a tip." 
+        },
+        
+        {type: 'heading', 
             text: "Data Validation Strategies" 
         },
-        { 
-            type: 'paragraph', 
+       
+        {type: 'paragraph', 
             text: "Validation should occur at multiple stages, from initial entry to final analysis. This prevents errors from propagating through the dataset." 
         },
-        { 
-            type: 'tipAction', 
+        
+        {type: 'tipAction', 
             text: "Check out our full guide on data validation protocols for more detailed steps.",
             btnText: "Click that button to go  ❯❯",
             btnUrl: "https://example.com/validation-guide"
         },
-        { 
-            type: 'subheading', 
+        
+        {type: 'subheading', 
             text: "Common Pitfalls" 
         },
-        { 
-            type: 'bulletList', 
+        
+        {type: 'bulletList', 
             items: [
                 "Inconsistent unit measurements across different sites.",
                 "Missing data points due to poor form design.",
                 "Lack of standardized naming conventions."
             ] 
         },
-        { 
-            type: 'warningAction', 
+
+         {type: 'subheading', 
+            text: "Common Pitfalls" 
+        },
+
+        {type: 'numberedList', 
+            items: [
+                "Inconsistent unit measurements across different sites.",
+                "Missing data points due to poor form design.",
+                "Lack of standardized naming conventions."
+            ] 
+        },
+        
+        {type: 'warningAction', 
             text: "Security breaches can occur if encryption is not applied to data in transit.",
             btnText: "Security Protocol ❯❯",
             btnUrl: "https://example.com/security"
         },
-        { 
-            type: 'image', 
+        
+        {type: 'image', 
             src: "../../assets/img/analyst-2.JPG", 
             caption: "Figure 1: Overview of a secure clinical data pipeline." 
         },
-        { 
-            type: 'noteAction', 
+        
+        {type: 'noteAction', 
             text: "You can also use these action boxes for external resources or related blog posts.",
             btnText: "Read Related Post  ❯❯",
             btnUrl: "https://example.com/blog-205"
@@ -161,7 +184,14 @@ const postData = {
     ]
 };
 
-/* ========================================================== */
+
+    
+    /* ========================================================== */
+
+
+
+
+
 </script>
 
 <div class="master-container">
