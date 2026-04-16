@@ -57,14 +57,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 3. BACK TO TOP LOGIC
-    const topBtn = document.getElementById("backToTop");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            topBtn.style.display = "flex";
-        } else {
-            topBtn.style.display = "none";
-        }
+    //const topBtn = document.getElementById("backToTop");
+    //window.onscroll = function() {
+        //if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            //topBtn.style.display = "flex";
+        //} else {
+            //topBtn.style.display = "none";
+        //}
+    //};
+
+
+    
+
+// 3. BACK TO TOP LOGIC
+const topBtn = document.getElementById("backToTop");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "flex";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+// Handle the smooth scroll click
+if (topBtn) {
+    topBtn.onclick = function(e) {
+        e.preventDefault(); // Stops the "sudden jump"
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Glides up naturally
+        });
     };
+}
+    
+
+
+
+
+
+    
 
     // 4. DYNAMIC HEIGHT CALCULATOR
     function updateNavHeight() {
