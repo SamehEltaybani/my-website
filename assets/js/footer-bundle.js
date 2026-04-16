@@ -86,15 +86,13 @@ if (topBtn) {
     topBtn.onclick = function(e) {
         e.preventDefault();
         
-        // Custom animation for a truly "natural" feel
-        const scrollStep = -window.scrollY / (500 / 15); // 500ms duration
-        const scrollInterval = setInterval(function() {
-            if (window.scrollY !== 0) {
-                window.scrollBy(0, scrollStep);
-            } else {
-                clearInterval(scrollInterval);
-            }
-        }, 15);
+        // This version allows the browser to use its native smooth scroll,
+        // but by using 'scrollTo', we ensure the 'scroll-behavior: smooth' 
+        // from your CSS is respected properly.
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
 }
     
