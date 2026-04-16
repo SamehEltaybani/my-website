@@ -1,5 +1,9 @@
 /* MASTER STYLE SHEET */
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --midnight: #1E3A8A;
     --amber: #B45309;
