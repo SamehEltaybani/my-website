@@ -80,14 +80,21 @@ window.onscroll = function() {
     }
 };
 
-// Handle the smooth scroll click
+
+    // Handle the smooth scroll click
 if (topBtn) {
     topBtn.onclick = function(e) {
-        e.preventDefault(); // Stops the "sudden jump"
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Glides up naturally
-        });
+        e.preventDefault();
+        
+        // Custom animation for a truly "natural" feel
+        const scrollStep = -window.scrollY / (500 / 15); // 500ms duration
+        const scrollInterval = setInterval(function() {
+            if (window.scrollY !== 0) {
+                window.scrollBy(0, scrollStep);
+            } else {
+                clearInterval(scrollInterval);
+            }
+        }, 15);
     };
 }
     
