@@ -57,51 +57,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 3. BACK TO TOP LOGIC
-    //const topBtn = document.getElementById("backToTop");
-    //window.onscroll = function() {
-        //if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            //topBtn.style.display = "flex";
-        //} else {
-            //topBtn.style.display = "none";
-        //}
-    //};
-
-
-    
-
-// 3. BACK TO TOP LOGIC
-const topBtn = document.getElementById("backToTop");
-
-window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "flex";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
-
-
-    // Handle the smooth scroll click
-if (topBtn) {
-    topBtn.onclick = function(e) {
-        e.preventDefault();
-        
-        // This version allows the browser to use its native smooth scroll,
-        // but by using 'scrollTo', we ensure the 'scroll-behavior: smooth' 
-        // from your CSS is respected properly.
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    const topBtn = document.getElementById("backToTop");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            topBtn.style.display = "flex";
+        } else {
+            topBtn.style.display = "none";
+        }
     };
-}
-    
 
 
-
-
-
-    
+      
 
     // 4. DYNAMIC HEIGHT CALCULATOR
     function updateNavHeight() {
