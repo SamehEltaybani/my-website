@@ -82,12 +82,48 @@
                             }
                             
                             .cta-left-group {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 15px;
-                                flex: 2; /* Takes up more space */
-                                max-width: 450px;
-                            }
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 2;
+    max-width: 450px;
+}
+
+.portfolio-btn {
+    flex: 1;
+    max-width: 250px;
+    background: #001a4d;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distributes image and text to fit height */
+    text-decoration: none;
+    color: white !important;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+}
+
+.portfolio-btn img {
+    width: 100%;
+    flex-grow: 1; /* Allows image to fill available vertical space */
+    min-height: 0; /* Prevents image from pushing the container down */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    border: 2px solid #4caf50;
+}
+
+.portfolio-btn span {
+    margin-top: auto;
+    padding-bottom: 5px;
+}
+        
+        
+        
                             
                             .cta-btn {
                                 width: 100%;
@@ -104,32 +140,7 @@
                                 box-sizing: border-box;
                             }
                             
-                            .portfolio-btn {
-                                flex: 1; /* Takes up remaining space */
-                                max-width: 250px;
-                                background: #1e293b;
-                                border-radius: 20px;
-                                padding: 10px;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                text-decoration: none;
-                                color: white !important;
-                                text-align: center;
-                                font-weight: 700;
-                                font-size: 0.85rem;
-                            }
-                            
-                            .portfolio-btn img {
-                                width: 100%;
-                                height: 80;
-                                max-height: 120px;
-                                object-fit: cover;
-                                border-radius: 8px;
-                                margin-bottom: 10px;
-                                border: 2px solid #1e293b; /* Green border from screenshot */
-                            }
+                           
                             
                             .cta-btn:hover, .portfolio-btn:hover {
                                 transform: translateY(-2px);
