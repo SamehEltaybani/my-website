@@ -70,36 +70,79 @@
         }
 
         /* --- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) --- */
-        .cta-section {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column; /* Stacked vertically */
-            align-items: center; /* Centered horizontally */
-            gap: 15px;
-        }
+                                    .cta-section {
+                                max-width: 1200px;
+                                margin: 40px auto 0;
+                                padding: 0 20px;
+                                display: flex;
+                                flex-direction: row; /* Align groups horizontally */
+                                align-items: stretch;
+                                justify-content: flex-start; /* Shift to the left */
+                                gap: 15px;
+                            }
+                            
+                            .cta-left-group {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 15px;
+                                flex: 2; /* Takes up more space */
+                                max-width: 450px;
+                            }
+                            
+                            .cta-btn {
+                                width: 100%;
+                                padding: 14px 25px;
+                                border-radius: 12px; /* Matching screenshot roundness */
+                                font-weight: 700;
+                                font-size: 0.95rem;
+                                text-decoration: none;
+                                transition: 0.3s;
+                                text-align: center;
+                                background: #001a4d; /* Dark navy from screenshot */
+                                color: white !important;
+                                border: 2px solid #001a4d;
+                                box-sizing: border-box;
+                            }
+                            
+                            .portfolio-btn {
+                                flex: 1; /* Takes up remaining space */
+                                max-width: 250px;
+                                background: #001a4d;
+                                border-radius: 20px;
+                                padding: 15px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                text-decoration: none;
+                                color: white !important;
+                                text-align: center;
+                                font-weight: 700;
+                                font-size: 0.85rem;
+                            }
+                            
+                            .portfolio-btn img {
+                                width: 100%;
+                                height: auto;
+                                max-height: 120px;
+                                object-fit: cover;
+                                border-radius: 8px;
+                                margin-bottom: 10px;
+                                border: 2px solid #4caf50; /* Green border from screenshot */
+                            }
+                            
+                            .cta-btn:hover, .portfolio-btn:hover {
+                                transform: translateY(-2px);
+                                opacity: 0.9;
+                            }
 
-        .cta-btn {
-            width: 100%;
-            max-width: 450px; /* Fixed maximum width for uniformity */
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: 0.3s;
-            text-align: center;
-            background: #1e3a8a; /* Uniform Navy Color */
-            color: white !important;
-            border: 2px solid #1e3a8a;
-        }
-
-        .cta-btn:hover {
-            background: #D97706;
-            border-color: #D97706;
-            transform: translateY(-2px);
-        }
+        
+                            .cta-btn:hover, .portfolio-btn:hover {
+                        background: #D97706;
+                        border-color: #D97706;
+                        transform: translateY(-2px);
+                    }
+        
 
         /* --- 10 PILLARS GRID SECTION --- */
         .pillars-container {
@@ -226,10 +269,17 @@
         </header>
 
         <!-- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) -->
-        <section class="cta-section">
-            <a href="pages/blog/blog-199.html" class="cta-btn">Read my insights on the best analyst   ❯ ❯</a>
-            <a href="https://sameheltaybani.github.io/my-website/pages/data-analysis/data-portfolio.html" class="cta-btn">Explore my data analysis portfolio   ❯ ❯</a>
-        </section>
+                        <section class="cta-section">
+                    <div class="cta-left-group">
+                        <a href="pages/blog/blog-199.html" class="cta-btn">Read my insights on the best analyst ❯ ❯</a>
+                        <a href="https://sameheltaybani.github.io/my-website/pages/data-analysis/data-portfolio.html" class="cta-btn">Explore my data analysis portfolio ❯ ❯</a>
+                    </div>
+                
+                    <a href="assets/img/analyst-1.JPG" class="portfolio-btn" target="_blank">
+                        <img src="assets/img/analyst-1.JPG" alt="Infographic Summary">
+                        <span>Access an infographic summary</span>
+                    </a>
+                </section>
 
         <!-- 10 PILLARS OF UNIQUENESS -->
         <main class="pillars-container">
