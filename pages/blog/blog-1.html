@@ -50,14 +50,13 @@
 .quote-box {
     position: relative;
     background-color: #f8fafc;
-    border-left: 4px solid #1e3a8a; /* Midnight */
+    border-left: 4px solid #1e3a8a;
     padding: 30px 40px;
     border-radius: 8px;
     margin: 25px 0;
     font-style: italic;
 }
 
-/* Top Left Quote Mark */
 .quote-box::before {
     content: "“";
     position: absolute;
@@ -69,23 +68,6 @@
     line-height: 1;
 }
 
-.quote-text {
-    font-size: 1.1rem;
-    color: #1e293b;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.quote-source {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #64748b;
-    font-style: normal;
-}
-
-/* Bottom Right Quote Mark */
 .quote-box::after {
     content: "”";
     position: absolute;
@@ -96,11 +78,27 @@
     font-family: serif;
 }
 
+.quote-text {
+    display: block;
+    font-size: 1.1rem;
+    color: #1e293b;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.quote-source {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    font-style: normal;
+}
+
 .quote-btn {
     position: absolute;
     bottom: 12px;
     right: 15px;
-    background: #1e3a8a; /* Midnight */
+    background: #1e3a8a;
     color: white !important;
     padding: 4px 10px;
     border-radius: 4px;
@@ -112,7 +110,7 @@
 }
 
 .quote-btn:hover {
-    background: #D97706; /* Amber */
+    background: #D97706;
     transform: translateY(-2px);
 }
         
@@ -394,7 +392,9 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'noteAction':
                 finalHtml += `<div class="note-box action-box"><h4 class="uppercase tracking-widest text-xs font-bold mb-2" style="color:var(--midnight);">Note</h4><p>${item.text}</p><a href="${item.btnUrl}" target="_blank" class="action-btn">${item.btnText}</a></div>`;
                 break;
-        }
+                case 'quote':finalHtml += `<div class="quote-box"><span class="quote-text">${item.text}</span><span class="quote-source">— ${item.source}</span>${item.link ? `<a href="${item.link}" class="quote-btn" target="_blank">View Source ❯</a>` : ''}</div>`;
+                break;
+            }
     });
     container.innerHTML = finalHtml;
 
