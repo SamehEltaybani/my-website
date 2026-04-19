@@ -42,33 +42,36 @@
             opacity: 0.9;
         }
 
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .highlights-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        @media (min-width: 768px) {
-            .highlights-grid { grid-template-columns: repeat(4, 1fr); }
-        }
+.highlight-btn {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #1e3a8a;
+    color: #fbbf24 !important;
+    border: 2px solid #D97706;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        .highlight-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #fbbf24;
-        }
 
-        .highlight-sep {
-            font-weight: 800;
-            color: #D97706;
-            font-size: 1.5rem;
-        }
+.highlight-btn:hover {
+    background: #D97706;
+    color: white !important;
+    transform: translateY(-2px);
+}
 
         /* --- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) --- */
                                     .cta-section {
@@ -266,13 +269,14 @@
                     My philosophy as a RESEARCHER centers on outcomes and excellence.
                 </p>
                 
-                <!-- THREE KEY HIGHLIGHTS -->
-                <div class="highlights-grid">
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Text 1 here</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Text 2 here</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Text 3 here</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Text 4 here</div>
+                <!-- KEY HIGHLIGHTS -->
+                <div class="highlights-container">
+                    <div class="highlight-btn">PubMed ❯❯</div>
+                    <div class="highlight-btn">Web of Science ❯❯</div>
+                    <div class="highlight-btn">Scopus ❯❯</div>
+                    <div class="highlight-btn">Google Scholar ❯❯</div>
                 </div>
+                       
             </div>
         </header>
 
