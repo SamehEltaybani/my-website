@@ -43,6 +43,85 @@
         }
         .action-btn:hover { background: var(--amber); transform: translateY(-2px); }
 
+      
+        
+        
+        /* Quotation Box */
+.quote-box {
+    position: relative;
+    background-color: #f8fafc;
+    border-left: 4px solid #1e3a8a; /* Midnight */
+    padding: 30px 40px;
+    border-radius: 8px;
+    margin: 25px 0;
+    font-style: italic;
+}
+
+/* Top Left Quote Mark */
+.quote-box::before {
+    content: "“";
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    font-size: 60px;
+    color: #cbd5e1;
+    font-family: serif;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    color: #1e293b;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.quote-source {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    font-style: normal;
+}
+
+/* Bottom Right Quote Mark */
+.quote-box::after {
+    content: "”";
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    font-size: 60px;
+    color: #cbd5e1;
+    font-family: serif;
+}
+
+.quote-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    background: #1e3a8a; /* Midnight */
+    color: white !important;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    font-style: normal;
+}
+
+.quote-btn:hover {
+    background: #D97706; /* Amber */
+    transform: translateY(-2px);
+}
+        
+        
+       
+        
+        
+        
+        
         /* Content Styling - Dark Black Text */
         .blog-content h2 { color: var(--midnight); font-weight: 800; font-size: 1.75rem; margin-top: 40px; margin-bottom: 15px; line-height: 1.2; }
         .blog-content h3 { margin-top: 25px; margin-bottom: 12px; font-weight: 800; font-size: 1.3rem; position: relative; padding-left: 20px; color: var(--midnight); }
@@ -126,6 +205,14 @@ const postData = {
          {type: 'tip', 
             text: "This note box is to write a tip." 
         },
+        
+
+        {type: 'quote',
+            text: "Insert the content of the quotation here.",
+            source: "Source Name/Author",
+            link: "https://example.com"
+        }
+                
         
         {type: 'heading', 
             text: "Data Validation Strategies" 
