@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- VISION & PHILOSOPHY SECTION --- */
+        /* --- PHILOSOPHY & HIGHLIGHTS --- */
         .vision-header {
             background: linear-gradient(to bottom, #1e3a8a 0%, #1e293b 100%);
             color: white;
@@ -20,7 +20,7 @@
         .vision-title {
             font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             line-height: 1.2;
         }
 
@@ -33,19 +33,18 @@
         }
 
         .vision-text {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto 40px;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             line-height: 1.8;
             font-weight: 300;
-            opacity: 0.95;
-            color: #ffffff;
+            opacity: 0.9;
         }
 
         .highlights-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -58,72 +57,120 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #fbbf24;
         }
 
         .highlight-sep {
             font-weight: 800;
             color: #D97706;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
         /* --- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) --- */
-        .cta-section {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column; /* Stacked vertically */
-            align-items: center; /* Centered horizontally */
-            gap: 15px;
-        }
+                                    .cta-section {
+                                        max-width: 1200px;
+                                        margin: 40px auto 0;
+                                        padding: 0 20px;
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: stretch; 
+                                        justify-content: center;
+                                        gap: 15px;
+                                    }
 
-        .cta-btn {
-            width: 100%;
-            max-width: 450px; /* Fixed maximum width for uniformity */
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: 0.3s;
-            text-align: center;
-            background: #1e3a8a; /* Uniform Navy Color */
-            color: white !important;
-            border: 2px solid #1e3a8a;
-        }
+                                    .portfolio-btn {
+                                        flex: 1;
+                                        max-width: 150px;
+                                        background: #1e3a8a;
+                                        border-radius: 8px;
+                                        padding: 6px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        text-decoration: none;
+                                        color: white !important;
+                                        text-align: center;
+                                        font-weight: 700;
+                                        font-size: 0.85rem;
+                                        box-sizing: border-box;
+                                    }
+                                    
+                                    .portfolio-btn img {
+                                        width: 100%;
+                                        height: 0; 
+                                        flex-grow: 1; 
+                                        object-fit: cover;
+                                        border-radius: 8px;
+                                        margin-bottom: 3px;
+                                        border: 0px solid #f5f5f5;
+                                    }
+                        
+                                                                                    
+                                     .cta-left-group {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 15px;
+                                        flex: 2;
+                                        max-width: 450px;
+                                    }        
+                        
+                                               
+                                    .portfolio-btn span {
+                                        margin-top: auto;
+                                        padding-bottom: 2px;
+                                    }
+                                          
+                                     .cta-btn {
+                                             width: 100%;
+                                              padding: 14px 25px;
+                                              border-radius: 8px; 
+                                              font-weight: 700;
+                                              font-size: 0.95rem;
+                                               text-decoration: none;
+                                                transition: 0.3s;
+                                                 text-align: center;
+                                                  background: #1e3a8a; 
+                                                 color: white !important;
+                                                  border: 2px solid #1e3a8a;
+                                                  box-sizing: border-box;
+                                         }
+                                                    
+                                                    
+                                        .cta-btn:hover, .portfolio-btn:hover {
+                                             transform: translateY(-2px);
+                                                opacity: 0.9;
+                                          }
+                        
+                                          .cta-btn:hover, .portfolio-btn:hover {
+                                                background: #D97706;
+                                                border-color: #D97706;
+                                                transform: translateY(-2px);
+                                            }
+        
 
-        .cta-btn:hover {
-            background: #D97706;
-            border-color: #D97706;
-            transform: translateY(-2px);
-        }
-
-        /* --- EXPERIENCE CARDS GRID --- */
-        .experience-container {
+        /* --- 10 PILLARS GRID SECTION --- */
+        .pillars-container {
             max-width: 1200px;
             margin: 60px auto;
             padding: 0 20px;
         }
 
-        .experience-grid {
+        .pillars-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 25px;
+            gap: 30px;
         }
 
         @media (min-width: 768px) {
-            .experience-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        .exp-card {
-            background: white;
-            padding: 30px;
-            padding-bottom: 60px; /* Space for the button */
+        .pillar-card {
+            background: #ffffff;
             border-radius: 15px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             border: 1px solid #e2e8f0;
@@ -131,44 +178,71 @@
             border-right: 5px solid #1e3a8a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
 
-        .exp-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        .exp-title {
-            font-size: 1.4rem;
+        .pillar-img-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .pillar-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pillar-card:hover .pillar-img-box img {
+            transform: scale(1.05);
+        }
+
+        .pillar-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-title {
+            font-size: 1.25rem;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.3;
         }
 
-        .exp-text {
-            font-size: 1rem;
+        .pillar-desc {
+            font-size: 0.95rem;
             color: #000000;
-            line-height: 1.7;
-            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .read-more-btn {
-            position: absolute;
-            bottom: 20px;
-            right: 25px;
+            align-self: flex-start;
+            background: #1e3a8a;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 6px;
             font-size: 0.85rem;
-            font-weight: 800;
-            color: #D97706 !important;
-            text-decoration: none;
-            transition: 0.3s;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .read-more-btn:hover {
-            color: #1e3a8a !important;
+            background: #D97706;
             transform: translateX(5px);
         }
     </style>
@@ -185,110 +259,142 @@
         <!-- VISION & PHILOSOPHY SECTION -->
         <header class="vision-header">
             <div class="max-w-5xl mx-auto px-4">
-                <h1 class="vision-title">Empowering the Next Generation of Healthcare Leaders</h1>
-                <h2 class="vision-subtitle">Bridging Clinical Excellence and Academic Rigor</h2>
-                <p class="vision-text">
-                    My teaching philosophy is rooted in the belief that education is a transformative journey that extends beyond the classroom. I am committed to fostering a student-centered environment where evidence-based practice, critical thinking, and compassionate care converge to prepare future nurses and researchers for the complexities of modern healthcare.
+                <h1 class="vision-title">Title for Teaching</h1>
+                <h2 class="vision-subtitle"> Reliable, Accurate, Actionable</h2>
+                <p class="vision-text" id="vision-placeholder">
+                    My philosophy as a TEACHER centers on outcomes and excellence.
                 </p>
                 
-                <!-- FOUR KEY HIGHLIGHTS -->
+                <!-- THREE KEY HIGHLIGHTS -->
                 <div class="highlights-grid">
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Student-Centered Learning</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Pedagogy</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Clinical Mentorship</div>
-                    <div class="highlight-item"><span class="highlight-sep">|</span> Research Excellence</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Actionable Clinical Insights</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Evidence-Based Strategy</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
+                    <div class="highlight-item"><span class="highlight-sep">|</span> Patient-Centered Outcomes</div>
                 </div>
             </div>
         </header>
 
         <!-- CALL TO ACTION BUTTONS (CENTERED & UNIFORM) -->
-        <section class="cta-section">
-            <a href="pages/blog/blog-400.html" class="cta-btn">Read my insights on exceptional teaching   ❯ ❯</a>
-            <a href="https://sameheltaybani.github.io/my-website/pages/teaching/teaching-portfolio.html" class="cta-btn">Explore my teaching portfolio   ❯ ❯</a>
-        </section>
+                        <section class="cta-section">
+                    <div class="cta-left-group">
+                        <a href="pages/blog/blog-399.html" class="cta-btn">Read my insights on exceptional teaching ❯ ❯</a>
+                        <a href="https://sameheltaybani.github.io/my-website/pages/teaching/data-portfolio.html" class="cta-btn">Explore my teaching portfolio ❯ ❯</a>
+                    </div>
+                
+                    <a href="../../assets/img/analyst-7.JPG" class="portfolio-btn" target="_blank">
+                        <img src="../../assets/img/analyst-7.JPG" alt="Infographic Summary">
+                        <span>Infographic summary ❯ ❯</span>
+                    </a>
+                </section>
 
-        <!-- 8 EXPERIENCE CARDS -->
-        <main class="experience-container">
-            <div id="experience-grid" class="experience-grid">
+        <!-- 10 PILLARS OF UNIQUENESS -->
+        <main class="pillars-container">
+            <div id="pillars-grid" class="pillars-grid">
                 <!-- Dynamically populated by JavaScript -->
             </div>
         </main>
-
+        
         <div id="footer-placeholder"></div>
     </div>
 
     <script src="../../assets/js/footer-bundle.js"></script>
     <script>
-        /* 
-           =========================================
-           TEACHING EXPERIENCE REGISTRY
-           =========================================
-           To update content, simply edit the values below.
-        */
-        const teachingExperience = [
+        const teachingPillars = [
+            
             {
-                title: "Advanced Nursing Research",
-                text: "Leading graduate-level courses focused on quantitative and qualitative methodologies, ensuring students can design and execute high-impact clinical studies.",
-                blogId: "401"
+                title: "Longitudinal Aging Trends",
+                desc: "Advanced visualization of cognitive decline trajectories over a decade of patient monitoring, identifying critical intervention windows.",
+                img: "../../assets/img/analyst-1.JPG",
+                blogId: "201"
             },
+            
             {
-                title: "Statistical Methods in Healthcare",
-                text: "Simplifying complex biostatistical concepts for healthcare professionals, enabling them to interpret data and apply evidence-based findings to patient care.",
-                blogId: "402"
+                title: "Predictive Health Modeling",
+                desc: "Machine learning applications in predicting patient readmission rates, focusing on early intervention strategies for geriatric populations.",
+                img: "../../assets/img/analyst-2.JPG",
+                blogId: "202"
             },
+            
             {
-                title: "Clinical Mentorship",
-                text: "Providing hands-on guidance to intern nurses and graduate students, fostering professional growth and clinical competence in intensive care environments.",
-                blogId: "403"
+                title: "Geospatial Service Analysis",
+                desc: "Mapping healthcare access disparities across urban and rural sectors using GIS data to optimize resource distribution.",
+                img: "../../assets/img/analyst-3.JPG",
+                blogId: "203"
             },
+            
             {
-                title: "Bibliometric Science Mapping",
-                text: "Teaching innovative science mapping techniques to help researchers visualize global trends and identify collaboration hubs in nursing science.",
-                blogId: "404"
+                title: "Survival Analysis Models",
+                desc: "Implementing Kaplan-Meier curves to assess recovery success phases for patients transitioning from intensive care to long-term wards.",
+                img: "../../assets/img/analyst-4.JPG",
+                blogId: "204"
             },
+            
             {
-                title: "Evidence-Based Practice",
-                text: "Integrating the latest research findings into clinical workflows, teaching students how to bridge the gap between theory and bedside application.",
-                blogId: "405"
+                title: "Cluster Analysis",
+                desc: "Identifying patient archetypes through unsupervised learning to personalize care plans and improve clinical outcomes.",
+                img: "../../assets/img/analyst-5.JPG",
+                blogId: "205"
             },
+            
             {
-                title: "Gerontological Care Excellence",
-                text: "Specialized instruction on the unique needs of aging populations, focusing on quality of life, palliative care, and ethical decision-making.",
-                blogId: "406"
+                title: "Bibliometric Networks",
+                desc: "Visualizing the global evolution of nursing research topics and collaboration hubs using science mapping techniques.",
+                img: "../../assets/img/analyst-6.JPG",
+                blogId: "206"
             },
+            
             {
-                title: "Critical Care Foundations",
-                text: "Developing comprehensive curricula for intensive care nursing, emphasizing rapid assessment, technical proficiency, and patient-centered communication.",
-                blogId: "407"
+                title: "Multivariate Regression",
+                desc: "Sophisticated adjustment for socio-environmental variables in large-scale studies exploring health risks among vulnerable populations.",
+                img: "../../assets/img/analyst-7.JPG",
+                blogId: "207"
             },
+            
             {
-                title: "Academic Leadership",
-                text: "Contributing to curriculum development and quality assurance in nursing education, ensuring programs meet the highest international standards.",
-                blogId: "408"
+                title: "Staffing Optimization",
+                desc: "Statistical modeling to balance nurse-to-patient ratios, ensuring workforce well-being while maintaining high care standards.",
+                img: "../../assets/img/analyst-8.JPG",
+                blogId: "208"
+            },
+            
+            {
+                title: "Sentiment Mining",
+                desc: "Natural language processing applied to clinical interviews to extract hidden stressors and facilitators in healthcare environments.",
+                img: "../../assets/img/analyst-9.JPG",
+                blogId: "209"
+            },
+            
+            {
+                title: "Resource Distribution",
+                desc: "Quantifying the impact of clinical integration on hospital efficiency and palliative care accessibility through economic modeling.",
+                img: "../../assets/img/analyst-10.JPG",
+                blogId: "210"
             }
         ];
 
-        // Function to render the experience cards
-        function renderExperience() {
-            const grid = document.getElementById('experience-grid');
-            grid.innerHTML = teachingExperience.map(exp => `
-                <div class="exp-card">
-                    <h3 class="exp-title">${exp.title}</h3>
-                    <p class="exp-text">${exp.text}</p>
-                    <a href="pages/blog/blog-${exp.blogId}.html" class="read-more-btn">Read More >></a>
+        function renderPillars() {
+            const grid = document.getElementById('pillars-grid');
+            grid.innerHTML = teachingPillars.map(p => `
+                <div class="pillar-card">
+                    <div class="pillar-img-box">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                    </div>
+                    <div class="pillar-content">
+                        <h3 class="pillar-title">${p.title}</h3>
+                        <p class="pillar-desc">${p.desc}</p>
+                        <a href="pages/blog/blog-${p.blogId}.html" class="read-more-btn">Read more   ❯ ❯</a>
+                    </div>
                 </div>
             `).join('');
         }
 
-        // Initialize page
         window.onload = () => {
-            renderExperience();
-            
-            // Ensure navigation highlight remains
-            const teachingLink = document.querySelector('.navbar a[href*="teaching.html"]');
-            if (teachingLink) {
-                teachingLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
-                teachingLink.style.transition = "none"; 
+            renderPillars();
+            const dataLink = document.querySelector('.navbar a[href*="teaching.html"]');
+            if (dataLink) {
+                dataLink.classList.add('bg-amber-700', 'text-white', 'rounded-2xl', 'px-4', 'py-2', 'font-bold');
+                dataLink.style.transition = "none"; 
             }
         };
     </script>
