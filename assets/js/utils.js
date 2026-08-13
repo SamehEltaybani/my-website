@@ -125,3 +125,23 @@ window.sanitizeSearchQuery = sanitizeSearchQuery;
 window.getURLParameter = getURLParameter;
 window.createSafeLink = createSafeLink;
 window.fetchJSON = fetchJSON;
+
+// ============================================
+// SCROLL TO TOP ON PAGE REFRESH
+// ============================================
+window.addEventListener('beforeunload', function() {
+    window.scrollTo(0, 0);
+});
+
+// Also scroll to top when page loads
+if (performance.navigation.type === 1) {
+    window.scrollTo(0, 0);
+}
+
+// Modern replacement for older browsers
+if (performance.getEntriesByType) {
+    const navEntries = performance.getEntriesByType('navigation');
+    if (navEntries.length > 0 && navEntries[0].type === 'reload') {
+        window.scrollTo(0, 0);
+    }
+}
