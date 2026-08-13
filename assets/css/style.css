@@ -662,3 +662,17 @@ section, .section, .hero, .about-section {
 .action-card span {
   display: none;
 }
+
+
+/* ============================================
+   FOOTER RESPONSIVE FIXES
+   ============================================ */
+@media (max-width: 768px) {
+  .footer-social-link {
+    justify-content: center !important;
+  }
+  
+  footer .container {
+    padding-bottom: var(--space-xl) !important;
+  }
+}
