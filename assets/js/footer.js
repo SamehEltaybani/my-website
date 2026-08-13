@@ -22,7 +22,7 @@
         const footer = document.createElement('footer');
         footer.style.cssText = `
             background-color: var(--white-color, #ffffff);
-            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            padding: 2.5rem 1.5rem 3rem 1.5rem;
             margin-top: 4rem;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
             color: var(--dark-color, #222831);
@@ -49,10 +49,11 @@
 
         const socialContainer = document.createElement('div');
         socialContainer.style.cssText = `
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        `;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+`;
 
         CONFIG.socialLinks.forEach(function(item) {
             if (!item.url) return;
