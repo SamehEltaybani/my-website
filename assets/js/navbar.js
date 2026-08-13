@@ -49,13 +49,13 @@
         // Search: points to your dedicated search.html page.
         rightIcons: [
             { 
-                iconClass: 'fa-regular fa-envelope', 
+                iconClass: 'fa-solid fa-envelope', 
                 link: 'mailto:your.email@university.edu',
                 ariaLabel: 'Contact me via email',
                 external: false // Set to true if it opens a new tab
             },
             { 
-                iconClass: 'fa-regular fa-magnifying-glass', 
+                iconClass: 'fa-solid fa-magnifying-glass', 
                 link: 'search.html',
                 ariaLabel: 'Search the website',
                 external: false
