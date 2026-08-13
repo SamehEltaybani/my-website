@@ -614,3 +614,27 @@ section, .section, .hero, .about-section {
   color: var(--accent-color) !important;
 }
 
+/* ============================================
+   DROPDOWN MENU - LESS TRANSPARENT
+   ============================================ */
+.navbar-dropdown {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;
+}
+
+.navbar-dropdown li a {
+  color: var(--dark-color) !important;
+}
+
+.navbar-dropdown li a:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--white-color) !important;
+}
+
+.navbar-dropdown li a:hover i {
+  color: var(--white-color) !important;
+}
+
