@@ -2,148 +2,186 @@
  * ============================================
  * FOOTER.JS – Simple & Secure Footer
  * ============================================
- * This script builds your website footer and injects it
- * at the bottom of every page.
- * 
- * DEPENDENCIES:
- * - Requires utils.js to be loaded BEFORE this file.
- * - Requires style.css to be loaded for styling.
- * - Requires FontAwesome (CDN) in your HTML.
- * 
- * HOW TO CUSTOMIZE:
- * Edit the CONFIG object below – change your name,
- * enable/disable social links, or update your profile URLs.
- * ============================================
  */
 
 (function() {
     'use strict';
 
-    // ============================================
-    // CONFIGURATION – Edit this section only!
-    // ============================================
     const CONFIG = {
-        // Your full name (for the copyright)
         yourName: 'Dr. Your Name Here',
-        
-        // Social media links (set the URL to '' to hide that icon)
         socialLinks: [
-            { 
-                icon: 'fa-brands fa-linkedin-in', 
-                url: 'https://www.linkedin.com/in/your-profile',
-                label: 'LinkedIn'
-            },
-            { 
-                icon: 'fa-brands fa-x-twitter', 
-                url: 'https://twitter.com/your-handle',
-                label: 'Twitter / X'
-            },
-            { 
-                icon: 'fa-brands fa-github', 
-                url: 'https://github.com/your-username',
-                label: 'GitHub'
-            },
-            { 
-                icon: 'fa-brands fa-google-scholar', 
-                url: 'https://scholar.google.com/citations?user=YOUR_ID',
-                label: 'Google Scholar'
-            }
-        ],
-        
-        // Optional extra text (e.g., "Built with ❤️ on GitHub Pages")
-        // Leave as '' to show nothing.
-        extraCredit: 'Built with ❤️ on GitHub Pages'
+            { icon: 'fa-brands fa-youtube', url: 'https://www.youtube.com/your-channel', label: 'YouTube' },
+            { icon: 'fa-brands fa-facebook', url: 'https://www.facebook.com/your-profile', label: 'Facebook' },
+            { icon: 'fa-brands fa-linkedin-in', url: 'https://www.linkedin.com/in/your-profile', label: 'LinkedIn' },
+            { icon: 'fa-brands fa-x-twitter', url: 'https://twitter.com/your-handle', label: 'Twitter' }
+        ]
     };
-    // ============================================
-    // END OF CONFIGURATION – Do not edit below here
-    // ============================================
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        // --- 1. Create footer container ---
         const footer = document.createElement('footer');
         footer.style.cssText = `
             background-color: var(--white-color, #ffffff);
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
             margin-top: 4rem;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
-            text-align: center;
-            font-size: 0.95rem;
             color: var(--dark-color, #222831);
         `;
 
-        // --- 2. Inner container (respects the 1200px max-width) ---
         const container = document.createElement('div');
         container.className = 'container';
+        container.style.cssText = `
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        `;
 
-        // --- 3. Copyright text (auto-updates the year) ---
+        // --- COLUMN 1: Copyright + Social Icons ---
+        const col1 = document.createElement('div');
+        
         const currentYear = new Date().getFullYear();
         const safeName = window.escapeHTML ? window.escapeHTML(CONFIG.yourName) : CONFIG.yourName;
         const copyright = document.createElement('p');
         copyright.textContent = `© ${currentYear} ${safeName}. All rights reserved.`;
-        copyright.style.marginBottom = '0.8rem';
+        copyright.style.cssText = `margin-bottom: 0.8rem; font-size: 0.95rem;`;
 
-        // --- 4. Social media icons row ---
         const socialContainer = document.createElement('div');
         socialContainer.style.cssText = `
             display: flex;
-            justify-content: center;
             gap: 1.2rem;
             flex-wrap: wrap;
-            margin-bottom: 0.8rem;
         `;
 
         CONFIG.socialLinks.forEach(function(item) {
-            // Skip if URL is empty (user wants to hide this icon)
             if (!item.url) return;
-            
             const a = document.createElement('a');
             a.href = item.url;
             a.setAttribute('aria-label', item.label);
             a.target = '_blank';
-            a.rel = 'noopener noreferrer'; // Security for external links
+            a.rel = 'noopener noreferrer';
             a.style.cssText = `
                 color: var(--dark-color, #222831);
                 font-size: 1.3rem;
                 transition: color 0.2s ease;
                 text-decoration: none;
             `;
-            // Hover effect via CSS (we'll add a class)
             a.className = 'footer-social-link';
-            
             const i = document.createElement('i');
             i.className = item.icon;
             a.appendChild(i);
             socialContainer.appendChild(a);
         });
 
-        // --- 5. Extra credit text (optional) ---
-        let extraElement = null;
-        if (CONFIG.extraCredit) {
-            extraElement = document.createElement('p');
-            extraElement.textContent = CONFIG.extraCredit;
-            extraElement.style.cssText = `
-                font-size: 0.85rem;
-                opacity: 0.6;
-                margin-top: 0.5rem;
-            `;
-        }
+        col1.appendChild(copyright);
+        col1.appendChild(socialContainer);
 
-        // --- 6. Assemble the footer ---
-        container.appendChild(copyright);
-        if (socialContainer.children.length > 0) {
-            container.appendChild(socialContainer);
-        }
-        if (extraElement) {
-            container.appendChild(extraElement);
-        }
+        // --- COLUMN 2: Sitemap (Nav tabs) ---
+        const col2 = document.createElement('div');
+        const sitemapTitle = document.createElement('h4');
+        sitemapTitle.textContent = 'Sitemap';
+        sitemapTitle.style.cssText = `
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color, #222831);
+        `;
+        col2.appendChild(sitemapTitle);
+
+        const navLinks = [
+            { label: 'Home', link: 'index.html' },
+            { label: 'Research', link: 'research.html' },
+            { label: 'Publications', link: 'publications.html' },
+            { label: 'Data Analysis', link: 'data-analysis.html' },
+            { label: 'Teaching', link: 'teaching.html' },
+            { label: 'Blog', link: 'blog.html' }
+        ];
+
+        const sitemapList = document.createElement('ul');
+        sitemapList.style.cssText = `
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        `;
+
+        navLinks.forEach(function(item) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.link;
+            a.textContent = item.label;
+            a.style.cssText = `
+                color: var(--dark-color, #222831);
+                text-decoration: none;
+                font-size: 0.9rem;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+            `;
+            a.onmouseover = function() { this.style.opacity = '1'; };
+            a.onmouseout = function() { this.style.opacity = '0.7'; };
+            li.appendChild(a);
+            sitemapList.appendChild(li);
+        });
+
+        col2.appendChild(sitemapList);
+
+        // --- COLUMN 3: Legal & Disclaimer ---
+        const col3 = document.createElement('div');
+        const legalTitle = document.createElement('h4');
+        legalTitle.textContent = 'Legal & Disclaimer';
+        legalTitle.style.cssText = `
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color, #222831);
+        `;
+        col3.appendChild(legalTitle);
+
+        const legalText = document.createElement('p');
+        legalText.textContent = 'This website provides information for educational and research purposes only. It does not constitute medical advice.';
+        legalText.style.cssText = `
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        `;
+        col3.appendChild(legalText);
+
+        const readMore = document.createElement('a');
+        readMore.href = 'legal.html';
+        readMore.textContent = 'Read more';
+        readMore.style.cssText = `
+            color: var(--accent-color, #00ADB5);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: gap 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        `;
+        const arrow = document.createElement('i');
+        arrow.className = 'fa-solid fa-arrow-right';
+        arrow.style.cssText = 'font-size: 0.8rem; transition: transform 0.2s ease;';
+        readMore.appendChild(arrow);
+        
+        readMore.onmouseover = function() { this.style.gap = '0.6rem'; arrow.style.transform = 'translateX(3px)'; };
+        readMore.onmouseout = function() { this.style.gap = '0.3rem'; arrow.style.transform = 'translateX(0)'; };
+        
+        col3.appendChild(readMore);
+
+        // --- Assemble ---
+        container.appendChild(col1);
+        container.appendChild(col2);
+        container.appendChild(col3);
         footer.appendChild(container);
 
-        // --- 7. Append footer to the body ---
         document.body.appendChild(footer);
 
-        // --- 8. Inject a small style for the social link hover (to keep it centralized) ---
-        // This ensures the hover color uses your accent color without touching the CSS file.
+        // Hover style for social icons
         const styleTag = document.createElement('style');
         styleTag.textContent = `
             .footer-social-link:hover {
@@ -151,6 +189,25 @@
             }
         `;
         document.head.appendChild(styleTag);
+
+        // --- Responsive: Stack columns on mobile ---
+        const responsiveStyle = document.createElement('style');
+        responsiveStyle.textContent = `
+            @media (max-width: 768px) {
+                .container {
+                    grid-template-columns: 1fr !important;
+                    gap: 1.5rem !important;
+                    text-align: center;
+                }
+                .footer-social-link {
+                    font-size: 1.5rem !important;
+                }
+                .sitemap-list {
+                    align-items: center !important;
+                }
+            }
+        `;
+        document.head.appendChild(responsiveStyle);
 
         console.log('✅ Footer injected successfully.');
     });
