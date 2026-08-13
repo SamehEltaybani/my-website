@@ -26,7 +26,7 @@
                 ariaLabel: 'Contact me via email'
             },
             { 
-                iconClass: 'fa-regular fa-magnifying-glass', 
+                iconClass: 'fa-solid fa-magnifying-glass', 
                 link: 'search.html',
                 ariaLabel: 'Search the website'
             }
