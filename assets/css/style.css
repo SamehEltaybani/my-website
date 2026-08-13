@@ -599,3 +599,18 @@ section, .section, .hero, .about-section {
     display: none;
   }
 }
+
+
+/* ============================================
+   ICON COLORS (Force accent color)
+   ============================================ */
+.card h3 i,
+.action-card i,
+.section-title i {
+  color: var(--accent-color) !important;
+}
+
+.hero-taglines p:not(:last-child)::after {
+  color: var(--accent-color) !important;
+}
+
