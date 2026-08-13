@@ -676,3 +676,11 @@ section, .section, .hero, .about-section {
     padding-bottom: var(--space-xl) !important;
   }
 }
+
+
+/* ============================================
+   FOOTER BOTTOM BORDER
+   ============================================ */
+footer {
+  border-bottom: 8px solid var(--accent-color) !important;
+}
