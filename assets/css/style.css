@@ -638,3 +638,27 @@ section, .section, .hero, .about-section {
   color: var(--white-color) !important;
 }
 
+/* ============================================
+   ACTION CARDS - Arrow at bottom right
+   ============================================ */
+.action-card {
+  position: relative;
+  padding-bottom: 3.5rem !important;
+}
+
+.action-card .arrow {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  margin: 0;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover .arrow {
+  transform: translateX(4px);
+}
+
+.action-card span {
+  display: none;
+}
