@@ -25,9 +25,10 @@
 <body>
 
     <!-- ===== PUBLICATIONS HEADER (Full Width Gradient) ===== -->
+    
     <div class="page-header-wrapper">
         <div class="container">
-            <h1 class="page-header-title">Publications</h1>
+            <h1 class="page-header-title">List of Publications</h1>
         </div>
     </div>
 
@@ -65,11 +66,156 @@
         (function() {
             'use strict';
 
-            // Helper: Truncate summary to 200 characters
+            let allPublications = [];
+            let currentPage = 1;
+            const itemsPerPage = 10;
+
             function truncateSummary(text, maxLength) {
                 if (!text) return '';
                 if (text.length <= maxLength) return text;
                 return text.substring(0, maxLength).trim() + '...';
+            }
+
+            function renderPage() {
+                const container = document.getElementById('publications-list');
+                
+                // Clear container
+                container.innerHTML = '';
+
+                // Calculate total pages
+                const totalItems = allPublications.length;
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                
+                // Ensure current page is within bounds
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
+
+                // Calculate start and end indices for current page
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+                // Get current page items
+                const pageItems = allPublications.slice(startIndex, endIndex);
+
+                // --- Render Page Separator (Above current page) ---
+                if (currentPage > 1) {
+                    const separatorAbove = document.createElement('div');
+                    separatorAbove.className = 'publication-separator';
+                    separatorAbove.innerHTML = `
+                        <div class="separator-line"></div>
+                        <div class="separator-label">Page ${currentPage} ▲</div>
+                    `;
+                    container.appendChild(separatorAbove);
+                }
+
+                // --- Render Publications ---
+                pageItems.forEach(function(pub) {
+                    const card = document.createElement('div');
+                    card.className = 'publication-card';
+
+                    let html = '';
+
+                    if (pub.title) {
+                        html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
+                    }
+
+                    // Journal + Year in parentheses (not italic)
+                    let journalYear = '';
+                    if (pub.journal) {
+                        journalYear += window.escapeHTML(pub.journal);
+                    }
+                    if (pub.year) {
+                        if (journalYear) journalYear += ' ';
+                        journalYear += '(' + window.escapeHTML(pub.year) + ')';
+                    }
+                    if (journalYear) {
+                        html += '<div class="publication-journal">' + journalYear + '</div>';
+                    }
+
+                    // Authorship Tag
+                    if (pub.authorship) {
+                        let tagClass = 'authorship-tag';
+                        if (pub.authorship.toLowerCase().includes('first') || pub.authorship.toLowerCase().includes('corresponding')) {
+                            tagClass += ' authorship-first';
+                        } else if (pub.authorship.toLowerCase().includes('co-author')) {
+                            tagClass += ' authorship-co';
+                        } else {
+                            tagClass += ' authorship-other';
+                        }
+                        html += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
+                    }
+
+                    // Links
+                    let linksHtml = '<div class="publication-links">';
+                    let hasLink = false;
+
+                    if (pub.pubmedLink) {
+                        linksHtml += '<a href="' + window.escapeHTML(pub.pubmedLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link pubmed-link"><i class="fa-solid fa-book"></i> PubMed</a>';
+                        hasLink = true;
+                    }
+
+                    if (pub.journalLink) {
+                        linksHtml += '<a href="' + window.escapeHTML(pub.journalLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link journal-link"><i class="fa-solid fa-file-lines"></i> Journal</a>';
+                        hasLink = true;
+                    }
+
+                    if (pub.blogLink) {
+                        linksHtml += '<a href="' + window.escapeHTML(pub.blogLink) + '" class="publication-link blog-link"><i class="fa-solid fa-pen-to-square"></i> Blog</a>';
+                        hasLink = true;
+                    }
+
+                    linksHtml += '</div>';
+
+                    if (hasLink) {
+                        html += linksHtml;
+                    }
+
+                    if (pub.summary) {
+                        const truncated = truncateSummary(pub.summary, 200);
+                        html += '<div class="publication-summary">' + window.escapeHTML(truncated) + '</div>';
+                    }
+
+                    card.innerHTML = html;
+                    container.appendChild(card);
+                });
+
+                // --- Render Page Separator (Below current page) ---
+                if (currentPage < totalPages) {
+                    const separatorBelow = document.createElement('div');
+                    separatorBelow.className = 'publication-separator';
+                    separatorBelow.innerHTML = `
+                        <div class="separator-label">Page ${currentPage + 1} ▼</div>
+                        <div class="separator-line"></div>
+                    `;
+                    container.appendChild(separatorBelow);
+                }
+
+                // --- Render "See More" Button ---
+                if (currentPage < totalPages) {
+                    const seeMoreWrapper = document.createElement('div');
+                    seeMoreWrapper.style.cssText = 'text-align: center; margin: var(--space-md) 0;';
+                    
+                    const seeMoreBtn = document.createElement('button');
+                    seeMoreBtn.className = 'see-more-btn';
+                    seeMoreBtn.textContent = 'See more';
+                    seeMoreBtn.innerHTML = 'See more <i class="fa-solid fa-arrow-down"></i>';
+                    seeMoreBtn.addEventListener('click', function() {
+                        currentPage++;
+                        renderPage();
+                        // Scroll to top of the new page section
+                        const container = document.getElementById('publications-list');
+                        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    
+                    seeMoreWrapper.appendChild(seeMoreBtn);
+                    container.appendChild(seeMoreWrapper);
+                }
+
+                // --- Update page title with count ---
+                const pageTitle = document.querySelector('.page-header-title');
+                if (pageTitle) {
+                    pageTitle.textContent = 'Publications (' + totalItems + ')';
+                }
             }
 
             async function loadPublications() {
@@ -80,83 +226,16 @@
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
-                    const publications = await response.json();
+                    allPublications = await response.json();
 
-                    container.innerHTML = '';
-
-                    if (!publications || publications.length === 0) {
+                    if (!allPublications || allPublications.length === 0) {
                         container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">No publications found.</p>';
                         return;
                     }
 
-                    publications.forEach(function(pub) {
-                        const card = document.createElement('div');
-                        card.className = 'publication-card';
-
-                        let html = '';
-
-                        // 1. Title (always shown if exists)
-                        if (pub.title) {
-                            html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
-                        }
-
-                        // 2. Journal (italic, immediately below title)
-                        if (pub.journal) {
-                            html += '<div class="publication-journal">' + window.escapeHTML(pub.journal) + '</div>';
-                        }
-
-                        // 3. Year (optional)
-                        if (pub.year) {
-                            html += '<div class="publication-year">' + window.escapeHTML(pub.year) + '</div>';
-                        }
-
-                        // 4. Authorship Tag (colored)
-                        if (pub.authorship) {
-                            let tagClass = 'authorship-tag';
-                            if (pub.authorship.toLowerCase().includes('first') || pub.authorship.toLowerCase().includes('corresponding')) {
-                                tagClass += ' authorship-first';
-                            } else if (pub.authorship.toLowerCase().includes('co-author')) {
-                                tagClass += ' authorship-co';
-                            } else {
-                                tagClass += ' authorship-other';
-                            }
-                            html += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
-                        }
-
-                        // 5. Links (buttons with distinct border colors)
-                        let linksHtml = '<div class="publication-links">';
-                        let hasLink = false;
-
-                        if (pub.pubmedLink) {
-                            linksHtml += '<a href="' + window.escapeHTML(pub.pubmedLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link pubmed-link"><i class="fa-solid fa-book"></i> PubMed</a>';
-                            hasLink = true;
-                        }
-
-                        if (pub.journalLink) {
-                            linksHtml += '<a href="' + window.escapeHTML(pub.journalLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link journal-link"><i class="fa-solid fa-file-lines"></i> Journal</a>';
-                            hasLink = true;
-                        }
-
-                        if (pub.blogLink) {
-                            linksHtml += '<a href="' + window.escapeHTML(pub.blogLink) + '" class="publication-link blog-link"><i class="fa-solid fa-pen-to-square"></i> Blog</a>';
-                            hasLink = true;
-                        }
-
-                        linksHtml += '</div>';
-
-                        if (hasLink) {
-                            html += linksHtml;
-                        }
-
-                        // 6. Summary (truncated to 200 characters)
-                        if (pub.summary) {
-                            const truncated = truncateSummary(pub.summary, 200);
-                            html += '<div class="publication-summary">' + window.escapeHTML(truncated) + '</div>';
-                        }
-
-                        card.innerHTML = html;
-                        container.appendChild(card);
-                    });
+                    // Reset to first page
+                    currentPage = 1;
+                    renderPage();
 
                 } catch (error) {
                     container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">Unable to load publications at this time. Please try again later.</p>';
