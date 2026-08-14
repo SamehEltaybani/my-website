@@ -2103,7 +2103,9 @@ section,
   }
 }
 
+
 /* ----- Publication Separator (Page Dividers) ----- */
+
 .publication-separator {
   display: flex;
   align-items: center;
@@ -2115,8 +2117,8 @@ section,
 .separator-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, var(--accent-color), transparent);
-  opacity: 0.3;
+  background: linear-gradient(to right, var(--accent-color), transparent, var(--accent-color));
+  opacity: 0.2;
 }
 
 .separator-label {
@@ -2128,9 +2130,26 @@ section,
   letter-spacing: 0.05em;
 }
 
-.publication-separator:last-child .separator-line {
-  background: linear-gradient(to right, transparent, var(--accent-color));
+.separator-above {
+  text-align: left;
 }
+
+.separator-below {
+  text-align: right;
+}
+
+/* ----- Responsive: Separator ----- */
+@media (max-width: 768px) {
+  .publication-separator {
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+  }
+  
+  .separator-label {
+    font-size: 0.75rem;
+  }
+}
+
 
 /* ----- See More Button ----- */
 .see-more-btn {
@@ -2165,14 +2184,6 @@ section,
 
 /* ----- Responsive: Separator ----- */
 @media (max-width: 768px) {
-  .publication-separator {
-    gap: var(--space-sm);
-    margin: var(--space-md) 0;
-  }
-  
-  .separator-label {
-    font-size: 0.75rem;
-  }
   
   .see-more-btn {
     font-size: 0.9rem;
