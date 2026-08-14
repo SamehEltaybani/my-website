@@ -716,7 +716,7 @@ section,
 
 .hero h1 .highlight-text {
   background: var(--dark-color);
-  color: var(--accent-color);
+  color: var(--whitet-color);
   padding: 0.1rem 0.4rem;
   border-radius: var(--radius-sm);
   display: inline-block;
@@ -746,14 +746,7 @@ section,
   opacity: 0.6;
 }
 
-
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-    white-space: nowrap;
-  }
-  
+ 
   .hero-taglines {
     font-size: 1rem;
     gap: var(--space-xs) var(--space-md);
@@ -764,11 +757,6 @@ section,
   }
 }
 
-@media (max-width: 400px) {
-  .hero h1 {
-    font-size: 1.6rem;
-    white-space: nowrap;
-  }
   
   .hero-taglines {
     flex-direction: column;
@@ -778,6 +766,23 @@ section,
   .hero-taglines p:not(:last-child)::after {
     content: "";
     display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.4rem;
+    white-space: nowrap;
+    padding: 0 var(--space-xs);
   }
 }
 
