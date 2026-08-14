@@ -63,7 +63,7 @@
 
     <!-- ===== PUBLICATIONS RENDERER ===== -->
 
-            <script>
+           <script>
         (function() {
             'use strict';
 
@@ -165,9 +165,8 @@
                 for (let i = 0; i < loadedCount; i++) {
                     // Add separator before a new page block (except before the very first item)
                     if (i > 0 && i % pageSize === 0) {
-                        const pageNum = Math.floor(i / pageSize) + 1;
-                        const abovePage = pageNum - 1;
-                        const belowPage = pageNum;
+                        const abovePage = Math.floor((i - 1) / pageSize) + 1;
+                        const belowPage = Math.floor(i / pageSize) + 1;
                         const sep = createSeparator(abovePage, belowPage);
                         container.appendChild(sep);
                     }
@@ -180,10 +179,10 @@
 
                 // --- Add bottom separator + "See More" if more items exist ---
                 if (loadedCount < allPublications.length) {
-                    const currentPage = Math.floor(loadedCount / pageSize) + 1;
-                    const nextPage = currentPage + 1;
+                    const abovePage = Math.floor((loadedCount - 1) / pageSize) + 1;
+                    const belowPage = abovePage + 1;
 
-                    const sep = createSeparator(currentPage, nextPage);
+                    const sep = createSeparator(abovePage, belowPage);
                     container.appendChild(sep);
 
                     const wrapper = document.createElement('div');
