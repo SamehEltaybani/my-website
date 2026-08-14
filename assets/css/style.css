@@ -197,6 +197,7 @@ body {
 }
 
 /* ----- HAMBURGER (Mobile) ----- */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -268,6 +269,42 @@ body {
   text-align: center;
   color: var(--accent-color);
 }
+
+/*  NAVBAR - SOLID BACKGROUND BEHIND GLASS */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  padding: var(--space-md);
+  background: var(--bg-color);
+  pointer-events: none;
+}
+
+.navbar-wrapper .navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-wrapper {
+    padding: var(--space-xs);
+  }
+}
+
+
+
 
 /* ============================================
    FOOTER
