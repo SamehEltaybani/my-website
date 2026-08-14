@@ -1,7 +1,8 @@
 /**
  * ============================================
- * NAVBAR.JS – Floating Glassmorphism Pill Navbar
+ * NAVBAR.JS – Structure & Logic Only
  * ============================================
+ * All styling is controlled via style.css
  */
 
 (function() {
@@ -35,7 +36,6 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        // Get current page filename
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
         const navbar = document.createElement('nav');
@@ -70,10 +70,8 @@
             a.href = item.link;
             a.textContent = item.label;
             
-            // Highlight active page
             if (item.link === currentPage) {
-                a.style.backgroundColor = 'var(--accent-color)';
-                a.style.color = 'var(--white-color)';
+                a.classList.add('active');
             }
             
             li.appendChild(a);
@@ -85,9 +83,15 @@
         hamburger.className = 'hamburger';
         hamburger.setAttribute('aria-label', 'Toggle navigation menu');
         hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        
+        const span1 = document.createElement('span');
+        const span2 = document.createElement('span');
+        const span3 = document.createElement('span');
+        hamburger.appendChild(span1);
+        hamburger.appendChild(span2);
+        hamburger.appendChild(span3);
 
-        // --- DROPDOWN (mobile) with icons ---
+        // --- DROPDOWN (mobile) ---
         const dropdown = document.createElement('ul');
         dropdown.className = 'navbar-dropdown';
         dropdown.setAttribute('role', 'menu');
@@ -99,27 +103,22 @@
             a.href = item.link;
             a.setAttribute('role', 'menuitem');
             
-            // Add icon before label (mobile only)
             const icon = document.createElement('i');
             icon.className = item.icon;
-            icon.style.cssText = 'margin-right: 0.6rem; width: 1.2rem; text-align: center; color: var(--accent-color);';
             a.appendChild(icon);
             
-            const text = document.createTextNode(item.label);
+            const text = document.createTextNode(' ' + item.label);
             a.appendChild(text);
             
-            // Highlight active page in dropdown
             if (item.link === currentPage) {
-                a.style.backgroundColor = 'var(--accent-color)';
-                a.style.color = 'var(--white-color)';
-                a.querySelector('i').style.color = 'var(--white-color)';
+                a.classList.add('active');
             }
             
             li.appendChild(a);
             dropdown.appendChild(li);
         });
 
-        // --- RIGHT: Icons in circles ---
+        // --- RIGHT: Icons ---
         const iconsContainer = document.createElement('div');
         iconsContainer.className = 'navbar-icons';
 
@@ -127,31 +126,6 @@
             const a = document.createElement('a');
             a.href = icon.link;
             a.setAttribute('aria-label', icon.ariaLabel);
-            
-            // Circle wrapper
-            a.style.cssText = `
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 38px;
-                height: 38px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6);
-                border: 1px solid rgba(0, 0, 0, 0.06);
-                transition: background 0.2s ease, color 0.2s ease;
-                text-decoration: none;
-                color: var(--dark-color);
-                font-size: 1rem;
-            `;
-            
-            a.onmouseover = function() {
-                this.style.background = 'var(--accent-color)';
-                this.style.color = 'var(--white-color)';
-            };
-            a.onmouseout = function() {
-                this.style.background = 'rgba(255, 255, 255, 0.6)';
-                this.style.color = 'var(--dark-color)';
-            };
             
             const i = document.createElement('i');
             i.className = icon.iconClass;
@@ -173,7 +147,7 @@
             body.appendChild(navbar);
         }
 
-        // --- Hamburger toggle ---
+        // --- Hamburger toggle logic ---
         hamburger.addEventListener('click', function(event) {
             event.stopPropagation();
             const isOpen = dropdown.classList.contains('show');
@@ -200,26 +174,6 @@
                 hamburger.setAttribute('aria-expanded', 'false');
             });
         });
-
-        // --- Responsive: adjust circle size on mobile ---
-        const responsiveStyle = document.createElement('style');
-        responsiveStyle.textContent = `
-            @media (max-width: 768px) {
-                .navbar-icons a {
-                    width: 34px !important;
-                    height: 34px !important;
-                    font-size: 0.9rem !important;
-                }
-            }
-            @media (max-width: 400px) {
-                .navbar-icons a {
-                    width: 30px !important;
-                    height: 30px !important;
-                    font-size: 0.8rem !important;
-                }
-            }
-        `;
-        document.head.appendChild(responsiveStyle);
 
         console.log('✅ Navbar injected successfully.');
     });
