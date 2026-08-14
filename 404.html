@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>404 - Page Not Found | Dr. Sameh Eltaybani</title>
+    <meta name="description" content="Page not found. The requested page does not exist or has been moved. Return to the homepage or explore the site.">
+    <meta property="og:title" content="404 - Page Not Found | Dr. Sameh Eltaybani">
+    <meta property="og:description" content="Page not found. The requested page does not exist or has been moved. Return to the homepage or explore the site.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="404.html">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        /* ============================================
+           404 PAGE - CUSTOM STYLES
+           ============================================ */
+        .error-section {
+            text-align: center;
+            padding: var(--space-xl) 0 var(--space-lg) 0;
+        }
+
+        .error-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .error-heading {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: var(--space-md);
+        }
+
+        .error-text {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            opacity: 0.75;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg) auto;
+            line-height: 1.7;
+        }
+
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--white-color);
+            color: var(--dark-color);
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-full);
+            border: 2px solid var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .error-btn:hover {
+            background: var(--accent-color);
+            color: var(--white-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
+        }
+
+        .error-btn i {
+            transition: transform 0.2s ease;
+        }
+
+        .error-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .error-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 4px;
+            margin: var(--space-md) auto var(--space-lg) auto;
+            opacity: 0.4;
+        }
+
+        /* ----- Responsive ----- */
+        @media (max-width: 768px) {
+            .error-number {
+                font-size: 5rem;
+            }
+
+            .error-heading {
+                font-size: 1.6rem;
+            }
+
+            .error-text {
+                font-size: 1rem;
+                padding: 0 var(--space-md);
+            }
+
+            .error-btn {
+                font-size: 0.95rem;
+                padding: var(--space-xs) var(--space-lg);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .error-number {
+                font-size: 4rem;
+            }
+
+            .error-heading {
+                font-size: 1.3rem;
+            }
+
+            .error-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== MAIN CONTENT (Restricted to 1200px) ===== -->
+    <div class="container">
+
+        <!-- ===== ERROR 404 SECTION ===== -->
+        <section class="error-section">
+            <span class="error-number">404</span>
+            <h1 class="error-heading">Page Not Found</h1>
+            <div class="error-divider"></div>
+            <p class="error-text">
+                Sorry, the page you are looking for does not exist or has been moved.
+                You can return to the homepage or explore one of the sections below.
+            </p>
+            <a href="index.html" class="error-btn">
+                Return to Home
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <!-- ===== EXPLORE THE SITE ===== -->
+        <h2 class="section-title">Explore the Site</h2>
+        <p class="section-sub">Quick links to everything you need</p>
+
+        <div class="explore-grid">
+            <a href="research.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <span class="explore-title">Research</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="teaching.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <span class="explore-title">Education</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="data-analysis.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <span class="explore-title">Data Analysis</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="publications.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+                <span class="explore-title">Publications</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="blog.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+                <span class="explore-title">Blog</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="contact.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <span class="explore-title">Contact</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="newsletter.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-newspaper"></i>
+                </div>
+                <span class="explore-title">Newsletter</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+            <a href="legal.html" class="explore-card">
+                <div class="explore-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <span class="explore-title">Legal</span>
+                <i class="fa-solid fa-arrow-right explore-arrow"></i>
+            </a>
+        </div>
+
+        <!-- ===== CLOSING CTA ===== -->
+        <div class="closing-cta">
+            <p class="cta-question">Cannot find what you are looking for or have a question?</p>
+            <p class="cta-action">
+                Use the central search option on the top right corner
+                <i class="fa-solid fa-magnifying-glass"></i>
+                or feel free to
+                <a href="contact.html" class="cta-link">
+                    contact me <i class="fa-regular fa-envelope"></i>
+                </a>
+            </p>
+        </div>
+
+    </div><!-- end .container -->
+
+    <!-- ===== JAVASCRIPT LOAD ORDER ===== -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+
+</body>
+</html>
