@@ -772,16 +772,26 @@ section,
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem !important;
     white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
     padding: 0 var(--space-sm);
   }
 }
 
 @media (max-width: 400px) {
   .hero h1 {
-    font-size: 0.7rem;
-    white-space: nowrap;
+    font-size: 1.2rem !important;
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 1rem !important;
     padding: 0 var(--space-xs);
   }
 }
