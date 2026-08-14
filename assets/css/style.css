@@ -97,24 +97,36 @@ body {
 /* ============================================
    NAVIGATION (Navbar + Dropdown)
    ============================================ */
+
+/* ----- NAVBAR WRAPPER (Solid background behind glass) ----- */
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  padding: var(--space-md);
+  background: var(--bg-color);
+  pointer-events: none;
+}
+
+.navbar-wrapper .navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
 /* ----- NAVBAR (Floating Pill) ----- */
 .navbar {
-  position: fixed;
-  top: var(--space-md);
-  left: var(--space-md);
-  right: var(--space-md);
-  z-index: 9999;
-  
-  /* Glassmorphism */
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-full);
   padding: var(--space-sm) var(--space-lg);
-  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,7 +157,7 @@ body {
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -172,7 +184,7 @@ body {
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   flex-shrink: 0;
 }
 
@@ -180,24 +192,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 2px 8px rgba(0, 173, 181, 0.2);
   color: var(--dark-color);
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .navbar-icons a:hover {
   background: var(--accent-color);
   color: var(--white-color);
+  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.35);
+  transform: scale(1.05);
 }
 
 /* ----- HAMBURGER (Mobile) ----- */
-
 .hamburger {
   display: none;
   flex-direction: column;
@@ -225,16 +239,13 @@ body {
   left: var(--space-md);
   right: var(--space-md);
   margin-top: var(--space-sm);
-  
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  
   border-radius: var(--radius-lg);
   padding: var(--space-md) var(--space-sm);
-  
   list-style: none;
   flex-direction: column;
   gap: var(--space-xs);
@@ -270,36 +281,97 @@ body {
   color: var(--accent-color);
 }
 
-/*  NAVBAR - SOLID BACKGROUND BEHIND GLASS */
+/*   NAVIGATION - RESPONSIVE */
 
-.navbar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9998;
-  padding: var(--space-md);
-  background: var(--bg-color);
-  pointer-events: none;
+/* ----- Tablets (max-width: 992px) ----- */
+@media (max-width: 992px) {
+  .navbar {
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .navbar-links li a {
+    font-size: 0.85rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
 }
 
-.navbar-wrapper .navbar {
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  pointer-events: auto;
-}
-
+/* ----- Phones (max-width: 768px) ----- */
 @media (max-width: 768px) {
   .navbar-wrapper {
     padding: var(--space-sm);
   }
+  
+  .navbar {
+    border-radius: var(--radius-xl);
+    padding: var(--space-xs) var(--space-md);
+  }
+  
+  .navbar-links {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .navbar-brand {
+    font-size: 0.95rem;
+    gap: var(--space-xs);
+  }
+  
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .navbar-icons {
+    gap: var(--space-sm);
+  }
+  
+  .navbar-icons a {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  
+  .navbar-dropdown {
+    left: var(--space-sm);
+    right: var(--space-sm);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-xs);
+  }
+  
+  .navbar-dropdown li a {
+    font-size: 0.95rem;
+    padding: var(--space-sm) var(--space-md);
+  }
 }
 
+/* ----- Very Small Phones (max-width: 400px) ----- */
 @media (max-width: 400px) {
   .navbar-wrapper {
     padding: var(--space-xs);
+  }
+  
+  .navbar {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xs) var(--space-sm);
+  }
+  
+  .navbar-brand {
+    font-size: 0.8rem;
+    gap: var(--space-xs);
+  }
+  
+  .navbar-brand img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .navbar-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
   }
 }
 
