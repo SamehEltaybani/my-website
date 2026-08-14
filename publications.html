@@ -63,7 +63,7 @@
 
     <!-- ===== PUBLICATIONS RENDERER ===== -->
 
-        <script>
+            <script>
         (function() {
             'use strict';
 
@@ -71,23 +71,19 @@
             let loadedCount = 0;
             const pageSize = 10;
 
-            // Helper: Truncate summary
             function truncateSummary(text, maxLength) {
                 if (!text) return '';
                 if (text.length <= maxLength) return text;
                 return text.substring(0, maxLength).trim() + '...';
             }
 
-            // Helper: Create card HTML for a single publication
             function createCardHTML(pub) {
                 let html = '';
 
-                // 1. Title
                 if (pub.title) {
                     html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
                 }
 
-                // 2. Journal + Year (non-italic, in parentheses)
                 let journalYear = '';
                 if (pub.journal) {
                     journalYear += window.escapeHTML(pub.journal);
@@ -100,7 +96,6 @@
                     html += '<div class="publication-journal">' + journalYear + '</div>';
                 }
 
-                // 3. Authorship Tag
                 if (pub.authorship) {
                     let tagClass = 'authorship-tag';
                     if (pub.authorship.toLowerCase().includes('first') || pub.authorship.toLowerCase().includes('corresponding')) {
@@ -113,7 +108,6 @@
                     html += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
                 }
 
-                // 4. Links (PubMed, Journal, Blog)
                 let linksHtml = '<div class="publication-links">';
                 let hasLink = false;
 
@@ -135,7 +129,6 @@
                     html += linksHtml;
                 }
 
-                // 5. Summary (truncated to 200)
                 if (pub.summary) {
                     const truncated = truncateSummary(pub.summary, 200);
                     html += '<div class="publication-summary">' + window.escapeHTML(truncated) + '</div>';
@@ -144,7 +137,6 @@
                 return html;
             }
 
-            // Helper: Create separator with both labels (above and below)
             function createSeparator(abovePage, belowPage) {
                 const sep = document.createElement('div');
                 sep.className = 'publication-separator';
@@ -156,7 +148,6 @@
                 return sep;
             }
 
-            // Main render function
             function renderPublications() {
                 const container = document.getElementById('publications-list');
                 container.innerHTML = '';
@@ -166,35 +157,32 @@
                     return;
                 }
 
-                // Ensure loadedCount is set
                 if (loadedCount === 0) {
                     loadedCount = Math.min(pageSize, allPublications.length);
                 }
 
-                // Loop through all loaded publications
+                // --- Render publications ---
                 for (let i = 0; i < loadedCount; i++) {
-                    // Add separator BEFORE a new page block (except before the first item)
-                    if (i % pageSize === 0 && i > 0) {
-                        const pageNum = Math.floor(i / pageSize) + 1; // Current page number
-                        const abovePage = pageNum - 1; // Page that ended
-                        const belowPage = pageNum; // Page that starts
+                    // Add separator before a new page block (except before the very first item)
+                    if (i > 0 && i % pageSize === 0) {
+                        const pageNum = Math.floor(i / pageSize) + 1;
+                        const abovePage = pageNum - 1;
+                        const belowPage = pageNum;
                         const sep = createSeparator(abovePage, belowPage);
                         container.appendChild(sep);
                     }
 
-                    // Create and append the card
                     const card = document.createElement('div');
                     card.className = 'publication-card';
                     card.innerHTML = createCardHTML(allPublications[i]);
                     container.appendChild(card);
                 }
 
-                // Add bottom separator + "See More" if more items exist
+                // --- Add bottom separator + "See More" if more items exist ---
                 if (loadedCount < allPublications.length) {
                     const currentPage = Math.floor(loadedCount / pageSize) + 1;
                     const nextPage = currentPage + 1;
 
-                    // Separator showing current page as above, next page as below
                     const sep = createSeparator(currentPage, nextPage);
                     container.appendChild(sep);
 
@@ -207,7 +195,6 @@
                     seeMoreBtn.addEventListener('click', function() {
                         loadedCount = Math.min(loadedCount + pageSize, allPublications.length);
                         renderPublications();
-                        // Smooth scroll to the separator that was just added (optional)
                     });
                     
                     wrapper.appendChild(seeMoreBtn);
@@ -215,7 +202,6 @@
                 }
             }
 
-            // Fetch publications
             async function loadPublications() {
                 const container = document.getElementById('publications-list');
 
@@ -231,7 +217,6 @@
                         return;
                     }
 
-                    // Initialize with first page
                     loadedCount = Math.min(pageSize, allPublications.length);
                     renderPublications();
 
