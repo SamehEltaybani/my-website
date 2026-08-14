@@ -551,12 +551,6 @@ body {
   margin: var(--space-lg) 0 var(--space-xl) 0;
 }
 
-.grid-8 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-  margin: var(--space-lg) 0 var(--space-xl) 0;
-}
 
 /* ============================================
    8. CARDS (Standard + Action + Static)
@@ -1321,9 +1315,7 @@ section,
   transform: translateX(3px);
 }
 
-/* ============================================
-   WHAT I DO - RESPONSIVE
-   ============================================ */
+/*   WHAT I DO - RESPONSIVE */
 
 /* ----- Tablets (max-width: 992px) ----- */
 @media (max-width: 992px) {
@@ -1398,6 +1390,7 @@ section,
 }
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
+
 @media (max-width: 400px) {
   .whatido-row {
     padding: var(--space-sm);
@@ -1430,6 +1423,165 @@ section,
     font-size: 0.7rem;
   }
 }
+
+
+/* ============================================
+   14. EXPLORE THE SITE (2-Column Grid)
+   ============================================ */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-lg) 0 var(--space-xl) 0;
+}
+
+.explore-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  text-decoration: none;
+  color: var(--dark-color);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  min-height: 70px;
+}
+
+.explore-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 173, 181, 0.12);
+  border-color: var(--accent-color);
+}
+
+/* ----- Left: Square Icon ----- */
+.explore-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 173, 181, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.explore-icon i {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+}
+
+/* ----- Middle: Title ----- */
+.explore-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark-color);
+  flex: 1;
+  text-align: left;
+}
+
+/* ----- Right: Arrow ----- */
+.explore-arrow {
+  font-size: 1rem;
+  color: var(--dark-color);
+  opacity: 0.3;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.explore-card:hover .explore-arrow {
+  transform: translateX(4px);
+  opacity: 0.8;
+  color: var(--accent-color);
+}
+
+/* ============================================
+   EXPLORE THE SITE - RESPONSIVE
+   ============================================ */
+
+/* ----- Tablets (max-width: 992px) ----- */
+@media (max-width: 992px) {
+  .explore-grid {
+    gap: var(--space-sm);
+  }
+  
+  .explore-card {
+    padding: var(--space-sm) var(--space-md);
+    min-height: 60px;
+  }
+  
+  .explore-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .explore-icon i {
+    font-size: 1.2rem;
+  }
+  
+  .explore-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* ----- Phones (max-width: 768px) ----- */
+@media (max-width: 768px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .explore-card {
+    padding: var(--space-sm) var(--space-md);
+    min-height: 55px;
+  }
+  
+  .explore-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+  
+  .explore-icon i {
+    font-size: 1rem;
+  }
+  
+  .explore-title {
+    font-size: 0.9rem;
+  }
+  
+  .explore-arrow {
+    font-size: 0.9rem;
+  }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
+@media (max-width: 400px) {
+  .explore-card {
+    padding: var(--space-xs) var(--space-sm);
+    min-height: 48px;
+    gap: var(--space-sm);
+  }
+  
+  .explore-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+  
+  .explore-icon i {
+    font-size: 0.9rem;
+  }
+  
+  .explore-title {
+    font-size: 0.85rem;
+  }
+}
+
 
 /* ============================================
    12. UTILITY CLASSES
@@ -1464,10 +1616,6 @@ section,
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .grid-8 {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* ----- Phones (max-width: 768px) ----- */
@@ -1482,8 +1630,8 @@ section,
   
   .grid-2,
   .grid-3,
-  .grid-4,
-  .grid-8 {
+  .grid-4
+   {
     grid-template-columns: 1fr;
   }
   
