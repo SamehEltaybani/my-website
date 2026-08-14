@@ -873,16 +873,25 @@ section,
    11. ABOUT SECTION (Homepage)
    ============================================ */
 .about-section {
+  padding: var(--space-xl) 0;
+  margin: 0;
+  background: transparent;
+}
+
+.about-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  width: 100%;
+}
+
+.about-header {
   display: flex;
   align-items: center;
   gap: var(--space-xl);
-  background: var(--white-color);
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
 }
 
-.about-section img {
+.about-header img {
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -891,29 +900,102 @@ section,
   border: 4px solid var(--accent-color);
 }
 
-.about-section p {
+.about-text p {
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--dark-color);
   margin: 0;
 }
 
+/* ----- KPI Cards ----- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.kpi-card {
+  background: transparent;
+  text-align: center;
+  padding: var(--space-md);
+  border: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.kpi-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+.kpi-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark-color);
+  opacity: 0.7;
+}
+
 /* ----- About: Responsive ----- */
+@media (max-width: 992px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
 @media (max-width: 768px) {
-  .about-section {
+  .about-header {
     flex-direction: column;
     text-align: center;
-    padding: var(--space-lg);
     gap: var(--space-md);
   }
   
-  .about-section img {
+  .about-header img {
     width: 130px;
     height: 130px;
   }
   
-  .about-section p {
+  .about-text p {
     font-size: 1rem;
+  }
+  
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  
+  .kpi-number {
+    font-size: 2.2rem;
+  }
+  
+  .kpi-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-content {
+    padding: 0 var(--space-md);
+  }
+  
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .kpi-number {
+    font-size: 1.8rem;
+  }
+  
+  .kpi-label {
+    font-size: 0.8rem;
   }
 }
 
