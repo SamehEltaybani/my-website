@@ -38,6 +38,9 @@
 
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+        const wrapper = document.createElement('div');
+        wrapper.className = 'navbar-wrapper';
+        
         const navbar = document.createElement('nav');
         navbar.className = 'navbar';
         navbar.setAttribute('role', 'navigation');
@@ -139,12 +142,14 @@
         navbar.appendChild(hamburger);
         navbar.appendChild(dropdown);
         navbar.appendChild(iconsContainer);
-
+        
+        wrapper.appendChild(navbar);
+        
         const body = document.body;
         if (body.firstChild) {
-            body.insertBefore(navbar, body.firstChild);
+            body.insertBefore(wrapper, body.firstChild);
         } else {
-            body.appendChild(navbar);
+            body.appendChild(wrapper);
         }
 
         // --- Hamburger toggle logic ---
