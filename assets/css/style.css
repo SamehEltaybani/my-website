@@ -1143,6 +1143,294 @@ section,
 
 
 /* ============================================
+   13. WHAT I DO SECTION
+   ============================================ */
+.whatido-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  margin: var(--space-lg) 0 var(--space-xl) 0;
+}
+
+/* ----- Each Row ----- */
+.whatido-row {
+  display: flex;
+  gap: var(--space-lg);
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  align-items: stretch;
+}
+
+/* ----- Left Column (60%) ----- */
+.whatido-left {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-lg);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Header: Icon + Title */
+.whatido-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.whatido-header i {
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+.whatido-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+/* Divider: Thick green line fading to right */
+.whatido-divider {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 60%, transparent 100%);
+  border-radius: 4px;
+  margin-bottom: var(--space-md);
+}
+
+/* Paragraph text */
+.whatido-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--dark-color);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* Bullet points with caret-right */
+.whatido-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.whatido-bullets li {
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.whatido-bullets li i {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  width: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Button: Right-aligned within left column */
+.whatido-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  color: var(--dark-color);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--accent-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  gap: var(--space-md);
+  align-self: flex-end;
+  margin-top: auto;
+  min-width: 140px;
+}
+
+.whatido-btn span {
+  text-align: left;
+}
+
+.whatido-btn i {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.whatido-btn:hover {
+  background: var(--accent-color);
+  color: var(--white-color);
+  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+}
+
+.whatido-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* ----- Right Column (30%) ----- */
+.whatido-right {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-sm);
+}
+
+.whatido-right img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.whatido-copyright {
+  font-size: 0.8rem;
+  color: var(--dark-color);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.whatido-copyright i {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.whatido-copyright:hover {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.whatido-copyright:hover i {
+  transform: translateX(3px);
+}
+
+/* ============================================
+   WHAT I DO - RESPONSIVE
+   ============================================ */
+
+/* ----- Tablets (max-width: 992px) ----- */
+@media (max-width: 992px) {
+  .whatido-left {
+    flex: 0 0 55%;
+    padding-right: var(--space-md);
+  }
+  
+  .whatido-right {
+    flex: 0 0 35%;
+  }
+  
+  .whatido-header i {
+    font-size: 1.6rem;
+  }
+  
+  .whatido-header h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ----- Phones (max-width: 768px) ----- */
+@media (max-width: 768px) {
+  .whatido-container {
+    gap: var(--space-lg);
+  }
+  
+  .whatido-row {
+    flex-direction: column;
+    padding: var(--space-md);
+  }
+  
+  .whatido-left {
+    flex: 1 1 auto;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: var(--space-md);
+  }
+  
+  .whatido-right {
+    flex: 1 1 auto;
+    padding-top: var(--space-md);
+  }
+  
+  .whatido-right img {
+    max-width: 100%;
+  }
+  
+  .whatido-btn {
+    align-self: flex-end;
+    min-width: 120px;
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.9rem;
+  }
+  
+  .whatido-header i {
+    font-size: 1.4rem;
+  }
+  
+  .whatido-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .whatido-text {
+    font-size: 0.95rem;
+  }
+  
+  .whatido-bullets li {
+    font-size: 0.9rem;
+  }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
+@media (max-width: 400px) {
+  .whatido-row {
+    padding: var(--space-sm);
+  }
+  
+  .whatido-btn {
+    min-width: 100px;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.85rem;
+    gap: var(--space-sm);
+  }
+  
+  .whatido-header i {
+    font-size: 1.2rem;
+  }
+  
+  .whatido-header h3 {
+    font-size: 1rem;
+  }
+  
+  .whatido-text {
+    font-size: 0.9rem;
+  }
+  
+  .whatido-bullets li {
+    font-size: 0.85rem;
+  }
+  
+  .whatido-copyright {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
    12. UTILITY CLASSES
    ============================================ */
 .text-center { text-align: center; }
