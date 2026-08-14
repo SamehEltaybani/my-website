@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Dr. Sameh Eltaybani - Publications</title>
+    <meta name="description" content="Explore the full list of publications by Dr. Sameh Eltaybani. Peer-reviewed articles, research papers, and academic contributions.">
+    <meta property="og:title" content="Dr. Sameh Eltaybani - Publications">
+    <meta property="og:description" content="Explore the full list of publications by Dr. Sameh Eltaybani. Peer-reviewed articles, research papers, and academic contributions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="publications.html">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+    
+<body>
+
+    <!-- ===== MAIN CONTENT (Restricted to 1200px) ===== -->
+    <div class="container">
+
+        <!-- ===== PUBLICATIONS HEADER ===== -->
+        <h1 class="section-title-left">Publications</h1>
+
+        <!-- ===== PUBLICATIONS LIST ===== -->
+        <div id="publications-list" class="publication-list">
+            <p style="color: var(--dark-color); opacity: 0.6;">Loading publications...</p>
+        </div>
+
+        <!-- ===== CLOSING CTA ===== -->
+        <div class="closing-cta">
+            <p class="cta-question">Cannot find what you are looking for or have a question?</p>
+            <p class="cta-action">
+                Use the central search option on the top right corner
+                <i class="fa-solid fa-magnifying-glass"></i>
+                or feel free to
+                <a href="contact.html" class="cta-link">
+                    contact me <i class="fa-regular fa-envelope"></i>
+                </a>
+            </p>
+        </div>
+
+    </div><!-- end .container -->
+
+    <!-- ===== JAVASCRIPT LOAD ORDER ===== -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+
+    <!-- ===== PUBLICATIONS RENDERER ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            async function loadPublications() {
+                const container = document.getElementById('publications-list');
+
+                try {
+                    const response = await fetch('json/publications.json');
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const publications = await response.json();
+
+                    // Clear loading message
+                    container.innerHTML = '';
+
+                    // If no publications, show a message
+                    if (!publications || publications.length === 0) {
+                        container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">No publications found.</p>';
+                        return;
+                    }
+
+                    // Render each publication
+                    publications.forEach(function(pub) {
+                        const card = document.createElement('div');
+                        card.className = 'publication-card';
+
+                        let html = '';
+
+                        // 1. Title (always shown if exists)
+                        if (pub.title) {
+                            html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
+                        }
+
+                        // 2. Authorship (optional)
+                        if (pub.authorship) {
+                            html += '<div class="publication-authorship">' + window.escapeHTML(pub.authorship) + '</div>';
+                        }
+
+                        // 3. Journal + Year (optional)
+                        if (pub.journal || pub.year) {
+                            let journalText = '';
+                            if (pub.journal) {
+                                journalText += window.escapeHTML(pub.journal);
+                            }
+                            if (pub.year) {
+                                if (journalText) journalText += ' ';
+                                journalText += '(' + window.escapeHTML(pub.year) + ')';
+                            }
+                            if (journalText) {
+                                html += '<div class="publication-journal">' + journalText + '</div>';
+                            }
+                        }
+
+                        // 4. Links (optional)
+                        let linksHtml = '<div class="publication-links">';
+                        let hasLink = false;
+
+                        if (pub.pubmedLink) {
+                            linksHtml += '<a href="' + window.escapeHTML(pub.pubmedLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link"><i class="fa-solid fa-book"></i> PubMed</a>';
+                            hasLink = true;
+                        }
+
+                        if (pub.journalLink) {
+                            linksHtml += '<a href="' + window.escapeHTML(pub.journalLink) + '" target="_blank" rel="noopener noreferrer" class="publication-link"><i class="fa-solid fa-file-lines"></i> Journal</a>';
+                            hasLink = true;
+                        }
+
+                        if (pub.blogLink) {
+                            linksHtml += '<a href="' + window.escapeHTML(pub.blogLink) + '" class="publication-link"><i class="fa-solid fa-pen-to-square"></i> Blog</a>';
+                            hasLink = true;
+                        }
+
+                        linksHtml += '</div>';
+
+                        if (hasLink) {
+                            html += linksHtml;
+                        }
+
+                        // 5. Summary (optional)
+                        if (pub.summary) {
+                            html += '<div class="publication-summary">' + window.escapeHTML(pub.summary) + '</div>';
+                        }
+
+                        card.innerHTML = html;
+                        container.appendChild(card);
+                    });
+
+                } catch (error) {
+                    container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">Unable to load publications at this time. Please try again later.</p>';
+                    console.error('Error loading publications:', error);
+                }
+            }
+
+            // Load publications when page is ready
+            document.addEventListener('DOMContentLoaded', loadPublications);
+        })();
+    </script>
+
+</body>
+</html>
