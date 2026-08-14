@@ -364,6 +364,7 @@ body {
   }
 }
 
+
 /* ============================================
   FOOTER
    ============================================ */
@@ -679,11 +680,13 @@ section,
   margin: 0;
 }
 
+
 /* ============================================
    HERO SECTION (Homepage)
    ============================================ */
 
 /* ----- Hero: Full Width Wrapper ----- */
+
 .hero-wrapper {
   width: 100%;
   background: linear-gradient(to bottom, var(--accent-color) 0%, var(--accent-color) 40%, var(--bg-color) 100%);
@@ -1326,6 +1329,7 @@ section,
 }
 
 /* ----- Phones (max-width: 768px) ----- */
+
 @media (max-width: 768px) {
   .whatido-container {
     gap: var(--space-lg);
@@ -1547,6 +1551,7 @@ section,
 }
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
+
 @media (max-width: 400px) {
   .explore-card {
     padding: var(--space-xs) var(--space-sm);
@@ -1669,7 +1674,7 @@ section,
 
 
 /* ============================================
-   13. RESPONSIVE BREAKPOINTS (Global)
+  RESPONSIVE BREAKPOINTS (Global)
    ============================================ */
 
 /* ----- Tablets & Small Laptops (max-width: 992px) ----- */
@@ -1724,7 +1729,7 @@ section,
 
 
 /* ============================================
-   16. BACK-TO-TOP BUTTON
+  BACK-TO-TOP BUTTON
    ============================================ */
 .back-to-top {
   position: fixed;
@@ -1784,7 +1789,7 @@ section,
 
 
 /* ============================================
-           404 PAGE - CUSTOM STYLES
+404 PAGE - CUSTOM STYLES
  ============================================ */
 
         .error-section {
@@ -1899,21 +1904,22 @@ section,
 
 
 /* ============================================
-   17. PUBLICATIONS PAGE
+PUBLICATIONS PAGE
    ============================================ */
 
-/* ----- Page Header (Gradient like Home Hero) ----- */
-.page-header-wrapper {
+/* ----- Page Header ----- */
+
+.page-header-wrapper-simple {
   width: 100%;
-  background: linear-gradient(to bottom, var(--accent-color) 0%, var(--accent-color) 40%, var(--bg-color) 100%);
+  background: transparent;
   margin: 0;
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) 0 var(--space-lg) 0;
 }
 
-.page-header-title {
+.page-header-title-simple {
   font-size: 2.8rem;
   font-weight: 800;
-  color: var(--white-color);
+  color: var(--dark-color);
   text-align: left;
   margin: 0;
   letter-spacing: -0.02em;
@@ -1928,6 +1934,7 @@ section,
 }
 
 /* ----- Publication Card (with green left border) ----- */
+
 .publication-card {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -2067,11 +2074,11 @@ section,
 
 /* ----- Publications: Responsive ----- */
 @media (max-width: 768px) {
-  .page-header-wrapper {
-    padding: var(--space-lg) 0;
+ .page-header-wrapper-simple {
+    padding: var(--space-lg) 0 var(--space-md) 0;
   }
   
-  .page-header-title {
+  .page-header-title-simple {
     font-size: 2rem;
   }
   
@@ -2094,11 +2101,7 @@ section,
 }
 
 @media (max-width: 400px) {
-  .page-header-wrapper {
-    padding: var(--space-md) 0;
-  }
-  
-  .page-header-title {
+  .page-header-title-simple {
     font-size: 1.6rem;
   }
 }
