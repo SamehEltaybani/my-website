@@ -21,17 +21,17 @@
             { label: 'Blog', link: 'blog.html', icon: 'fa-solid fa-pen-to-square' }
         ],
         rightIcons: [
-            { 
-                iconClass: 'fa-regular fa-envelope', 
-                link: 'mailto:your.email@university.edu',
-                ariaLabel: 'Contact me via email'
-            },
-            { 
-                iconClass: 'fa-solid fa-magnifying-glass', 
-                link: 'search.html',
-                ariaLabel: 'Search the website'
-            }
-        ]
+                { 
+                    iconClass: 'fa-regular fa-envelope', 
+                    link: 'contact.html',
+                    ariaLabel: 'Contact me'
+                },
+                { 
+                    iconClass: 'fa-solid fa-magnifying-glass', 
+                    link: 'search.html',
+                    ariaLabel: 'Search the website'
+                }
+            ]
     };
 
     document.addEventListener('DOMContentLoaded', function() {
