@@ -1901,27 +1901,40 @@ section,
 /* ============================================
    17. PUBLICATIONS PAGE
    ============================================ */
-.section-title-left {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  text-align: left;
-  margin: var(--space-xl) 0 var(--space-lg) 0;
+
+/* ----- Page Header (Gradient like Home Hero) ----- */
+.page-header-wrapper {
+  width: 100%;
+  background: linear-gradient(to bottom, var(--accent-color) 0%, var(--accent-color) 40%, var(--bg-color) 100%);
+  margin: 0;
+  padding: var(--space-xl) 0;
 }
 
+.page-header-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--white-color);
+  text-align: left;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ----- Publication List ----- */
 .publication-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin: var(--space-xl) 0;
 }
 
+/* ----- Publication Card (with green left border) ----- */
 .publication-card {
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.02);
+  border-left: 4px solid var(--accent-color);
   transition: box-shadow 0.2s ease;
 }
 
@@ -1929,6 +1942,7 @@ section,
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
 }
 
+/* ----- Title ----- */
 .publication-title {
   font-weight: 600;
   font-size: 1.1rem;
@@ -1937,21 +1951,51 @@ section,
   line-height: 1.4;
 }
 
-.publication-authorship {
-  font-size: 0.9rem;
+/* ----- Journal (Italic, below title) ----- */
+.publication-journal {
+  font-size: 0.95rem;
+  font-style: italic;
   color: var(--dark-color);
-  opacity: 0.7;
+  opacity: 0.75;
   margin-bottom: var(--space-xs);
 }
 
-.publication-journal {
-  font-size: 0.95rem;
+/* ----- Year ----- */
+.publication-year {
+  font-size: 0.9rem;
   color: var(--dark-color);
-  opacity: 0.8;
-  margin-bottom: var(--space-sm);
+  opacity: 0.6;
+  margin-bottom: var(--space-xs);
 }
 
-/* ----- Publication Links (Pills) ----- */
+/* ----- Authorship Tag ----- */
+.authorship-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.authorship-first {
+  background: rgba(0, 173, 181, 0.15);
+  color: var(--accent-color);
+}
+
+.authorship-co {
+  background: rgba(34, 40, 49, 0.08);
+  color: var(--dark-color);
+}
+
+.authorship-other {
+  background: rgba(255, 193, 7, 0.15);
+  color: #b8860b;
+}
+
+/* ----- Links (Pills with distinct border colors) ----- */
 .publication-links {
   display: flex;
   gap: var(--space-sm);
@@ -1967,36 +2011,68 @@ section,
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   text-decoration: none;
-  background: var(--bg-color);
+  background: var(--white-color);
   color: var(--dark-color);
-  transition: background 0.2s ease, color 0.2s ease;
+  border: 2px solid var(--bg-color);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .publication-link i {
   font-size: 0.75rem;
 }
 
-.publication-link:hover {
-  background: var(--accent-color);
-  color: var(--white-color);
+/* ----- PubMed: Blue border ----- */
+.pubmed-link {
+  border-color: #2c7be5;
 }
 
-/* ----- Publication Summary (Optional) ----- */
+.pubmed-link:hover {
+  background: #2c7be5;
+  color: var(--white-color);
+  border-color: #2c7be5;
+}
+
+/* ----- Journal: Green border ----- */
+.journal-link {
+  border-color: #28a745;
+}
+
+.journal-link:hover {
+  background: #28a745;
+  color: var(--white-color);
+  border-color: #28a745;
+}
+
+/* ----- Blog: Orange border ----- */
+.blog-link {
+  border-color: #fd7e14;
+}
+
+.blog-link:hover {
+  background: #fd7e14;
+  color: var(--white-color);
+  border-color: #fd7e14;
+}
+
+/* ----- Summary (Truncated) ----- */
 .publication-summary {
   font-size: 0.95rem;
   color: var(--dark-color);
   opacity: 0.75;
   line-height: 1.6;
-  margin-top: var(--space-xs);
-  padding-top: var(--space-xs);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* ----- Publications: Responsive ----- */
 @media (max-width: 768px) {
-  .section-title-left {
-    font-size: 1.6rem;
-    margin: var(--space-lg) 0 var(--space-md) 0;
+  .page-header-wrapper {
+    padding: var(--space-lg) 0;
+  }
+  
+  .page-header-title {
+    font-size: 2rem;
   }
   
   .publication-card {
@@ -2012,14 +2088,18 @@ section,
   }
   
   .publication-link {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding: 0.15rem 0.7rem;
   }
 }
 
 @media (max-width: 400px) {
-  .section-title-left {
-    font-size: 1.3rem;
+  .page-header-wrapper {
+    padding: var(--space-md) 0;
+  }
+  
+  .page-header-title {
+    font-size: 1.6rem;
   }
 }
 
