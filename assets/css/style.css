@@ -2103,3 +2103,80 @@ section,
   }
 }
 
+/* ----- Publication Separator (Page Dividers) ----- */
+.publication-separator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.separator-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-color), transparent);
+  opacity: 0.3;
+}
+
+.separator-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--dark-color);
+  opacity: 0.5;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.publication-separator:last-child .separator-line {
+  background: linear-gradient(to right, transparent, var(--accent-color));
+}
+
+/* ----- See More Button ----- */
+.see-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  color: var(--accent-color);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--accent-color);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.see-more-btn:hover {
+  background: var(--accent-color);
+  color: var(--white-color);
+  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+}
+
+.see-more-btn i {
+  transition: transform 0.2s ease;
+}
+
+.see-more-btn:hover i {
+  transform: translateY(3px);
+}
+
+/* ----- Responsive: Separator ----- */
+@media (max-width: 768px) {
+  .publication-separator {
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+  }
+  
+  .separator-label {
+    font-size: 0.75rem;
+  }
+  
+  .see-more-btn {
+    font-size: 0.9rem;
+    padding: var(--space-xs) var(--space-lg);
+  }
+}
+
