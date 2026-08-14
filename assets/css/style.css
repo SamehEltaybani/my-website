@@ -704,14 +704,18 @@ section,
    ============================================ */
 .hero {
   text-align: center;
+  background: linear-gradient(to bottom, var(--accent-color) 0%, var(--accent-color) 40%, var(--bg-color) 100%);
+  padding: var(--space-xl) 0;
+  margin: 0;
+  border-radius: 0;
 }
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
-  color: var(--dark-color);
+  color: var(--white-color);
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
   white-space: nowrap;
   display: inline-block;
   text-align: center;
@@ -721,34 +725,58 @@ section,
 
 .hero h1 .highlight-text {
   background: var(--dark-color);
-  color: var(--accent-color);
+  color: var(--white-color);
   padding: 0.1rem 0.4rem;
   border-radius: var(--radius-sm);
   display: inline-block;
   line-height: 1.3;
 }
 
+/* ----- Hero: Buttons (Pills) ----- */
 .hero-taglines {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-sm) var(--space-xl);
-  font-size: 1.2rem;
-  font-weight: 500;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--white-color);
   color: var(--dark-color);
-  opacity: 0.8;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--accent-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.hero-taglines p {
-  margin: 0;
-  position: relative;
+.hero-btn:hover {
+  background: var(--accent-color);
+  color: var(--white-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
 }
 
-.hero-taglines p:not(:last-child)::after {
-  content: "•";
-  margin-left: var(--space-xl);
-  color: var(--accent-color);
-  opacity: 0.6;
+.hero-btn i {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.hero-btn:hover i {
+  transform: translateX(4px);
+}
+
+.hero-taglines .dot {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  opacity: 0.7;
 }
 
 /* ----- Hero: Responsive ----- */
@@ -760,12 +788,20 @@ section,
   }
   
   .hero-taglines {
-    font-size: 1rem;
-    gap: var(--space-xs) var(--space-md);
+    flex-direction: column;
+    gap: var(--space-sm);
   }
   
-  .hero-taglines p:not(:last-child)::after {
-    margin-left: var(--space-md);
+  .hero-taglines .dot {
+    display: none;
+  }
+  
+  .hero-btn {
+    font-size: 1rem;
+    padding: var(--space-sm) var(--space-lg);
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
   }
 }
 
@@ -790,18 +826,6 @@ section,
     font-size: 1rem;
     white-space: nowrap;
     padding: 0 var(--space-xs);
-  }
-}
-
-@media (max-width: 400px) {
-  .hero-taglines {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-  
-  .hero-taglines p:not(:last-child)::after {
-    content: "";
-    display: none;
   }
 }
 
