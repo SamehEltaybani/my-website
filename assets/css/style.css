@@ -1,9 +1,24 @@
 /* ============================================
    STYLE.CSS - MASTER STYLESHEET
+   ============================================
+   TABLE OF CONTENTS:
+   1.  IMPORTS & ROOT VARIABLES
+   2.  GLOBAL RESET & BASE
+   3.  CONTAINER & LAYOUT
+   4.  TYPOGRAPHY
+   5.  NAVIGATION (Navbar + Dropdown)
+   6.  FOOTER
+   7.  GRID SYSTEMS
+   8.  CARDS (Standard + Action + Static)
+   9.  SECTION SPACING
+   10. HERO SECTION
+   11. ABOUT SECTION
+   12. UTILITY CLASSES
+   13. RESPONSIVE BREAKPOINTS
    ============================================ */
 
 /* ============================================
-   IMPORTS & ROOT VARIABLES
+   1. IMPORTS & ROOT VARIABLES
    ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -18,15 +33,15 @@
   --glass-bg: rgba(255, 255, 255, 0.95);
   --glass-border: rgba(255, 255, 255, 0.8);
   --glass-blur: 20px;
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   
   /* ----- SPACING SYSTEM ----- */
-  --space-xs: 0.25rem;   /* 4px */
-  --space-sm: 0.5rem;    /* 8px */
-  --space-md: 1rem;      /* 16px */
-  --space-lg: 2rem;      /* 32px */
-  --space-xl: 4rem;      /* 64px */
-  --space-xxl: 6rem;     /* 96px */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-xxl: 6rem;
   
   /* ----- CONTAINER ----- */
   --container-max: 1200px;
@@ -40,7 +55,7 @@
 }
 
 /* ============================================
-   GLOBAL RESET & BASE
+   2. GLOBAL RESET & BASE
    ============================================ */
 * {
   margin: 0;
@@ -62,7 +77,7 @@ body {
 }
 
 /* ============================================
-   CONTAINER & LAYOUT
+   3. CONTAINER & LAYOUT
    ============================================ */
 .container {
   max-width: var(--container-max);
@@ -72,7 +87,7 @@ body {
 }
 
 /* ============================================
-   TYPOGRAPHY
+   4. TYPOGRAPHY
    ============================================ */
 .section-title {
   font-size: 2rem;
@@ -82,7 +97,6 @@ body {
   margin: var(--space-xxl) 0 var(--space-lg) 0;
 }
 
-
 .section-sub {
   text-align: center;
   opacity: 0.6;
@@ -91,7 +105,7 @@ body {
 }
 
 /* ============================================
-   NAVIGATION (Navbar + Dropdown)
+   5. NAVIGATION (Navbar + Dropdown)
    ============================================ */
 
 /* ----- NAVBAR WRAPPER (Solid background behind glass) ----- */
@@ -120,7 +134,7 @@ body {
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--glass-shadow), 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-full);
   padding: var(--space-sm) var(--space-lg);
   display: flex;
@@ -277,9 +291,7 @@ body {
   color: var(--accent-color);
 }
 
-/*   NAVIGATION - RESPONSIVE */
-
-/* ----- Tablets (max-width: 992px) ----- */
+/* ----- NAVIGATION: Responsive ----- */
 @media (max-width: 992px) {
   .navbar {
     padding: var(--space-sm) var(--space-md);
@@ -291,7 +303,6 @@ body {
   }
 }
 
-/* ----- Phones (max-width: 768px) ----- */
 @media (max-width: 768px) {
   .navbar-wrapper {
     padding: var(--space-sm);
@@ -343,7 +354,6 @@ body {
   }
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
 @media (max-width: 400px) {
   .navbar-wrapper {
     padding: var(--space-xs);
@@ -371,13 +381,9 @@ body {
   }
 }
 
-
-
-
 /* ============================================
-   FOOTER
+   6. FOOTER
    ============================================ */
-
 .site-footer {
   background-color: var(--white-color);
   padding: 2.5rem 1.5rem 3rem 1.5rem;
@@ -522,7 +528,7 @@ body {
 }
 
 /* ============================================
-   GRID SYSTEMS
+   7. GRID SYSTEMS
    ============================================ */
 .grid-2 {
   display: grid;
@@ -553,10 +559,10 @@ body {
 }
 
 /* ============================================
-   CARDS (Standard + Action)
+   8. CARDS (Standard + Action + Static)
    ============================================ */
 
-/* ----- STANDARD CARDS ----- */
+/* ----- STANDARD CARDS (With hover) ----- */
 .card {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -596,8 +602,42 @@ body {
   margin: 0;
 }
 
-/* ----- ACTION CARDS (Clickable) ----- */
+/* ----- STATIC CARDS (No hover effect) ----- */
+.card-static {
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: none;
+}
 
+.card-static h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.card-static h3 i {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  width: 1.8rem;
+  text-align: center;
+}
+
+.card-static p {
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ----- ACTION CARDS (Clickable) ----- */
 .action-card {
   position: relative;
   display: block;
@@ -648,45 +688,8 @@ body {
   display: none;
 }
 
-/* ----- STATIC CARDS (No hover effect) ----- */
-
-.card-static {
-  background: var(--white-color);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  transition: none;
-}
-
-.card-static h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  margin-bottom: var(--space-sm);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.card-static h3 i {
-  color: var(--accent-color);
-  font-size: 1.3rem;
-  width: 1.8rem;
-  text-align: center;
-}
-
-.card-static p {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.75;
-  line-height: 1.6;
-  margin: 0;
-}
-
-
 /* ============================================
-   SECTION SPACING
+   9. SECTION SPACING
    ============================================ */
 section,
 .section,
@@ -697,7 +700,7 @@ section,
 }
 
 /* ============================================
-   HERO SECTION (Homepage)
+   10. HERO SECTION (Homepage)
    ============================================ */
 .hero {
   text-align: center;
@@ -712,11 +715,13 @@ section,
   white-space: nowrap;
   display: inline-block;
   text-align: center;
+  padding: 0 var(--space-xs);
+  max-width: 100%;
 }
 
 .hero h1 .highlight-text {
   background: var(--dark-color);
-  color: var(--white-color);
+  color: var(--accent-color);
   padding: 0.1rem 0.4rem;
   border-radius: var(--radius-sm);
   display: inline-block;
@@ -746,7 +751,14 @@ section,
   opacity: 0.6;
 }
 
- 
+/* ----- Hero: Responsive ----- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+    white-space: nowrap;
+    padding: 0 var(--space-sm);
+  }
+  
   .hero-taglines {
     font-size: 1rem;
     gap: var(--space-xs) var(--space-md);
@@ -757,7 +769,31 @@ section,
   }
 }
 
-  
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    padding: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 320px) {
+  .hero h1 {
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 400px) {
   .hero-taglines {
     flex-direction: column;
     gap: var(--space-xs);
@@ -769,35 +805,8 @@ section,
   }
 }
 
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.6rem !important;
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    padding: 0 var(--space-sm);
-  }
-}
-
-@media (max-width: 400px) {
-  .hero h1 {
-    font-size: 1.2rem !important;
-    padding: 0 var(--space-sm);
-  }
-}
-
-@media (max-width: 360px) {
-  .hero h1 {
-    font-size: 1rem !important;
-    padding: 0 var(--space-xs);
-  }
-}
-
 /* ============================================
-   ABOUT SECTION (Homepage)
+   11. ABOUT SECTION (Homepage)
    ============================================ */
 .about-section {
   display: flex;
@@ -825,152 +834,8 @@ section,
   margin: 0;
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-.text-center { text-align: center; }
-
-/* Margins */
-.mt-xs { margin-top: var(--space-xs); }
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-
-.mb-xs { margin-bottom: var(--space-xs); }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-
-/* Padding */
-.p-xs { padding: var(--space-xs); }
-.p-sm { padding: var(--space-sm); }
-.p-md { padding: var(--space-md); }
-.p-lg { padding: var(--space-lg); }
-.p-xl { padding: var(--space-xl); }
-
-/* ============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================ */
-
-/* ----- TABLETS & SMALL LAPTOPS (max-width: 992px) ----- */
-@media (max-width: 992px) {
-  .navbar {
-    padding: var(--space-sm) var(--space-md);
-  }
-  
-  .navbar-links li a {
-    font-size: 0.85rem;
-    padding: var(--space-xs) var(--space-sm);
-  }
-  
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid-8 { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ----- PHONES (max-width: 768px) ----- */
+/* ----- About: Responsive ----- */
 @media (max-width: 768px) {
-  /* Body */
-  body {
-    padding-top: 75px;
-  }
-  
-  /* Container */
-  .container {
-    padding: 0 var(--space-md);
-  }
-  
-  /* Navbar */
-  .navbar {
-    top: var(--space-sm);
-    left: var(--space-sm);
-    right: var(--space-sm);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xs) var(--space-md);
-  }
-  
-  .navbar-links {
-    display: none;
-  }
-  
-  .hamburger {
-    display: flex;
-  }
-  
-  .navbar-brand {
-    font-size: 0.95rem;
-    gap: var(--space-xs);
-  }
-  
-  .navbar-brand img {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .navbar-icons {
-    gap: var(--space-xs);
-  }
-  
-  .navbar-icons a {
-    width: 34px;
-    height: 34px;
-    font-size: 0.9rem;
-  }
-  
-  .navbar-dropdown {
-    left: var(--space-sm);
-    right: var(--space-sm);
-    border-radius: var(--radius-lg);
-    padding: var(--space-sm) var(--space-xs);
-  }
-  
-  .navbar-dropdown li a {
-    font-size: 0.95rem;
-    padding: var(--space-sm) var(--space-md);
-  }
-  
-  /* Footer */
-  footer .container {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    text-align: center;
-    padding-bottom: var(--space-xl);
-  }
-  
-  .footer-social-link {
-    justify-content: center;
-    font-size: 1.5rem;
-  }
-  
-  /* Grids */
-  .grid-2,
-  .grid-3,
-  .grid-4,
-  .grid-8 {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Section Spacing */
-  section,
-  .section,
-  .hero,
-  .about-section {
-    padding: var(--space-lg) 0;
-  }
-  
-  .section-title {
-    font-size: 1.6rem;
-    margin: var(--space-xl) 0 var(--space-md) 0;
-  }
-  
-  /* Cards */
-  .card,
-  .action-card {
-    padding: var(--space-md);
-  }
-  
-  /* About Section */
   .about-section {
     flex-direction: column;
     text-align: center;
@@ -986,59 +851,85 @@ section,
   .about-section p {
     font-size: 1rem;
   }
-  
-  /* Hero */
-  .hero h1 {
-    font-size: 2.2rem;
+}
+
+/* ============================================
+   12. UTILITY CLASSES
+   ============================================ */
+.text-center { text-align: center; }
+
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+/* ============================================
+   13. RESPONSIVE BREAKPOINTS (Global)
+   ============================================ */
+
+/* ----- Tablets & Small Laptops (max-width: 992px) ----- */
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .hero-taglines {
-    font-size: 1rem;
-    gap: var(--space-xs) var(--space-md);
-  }
-  
-  .hero-taglines p:not(:last-child)::after {
-    margin-left: var(--space-md);
+  .grid-8 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ----- VERY SMALL PHONES (max-width: 400px) ----- */
+/* ----- Phones (max-width: 768px) ----- */
+@media (max-width: 768px) {
+  body {
+    padding-top: 75px;
+  }
+  
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-8 {
+    grid-template-columns: 1fr;
+  }
+  
+  section,
+  .section,
+  .hero,
+  .about-section {
+    padding: var(--space-lg) 0;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin: var(--space-xl) 0 var(--space-md) 0;
+  }
+  
+  .card,
+  .card-static,
+  .action-card {
+    padding: var(--space-md);
+  }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
 @media (max-width: 400px) {
-  .navbar {
-    top: var(--space-xs);
-    left: var(--space-xs);
-    right: var(--space-xs);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xs) var(--space-sm);
-  }
-  
-  .navbar-brand {
-    font-size: 0.8rem;
-    gap: var(--space-xs);
-  }
-  
-  .navbar-brand img {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .navbar-icons a {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  .hero-taglines {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-  
-  .hero-taglines p:not(:last-child)::after {
-    content: "";
-    display: none;
+  .section-title {
+    font-size: 1.3rem;
   }
 }
