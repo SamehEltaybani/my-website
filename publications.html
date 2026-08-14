@@ -62,6 +62,7 @@
     <script src="assets/js/back-to-top.js"></script>
 
     <!-- ===== PUBLICATIONS RENDERER ===== -->
+
         <script>
         (function() {
             'use strict';
@@ -143,6 +144,18 @@
                 return html;
             }
 
+            // Helper: Create separator with both labels (above and below)
+            function createSeparator(abovePage, belowPage) {
+                const sep = document.createElement('div');
+                sep.className = 'publication-separator';
+                sep.innerHTML = `
+                    <span class="separator-label separator-above">Page ${abovePage} ▲</span>
+                    <span class="separator-line"></span>
+                    <span class="separator-label separator-below">Page ${belowPage} ▼</span>
+                `;
+                return sep;
+            }
+
             // Main render function
             function renderPublications() {
                 const container = document.getElementById('publications-list');
@@ -160,15 +173,12 @@
 
                 // Loop through all loaded publications
                 for (let i = 0; i < loadedCount; i++) {
-                    // Add page separator above the start of a new page block (except before the first item)
+                    // Add separator BEFORE a new page block (except before the first item)
                     if (i % pageSize === 0 && i > 0) {
-                        const pageNum = Math.floor(i / pageSize) + 1;
-                        const sep = document.createElement('div');
-                        sep.className = 'publication-separator';
-                        sep.innerHTML = `
-                            <div class="separator-line"></div>
-                            <div class="separator-label">Page ${pageNum} ▲</div>
-                        `;
+                        const pageNum = Math.floor(i / pageSize) + 1; // Current page number
+                        const abovePage = pageNum - 1; // Page that ended
+                        const belowPage = pageNum; // Page that starts
+                        const sep = createSeparator(abovePage, belowPage);
                         container.appendChild(sep);
                     }
 
@@ -179,15 +189,13 @@
                     container.appendChild(card);
                 }
 
-                // Add bottom separator and "See More" button if more items exist
+                // Add bottom separator + "See More" if more items exist
                 if (loadedCount < allPublications.length) {
-                    const nextPageNum = Math.floor(loadedCount / pageSize) + 1;
-                    const sep = document.createElement('div');
-                    sep.className = 'publication-separator';
-                    sep.innerHTML = `
-                        <div class="separator-label">Page ${nextPageNum} ▼</div>
-                        <div class="separator-line"></div>
-                    `;
+                    const currentPage = Math.floor(loadedCount / pageSize) + 1;
+                    const nextPage = currentPage + 1;
+
+                    // Separator showing current page as above, next page as below
+                    const sep = createSeparator(currentPage, nextPage);
                     container.appendChild(sep);
 
                     const wrapper = document.createElement('div');
@@ -199,8 +207,7 @@
                     seeMoreBtn.addEventListener('click', function() {
                         loadedCount = Math.min(loadedCount + pageSize, allPublications.length);
                         renderPublications();
-                        // Keep the user roughly at the same scroll position or smooth to new content?
-                        // We'll just re-render in place.
+                        // Smooth scroll to the separator that was just added (optional)
                     });
                     
                     wrapper.appendChild(seeMoreBtn);
