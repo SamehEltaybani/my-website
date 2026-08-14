@@ -780,7 +780,7 @@ section,
 
 @media (max-width: 400px) {
   .hero h1 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     white-space: nowrap;
     padding: 0 var(--space-xs);
   }
