@@ -82,10 +82,6 @@ body {
   margin: var(--space-xxl) 0 var(--space-lg) 0;
 }
 
-.section-title i {
-  color: var(--accent-color);
-  margin-right: var(--space-sm);
-}
 
 .section-sub {
   text-align: center;
@@ -740,6 +736,40 @@ section,
   margin-left: var(--space-xl);
   color: var(--accent-color);
   opacity: 0.6;
+}
+
+/* ----- Hero: Highlighted Text ----- */
+.hero h1 .highlight-text {
+  background: var(--dark-color);
+  color: var(--white-color);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  line-height: 1.3;
+}
+
+/* Ensure title stays on one line on all devices */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dark-color);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
 }
 
 /* ============================================
