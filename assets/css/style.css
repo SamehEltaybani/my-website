@@ -559,6 +559,7 @@ body {
 /* ============================================
    CARDS (Standard + Action)
    ============================================ */
+
 /* ----- STANDARD CARDS ----- */
 .card {
   background: var(--white-color);
@@ -600,6 +601,7 @@ body {
 }
 
 /* ----- ACTION CARDS (Clickable) ----- */
+
 .action-card {
   position: relative;
   display: block;
@@ -649,6 +651,43 @@ body {
 .action-card span {
   display: none;
 }
+
+/* ----- STATIC CARDS (No hover effect) ----- */
+
+.card-static {
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: none;
+}
+
+.card-static h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.card-static h3 i {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  width: 1.8rem;
+  text-align: center;
+}
+
+.card-static p {
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0;
+}
+
 
 /* ============================================
    SECTION SPACING
