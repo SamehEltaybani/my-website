@@ -716,7 +716,7 @@ section,
 
 .hero h1 .highlight-text {
   background: var(--dark-color);
-  color: var(--whitet-color);
+  color: var(--white-color);
   padding: 0.1rem 0.4rem;
   border-radius: var(--radius-sm);
   display: inline-block;
