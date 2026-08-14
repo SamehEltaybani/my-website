@@ -1288,8 +1288,9 @@ section,
 }
 
 .whatido-right img {
-  width: 100%;
+ width: 100%;
   height: auto;
+  max-height: 280px;
   border-radius: var(--radius-sm);
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.05);
