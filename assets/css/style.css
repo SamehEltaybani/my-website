@@ -1,24 +1,7 @@
-/* ============================================
-   STYLE.CSS - MASTER STYLESHEET
-   ============================================
-   TABLE OF CONTENTS:
-   1.  IMPORTS & ROOT VARIABLES
-   2.  GLOBAL RESET & BASE
-   3.  CONTAINER & LAYOUT
-   4.  TYPOGRAPHY
-   5.  NAVIGATION (Navbar + Dropdown)
-   6.  FOOTER
-   7.  GRID SYSTEMS
-   8.  CARDS (Standard + Action + Static)
-   9.  SECTION SPACING
-   10. HERO SECTION
-   11. ABOUT SECTION
-   12. UTILITY CLASSES
-   13. RESPONSIVE BREAKPOINTS
-   ============================================ */
+/*    STYLE.CSS - MASTER STYLESHEET  */
 
 /* ============================================
-   1. IMPORTS & ROOT VARIABLES
+   IMPORTS & ROOT VARIABLES
    ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -55,7 +38,7 @@
 }
 
 /* ============================================
-   2. GLOBAL RESET & BASE
+   GLOBAL RESET & BASE
    ============================================ */
 * {
   margin: 0;
@@ -77,7 +60,7 @@ body {
 }
 
 /* ============================================
-   3. CONTAINER & LAYOUT
+   CONTAINER & LAYOUT
    ============================================ */
 .container {
   max-width: var(--container-max);
@@ -87,7 +70,7 @@ body {
 }
 
 /* ============================================
-   4. TYPOGRAPHY
+   TYPOGRAPHY
    ============================================ */
 .section-title {
   font-size: 2rem;
@@ -105,7 +88,7 @@ body {
 }
 
 /* ============================================
-   5. NAVIGATION (Navbar + Dropdown)
+   NAVIGATION (Navbar + Dropdown)
    ============================================ */
 
 /* ----- NAVBAR WRAPPER (Solid background behind glass) ----- */
@@ -382,8 +365,9 @@ body {
 }
 
 /* ============================================
-   6. FOOTER
+  FOOTER
    ============================================ */
+
 .site-footer {
   background-color: var(--white-color);
   padding: 2.5rem 1.5rem 3rem 1.5rem;
@@ -528,8 +512,9 @@ body {
 }
 
 /* ============================================
-   7. GRID SYSTEMS
+  GRID SYSTEMS
    ============================================ */
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -553,7 +538,7 @@ body {
 
 
 /* ============================================
-   8. CARDS (Standard + Action + Static)
+  CARDS (Standard + Action + Static)
    ============================================ */
 
 /* ----- STANDARD CARDS (With hover) ----- */
@@ -683,8 +668,9 @@ body {
 }
 
 /* ============================================
-   9. SECTION SPACING
+   SECTION SPACING
    ============================================ */
+
 section,
 .section,
 .hero,
@@ -694,7 +680,7 @@ section,
 }
 
 /* ============================================
-   10. HERO SECTION (Homepage)
+   HERO SECTION (Homepage)
    ============================================ */
 
 /* ----- Hero: Full Width Wrapper ----- */
@@ -864,7 +850,7 @@ section,
 }
 
 /* ============================================
-   11. ABOUT SECTION (Homepage)
+  ABOUT SECTION (Homepage)
    ============================================ */
 .about-section {
   padding: var(--space-xl) 0;
@@ -997,8 +983,9 @@ section,
 
 
 /* ============================================
-   12. PRINCIPLES SECTION (2x2 Grid)
+   PRINCIPLES SECTION (2x2 Grid)
    ============================================ */
+
 .principles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1137,8 +1124,9 @@ section,
 
 
 /* ============================================
-   13. WHAT I DO SECTION
+  WHAT I DO SECTION
    ============================================ */
+
 .whatido-container {
   display: flex;
   flex-direction: column;
@@ -1426,8 +1414,9 @@ section,
 
 
 /* ============================================
-   14. EXPLORE THE SITE (2-Column Grid)
+   EXPLORE THE SITE (2-Column Grid)
    ============================================ */
+
 .explore-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1498,9 +1487,7 @@ section,
   color: var(--accent-color);
 }
 
-/* ============================================
-   EXPLORE THE SITE - RESPONSIVE
-   ============================================ */
+/*    EXPLORE THE SITE - RESPONSIVE */
 
 /* ----- Tablets (max-width: 992px) ----- */
 @media (max-width: 992px) {
@@ -1584,8 +1571,82 @@ section,
 
 
 /* ============================================
-   12. UTILITY CLASSES
+   CLOSING CTA (Call to Action)
    ============================================ */
+
+.closing-cta {
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-lg) 0;
+}
+
+.cta-question {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: var(--space-sm);
+}
+
+.cta-action {
+  font-size: 1.05rem;
+  color: var(--dark-color);
+  opacity: 0.85;
+}
+
+.cta-action i {
+  color: var(--accent-color);
+  margin: 0 0.2rem;
+}
+
+.cta-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cta-link:hover {
+  color: var(--dark-color);
+}
+
+.cta-link i {
+  transition: transform 0.2s ease;
+}
+
+.cta-link:hover i {
+  transform: translateX(2px);
+}
+
+/* ----- Closing CTA: Responsive ----- */
+
+@media (max-width: 768px) {
+  .closing-cta {
+    padding: var(--space-lg) 0 var(--space-md) 0;
+  }
+  
+  .cta-question {
+    font-size: 1.2rem;
+  }
+  
+  .cta-action {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .cta-question {
+    font-size: 1rem;
+  }
+  
+  .cta-action {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
 .text-center { text-align: center; }
 
 .mt-xs { margin-top: var(--space-xs); }
