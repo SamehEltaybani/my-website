@@ -236,17 +236,14 @@
     const queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
     const isPhrase = queryWords.length >= 3;
 
-    // For short queries (1-2 words): ONLY show word suggestions
+    // For short queries (1-2 words): show word suggestions with counts
     if (!isPhrase) {
-        // Get word suggestions from the frequency index
         const wordSuggestions = getWordSuggestions(query);
         if (wordSuggestions.length > 0) {
-            // Return word suggestions with type: 'word'
             return wordSuggestions.map(function(s) {
                 return { type: 'word', word: s.word, count: s.count };
             });
         }
-        // If no word suggestions, try spelling suggestions
         const spellingSuggestions = getSpellingSuggestions(query);
         if (spellingSuggestions.length > 0) {
             return spellingSuggestions.map(function(word) {
@@ -256,56 +253,25 @@
         return [];
     }
 
-    // For phrase queries (3+ words): show matching items
-    const bigrams = extractPhrases(normalizedQuery, 2);
-    const trigrams = extractPhrases(normalizedQuery, 3);
-
-    const scored = allItems.map(function(item) {
-        const itemText = item.normalizedText;
-        let score = 0;
-        let matchedBigrams = 0;
-        let matchedTrigrams = 0;
-
-        bigrams.forEach(function(phrase) {
-            if (itemText.includes(phrase)) {
-                matchedBigrams++;
-                score += 2;
-            }
-        });
-
-        trigrams.forEach(function(phrase) {
-            if (itemText.includes(phrase)) {
-                matchedTrigrams++;
-                score += 5;
-            }
-        });
-
-        if (itemText.includes(normalizedQuery)) {
-            score += 10;
-        }
-
-        return {
-            item: item,
-            score: score,
-            matchedBigrams: matchedBigrams,
-            matchedTrigrams: matchedTrigrams
-        };
+    // For phrase queries (3+ words): count how many items contain this phrase
+    const phraseMatches = allItems.filter(function(item) {
+        return item.normalizedText.includes(normalizedQuery);
     });
 
-    const minBigrams = 2;
-    const minTrigrams = 1;
+    if (phraseMatches.length > 0) {
+        // Return the phrase itself as a suggestion with count
+        return [{ type: 'phrase', word: query, count: phraseMatches.length }];
+    }
 
-    const filtered = scored
-        .filter(function(s) {
-            if (s.matchedTrigrams >= minTrigrams) return true;
-            if (s.matchedBigrams >= minBigrams) return true;
-            return false;
-        })
-        .sort(function(a, b) { return b.score - a.score; })
-        .map(function(s) { return s.item; });
+    // If no phrase matches, try spelling suggestions for individual words
+    const spellingSuggestions = getSpellingSuggestions(query);
+    if (spellingSuggestions.length > 0) {
+        return spellingSuggestions.map(function(word) {
+            return { type: 'spelling', word: word, count: 0 };
+        });
+    }
 
-    // Return items (they will be rendered as titles)
-    return filtered;
+    return [];
 }
 
     // ============================================
@@ -324,48 +290,10 @@
 
     const suggestions = getSuggestions(query);
 
-    // If no suggestions, try spelling suggestions as a fallback
     if (!suggestions || suggestions.length === 0) {
         const empty = document.createElement('div');
         empty.className = 'search-dropdown-empty';
-        const spellingSuggestions = getSpellingSuggestions(query);
-        if (spellingSuggestions.length > 0) {
-            const prefix = document.createTextNode('No matches found. Did you mean: ');
-            empty.appendChild(prefix);
-            spellingSuggestions.forEach(function(word, index) {
-                const span = document.createElement('span');
-                span.textContent = word;
-                span.style.cssText = `
-                    color: var(--dark-color, #222831);
-                    font-weight: 600;
-                    cursor: pointer;
-                    padding: 0 2px;
-                    border-radius: 2px;
-                    transition: color 0.2s ease, background 0.2s ease;
-                `;
-                span.addEventListener('mouseenter', function() {
-                    this.style.color = 'var(--accent-color, #00ADB5)';
-                    this.style.background = 'rgba(0,173,181,0.08)';
-                });
-                span.addEventListener('mouseleave', function() {
-                    this.style.color = 'var(--dark-color, #222831)';
-                    this.style.background = 'transparent';
-                });
-                span.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    performSearch(word);
-                });
-                empty.appendChild(span);
-                if (index < spellingSuggestions.length - 1) {
-                    const comma = document.createTextNode(', ');
-                    empty.appendChild(comma);
-                }
-            });
-            const questionMark = document.createTextNode('?');
-            empty.appendChild(questionMark);
-        } else {
-            empty.textContent = 'No matches found. Try a different keyword.';
-        }
+        empty.textContent = 'No matches found. Try a different keyword.';
         dropdown.appendChild(empty);
         dropdown.classList.add('active');
         return;
@@ -385,36 +313,47 @@
         const textSpan = document.createElement('span');
         textSpan.className = 'suggestion-text';
 
-        // Check type of suggestion
+        let displayText = '';
+        let sourceLabel = '';
+
         if (item.type === 'word') {
-            // Word suggestion: show word + count
-            textSpan.textContent = item.word + ' (' + item.count + ')';
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-word';
-            sourceSpan.textContent = 'Suggestion';
-            div.appendChild(textSpan);
-            div.appendChild(sourceSpan);
+            displayText = item.word + ' (' + item.count + ')';
+            sourceLabel = 'Suggestion';
         } else if (item.type === 'spelling') {
-            // Spelling suggestion
-            textSpan.textContent = item.word + ' (did you mean?)';
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-spelling';
-            sourceSpan.textContent = 'Spelling';
-            div.appendChild(textSpan);
-            div.appendChild(sourceSpan);
+            displayText = item.word + ' (did you mean?)';
+            sourceLabel = 'Spelling';
+        } else if (item.type === 'phrase') {
+            displayText = '"' + item.word + '" (' + item.count + ' results)';
+            sourceLabel = 'Phrase';
         } else {
-            // Item suggestion (publication/blog/page)
-            textSpan.textContent = item.title + ' (' + item.sourceLabel + ')';
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-' + item.source;
-            sourceSpan.textContent = item.sourceLabel;
-            div.appendChild(textSpan);
-            div.appendChild(sourceSpan);
+            // Fallback for any other type
+            displayText = item.word || 'Unknown';
+            sourceLabel = 'Suggestion';
         }
+
+        textSpan.textContent = displayText;
+
+        const sourceSpan = document.createElement('span');
+        sourceSpan.className = 'suggestion-source';
+
+        if (item.type === 'word') {
+            sourceSpan.classList.add('source-word');
+        } else if (item.type === 'spelling') {
+            sourceSpan.classList.add('source-spelling');
+        } else if (item.type === 'phrase') {
+            sourceSpan.classList.add('source-phrase');
+        }
+
+        sourceSpan.textContent = sourceLabel;
+
+        div.appendChild(textSpan);
+        div.appendChild(sourceSpan);
 
         // Click behavior
         div.addEventListener('click', function() {
             if (item.type === 'word' || item.type === 'spelling') {
+                performSearch(item.word);
+            } else if (item.type === 'phrase') {
                 performSearch(item.word);
             } else {
                 performSearch(query);
@@ -452,6 +391,7 @@
     // ============================================
     // PERFORM SEARCH
     // ============================================
+    
     function performSearch(query) {
         if (!query || query.trim().length === 0) return;
         const encoded = encodeURIComponent(query.trim());
