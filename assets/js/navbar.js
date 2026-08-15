@@ -28,7 +28,7 @@
                 },
                 { 
                     iconClass: 'fa-solid fa-magnifying-glass', 
-                    link: 'search.html',
+                    link: '#',
                     ariaLabel: 'Search the website'
                 }
             ]
