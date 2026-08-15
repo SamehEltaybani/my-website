@@ -2799,12 +2799,18 @@ PUBLICATIONS PAGE
    PUBLICATIONS - FILTER/SORT CONTROLS
    ============================================ */
 
+/* ----- Filter wrapper (keeps button above overlay) ----- */
+.filter-wrapper {
+  position: relative;
+  z-index: 200;
+}
+
 /* ----- Sticky Controls Bar ----- */
 
 .publications-controls {
   position: sticky;
   top: 85px;
-  z-index: 500; /* Increased to ensure above overlay */
+  z-index: 100;
   background: var(--bg-color);
   padding: var(--space-sm) 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
@@ -2814,7 +2820,6 @@ PUBLICATIONS PAGE
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  isolation: isolate; /* Creates new stacking context */
 }
 
 .controls-left {
@@ -2951,7 +2956,6 @@ PUBLICATIONS PAGE
   transform: rotate(90deg);
 }
 
-
 /* ----- Filter Dropdown Menu ----- */
 
 .filter-dropdown {
@@ -2967,7 +2971,7 @@ PUBLICATIONS PAGE
   min-width: 280px;
   max-width: 320px;
   max-height: 480px;
-  z-index: 650; /* Above controls and overlay */
+  z-index: 300;
   overflow: hidden;
 }
 
@@ -2993,7 +2997,7 @@ PUBLICATIONS PAGE
   margin-bottom: var(--space-xs);
 }
 
-.filter-dropdown-section-title .select-all-link {
+.filter-dropdown-section-title {
   font-size: 0.65rem;
   font-weight: 500;
   text-transform: none;
@@ -3003,7 +3007,7 @@ PUBLICATIONS PAGE
   opacity: 1;
 }
 
-.filter-dropdown-section-title .select-all-link:hover {
+.filter-dropdown-section-title:hover {
   text-decoration: underline;
 }
 
@@ -3072,6 +3076,7 @@ PUBLICATIONS PAGE
   background: #2563eb;
 }
 
+
 /* ----- Sort Dropdown ----- */
 
 .sort-dropdown {
@@ -3085,7 +3090,7 @@ PUBLICATIONS PAGE
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: var(--space-sm) 0;
   min-width: 180px;
-  z-index: 650;
+  z-index: 300;
 }
 
 .sort-dropdown.open {
@@ -3325,7 +3330,7 @@ PUBLICATIONS PAGE
 
 /* ----- Filter overlay (behind dropdown) ----- */
 
-/* ----- Filter overlay (behind dropdown, but below controls) ----- */
+/* ----- Filter overlay (covers everything except filter button) ----- */
 
 .filter-overlay {
   display: none;
@@ -3335,7 +3340,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 450; /* Below controls (500) but above everything else */
+  z-index: 150;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
