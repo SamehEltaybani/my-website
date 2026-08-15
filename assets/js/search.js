@@ -190,53 +190,60 @@
     // ============================================
     // SEARCH / AUTOCOMPLETE LOGIC
     // ============================================
+    
     function getSuggestions(query) {
-        if (!query || query.trim().length === 0) {
-            return [];
+            if (!query || query.trim().length === 0) {
+                return [];
+            }
+        
+            const lowerQuery = query.toLowerCase().trim();
+            const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+            const isPhrase = words.length > 2; // If more than 2 words, treat as a phrase
+        
+            // Score each item based on how well it matches
+            const scored = allItems.map(function(item) {
+                let score = 0;
+                const text = item.searchableText;
+                const titleLower = (item.title || '').toLowerCase();
+        
+                // --- EXACT PHRASE MATCH (highest priority) ---
+                if (text.includes(lowerQuery)) {
+                    score += 100; // Very high score for exact phrase
+                }
+                if (titleLower.includes(lowerQuery)) {
+                    score += 80; // Even higher if the phrase is in the title
+                }
+        
+                // --- INDIVIDUAL WORD MATCHES (lower priority) ---
+                // If the query is a phrase (3+ words), reduce individual word scores
+                const wordWeight = isPhrase ? 2 : 10;
+        
+                words.forEach(function(word) {
+                    if (word.length >= 2 && text.includes(word)) {
+                        score += wordWeight;
+                    }
+                    if (word.length >= 2 && titleLower.includes(word)) {
+                        score += wordWeight * 1.5;
+                    }
+                });
+        
+                // --- BOOST FOR TITLE MATCH (always) ---
+                // If the title starts with the query (very strong signal)
+                if (titleLower.startsWith(lowerQuery)) {
+                    score += 50;
+                }
+        
+                return { item: item, score: score };
+            });
+        
+            // Filter out zero scores and sort by score (highest first)
+            const results = scored
+                .filter(function(s) { return s.score > 0; })
+                .sort(function(a, b) { return b.score - a.score; })
+                .map(function(s) { return s.item; });
+        
+            return results;
         }
-
-        const lowerQuery = query.toLowerCase().trim();
-        const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
-
-        // Score each item based on how well it matches
-        const scored = allItems.map(function(item) {
-            let score = 0;
-            const text = item.searchableText;
-
-            // Check for exact phrase match
-            if (text.includes(lowerQuery)) {
-                score += 50;
-            }
-
-            // Check for individual word matches
-            words.forEach(function(word) {
-                if (word.length >= 2 && text.includes(word)) {
-                    score += 10;
-                }
-            });
-
-            // Boost score for title matches
-            const titleLower = (item.title || '').toLowerCase();
-            if (titleLower.includes(lowerQuery)) {
-                score += 30;
-            }
-            words.forEach(function(word) {
-                if (word.length >= 2 && titleLower.includes(word)) {
-                    score += 15;
-                }
-            });
-
-            return { item: item, score: score };
-        });
-
-        // Filter out zero scores and sort by score (highest first)
-        const results = scored
-            .filter(function(s) { return s.score > 0; })
-            .sort(function(a, b) { return b.score - a.score; })
-            .map(function(s) { return s.item; });
-
-        return results;
-    }
 
     // ============================================
     // RENDER DROPDOWN (with spelling suggestions)
