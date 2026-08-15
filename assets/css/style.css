@@ -2834,10 +2834,11 @@ PUBLICATIONS PAGE
 /* ----- Filter wrapper (keeps button above overlay) ----- */
 .filter-wrapper {
   position: relative;
-  z-index: 200; /* Above overlay (150) */
+  z-index: 600; /* Above overlay (500) */
 }
 
 /* ----- Overlay: covers everything except filter wrapper ----- */
+
 .filter-overlay {
   display: none;
   position: fixed;
@@ -2846,7 +2847,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 150; /* Below filter wrapper (200) */
+  z-index: 500; /* Lower than dropdown but higher than controls */
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -2856,6 +2857,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter Dropdown Menu ----- */
+
 .filter-dropdown {
   display: none;
   position: absolute;
@@ -2869,7 +2871,7 @@ PUBLICATIONS PAGE
   min-width: 280px;
   max-width: 320px;
   max-height: 480px;
-  z-index: 300; /* Above everything */
+  z-index: 9999; /* Very high to ensure it's above everything */
   overflow: hidden;
 }
 
@@ -3027,7 +3029,7 @@ PUBLICATIONS PAGE
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: var(--space-sm) 0;
   min-width: 180px;
-  z-index: 300; /* Same as filter dropdown */
+  z-index: 9999; /* Same as filter dropdown */
 }
 
 .sort-dropdown.open {
