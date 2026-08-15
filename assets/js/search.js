@@ -34,6 +34,7 @@
     // ============================================
     // TEXT NORMALIZATION
     // ============================================
+    
     function normalizeText(text) {
         if (!text) return '';
         return text
@@ -113,6 +114,7 @@
     // ============================================
     // BUILD WORD FREQUENCY INDEX
     // ============================================
+    
     function buildWordFrequency() {
         const freq = {};
         allItems.forEach(function(item) {
@@ -149,6 +151,7 @@
     // ============================================
     // BUILD SEARCH INDEX (with normalized text)
     // ============================================
+    
     function buildSearchIndex(data, source) {
         const items = [];
         data.forEach(function(item) {
@@ -314,40 +317,34 @@
         textSpan.className = 'suggestion-text';
 
         let displayText = '';
-        let sourceLabel = '';
 
         if (item.type === 'word') {
             displayText = item.word + ' (' + item.count + ')';
-            sourceLabel = 'Suggestion';
         } else if (item.type === 'spelling') {
             displayText = item.word + ' (did you mean?)';
-            sourceLabel = 'Spelling';
         } else if (item.type === 'phrase') {
-            displayText = '"' + item.word + '" (' + item.count + ' results)';
-            sourceLabel = 'Phrase';
+            // Show only the phrase and count, no quotes, no source label
+            displayText = item.word + ' (' + item.count + ')';
         } else {
-            // Fallback for any other type
             displayText = item.word || 'Unknown';
-            sourceLabel = 'Suggestion';
         }
 
         textSpan.textContent = displayText;
-
-        const sourceSpan = document.createElement('span');
-        sourceSpan.className = 'suggestion-source';
-
-        if (item.type === 'word') {
-            sourceSpan.classList.add('source-word');
-        } else if (item.type === 'spelling') {
-            sourceSpan.classList.add('source-spelling');
-        } else if (item.type === 'phrase') {
-            sourceSpan.classList.add('source-phrase');
-        }
-
-        sourceSpan.textContent = sourceLabel;
-
         div.appendChild(textSpan);
-        div.appendChild(sourceSpan);
+
+        // Add source label ONLY for word and spelling suggestions (not for phrase)
+        if (item.type === 'word') {
+            const sourceSpan = document.createElement('span');
+            sourceSpan.className = 'suggestion-source source-word';
+            sourceSpan.textContent = 'Suggestion';
+            div.appendChild(sourceSpan);
+        } else if (item.type === 'spelling') {
+            const sourceSpan = document.createElement('span');
+            sourceSpan.className = 'suggestion-source source-spelling';
+            sourceSpan.textContent = 'Spelling';
+            div.appendChild(sourceSpan);
+        }
+        // Phrase suggestions do NOT get a source label
 
         // Click behavior
         div.addEventListener('click', function() {
