@@ -9,30 +9,30 @@
     'use strict';
 
     const CONFIG = {
-        yourName: 'Dr. Sameh Eltaybani',
-        photoPath: 'img/profile.webp',
-        photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
-        navLinks: [
-            { label: 'Home', link: 'index.html', icon: 'fa-solid fa-house' },
-            { label: 'Research', link: 'research.html', icon: 'fa-solid fa-flask' },
-            { label: 'Publications', link: 'publications.html', icon: 'fa-solid fa-file-lines' },
-            { label: 'Data Analysis', link: 'data-analysis.html', icon: 'fa-solid fa-chart-bar' },
-            { label: 'Teaching', link: 'teaching.html', icon: 'fa-solid fa-chalkboard-user' },
-            { label: 'Blog', link: 'blog.html', icon: 'fa-solid fa-pen-to-square' }
-        ],
-        rightIcons: [
-                { 
-                    iconClass: 'fa-regular fa-envelope', 
-                    link: 'contact.html',
-                    ariaLabel: 'Contact me'
-                },
-                { 
-                    iconClass: 'fa-solid fa-magnifying-glass', 
-                    link: '#',
-                    ariaLabel: 'Search the website'
-                }
-            ]
-    };
+    yourName: 'Dr. Sameh Eltaybani',
+    photoPath: '/my-website/img/profile.webp',
+    photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
+    navLinks: [
+        { label: 'Home', link: '/my-website/index.html', icon: 'fa-solid fa-house' },
+        { label: 'Research', link: '/my-website/research.html', icon: 'fa-solid fa-flask' },
+        { label: 'Publications', link: '/my-website/publications.html', icon: 'fa-solid fa-file-lines' },
+        { label: 'Data Analysis', link: '/my-website/data-analysis.html', icon: 'fa-solid fa-chart-bar' },
+        { label: 'Teaching', link: '/my-website/teaching.html', icon: 'fa-solid fa-chalkboard-user' },
+        { label: 'Blog', link: '/my-website/blog.html', icon: 'fa-solid fa-pen-to-square' }
+    ],
+    rightIcons: [
+        { 
+            iconClass: 'fa-regular fa-envelope', 
+            link: '/my-website/contact.html',
+            ariaLabel: 'Contact me'
+        },
+        { 
+            iconClass: 'fa-solid fa-magnifying-glass', 
+            link: '#',
+            ariaLabel: 'Search the website'
+        }
+    ]
+};
 
     document.addEventListener('DOMContentLoaded', function() {
 
