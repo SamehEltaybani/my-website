@@ -2802,7 +2802,7 @@ PUBLICATIONS PAGE
 /* ----- Sticky Controls Bar ----- */
 .publications-controls {
   position: sticky;
-  top: 85px;
+  top: 85px; /* Default for desktop */
   z-index: 100;
   background: var(--bg-color);
   padding: var(--space-sm) 0;
@@ -3232,7 +3232,7 @@ PUBLICATIONS PAGE
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
   .publications-controls {
-    top: 75px;
+    top: 60px;
     padding: var(--space-xs) 0;
     gap: var(--space-xs);
   }
@@ -3279,7 +3279,7 @@ PUBLICATIONS PAGE
 
 @media (max-width: 400px) {
   .publications-controls {
-    top: 70px;
+    top: 60px;
   }
   .controls-status {
     font-size: 0.65rem;
