@@ -483,48 +483,35 @@
     // ============================================
     // OPEN / CLOSE FILTER DROPDOWN (with overlay)
     // ============================================
+    
     function openFilterDropdown() {
-        filterDropdown.classList.add('open');
-        // Create overlay if not exists
-        if (!filterOverlay) {
-            filterOverlay = document.createElement('div');
-            filterOverlay.className = 'filter-overlay';
-            filterOverlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.3);
-                z-index: 150;
-                backdrop-filter: blur(2px);
-                -webkit-backdrop-filter: blur(2px);
-            `;
-            filterOverlay.addEventListener('click', function() {
-                closeFilterDropdown();
-            });
-            document.body.appendChild(filterOverlay);
-        }
-        filterOverlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        buildFilterDropdown();
+    filterDropdown.classList.add('open');
+    // Create overlay if not exists
+    if (!filterOverlay) {
+        filterOverlay = document.createElement('div');
+        filterOverlay.className = 'filter-overlay';
+        filterOverlay.addEventListener('click', function() {
+            closeFilterDropdown();
+        });
+        document.body.appendChild(filterOverlay);
     }
+    filterOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    buildFilterDropdown();
+}
 
-    function closeFilterDropdown() {
-        filterDropdown.classList.remove('open');
-        if (filterOverlay) {
-            filterOverlay.style.display = 'none';
-        }
-        document.body.style.overflow = '';
+function closeFilterDropdown() {
+    filterDropdown.classList.remove('open');
+    if (filterOverlay) {
+        filterOverlay.classList.remove('active');
     }
-
-    function closeSortDropdown() {
-        sortDropdown.classList.remove('open');
-    }
+    document.body.style.overflow = '';
+}
 
     // ============================================
     // SETUP CONTROLS
     // ============================================
+    
     function setupControls() {
         controlsBar = document.getElementById('publications-controls');
         statusEl = document.getElementById('controls-status');
