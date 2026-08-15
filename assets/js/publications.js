@@ -357,102 +357,115 @@
     // ============================================
     // BUILD FILTER DROPDOWN (no "Select All" links, each section scrollable)
     // ============================================
+    
     function buildFilterDropdown() {
-        if (!filterDropdown) return;
+    if (!filterDropdown) return;
 
-        const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
-        const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
-        const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
+    const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
+    const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
+    const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
 
-        if (Object.keys(filters.year).length === 0) {
-            years.forEach(function(y) { filters.year[y] = false; });
-        }
-        if (Object.keys(filters.authorship).length === 0) {
-            authorshipValues.forEach(function(a) { filters.authorship[a] = false; });
-        }
-        if (Object.keys(filters.journal).length === 0) {
-            journals.forEach(function(j) { filters.journal[j] = false; });
-        }
-
-        let html = '';
-
-        // --- Year Section (scrollable) ---
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Year</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        years.forEach(function(year) {
-            const checked = filters.year[year] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="year" value="' + window.escapeHTML(year) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(year) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // --- Authorship Section (scrollable) ---
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Authorship</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        authorshipValues.forEach(function(auth) {
-            const checked = filters.authorship[auth] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="authorship" value="' + window.escapeHTML(auth) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(auth) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // --- Journal Section (scrollable) ---
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Journal</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        journals.forEach(function(journal) {
-            const checked = filters.journal[journal] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="journal" value="' + window.escapeHTML(journal) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(journal) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // --- Actions (always visible) ---
-        html += '<div class="filter-dropdown-actions">';
-        html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
-        html += '<button class="filter-apply" id="filter-apply">Apply</button>';
-        html += '</div>';
-
-        filterDropdown.innerHTML = html;
-
-        // --- Event Listeners ---
-        filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
-            cb.addEventListener('change', function() {
-                const section = this.dataset.section;
-                const value = this.value;
-                filters[section][value] = this.checked;
-            });
-        });
-
-        filterDropdown.querySelector('#filter-clear-all').addEventListener('click', function() {
-            ['year', 'authorship', 'journal'].forEach(function(section) {
-                const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
-                checkboxes.forEach(function(cb) {
-                    cb.checked = false;
-                    filters[section][cb.value] = false;
-                });
-            });
-        });
-
-        filterDropdown.querySelector('#filter-apply').addEventListener('click', function() {
-            applyFiltersAndSort();
-            loadedCount = Math.min(pageSize, filteredPublications.length);
-            render();
-            closeFilterDropdown();
-        });
+    if (Object.keys(filters.year).length === 0) {
+        years.forEach(function(y) { filters.year[y] = false; });
     }
+    if (Object.keys(filters.authorship).length === 0) {
+        authorshipValues.forEach(function(a) { filters.authorship[a] = false; });
+    }
+    if (Object.keys(filters.journal).length === 0) {
+        journals.forEach(function(j) { filters.journal[j] = false; });
+    }
+
+    let html = '';
+
+    // --- Header with close button ---
+    html += '<div class="filter-dropdown-header">';
+    html += '<span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-color);">Filter Publications</span>';
+    html += '<button class="close-dropdown" id="filter-close-btn" aria-label="Close filter menu"><i class="fa-solid fa-xmark"></i></button>';
+    html += '</div>';
+
+    // --- Year Section (scrollable) ---
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Year</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    years.forEach(function(year) {
+        const checked = filters.year[year] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="year" value="' + window.escapeHTML(year) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(year) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // --- Authorship Section (scrollable) ---
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Authorship</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    authorshipValues.forEach(function(auth) {
+        const checked = filters.authorship[auth] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="authorship" value="' + window.escapeHTML(auth) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(auth) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // --- Journal Section (scrollable) ---
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Journal</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    journals.forEach(function(journal) {
+        const checked = filters.journal[journal] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="journal" value="' + window.escapeHTML(journal) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(journal) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // --- Actions ---
+    html += '<div class="filter-dropdown-actions">';
+    html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
+    html += '<button class="filter-apply" id="filter-apply">Apply</button>';
+    html += '</div>';
+
+    filterDropdown.innerHTML = html;
+
+    // --- Event Listeners ---
+    // Close button
+    filterDropdown.querySelector('#filter-close-btn').addEventListener('click', function() {
+        closeFilterDropdown();
+    });
+
+    filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            const section = this.dataset.section;
+            const value = this.value;
+            filters[section][value] = this.checked;
+        });
+    });
+
+    filterDropdown.querySelector('#filter-clear-all').addEventListener('click', function() {
+        ['year', 'authorship', 'journal'].forEach(function(section) {
+            const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
+            checkboxes.forEach(function(cb) {
+                cb.checked = false;
+                filters[section][cb.value] = false;
+            });
+        });
+    });
+
+    filterDropdown.querySelector('#filter-apply').addEventListener('click', function() {
+        applyFiltersAndSort();
+        loadedCount = Math.min(pageSize, filteredPublications.length);
+        render();
+        closeFilterDropdown();
+    });
+}
 
     // ============================================
     // BUILD SORT DROPDOWN
     // ============================================
+    
     function buildSortDropdown() {
         if (!sortDropdown) return;
 
