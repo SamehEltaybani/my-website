@@ -2366,3 +2366,423 @@ PUBLICATIONS PAGE
   }
 }
 
+
+
+/* ============================================
+   19. CENTRAL SEARCH MODAL
+   ============================================ */
+
+/* ----- Overlay ----- */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+.search-overlay.active {
+  display: flex;
+}
+
+/* ----- Search Box Container ----- */
+.search-box-container {
+  width: 90%;
+  max-width: 700px;
+  background: var(--white-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: searchFadeIn 0.25s ease;
+}
+
+@keyframes searchFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ----- Search Input Row ----- */
+.search-input-row {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--white-color);
+}
+
+.search-input-row i {
+  color: var(--dark-color);
+  opacity: 0.4;
+  font-size: 1.2rem;
+  margin-right: var(--space-sm);
+}
+
+.search-input-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: 'Inter', sans-serif;
+  padding: var(--space-sm) 0;
+  background: transparent;
+  color: var(--dark-color);
+}
+
+.search-input-row input::placeholder {
+  color: var(--dark-color);
+  opacity: 0.3;
+}
+
+.search-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.search-close-btn:hover {
+  opacity: 0.8;
+  transform: rotate(90deg);
+}
+
+/* ----- Autocomplete Dropdown ----- */
+.search-dropdown {
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--white-color);
+  display: none;
+  padding: var(--space-xs) 0;
+}
+
+.search-dropdown.active {
+  display: block;
+}
+
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark-color);
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item.active {
+  background: rgba(0, 173, 181, 0.06);
+}
+
+.search-dropdown-item .suggestion-text {
+  flex: 1;
+}
+
+.search-dropdown-item .suggestion-source {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+}
+
+/* Source label colors */
+.source-publication {
+  background: rgba(44, 123, 229, 0.12);
+  color: #2c7be5;
+}
+
+.source-blog {
+  background: rgba(253, 126, 20, 0.12);
+  color: #fd7e14;
+}
+
+.source-page {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+/* ----- No Match in Dropdown ----- */
+.search-dropdown-empty {
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--dark-color);
+  opacity: 0.5;
+  font-size: 0.95rem;
+}
+
+/* ----- Scrollbar Styling ----- */
+.search-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================
+   20. SEARCH RESULTS PAGE
+   ============================================ */
+
+/* ----- Results Header ----- */
+.search-results-header {
+  padding: var(--space-xl) 0 var(--space-lg) 0;
+}
+
+.search-results-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: var(--space-xs);
+}
+
+.search-results-count {
+  font-size: 1rem;
+  color: var(--dark-color);
+  opacity: 0.5;
+}
+
+/* ----- Results List ----- */
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* ----- Result Card ----- */
+.search-result-card {
+  display: block;
+  text-decoration: none;
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-left: 4px solid var(--accent-color);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.search-result-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.search-result-card .result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.search-result-card .result-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  flex: 1;
+}
+
+.search-result-card .result-source {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.8rem;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* ----- Filter Buttons on Search Page ----- */
+.search-filters {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.search-filter-btn {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--dark-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-filter-btn:hover {
+  border-color: var(--accent-color);
+  background: rgba(0, 173, 181, 0.04);
+}
+
+.search-filter-btn.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+/* ----- Recent Searches ----- */
+.search-recent {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.search-recent-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  opacity: 0.4;
+  margin-bottom: var(--space-sm);
+}
+
+.search-recent-list {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.search-recent-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: var(--dark-color);
+  transition: background 0.2s ease;
+}
+
+.search-recent-item:hover {
+  background: rgba(0, 173, 181, 0.1);
+}
+
+.search-recent-item .clear-recent {
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  opacity: 0.3;
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0 var(--space-xs);
+}
+
+.search-recent-item .clear-recent:hover {
+  opacity: 0.8;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 768px) {
+  .search-overlay {
+    padding-top: 10vh;
+  }
+  
+  .search-box-container {
+    width: 95%;
+  }
+  
+  .search-input-row input {
+    font-size: 1rem;
+  }
+  
+  .search-dropdown {
+    max-height: 200px;
+  }
+  
+  .search-dropdown-item {
+    font-size: 0.9rem;
+    padding: var(--space-xs) var(--space-md);
+  }
+  
+  .search-results-title {
+    font-size: 1.6rem;
+  }
+  
+  .search-result-card {
+    padding: var(--space-md);
+  }
+  
+  .search-result-card .result-title {
+    font-size: 0.95rem;
+  }
+  
+  .search-filters {
+    gap: var(--space-xs);
+  }
+  
+  .search-filter-btn {
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+@media (max-width: 400px) {
+  .search-overlay {
+    padding-top: 8vh;
+  }
+  
+  .search-input-row {
+    padding: var(--space-xs) var(--space-sm);
+  }
+  
+  .search-input-row input {
+    font-size: 0.9rem;
+  }
+  
+  .search-dropdown-item {
+    font-size: 0.85rem;
+    padding: var(--space-xs) var(--space-sm);
+    flex-wrap: wrap;
+  }
+  
+  .search-dropdown-item .suggestion-source {
+    font-size: 0.6rem;
+  }
+  
+  .search-results-title {
+    font-size: 1.3rem;
+  }
+}
+
+
