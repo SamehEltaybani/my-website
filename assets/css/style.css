@@ -3,6 +3,7 @@
 /* ============================================
    IMPORTS & ROOT VARIABLES
    ============================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -40,6 +41,7 @@
 /* ============================================
    GLOBAL RESET & BASE
    ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -62,6 +64,7 @@ body {
 /* ============================================
    CONTAINER & LAYOUT
    ============================================ */
+
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -72,6 +75,7 @@ body {
 /* ============================================
    TYPOGRAPHY
    ============================================ */
+
 .section-title {
   font-size: 2rem;
   font-weight: 700;
