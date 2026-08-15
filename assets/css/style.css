@@ -3254,3 +3254,53 @@ PUBLICATIONS PAGE
 .filter-dropdown::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+
+
+/* ----- Scrollable sections inside filter dropdown ----- */
+
+.filter-dropdown-scroll {
+  max-height: 100px;
+  overflow-y: auto;
+  margin-bottom: var(--space-xs);
+}
+
+.filter-dropdown-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.filter-dropdown-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-dropdown-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.filter-dropdown-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ----- Filter overlay (behind dropdown) ----- */
+
+.filter-overlay {
+  display: none;
+}
+
+.filter-overlay.active {
+  display: block;
+}
+
+/* ----- Filter dropdown actions (always visible) ----- */
+
+.filter-dropdown-actions {
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  margin-top: var(--space-xs);
+  background: var(--white-color);
+  position: sticky;
+  bottom: 0;
+  padding-bottom: var(--space-xs);
+}
