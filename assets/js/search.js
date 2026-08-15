@@ -1,1 +1,521 @@
+/**
+ * ============================================
+ * SEARCH.JS – Central Search (Modal + Autocomplete)
+ * ============================================
+ * This script handles:
+ * - Opening/closing the search modal
+ * - Autocomplete suggestions as the user types
+ * - Redirecting to search.html with the query
+ */
 
+(function() {
+    'use strict';
+
+    // ============================================
+    // CONFIGURATION
+    // ============================================
+    const CONFIG = {
+        searchPlaceholder: 'Search the site ...',
+        debounceDelay: 250, // milliseconds
+        maxDropdownHeight: 260, // pixels
+        jsonFiles: [
+            { url: '/my-website/json/publications.json', source: 'publication' },
+            { url: '/my-website/json/blog.json', source: 'blog' },
+            { url: '/my-website/json/pages.json', source: 'page' }
+        ]
+    };
+
+    // ============================================
+    // STATE
+    // ============================================
+    let allItems = []; // All searchable items from all JSON files
+    let currentQuery = '';
+    let selectedIndex = -1;
+    let isModalOpen = false;
+
+    // ============================================
+    // DOM REFERENCES (built on demand)
+    // ============================================
+    let overlay, input, dropdown, closeBtn, searchIcon;
+
+    // ============================================
+    // BUILD SEARCH INDEX
+    // ============================================
+    function buildSearchIndex(data, source) {
+        const items = [];
+        
+        data.forEach(function(item) {
+            // Build a searchable text string from all fields
+            const searchableText = [
+                item.title || '',
+                item.shortTitle || '',
+                item.authorship || '',
+                item.journal || '',
+                item.year || '',
+                item.summary || '',
+                item.categories ? item.categories.join(' ') : '',
+                item.keywords ? item.keywords.join(' ') : ''
+            ].join(' ').toLowerCase();
+
+            // Determine the label and link for this item
+            let label = '';
+            let link = '';
+            let id = item.id || '';
+
+            if (source === 'publication') {
+                label = 'Publication';
+                link = '/my-website/publications.html?id=' + encodeURIComponent(id);
+            } else if (source === 'blog') {
+                label = 'Blog';
+                link = '/my-website/blog.html?id=' + encodeURIComponent(id);
+            } else if (source === 'page') {
+                label = 'Page';
+                link = item.url || '#';
+            }
+
+            items.push({
+                id: id,
+                title: item.title || 'Untitled',
+                source: source,
+                sourceLabel: label,
+                link: link,
+                searchableText: searchableText,
+                // Store original data for later use
+                raw: item
+            });
+        });
+
+        return items;
+    }
+
+    // ============================================
+    // LOAD ALL JSON DATA
+    // ============================================
+    async function loadAllData() {
+        try {
+            const fetchPromises = CONFIG.jsonFiles.map(function(file) {
+                return fetch(file.url)
+                    .then(function(response) {
+                        if (!response.ok) throw new Error('Failed to load ' + file.url);
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        return buildSearchIndex(data, file.source);
+                    })
+                    .catch(function(error) {
+                        console.warn('Could not load ' + file.url, error);
+                        return [];
+                    });
+            });
+
+            const results = await Promise.all(fetchPromises);
+            allItems = results.flat();
+            return allItems;
+        } catch (error) {
+            console.error('Error loading search data:', error);
+            allItems = [];
+            return allItems;
+        }
+    }
+
+    // ============================================
+    // SEARCH / AUTOCOMPLETE LOGIC
+    // ============================================
+    function getSuggestions(query) {
+        if (!query || query.trim().length === 0) {
+            return [];
+        }
+
+        const lowerQuery = query.toLowerCase().trim();
+        const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+
+        // Score each item based on how well it matches
+        const scored = allItems.map(function(item) {
+            let score = 0;
+            const text = item.searchableText;
+
+            // Check for exact phrase match
+            if (text.includes(lowerQuery)) {
+                score += 50;
+            }
+
+            // Check for individual word matches
+            words.forEach(function(word) {
+                if (word.length >= 2 && text.includes(word)) {
+                    score += 10;
+                }
+            });
+
+            // Boost score for title matches
+            const titleLower = (item.title || '').toLowerCase();
+            if (titleLower.includes(lowerQuery)) {
+                score += 30;
+            }
+            words.forEach(function(word) {
+                if (word.length >= 2 && titleLower.includes(word)) {
+                    score += 15;
+                }
+            });
+
+            return { item: item, score: score };
+        });
+
+        // Filter out zero scores and sort by score (highest first)
+        const results = scored
+            .filter(function(s) { return s.score > 0; })
+            .sort(function(a, b) { return b.score - a.score; })
+            .map(function(s) { return s.item; });
+
+        return results;
+    }
+
+    // ============================================
+    // RENDER DROPDOWN
+    // ============================================
+    function renderDropdown(suggestions) {
+        if (!dropdown) return;
+
+        dropdown.innerHTML = '';
+
+        if (suggestions.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'search-dropdown-empty';
+            empty.textContent = 'No matches found. Try a different keyword.';
+            dropdown.appendChild(empty);
+            dropdown.classList.add('active');
+            return;
+        }
+
+        // Limit to 30 suggestions (with scroll bar)
+        const maxDisplay = 30;
+        const displayItems = suggestions.slice(0, maxDisplay);
+
+        displayItems.forEach(function(item, index) {
+            const div = document.createElement('div');
+            div.className = 'search-dropdown-item';
+            if (index === selectedIndex) {
+                div.classList.add('active');
+            }
+
+            // Suggestion text (highlight match)
+            const textSpan = document.createElement('span');
+            textSpan.className = 'suggestion-text';
+            textSpan.textContent = item.title;
+
+            // Source label
+            const sourceSpan = document.createElement('span');
+            sourceSpan.className = 'suggestion-source source-' + item.source;
+            sourceSpan.textContent = item.sourceLabel;
+
+            div.appendChild(textSpan);
+            div.appendChild(sourceSpan);
+
+            // Click to search
+            div.addEventListener('click', function() {
+                performSearch(item.title);
+            });
+
+            // Mouse enter for keyboard navigation sync
+            div.addEventListener('mouseenter', function() {
+                selectedIndex = index;
+                highlightSelected();
+            });
+
+            dropdown.appendChild(div);
+        });
+
+        // Show "and more" if there are more items
+        if (suggestions.length > maxDisplay) {
+            const more = document.createElement('div');
+            more.className = 'search-dropdown-item';
+            more.style.cssText = 'opacity: 0.4; font-size: 0.8rem; justify-content: center; cursor: default;';
+            more.textContent = '+ ' + (suggestions.length - maxDisplay) + ' more results...';
+            dropdown.appendChild(more);
+        }
+
+        dropdown.classList.add('active');
+        selectedIndex = -1; // Reset selection
+    }
+
+    // ============================================
+    // HIGHLIGHT SELECTED DROPDOWN ITEM
+    // ============================================
+    function highlightSelected() {
+        if (!dropdown) return;
+        const items = dropdown.querySelectorAll('.search-dropdown-item');
+        items.forEach(function(el, idx) {
+            if (idx === selectedIndex) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        });
+    }
+
+    // ============================================
+    // PERFORM SEARCH (Redirect to search.html)
+    // ============================================
+    function performSearch(query) {
+        if (!query || query.trim().length === 0) return;
+        const encoded = encodeURIComponent(query.trim());
+        window.location.href = '/my-website/search.html?q=' + encoded;
+    }
+
+    // ============================================
+    // HANDLE INPUT (Debounced)
+    // ============================================
+    let debounceTimer = null;
+
+    function handleInput() {
+        const query = input.value;
+
+        // Store current query for dropdown navigation
+        currentQuery = query;
+
+        if (query.trim().length === 0) {
+            dropdown.classList.remove('active');
+            return;
+        }
+
+        // Debounce the search
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() {
+            const suggestions = getSuggestions(query);
+            renderDropdown(suggestions);
+        }, CONFIG.debounceDelay);
+    }
+
+    // ============================================
+    // KEYBOARD NAVIGATION
+    // ============================================
+    function handleKeydown(e) {
+        const dropdownItems = dropdown ? dropdown.querySelectorAll('.search-dropdown-item') : [];
+
+        if (e.key === 'Escape') {
+            closeModal();
+            return;
+        }
+
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            // If there's a selected item, use its text
+            if (selectedIndex >= 0 && selectedIndex < dropdownItems.length) {
+                const item = dropdownItems[selectedIndex];
+                const textEl = item.querySelector('.suggestion-text');
+                if (textEl) {
+                    performSearch(textEl.textContent);
+                    return;
+                }
+            }
+            // Otherwise, use the input value
+            performSearch(input.value);
+            return;
+        }
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (dropdownItems.length > 0) {
+                selectedIndex = Math.min(selectedIndex + 1, dropdownItems.length - 1);
+                highlightSelected();
+                // Scroll into view
+                const active = dropdown.querySelector('.search-dropdown-item.active');
+                if (active) {
+                    active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                }
+            }
+            return;
+        }
+
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (dropdownItems.length > 0) {
+                selectedIndex = Math.max(selectedIndex - 1, 0);
+                highlightSelected();
+                const active = dropdown.querySelector('.search-dropdown-item.active');
+                if (active) {
+                    active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                }
+            }
+            return;
+        }
+    }
+
+    // ============================================
+    // OPEN / CLOSE MODAL
+    // ============================================
+    function openModal() {
+        if (isModalOpen) return;
+        isModalOpen = true;
+
+        // Build modal if not exists
+        if (!overlay) {
+            buildModal();
+        }
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+        // Focus the input after a short delay
+        setTimeout(function() {
+            if (input) {
+                input.focus();
+                input.select();
+            }
+        }, 100);
+
+        // Load data if not loaded yet
+        if (allItems.length === 0) {
+            loadAllData();
+        }
+
+        // Reset state
+        selectedIndex = -1;
+        if (dropdown) {
+            dropdown.classList.remove('active');
+            dropdown.innerHTML = '';
+        }
+        if (input) {
+            input.value = '';
+            currentQuery = '';
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', handleKeydown);
+    }
+
+    function closeModal() {
+        if (!isModalOpen) return;
+        isModalOpen = false;
+
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleKeydown);
+    }
+
+    // ============================================
+    // BUILD MODAL DOM
+    // ============================================
+    function buildModal() {
+        // Overlay
+        overlay = document.createElement('div');
+        overlay.className = 'search-overlay';
+        overlay.id = 'search-modal';
+
+        // Click outside to close
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                closeModal();
+            }
+        });
+
+        // Container
+        const container = document.createElement('div');
+        container.className = 'search-box-container';
+
+        // Input row
+        const inputRow = document.createElement('div');
+        inputRow.className = 'search-input-row';
+
+        const magnifier = document.createElement('i');
+        magnifier.className = 'fa-solid fa-magnifying-glass';
+
+        input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = CONFIG.searchPlaceholder;
+        input.setAttribute('aria-label', 'Search the site');
+        input.autocomplete = 'off';
+
+        // Close button
+        closeBtn = document.createElement('button');
+        closeBtn.className = 'search-close-btn';
+        closeBtn.setAttribute('aria-label', 'Close search');
+        closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        closeBtn.addEventListener('click', closeModal);
+
+        inputRow.appendChild(magnifier);
+        inputRow.appendChild(input);
+        inputRow.appendChild(closeBtn);
+
+        // Dropdown
+        dropdown = document.createElement('div');
+        dropdown.className = 'search-dropdown';
+
+        // Assemble
+        container.appendChild(inputRow);
+        container.appendChild(dropdown);
+        overlay.appendChild(container);
+
+        // Append to body
+        document.body.appendChild(overlay);
+
+        // Input events
+        input.addEventListener('input', handleInput);
+
+        // Keyboard shortcut: Ctrl+K or Cmd+K
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                if (isModalOpen) {
+                    closeModal();
+                } else {
+                    openModal();
+                }
+            }
+        });
+
+        console.log('✅ Search modal built.');
+    }
+
+    // ============================================
+    // INITIALIZE: Find Search Icon & Attach Event
+    // ============================================
+    function initSearch() {
+        // Wait for navbar to be injected (it might not exist yet)
+        const checkInterval = setInterval(function() {
+            const searchIconElement = document.querySelector('.navbar-icons a[aria-label*="Search"]') ||
+                                     document.querySelector('.navbar-icons a i.fa-magnifying-glass')?.closest('a');
+
+            if (searchIconElement) {
+                clearInterval(checkInterval);
+                searchIconElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal();
+                });
+                // Also add a cursor style
+                searchIconElement.style.cursor = 'pointer';
+                console.log('✅ Search icon attached.');
+            }
+        }, 500);
+
+        // Also load data in background
+        setTimeout(function() {
+            if (allItems.length === 0) {
+                loadAllData();
+            }
+        }, 1000);
+    }
+
+    // ============================================
+    // EXPOSE FUNCTIONS GLOBALLY (for debugging)
+    // ============================================
+    window.search = {
+        open: openModal,
+        close: closeModal,
+        loadData: loadAllData
+    };
+
+    // ============================================
+    // START
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        // Build modal immediately (hidden)
+        buildModal();
+        // Initialize search icon attachment
+        initSearch();
+    });
+
+})();
