@@ -1,11 +1,11 @@
 /**
  * ============================================
- * SEARCH.JS – Central Search (Modal + Autocomplete + Spelling Suggestions)
+ * SEARCH.JS – Central Search (Modal + Autocomplete + Word Suggestions)
  * ============================================
  * This script handles:
  * - Opening/closing the search modal
- * - Autocomplete suggestions as the user types
- * - Spelling suggestions ("Did you mean?") when no matches found
+ * - Autocomplete suggestions showing unique words with result counts
+ * - Spelling suggestions ("Did you mean?") when no word suggestions found
  * - Redirecting to search.html with the query
  */
 
@@ -17,8 +17,8 @@
     // ============================================
     const CONFIG = {
         searchPlaceholder: 'Search the site ...',
-        debounceDelay: 250, // milliseconds
-        maxDropdownHeight: 260, // pixels
+        debounceDelay: 250,
+        maxDropdownHeight: 260,
         jsonFiles: [
             { url: '/my-website/json/publications.json', source: 'publication' },
             { url: '/my-website/json/blog.json', source: 'blog' },
@@ -29,15 +29,17 @@
     // ============================================
     // STATE
     // ============================================
-    let allItems = []; // All searchable items from all JSON files
+    let allItems = [];
+    let wordFrequency = {};  // word -> count
+    let uniqueWords = [];    // sorted by count descending
     let currentQuery = '';
     let selectedIndex = -1;
     let isModalOpen = false;
 
     // ============================================
-    // DOM REFERENCES (built on demand)
+    // DOM REFERENCES
     // ============================================
-    let overlay, input, dropdown, closeBtn, searchIcon;
+    let overlay, input, dropdown, closeBtn;
 
     // ============================================
     // LEVENSHTEIN DISTANCE (for spelling suggestions)
@@ -45,7 +47,6 @@
     function levenshteinDistance(a, b) {
         if (a.length === 0) return b.length;
         if (b.length === 0) return a.length;
-        
         const matrix = [];
         for (let i = 0; i <= b.length; i++) {
             matrix[i] = [i];
@@ -71,40 +72,66 @@
 
     function getSpellingSuggestions(query, maxSuggestions = 3) {
         if (!query || query.trim().length < 3) return [];
-        
         const lowerQuery = query.toLowerCase().trim();
-        const wordList = new Set();
-        
-        // Build a list of unique words from allItems (titles, summaries, etc.)
-        allItems.forEach(function(item) {
-            const text = item.searchableText;
-            const words = text.split(/\s+/);
-            words.forEach(function(word) {
-                // Keep words longer than 2 characters
-                if (word.length >= 3) {
-                    wordList.add(word);
-                }
-            });
-        });
-        
-        // If no data loaded, return empty
-        if (wordList.size === 0) return [];
-        
-        // Score each word by Levenshtein distance
-        const scored = Array.from(wordList).map(function(word) {
+        const wordList = Object.keys(wordFrequency);
+        if (wordList.length === 0) return [];
+
+        const scored = wordList.map(function(word) {
             const distance = levenshteinDistance(lowerQuery, word);
             return { word: word, distance: distance };
         });
-        
-        // Filter words with distance <= 2 (close match) and distance > 0
-        // Also exclude exact matches (distance === 0) because we already have matches
-        const closeMatches = scored
+
+        return scored
             .filter(function(s) { return s.distance <= 2 && s.distance > 0; })
             .sort(function(a, b) { return a.distance - b.distance; })
             .slice(0, maxSuggestions)
             .map(function(s) { return s.word; });
-        
-        return closeMatches;
+    }
+
+    // ============================================
+    // BUILD WORD FREQUENCY INDEX
+    // ============================================
+    function buildWordFrequency() {
+        const freq = {};
+        allItems.forEach(function(item) {
+            const text = item.searchableText;
+            const words = text.split(/\s+/);
+            const uniqueWordsInItem = new Set(words);
+            uniqueWordsInItem.forEach(function(word) {
+                if (word.length >= 2) {
+                    freq[word] = (freq[word] || 0) + 1;
+                }
+            });
+        });
+        wordFrequency = freq;
+        // Sort unique words by count descending
+        uniqueWords = Object.keys(freq).sort(function(a, b) {
+            return freq[b] - freq[a];
+        });
+    }
+
+    // ============================================
+    // GET WORD SUGGESTIONS (starts with query)
+    // ============================================
+    function getWordSuggestions(query) {
+        if (!query || query.trim().length === 0) return [];
+        const lowerQuery = query.toLowerCase().trim();
+        // If query has spaces, take the first word as the prefix
+        const prefix = lowerQuery.split(/\s+/)[0];
+        if (prefix.length < 2) return [];
+
+        const suggestions = [];
+        // Iterate through uniqueWords (already sorted by count)
+        for (let i = 0; i < uniqueWords.length && suggestions.length < 20; i++) {
+            const word = uniqueWords[i];
+            if (word.startsWith(prefix)) {
+                suggestions.push({
+                    word: word,
+                    count: wordFrequency[word]
+                });
+            }
+        }
+        return suggestions;
     }
 
     // ============================================
@@ -112,9 +139,7 @@
     // ============================================
     function buildSearchIndex(data, source) {
         const items = [];
-        
         data.forEach(function(item) {
-            // Build a searchable text string from all fields
             const searchableText = [
                 item.title || '',
                 item.shortTitle || '',
@@ -126,7 +151,6 @@
                 item.keywords ? item.keywords.join(' ') : ''
             ].join(' ').toLowerCase();
 
-            // Determine the label and link for this item
             let label = '';
             let link = '';
             let id = item.id || '';
@@ -149,11 +173,9 @@
                 sourceLabel: label,
                 link: link,
                 searchableText: searchableText,
-                // Store original data for later use
                 raw: item
             });
         });
-
         return items;
     }
 
@@ -179,6 +201,7 @@
 
             const results = await Promise.all(fetchPromises);
             allItems = results.flat();
+            buildWordFrequency(); // Build frequency index after loading
             return allItems;
         } catch (error) {
             console.error('Error loading search data:', error);
@@ -188,84 +211,28 @@
     }
 
     // ============================================
-    // SEARCH / AUTOCOMPLETE LOGIC
+    // RENDER DROPDOWN (with word suggestions + counts)
     // ============================================
-    
-    function getSuggestions(query) {
-            if (!query || query.trim().length === 0) {
-                return [];
-            }
-        
-            const lowerQuery = query.toLowerCase().trim();
-            const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
-            const isPhrase = words.length > 2; // If more than 2 words, treat as a phrase
-        
-            // Score each item based on how well it matches
-            const scored = allItems.map(function(item) {
-                let score = 0;
-                const text = item.searchableText;
-                const titleLower = (item.title || '').toLowerCase();
-        
-                // --- EXACT PHRASE MATCH (highest priority) ---
-                if (text.includes(lowerQuery)) {
-                    score += 100; // Very high score for exact phrase
-                }
-                if (titleLower.includes(lowerQuery)) {
-                    score += 80; // Even higher if the phrase is in the title
-                }
-        
-                // --- INDIVIDUAL WORD MATCHES (lower priority) ---
-                // If the query is a phrase (3+ words), reduce individual word scores
-                const wordWeight = isPhrase ? 2 : 10;
-        
-                words.forEach(function(word) {
-                    if (word.length >= 2 && text.includes(word)) {
-                        score += wordWeight;
-                    }
-                    if (word.length >= 2 && titleLower.includes(word)) {
-                        score += wordWeight * 1.5;
-                    }
-                });
-        
-                // --- BOOST FOR TITLE MATCH (always) ---
-                // If the title starts with the query (very strong signal)
-                if (titleLower.startsWith(lowerQuery)) {
-                    score += 50;
-                }
-        
-                return { item: item, score: score };
-            });
-        
-            // Filter out zero scores and sort by score (highest first)
-            const results = scored
-                .filter(function(s) { return s.score > 0; })
-                .sort(function(a, b) { return b.score - a.score; })
-                .map(function(s) { return s.item; });
-        
-            return results;
-        }
-
-    // ============================================
-    // RENDER DROPDOWN (with spelling suggestions)
-    // ============================================
-    
-    function renderDropdown(suggestions) {
+    function renderDropdown() {
         if (!dropdown) return;
-
         dropdown.innerHTML = '';
 
+        const query = input.value.trim();
+        if (query.length === 0) {
+            dropdown.classList.remove('active');
+            return;
+        }
+
+        const suggestions = getWordSuggestions(query);
+
         if (suggestions.length === 0) {
+            // No word suggestions – try spelling suggestions
             const empty = document.createElement('div');
             empty.className = 'search-dropdown-empty';
-            
-            const query = input.value.trim();
             const spellingSuggestions = getSpellingSuggestions(query);
-            
             if (spellingSuggestions.length > 0) {
-                // Build a clickable list of suggestions
                 const prefix = document.createTextNode('No matches found. Did you mean: ');
                 empty.appendChild(prefix);
-                
                 spellingSuggestions.forEach(function(word, index) {
                     const span = document.createElement('span');
                     span.textContent = word;
@@ -290,56 +257,39 @@
                         performSearch(word);
                     });
                     empty.appendChild(span);
-                    
-                    // Add comma and space after each suggestion except the last
                     if (index < spellingSuggestions.length - 1) {
                         const comma = document.createTextNode(', ');
                         empty.appendChild(comma);
                     }
                 });
-                
                 const questionMark = document.createTextNode('?');
                 empty.appendChild(questionMark);
-                
             } else {
                 empty.textContent = 'No matches found. Try a different keyword.';
             }
-            
             dropdown.appendChild(empty);
             dropdown.classList.add('active');
             return;
         }
 
-        // Limit to 30 suggestions (with scroll bar)
-        const maxDisplay = 30;
-        const displayItems = suggestions.slice(0, maxDisplay);
-
-        displayItems.forEach(function(item, index) {
+        // Render word suggestions with counts
+        suggestions.forEach(function(suggestion, index) {
             const div = document.createElement('div');
             div.className = 'search-dropdown-item';
             if (index === selectedIndex) {
                 div.classList.add('active');
             }
 
-            // Suggestion text (highlight match)
             const textSpan = document.createElement('span');
             textSpan.className = 'suggestion-text';
-            textSpan.textContent = item.title;
-
-            // Source label
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-' + item.source;
-            sourceSpan.textContent = item.sourceLabel;
+            textSpan.textContent = suggestion.word + ' (' + suggestion.count + ')';
 
             div.appendChild(textSpan);
-            div.appendChild(sourceSpan);
 
-            // Click to search
             div.addEventListener('click', function() {
-                performSearch(item.title);
+                performSearch(suggestion.word);
             });
 
-            // Mouse enter for keyboard navigation sync
             div.addEventListener('mouseenter', function() {
                 selectedIndex = index;
                 highlightSelected();
@@ -348,23 +298,13 @@
             dropdown.appendChild(div);
         });
 
-        // Show "and more" if there are more items
-        if (suggestions.length > maxDisplay) {
-            const more = document.createElement('div');
-            more.className = 'search-dropdown-item';
-            more.style.cssText = 'opacity: 0.4; font-size: 0.8rem; justify-content: center; cursor: default;';
-            more.textContent = '+ ' + (suggestions.length - maxDisplay) + ' more results...';
-            dropdown.appendChild(more);
-        }
-
         dropdown.classList.add('active');
-        selectedIndex = -1; // Reset selection
+        selectedIndex = -1;
     }
 
     // ============================================
     // HIGHLIGHT SELECTED DROPDOWN ITEM
     // ============================================
-    
     function highlightSelected() {
         if (!dropdown) return;
         const items = dropdown.querySelectorAll('.search-dropdown-item');
@@ -378,9 +318,8 @@
     }
 
     // ============================================
-    // PERFORM SEARCH (Redirect to search.html)
+    // PERFORM SEARCH
     // ============================================
-    
     function performSearch(query) {
         if (!query || query.trim().length === 0) return;
         const encoded = encodeURIComponent(query.trim());
@@ -388,26 +327,17 @@
     }
 
     // ============================================
-    // HANDLE INPUT (Debounced)
+    // HANDLE INPUT (with debounce)
     // ============================================
     let debounceTimer = null;
 
     function handleInput() {
         const query = input.value;
-
-        // Store current query for dropdown navigation
         currentQuery = query;
 
-        if (query.trim().length === 0) {
-            dropdown.classList.remove('active');
-            return;
-        }
-
-        // Debounce the search
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(function() {
-            const suggestions = getSuggestions(query);
-            renderDropdown(suggestions);
+            renderDropdown();
         }, CONFIG.debounceDelay);
     }
 
@@ -424,16 +354,14 @@
 
         if (e.key === 'Enter') {
             e.preventDefault();
-            // If there's a selected item, use its text
             if (selectedIndex >= 0 && selectedIndex < dropdownItems.length) {
                 const item = dropdownItems[selectedIndex];
-                const textEl = item.querySelector('.suggestion-text');
-                if (textEl) {
-                    performSearch(textEl.textContent);
-                    return;
-                }
+                const text = item.textContent.trim();
+                // Extract the word before the parenthesis
+                const word = text.split('(')[0].trim();
+                performSearch(word);
+                return;
             }
-            // Otherwise, use the input value
             performSearch(input.value);
             return;
         }
@@ -443,7 +371,6 @@
             if (dropdownItems.length > 0) {
                 selectedIndex = Math.min(selectedIndex + 1, dropdownItems.length - 1);
                 highlightSelected();
-                // Scroll into view
                 const active = dropdown.querySelector('.search-dropdown-item.active');
                 if (active) {
                     active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -473,15 +400,13 @@
         if (isModalOpen) return;
         isModalOpen = true;
 
-        // Build modal if not exists
         if (!overlay) {
             buildModal();
         }
 
         overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden';
 
-        // Focus the input after a short delay
         setTimeout(function() {
             if (input) {
                 input.focus();
@@ -489,12 +414,10 @@
             }
         }, 100);
 
-        // Load data if not loaded yet
         if (allItems.length === 0) {
             loadAllData();
         }
 
-        // Reset state
         selectedIndex = -1;
         if (dropdown) {
             dropdown.classList.remove('active');
@@ -505,7 +428,6 @@
             currentQuery = '';
         }
 
-        // Close on escape key
         document.addEventListener('keydown', handleKeydown);
     }
 
@@ -517,8 +439,6 @@
             overlay.classList.remove('active');
         }
         document.body.style.overflow = '';
-
-        // Remove escape key listener
         document.removeEventListener('keydown', handleKeydown);
     }
 
@@ -526,23 +446,19 @@
     // BUILD MODAL DOM
     // ============================================
     function buildModal() {
-        // Overlay
         overlay = document.createElement('div');
         overlay.className = 'search-overlay';
         overlay.id = 'search-modal';
 
-        // Click outside to close
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {
                 closeModal();
             }
         });
 
-        // Container
         const container = document.createElement('div');
         container.className = 'search-box-container';
 
-        // Input row
         const inputRow = document.createElement('div');
         inputRow.className = 'search-input-row';
 
@@ -555,7 +471,6 @@
         input.setAttribute('aria-label', 'Search the site');
         input.autocomplete = 'off';
 
-        // Close button
         closeBtn = document.createElement('button');
         closeBtn.className = 'search-close-btn';
         closeBtn.setAttribute('aria-label', 'Close search');
@@ -566,22 +481,17 @@
         inputRow.appendChild(input);
         inputRow.appendChild(closeBtn);
 
-        // Dropdown
         dropdown = document.createElement('div');
         dropdown.className = 'search-dropdown';
 
-        // Assemble
         container.appendChild(inputRow);
         container.appendChild(dropdown);
         overlay.appendChild(container);
 
-        // Append to body
         document.body.appendChild(overlay);
 
-        // Input events
         input.addEventListener('input', handleInput);
 
-        // Keyboard shortcut: Ctrl+K or Cmd+K
         document.addEventListener('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
@@ -597,28 +507,24 @@
     }
 
     // ============================================
-    // INITIALIZE: Find Search Icon & Attach Event
+    // INITIALIZE
     // ============================================
     function initSearch() {
-        // Wait for navbar to be injected (it might not exist yet)
         const checkInterval = setInterval(function() {
             const searchIconElement = document.querySelector('.navbar-icons a[aria-label*="Search"]') ||
                                      document.querySelector('.navbar-icons a i.fa-magnifying-glass')?.closest('a');
 
             if (searchIconElement) {
                 clearInterval(checkInterval);
-                // Override the default link behavior
                 searchIconElement.addEventListener('click', function(e) {
                     e.preventDefault();
                     openModal();
                 });
-                // Also add a cursor style
                 searchIconElement.style.cursor = 'pointer';
                 console.log('✅ Search icon attached.');
             }
         }, 500);
 
-        // Also load data in background
         setTimeout(function() {
             if (allItems.length === 0) {
                 loadAllData();
@@ -627,7 +533,7 @@
     }
 
     // ============================================
-    // EXPOSE FUNCTIONS GLOBALLY (for debugging)
+    // EXPOSE GLOBALLY
     // ============================================
     window.search = {
         open: openModal,
@@ -635,13 +541,8 @@
         loadData: loadAllData
     };
 
-    // ============================================
-    // START
-    // ============================================
     document.addEventListener('DOMContentLoaded', function() {
-        // Build modal immediately (hidden)
         buildModal();
-        // Initialize search icon attachment
         initSearch();
     });
 
