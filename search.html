@@ -157,59 +157,64 @@
             // ============================================
             // SEARCH FUNCTION
             // ============================================
+            
             function searchItems(query, filter) {
                 if (!query || query.trim().length === 0) {
                     return [];
                 }
-
+            
                 const lowerQuery = query.toLowerCase().trim();
                 const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
-
+                const isPhrase = words.length > 2;
+            
                 let results = allItems;
-
+            
                 // Apply filter
                 if (filter !== 'all') {
                     results = results.filter(function(item) {
                         return item.source === filter;
                     });
                 }
-
+            
                 // Score and match
                 const scored = results.map(function(item) {
                     let score = 0;
                     const text = item.searchableText;
-
-                    // Phrase match
+                    const titleLower = (item.title || '').toLowerCase();
+            
+                    // --- EXACT PHRASE MATCH ---
                     if (text.includes(lowerQuery)) {
-                        score += 50;
+                        score += 100;
                     }
-
-                    // Word matches
+                    if (titleLower.includes(lowerQuery)) {
+                        score += 80;
+                    }
+            
+                    // --- INDIVIDUAL WORD MATCHES ---
+                    const wordWeight = isPhrase ? 2 : 10;
+            
                     words.forEach(function(word) {
                         if (word.length >= 2 && text.includes(word)) {
-                            score += 10;
+                            score += wordWeight;
                         }
-                    });
-
-                    // Title boost
-                    const titleLower = (item.title || '').toLowerCase();
-                    if (titleLower.includes(lowerQuery)) {
-                        score += 30;
-                    }
-                    words.forEach(function(word) {
                         if (word.length >= 2 && titleLower.includes(word)) {
-                            score += 15;
+                            score += wordWeight * 1.5;
                         }
                     });
-
+            
+                    // --- TITLE BOOST ---
+                    if (titleLower.startsWith(lowerQuery)) {
+                        score += 50;
+                    }
+            
                     return { item: item, score: score };
                 });
-
+            
                 const filtered = scored
                     .filter(function(s) { return s.score > 0; })
                     .sort(function(a, b) { return b.score - a.score; })
                     .map(function(s) { return s.item; });
-
+            
                 return filtered;
             }
 
