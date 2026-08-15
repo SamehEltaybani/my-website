@@ -2834,7 +2834,7 @@ PUBLICATIONS PAGE
 /* ----- Filter wrapper (keeps button above overlay) ----- */
 .filter-wrapper {
   position: relative;
-  z-index: 600; /* Above overlay (500) */
+  z-index: 9998;
 }
 
 /* ----- Overlay: covers everything except filter wrapper ----- */
@@ -2847,7 +2847,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 500; /* Lower than dropdown but higher than controls */
+  z-index: 9997;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -2857,6 +2857,24 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter Dropdown Menu ----- */
+
+#filter-dropdown-container {
+  display: none;
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: var(--space-md);
+  min-width: 280px;
+  max-width: 320px;
+  max-height: 480px;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#filter-dropdown-container.open {
+  display: block;
+}
 
 .filter-dropdown {
   display: none;
@@ -2880,6 +2898,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter dropdown header with close button ----- */
+
 .filter-dropdown-header {
   display: flex;
   align-items: center;
