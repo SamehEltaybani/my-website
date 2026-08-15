@@ -508,82 +508,97 @@ function closeFilterDropdown() {
     document.body.style.overflow = '';
 }
 
+function closeSortDropdown() {
+    sortDropdown.classList.remove('open');
+}
+
     // ============================================
     // SETUP CONTROLS
     // ============================================
     
     function setupControls() {
-        controlsBar = document.getElementById('publications-controls');
-        statusEl = document.getElementById('controls-status');
-        infoEl = document.getElementById('status-info-icon');
-        filterBtn = document.getElementById('filter-btn');
-        sortBtn = document.getElementById('sort-btn');
-        resetBtn = document.getElementById('reset-btn');
-        filterDropdown = document.getElementById('filter-dropdown');
-        sortDropdown = document.getElementById('sort-dropdown');
-        badgeEl = document.getElementById('filter-badge');
-        bannerEl = document.getElementById('publications-banner');
+    controlsBar = document.getElementById('publications-controls');
+    statusEl = document.getElementById('controls-status');
+    infoEl = document.getElementById('status-info-icon');
+    filterBtn = document.getElementById('filter-btn');
+    sortBtn = document.getElementById('sort-btn');
+    resetBtn = document.getElementById('reset-btn');
+    filterDropdown = document.getElementById('filter-dropdown');
+    sortDropdown = document.getElementById('sort-dropdown');
+    badgeEl = document.getElementById('filter-badge');
+    bannerEl = document.getElementById('publications-banner');
 
-        if (!controlsBar) return;
+    if (!controlsBar) return;
 
-        // Filter button toggle
-        filterBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (filterDropdown.classList.contains('open')) {
-                closeFilterDropdown();
-            } else {
-                closeSortDropdown();
-                openFilterDropdown();
-            }
-        });
-
-        // Sort button toggle
-        sortBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (sortDropdown.classList.contains('open')) {
-                closeSortDropdown();
-            } else {
-                closeFilterDropdown();
-                sortDropdown.classList.add('open');
-                buildSortDropdown();
-            }
-        });
-
-        // Reset button
-        resetBtn.addEventListener('click', function() {
-            ['year', 'authorship', 'journal'].forEach(function(section) {
-                Object.keys(filters[section]).forEach(function(key) {
-                    filters[section][key] = false;
-                });
-            });
-            sortOrder = 'newest';
-            isFiltered = false;
-            applyFiltersAndSort();
-            loadedCount = Math.min(pageSize, filteredPublications.length);
-            render();
+    // Filter button toggle
+    filterBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (filterDropdown.classList.contains('open')) {
             closeFilterDropdown();
+        } else {
+            closeSortDropdown(); // Close sort if open
+            openFilterDropdown();
+        }
+    });
+
+    // Sort button toggle
+    sortBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (sortDropdown.classList.contains('open')) {
             closeSortDropdown();
+        } else {
+            closeFilterDropdown(); // Close filter if open
+            sortDropdown.classList.add('open');
+            buildSortDropdown();
+        }
+    });
+
+    // Reset button
+    resetBtn.addEventListener('click', function() {
+        ['year', 'authorship', 'journal'].forEach(function(section) {
+            Object.keys(filters[section]).forEach(function(key) {
+                filters[section][key] = false;
+            });
         });
+        sortOrder = 'newest';
+        isFiltered = false;
+        applyFiltersAndSort();
+        loadedCount = Math.min(pageSize, filteredPublications.length);
+        render();
+        closeFilterDropdown();
+        closeSortDropdown();
+    });
 
-        // Info icon click
-        if (infoEl) {
-            infoEl.addEventListener('click', function() {
-                alert('This list is currently filtered. Click Reset to remove all filters and see the full list.');
-            });
-        }
-
-        // Banner: View all button
-        const bannerBtn = document.getElementById('banner-reset-btn');
-        if (bannerBtn) {
-            bannerBtn.addEventListener('click', function() {
-                window.location.href = '/my-website/publications.html';
-            });
-        }
+    // Info icon click
+    if (infoEl) {
+        infoEl.addEventListener('click', function() {
+            alert('This list is currently filtered. Click Reset to remove all filters and see the full list.');
+        });
     }
+
+    // Banner: View all button
+    const bannerBtn = document.getElementById('banner-reset-btn');
+    if (bannerBtn) {
+        bannerBtn.addEventListener('click', function() {
+            window.location.href = '/my-website/publications.html';
+        });
+    }
+
+    // --- Click outside to close sort dropdown ---
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
+        if (!isSortClick && sortDropdown.classList.contains('open')) {
+            closeSortDropdown();
+        }
+        // Filter dropdown is closed by overlay click or button click, so we don't need to close it here.
+    });
+}
 
     // ============================================
     // LOAD DATA & INIT
     // ============================================
+    
     async function loadPublications() {
         container = document.getElementById('publications-list');
 
