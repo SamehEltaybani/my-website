@@ -2369,10 +2369,11 @@ PUBLICATIONS PAGE
 
 
 /* ============================================
-   19. CENTRAL SEARCH MODAL
+   CENTRAL SEARCH MODAL
    ============================================ */
 
 /* ----- Overlay ----- */
+
 .search-overlay {
   position: fixed;
   top: 0;
@@ -2394,6 +2395,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Search Box Container ----- */
+
 .search-box-container {
   width: 90%;
   max-width: 700px;
@@ -2528,7 +2530,13 @@ PUBLICATIONS PAGE
   color: #8b5cf6;
 }
 
+.source-phrase {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
 /* ----- No Match in Dropdown ----- */
+
 .search-dropdown-empty {
   padding: var(--space-md);
   text-align: center;
@@ -2538,6 +2546,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Scrollbar Styling ----- */
+
 .search-dropdown::-webkit-scrollbar {
   width: 6px;
 }
@@ -2556,7 +2565,7 @@ PUBLICATIONS PAGE
 }
 
 /* ============================================
-   20. SEARCH RESULTS PAGE
+   SEARCH RESULTS PAGE
    ============================================ */
 
 /* ----- Results Header ----- */
