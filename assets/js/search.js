@@ -241,6 +241,7 @@
     // ============================================
     // RENDER DROPDOWN (with spelling suggestions)
     // ============================================
+    
     function renderDropdown(suggestions) {
         if (!dropdown) return;
 
@@ -254,15 +255,45 @@
             const spellingSuggestions = getSpellingSuggestions(query);
             
             if (spellingSuggestions.length > 0) {
-                empty.innerHTML = 'No matches found. Did you mean: <strong>' + spellingSuggestions.join(', ') + '</strong>?';
-                empty.style.cursor = 'pointer';
-                empty.addEventListener('click', function() {
-                    if (spellingSuggestions.length > 0) {
-                        performSearch(spellingSuggestions[0]);
+                // Build a clickable list of suggestions
+                const prefix = document.createTextNode('No matches found. Did you mean: ');
+                empty.appendChild(prefix);
+                
+                spellingSuggestions.forEach(function(word, index) {
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    span.style.cssText = `
+                        color: var(--dark-color, #222831);
+                        font-weight: 600;
+                        cursor: pointer;
+                        padding: 0 2px;
+                        border-radius: 2px;
+                        transition: color 0.2s ease, background 0.2s ease;
+                    `;
+                    span.addEventListener('mouseenter', function() {
+                        this.style.color = 'var(--accent-color, #00ADB5)';
+                        this.style.background = 'rgba(0,173,181,0.08)';
+                    });
+                    span.addEventListener('mouseleave', function() {
+                        this.style.color = 'var(--dark-color, #222831)';
+                        this.style.background = 'transparent';
+                    });
+                    span.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        performSearch(word);
+                    });
+                    empty.appendChild(span);
+                    
+                    // Add comma and space after each suggestion except the last
+                    if (index < spellingSuggestions.length - 1) {
+                        const comma = document.createTextNode(', ');
+                        empty.appendChild(comma);
                     }
                 });
-                // Also add individual suggestion links (optional, but helpful)
-                // We'll keep it simple: click on the whole message triggers the first suggestion
+                
+                const questionMark = document.createTextNode('?');
+                empty.appendChild(questionMark);
+                
             } else {
                 empty.textContent = 'No matches found. Try a different keyword.';
             }
@@ -326,6 +357,7 @@
     // ============================================
     // HIGHLIGHT SELECTED DROPDOWN ITEM
     // ============================================
+    
     function highlightSelected() {
         if (!dropdown) return;
         const items = dropdown.querySelectorAll('.search-dropdown-item');
@@ -341,6 +373,7 @@
     // ============================================
     // PERFORM SEARCH (Redirect to search.html)
     // ============================================
+    
     function performSearch(query) {
         if (!query || query.trim().length === 0) return;
         const encoded = encodeURIComponent(query.trim());
