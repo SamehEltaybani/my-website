@@ -2867,7 +2867,7 @@ PUBLICATIONS PAGE
   padding: var(--space-md);
   min-width: 280px;
   max-width: 320px;
-  max-height: 480px;
+  max-height: 70vh; /* 70% of screen height – adapts to all devices */
   z-index: 9999;
   overflow: hidden;
 }
@@ -2888,8 +2888,8 @@ PUBLICATIONS PAGE
   padding: var(--space-md);
   min-width: 280px;
   max-width: 320px;
-  max-height: 480px;
-  z-index: 9999; /* Very high to ensure it's above everything */
+  max-height: 70vh; /* Use the same value */
+  z-index: 9999;
   overflow: hidden;
 }
 
@@ -2945,7 +2945,7 @@ PUBLICATIONS PAGE
 }
 
 .filter-dropdown-scroll {
-  max-height: 80px;
+  max-height: 50vh; /* 50% of screen height – enough room for many items */
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.06);
