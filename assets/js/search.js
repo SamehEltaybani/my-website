@@ -213,70 +213,60 @@
     // ============================================
     // RENDER DROPDOWN (with word suggestions + counts)
     // ============================================
+
     function renderDropdown() {
-        if (!dropdown) return;
-        dropdown.innerHTML = '';
+    if (!dropdown) return;
+    dropdown.innerHTML = '';
 
-        const query = input.value.trim();
-        if (query.length === 0) {
-            dropdown.classList.remove('active');
-            return;
-        }
+    const query = input.value.trim();
+    if (query.length === 0) {
+        dropdown.classList.remove('active');
+        return;
+    }
 
-        const suggestions = getWordSuggestions(query);
+    // First, try to get word suggestions
+    const wordSuggestions = getWordSuggestions(query);
 
-        if (suggestions.length === 0) {
-            // No word suggestions – try spelling suggestions
-            const empty = document.createElement('div');
-            empty.className = 'search-dropdown-empty';
-            const spellingSuggestions = getSpellingSuggestions(query);
-            if (spellingSuggestions.length > 0) {
-                const prefix = document.createTextNode('No matches found. Did you mean: ');
-                empty.appendChild(prefix);
-                spellingSuggestions.forEach(function(word, index) {
-                    const span = document.createElement('span');
-                    span.textContent = word;
-                    span.style.cssText = `
-                        color: var(--dark-color, #222831);
-                        font-weight: 600;
-                        cursor: pointer;
-                        padding: 0 2px;
-                        border-radius: 2px;
-                        transition: color 0.2s ease, background 0.2s ease;
-                    `;
-                    span.addEventListener('mouseenter', function() {
-                        this.style.color = 'var(--accent-color, #00ADB5)';
-                        this.style.background = 'rgba(0,173,181,0.08)';
-                    });
-                    span.addEventListener('mouseleave', function() {
-                        this.style.color = 'var(--dark-color, #222831)';
-                        this.style.background = 'transparent';
-                    });
-                    span.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        performSearch(word);
-                    });
-                    empty.appendChild(span);
-                    if (index < spellingSuggestions.length - 1) {
-                        const comma = document.createTextNode(', ');
-                        empty.appendChild(comma);
-                    }
-                });
-                const questionMark = document.createTextNode('?');
-                empty.appendChild(questionMark);
-            } else {
-                empty.textContent = 'No matches found. Try a different keyword.';
-            }
-            dropdown.appendChild(empty);
-            dropdown.classList.add('active');
-            return;
-        }
-
-        // Render word suggestions with counts
-        suggestions.forEach(function(suggestion, index) {
+    // If there are word suggestions, show them
+    if (wordSuggestions.length > 0) {
+        const isPhrase = query.split(/\s+/).length >= 3;
+        
+        // If the user typed a phrase (3+ words), add the full query as the first suggestion
+        if (isPhrase) {
             const div = document.createElement('div');
             div.className = 'search-dropdown-item';
-            if (index === selectedIndex) {
+            const textSpan = document.createElement('span');
+            textSpan.className = 'suggestion-text';
+            // Count how many items contain the full phrase
+            const phraseCount = allItems.filter(function(item) {
+                return item.searchableText.includes(query.toLowerCase());
+            }).length;
+            textSpan.textContent = '"' + query + '" (' + phraseCount + ')';
+            div.appendChild(textSpan);
+            div.addEventListener('click', function() {
+                performSearch(query);
+            });
+            div.addEventListener('mouseenter', function() {
+                selectedIndex = 0;
+                highlightSelected();
+            });
+            dropdown.appendChild(div);
+            // Add a separator or just continue
+            const separator = document.createElement('div');
+            separator.style.cssText = 'height: 1px; background: rgba(0,0,0,0.05); margin: 4px 0;';
+            dropdown.appendChild(separator);
+        }
+
+        // Show word suggestions (limit to 15 after the phrase)
+        const maxDisplay = isPhrase ? 15 : 20;
+        const displayItems = wordSuggestions.slice(0, maxDisplay);
+        const startIndex = isPhrase ? 1 : 0;
+
+        displayItems.forEach(function(suggestion, index) {
+            const div = document.createElement('div');
+            div.className = 'search-dropdown-item';
+            const actualIndex = isPhrase ? index + 1 : index;
+            if (actualIndex === selectedIndex) {
                 div.classList.add('active');
             }
 
@@ -291,7 +281,7 @@
             });
 
             div.addEventListener('mouseenter', function() {
-                selectedIndex = index;
+                selectedIndex = actualIndex;
                 highlightSelected();
             });
 
@@ -300,7 +290,82 @@
 
         dropdown.classList.add('active');
         selectedIndex = -1;
+        return;
     }
+
+    // --- No word suggestions found ---
+    // Check if the query itself exists as a phrase in the data
+    const lowerQuery = query.toLowerCase();
+    const phraseMatches = allItems.filter(function(item) {
+        return item.searchableText.includes(lowerQuery);
+    });
+
+    if (phraseMatches.length > 0) {
+        // The phrase exists, so show it as a suggestion
+        const div = document.createElement('div');
+        div.className = 'search-dropdown-item';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'suggestion-text';
+        textSpan.textContent = '"' + query + '" (' + phraseMatches.length + ')';
+        div.appendChild(textSpan);
+        div.addEventListener('click', function() {
+            performSearch(query);
+        });
+        div.addEventListener('mouseenter', function() {
+            selectedIndex = 0;
+            highlightSelected();
+        });
+        dropdown.appendChild(div);
+        dropdown.classList.add('active');
+        selectedIndex = -1;
+        return;
+    }
+
+    // --- No phrase matches either – try spelling suggestions ---
+    const empty = document.createElement('div');
+    empty.className = 'search-dropdown-empty';
+    const spellingSuggestions = getSpellingSuggestions(query);
+    if (spellingSuggestions.length > 0) {
+        const prefix = document.createTextNode('No matches found. Did you mean: ');
+        empty.appendChild(prefix);
+        spellingSuggestions.forEach(function(word, index) {
+            const span = document.createElement('span');
+            span.textContent = word;
+            span.style.cssText = `
+                color: var(--dark-color, #222831);
+                font-weight: 600;
+                cursor: pointer;
+                padding: 0 2px;
+                border-radius: 2px;
+                transition: color 0.2s ease, background 0.2s ease;
+            `;
+            span.addEventListener('mouseenter', function() {
+                this.style.color = 'var(--accent-color, #00ADB5)';
+                this.style.background = 'rgba(0,173,181,0.08)';
+            });
+            span.addEventListener('mouseleave', function() {
+                this.style.color = 'var(--dark-color, #222831)';
+                this.style.background = 'transparent';
+            });
+            span.addEventListener('click', function(e) {
+                e.stopPropagation();
+                performSearch(word);
+            });
+            empty.appendChild(span);
+            if (index < spellingSuggestions.length - 1) {
+                const comma = document.createTextNode(', ');
+                empty.appendChild(comma);
+            }
+        });
+        const questionMark = document.createTextNode('?');
+        empty.appendChild(questionMark);
+    } else {
+        empty.textContent = 'No matches found. Try a different keyword.';
+    }
+    dropdown.appendChild(empty);
+    dropdown.classList.add('active');
+}
+    
 
     // ============================================
     // HIGHLIGHT SELECTED DROPDOWN ITEM
@@ -320,6 +385,7 @@
     // ============================================
     // PERFORM SEARCH
     // ============================================
+    
     function performSearch(query) {
         if (!query || query.trim().length === 0) return;
         const encoded = encodeURIComponent(query.trim());
@@ -329,6 +395,7 @@
     // ============================================
     // HANDLE INPUT (with debounce)
     // ============================================
+    
     let debounceTimer = null;
 
     function handleInput() {
