@@ -2815,6 +2815,22 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
 }
 
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+  flex-wrap: nowrap; /* <- prevents stacking */
+}
+
 /* ----- Filter wrapper (keeps button above overlay) ----- */
 .filter-wrapper {
   position: relative;
@@ -3199,7 +3215,8 @@ PUBLICATIONS PAGE
     padding: var(--space-xs) 0;
     gap: var(--space-xs);
   }
-  .controls-status {
+ 
+   .controls-status {
     font-size: 0.75rem;
     white-space: normal;
   }
