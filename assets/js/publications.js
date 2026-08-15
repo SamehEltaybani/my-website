@@ -35,7 +35,7 @@
     let singleId = null;
 
     // DOM refs (set after render)
-    let container, controlsBar, statusEl, infoIcon, filterBtn, sortBtn, resetBtn;
+    let container, controlsBar, statusEl, infoEl, filterBtn, sortBtn, resetBtn;
     let filterDropdown, sortDropdown;
     let badgeEl;
     let bannerEl;
