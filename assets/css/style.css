@@ -3319,9 +3319,15 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
 }
 
-.blog-controls .filter-dropdown-scroll {
-  min-height: 180px;
-  max-height: 80vh;
+#blog-controls .filter-dropdown-scroll {
+  height: 250px !important;
+  min-height: 200px !important;
+  max-height: none !important;
+}
+
+/* Make blog dropdown container taller */
+#blog-controls #filter-dropdown-container {
+  max-height: 80vh !important;
 }
 
 /* ----- Blog List ----- */
