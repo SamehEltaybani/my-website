@@ -1,0 +1,65 @@
+[
+  {
+    "id": "page-home",
+    "title": "Home",
+    "url": "/my-website/index.html",
+    "description": "Welcome to the personal academic website of Dr. Sameh Eltaybani.",
+    "keywords": ["home", "welcome", "introduction", "about"]
+  },
+  {
+    "id": "page-research",
+    "title": "Research",
+    "url": "/my-website/research.html",
+    "description": "Explore my research projects, ongoing studies, and research interests in healthcare.",
+    "keywords": ["research", "projects", "studies", "clinical trials", "methodology"]
+  },
+  {
+    "id": "page-publications",
+    "title": "Publications",
+    "url": "/my-website/publications.html",
+    "description": "Full list of peer-reviewed publications, journal articles, and academic contributions.",
+    "keywords": ["publications", "papers", "articles", "peer-reviewed", "academic"]
+  },
+  {
+    "id": "page-data-analysis",
+    "title": "Data Analysis",
+    "url": "/my-website/data-analysis.html",
+    "description": "Data analysis services, methods, tools, and portfolio.",
+    "keywords": ["data analysis", "statistics", "biostatistics", "visualization", "dashboard"]
+  },
+  {
+    "id": "page-teaching",
+    "title": "Teaching",
+    "url": "/my-website/teaching.html",
+    "description": "Courses, workshops, teaching philosophy, and educational resources.",
+    "keywords": ["teaching", "courses", "workshops", "education", "mentorship"]
+  },
+  {
+    "id": "page-blog",
+    "title": "Blog",
+    "url": "/my-website/blog.html",
+    "description": "Insights, updates, and articles on healthcare research, data analysis, and education.",
+    "keywords": ["blog", "articles", "insights", "updates", "news"]
+  },
+  {
+    "id": "page-contact",
+    "title": "Contact",
+    "url": "/my-website/contact.html",
+    "description": "Get in touch with Dr. Sameh Eltaybani for collaborations, inquiries, or feedback.",
+    "keywords": ["contact", "email", "collaboration", "inquiry"]
+  },
+  {
+    "id": "page-newsletter",
+    "title": "Newsletter",
+    "url": "/my-website/newsletter.html",
+    "description": "Subscribe to the newsletter for updates on research, publications, and events.",
+    "keywords": ["newsletter", "subscribe", "updates", "email"]
+  },
+  {
+    "id": "page-legal",
+    "title": "Legal",
+    "url": "/my-website/legal.html",
+    "description": "Terms of use, privacy policy, and legal disclaimers.",
+    "keywords": ["legal", "terms", "privacy", "disclaimer", "policy"]
+  }
+]
