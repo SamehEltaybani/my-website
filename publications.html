@@ -55,14 +55,14 @@
             </div>
             <div class="controls-right">
 
-                <!-- Filter Button -->
+               <!-- Filter Button -->
                 <div class="dropdown-wrapper filter-wrapper">
                     <button class="control-btn" id="filter-btn">
                         <i class="fa-solid fa-sliders"></i>
                         <span>Filter</span>
                         <span class="badge" id="filter-badge"></span>
                     </button>
-                    <div class="filter-dropdown" id="filter-dropdown"></div>
+                    <!-- Dropdown moved OUTSIDE the wrapper and will be appended to body via JS -->
                 </div>
 
                 <!-- Sort Button -->
@@ -101,6 +101,9 @@
         </div>
 
     </div><!-- end .container -->
+    
+    <!-- Container for filter dropdown (moved outside controls bar) -->
+    <div id="filter-dropdown-container"></div>
 
     <!-- ===== JAVASCRIPT ===== -->
     <script src="/my-website/assets/js/utils.js"></script>
