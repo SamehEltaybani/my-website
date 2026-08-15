@@ -520,11 +520,7 @@ function closeFilterDropdown() {
     }
     document.body.style.overflow = '';
 }
-
-function closeSortDropdown() {
-    sortDropdown.classList.remove('open');
-}
-
+    
     // ============================================
     // SETUP CONTROLS
     // ============================================
