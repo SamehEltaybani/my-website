@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="blog.html">
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,227 +25,92 @@
 <body>
 
     <!-- ===== BLOG HEADER ===== -->
-    
     <div class="page-header-wrapper-simple">
         <div class="container">
-            <h1 class="page-header-title-simple">Blog Articles & Insights</h1>
+            <h1 class="page-header-title-simple">Blog</h1>
         </div>
     </div>
 
-    <!-- ===== MAIN CONTENT (Restricted to 1200px) ===== -->
-    
+    <!-- ===== MAIN CONTENT ===== -->
     <div class="container">
 
+        <!-- ===== BANNER (Single Result View) ===== -->
+        <div class="blog-banner" id="blog-banner">
+            <span class="blog-banner-text">
+                <i class="fa-regular fa-eye"></i>
+                You are currently viewing a single blog article.
+            </span>
+            <a href="/my-website/blog.html" class="blog-banner-btn" id="banner-reset-btn">
+                <i class="fa-solid fa-arrow-left"></i> View all articles
+            </a>
+        </div>
+
+        <!-- ===== CONTROLS BAR (Sticky) ===== -->
+        <div class="blog-controls" id="blog-controls">
+            <div class="controls-left">
+                <span class="controls-status" id="controls-status">
+                    Loading...
+                </span>
+                <i class="fa-regular fa-circle-question status-info-icon" id="status-info-icon" style="display:none;"></i>
+            </div>
+            <div class="controls-right">
+
+                <!-- Filter Button -->
+                <div class="dropdown-wrapper filter-wrapper">
+                    <button class="control-btn" id="filter-btn">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>Filter</span>
+                        <span class="badge" id="filter-badge"></span>
+                    </button>
+                </div>
+
+                <!-- Sort Button -->
+                <div class="dropdown-wrapper">
+                    <button class="control-btn" id="sort-btn">
+                        <i class="fa-solid fa-arrow-up-wide-short"></i>
+                        <span>Sort</span>
+                    </button>
+                    <div class="sort-dropdown" id="sort-dropdown"></div>
+                </div>
+
+                <!-- Reset Button -->
+                <button class="control-btn" id="reset-btn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Reset</span>
+                </button>
+            </div>
+        </div>
+
         <!-- ===== BLOG LIST ===== -->
-        
         <div id="blog-list" class="blog-list">
-            <p style="color: var(--dark-color); opacity: 0.6;">Loading blog posts...</p>
+            <p style="color: var(--dark-color); opacity: 0.6;">Loading blog articles...</p>
         </div>
 
         <!-- ===== CLOSING CTA ===== -->
-        
         <div class="closing-cta">
             <p class="cta-question">Cannot find what you are looking for or have a question?</p>
             <p class="cta-action">
                 Use the central search option on the top right corner
                 <i class="fa-solid fa-magnifying-glass"></i>
                 or feel free to
-                <a href="contact.html" class="cta-link">
+                <a href="/my-website/contact.html" class="cta-link">
                     contact me <i class="fa-regular fa-envelope"></i>
                 </a>
             </p>
         </div>
 
     </div><!-- end .container -->
+    
+    <!-- Container for filter dropdown (moved outside controls bar) -->
+    <div id="filter-dropdown-container"></div>
 
-    <!-- ===== JAVASCRIPT LOAD ORDER ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script src="/my-website/assets/js/utils.js"></script>
     <script src="/my-website/assets/js/navbar.js"></script>
     <script src="/my-website/assets/js/footer.js"></script>
     <script src="/my-website/assets/js/back-to-top.js"></script>
     <script src="/my-website/assets/js/search.js"></script>
-
-
-    <!-- ===== BLOG RENDERER ===== -->
-    
-    <script>
-        (function() {
-            'use strict';
-
-            let allPosts = [];
-            let loadedCount = 0;
-            const pageSize = 10;
-
-            // Helper: Format date
-            function formatDate(dateString) {
-                if (!dateString) return '';
-                const date = new Date(dateString);
-                if (isNaN(date)) return dateString;
-                return date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-            }
-
-            // Helper: Truncate summary
-            function truncateSummary(text, maxLength) {
-                if (!text) return '';
-                if (text.length <= maxLength) return text;
-                return text.substring(0, maxLength).trim() + '...';
-            }
-
-            // Helper: Create card HTML for a single blog post
-            function createCardHTML(post) {
-                let html = '';
-
-                // 1. Title (linked to blogfile)
-                if (post.blogfile) {
-                    html += '<div class="blog-title"><a href="' + window.escapeHTML(post.blogfile) + '">' + window.escapeHTML(post.title) + '</a></div>';
-                } else if (post.title) {
-                    html += '<div class="blog-title">' + window.escapeHTML(post.title) + '</div>';
-                }
-
-                // 2. Short Title (optional)
-                if (post.shortTitle) {
-                    html += '<div class="blog-short-title">' + window.escapeHTML(post.shortTitle) + '</div>';
-                }
-
-                // 3. Date + Reading Time
-                let metaHtml = '<div class="blog-meta">';
-                if (post.date) {
-                    metaHtml += '<span class="blog-date"><i class="fa-regular fa-calendar"></i> ' + formatDate(post.date) + '</span>';
-                }
-                if (post.readingTime) {
-                    metaHtml += '<span class="blog-reading-time"><i class="fa-regular fa-clock"></i> ' + window.escapeHTML(post.readingTime) + '</span>';
-                }
-                metaHtml += '</div>';
-                html += metaHtml;
-
-                // 4. Categories (tags)
-                if (post.categories && post.categories.length > 0) {
-                    let tagsHtml = '<div class="blog-tags">';
-                    post.categories.forEach(function(cat) {
-                        tagsHtml += '<span class="blog-tag">' + window.escapeHTML(cat) + '</span>';
-                    });
-                    tagsHtml += '</div>';
-                    html += tagsHtml;
-                }
-
-                // 5. Summary (truncated to 200)
-                if (post.summary) {
-                    const truncated = truncateSummary(post.summary, 200);
-                    html += '<div class="blog-summary">' + window.escapeHTML(truncated) + '</div>';
-                }
-
-                // 6. Read More link
-                if (post.blogfile) {
-                    html += '<div class="blog-read-more"><a href="' + window.escapeHTML(post.blogfile) + '" class="blog-read-more-link">Read more <i class="fa-solid fa-arrow-right"></i></a></div>';
-                }
-
-                return html;
-            }
-
-            // Helper: Create separator
-            function createSeparator(abovePage, belowPage) {
-                const sep = document.createElement('div');
-                sep.className = 'publication-separator';
-                sep.innerHTML = `
-                    <span class="separator-label separator-above">Page ${abovePage} ▲</span>
-                    <span class="separator-line"></span>
-                    <span class="separator-label separator-below">Page ${belowPage} ▼</span>
-                `;
-                return sep;
-            }
-
-            // Main render function
-            function renderPosts() {
-                const container = document.getElementById('blog-list');
-                container.innerHTML = '';
-
-                if (!allPosts || allPosts.length === 0) {
-                    container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">No blog posts found.</p>';
-                    return;
-                }
-
-                if (loadedCount === 0) {
-                    loadedCount = Math.min(pageSize, allPosts.length);
-                }
-
-                // Sort posts by date (newest first)
-                allPosts.sort(function(a, b) {
-                    if (!a.date) return 1;
-                    if (!b.date) return -1;
-                    return new Date(b.date) - new Date(a.date);
-                });
-
-                // --- Render posts ---
-                for (let i = 0; i < loadedCount; i++) {
-                    if (i > 0 && i % pageSize === 0) {
-                        const abovePage = Math.floor((i - 1) / pageSize) + 1;
-                        const belowPage = Math.floor(i / pageSize) + 1;
-                        const sep = createSeparator(abovePage, belowPage);
-                        container.appendChild(sep);
-                    }
-
-                    const card = document.createElement('div');
-                    card.className = 'blog-card';
-                    card.innerHTML = createCardHTML(allPosts[i]);
-                    container.appendChild(card);
-                }
-
-                // --- Add bottom separator + "See More" if more items exist ---
-                if (loadedCount < allPosts.length) {
-                    const abovePage = Math.floor((loadedCount - 1) / pageSize) + 1;
-                    const belowPage = abovePage + 1;
-
-                    const sep = createSeparator(abovePage, belowPage);
-                    container.appendChild(sep);
-
-                    const wrapper = document.createElement('div');
-                    wrapper.style.cssText = 'text-align: center; margin: var(--space-md) 0;';
-                    
-                    const seeMoreBtn = document.createElement('button');
-                    seeMoreBtn.className = 'see-more-btn';
-                    seeMoreBtn.innerHTML = 'See more <i class="fa-solid fa-arrow-down"></i>';
-                    seeMoreBtn.addEventListener('click', function() {
-                        loadedCount = Math.min(loadedCount + pageSize, allPosts.length);
-                        renderPosts();
-                    });
-                    
-                    wrapper.appendChild(seeMoreBtn);
-                    container.appendChild(wrapper);
-                }
-            }
-
-            // Fetch blog posts
-            async function loadPosts() {
-                const container = document.getElementById('blog-list');
-
-                try {
-                    const response = await fetch('json/blog.json');
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    allPosts = await response.json();
-
-                    if (!allPosts || allPosts.length === 0) {
-                        container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">No blog posts found.</p>';
-                        return;
-                    }
-
-                    loadedCount = Math.min(pageSize, allPosts.length);
-                    renderPosts();
-
-                } catch (error) {
-                    container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">Unable to load blog posts at this time. Please try again later.</p>';
-                    console.error('Error loading blog posts:', error);
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', loadPosts);
-        })();
-    </script>
+    <script src="/my-website/assets/js/blog.js"></script>
 
 </body>
 </html>
