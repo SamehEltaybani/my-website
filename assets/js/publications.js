@@ -2,13 +2,6 @@
  * ============================================
  * PUBLICATIONS.JS – Load, Render, Filter, Sort
  * ============================================
- * Handles:
- * - Loading publications from JSON
- * - Rendering with pagination ("See more")
- * - Filtering by year, authorship, journal
- * - Sorting by newest/oldest
- * - Single result view (from search)
- * - Status sentence updates
  */
 
 (function() {
@@ -28,7 +21,7 @@
         authorship: {},
         journal: {}
     };
-    let sortOrder = 'newest'; // 'newest' or 'oldest'
+    let sortOrder = 'newest';
     let isFiltered = false;
 
     // Single result mode
@@ -39,6 +32,7 @@
     let filterDropdown, sortDropdown;
     let badgeEl;
     let bannerEl;
+    let filterOverlay;
 
     // ============================================
     // HELPERS
@@ -115,6 +109,30 @@
     }
 
     // ============================================
+    // CHECK IF ALL OPTIONS IN A CATEGORY ARE SELECTED
+    // ============================================
+    function allSelectedInCategory(category) {
+        const keys = Object.keys(filters[category]);
+        if (keys.length === 0) return false;
+        return keys.every(function(key) {
+            return filters[category][key] === true;
+        });
+    }
+
+    // ============================================
+    // COUNT SELECTED VALUES
+    // ============================================
+    function countSelectedValues() {
+        let count = 0;
+        ['year', 'authorship', 'journal'].forEach(function(category) {
+            Object.values(filters[category]).forEach(function(value) {
+                if (value === true) count++;
+            });
+        });
+        return count;
+    }
+
+    // ============================================
     // FILTER & SORT LOGIC
     // ============================================
     function applyFiltersAndSort() {
@@ -128,13 +146,13 @@
 
         let result = allPublications.slice();
 
-        // --- Apply Filters ---
+        // --- Apply Filters (skip category if all options selected) ---
         let filterCount = 0;
 
         const selectedYears = Object.keys(filters.year).filter(function(key) {
             return filters.year[key] === true;
         });
-        if (selectedYears.length > 0) {
+        if (selectedYears.length > 0 && !allSelectedInCategory('year')) {
             filterCount++;
             result = result.filter(function(p) {
                 return selectedYears.includes(p.year);
@@ -144,7 +162,7 @@
         const selectedAuthorship = Object.keys(filters.authorship).filter(function(key) {
             return filters.authorship[key] === true;
         });
-        if (selectedAuthorship.length > 0) {
+        if (selectedAuthorship.length > 0 && !allSelectedInCategory('authorship')) {
             filterCount++;
             result = result.filter(function(p) {
                 return selectedAuthorship.includes(p.authorship);
@@ -154,7 +172,7 @@
         const selectedJournals = Object.keys(filters.journal).filter(function(key) {
             return filters.journal[key] === true;
         });
-        if (selectedJournals.length > 0) {
+        if (selectedJournals.length > 0 && !allSelectedInCategory('journal')) {
             filterCount++;
             result = result.filter(function(p) {
                 return selectedJournals.includes(p.journal);
@@ -178,7 +196,7 @@
     }
 
     // ============================================
-    // RENDER PUBLICATIONS
+    // RENDER
     // ============================================
     function render() {
         if (!container) {
@@ -323,14 +341,11 @@
     }
 
     // ============================================
-    // UPDATE BADGE
+    // UPDATE BADGE (counts selected values, not categories)
     // ============================================
     function updateBadge() {
         if (!badgeEl) return;
-        let count = 0;
-        if (filters.year && Object.values(filters.year).filter(Boolean).length > 0) count++;
-        if (filters.authorship && Object.values(filters.authorship).filter(Boolean).length > 0) count++;
-        if (filters.journal && Object.values(filters.journal).filter(Boolean).length > 0) count++;
+        const count = countSelectedValues();
         if (count > 0) {
             badgeEl.textContent = count;
             badgeEl.classList.add('show');
@@ -340,7 +355,7 @@
     }
 
     // ============================================
-    // BUILD FILTER DROPDOWN
+    // BUILD FILTER DROPDOWN (no "Select All" links, each section scrollable)
     // ============================================
     function buildFilterDropdown() {
         if (!filterDropdown) return;
@@ -361,8 +376,10 @@
 
         let html = '';
 
+        // --- Year Section (scrollable) ---
         html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Year <span class="select-all-link" data-section="year">Select All</span></div>';
+        html += '<div class="filter-dropdown-section-title">Year</div>';
+        html += '<div class="filter-dropdown-scroll">';
         years.forEach(function(year) {
             const checked = filters.year[year] ? 'checked' : '';
             html += '<div class="filter-dropdown-item">';
@@ -370,10 +387,12 @@
             html += '<label>' + window.escapeHTML(year) + '</label>';
             html += '</div>';
         });
-        html += '</div>';
+        html += '</div></div>';
 
+        // --- Authorship Section (scrollable) ---
         html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Authorship <span class="select-all-link" data-section="authorship">Select All</span></div>';
+        html += '<div class="filter-dropdown-section-title">Authorship</div>';
+        html += '<div class="filter-dropdown-scroll">';
         authorshipValues.forEach(function(auth) {
             const checked = filters.authorship[auth] ? 'checked' : '';
             html += '<div class="filter-dropdown-item">';
@@ -381,10 +400,12 @@
             html += '<label>' + window.escapeHTML(auth) + '</label>';
             html += '</div>';
         });
-        html += '</div>';
+        html += '</div></div>';
 
+        // --- Journal Section (scrollable) ---
         html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Journal <span class="select-all-link" data-section="journal">Select All</span></div>';
+        html += '<div class="filter-dropdown-section-title">Journal</div>';
+        html += '<div class="filter-dropdown-scroll">';
         journals.forEach(function(journal) {
             const checked = filters.journal[journal] ? 'checked' : '';
             html += '<div class="filter-dropdown-item">';
@@ -392,8 +413,9 @@
             html += '<label>' + window.escapeHTML(journal) + '</label>';
             html += '</div>';
         });
-        html += '</div>';
+        html += '</div></div>';
 
+        // --- Actions (always visible) ---
         html += '<div class="filter-dropdown-actions">';
         html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
         html += '<button class="filter-apply" id="filter-apply">Apply</button>';
@@ -401,18 +423,7 @@
 
         filterDropdown.innerHTML = html;
 
-        filterDropdown.querySelectorAll('.select-all-link').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const section = this.dataset.section;
-                const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
-                const allChecked = Array.from(checkboxes).every(function(cb) { return cb.checked; });
-                checkboxes.forEach(function(cb) {
-                    cb.checked = !allChecked;
-                });
-            });
-        });
-
+        // --- Event Listeners ---
         filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
             cb.addEventListener('change', function() {
                 const section = this.dataset.section;
@@ -435,8 +446,7 @@
             applyFiltersAndSort();
             loadedCount = Math.min(pageSize, filteredPublications.length);
             render();
-            filterDropdown.classList.remove('open');
-            filterBtn.classList.remove('active');
+            closeFilterDropdown();
         });
     }
 
@@ -464,15 +474,56 @@
                 applyFiltersAndSort();
                 loadedCount = Math.min(pageSize, filteredPublications.length);
                 render();
-                sortDropdown.classList.remove('open');
-                sortBtn.classList.remove('active');
+                closeSortDropdown();
             });
             sortDropdown.appendChild(div);
         });
     }
 
     // ============================================
-    // SETUP CONTROLS (FIXED DROPDOWN CLOSING)
+    // OPEN / CLOSE FILTER DROPDOWN (with overlay)
+    // ============================================
+    function openFilterDropdown() {
+        filterDropdown.classList.add('open');
+        // Create overlay if not exists
+        if (!filterOverlay) {
+            filterOverlay = document.createElement('div');
+            filterOverlay.className = 'filter-overlay';
+            filterOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 150;
+                backdrop-filter: blur(2px);
+                -webkit-backdrop-filter: blur(2px);
+            `;
+            filterOverlay.addEventListener('click', function() {
+                closeFilterDropdown();
+            });
+            document.body.appendChild(filterOverlay);
+        }
+        filterOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        buildFilterDropdown();
+    }
+
+    function closeFilterDropdown() {
+        filterDropdown.classList.remove('open');
+        if (filterOverlay) {
+            filterOverlay.style.display = 'none';
+        }
+        document.body.style.overflow = '';
+    }
+
+    function closeSortDropdown() {
+        sortDropdown.classList.remove('open');
+    }
+
+    // ============================================
+    // SETUP CONTROLS
     // ============================================
     function setupControls() {
         controlsBar = document.getElementById('publications-controls');
@@ -491,21 +542,22 @@
         // Filter button toggle
         filterBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            const isOpen = filterDropdown.classList.contains('open');
-            filterDropdown.classList.toggle('open');
-            sortDropdown.classList.remove('open');
-            if (!isOpen) {
-                buildFilterDropdown();
+            if (filterDropdown.classList.contains('open')) {
+                closeFilterDropdown();
+            } else {
+                closeSortDropdown();
+                openFilterDropdown();
             }
         });
 
         // Sort button toggle
         sortBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            const isOpen = sortDropdown.classList.contains('open');
-            sortDropdown.classList.toggle('open');
-            filterDropdown.classList.remove('open');
-            if (!isOpen) {
+            if (sortDropdown.classList.contains('open')) {
+                closeSortDropdown();
+            } else {
+                closeFilterDropdown();
+                sortDropdown.classList.add('open');
                 buildSortDropdown();
             }
         });
@@ -522,21 +574,8 @@
             applyFiltersAndSort();
             loadedCount = Math.min(pageSize, filteredPublications.length);
             render();
-            filterDropdown.classList.remove('open');
-            sortDropdown.classList.remove('open');
-        });
-
-        // --- FIX: Click outside to close only if not inside dropdown or button ---
-        document.addEventListener('click', function(e) {
-            const target = e.target;
-            const isFilterClick = filterDropdown.contains(target) || filterBtn.contains(target);
-            const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
-            if (!isFilterClick) {
-                filterDropdown.classList.remove('open');
-            }
-            if (!isSortClick) {
-                sortDropdown.classList.remove('open');
-            }
+            closeFilterDropdown();
+            closeSortDropdown();
         });
 
         // Info icon click
