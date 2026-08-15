@@ -21,17 +21,19 @@
         { label: 'Blog', link: '/my-website/blog.html', icon: 'fa-solid fa-pen-to-square' }
     ],
     rightIcons: [
-        { 
-            iconClass: 'fa-regular fa-envelope', 
-            link: '/my-website/contact.html',
-            ariaLabel: 'Contact me'
-        },
-        { 
-            iconClass: 'fa-solid fa-magnifying-glass', 
-            link: '#',
-            ariaLabel: 'Search the website'
-        }
-    ]
+    { 
+        iconClass: 'fa-regular fa-envelope', 
+        link: '/my-website/contact.html',
+        ariaLabel: 'Contact me',
+        title: 'Contact me'
+    },
+    { 
+        iconClass: 'fa-solid fa-magnifying-glass', 
+        link: '#',
+        ariaLabel: 'Search the website',
+        title: 'Search the website'
+    }
+]
 };
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -129,6 +131,9 @@
             const a = document.createElement('a');
             a.href = icon.link;
             a.setAttribute('aria-label', icon.ariaLabel);
+            if (icon.title) {
+                a.setAttribute('title', icon.title);  // 
+            }
             
             const i = document.createElement('i');
             i.className = icon.iconClass;
