@@ -4,7 +4,7 @@
     "shortTitle": "Predictive analytics in NICU",
     "date": "2026-11-15",
     "categories": ["AI", "Clinical Practice", "Nursing"],
-    "blogfile": "blog/blog-199.html",
+    "blogfile": "/blog/blog-199.html",
     "readingTime": "10 min.",
     "summary": "This is a summary used only for search. Example words for testing are deviation and exaggeration."
   },
@@ -14,7 +14,7 @@
     "date": "2026-10-02",
     "categories": ["Research Methods", "Evidence-Based Practice"],
     "readingTime": "7 min.",
-    "blogfile": "blog/blog-198.html"
+    "blogfile": "/blog/blog-198.html"
   },
   {
     "title": "Machine Learning Models for Sepsis Detection",
@@ -22,28 +22,28 @@
     "date": "2026-09-20",
     "categories": ["AI", "Critical Care", "Data Science"],
     "readingTime": "15 min.",
-    "blogfile": "blog/blog-197.html"
+    "blogfile": "/blog/blog-197.html"
   },
   {
     "title": "Ethical Considerations in Multicenter Clinical Trials",
     "shortTitle": "Ethics in multicenter trials",
     "date": "2026-08-12",
     "categories": ["Research Ethics", "Management", "Research"],
-    "blogfile": "blog/blog-196.html"
+    "blogfile": "/blog/blog-196.html"
   },
   {
     "title": "Digital Literacy Among Healthcare Providers in 2026",
     "shortTitle": "Digital literacy in health",
     "date": "2026-07-25",
     "categories": ["Education", "Technology", "Nursing"],
-    "blogfile": "blog/blog-195.html"
+    "blogfile": "/blog/blog-195.html"
   },
   {
     "title": "Statistical Rigor in Observational Studies",
     "shortTitle": "Rigor in observational research",
     "date": "2026-06-30",
     "categories": ["Biostatistics", "Research Methods", "Research"],
-    "blogfile": "blog/blog-194.html"
+    "blogfile": "/blog/blog-194.html"
   },
   {
     "title": "The Impact of Telemedicine on Patient Satisfaction",
@@ -51,167 +51,167 @@
     "date": "2026-05-18",
     "categories": ["Telehealth", "Patient Care", "Innovation"],
     "readingTime": "10 min.",
-    "blogfile": "blog/blog-193.html"
+    "blogfile": "/blog/blog-193.html"
   },
   {
     "title": "Transparency in Peer Review Processes",
     "shortTitle": "Transparent peer review",
     "date": "2026-04-05",
     "categories": ["Academic Publishing", "Research Integrity"],
-    "blogfile": "blog/blog-192.html"
+    "blogfile": "/blog/blog-192.html"
   },
   {
     "title": "Real-World Evidence vs. Randomized Controlled Trials",
     "shortTitle": "RWE vs RCT",
     "date": "2026-03-22",
     "categories": ["Research Methods", "Healthcare Policy"],
-    "blogfile": "blog/blog-191.html"
+    "blogfile": "/blog/blog-191.html"
   },
   {
     "title": "Standardizing Data Collection in Global Health",
     "shortTitle": "Global health data standards",
     "date": "2026-02-14",
     "categories": ["Global Health", "Data Management"],
-    "blogfile": "blog/blog-190.html"
+    "blogfile": "/blog/blog-190.html"
   },
   {
     "title": "Mental Health Support Systems for Critical Care Nurses",
     "shortTitle": "Support for ICU nurses",
     "date": "2026-01-09",
     "categories": ["Nursing", "Mental Health", "Workplace"],
-    "blogfile": "blog/blog-189.html"
+    "blogfile": "/blog/blog-189.html"
   },
   {
     "title": "The Role of Blockchain in Medical Records Security",
     "shortTitle": "Blockchain for health records",
     "date": "2025-12-28",
     "categories": ["Technology", "Data Privacy", "Informatics"],
-    "blogfile": "blog/blog-188.html"
+    "blogfile": "/blog/blog-188.html"
   },
   {
     "title": "Understanding Bias in Clinical Decision Support Systems",
     "shortTitle": "Bias in CDSS",
     "date": "2025-11-17",
     "categories": ["AI", "Research Ethics", "Healthcare"],
-    "blogfile": "blog/blog-187.html"
+    "blogfile": "/blog/blog-187.html"
   },
   {
     "title": "Integrating Genomics into Routine Patient Care",
     "shortTitle": "Genomics in routine care",
     "date": "2025-10-31",
     "categories": ["Genetics", "Clinical Practice", "Medicine"],
-    "blogfile": "blog/blog-186.html"
+    "blogfile": "/blog/blog-186.html"
   },
   {
     "title": "Best Practices for Open Science in 2025",
     "shortTitle": "Open science practices",
     "date": "2025-09-12",
     "categories": ["Research", "Academic Publishing", "Open Access"],
-    "blogfile": "blog/blog-185.html"
+    "blogfile": "/blog/blog-185.html"
   },
   {
     "title": "Optimizing Patient Outcomes with Personalized Medicine",
     "shortTitle": "Personalized medicine outcomes",
     "date": "2025-08-04",
     "categories": ["Precision Medicine", "Healthcare"],
-    "blogfile": "blog/blog-184.html"
+    "blogfile": "/blog/blog-184.html"
   },
   {
     "title": "Conflict of Interest Disclosures in Medical Journals",
     "shortTitle": "COI disclosures",
     "date": "2025-07-19",
     "categories": ["Research Ethics", "Publishing"],
-    "blogfile": "blog/blog-183.html"
+    "blogfile": "/blog/blog-183.html"
   },
   {
     "title": "The Future of Wearable Sensors in Chronic Disease",
     "shortTitle": "Wearables and chronic disease",
     "date": "2025-06-08",
     "categories": ["Technology", "Innovation", "Monitoring"],
-    "blogfile": "blog/blog-182.html"
+    "blogfile": "/blog/blog-182.html"
   },
   {
     "title": "Automated Literature Screening Using NLP",
     "shortTitle": "NLP in literature review",
     "date": "2025-05-27",
     "categories": ["AI", "Research Methods", "Informatics"],
-    "blogfile": "blog/blog-181.html"
+    "blogfile": "/blog/blog-181.html"
   },
   {
     "title": "Navigating the Challenges of Qualitative Coding",
     "shortTitle": "Challenges in qualitative coding",
     "date": "2025-04-15",
     "categories": ["Research Methods", "Education"],
-    "blogfile": "blog/blog-180.html"
+    "blogfile": "/blog/blog-180.html"
   },
   {
     "title": "Patient Advocacy in Clinical Research Design",
     "shortTitle": "Advocacy in research",
     "date": "2025-03-30",
     "categories": ["Research", "Community Engagement"],
-    "blogfile": "blog/blog-179.html"
+    "blogfile": "/blog/blog-179.html"
   },
   {
     "title": "The Reproducibility Crisis in Biomedical Science",
     "shortTitle": "Reproducibility in biomedicine",
     "date": "2025-02-11",
     "categories": ["Research Integrity", "Biomedicine"],
-    "blogfile": "blog/blog-178.html"
+    "blogfile": "/blog/blog-178.html"
   },
   {
     "title": "Sustainability in Hospital Resource Management",
     "shortTitle": "Hospital sustainability",
     "date": "2025-01-22",
     "categories": ["Management", "Sustainability", "Healthcare"],
-    "blogfile": "blog/blog-177.html"
+    "blogfile": "/blog/blog-177.html"
   },
   {
     "title": "Advanced Visualization Techniques for Complex Data",
     "shortTitle": "Complex data visualization",
     "date": "2024-12-14",
     "categories": ["Data Management", "Design", "Research"],
-    "blogfile": "blog/blog-176.html"
+    "blogfile": "/blog/blog-176.html"
   },
   {
     "title": "Interdisciplinary Collaboration in Palliative Care",
     "shortTitle": "Collaboration in palliative care",
     "date": "2024-11-05",
     "categories": ["Clinical Practice", "Nursing", "Medicine"],
-    "blogfile": "blog/blog-175.html"
+    "blogfile": "/blog/blog-175.html"
   },
   {
     "title": "Cybersecurity Threats in Connected Medical Devices",
     "shortTitle": "Medical device cybersecurity",
     "date": "2024-10-18",
     "categories": ["Technology", "Security", "Risk"],
-    "blogfile": "blog/blog-174.html"
+    "blogfile": "/blog/blog-174.html"
   },
   {
     "title": "Mentorship Strategies for Early Career Researchers",
     "shortTitle": "Mentorship for ECRs",
     "date": "2024-09-02",
     "categories": ["Academic Career", "Research", "Education"],
-    "blogfile": "blog/blog-173.html"
+    "blogfile": "/blog/blog-173.html"
   },
   {
     "title": "Longitudinal Trends in Global Healthcare Spending",
     "shortTitle": "Global healthcare spending trends",
     "date": "2024-08-21",
     "categories": ["Economics", "Healthcare Policy"],
-    "blogfile": "blog/blog-172.html"
+    "blogfile": "/blog/blog-172.html"
   },
   {
     "title": "The Impact of Noise Pollution on Hospital Recovery",
     "shortTitle": "Noise and recovery",
     "date": "2024-07-15",
     "categories": ["Patient Care", "Environment"],
-    "blogfile": "blog/blog-171.html"
+    "blogfile": "/blog/blog-171.html"
   },
   {
     "title": "Standardizing Qualitative Report Structures",
     "shortTitle": "Qualitative report standards",
     "date": "2024-06-03",
     "categories": ["Research Methods", "Academic Publishing"],
-    "blogfile": "blog/blog-170.html"
+    "blogfile": "/blog/blog-170.html"
   }
 ]
