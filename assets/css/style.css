@@ -2923,6 +2923,35 @@ PUBLICATIONS PAGE
   display: inline-block;
 }
 
+/* ----- Filter dropdown header with close button ----- */
+
+.filter-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  margin-bottom: var(--space-sm);
+}
+
+.filter-dropdown-header .close-dropdown {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--dark-color);
+  opacity: 0.4;
+  padding: 0 var(--space-xs);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+}
+
+.filter-dropdown-header .close-dropdown:hover {
+  opacity: 0.8;
+  transform: rotate(90deg);
+}
+
+
 /* ----- Filter Dropdown Menu ----- */
 
 .filter-dropdown {
@@ -2932,13 +2961,14 @@ PUBLICATIONS PAGE
   right: 0;
   background: var(--white-color);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: var(--space-md);
   min-width: 280px;
   max-width: 320px;
   max-height: 480px;
-  z-index: 600; /* Above controls and overlay */
+  z-index: 650; /* Above controls and overlay */
+  overflow: hidden;
 }
 
 .filter-dropdown.open {
@@ -2959,11 +2989,8 @@ PUBLICATIONS PAGE
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--dark-color);
-  opacity: 0.4;
+  opacity: 0.5;
   margin-bottom: var(--space-xs);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .filter-dropdown-section-title .select-all-link {
@@ -2995,6 +3022,7 @@ PUBLICATIONS PAGE
   height: 16px;
   cursor: pointer;
   accent-color: #3b82f6;
+  flex-shrink: 0;
 }
 
 .filter-dropdown-item label {
@@ -3007,7 +3035,11 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
   padding-top: var(--space-md);
   border-top: 1px solid rgba(0, 0, 0, 0.04);
-  margin-top: var(--space-sm);
+  margin-top: var(--space-xs);
+  background: var(--white-color);
+  position: sticky;
+  bottom: 0;
+  padding-bottom: var(--space-xs);
 }
 
 .filter-dropdown-actions button {
@@ -3049,11 +3081,11 @@ PUBLICATIONS PAGE
   right: 0;
   background: var(--white-color);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: var(--space-sm) 0;
   min-width: 180px;
-  z-index: 600; /* Same as filter dropdown */
+  z-index: 650;
 }
 
 .sort-dropdown.open {
@@ -3093,6 +3125,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter/Sort Dropdown Container (for positioning) ----- */
+
 .dropdown-wrapper {
   position: relative;
 }
@@ -3265,9 +3298,12 @@ PUBLICATIONS PAGE
 /* ----- Scrollable sections inside filter dropdown ----- */
 
 .filter-dropdown-scroll {
-  max-height: 100px;
+  max-height: 80px;
   overflow-y: auto;
-  margin-bottom: var(--space-xs);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
 }
 
 .filter-dropdown-scroll::-webkit-scrollbar {
@@ -3299,7 +3335,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 400; /* Below controls (500) */
+  z-index: 450; /* Below controls (500) but above everything else */
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
