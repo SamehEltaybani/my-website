@@ -2945,7 +2945,7 @@ PUBLICATIONS PAGE
 }
 
 .filter-dropdown-scroll {
-  max-height: 50vh; /* 50% of screen height – enough room for many items */
+  max-height: 120px; /* 50% of screen height – enough room for many items */
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.06);
