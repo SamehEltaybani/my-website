@@ -272,106 +272,108 @@
     }
 
     // ----- Build dropdowns -----
+    
     function buildFilterDropdown() {
-        if (!filterDropdown) return;
-        const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
-        const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
-        const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
+    if (!filterDropdown) return;
 
-        if (Object.keys(filters.year).length === 0) {
-            years.forEach(function(y) { filters.year[y] = false; });
-        }
-        if (Object.keys(filters.authorship).length === 0) {
-            authorshipValues.forEach(function(a) { filters.authorship[a] = false; });
-        }
-        if (Object.keys(filters.journal).length === 0) {
-            journals.forEach(function(j) { filters.journal[j] = false; });
-        }
+    const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
+    const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
+    const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
 
-        let html = '';
-        html += '<div class="filter-dropdown-header">';
-        html += '<span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-color);">Filter Publications</span>';
-        html += '<button class="close-dropdown" id="filter-close-btn" aria-label="Close filter menu"><i class="fa-solid fa-xmark"></i></button>';
-        html += '</div>';
-
-        // Year
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Year</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        years.forEach(function(year) {
-            const checked = filters.year[year] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="year" value="' + window.escapeHTML(year) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(year) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // Authorship
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Authorship</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        authorshipValues.forEach(function(auth) {
-            const checked = filters.authorship[auth] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="authorship" value="' + window.escapeHTML(auth) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(auth) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // Journal
-        html += '<div class="filter-dropdown-section">';
-        html += '<div class="filter-dropdown-section-title">Journal</div>';
-        html += '<div class="filter-dropdown-scroll">';
-        journals.forEach(function(journal) {
-            const checked = filters.journal[journal] ? 'checked' : '';
-            html += '<div class="filter-dropdown-item">';
-            html += '<input type="checkbox" data-section="journal" value="' + window.escapeHTML(journal) + '" ' + checked + '>';
-            html += '<label>' + window.escapeHTML(journal) + '</label>';
-            html += '</div>';
-        });
-        html += '</div></div>';
-
-        // Actions
-        html += '<div class="filter-dropdown-actions">';
-        html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
-        html += '<button class="filter-apply" id="filter-apply">Apply</button>';
-        html += '</div>';
-
-        filterDropdown.innerHTML = html;
-
-        // Events
-        filterDropdown.querySelector('#filter-close-btn').addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeFilterDropdown();
-        });
-
-        filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
-            cb.addEventListener('change', function() {
-                const section = this.dataset.section;
-                const value = this.value;
-                filters[section][value] = this.checked;
-            });
-        });
-
-        filterDropdown.querySelector('#filter-clear-all').addEventListener('click', function() {
-            ['year', 'authorship', 'journal'].forEach(function(section) {
-                const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
-                checkboxes.forEach(function(cb) {
-                    cb.checked = false;
-                    filters[section][cb.value] = false;
-                });
-            });
-        });
-
-        filterDropdown.querySelector('#filter-apply').addEventListener('click', function() {
-            applyFiltersAndSort();
-            loadedCount = Math.min(pageSize, filteredPublications.length);
-            render();
-            closeFilterDropdown();
-        });
+    if (Object.keys(filters.year).length === 0) {
+        years.forEach(function(y) { filters.year[y] = false; });
     }
+    if (Object.keys(filters.authorship).length === 0) {
+        authorshipValues.forEach(function(a) { filters.authorship[a] = false; });
+    }
+    if (Object.keys(filters.journal).length === 0) {
+        journals.forEach(function(j) { filters.journal[j] = false; });
+    }
+
+    let html = '';
+    html += '<div class="filter-dropdown-header">';
+    html += '<span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-color);">Filter Publications</span>';
+    html += '<button class="close-dropdown" id="filter-close-btn" aria-label="Close filter menu"><i class="fa-solid fa-xmark"></i></button>';
+    html += '</div>';
+
+    // Year
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Year</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    years.forEach(function(year) {
+        const checked = filters.year[year] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="year" value="' + window.escapeHTML(year) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(year) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Authorship
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Authorship</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    authorshipValues.forEach(function(auth) {
+        const checked = filters.authorship[auth] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="authorship" value="' + window.escapeHTML(auth) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(auth) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Journal
+    html += '<div class="filter-dropdown-section">';
+    html += '<div class="filter-dropdown-section-title">Journal</div>';
+    html += '<div class="filter-dropdown-scroll">';
+    journals.forEach(function(journal) {
+        const checked = filters.journal[journal] ? 'checked' : '';
+        html += '<div class="filter-dropdown-item">';
+        html += '<input type="checkbox" data-section="journal" value="' + window.escapeHTML(journal) + '" ' + checked + '>';
+        html += '<label>' + window.escapeHTML(journal) + '</label>';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Actions
+    html += '<div class="filter-dropdown-actions">';
+    html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
+    html += '<button class="filter-apply" id="filter-apply">Apply</button>';
+    html += '</div>';
+
+    filterDropdown.innerHTML = html;
+
+    // Events
+    filterDropdown.querySelector('#filter-close-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeFilterDropdown();
+    });
+
+    filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            const section = this.dataset.section;
+            const value = this.value;
+            filters[section][value] = this.checked;
+        });
+    });
+
+    filterDropdown.querySelector('#filter-clear-all').addEventListener('click', function() {
+        ['year', 'authorship', 'journal'].forEach(function(section) {
+            const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
+            checkboxes.forEach(function(cb) {
+                cb.checked = false;
+                filters[section][cb.value] = false;
+            });
+        });
+    });
+
+    filterDropdown.querySelector('#filter-apply').addEventListener('click', function() {
+        applyFiltersAndSort();
+        loadedCount = Math.min(pageSize, filteredPublications.length);
+        render();
+        closeFilterDropdown();
+    });
+}
 
     function buildSortDropdown() {
         if (!sortDropdown) return;
@@ -399,117 +401,132 @@
     }
 
     // ----- Open/Close functions -----
+   
     function openFilterDropdown() {
-        if (filterDropdown.classList.contains('open')) return;
-        closeSortDropdown();
-        filterDropdown.classList.add('open');
-        // Create overlay if not exists
-        if (!filterOverlay) {
-            filterOverlay = document.createElement('div');
-            filterOverlay.className = 'filter-overlay';
-            filterOverlay.addEventListener('click', function(e) {
-                // Close only if the click is directly on the overlay (not its children)
-                if (e.target === filterOverlay) {
-                    closeFilterDropdown();
-                }
-            });
-            document.body.appendChild(filterOverlay);
-        }
-        filterOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        buildFilterDropdown();
-    }
+    if (filterDropdown.classList.contains('open')) return;
+    closeSortDropdown();
 
-    function closeFilterDropdown() {
-        filterDropdown.classList.remove('open');
-        if (filterOverlay) {
-            filterOverlay.classList.remove('active');
-        }
-        document.body.style.overflow = '';
+    // Get the filter button position
+    const rect = filterBtn.getBoundingClientRect();
+    
+    // Position the dropdown below the button
+    filterDropdown.style.position = 'fixed';
+    filterDropdown.style.top = (rect.bottom + 8) + 'px';
+    filterDropdown.style.right = (window.innerWidth - rect.right) + 'px';
+    filterDropdown.style.left = 'auto';
+    filterDropdown.style.bottom = 'auto';
+    
+    filterDropdown.classList.add('open');
+    
+    // Create overlay if not exists
+    if (!filterOverlay) {
+        filterOverlay = document.createElement('div');
+        filterOverlay.className = 'filter-overlay';
+        filterOverlay.addEventListener('click', function(e) {
+            if (e.target === filterOverlay) {
+                closeFilterDropdown();
+            }
+        });
+        document.body.appendChild(filterOverlay);
     }
+    filterOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    buildFilterDropdown();
+}
 
-    function closeSortDropdown() {
-        sortDropdown.classList.remove('open');
+function closeFilterDropdown() {
+    filterDropdown.classList.remove('open');
+    if (filterOverlay) {
+        filterOverlay.classList.remove('active');
     }
+    document.body.style.overflow = '';
+}
+
+function closeSortDropdown() {
+    sortDropdown.classList.remove('open');
+}
 
     // ----- Setup controls -----
-    function setupControls() {
-        controlsBar = document.getElementById('publications-controls');
-        statusEl = document.getElementById('controls-status');
-        infoEl = document.getElementById('status-info-icon');
-        filterBtn = document.getElementById('filter-btn');
-        sortBtn = document.getElementById('sort-btn');
-        resetBtn = document.getElementById('reset-btn');
-        filterDropdown = document.getElementById('filter-dropdown');
-        sortDropdown = document.getElementById('sort-dropdown');
-        badgeEl = document.getElementById('filter-badge');
-        bannerEl = document.getElementById('publications-banner');
+    
+function setupControls() {
+    controlsBar = document.getElementById('publications-controls');
+    statusEl = document.getElementById('controls-status');
+    infoEl = document.getElementById('status-info-icon');
+    filterBtn = document.getElementById('filter-btn');
+    sortBtn = document.getElementById('sort-btn');
+    resetBtn = document.getElementById('reset-btn');
+    // Get the dropdown from the container, not from inside controls bar
+    filterDropdown = document.getElementById('filter-dropdown-container');
+    sortDropdown = document.getElementById('sort-dropdown');
+    badgeEl = document.getElementById('filter-badge');
+    bannerEl = document.getElementById('publications-banner');
 
-        if (!controlsBar) return;
+    if (!controlsBar) return;
 
-        // Filter button
-        filterBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (filterDropdown.classList.contains('open')) {
-                closeFilterDropdown();
-            } else {
-                openFilterDropdown();
-            }
-        });
-
-        // Sort button
-        sortBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (sortDropdown.classList.contains('open')) {
-                closeSortDropdown();
-            } else {
-                closeFilterDropdown();
-                sortDropdown.classList.add('open');
-                buildSortDropdown();
-            }
-        });
-
-        // Reset button
-        resetBtn.addEventListener('click', function() {
-            ['year', 'authorship', 'journal'].forEach(function(section) {
-                Object.keys(filters[section]).forEach(function(key) {
-                    filters[section][key] = false;
-                });
-            });
-            sortOrder = 'newest';
-            isFiltered = false;
-            applyFiltersAndSort();
-            loadedCount = Math.min(pageSize, filteredPublications.length);
-            render();
+    // Filter button
+    filterBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (filterDropdown.classList.contains('open')) {
             closeFilterDropdown();
+        } else {
+            openFilterDropdown();
+        }
+    });
+
+    // Sort button
+    sortBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (sortDropdown.classList.contains('open')) {
             closeSortDropdown();
+        } else {
+            closeFilterDropdown();
+            sortDropdown.classList.add('open');
+            buildSortDropdown();
+        }
+    });
+
+    // Reset button
+    resetBtn.addEventListener('click', function() {
+        ['year', 'authorship', 'journal'].forEach(function(section) {
+            Object.keys(filters[section]).forEach(function(key) {
+                filters[section][key] = false;
+            });
         });
+        sortOrder = 'newest';
+        isFiltered = false;
+        applyFiltersAndSort();
+        loadedCount = Math.min(pageSize, filteredPublications.length);
+        render();
+        closeFilterDropdown();
+        closeSortDropdown();
+    });
 
-        // Info icon
-        if (infoEl) {
-            infoEl.addEventListener('click', function() {
-                alert('This list is currently filtered. Click Reset to remove all filters and see the full list.');
-            });
-        }
-
-        // Banner
-        const bannerBtn = document.getElementById('banner-reset-btn');
-        if (bannerBtn) {
-            bannerBtn.addEventListener('click', function() {
-                window.location.href = '/my-website/publications.html';
-            });
-        }
-
-        // Click outside to close sort dropdown (and filter dropdown is closed by overlay click)
-        document.addEventListener('click', function(e) {
-            const target = e.target;
-            const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
-            if (!isSortClick && sortDropdown.classList.contains('open')) {
-                closeSortDropdown();
-            }
-            // Filter dropdown is closed by overlay click, so we don't need to close it here
+    // Info icon
+    if (infoEl) {
+        infoEl.addEventListener('click', function() {
+            alert('This list is currently filtered. Click Reset to remove all filters and see the full list.');
         });
     }
+
+    // Banner
+    const bannerBtn = document.getElementById('banner-reset-btn');
+    if (bannerBtn) {
+        bannerBtn.addEventListener('click', function() {
+            window.location.href = '/my-website/publications.html';
+        });
+    }
+
+    // Click outside to close sort dropdown
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
+        if (!isSortClick && sortDropdown.classList.contains('open')) {
+            closeSortDropdown();
+        }
+    });
+}
+
+    
 
     // ----- Load data -----
     async function loadPublications() {
