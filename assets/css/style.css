@@ -2945,7 +2945,7 @@ PUBLICATIONS PAGE
 }
 
 .filter-dropdown-scroll {
-  max-height: 120px; /* 50% of screen height – enough room for many items */
+  max-height: 120px; 
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -3319,7 +3319,13 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
 }
 
+.blog-controls .filter-dropdown-scroll {
+  min-height: 180px;
+  max-height: 50vh;
+}
+
 /* ----- Blog List ----- */
+
 .blog-list {
   display: flex;
   flex-direction: column;
@@ -3328,6 +3334,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Card ----- */
+
 .blog-card {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -3532,6 +3539,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Controls Responsive ----- */
+
 @media (max-width: 768px) {
   .blog-controls {
     top: 60px;
@@ -3604,3 +3612,4 @@ PUBLICATIONS PAGE
     font-size: 0.65rem;
   }
 }
+
