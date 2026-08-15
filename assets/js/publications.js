@@ -34,7 +34,7 @@
     // Single result mode
     let singleId = null;
 
-    // DOM refs (set after render)
+    // DOM refs
     let container, controlsBar, statusEl, infoEl, filterBtn, sortBtn, resetBtn;
     let filterDropdown, sortDropdown;
     let badgeEl;
@@ -119,7 +119,6 @@
     // ============================================
     function applyFiltersAndSort() {
         if (singleId) {
-            // Single result mode
             const singlePub = allPublications.find(function(p) {
                 return p.id === singleId;
             });
@@ -130,39 +129,32 @@
         let result = allPublications.slice();
 
         // --- Apply Filters ---
-        const activeFilters = {};
         let filterCount = 0;
 
-        // Year filter
         const selectedYears = Object.keys(filters.year).filter(function(key) {
             return filters.year[key] === true;
         });
         if (selectedYears.length > 0) {
-            activeFilters.year = selectedYears;
             filterCount++;
             result = result.filter(function(p) {
                 return selectedYears.includes(p.year);
             });
         }
 
-        // Authorship filter
         const selectedAuthorship = Object.keys(filters.authorship).filter(function(key) {
             return filters.authorship[key] === true;
         });
         if (selectedAuthorship.length > 0) {
-            activeFilters.authorship = selectedAuthorship;
             filterCount++;
             result = result.filter(function(p) {
                 return selectedAuthorship.includes(p.authorship);
             });
         }
 
-        // Journal filter
         const selectedJournals = Object.keys(filters.journal).filter(function(key) {
             return filters.journal[key] === true;
         });
         if (selectedJournals.length > 0) {
-            activeFilters.journal = selectedJournals;
             filterCount++;
             result = result.filter(function(p) {
                 return selectedJournals.includes(p.journal);
@@ -194,10 +186,8 @@
         }
 
         if (singleId) {
-            // Hide controls, show banner
             if (controlsBar) controlsBar.style.display = 'none';
             if (bannerEl) bannerEl.classList.add('show');
-            // Render single card
             container.innerHTML = '';
             if (filteredPublications.length > 0) {
                 const card = document.createElement('div');
@@ -211,11 +201,9 @@
             return;
         }
 
-        // Normal mode: show controls
         if (controlsBar) controlsBar.style.display = 'flex';
         if (bannerEl) bannerEl.classList.remove('show');
 
-        // Reset loaded count if filtered list changed
         if (loadedCount === 0 || loadedCount > filteredPublications.length) {
             loadedCount = Math.min(pageSize, filteredPublications.length);
         }
@@ -228,7 +216,6 @@
             return;
         }
 
-        // Render loaded items
         for (let i = 0; i < loadedCount; i++) {
             if (i > 0 && i % pageSize === 0) {
                 const pageNum = Math.floor(i / pageSize) + 1;
@@ -250,7 +237,6 @@
             container.appendChild(card);
         }
 
-        // Add bottom separator + "See More"
         if (loadedCount < filteredPublications.length) {
             const currentPage = Math.floor(loadedCount / pageSize) + 1;
             const nextPage = currentPage + 1;
@@ -307,7 +293,6 @@
                 text += ' (<span class="status-highlight">' + loadedPages + '</span>/<span class="status-highlight">' + totalPages + '</span> ' + pageWord + ')';
             }
 
-            // Show info icon if filters are active
             if (isFiltered && shown < allPublications.length) {
                 if (infoEl) {
                     infoEl.style.display = 'inline';
@@ -327,21 +312,18 @@
     function updateButtons() {
         if (!filterBtn || !sortBtn || !resetBtn) return;
 
-        // Filter button: active if any filter is applied
         const filterActive = isFiltered;
         filterBtn.classList.toggle('active', filterActive);
 
-        // Sort button: active if not default (newest)
         const sortActive = sortOrder !== 'newest';
         sortBtn.classList.toggle('active', sortActive);
 
-        // Reset button: active if filter OR sort is active
         const resetActive = filterActive || sortActive;
         resetBtn.classList.toggle('reset-active', resetActive);
     }
 
     // ============================================
-    // UPDATE BADGE ON FILTER BUTTON
+    // UPDATE BADGE
     // ============================================
     function updateBadge() {
         if (!badgeEl) return;
@@ -363,12 +345,10 @@
     function buildFilterDropdown() {
         if (!filterDropdown) return;
 
-        // Get unique values from data
         const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
         const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
         const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
 
-        // Initialize filter state if empty
         if (Object.keys(filters.year).length === 0) {
             years.forEach(function(y) { filters.year[y] = false; });
         }
@@ -381,7 +361,6 @@
 
         let html = '';
 
-        // --- Year Section ---
         html += '<div class="filter-dropdown-section">';
         html += '<div class="filter-dropdown-section-title">Year <span class="select-all-link" data-section="year">Select All</span></div>';
         years.forEach(function(year) {
@@ -393,7 +372,6 @@
         });
         html += '</div>';
 
-        // --- Authorship Section ---
         html += '<div class="filter-dropdown-section">';
         html += '<div class="filter-dropdown-section-title">Authorship <span class="select-all-link" data-section="authorship">Select All</span></div>';
         authorshipValues.forEach(function(auth) {
@@ -405,7 +383,6 @@
         });
         html += '</div>';
 
-        // --- Journal Section ---
         html += '<div class="filter-dropdown-section">';
         html += '<div class="filter-dropdown-section-title">Journal <span class="select-all-link" data-section="journal">Select All</span></div>';
         journals.forEach(function(journal) {
@@ -417,7 +394,6 @@
         });
         html += '</div>';
 
-        // --- Actions ---
         html += '<div class="filter-dropdown-actions">';
         html += '<button class="filter-clear" id="filter-clear-all">Clear All</button>';
         html += '<button class="filter-apply" id="filter-apply">Apply</button>';
@@ -425,8 +401,6 @@
 
         filterDropdown.innerHTML = html;
 
-        // --- Event Listeners ---
-        // Select All links
         filterDropdown.querySelectorAll('.select-all-link').forEach(function(link) {
             link.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -439,7 +413,6 @@
             });
         });
 
-        // Checkbox changes (update state immediately, but don't apply yet)
         filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
             cb.addEventListener('change', function() {
                 const section = this.dataset.section;
@@ -448,7 +421,6 @@
             });
         });
 
-        // Clear All
         filterDropdown.querySelector('#filter-clear-all').addEventListener('click', function() {
             ['year', 'authorship', 'journal'].forEach(function(section) {
                 const checkboxes = filterDropdown.querySelectorAll('input[data-section="' + section + '"]');
@@ -459,7 +431,6 @@
             });
         });
 
-        // Apply
         filterDropdown.querySelector('#filter-apply').addEventListener('click', function() {
             applyFiltersAndSort();
             loadedCount = Math.min(pageSize, filteredPublications.length);
@@ -501,7 +472,7 @@
     }
 
     // ============================================
-    // SETUP CONTROLS
+    // SETUP CONTROLS (FIXED DROPDOWN CLOSING)
     // ============================================
     function setupControls() {
         controlsBar = document.getElementById('publications-controls');
@@ -541,13 +512,11 @@
 
         // Reset button
         resetBtn.addEventListener('click', function() {
-            // Reset filters
             ['year', 'authorship', 'journal'].forEach(function(section) {
                 Object.keys(filters[section]).forEach(function(key) {
                     filters[section][key] = false;
                 });
             });
-            // Reset sort
             sortOrder = 'newest';
             isFiltered = false;
             applyFiltersAndSort();
@@ -557,10 +526,17 @@
             sortDropdown.classList.remove('open');
         });
 
-        // Click outside to close dropdowns
-        document.addEventListener('click', function() {
-            filterDropdown.classList.remove('open');
-            sortDropdown.classList.remove('open');
+        // --- FIX: Click outside to close only if not inside dropdown or button ---
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            const isFilterClick = filterDropdown.contains(target) || filterBtn.contains(target);
+            const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
+            if (!isFilterClick) {
+                filterDropdown.classList.remove('open');
+            }
+            if (!isSortClick) {
+                sortDropdown.classList.remove('open');
+            }
         });
 
         // Info icon click
@@ -597,10 +573,8 @@
                 return;
             }
 
-            // Check for single ID
             singleId = getUrlParam('id');
 
-            // Build filter options from data (if not already built)
             const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
             const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
             const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
@@ -609,10 +583,8 @@
             authorshipValues.forEach(function(a) { if (!filters.authorship[a]) filters.authorship[a] = false; });
             journals.forEach(function(j) { if (!filters.journal[j]) filters.journal[j] = false; });
 
-            // Setup controls (must be done before rendering)
             setupControls();
 
-            // Apply initial filters/sort
             applyFiltersAndSort();
             loadedCount = Math.min(pageSize, filteredPublications.length);
             render();
