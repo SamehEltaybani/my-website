@@ -57,6 +57,7 @@
         col1.appendChild(socialContainer);
 
         // --- COLUMN 2: Sitemap ---
+        
         const col2 = document.createElement('div');
         col2.className = 'footer-col footer-col-2';
         
@@ -66,13 +67,13 @@
         col2.appendChild(sitemapTitle);
 
         const navLinks = [
-            { label: 'Home', link: 'index.html' },
-            { label: 'Research', link: 'research.html' },
-            { label: 'Publications', link: 'publications.html' },
-            { label: 'Data Analysis', link: 'data-analysis.html' },
-            { label: 'Teaching', link: 'teaching.html' },
-            { label: 'Blog', link: 'blog.html' }
-        ];
+        { label: 'Home', link: '/my-website/index.html' },
+        { label: 'Research', link: '/my-website/research.html' },
+        { label: 'Publications', link: '/my-website/publications.html' },
+        { label: 'Data Analysis', link: '/my-website/data-analysis.html' },
+        { label: 'Teaching', link: '/my-website/teaching.html' },
+        { label: 'Blog', link: '/my-website/blog.html' }
+    ];
 
         const sitemapList = document.createElement('ul');
         sitemapList.className = 'footer-sitemap';
@@ -89,6 +90,7 @@
         col2.appendChild(sitemapList);
 
         // --- COLUMN 3: Legal & Disclaimer ---
+        
         const col3 = document.createElement('div');
         col3.className = 'footer-col footer-col-3';
         
@@ -113,6 +115,7 @@
         col3.appendChild(readMore);
 
         // --- Assemble ---
+        
         container.appendChild(col1);
         container.appendChild(col2);
         container.appendChild(col3);
