@@ -1,10 +1,11 @@
 /**
  * ============================================
- * SEARCH.JS – Central Search (Modal + Autocomplete)
+ * SEARCH.JS – Central Search (Modal + Autocomplete + Spelling Suggestions)
  * ============================================
  * This script handles:
  * - Opening/closing the search modal
  * - Autocomplete suggestions as the user types
+ * - Spelling suggestions ("Did you mean?") when no matches found
  * - Redirecting to search.html with the query
  */
 
@@ -37,6 +38,74 @@
     // DOM REFERENCES (built on demand)
     // ============================================
     let overlay, input, dropdown, closeBtn, searchIcon;
+
+    // ============================================
+    // LEVENSHTEIN DISTANCE (for spelling suggestions)
+    // ============================================
+    function levenshteinDistance(a, b) {
+        if (a.length === 0) return b.length;
+        if (b.length === 0) return a.length;
+        
+        const matrix = [];
+        for (let i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        for (let j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b[i-1] === a[j-1]) {
+                    matrix[i][j] = matrix[i-1][j-1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i-1][j-1] + 1,
+                        matrix[i][j-1] + 1,
+                        matrix[i-1][j] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
+    function getSpellingSuggestions(query, maxSuggestions = 3) {
+        if (!query || query.trim().length < 3) return [];
+        
+        const lowerQuery = query.toLowerCase().trim();
+        const wordList = new Set();
+        
+        // Build a list of unique words from allItems (titles, summaries, etc.)
+        allItems.forEach(function(item) {
+            const text = item.searchableText;
+            const words = text.split(/\s+/);
+            words.forEach(function(word) {
+                // Keep words longer than 2 characters
+                if (word.length >= 3) {
+                    wordList.add(word);
+                }
+            });
+        });
+        
+        // If no data loaded, return empty
+        if (wordList.size === 0) return [];
+        
+        // Score each word by Levenshtein distance
+        const scored = Array.from(wordList).map(function(word) {
+            const distance = levenshteinDistance(lowerQuery, word);
+            return { word: word, distance: distance };
+        });
+        
+        // Filter words with distance <= 2 (close match) and distance > 0
+        // Also exclude exact matches (distance === 0) because we already have matches
+        const closeMatches = scored
+            .filter(function(s) { return s.distance <= 2 && s.distance > 0; })
+            .sort(function(a, b) { return a.distance - b.distance; })
+            .slice(0, maxSuggestions)
+            .map(function(s) { return s.word; });
+        
+        return closeMatches;
+    }
 
     // ============================================
     // BUILD SEARCH INDEX
@@ -170,7 +239,7 @@
     }
 
     // ============================================
-    // RENDER DROPDOWN
+    // RENDER DROPDOWN (with spelling suggestions)
     // ============================================
     function renderDropdown(suggestions) {
         if (!dropdown) return;
@@ -180,7 +249,24 @@
         if (suggestions.length === 0) {
             const empty = document.createElement('div');
             empty.className = 'search-dropdown-empty';
-            empty.textContent = 'No matches found. Try a different keyword.';
+            
+            const query = input.value.trim();
+            const spellingSuggestions = getSpellingSuggestions(query);
+            
+            if (spellingSuggestions.length > 0) {
+                empty.innerHTML = 'No matches found. Did you mean: <strong>' + spellingSuggestions.join(', ') + '</strong>?';
+                empty.style.cursor = 'pointer';
+                empty.addEventListener('click', function() {
+                    if (spellingSuggestions.length > 0) {
+                        performSearch(spellingSuggestions[0]);
+                    }
+                });
+                // Also add individual suggestion links (optional, but helpful)
+                // We'll keep it simple: click on the whole message triggers the first suggestion
+            } else {
+                empty.textContent = 'No matches found. Try a different keyword.';
+            }
+            
             dropdown.appendChild(empty);
             dropdown.classList.add('active');
             return;
@@ -481,6 +567,7 @@
 
             if (searchIconElement) {
                 clearInterval(checkInterval);
+                // Override the default link behavior
                 searchIconElement.addEventListener('click', function(e) {
                     e.preventDefault();
                     openModal();
