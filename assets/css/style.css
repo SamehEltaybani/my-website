@@ -4212,6 +4212,8 @@ PUBLICATIONS PAGE
     display: flex;
     gap: var(--space-xs);
     flex-wrap: wrap;
+    flex-basis: 100%;
+    margin-top: var(--space-xs);
 }
 .category-tag {
     display: inline-block;
@@ -4226,6 +4228,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Action Bar ----- */
+
 .blog-action-bar {
     display: flex;
     align-items: center;
@@ -4237,6 +4240,7 @@ PUBLICATIONS PAGE
     flex-wrap: wrap;
     position: relative;
 }
+
 .blog-action-btn {
     display: inline-flex;
     align-items: center;
@@ -4253,15 +4257,18 @@ PUBLICATIONS PAGE
     transition: all 0.2s ease;
     position: relative;
 }
+
 .blog-action-btn:hover {
     border-color: var(--accent-color);
     background: rgba(0, 173, 181, 0.04);
 }
+
 .blog-action-btn i {
     font-size: 0.9rem;
 }
 
 /* ----- Tooltips ----- */
+
 .action-tooltip {
     display: none;
     position: fixed;
