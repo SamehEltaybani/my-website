@@ -151,15 +151,10 @@
             });
         });
 
-        // QR buttons
+        // QR buttons (QR code pre-generated on page load)
         document.querySelectorAll('#qr-btn, #qr-btn-bottom').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const url = window.location.href;
-                const qrImg = document.getElementById('qr-code-image');
-                if (qrImg) {
-                    qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
-                }
                 openTooltip('qr-tooltip');
             });
         });
@@ -308,17 +303,26 @@
             });
     }
 
+            function preGenerateQR() {
+                const qrImg = document.getElementById('qr-code-image');
+                if (qrImg) {
+                    const url = window.location.href;
+                    qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
+                }
+            }
+    
     // ============================================
     // 9. INIT
     // ============================================
     function init() {
-        populateHeader();
-        setupTooltips();
-        setupShare();
-        initGlightbox();
-        loadArticlesAndSetupNav();
-        console.log('✅ Blog article ready.');
-    }
+    populateHeader();
+    setupTooltips();
+    setupShare();
+    initGlightbox();
+    loadArticlesAndSetupNav();
+    preGenerateQR(); 
+    console.log('✅ Blog article ready.');
+}
 
     // Wait for DOM
     if (document.readyState === 'loading') {
