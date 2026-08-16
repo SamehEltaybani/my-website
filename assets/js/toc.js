@@ -278,8 +278,8 @@
             }
             if (currentIndex === -1) return;
 
-            const prevIndex = currentIndex - 1;
-            const nextIndex = currentIndex + 1;
+            const prevIndex = currentIndex + 1;
+            const nextIndex = currentIndex - 1;
 
             const prevBtns = document.querySelectorAll('#prev-article, #prev-article-bottom');
             const nextBtns = document.querySelectorAll('#next-article, #next-article-bottom');
