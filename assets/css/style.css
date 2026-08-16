@@ -4166,14 +4166,15 @@ PUBLICATIONS PAGE
 }
 .blog-top-nav .nav-btn-center {
     font-weight: 600;
-    border-color: transparent;
+    border-color: rgba(0, 0, 0, 0.06); 
 }
 .blog-top-nav .nav-btn-center:hover {
-    border-color: transparent;
-    background: transparent;
+    border-color: var(--accent-color);
+    background: rgba(0, 173, 181, 0.04);
 }
 
 /* ----- Article Header ----- */
+
 .blog-article-header {
     margin-bottom: var(--space-lg);
 }
