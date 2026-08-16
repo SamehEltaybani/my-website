@@ -284,7 +284,7 @@
             const prevBtns = document.querySelectorAll('#prev-article, #prev-article-bottom');
             const nextBtns = document.querySelectorAll('#next-article, #next-article-bottom');
 
-            if (prevIndex >= 0) {
+            if (prevIndex < allArticles.length) {
                 const prevArticle = allArticles[prevIndex];
                 prevBtns.forEach(function(btn) {
                     btn.href = prevArticle.blogfile;
@@ -296,7 +296,7 @@
                 });
             }
 
-            if (nextIndex < allArticles.length) {
+            if (nextIndex >= 0) {
                 const nextArticle = allArticles[nextIndex];
                 nextBtns.forEach(function(btn) {
                     btn.href = nextArticle.blogfile;
