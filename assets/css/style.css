@@ -4006,6 +4006,7 @@ PUBLICATIONS PAGE
     display: flex;
     gap: var(--space-xl);
     margin-top: var(--space-md);
+    padding-top: 85px;
 }
 
 /* ----- TOC Column (Left) ----- */
