@@ -4575,7 +4575,34 @@ PUBLICATIONS PAGE
     flex-wrap: wrap;
 }
 
+.blog-bottom-nav .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.blog-bottom-nav .nav-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 173, 181, 0.04);
+}
+
+.blog-bottom-nav .nav-btn i {
+    font-size: 0.8rem;
+}
+
 /* ----- Copyright Sentence ----- */
+
 .blog-copyright-sentence {
     background: rgba(0, 173, 181, 0.04);
     border: 1px solid rgba(0, 173, 181, 0.08);
@@ -4592,6 +4619,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Recommended Section ----- */
+
 .recommended-section {
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
@@ -4637,6 +4665,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Mobile TOC ----- */
+
 .mobile-toc-toggle {
     display: none;
     position: fixed;
