@@ -1,5 +1,15 @@
 [
   {
+    "id": "blog-0000",
+    "title": "This is the title of the fictional blog article",
+    "shortTitle": "Short title of the fictional blog article",
+    "date": "2027-01-01",
+    "categories": ["Fictional", "Insights", "Trials"],
+    "blogfile": "blog/blog-template.html",
+    "readingTime": "",
+    "summary": "This is a summary of teh fictional article and will be deleted later . This is used only for search. Example words for testing are deviation and exaggeration."
+  },
+  {
     "id": "blog-001",
     "title": "Predictive Analytics in Neonatal Intensive Care",
     "shortTitle": "Predictive analytics in NICU",
