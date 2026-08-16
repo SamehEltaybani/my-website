@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== DYNAMIC TITLE & DESCRIPTION (set per article) ===== -->
+    <title>Dr. Sameh Eltaybani - Blog Article</title>
+    <meta name="description" content="Blog article by Dr. Sameh Eltaybani.">
+    <meta property="og:title" content="Dr. Sameh Eltaybani - Blog Article">
+    <meta property="og:description" content="Blog article by Dr. Sameh Eltaybani.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="blog/blog-article.html">
+
+    <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
+
+    <!-- ===== FONTS & ICONS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ===== GLIGHTBOX (for images) ===== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <!-- ===== MASTER STYLESHEET (includes all blog styles) ===== -->
+    <link rel="stylesheet" href="/my-website/assets/css/style.css" />
+
+</head>
+<body>
+
+    <!-- ===== MOBILE TOC BUTTON ===== -->
+    <button class="mobile-toc-toggle" id="mobile-toc-toggle" aria-label="Open table of contents">
+        <i class="fa-solid fa-list"></i>
+    </button>
+
+    <!-- ===== MOBILE TOC OVERLAY ===== -->
+    <div class="mobile-toc-overlay" id="mobile-toc-overlay"></div>
+
+    <!-- ===== MOBILE TOC PANEL ===== -->
+    <div class="mobile-toc-panel" id="mobile-toc-panel">
+        <button class="mobile-toc-close" id="mobile-toc-close" aria-label="Close table of contents">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="toc-heading">Table of Content</div>
+        <div id="mobile-toc-list"></div>
+    </div>
+
+    <!-- ===== MAIN WRAPPER ===== -->
+    <div class="container">
+
+        <!-- ===== TOP NAV ===== -->
+        <div class="blog-top-nav">
+            <a href="#" class="nav-btn" id="prev-article">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Previous</span>
+            </a>
+            <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
+                <i class="fa-regular fa-grid-2"></i>
+                View All Articles
+            </a>
+            <a href="#" class="nav-btn" id="next-article">
+                <span>Next</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- ===== TWO-COLUMN LAYOUT ===== -->
+        <div class="blog-article-wrapper">
+
+            <!-- ===== LEFT: TOC ===== -->
+            <aside class="blog-toc-column" id="toc-column">
+                <div class="toc-heading">Table of Content</div>
+                <nav id="toc-container">
+                    <ul class="toc-list" id="toc-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- ===== RIGHT: CONTENT ===== -->
+            <main class="blog-content-column">
+
+                <!-- ===== ARTICLE HEADER ===== -->
+                <header class="blog-article-header">
+                    <h1 class="blog-article-title" id="article-title">Your Article Title</h1>
+                    <div class="blog-article-short-title" id="article-short-title">Your short title</div>
+                    <div class="blog-article-meta">
+                        <span class="meta-item" id="article-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>January 1, 2026</span>
+                        </span>
+                        <span class="meta-item" id="article-reading-time">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>5 min read</span>
+                        </span>
+                        <span class="meta-item blog-article-categories" id="article-categories">
+                            <span class="category-tag">Category 1</span>
+                            <span class="category-tag">Category 2</span>
+                        </span>
+                    </div>
+                </header>
+
+                <!-- ===== ACTION BAR ===== -->
+                <div class="blog-action-bar" id="action-bar">
+                    <button class="blog-action-btn" id="share-btn">
+                        <i class="fa-regular fa-share-nodes"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="blog-action-btn" id="qr-btn">
+                        <i class="fa-regular fa-qrcode"></i>
+                        <span>QR Code</span>
+                    </button>
+                    <button class="blog-action-btn" id="copyright-btn">
+                        <i class="fa-regular fa-copyright"></i>
+                        <span>Copyright</span>
+                    </button>
+                </div>
+
+                <!-- ===== TOOLTIP CONTAINERS ===== -->
+                <div id="share-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>Share this article</span>
+                        <button class="tooltip-close" data-tooltip="share">×</button>
+                    </div>
+                    <div class="tooltip-body share-icons">
+                        <a href="#" data-share="facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" data-share="twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" data-share="linkedin" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" data-share="telegram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" data-share="whatsapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" data-share="email" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="#" data-share="line" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-line"></i></a>
+                        <a href="#" data-share="copy" id="copy-link-btn"><i class="fa-regular fa-copy"></i></a>
+                    </div>
+                    <div class="tooltip-footer" id="copy-feedback" style="display: none;">
+                        <span>✅ Link copied to clipboard!</span>
+                    </div>
+                </div>
+
+                <div id="qr-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>QR Code</span>
+                        <button class="tooltip-close" data-tooltip="qr">×</button>
+                    </div>
+                    <div class="tooltip-body qr-container">
+                        <img id="qr-code-image" src="" alt="QR Code for this article" />
+                        <p class="qr-help">Scan this QR code to view this article on your mobile device.</p>
+                    </div>
+                </div>
+
+                <div id="copyright-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>Copyright &amp; License</span>
+                        <button class="tooltip-close" data-tooltip="copyright">×</button>
+                    </div>
+                    <div class="tooltip-body copyright-body">
+                        <p>
+                            This article is licensed under the
+                            <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</strong>
+                            (CC BY-NC-ND 4.0) license.
+                        </p>
+                        <p>
+                            You are free to share this article for non-commercial purposes, provided you give appropriate
+                            credit and do not make changes or adaptations.
+                        </p>
+                        <a href="/my-website/legal.html" class="copyright-read-more">
+                            Read more <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== TOAST ===== -->
+                <div id="toast-message" class="toast-message" style="display: none;">
+                    <span id="toast-text">Copied to clipboard!</span>
+                </div>
+
+                <!-- ===== BLOG CONTENT ===== -->
+                <div class="blog-content" id="blog-content">
+
+                    <!-- ===== ELEMENT 1: HEADING (h2) ===== -->
+                    <h2 id="heading-1">This is a Heading</h2>
+
+                    <!-- ===== ELEMENT 2: SUB-HEADING (h3) ===== -->
+                    <h3 id="subheading-1">This is a Sub-Heading</h3>
+
+                    <!-- ===== ELEMENT 3: PARAGRAPH ===== -->
+                    <p>
+                        This is a paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                    <!-- ===== ELEMENT 4: BULLET POINTS ===== -->
+                    <ul>
+                        <li>First bullet point</li>
+                        <li>Second bullet point</li>
+                        <li>Third bullet point</li>
+                    </ul>
+
+                    <!-- ===== ELEMENT 5: NUMBERED LIST ===== -->
+                    <ol>
+                        <li>First numbered item</li>
+                        <li>Second numbered item</li>
+                        <li>Third numbered item</li>
+                    </ol>
+
+                    <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX ===== -->
+                    <a href="https://via.placeholder.com/800x400" class="glightbox" data-gallery="blog-gallery">
+                        <img src="https://via.placeholder.com/800x400" alt="Example image" />
+                    </a>
+                    <p class="image-caption">Figure 1: This is an image caption. Click the image to open the lightbox.</p>
+
+                    <!-- ===== ELEMENT 7: NOTE CALLOUT ===== -->
+                    <div class="callout callout-note">
+                        <div class="callout-icon">
+                            <i class="fa-regular fa-lightbulb"></i>
+                        </div>
+                        <div class="callout-content">
+                            <p><strong>Note:</strong> This is a note callout. Use it to highlight important information.</p>
+                            <ul>
+                                <li>You can include bullet points inside callouts</li>
+                                <li>Or any other content block</li>
+                            </ul>
+                            <!-- Optional button -->
+                            <a href="#" class="callout-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== ELEMENT 8: WARNING CALLOUT ===== -->
+                    <div class="callout callout-warning">
+                        <div class="callout-icon">
+                            <i class="fa-regular fa-triangle-exclamation"></i>
+                        </div>
+                        <div class="callout-content">
+                            <p><strong>Warning:</strong> This is a warning callout. Use it to highlight critical information.</p>
+                            <p>It works exactly like the note callout but with a different color.</p>
+                            <!-- Optional button -->
+                            <a href="#" class="callout-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== ADD MORE CONTENT AS NEEDED ===== -->
+                    <h2 id="heading-2">Another Heading</h2>
+                    <p>More content goes here.</p>
+
+                </div><!-- end blog-content -->
+
+                <!-- ===== BOTTOM ACTION BAR (replicated) ===== -->
+                <div class="blog-action-bar">
+                    <button class="blog-action-btn" id="share-btn-bottom">
+                        <i class="fa-regular fa-share-nodes"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="blog-action-btn" id="qr-btn-bottom">
+                        <i class="fa-regular fa-qrcode"></i>
+                        <span>QR Code</span>
+                    </button>
+                    <button class="blog-action-btn" id="copyright-btn-bottom">
+                        <i class="fa-regular fa-copyright"></i>
+                        <span>Copyright</span>
+                    </button>
+                </div>
+
+                <!-- ===== COPYRIGHT SENTENCE ===== -->
+                <div class="blog-copyright-sentence">
+                    <p>
+                        This article is licensed under the
+                        <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</strong>
+                        (CC BY-NC-ND 4.0) license.
+                        <a href="/my-website/legal.html" class="copyright-read-more">
+                            Read more <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- ===== BOTTOM NAV ===== -->
+                <div class="blog-bottom-nav">
+                    <a href="#" class="nav-btn" id="prev-article-bottom">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Previous</span>
+                    </a>
+                    <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
+                        <i class="fa-regular fa-grid-2"></i>
+                        View All Articles
+                    </a>
+                    <a href="#" class="nav-btn" id="next-article-bottom">
+                        <span>Next</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- ===== RECOMMENDED ARTICLES ===== -->
+                <section class="recommended-section">
+                    <h2 class="recommended-title">Recommended for You</h2>
+                    <div class="recommended-grid" id="recommended-grid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </section>
+
+            </main>
+
+        </div><!-- end blog-article-wrapper -->
+
+    </div><!-- end container -->
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="/my-website/assets/js/utils.js"></script>
+    <script src="/my-website/assets/js/navbar.js"></script>
+    <script src="/my-website/assets/js/footer.js"></script>
+    <script src="/my-website/assets/js/back-to-top.js"></script>
+    <script src="/my-website/assets/js/search.js"></script>
+    <script src="/my-website/assets/js/toc.js"></script>
+
+    <!-- ===== ARTICLE-SPECIFIC DATA (edit this for each article) ===== -->
+    <script>
+        const articleData = {
+            id: 'blog-001',
+            title: 'Your Article Title',
+            shortTitle: 'Your short title',
+            date: '2026-01-01',
+            categories: ['Category 1', 'Category 2'],
+            blogfile: 'blog/blog-001.html'
+        };
+    </script>
+
+    <!-- ===== ARTICLE LOGIC (shared) ===== -->
+    <script src="/my-website/assets/js/blog-article.js"></script>
+
+</body>
+</html>
