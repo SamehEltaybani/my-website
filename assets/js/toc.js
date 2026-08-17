@@ -130,12 +130,13 @@
                 li.appendChild(subUl);
 
                 a.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('toc-toggle')) {
-                        e.preventDefault();
-                        toggleSubHeadings(item.id);
-                    }
-                });
-
+                if (e.target.classList.contains('toc-toggle')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleSubHeadings(item.id);
+                    return;
+                }
+            });
                 toggle.addEventListener('click', function(e) {
                     e.stopPropagation();
                     toggleSubHeadings(item.id);
