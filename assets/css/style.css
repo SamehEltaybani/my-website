@@ -4020,6 +4020,7 @@ PUBLICATIONS PAGE
     padding-right: var(--space-md);
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: thin;
+     background: var(--bg-color);
 }
 
 .blog-toc-column::-webkit-scrollbar {
@@ -4043,9 +4044,11 @@ PUBLICATIONS PAGE
     margin-bottom: var(--space-sm);
     position: sticky;
     top: 0;
-    background: var(--bg-color);
+    background: var(--bg-color) !important; /* Ensure it's solid */
     padding: var(--space-xs) 0;
-    z-index: 10;
+    z-index: 15; /* Higher than content */
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: var(--space-xs);
 }
 
 .toc-heading::after {
@@ -4061,6 +4064,7 @@ PUBLICATIONS PAGE
     list-style: none;
     padding: 0;
     margin: 0;
+    background: var(--bg-color);
 }
 .toc-list li {
     margin-bottom: var(--space-xs);
@@ -4756,12 +4760,12 @@ PUBLICATIONS PAGE
     height: 100%;
     background: var(--white-color);
     z-index: 460;
-    padding: var(--space-lg);
+    padding-top: var(--space-xl) !important;
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 4px 0 40px rgba(0, 0, 0, 0.1);
-    z-index: 460;
+    z-index: 9999 !important;
 }
 .mobile-toc-panel.open {
     transform: translateX(0);
@@ -4772,20 +4776,28 @@ PUBLICATIONS PAGE
     padding: var(--space-md) 0 var(--space-sm) 0 !important;
     position: relative !important;
     top: auto !important;
+    margin-top: var(--space-lg) !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    width: 100% !important;
 }
 
 .mobile-toc-close {
-    display: block !important;
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    color: var(--dark-color);
-    opacity: 0.4;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    z-index: 9999 !important;
+    position: absolute !important;
+    top: var(--space-md) !important;
+    right: var(--space-md) !important;
+    font-size: 1.6rem !important;
+    color: var(--dark-color) !important;
+    opacity: 0.6 !important;
+    cursor: pointer !important;
+    background: var(--white-color) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .mobile-toc-close:hover {
