@@ -29,6 +29,27 @@
     let tocList = null;
     let mobileTocList = null;
 
+    // ============================================
+    // THROTTLE HELPER (for scroll spy performance)
+    // ============================================
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(function() {
+                    inThrottle = false;
+                }, limit);
+            }
+        };
+    }
+
+    // ============================================
+    // BUILD TOC
+    // ============================================
     function buildTOC() {
         const contentEl = document.querySelector(CONFIG.contentSelector);
         if (!contentEl) {
@@ -88,70 +109,71 @@
         console.log('✅ TOC generated with ' + tree.length + ' headings.');
     }
 
-function renderTOC(container, tree, isMobile) {
-    if (!container) return;
-    const ul = document.createElement('ul');
-    ul.className = 'toc-list';
+    // ============================================
+    // RENDER TOC
+    // ============================================
+    function renderTOC(container, tree, isMobile) {
+        if (!container) return;
+        const ul = document.createElement('ul');
+        ul.className = 'toc-list';
 
-    tree.forEach(function(item) {
-        const li = document.createElement('li');
-        li.className = 'toc-h2';
+        tree.forEach(function(item) {
+            const li = document.createElement('li');
+            li.className = 'toc-h2';
 
-        const a = document.createElement('a');
-        a.href = '#' + item.id;
-        a.textContent = item.text;
-        a.dataset.target = item.id;
+            const a = document.createElement('a');
+            a.href = '#' + item.id;
+            a.textContent = item.text;
+            a.dataset.target = item.id;
 
-        if (item.children && item.children.length > 0) {
-            const toggle = document.createElement('button');
-            toggle.className = 'toc-toggle';
-            toggle.textContent = '+';
-            toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
-            toggle.dataset.expanded = 'false';
-            toggle.dataset.parent = item.id;
-            a.prepend(toggle);
+            if (item.children && item.children.length > 0) {
+                const toggle = document.createElement('button');
+                toggle.className = 'toc-toggle';
+                toggle.textContent = '+';
+                toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
+                toggle.dataset.expanded = 'false';
+                toggle.dataset.parent = item.id;
+                a.prepend(toggle);
 
-            const subUl = document.createElement('ul');
-            subUl.className = 'toc-sub-list';
-            subUl.id = 'toc-sub-' + item.id;
+                const subUl = document.createElement('ul');
+                subUl.className = 'toc-sub-list';
+                subUl.id = 'toc-sub-' + item.id;
 
-            item.children.forEach(function(child) {
-                const subLi = document.createElement('li');
-                subLi.className = 'toc-h3';
-                const subA = document.createElement('a');
-                subA.href = '#' + child.id;
-                subA.textContent = child.text;
-                subA.dataset.target = child.id;
-                subLi.appendChild(subA);
-                subUl.appendChild(subLi);
-            });
+                item.children.forEach(function(child) {
+                    const subLi = document.createElement('li');
+                    subLi.className = 'toc-h3';
+                    const subA = document.createElement('a');
+                    subA.href = '#' + child.id;
+                    subA.textContent = child.text;
+                    subA.dataset.target = child.id;
+                    subLi.appendChild(subA);
+                    subUl.appendChild(subLi);
+                });
 
-            li.appendChild(a);
-            li.appendChild(subUl);
+                li.appendChild(a);
+                li.appendChild(subUl);
 
-            // Only the toggle button handles toggling subheadings
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                toggleSubHeadings(item.id);
-            });
+                // ONLY the toggle button handles toggling subheadings
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    toggleSubHeadings(item.id);
+                });
 
-        } else {
-            li.appendChild(a);
-        }
+            } else {
+                li.appendChild(a);
+            }
 
-        ul.appendChild(li);
-    });
+            ul.appendChild(li);
+        });
 
-    container.innerHTML = '';
-    container.appendChild(ul);
-}
+        container.innerHTML = '';
+        container.appendChild(ul);
+    }
 
-
-
-
-    
-
+    // ============================================
+    // TOGGLE SUB-HEADINGS
+    // ============================================
     function toggleSubHeadings(parentId) {
         const subList = document.getElementById('toc-sub-' + parentId);
         if (!subList) return;
@@ -170,63 +192,71 @@ function renderTOC(container, tree, isMobile) {
         });
     }
 
+    // ============================================
+    // SCROLL SPY (Fixed: now works on all devices)
+    // ============================================
     function initScrollSpy() {
+        // Get all heading IDs from the tree
         const allIds = [];
         tocItems.forEach(function(item) {
             allIds.push(item.id);
-            item.children.forEach(function(child) { allIds.push(child.id); });
+            item.children.forEach(function(child) {
+                allIds.push(child.id);
+            });
         });
 
         if (allIds.length === 0) return;
 
+        // Get the actual DOM elements
         const headings = allIds.map(function(id) {
             return document.getElementById(id);
         }).filter(function(el) { return el !== null; });
 
         if (headings.length === 0) return;
 
-        const observer = new IntersectionObserver(function(entries) {
+        // Get all TOC links
+        const tocLinks = document.querySelectorAll('.toc-list a[data-target]');
+
+        // Throttled scroll handler
+        const updateActiveHeading = throttle(function() {
+            const scrollPos = window.scrollY + CONFIG.scrollOffset;
             let activeId = null;
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    activeId = entry.target.id;
+
+            // Find the heading that is closest to the scroll position from the top
+            headings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                const top = rect.top + window.scrollY;
+                if (top <= scrollPos) {
+                    activeId = heading.id;
                 }
             });
 
-            if (!activeId) {
-                const scrollPos = window.scrollY + CONFIG.scrollOffset;
-                let closestId = null;
-                let closestPos = -Infinity;
-                headings.forEach(function(heading) {
-                    const rect = heading.getBoundingClientRect();
-                    const top = rect.top + window.scrollY;
-                    if (top <= scrollPos && top > closestPos) {
-                        closestPos = top;
-                        closestId = heading.id;
-                    }
-                });
-                activeId = closestId;
-            }
+            // Update TOC links
+            tocLinks.forEach(function(link) {
+                if (link.dataset.target === activeId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }, 100);
 
-            if (activeId) {
-                document.querySelectorAll('.toc-list a, .toc-list .toc-h2 a, .toc-list .toc-h3 a').forEach(function(a) {
-                    if (a.dataset.target === activeId) {
-                        a.classList.add('active');
-                    } else {
-                        a.classList.remove('active');
-                    }
-                });
-            }
-        }, {
-            threshold: [0, 0.25, 0.5, 0.75, 1],
-            rootMargin: '0px 0px -' + CONFIG.scrollOffset + 'px 0px'
-        });
+        // Initial update
+        setTimeout(updateActiveHeading, 100);
 
-        headings.forEach(function(heading) {
-            observer.observe(heading);
+        // Listen for scroll events
+        window.addEventListener('scroll', updateActiveHeading);
+        window.addEventListener('resize', updateActiveHeading);
+
+        // Also re-check when the page finishes loading
+        window.addEventListener('load', function() {
+            setTimeout(updateActiveHeading, 200);
         });
     }
 
+    // ============================================
+    // MOBILE TOC TOGGLE
+    // ============================================
     function initMobileTOC() {
         const toggleBtn = document.getElementById('mobile-toc-toggle');
         const overlay = document.getElementById('mobile-toc-overlay');
@@ -264,7 +294,9 @@ function renderTOC(container, tree, isMobile) {
         }
     }
 
-    // Public API for navigation and recommended
+    // ============================================
+    // PUBLIC API
+    // ============================================
     window.TOC = {
         build: buildTOC,
         setupNav: function(articleId, allArticles) {
@@ -278,6 +310,7 @@ function renderTOC(container, tree, isMobile) {
             }
             if (currentIndex === -1) return;
 
+            // Custom logic: Previous = newer (higher index), Next = older (lower index)
             const prevIndex = currentIndex + 1;
             const nextIndex = currentIndex - 1;
 
@@ -313,26 +346,23 @@ function renderTOC(container, tree, isMobile) {
             if (!allArticles || allArticles.length === 0) return;
 
             let currentArticle = null;
-            let currentIndex = -1;
             for (let i = 0; i < allArticles.length; i++) {
                 if (allArticles[i].id === articleId) {
                     currentArticle = allArticles[i];
-                    currentIndex = i;
                     break;
                 }
             }
-
             if (!currentArticle) return;
 
             const currentCategories = currentArticle.categories || [];
-            const scored = allArticles.map(function(article, index) {
+            const scored = allArticles.map(function(article) {
                 if (article.id === articleId) return null;
                 const categories = article.categories || [];
                 let score = 0;
                 currentCategories.forEach(function(cat) {
                     if (categories.includes(cat)) score++;
                 });
-                return { article: article, score: score, index: index };
+                return { article: article, score: score };
             }).filter(function(item) { return item !== null; });
 
             scored.sort(function(a, b) {
@@ -353,8 +383,7 @@ function renderTOC(container, tree, isMobile) {
                     if (recommendations.length >= maxItems) return;
                     recommendations.push({
                         article: article,
-                        score: 0,
-                        index: -1
+                        score: 0
                     });
                 });
             }
@@ -388,7 +417,11 @@ function renderTOC(container, tree, isMobile) {
         }
     };
 
+    // ============================================
+    // AUTO-INIT
+    // ============================================
     document.addEventListener('DOMContentLoaded', function() {
         buildTOC();
     });
+
 })();
