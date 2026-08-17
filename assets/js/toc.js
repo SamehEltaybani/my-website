@@ -417,11 +417,19 @@
         }
     };
 
+
     // ============================================
-    // AUTO-INIT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
+// AUTO-INIT
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure all content is rendered
+    setTimeout(function() {
         buildTOC();
-    });
+        // Also rebuild after images load to handle any layout shifts
+        window.addEventListener('load', function() {
+            buildTOC();
+        });
+    }, 100);
+});
 
 })();
