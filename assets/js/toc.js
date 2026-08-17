@@ -182,23 +182,39 @@
     // ============================================
     // TOGGLE SUB-HEADINGS
     // ============================================
+  
     function toggleSubHeadings(parentId) {
-        const subList = document.getElementById('toc-sub-' + parentId);
-        if (!subList) return;
-
-        const isOpen = subList.classList.contains('open');
-        if (isOpen) {
-            subList.classList.remove('open');
-        } else {
-            subList.classList.add('open');
-        }
-
-        const toggles = document.querySelectorAll('.toc-toggle[data-parent="' + parentId + '"]');
-        toggles.forEach(function(toggle) {
-            toggle.textContent = isOpen ? '+' : '−';
-            toggle.dataset.expanded = isOpen ? 'false' : 'true';
-        });
+    console.log('toggleSubHeadings called with parentId:', parentId);
+    
+    const subList = document.getElementById('toc-sub-' + parentId);
+    console.log('Looking for element with id: toc-sub-' + parentId);
+    console.log('subList found:', subList);
+    
+    if (!subList) {
+        console.warn('subList NOT found for parentId:', parentId);
+        return;
     }
+
+    const isOpen = subList.classList.contains('open');
+    console.log('isOpen before toggle:', isOpen);
+    
+    if (isOpen) {
+        subList.classList.remove('open');
+        console.log('Removed open class');
+    } else {
+        subList.classList.add('open');
+        console.log('Added open class');
+    }
+
+    const toggles = document.querySelectorAll('.toc-toggle[data-parent="' + parentId + '"]');
+    console.log('toggles found:', toggles.length);
+    
+    toggles.forEach(function(toggle) {
+        toggle.textContent = isOpen ? '+' : '−';
+        toggle.dataset.expanded = isOpen ? 'false' : 'true';
+    });
+}
+    
 
     // ============================================
     // SCROLL SPY (Fixed: now works on all devices)
