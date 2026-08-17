@@ -88,70 +88,69 @@
         console.log('✅ TOC generated with ' + tree.length + ' headings.');
     }
 
-    function renderTOC(container, tree, isMobile) {
-        if (!container) return;
-        const ul = document.createElement('ul');
-        ul.className = 'toc-list';
+function renderTOC(container, tree, isMobile) {
+    if (!container) return;
+    const ul = document.createElement('ul');
+    ul.className = 'toc-list';
 
-        tree.forEach(function(item) {
-            const li = document.createElement('li');
-            li.className = 'toc-h2';
+    tree.forEach(function(item) {
+        const li = document.createElement('li');
+        li.className = 'toc-h2';
 
-            const a = document.createElement('a');
-            a.href = '#' + item.id;
-            a.textContent = item.text;
-            a.dataset.target = item.id;
+        const a = document.createElement('a');
+        a.href = '#' + item.id;
+        a.textContent = item.text;
+        a.dataset.target = item.id;
 
-            if (item.children && item.children.length > 0) {
-                const toggle = document.createElement('button');
-                toggle.className = 'toc-toggle';
-                toggle.textContent = '+';
-                toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
-                toggle.dataset.expanded = 'false';
-                toggle.dataset.parent = item.id;
-                a.prepend(toggle);
+        if (item.children && item.children.length > 0) {
+            const toggle = document.createElement('button');
+            toggle.className = 'toc-toggle';
+            toggle.textContent = '+';
+            toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
+            toggle.dataset.expanded = 'false';
+            toggle.dataset.parent = item.id;
+            a.prepend(toggle);
 
-                const subUl = document.createElement('ul');
-                subUl.className = 'toc-sub-list';
-                subUl.id = 'toc-sub-' + item.id;
+            const subUl = document.createElement('ul');
+            subUl.className = 'toc-sub-list';
+            subUl.id = 'toc-sub-' + item.id;
 
-                item.children.forEach(function(child) {
-                    const subLi = document.createElement('li');
-                    subLi.className = 'toc-h3';
-                    const subA = document.createElement('a');
-                    subA.href = '#' + child.id;
-                    subA.textContent = child.text;
-                    subA.dataset.target = child.id;
-                    subLi.appendChild(subA);
-                    subUl.appendChild(subLi);
-                });
-
-                li.appendChild(a);
-                li.appendChild(subUl);
-
-                a.addEventListener('click', function(e) {
-                if (e.target.classList.contains('toc-toggle')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleSubHeadings(item.id);
-                    return;
-                }
+            item.children.forEach(function(child) {
+                const subLi = document.createElement('li');
+                subLi.className = 'toc-h3';
+                const subA = document.createElement('a');
+                subA.href = '#' + child.id;
+                subA.textContent = child.text;
+                subA.dataset.target = child.id;
+                subLi.appendChild(subA);
+                subUl.appendChild(subLi);
             });
-                toggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    toggleSubHeadings(item.id);
-                });
 
-            } else {
-                li.appendChild(a);
-            }
+            li.appendChild(a);
+            li.appendChild(subUl);
 
-            ul.appendChild(li);
-        });
+            // Only the toggle button handles toggling subheadings
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                toggleSubHeadings(item.id);
+            });
 
-        container.innerHTML = '';
-        container.appendChild(ul);
-    }
+        } else {
+            li.appendChild(a);
+        }
+
+        ul.appendChild(li);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(ul);
+}
+
+
+
+
+    
 
     function toggleSubHeadings(parentId) {
         const subList = document.getElementById('toc-sub-' + parentId);
