@@ -127,42 +127,50 @@
             a.dataset.target = item.id;
 
             if (item.children && item.children.length > 0) {
-                const toggle = document.createElement('button');
-                toggle.className = 'toc-toggle';
-                toggle.textContent = '+';
-                toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
-                toggle.dataset.expanded = 'false';
-                toggle.dataset.parent = item.id;
-                a.prepend(toggle);
+            const toggle = document.createElement('button');
+            toggle.className = 'toc-toggle';
+            toggle.textContent = '+';
+            toggle.setAttribute('aria-label', 'Toggle sub-headings for ' + item.text);
+            toggle.dataset.expanded = 'false';
+            toggle.dataset.parent = item.id;
+            a.prepend(toggle);
+        
+            const subUl = document.createElement('ul');
+            subUl.className = 'toc-sub-list';
+            subUl.id = 'toc-sub-' + item.id;
+        
+            item.children.forEach(function(child) {
+                const subLi = document.createElement('li');
+                subLi.className = 'toc-h3';
+                const subA = document.createElement('a');
+                subA.href = '#' + child.id;
+                subA.textContent = child.text;
+                subA.dataset.target = child.id;
+                subLi.appendChild(subA);
+                subUl.appendChild(subLi);
+            });
+        
+            li.appendChild(a);
+            li.appendChild(subUl);
+        
+            // ===== THIS IS THE IMPORTANT PART =====
+            // The toggle button is the ONLY element that handles expanding/collapsing
+            // NO click handler on the <a> tag
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();  // Prevents the click from bubbling up
+                e.preventDefault();   // Prevents any default behavior
+                toggleSubHeadings(item.id);
+                console.log('Toggle clicked for:', item.id); // Debug log
+            });
+        
+        } else {
+            li.appendChild(a);
+        }
 
-                const subUl = document.createElement('ul');
-                subUl.className = 'toc-sub-list';
-                subUl.id = 'toc-sub-' + item.id;
 
-                item.children.forEach(function(child) {
-                    const subLi = document.createElement('li');
-                    subLi.className = 'toc-h3';
-                    const subA = document.createElement('a');
-                    subA.href = '#' + child.id;
-                    subA.textContent = child.text;
-                    subA.dataset.target = child.id;
-                    subLi.appendChild(subA);
-                    subUl.appendChild(subLi);
-                });
 
-                li.appendChild(a);
-                li.appendChild(subUl);
 
-                // ONLY the toggle button handles toggling subheadings
-                toggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    toggleSubHeadings(item.id);
-                });
-
-            } else {
-                li.appendChild(a);
-            }
+            
 
             ul.appendChild(li);
         });
@@ -429,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('load', function() {
             buildTOC();
         });
-    }, 100);
+    }, 300);
 });
 
 })();
