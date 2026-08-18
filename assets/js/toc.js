@@ -333,6 +333,10 @@ function toggleSubHeadings(parentId, toggleButton) {
 
         if (!toggleBtn || !overlay || !panel) return;
 
+        overlay.classList.remove('active');
+        panel.classList.remove('open');
+        document.body.style.overflow = '';
+
         function openMobileTOC() {
             overlay.classList.add('active');
             panel.classList.add('open');
@@ -360,6 +364,12 @@ function toggleSubHeadings(parentId, toggleButton) {
                 link.addEventListener('click', closeMobileTOC);
             });
         }
+
+        window.addEventListener('pageshow', function() {
+        overlay.classList.remove('active');
+        panel.classList.remove('open');
+        document.body.style.overflow = '';
+    });       
     }
 
     // ============================================
