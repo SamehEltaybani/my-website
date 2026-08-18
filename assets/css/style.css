@@ -278,7 +278,19 @@ body {
   color: var(--accent-color);
 }
 
+
+.navbar-dropdown li a.active {
+    background-color: var(--accent-color) !important;
+    color: var(--white-color) !important;
+}
+
+.navbar-dropdown li a.active i {
+    color: var(--white-color) !important;
+}
+
+
 /* ----- NAVIGATION: Responsive ----- */
+
 @media (max-width: 992px) {
   .navbar {
     padding: var(--space-sm) var(--space-md);
