@@ -75,10 +75,18 @@
             a.href = item.link;
             a.textContent = item.label;
             
-            if (item.link === currentPage) {
+            // Get the current page filename (e.g., 'index.html', 'publications.html')
+            const currentPath = window.location.pathname;
+            const currentFileName = currentPath.split('/').pop() || 'index.html';
+            const cleanCurrentFileName = currentFileName.split('?')[0]; // Remove any query params
+            
+            // Get the link filename from the nav item
+            const linkFileName = item.link.split('?')[0];
+            
+            // Compare
+            if (cleanCurrentFileName === linkFileName) {
                 a.classList.add('active');
             }
-            
             li.appendChild(a);
             navList.appendChild(li);
         });
@@ -115,7 +123,16 @@
             const text = document.createTextNode(' ' + item.label);
             a.appendChild(text);
             
-            if (item.link === currentPage) {
+           // Get the current page filename (e.g., 'index.html', 'publications.html')
+            const currentPath = window.location.pathname;
+            const currentFileName = currentPath.split('/').pop() || 'index.html';
+            const cleanCurrentFileName = currentFileName.split('?')[0]; // Remove any query params
+            
+            // Get the link filename from the nav item
+            const linkFileName = item.link.split('?')[0];
+            
+            // Compare
+            if (cleanCurrentFileName === linkFileName) {
                 a.classList.add('active');
             }
             
