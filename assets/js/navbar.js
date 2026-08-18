@@ -1,48 +1,55 @@
 /**
  * ============================================
- * NAVBAR.JS – Structure & Logic Only
- * ===========================================
- * All styling is controlled via style.css
+ * NAVBAR.JS – Floating Glassmorphism Pill Navbar
+ * ============================================
  */
 
 (function() {
     'use strict';
 
     const CONFIG = {
-    yourName: 'Dr. Sameh Eltaybani',
-    photoPath: '/my-website/img/profile.webp',
-    photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
-    navLinks: [
-        { label: 'Home', link: '/my-website/index.html', icon: 'fa-solid fa-house' },
-        { label: 'Research', link: '/my-website/research.html', icon: 'fa-solid fa-flask' },
-        { label: 'Publications', link: '/my-website/publications.html', icon: 'fa-solid fa-file-lines' },
-        { label: 'Data Analysis', link: '/my-website/data-analysis.html', icon: 'fa-solid fa-chart-bar' },
-        { label: 'Teaching', link: '/my-website/teaching.html', icon: 'fa-solid fa-chalkboard-user' },
-        { label: 'Blog', link: '/my-website/blog.html', icon: 'fa-solid fa-pen-to-square' }
-    ],
-    rightIcons: [
-    { 
-        iconClass: 'fa-regular fa-envelope', 
-        link: '/my-website/contact.html',
-        ariaLabel: 'Contact me',
-        title: 'Contact me'
-    },
-    { 
-        iconClass: 'fa-solid fa-magnifying-glass', 
-        link: '#',
-        ariaLabel: 'Search the website',
-        title: 'Search the website'
-    }
-]
-};
+        yourName: 'Dr. Sameh Eltaybani',
+        photoPath: '/my-website/img/profile.webp',
+        photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
+        navLinks: [
+            { label: 'Home', link: '/my-website/index.html', icon: 'fa-solid fa-house' },
+            { label: 'Research', link: '/my-website/research.html', icon: 'fa-solid fa-flask' },
+            { label: 'Publications', link: '/my-website/publications.html', icon: 'fa-solid fa-file-lines' },
+            { label: 'Data Analysis', link: '/my-website/data-analysis.html', icon: 'fa-solid fa-chart-bar' },
+            { label: 'Teaching', link: '/my-website/teaching.html', icon: 'fa-solid fa-chalkboard-user' },
+            { label: 'Blog', link: '/my-website/blog.html', icon: 'fa-solid fa-pen-to-square' }
+        ],
+        rightIcons: [
+            { 
+                iconClass: 'fa-regular fa-envelope', 
+                link: '/my-website/contact.html',
+                ariaLabel: 'Contact me',
+                title: 'Contact me'
+            },
+            { 
+                iconClass: 'fa-solid fa-magnifying-glass', 
+                link: '#',
+                ariaLabel: 'Search the website',
+                title: 'Search the website'
+            }
+        ]
+    };
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // ===== GET CURRENT PAGE FILENAME =====
+        const currentPath = window.location.pathname;
+        let currentPage = currentPath.split('/').pop() || 'index.html';
+        // Remove any query parameters
+        currentPage = currentPage.split('?')[0];
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'navbar-wrapper';
-        
+        // If the page is the root (e.g., /my-website/), treat as index.html
+        if (currentPage === '') {
+            currentPage = 'index.html';
+        }
+
+        console.log('Current page:', currentPage); // Debug log
+
         const navbar = document.createElement('nav');
         navbar.className = 'navbar';
         navbar.setAttribute('role', 'navigation');
@@ -51,7 +58,7 @@
         // --- LEFT: Photo + Name ---
         const brand = document.createElement('a');
         brand.className = 'navbar-brand';
-        brand.href = 'index.html';
+        brand.href = '/my-website/index.html';
         brand.setAttribute('aria-label', 'Go to homepage');
 
         const img = document.createElement('img');
@@ -74,19 +81,17 @@
             const a = document.createElement('a');
             a.href = item.link;
             a.textContent = item.label;
-            
-            // Get the current page filename (e.g., 'index.html', 'publications.html')
-            const currentPath = window.location.pathname;
-            const currentFileName = currentPath.split('/').pop() || 'index.html';
-            const cleanCurrentFileName = currentFileName.split('?')[0]; // Remove any query params
-            
-            // Get the link filename from the nav item
-            const linkFileName = item.link.split('?')[0];
-            
-            // Compare
-            if (cleanCurrentFileName === linkFileName) {
+
+            // ===== ACTIVE STATE CHECK =====
+            // Get the filename from the link
+            const linkPath = item.link.split('/').pop() || 'index.html';
+            const cleanLink = linkPath.split('?')[0];
+
+            if (cleanLink === currentPage) {
                 a.classList.add('active');
+                console.log('Active tab:', item.label); // Debug log
             }
+
             li.appendChild(a);
             navList.appendChild(li);
         });
@@ -104,7 +109,7 @@
         hamburger.appendChild(span2);
         hamburger.appendChild(span3);
 
-        // --- DROPDOWN (mobile) ---
+        // --- DROPDOWN (mobile) with icons ---
         const dropdown = document.createElement('ul');
         dropdown.className = 'navbar-dropdown';
         dropdown.setAttribute('role', 'menu');
@@ -115,32 +120,29 @@
             const a = document.createElement('a');
             a.href = item.link;
             a.setAttribute('role', 'menuitem');
-            
+
             const icon = document.createElement('i');
             icon.className = item.icon;
+            icon.style.cssText = 'margin-right: 0.6rem; width: 1.2rem; text-align: center; color: var(--accent-color);';
             a.appendChild(icon);
-            
+
             const text = document.createTextNode(' ' + item.label);
             a.appendChild(text);
-            
-           // Get the current page filename (e.g., 'index.html', 'publications.html')
-            const currentPath = window.location.pathname;
-            const currentFileName = currentPath.split('/').pop() || 'index.html';
-            const cleanCurrentFileName = currentFileName.split('?')[0]; // Remove any query params
-            
-            // Get the link filename from the nav item
-            const linkFileName = item.link.split('?')[0];
-            
-            // Compare
-            if (cleanCurrentFileName === linkFileName) {
+
+            // ===== ACTIVE STATE CHECK (mobile) =====
+            const linkPath = item.link.split('/').pop() || 'index.html';
+            const cleanLink = linkPath.split('?')[0];
+
+            if (cleanLink === currentPage) {
                 a.classList.add('active');
+                a.querySelector('i').style.color = 'var(--white-color)';
             }
-            
+
             li.appendChild(a);
             dropdown.appendChild(li);
         });
 
-        // --- RIGHT: Icons ---
+        // --- RIGHT: Icons in Circles ---
         const iconsContainer = document.createElement('div');
         iconsContainer.className = 'navbar-icons';
 
@@ -149,9 +151,9 @@
             a.href = icon.link;
             a.setAttribute('aria-label', icon.ariaLabel);
             if (icon.title) {
-                a.setAttribute('title', icon.title);  // 
+                a.setAttribute('title', icon.title);
             }
-            
+
             const i = document.createElement('i');
             i.className = icon.iconClass;
             a.appendChild(i);
@@ -164,14 +166,12 @@
         navbar.appendChild(hamburger);
         navbar.appendChild(dropdown);
         navbar.appendChild(iconsContainer);
-        
-        wrapper.appendChild(navbar);
-        
+
         const body = document.body;
         if (body.firstChild) {
-            body.insertBefore(wrapper, body.firstChild);
+            body.insertBefore(navbar, body.firstChild);
         } else {
-            body.appendChild(wrapper);
+            body.appendChild(navbar);
         }
 
         // --- Hamburger toggle logic ---
