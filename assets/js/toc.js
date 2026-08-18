@@ -157,11 +157,13 @@
             // The toggle button is the ONLY element that handles expanding/collapsing
             // NO click handler on the <a> tag
             toggle.addEventListener('click', function(e) {
-                e.stopPropagation();  // Prevents the click from bubbling up
-                e.preventDefault();   // Prevents any default behavior
-                toggleSubHeadings(item.id);
-                console.log('Toggle clicked for:', item.id); // Debug log
-            });
+            e.stopPropagation();
+            e.preventDefault();
+        
+            toggleSubHeadings(item.id, toggle);
+        
+            console.log('Toggle clicked for:', item.id);
+        });
         
         } else {
             li.appendChild(a);
@@ -183,100 +185,142 @@
     // TOGGLE SUB-HEADINGS
     // ============================================
   
-    function toggleSubHeadings(parentId) {
-    console.log('toggleSubHeadings called with parentId:', parentId);
-    
-    const subList = document.getElementById('toc-sub-' + parentId);
-    console.log('Looking for element with id: toc-sub-' + parentId);
-    console.log('subList found:', subList);
-    
-    if (!subList) {
-        console.warn('subList NOT found for parentId:', parentId);
-        return;
-    }
+function toggleSubHeadings(parentId, toggleButton) {
+
+    const li = toggleButton.closest('.toc-h2');
+    if (!li) return;
+
+    const subList = li.querySelector('.toc-sub-list');
+    if (!subList) return;
 
     const isOpen = subList.classList.contains('open');
-    console.log('isOpen before toggle:', isOpen);
-    
+
     if (isOpen) {
         subList.classList.remove('open');
-        console.log('Removed open class');
     } else {
         subList.classList.add('open');
-        console.log('Added open class');
     }
 
-    const toggles = document.querySelectorAll('.toc-toggle[data-parent="' + parentId + '"]');
-    console.log('toggles found:', toggles.length);
-    
-    toggles.forEach(function(toggle) {
-        toggle.textContent = isOpen ? '+' : '−';
-        toggle.dataset.expanded = isOpen ? 'false' : 'true';
-    });
-}
-    
+    toggleButton.textContent = isOpen ? '+' : '−';
+    toggleButton.dataset.expanded = isOpen ? 'false' : 'true';
+}    
 
     // ============================================
     // SCROLL SPY (Fixed: now works on all devices)
     // ============================================
+    
     function initScrollSpy() {
-        // Get all heading IDs from the tree
-        const allIds = [];
-        tocItems.forEach(function(item) {
-            allIds.push(item.id);
-            item.children.forEach(function(child) {
-                allIds.push(child.id);
-            });
+
+    const tocLinks =
+        document.querySelectorAll('.toc-list a[data-target]');
+
+    const headingMap = {};
+
+    tocItems.forEach(function(item) {
+
+        headingMap[item.id] = {
+            parent: null
+        };
+
+        item.children.forEach(function(child) {
+
+            headingMap[child.id] = {
+                parent: item.id
+            };
+
         });
 
-        if (allIds.length === 0) return;
+    });
 
-        // Get the actual DOM elements
-        const headings = allIds.map(function(id) {
-            return document.getElementById(id);
-        }).filter(function(el) { return el !== null; });
+    const headings =
+        Object.keys(headingMap)
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
-        if (headings.length === 0) return;
+    if (!headings.length) return;
 
-        // Get all TOC links
-        const tocLinks = document.querySelectorAll('.toc-list a[data-target]');
+    const updateActiveHeading = throttle(function() {
 
-        // Throttled scroll handler
-        const updateActiveHeading = throttle(function() {
-            const scrollPos = window.scrollY + CONFIG.scrollOffset;
-            let activeId = null;
+        const scrollPos =
+            window.scrollY + CONFIG.scrollOffset;
 
-            // Find the heading that is closest to the scroll position from the top
-            headings.forEach(function(heading) {
-                const rect = heading.getBoundingClientRect();
-                const top = rect.top + window.scrollY;
-                if (top <= scrollPos) {
-                    activeId = heading.id;
-                }
-            });
+        let activeId = null;
 
-            // Update TOC links
-            tocLinks.forEach(function(link) {
-                if (link.dataset.target === activeId) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        }, 100);
+        headings.forEach(function(heading) {
 
-        // Initial update
-        setTimeout(updateActiveHeading, 100);
+            const top =
+                heading.getBoundingClientRect().top +
+                window.scrollY;
 
-        // Listen for scroll events
-        window.addEventListener('scroll', updateActiveHeading);
-        window.addEventListener('resize', updateActiveHeading);
+            if (top <= scrollPos) {
+                activeId = heading.id;
+            }
 
-        // Also re-check when the page finishes loading
-        window.addEventListener('load', function() {
-            setTimeout(updateActiveHeading, 200);
         });
-    }
+
+        tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        if (!activeId) return;
+
+        const activeLink =
+            document.querySelector(
+                '.toc-list a[data-target="' + activeId + '"]'
+            );
+
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+
+        const parentId =
+            headingMap[activeId].parent;
+
+        if (parentId) {
+
+            const parentLink =
+                document.querySelector(
+                    '.toc-list a[data-target="' + parentId + '"]'
+                );
+
+            if (parentLink) {
+                parentLink.classList.add('active');
+            }
+
+            const parentLi =
+                parentLink ?
+                parentLink.closest('.toc-h2') :
+                null;
+
+            const subList =
+                parentLi ?
+                parentLi.querySelector('.toc-sub-list') :
+                null;
+
+            const toggleBtn =
+                parentLi ?
+                parentLi.querySelector('.toc-toggle') :
+                null;
+
+            if (subList) {
+                subList.classList.add('open');
+            }
+
+            if (toggleBtn) {
+                toggleBtn.textContent = '−';
+                toggleBtn.dataset.expanded = 'true';
+            }
+
+        }
+
+    }, 100);
+
+    updateActiveHeading();
+
+    window.addEventListener('scroll', updateActiveHeading);
+    window.addEventListener('resize', updateActiveHeading);
+    window.addEventListener('load', updateActiveHeading);
+}
 
     // ============================================
     // MOBILE TOC TOGGLE
