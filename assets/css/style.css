@@ -4128,14 +4128,17 @@ PUBLICATIONS PAGE
     opacity: 0.8;
     background: rgba(0, 0, 0, 0.04);
 }
+
 .toc-sub-list {
     list-style: none;
     padding: 0;
     margin: 0 0 var(--space-xs) 0;
     display: none;
 }
+
 .toc-sub-list.open {
     display: block;
+    margin-top: 4px;
 }
 
 /* ----- Content Column (Right) ----- */
