@@ -167,12 +167,17 @@
         navbar.appendChild(dropdown);
         navbar.appendChild(iconsContainer);
 
-        const body = document.body;
-        if (body.firstChild) {
-            body.insertBefore(navbar, body.firstChild);
-        } else {
-            body.appendChild(navbar);
-        }
+        // --- WRAP THE NAVBAR IN A WRAPPER (for sticky positioning) ---
+            const wrapper = document.createElement('div');
+            wrapper.className = 'navbar-wrapper';
+            wrapper.appendChild(navbar);
+            
+            const body = document.body;
+            if (body.firstChild) {
+                body.insertBefore(wrapper, body.firstChild);
+            } else {
+                body.appendChild(wrapper);
+            }
 
         // --- Hamburger toggle logic ---
         hamburger.addEventListener('click', function(event) {
