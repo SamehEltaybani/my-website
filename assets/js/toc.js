@@ -264,28 +264,28 @@ function toggleSubHeadings(parentId, toggleButton) {
 
         if (!activeId) return;
 
-        const activeLink =
-            document.querySelector(
+       const activeLinks =
+            document.querySelectorAll(
                 '.toc-list a[data-target="' + activeId + '"]'
             );
-
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
+        
+        activeLinks.forEach(function(link) {
+            link.classList.add('active');
+        });
 
         const parentId =
             headingMap[activeId].parent;
 
         if (parentId) {
 
-            const parentLink =
-                document.querySelector(
+            const parentLinks =
+                document.querySelectorAll(
                     '.toc-list a[data-target="' + parentId + '"]'
                 );
-
-            if (parentLink) {
-                parentLink.classList.add('active');
-            }
+            
+            parentLinks.forEach(function(link) {
+                link.classList.add('active');
+            });
 
             const parentLi =
                 parentLink ?
