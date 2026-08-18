@@ -145,3 +145,16 @@ if (performance.getEntriesByType) {
         window.scrollTo(0, 0);
     }
 }
+
+// Force scroll to top on refresh with offset for navbar
+window.addEventListener('load', function() {
+    // Small delay to ensure everything is rendered
+    setTimeout(function() {
+        // Scroll to top with offset to account for navbar
+        const navbarHeight = 85; // Adjust to match your navbar height
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant' // Use 'instant' for immediate scroll
+        });
+    }, 50);
+});
