@@ -4759,6 +4759,7 @@ background: rgba(0, 0, 0, 0.28);
     transform: scale(1.05);
     box-shadow: 0 6px 28px rgba(0, 173, 181, 0.45);
 }
+
 .mobile-toc-overlay {
     display: none;
     position: fixed;
@@ -4771,16 +4772,18 @@ background: rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
+
 .mobile-toc-overlay.active {
     display: block;
 }
+
 .mobile-toc-panel {
     position: fixed;
-    top: 62px;
+    top: 60px;
     left: 0;
     width: 85%;
     max-width: 340px;
-    height: calc(100vh - 62px);
+    height: calc(100vh - 60px);
     background: var(--bg-color);
     z-index: 9999;
     overflow: hidden;
