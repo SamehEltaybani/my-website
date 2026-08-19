@@ -4148,7 +4148,7 @@ PUBLICATIONS PAGE
 
 /* ----- Desktop TOC Column ----- */
 
-.blog-toc-column {
+.toc-column {
     flex: 0 0 280px;
     position: sticky;
     top: 100px;
@@ -4171,23 +4171,23 @@ PUBLICATIONS PAGE
 
 /* ----- Desktop TOC Scrollbar ----- */
 
-.blog-toc-column::-webkit-scrollbar {
+.toc-column::-webkit-scrollbar {
     width: 10px;
 }
-.blog-toc-column::-webkit-scrollbar-thumb {
+.toc-column::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.18);
     border-radius: 999px;
 }
 
-.blog-toc-column:hover::-webkit-scrollbar {
+.toc-column:hover::-webkit-scrollbar {
     width: 14px;
 }
 
-.blog-toc-column:hover::-webkit-scrollbar-thumb {
+.toc-column:hover::-webkit-scrollbar-thumb {
 background: rgba(0, 0, 0, 0.28);
 }
 
-.blog-toc-column::-webkit-scrollbar-track {
+.toc-column::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.03);
     border-radius: 999px;
 }
@@ -4450,14 +4450,14 @@ background: rgba(0, 0, 0, 0.28);
 
 @media (max-width: 992px) {
    
-    .blog-toc-column {
+    .toc-column {
         flex: 0 0 240px;
     }
    }
 
 @media (max-width: 768px) {
    
-    .blog-toc-column {
+    .toc-column {
         display: none;
     }
    
