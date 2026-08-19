@@ -4028,12 +4028,20 @@ PUBLICATIONS PAGE
     position: sticky;
     top: 100px;
     align-self: flex-start;
-    max-height: calc(100vh - 160px);
-    overflow-y: auto;
+    height: calc(100vh - 140px);
     padding-right: var(--space-md);
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: auto;
     background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#toc-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 8px;
 }
 
 .blog-toc-column::-webkit-scrollbar {
@@ -4064,16 +4072,11 @@ background: rgba(0, 0, 0, 0.28);
     letter-spacing: 0.08em;
     color: var(--dark-color);
     opacity: 0.4;
-    position: sticky;
-    top: 0;
     background: var(--bg-color);
-    z-index: 9999;
-    min-height: 60px;
-    display: flex;
-    align-items: flex-end;
     padding: 0 0 12px 0;
     margin: 0;
-    border-bottom: 4px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    flex-shrink: 0;
 }
 
 
