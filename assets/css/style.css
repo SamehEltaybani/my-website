@@ -2942,6 +2942,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Scrollable sections with visible borders ----- */
+
 .filter-dropdown-section {
   margin-bottom: var(--space-md);
 }
@@ -3010,6 +3011,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter dropdown actions (sticky) ----- */
+
 .filter-dropdown-actions {
   display: flex;
   gap: var(--space-sm);
@@ -3053,6 +3055,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Sort Dropdown ----- */
+
 .sort-dropdown {
   display: none;
   position: absolute;
@@ -3747,6 +3750,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Phones (max-width: 768px) ----- */
+
 @media (max-width: 768px) {
   .contact-intro {
     font-size: 1rem;
@@ -3796,6 +3800,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
+
 @media (max-width: 400px) {
   .contact-form-card {
     padding: var(--space-md);
@@ -3840,6 +3845,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Separator (same as publications) ----- */
+
 .blog-separator {
   display: flex;
   align-items: center;
@@ -3873,6 +3879,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Banner (single result view) ----- */
+
 .blog-banner {
   background: rgba(59, 130, 246, 0.06);
   border: 1px solid rgba(59, 130, 246, 0.15);
@@ -3923,6 +3930,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog: Taller dropdown (targets the body class) ----- */
+
 .page-blog #filter-dropdown-container {
   max-height: 80vh !important;
 }
@@ -4010,10 +4018,11 @@ PUBLICATIONS PAGE
 
 
 /* ============================================
-   BLOG ARTICLE – FULL STYLES (TOC + CONTENT + TOOLTIPS)
+   TOC (left side full style)
    ============================================ */
 
-/* ----- Layout: Two-column ----- */
+/* ----- TOC Layout ----- */
+
 .blog-article-wrapper {
     display: flex;
     gap: var(--space-xl);
@@ -4021,7 +4030,7 @@ PUBLICATIONS PAGE
     padding-top: calc(var(--space-md) + 20px);
 }
 
-/* ----- TOC Column (Left) ----- */
+/* ----- Desktop TOC Column ----- */
 
 .blog-toc-column {
     flex: 0 0 280px;
@@ -4044,6 +4053,8 @@ PUBLICATIONS PAGE
     padding-top: 8px;
 }
 
+/* ----- Desktop TOC Scrollbar ----- */
+
 .blog-toc-column::-webkit-scrollbar {
     width: 10px;
 }
@@ -4065,6 +4076,8 @@ background: rgba(0, 0, 0, 0.28);
     border-radius: 999px;
 }
 
+/* ----- TOC Heading ----- */
+
 .toc-heading {
     font-size: 0.8rem;
     font-weight: 700;
@@ -4079,6 +4092,7 @@ background: rgba(0, 0, 0, 0.28);
     flex-shrink: 0;
 }
 
+/* ----- TOC List ----- */
 
 .toc-list {
     list-style: none;
@@ -4108,6 +4122,8 @@ background: rgba(0, 0, 0, 0.28);
     background: rgba(0, 173, 181, 0.04);
 }
 
+/* ----- Active TOC Item ----- */
+
 .toc-list a.active {
     opacity: 1;
     color: var(--white-color);
@@ -4115,6 +4131,8 @@ background: rgba(0, 0, 0, 0.28);
     font-weight: 600;
     border-radius: var(--radius-sm);
 }
+
+/* ----- TOC Heading Levels ----- */
 
 .toc-list .toc-h2 a {
     font-weight: 600;
@@ -4127,12 +4145,28 @@ background: rgba(0, 0, 0, 0.28);
     font-weight: 400;
 }
 
+/* ----- TOC Sub-headings ----- */
+
 .toc-sub-list .toc-h3 a::before {
     content: "•";
     color: currentColor;
     margin-right: var(--space-xs);
     font-weight: 700;
 }
+
+.toc-sub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xs) 0;
+    display: none;
+}
+
+.toc-sub-list.open {
+    display: block;
+    margin-top: 4px;
+}
+
+/* ----- TOC Toggle Button ----- */
 
 .toc-toggle {
     display: inline-flex;
@@ -4151,30 +4185,204 @@ background: rgba(0, 0, 0, 0.28);
     margin-right: var(--space-xs);
     padding: 0;
 }
+
 .toc-toggle:hover {
     opacity: 0.8;
     background: rgba(0, 0, 0, 0.04);
 }
 
-.toc-sub-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-xs) 0;
+/* ----- Mobile TOC Button ----- */
+
+.mobile-toc-toggle {
     display: none;
+    position: fixed;
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+    z-index: 500;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.35);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 500;
 }
 
-.toc-sub-list.open {
+.mobile-toc-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 28px rgba(0, 173, 181, 0.45);
+}
+
+/* ----- Mobile TOC Overlay ----- */
+
+.mobile-toc-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 450;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.mobile-toc-overlay.active {
     display: block;
-    margin-top: 4px;
 }
 
-/* ----- Content Column (Right) ----- */
+/* ----- Mobile TOC Panel ----- */
+
+.mobile-toc-panel {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 85%;
+    max-width: 340px;
+    height: calc(100vh - 60px);
+    background: var(--bg-color);
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.1);
+   }
+
+.mobile-toc-panel.open {
+    transform: translateX(0);
+}
+
+.mobile-toc-panel::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background: var(--bg-color);
+    pointer-events: none;
+}
+
+/* ----- Mobile TOC Heading ----- */
+
+.mobile-toc-panel .toc-heading {
+    position: sticky !important;
+    top: 0 !important;
+    background: var(--bg-color) !important;
+    z-index: 10004 !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    width: 100% !important;
+    min-height: 52px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* ----- Mobile TOC Content Area ----- */
+
+#mobile-toc-list {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--bg-color);
+    padding: 0.5rem 0 1rem 0;
+}
+
+/* ----- Mobile TOC Close Button ----- */
+
+.mobile-toc-close {
+    z-index: 10005 !important;
+    position: sticky !important;
+    top: 8px !important;
+    margin-left: auto !important;
+    margin-right: var(--space-md) !important;
+    font-size: 1.6rem !important;
+    color: var(--accent-color) !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+    background: var(--bg-color) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.mobile-toc-close:hover {
+    opacity: 0.8;
+    transform: rotate(90deg);
+}
+
+/* ----- Mobile TOC Header Layer ----- */
+
+.mobile-toc-panel .toc-heading,
+.mobile-toc-close {
+    background: var(--bg-color) !important;
+    box-shadow: 0 8px 12px var(--bg-color);
+}
+
+/* -----  RESPONSIVE - TOC ---- */
+
+@media (max-width: 992px) {
+   
+    .blog-toc-column {
+        flex: 0 0 240px;
+    }
+   }
+
+@media (max-width: 768px) {
+   
+    .blog-toc-column {
+        display: none;
+    }
+   
+    .mobile-toc-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+   
+    .mobile-toc-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        bottom: var(--space-md);
+        left: var(--space-md);
+    }
+   
+    .mobile-toc-panel {
+        width: 90%;
+        padding: var(--space-md);
+    }
+}
+
+
+/* ============================================
+BLOG-Article (right side content)
+============================================ */
+
+
+/* ----- Main Content Column ----- */
+
 .blog-content-column {
     flex: 1;
     min-width: 0;
 }
 
 /* ----- Top Navigation ----- */
+
 .blog-top-nav {
     display: flex;
     align-items: center;
@@ -4183,6 +4391,7 @@ background: rgba(0, 0, 0, 0.28);
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
 }
+
 .blog-top-nav .nav-btn {
     display: inline-flex;
     align-items: center;
@@ -4199,17 +4408,21 @@ background: rgba(0, 0, 0, 0.28);
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
 .blog-top-nav .nav-btn:hover {
     border-color: var(--accent-color);
     background: rgba(0, 173, 181, 0.04);
 }
+
 .blog-top-nav .nav-btn i {
     font-size: 0.8rem;
 }
+
 .blog-top-nav .nav-btn-center {
     font-weight: 600;
     border-color: rgba(0, 0, 0, 0.06); 
 }
+
 .blog-top-nav .nav-btn-center:hover {
     border-color: var(--accent-color);
     background: rgba(0, 173, 181, 0.04);
@@ -4220,6 +4433,7 @@ background: rgba(0, 0, 0, 0.28);
 .blog-article-header {
     margin-bottom: var(--space-lg);
 }
+
 .blog-article-title {
     font-size: 2.2rem;
     font-weight: 800;
@@ -4227,18 +4441,23 @@ background: rgba(0, 0, 0, 0.28);
     line-height: 1.2;
     margin-bottom: var(--space-xs);
 }
+
 .blog-article-short-title {
     font-size: 1.5rem;
     color: var(--dark-color);
     opacity: 0.8;
     margin-bottom: var(--space-sm);
 }
+
+/* ----- Article Metadata ----- */
+
 .blog-article-meta {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm) var(--space-md);
     margin-bottom: var(--space-sm);
 }
+
 .blog-article-meta .meta-item {
     font-size: 0.85rem;
     color: var(--dark-color);
@@ -4247,9 +4466,13 @@ background: rgba(0, 0, 0, 0.28);
     align-items: center;
     gap: var(--space-xs);
 }
+
 .blog-article-meta .meta-item i {
     color: var(--accent-color);
 }
+
+/* ----- Article Categories ----- */
+
 .blog-article-categories {
     display: flex;
     gap: var(--space-xs);
@@ -4327,6 +4550,7 @@ background: rgba(0, 0, 0, 0.28);
     max-height: 80vh;
     overflow-y: auto;
 }
+
 .action-tooltip .tooltip-header {
     display: flex;
     align-items: center;
@@ -4335,11 +4559,13 @@ background: rgba(0, 0, 0, 0.28);
     padding-bottom: var(--space-sm);
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
+
 .action-tooltip .tooltip-header span {
     font-weight: 600;
     font-size: 1rem;
     color: var(--dark-color);
 }
+
 .action-tooltip .tooltip-close {
     background: none;
     border: none;
@@ -4351,6 +4577,7 @@ background: rgba(0, 0, 0, 0.28);
     padding: 0 var(--space-xs);
     line-height: 1;
 }
+
 .action-tooltip .tooltip-close:hover {
     opacity: 0.8;
     transform: rotate(90deg);
@@ -4360,12 +4587,16 @@ background: rgba(0, 0, 0, 0.28);
     opacity: 0.8;
     line-height: 1.7;
 }
+
+/* ----- Share Buttons ----- */
+
 .share-icons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
     justify-content: center;
 }
+
 .share-icons a {
     display: flex;
     align-items: center;
@@ -4379,23 +4610,30 @@ background: rgba(0, 0, 0, 0.28);
     text-decoration: none;
     transition: all 0.2s ease;
 }
+
 .share-icons a:hover {
     background: var(--accent-color);
     color: var(--white-color);
     transform: translateY(-3px);
     box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
 }
+
 .share-icons a#copy-link-btn {
     background: rgba(0, 173, 181, 0.1);
     color: var(--accent-color);
 }
+
 .share-icons a#copy-link-btn:hover {
     background: var(--accent-color);
     color: var(--white-color);
 }
+
+/* ----- QR Code ----- */
+
 .qr-container {
     text-align: center;
 }
+
 .qr-container img {
     max-width: 200px;
     height: auto;
@@ -4404,12 +4642,16 @@ background: rgba(0, 0, 0, 0.28);
     background: var(--white-color);
     padding: var(--space-sm);
 }
+
 .qr-help {
     font-size: 0.85rem;
     color: var(--dark-color);
     opacity: 0.5;
     margin-top: var(--space-sm);
 }
+
+/* ----- Copyright Tooltip ----- */
+
 .copyright-body p {
     margin-bottom: var(--space-sm);
     font-size: 0.95rem;
@@ -4423,17 +4665,20 @@ background: rgba(0, 0, 0, 0.28);
     font-weight: 500;
     transition: gap 0.2s ease;
 }
+
 .copyright-read-more:hover {
     gap: var(--space-sm);
 }
+
 .copyright-read-more i {
     transition: transform 0.2s ease;
 }
+
 .copyright-read-more:hover i {
     transform: translateX(3px);
 }
 
-/* ----- Toast ----- */
+/* ----- Toast Message----- */
 
 .toast-message {
     position: fixed;
@@ -4457,11 +4702,14 @@ background: rgba(0, 0, 0, 0.28);
     opacity: 1;
 }
 
-/* ----- Blog Content Blocks ----- */
+/* ----- Blog Content container ----- */
 
 .blog-content {
     margin-bottom: var(--space-xl);
 }
+
+/* ----- Blog Headings ----- */
+
 .blog-content h2 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -4469,6 +4717,7 @@ background: rgba(0, 0, 0, 0.28);
     margin: var(--space-xl) 0 var(--space-md) 0;
     scroll-margin-top: 100px;
 }
+
 .blog-content h3 {
     font-size: 1.3rem;
     font-weight: 600;
@@ -4476,6 +4725,9 @@ background: rgba(0, 0, 0, 0.28);
     margin: var(--space-lg) 0 var(--space-sm) 0;
     scroll-margin-top: 100px;
 }
+
+/* ----- Blog Paragraphs ----- */
+
 .blog-content p {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -4483,10 +4735,14 @@ background: rgba(0, 0, 0, 0.28);
     opacity: 0.85;
     margin-bottom: var(--space-md);
 }
+
+/* ----- Unordered Lists (bullet points) ----- */
+
 .blog-content ul {
     padding-left: var(--space-lg);
     margin-bottom: var(--space-md);
 }
+
 .blog-content ul li {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -4498,6 +4754,7 @@ background: rgba(0, 0, 0, 0.28);
     align-items: flex-start;
     gap: var(--space-sm);
 }
+
 .blog-content ul li::before {
     content: '\f0da';
     font-family: 'Font Awesome 6 Free';
@@ -4507,6 +4764,8 @@ background: rgba(0, 0, 0, 0.28);
     margin-top: 0.3rem;
     flex-shrink: 0;
 }
+
+/* ----- Ordered Lists ----- */
 
 .blog-content ol {
     padding-left: var(--space-lg);
@@ -4534,6 +4793,8 @@ background: rgba(0, 0, 0, 0.28);
     flex-shrink: 0;
 }
 
+/* ----- Images and Captions ----- */
+
 .blog-content img {
     max-width: 100%;
     height: auto;
@@ -4541,6 +4802,7 @@ background: rgba(0, 0, 0, 0.28);
     margin: var(--space-md) 0;
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
+
 .blog-content .image-caption {
     font-size: 0.85rem;
     color: var(--dark-color);
@@ -4550,7 +4812,7 @@ background: rgba(0, 0, 0, 0.28);
     margin-bottom: var(--space-md);
 }
 
-/* ----- Callouts ----- */
+/* ----- Callouts Base----- */
 
 .callout {
     display: flex;
@@ -4561,29 +4823,35 @@ background: rgba(0, 0, 0, 0.28);
     border-left: 4px solid;
     position: relative;
 }
+
 .callout-icon {
     flex-shrink: 0;
     font-size: 1.4rem;
     margin-top: 0.1rem;
 }
+
 .callout-content {
     flex: 1;
 }
+
 .callout-content p {
     margin: 0 0 var(--space-xs) 0;
     font-size: 1rem;
     line-height: 1.7;
     opacity: 0.85;
 }
+
 .callout-content ul,
 .callout-content ol {
     margin: var(--space-xs) 0 var(--space-xs) var(--space-md);
 }
+
 .callout-content ul li,
 .callout-content ol li {
     font-size: 1rem;
     opacity: 0.85;
 }
+
 .callout-btn {
     display: inline-flex;
     align-items: center;
@@ -4600,6 +4868,7 @@ background: rgba(0, 0, 0, 0.28);
     text-decoration: none;
     align-self: flex-end;
 }
+
 .callout-btn:hover {
     transform: translateY(-2px);
 }
@@ -4610,38 +4879,50 @@ background: rgba(0, 0, 0, 0.28);
     flex-direction: column;
 }
 
+/* ----- Note Callout ----- */
+
 .callout-note {
     background: rgba(0, 173, 181, 0.04);
     border-color: var(--accent-color);
 }
+
 .callout-note .callout-icon {
     color: var(--accent-color);
 }
+
 .callout-note .callout-btn {
     background: var(--accent-color);
     color: var(--white-color);
 }
+
 .callout-note .callout-btn:hover {
     background: var(--dark-color);
     box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
 }
+
+/* ----- Warning Callout ----- */
+
 .callout-warning {
     background: rgba(239, 68, 68, 0.04);
     border-color: #ef4444;
 }
+
 .callout-warning .callout-icon {
     color: #ef4444;
 }
+
 .callout-warning .callout-btn {
     background: #ef4444;
     color: var(--white-color);
 }
+
 .callout-warning .callout-btn:hover {
     background: #dc2626;
     box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
 }
 
 /* ----- Bottom Navigation ----- */
+
 .blog-bottom-nav {
     display: flex;
     align-items: center;
@@ -4688,6 +4969,7 @@ background: rgba(0, 0, 0, 0.28);
     padding: var(--space-md) var(--space-lg);
     margin: var(--space-lg) 0;
 }
+
 .blog-copyright-sentence p {
     font-size: 0.9rem;
     color: var(--dark-color);
@@ -4696,24 +4978,27 @@ background: rgba(0, 0, 0, 0.28);
     line-height: 1.7;
 }
 
-/* ----- Recommended Section ----- */
+/* ----- Recommended Articles Section ----- */
 
 .recommended-section {
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
     border-top: 2px solid rgba(0, 0, 0, 0.04);
 }
+
 .recommended-title {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--dark-color);
     margin-bottom: var(--space-lg);
 }
+
 .recommended-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-md);
 }
+
 .recommended-card {
     display: block;
     text-decoration: none;
@@ -4725,209 +5010,87 @@ background: rgba(0, 0, 0, 0.28);
     transition: all 0.2s ease;
     color: var(--dark-color);
 }
+
 .recommended-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
     border-color: var(--accent-color);
 }
+
 .recommended-card .rec-title {
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: var(--space-xs);
     line-height: 1.4;
 }
+
 .recommended-card .rec-date {
     font-size: 0.8rem;
     color: var(--dark-color);
     opacity: 0.4;
 }
 
-/* ----- Mobile TOC ----- */
+/* ----- Responsive Blog Article ----- */
 
-.mobile-toc-toggle {
-    display: none;
-    position: fixed;
-    bottom: var(--space-lg);
-    left: var(--space-lg);
-    z-index: 500;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    color: var(--white-color);
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.35);
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 500;
-}
-.mobile-toc-toggle:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 28px rgba(0, 173, 181, 0.45);
-}
-
-.mobile-toc-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 450;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.mobile-toc-overlay.active {
-    display: block;
-}
-
-.mobile-toc-panel {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 85%;
-    max-width: 340px;
-    height: calc(100vh - 60px);
-    background: var(--bg-color);
-    z-index: 9999;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.1);
-   }
-
-.mobile-toc-panel.open {
-    transform: translateX(0);
-}
-
-.mobile-toc-panel .toc-heading {
-    position: sticky !important;
-    top: 0 !important;
-    background: var(--bg-color) !important;
-    z-index: 10004 !important;
-    padding: 0.75rem 1rem !important;
-    margin: 0 !important;
-    border-bottom: 2px solid var(--accent-color) !important;
-    width: 100% !important;
-    min-height: 52px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-}
-
-#mobile-toc-list {
-    flex: 1;
-    overflow-y: auto;
-    background: var(--bg-color);
-    padding: 0.5rem 0 1rem 0;
-}
-
-.mobile-toc-close {
-    z-index: 10005 !important;
-    position: sticky !important;
-    top: 8px !important;
-    margin-left: auto !important;
-    margin-right: var(--space-md) !important;
-    font-size: 1.6rem !important;
-    color: var(--accent-color) !important;
-    opacity: 1 !important;
-    cursor: pointer !important;
-    background: var(--bg-color) !important;
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
-    border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.mobile-toc-close:hover {
-    opacity: 0.8;
-    transform: rotate(90deg);
-}
-
-.mobile-toc-panel .toc-heading,
-.mobile-toc-close {
-    background: var(--bg-color) !important;
-    box-shadow: 0 8px 12px var(--bg-color);
-}
-
-.mobile-toc-panel::before {
-    content: "";
-    position: absolute;
-    top: -24px;
-    left: 0;
-    width: 100%;
-    height: 24px;
-    background: var(--bg-color);
-    pointer-events: none;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
 @media (max-width: 992px) {
-    .blog-toc-column {
-        flex: 0 0 240px;
-    }
-    .recommended-grid {
+   
+        .recommended-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+   
     .blog-article-wrapper {
         flex-direction: column;
         gap: var(--space-md);
     }
-    .blog-toc-column {
-        display: none;
-    }
-    .mobile-toc-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    
     .blog-article-title {
         font-size: 1.8rem;
     }
+   
     .blog-content h2 {
         font-size: 1.5rem;
     }
+   
     .blog-content h3 {
         font-size: 1.2rem;
     }
+   
     .blog-content p,
     .blog-content ul li,
     .blog-content ol li {
         font-size: 0.95rem;
     }
+   
     .blog-top-nav .nav-btn span,
     .blog-bottom-nav .nav-btn span {
         display: none;
     }
+   
     .blog-top-nav .nav-btn i,
     .blog-bottom-nav .nav-btn i {
         font-size: 1.2rem;
     }
+   
     .blog-action-btn span {
         display: none;
     }
+   
     .recommended-grid {
         grid-template-columns: 1fr;
     }
+   
     .callout {
         flex-direction: column;
         gap: var(--space-sm);
     }
-    .callout-icon {
+   
+   .callout-icon {
         font-size: 1.2rem;
     }
+   
     .action-tooltip {
         max-width: 95%;
         padding: var(--space-md);
@@ -4936,65 +5099,67 @@ background: rgba(0, 0, 0, 0.28);
         left: 50%;
         max-height: 80vh;
     }
+   
     .share-icons a {
         width: 40px;
         height: 40px;
         font-size: 1rem;
     }
+   
     .toast-message {
         bottom: var(--space-lg);
         font-size: 0.8rem;
         padding: var(--space-xs) var(--space-md);
         max-width: 90%;
     }
+   
     .blog-copyright-sentence {
         padding: var(--space-sm) var(--space-md);
     }
+   
     .blog-copyright-sentence p {
         font-size: 0.8rem;
     }
 }
 
 @media (max-width: 400px) {
-    .blog-article-title {
+   
+   .blog-article-title {
         font-size: 1.4rem;
     }
-    .blog-article-short-title {
+   
+   .blog-article-short-title {
         font-size: 1.2rem;
     }
-    .blog-article-meta .meta-item {
+   
+   .blog-article-meta .meta-item {
         font-size: 0.75rem;
     }
-    .mobile-toc-toggle {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
-        bottom: var(--space-md);
-        left: var(--space-md);
-    }
-    .mobile-toc-panel {
-        width: 90%;
-        padding: var(--space-md);
-    }
-    .blog-action-btn {
+    
+   .blog-action-btn {
         padding: var(--space-xs) var(--space-sm);
         font-size: 0.7rem;
     }
-    .action-tooltip {
+    
+   .action-tooltip {
         padding: var(--space-sm);
     }
-    .share-icons a {
+    
+   .share-icons a {
         width: 36px;
         height: 36px;
         font-size: 0.9rem;
     }
-    .qr-container img {
+    
+   .qr-container img {
         max-width: 140px;
     }
-    .recommended-grid {
+    
+   .recommended-grid {
         grid-template-columns: 1fr;
     }
-    .callout {
+    
+   .callout {
         padding: var(--space-md);
     }
 }
