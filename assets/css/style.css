@@ -4492,7 +4492,7 @@ BLOG-Article (right side content)
 
 /* ----- Main Content Column ----- */
 
-.blog-content-column {
+.page-content-column {
     flex: 1;
     min-width: 0;
 }
