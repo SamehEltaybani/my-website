@@ -4139,7 +4139,7 @@ PUBLICATIONS PAGE
 
 /* ----- TOC Layout ----- */
 
-.blog-article-wrapper {
+.page-layout {
     display: flex;
     gap: var(--space-xl);
     margin-top: 0;
