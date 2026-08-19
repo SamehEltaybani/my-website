@@ -4129,7 +4129,7 @@ background: rgba(0, 0, 0, 0.28);
 
 .toc-sub-list .toc-h3 a::before {
     content: "•";
-    color: var(--accent-color);
+    color: currentColor;
     margin-right: var(--space-xs);
     font-weight: 700;
 }
@@ -4145,7 +4145,7 @@ background: rgba(0, 0, 0, 0.28);
     background: transparent;
     cursor: pointer;
     font-size: 0.7rem;
-    color: var(--dark-color);
+    color: inherit;
     opacity: 0.4;
     transition: all 0.2s ease;
     margin-right: var(--space-xs);
