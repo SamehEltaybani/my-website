@@ -4776,12 +4776,12 @@ background: rgba(0, 0, 0, 0.28);
 }
 .mobile-toc-panel {
     position: fixed;
-    top: 0;
-    padding-top: 80px;
+    top: 80px;
+    padding-top: 0;
     left: 0;
     width: 85%;
     max-width: 340px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     background: var(--bg-color);
     z-index: 9999;
     padding-top: 0;
@@ -4799,15 +4799,13 @@ background: rgba(0, 0, 0, 0.28);
     position: sticky !important;
     top: 0 !important;
     background: var(--bg-color) !important;
-    z-index: 10001 !important;
-    min-height: 56px;
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem 0.75rem 1rem !important;
+    z-index: 10004 !important;
+    padding: 0.75rem 1rem !important;
     margin: 0 !important;
     border-bottom: 2px solid var(--accent-color) !important;
     width: 100% !important;
-    flex-shrink: 0;
+    min-height: 52px;
+    box-sizing: border-box;
 }
 
 #mobile-toc-list {
@@ -4817,14 +4815,15 @@ background: rgba(0, 0, 0, 0.28);
 
 .mobile-toc-close {
     z-index: 10005 !important;
-    position: absolute !important;
-    top: 4px !important;
-    right: var(--space-md) !important;
+    position: sticky !important;
+    top: 8px !important;
+    margin-left: auto !important;
+    margin-right: var(--space-md) !important;
     font-size: 1.6rem !important;
     color: var(--accent-color) !important;
-    opacity: 1.0 !important;
+    opacity: 1 !important;
     cursor: pointer !important;
-    background: var(--white-color) !important;
+    background: var(--bg-color) !important;
     border: 1px solid rgba(0, 0, 0, 0.04) !important;
     border-radius: 50% !important;
     width: 40px !important;
@@ -4832,8 +4831,7 @@ background: rgba(0, 0, 0, 0.28);
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    float: right;
-    }
+}
 
 .mobile-toc-close:hover {
     opacity: 0.8;
@@ -4842,6 +4840,7 @@ background: rgba(0, 0, 0, 0.28);
 
 .mobile-toc-panel .toc-heading,
 .mobile-toc-close {
+    background: var(--bg-color) !important;
     box-shadow: 0 8px 12px var(--bg-color);
 }
 
