@@ -4781,37 +4781,42 @@ background: rgba(0, 0, 0, 0.28);
     width: 85%;
     max-width: 340px;
     height: 100%;
-    background: var(--white-color);
-    z-index: 460;
-    padding-top: var(--space-xl) !important;
+    background: var(--bg-color);
+    z-index: 9999;
+    padding-top: 0;
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 4px 0 40px rgba(0, 0, 0, 0.1);
-    z-index: 9999 !important;
 }
+
 .mobile-toc-panel.open {
     transform: translateX(0);
 }
 
 .mobile-toc-panel .toc-heading {
-    background: var(--white-color) !important;
-    padding: var(--space-md) 0 var(--space-sm) 0 !important;
-    position: relative !important;
-    top: auto !important;
-    margin-top: var(--space-lg) !important;
-    border-bottom: 4px solid var(--accent-color) !important;
+    background: var(--bg-color) !important;
+    padding: 0.5rem 0 0.75rem 0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    border-bottom: 2px solid var(--accent-color) !important;
     width: 100% !important;
+    z-index: 10001 !important;
+}
+
+#mobile-toc-list {
+    padding-top: 0.5rem;
 }
 
 .mobile-toc-close {
-    z-index: 9999 !important;
+    z-index: 10002 !important;
     position: absolute !important;
-    top: var(--space-md) !important;
+    top: 12px !important;
     right: var(--space-md) !important;
     font-size: 1.6rem !important;
-    color: var(--dark-color) !important;
-    opacity: 0.6 !important;
+    color: var(--accent-color) !important;
+    opacity: 1.0 !important;
     cursor: pointer !important;
     background: var(--white-color) !important;
     border: 1px solid rgba(0, 0, 0, 0.04) !important;
@@ -4821,7 +4826,7 @@ background: rgba(0, 0, 0, 0.28);
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-}
+    }
 
 .mobile-toc-close:hover {
     opacity: 0.8;
