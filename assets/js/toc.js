@@ -19,7 +19,7 @@
     const CONFIG = {
         tocContainer: '#toc-list',
         mobileTocContainer: '#mobile-toc-list',
-        contentSelector: '#blog-content',
+        contentSelector: '#page-content',
         headingSelector: 'h2, h3',
         excludeClass: 'no-toc',
         scrollOffset: 120
