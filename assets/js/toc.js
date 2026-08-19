@@ -28,6 +28,7 @@
     let tocItems = [];
     let tocList = null;
     let mobileTocList = null;
+    let mobileTOCInitialized = false;
 
     // ============================================
     // THROTTLE HELPER (for scroll spy performance)
@@ -325,7 +326,12 @@ function toggleSubHeadings(parentId, toggleButton) {
     // ============================================
     // MOBILE TOC TOGGLE
     // ============================================
+    
     function initMobileTOC() {
+
+    if (mobileTOCInitialized) return;
+    mobileTOCInitialized = true;
+        
         const toggleBtn = document.getElementById('mobile-toc-toggle');
         const overlay = document.getElementById('mobile-toc-overlay');
         const panel = document.getElementById('mobile-toc-panel');
