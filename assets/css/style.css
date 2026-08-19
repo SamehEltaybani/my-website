@@ -14,12 +14,14 @@
   --white-color: #ffffff;
   
   /* ----- GLASSMORPHISM ----- */
+   
   --glass-bg: rgba(255, 255, 255, 0.95);
   --glass-border: rgba(255, 255, 255, 0.8);
   --glass-blur: 20px;
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   
   /* ----- SPACING SYSTEM ----- */
+   
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -28,9 +30,11 @@
   --space-xxl: 6rem;
   
   /* ----- CONTAINER ----- */
+   
   --container-max: 1200px;
   
   /* ----- BORDER RADIUS ----- */
+   
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -61,9 +65,11 @@ body {
   padding-top: 80px;
 }
 
+
 /* ============================================
    CONTAINER & LAYOUT
    ============================================ */
+
 
 .container {
   max-width: var(--container-max);
@@ -71,6 +77,7 @@ body {
   padding: 0 var(--space-lg);
   width: 100%;
 }
+
 
 /* ============================================
    TYPOGRAPHY
@@ -91,11 +98,98 @@ body {
   margin-bottom: var(--space-lg);
 }
 
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+
+.text-center { text-align: center; }
+
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+
+/* ============================================
+  RESPONSIVE BREAKPOINTS (Global)
+   ============================================ */
+
+
+/* ----- Tablets & Small Laptops (max-width: 992px) ----- */
+
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----- Phones (max-width: 768px) ----- */
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 75px;
+  }
+  
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4
+   {
+    grid-template-columns: 1fr;
+  }
+  
+  section,
+  .section,
+  .hero,
+  .about-section {
+    padding: var(--space-lg) 0;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin: var(--space-xl) 0 var(--space-md) 0;
+  }
+  
+  .card,
+  .card-static,
+  .action-card {
+    padding: var(--space-md);
+  }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+
+
 /* ============================================
    NAVIGATION (Navbar + Dropdown)
    ============================================ */
 
 /* ----- NAVBAR WRAPPER (Solid background behind glass) ----- */
+
 .navbar-wrapper {
   position: fixed;
   top: 0;
@@ -116,6 +210,7 @@ body {
 }
 
 /* ----- NAVBAR (Floating Pill) ----- */
+
 .navbar {
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
@@ -131,6 +226,7 @@ body {
 }
 
 /* ----- LEFT: Photo + Name ----- */
+
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -151,6 +247,7 @@ body {
 }
 
 /* ----- MIDDLE: Navigation Links ----- */
+
 .navbar-links {
   display: flex;
   align-items: center;
@@ -178,6 +275,7 @@ body {
 }
 
 /* ----- RIGHT: Icons in Circles ----- */
+
 .navbar-icons {
   display: flex;
   align-items: center;
@@ -209,6 +307,7 @@ body {
 }
 
 /* ----- HAMBURGER (Mobile) ----- */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -229,6 +328,7 @@ body {
 }
 
 /* ----- DROPDOWN (Mobile) ----- */
+
 .navbar-dropdown {
   display: none;
   position: absolute;
@@ -292,6 +392,7 @@ body {
 /* ----- NAVIGATION: Responsive ----- */
 
 @media (max-width: 992px) {
+   
   .navbar {
     padding: var(--space-sm) var(--space-md);
   }
@@ -303,6 +404,7 @@ body {
 }
 
 @media (max-width: 768px) {
+   
   .navbar-wrapper {
     padding: var(--space-sm);
   }
@@ -354,6 +456,7 @@ body {
 }
 
 @media (max-width: 400px) {
+   
   .navbar-wrapper {
     padding: var(--space-xs);
   }
@@ -401,6 +504,7 @@ body {
 }
 
 /* ----- Footer Columns ----- */
+
 .footer-col {
   display: flex;
   flex-direction: column;
@@ -416,12 +520,14 @@ body {
 }
 
 /* ----- Footer: Copyright ----- */
+
 .footer-copyright {
   font-size: 0.95rem;
   margin: 0;
 }
 
 /* ----- Footer: Social Icons ----- */
+
 .footer-social {
   display: flex;
   gap: 1.2rem;
@@ -440,6 +546,7 @@ body {
 }
 
 /* ----- Footer: Headings ----- */
+
 .footer-heading {
   font-weight: 600;
   font-size: 1rem;
@@ -448,6 +555,7 @@ body {
 }
 
 /* ----- Footer: Sitemap ----- */
+
 .footer-sitemap {
   list-style: none;
   padding: 0;
@@ -470,6 +578,7 @@ body {
 }
 
 /* ----- Footer: Legal Text ----- */
+
 .footer-legal-text {
   font-size: 0.9rem;
   opacity: 0.7;
@@ -478,6 +587,7 @@ body {
 }
 
 /* ----- Footer: Read More Link ----- */
+
 .footer-read-more {
   color: var(--accent-color);
   text-decoration: none;
@@ -503,6 +613,7 @@ body {
 }
 
 /* ----- Footer: Responsive (Mobile) ----- */
+
 @media (max-width: 768px) {
   .site-footer .container {
     grid-template-columns: 1fr;
@@ -559,6 +670,7 @@ body {
    ============================================ */
 
 /* ----- STANDARD CARDS (With hover) ----- */
+
 .card {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -599,6 +711,7 @@ body {
 }
 
 /* ----- STATIC CARDS (No hover effect) ----- */
+
 .card-static {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -634,6 +747,7 @@ body {
 }
 
 /* ----- ACTION CARDS (Clickable) ----- */
+
 .action-card {
   position: relative;
   display: block;
@@ -762,6 +876,7 @@ section,
 }
 
 /* ----- Hero: Buttons (Pills) ----- */
+
 .hero-taglines {
   display: flex;
   flex-wrap: wrap;
@@ -818,7 +933,9 @@ section,
 }
 
 /* ----- Hero: Responsive ----- */
+
 @media (max-width: 768px) {
+   
   .hero h1 {
     font-size: 2rem;
     white-space: nowrap;
@@ -845,6 +962,7 @@ section,
 }
 
 @media (max-width: 480px) {
+   
   .hero h1 {
     font-size: 1.5rem;
     white-space: nowrap;
@@ -853,6 +971,7 @@ section,
 }
 
 @media (max-width: 380px) {
+   
   .hero h1 {
     font-size: 1.2rem;
     white-space: nowrap;
@@ -861,6 +980,7 @@ section,
 }
 
 @media (max-width: 320px) {
+   
   .hero h1 {
     font-size: 1rem;
     white-space: nowrap;
@@ -868,9 +988,11 @@ section,
   }
 }
 
+
 /* ============================================
   ABOUT SECTION (Homepage)
    ============================================ */
+
 .about-section {
   padding: var(--space-xl) 0;
   margin: 0;
@@ -907,6 +1029,7 @@ section,
 }
 
 /* ----- KPI Cards ----- */
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -941,7 +1064,9 @@ section,
 }
 
 /* ----- About: Responsive ----- */
+
 @media (max-width: 992px) {
+   
   .kpi-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
@@ -949,6 +1074,7 @@ section,
 }
 
 @media (max-width: 768px) {
+   
   .about-header {
     flex-direction: column;
     text-align: center;
@@ -980,6 +1106,7 @@ section,
 }
 
 @media (max-width: 400px) {
+   
   .about-content {
     padding: 0 var(--space-md);
   }
@@ -997,8 +1124,6 @@ section,
     font-size: 0.8rem;
   }
 }
-
-
 
 
 /* ============================================
@@ -1032,6 +1157,7 @@ section,
 }
 
 /* ----- Left Column: Icon ----- */
+
 .principle-icon {
   display: flex;
   align-items: center;
@@ -1048,6 +1174,7 @@ section,
 }
 
 /* ----- Right Column: Content ----- */
+
 .principle-content {
   padding: var(--space-md) var(--space-md) var(--space-md) 0;
   display: flex;
@@ -1072,7 +1199,9 @@ section,
 }
 
 /* ----- Principles: Responsive ----- */
+
 @media (max-width: 768px) {
+   
   .principles-grid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -1116,6 +1245,7 @@ section,
 }
 
 @media (max-width: 400px) {
+   
   .principles-grid {
     gap: var(--space-sm);
   }
@@ -1154,6 +1284,7 @@ section,
 }
 
 /* ----- Each Row ----- */
+
 .whatido-row {
   display: flex;
   gap: var(--space-lg);
@@ -1166,6 +1297,7 @@ section,
 }
 
 /* ----- Left Column (60%) ----- */
+
 .whatido-left {
   flex: 0 0 60%;
   display: flex;
@@ -1175,6 +1307,7 @@ section,
 }
 
 /* Header: Icon + Title */
+
 .whatido-header {
   display: flex;
   align-items: center;
@@ -1195,6 +1328,7 @@ section,
 }
 
 /* Divider: Thick green line fading to right */
+
 .whatido-divider {
   width: 100%;
   height: 6px;
@@ -1204,6 +1338,7 @@ section,
 }
 
 /* Paragraph text */
+
 .whatido-text {
   font-size: 1rem;
   line-height: 1.7;
@@ -1213,6 +1348,7 @@ section,
 }
 
 /* Bullet points with caret-right */
+
 .whatido-bullets {
   list-style: none;
   padding: 0;
@@ -1239,6 +1375,7 @@ section,
 }
 
 /* Button: Right-aligned within left column */
+
 .whatido-btn {
   display: inline-flex;
   align-items: center;
@@ -1279,6 +1416,7 @@ section,
 }
 
 /* ----- Right Column (30%) ----- */
+
 .whatido-right {
   flex: 0 0 30%;
   display: flex;
@@ -1324,8 +1462,8 @@ section,
 
 /*   WHAT I DO - RESPONSIVE */
 
-/* ----- Tablets (max-width: 992px) ----- */
 @media (max-width: 992px) {
+   
   .whatido-left {
     flex: 0 0 55%;
     padding-right: var(--space-md);
@@ -1344,9 +1482,8 @@ section,
   }
 }
 
-/* ----- Phones (max-width: 768px) ----- */
-
 @media (max-width: 768px) {
+   
   .whatido-container {
     gap: var(--space-lg);
   }
@@ -1397,9 +1534,8 @@ section,
   }
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
-
 @media (max-width: 400px) {
+   
   .whatido-row {
     padding: var(--space-sm);
   }
@@ -1466,6 +1602,7 @@ section,
 }
 
 /* ----- Left: Square Icon ----- */
+
 .explore-icon {
   width: 48px;
   height: 48px;
@@ -1484,6 +1621,7 @@ section,
 }
 
 /* ----- Middle: Title ----- */
+
 .explore-title {
   font-size: 1rem;
   font-weight: 500;
@@ -1493,6 +1631,7 @@ section,
 }
 
 /* ----- Right: Arrow ----- */
+
 .explore-arrow {
   font-size: 1rem;
   color: var(--dark-color);
@@ -1507,9 +1646,8 @@ section,
   color: var(--accent-color);
 }
 
-/*    EXPLORE THE SITE - RESPONSIVE */
+/*  -----  EXPLORE THE SITE - RESPONSIVE ----- */
 
-/* ----- Tablets (max-width: 992px) ----- */
 @media (max-width: 992px) {
   .explore-grid {
     gap: var(--space-sm);
@@ -1536,7 +1674,9 @@ section,
 }
 
 /* ----- Phones (max-width: 768px) ----- */
+
 @media (max-width: 768px) {
+   
   .explore-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -1569,6 +1709,7 @@ section,
 /* ----- Very Small Phones (max-width: 400px) ----- */
 
 @media (max-width: 400px) {
+   
   .explore-card {
     padding: var(--space-xs) var(--space-sm);
     min-height: 48px;
@@ -1640,6 +1781,7 @@ section,
 /* ----- Closing CTA: Responsive ----- */
 
 @media (max-width: 768px) {
+   
   .closing-cta {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
@@ -1654,6 +1796,7 @@ section,
 }
 
 @media (max-width: 400px) {
+   
   .cta-question {
     font-size: 1rem;
   }
@@ -1665,88 +1808,9 @@ section,
 
 
 /* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-.text-center { text-align: center; }
-
-.mt-xs { margin-top: var(--space-xs); }
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-
-.mb-xs { margin-bottom: var(--space-xs); }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-
-.p-xs { padding: var(--space-xs); }
-.p-sm { padding: var(--space-sm); }
-.p-md { padding: var(--space-md); }
-.p-lg { padding: var(--space-lg); }
-.p-xl { padding: var(--space-xl); }
-
-
-/* ============================================
-  RESPONSIVE BREAKPOINTS (Global)
-   ============================================ */
-
-/* ----- Tablets & Small Laptops (max-width: 992px) ----- */
-@media (max-width: 992px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ----- Phones (max-width: 768px) ----- */
-@media (max-width: 768px) {
-  body {
-    padding-top: 75px;
-  }
-  
-  .container {
-    padding: 0 var(--space-md);
-  }
-  
-  .grid-2,
-  .grid-3,
-  .grid-4
-   {
-    grid-template-columns: 1fr;
-  }
-  
-  section,
-  .section,
-  .hero,
-  .about-section {
-    padding: var(--space-lg) 0;
-  }
-  
-  .section-title {
-    font-size: 1.6rem;
-    margin: var(--space-xl) 0 var(--space-md) 0;
-  }
-  
-  .card,
-  .card-static,
-  .action-card {
-    padding: var(--space-md);
-  }
-}
-
-/* ----- Very Small Phones (max-width: 400px) ----- */
-@media (max-width: 400px) {
-  .section-title {
-    font-size: 1.3rem;
-  }
-}
-
-
-/* ============================================
   BACK-TO-TOP BUTTON
    ============================================ */
+
 .back-to-top {
   position: fixed;
   bottom: var(--space-lg);
@@ -1782,6 +1846,7 @@ section,
 /* ----- Back-to-Top: Responsive ----- */
 
 @media (max-width: 768px) {
+   
   .back-to-top {
     width: 40px;
     height: 40px;
@@ -1792,6 +1857,7 @@ section,
 }
 
 @media (max-width: 400px) {
+   
   .back-to-top {
     width: 36px;
     height: 36px;
@@ -1800,9 +1866,6 @@ section,
     right: var(--space-sm);
   }
 }
-
-
-
 
 /* ============================================
 404 PAGE - CUSTOM STYLES
@@ -1881,6 +1944,7 @@ section,
         /* ----- Responsive ----- */
 
         @media (max-width: 768px) {
+           
             .error-number {
                 font-size: 5rem;
             }
@@ -1901,6 +1965,7 @@ section,
         }
 
         @media (max-width: 400px) {
+           
             .error-number {
                 font-size: 4rem;
             }
@@ -1913,10 +1978,6 @@ section,
                 font-size: 0.9rem;
             }
         }
-   
-
-
-
 
 
 /* ============================================
@@ -1942,6 +2003,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Publication List ----- */
+
 .publication-list {
   display: flex;
   flex-direction: column;
@@ -1966,6 +2028,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Title ----- */
+
 .publication-title {
   font-weight: 600;
   font-size: 1.1rem;
@@ -1984,6 +2047,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Year ----- */
+
 .publication-year {
   font-size: 0.9rem;
   color: var(--dark-color);
@@ -1992,6 +2056,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Authorship Tag ----- */
+
 .authorship-tag {
   display: inline-block;
   font-size: 0.75rem;
@@ -2019,6 +2084,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Links (Pills with distinct border colors) ----- */
+
 .publication-links {
   display: flex;
   gap: var(--space-sm);
@@ -2045,6 +2111,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- PubMed: Blue border ----- */
+
 .pubmed-link {
   border-color: #2c7be5;
 }
@@ -2056,6 +2123,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Journal: Green border ----- */
+
 .journal-link {
   border-color: #28a745;
 }
@@ -2067,6 +2135,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog: Orange border ----- */
+
 .blog-link {
   border-color: #fd7e14;
 }
@@ -2078,6 +2147,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Summary (Truncated) ----- */
+
 .publication-summary {
   font-size: 0.95rem;
   color: var(--dark-color);
@@ -2089,7 +2159,9 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Publications: Responsive ----- */
+
 @media (max-width: 768px) {
+   
  .page-header-wrapper-simple {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
@@ -2117,6 +2189,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
   .page-header-title-simple {
     font-size: 1.6rem;
   }
@@ -2158,6 +2231,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Responsive: Separator ----- */
+
 @media (max-width: 768px) {
   .publication-separator {
     gap: var(--space-sm);
@@ -2171,6 +2245,7 @@ PUBLICATIONS PAGE
 
 
 /* ----- See More Button ----- */
+
 .see-more-btn {
   display: inline-flex;
   align-items: center;
@@ -2202,6 +2277,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Responsive: Separator ----- */
+
 @media (max-width: 768px) {
   
   .see-more-btn {
@@ -2212,10 +2288,11 @@ PUBLICATIONS PAGE
 
 
 /* ============================================
-   18. BLOG PAGE
+   BLOG PAGE (main blog page)
    ============================================ */
 
 /* ----- Blog List ----- */
+
 .blog-list {
   display: flex;
   flex-direction: column;
@@ -2224,6 +2301,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Card (with green left border) ----- */
+
 .blog-card {
   background: var(--white-color);
   border-radius: var(--radius-md);
@@ -2257,6 +2335,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Short Title ----- */
+
 .blog-short-title {
   font-size: 0.95rem;
   color: var(--dark-color);
@@ -2265,6 +2344,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Meta (Date + Reading Time) ----- */
+
 .blog-meta {
   display: flex;
   gap: var(--space-md);
@@ -2288,6 +2368,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Categories / Tags ----- */
+
 .blog-tags {
   display: flex;
   gap: var(--space-xs);
@@ -2308,6 +2389,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Summary ----- */
+
 .blog-summary {
   font-size: 0.95rem;
   color: var(--dark-color);
@@ -2317,6 +2399,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Read More Link ----- */
+
 .blog-read-more {
   text-align: right;
 }
@@ -2345,7 +2428,9 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog: Responsive ----- */
+
 @media (max-width: 768px) {
+   
   .blog-card {
     padding: var(--space-md);
   }
@@ -2369,6 +2454,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
   .blog-card {
     padding: var(--space-sm);
   }
@@ -2383,10 +2469,10 @@ PUBLICATIONS PAGE
 }
 
 
-
 /* ============================================
    CENTRAL SEARCH MODAL
    ============================================ */
+
 
 /* ----- Overlay ----- */
 
@@ -2434,6 +2520,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Search Input Row ----- */
+
 .search-input-row {
   display: flex;
   align-items: center;
@@ -2482,6 +2569,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Autocomplete Dropdown ----- */
+
 .search-dropdown {
   max-height: 260px;
   overflow-y: auto;
@@ -2531,6 +2619,7 @@ PUBLICATIONS PAGE
 }
 
 /* Source label colors */
+
 .source-publication {
   background: rgba(44, 123, 229, 0.12);
   color: #2c7be5;
@@ -2580,11 +2669,14 @@ PUBLICATIONS PAGE
   background: rgba(0, 0, 0, 0.25);
 }
 
+
 /* ============================================
    SEARCH RESULTS PAGE
    ============================================ */
 
+
 /* ----- Results Header ----- */
+
 .search-results-header {
   padding: var(--space-xl) 0 var(--space-lg) 0;
 }
@@ -2603,6 +2695,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Results List ----- */
+
 .search-results-list {
   display: flex;
   flex-direction: column;
@@ -2611,6 +2704,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Result Card ----- */
+
 .search-result-card {
   display: block;
   text-decoration: none;
@@ -2653,6 +2747,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter Buttons on Search Page ----- */
+
 .search-filters {
   display: flex;
   gap: var(--space-sm);
@@ -2685,6 +2780,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Recent Searches ----- */
+
 .search-recent {
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
@@ -2739,6 +2835,7 @@ PUBLICATIONS PAGE
 /* ----- Responsive ----- */
 
 @media (max-width: 768px) {
+   
   .search-overlay {
     padding-top: 10vh;
   }
@@ -2783,6 +2880,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
   .search-overlay {
     padding-top: 8vh;
   }
@@ -2815,7 +2913,9 @@ PUBLICATIONS PAGE
    PUBLICATIONS - FILTER/SORT CONTROLS
    ============================================ */
 
+
 /* ----- Sticky Controls Bar ----- */
+
 .publications-controls {
   position: sticky;
   top: 85px; /* Default for desktop */
@@ -2848,6 +2948,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Filter wrapper (keeps button above overlay) ----- */
+
 .filter-wrapper {
   position: relative;
   z-index: 9998;
@@ -3107,11 +3208,13 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Utility: dropdown wrapper for positioning ----- */
+
 .dropdown-wrapper {
   position: relative;
 }
 
 /* ----- Banner (single result view) ----- */
+
 .publications-banner {
   background: rgba(59, 130, 246, 0.06);
   border: 1px solid rgba(59, 130, 246, 0.15);
@@ -3162,6 +3265,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Status sentence & buttons (existing styles remain) ----- */
+
 .controls-status {
   font-size: 0.9rem;
   color: var(--dark-color);
@@ -3249,7 +3353,9 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Responsive ----- */
+
 @media (max-width: 768px) {
+   
   .publications-controls {
     top: 60px;
     padding: var(--space-xs) 0;
@@ -3297,6 +3403,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
   .publications-controls {
     top: 60px;
   }
@@ -3318,11 +3425,14 @@ PUBLICATIONS PAGE
   }
 }
 
+
 /* ============================================
    BLOG PAGE - FILTER/SORT CONTROLS
    ============================================ */
 
+
 /* ----- Sticky Controls Bar (Blog version) ----- */
+
 .blog-controls {
   position: sticky;
   top: 85px;
@@ -3337,8 +3447,6 @@ PUBLICATIONS PAGE
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
-
-
 
 /* ----- Blog List ----- */
 
@@ -3366,6 +3474,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Title ----- */
+
 .blog-title {
   font-weight: 600;
   font-size: 1.1rem;
@@ -3384,6 +3493,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Short Title ----- */
+
 .blog-short-title {
   font-size: 0.95rem;
   color: var(--dark-color);
@@ -3392,6 +3502,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Meta (Date + Reading Time) ----- */
+
 .blog-meta {
   display: flex;
   gap: var(--space-md);
@@ -3415,6 +3526,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Categories / Tags ----- */
+
 .blog-tags {
   display: flex;
   gap: var(--space-xs);
@@ -3445,6 +3557,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Blog Read More Link ----- */
+
 .blog-read-more {
   text-align: right;
 }
@@ -3453,6 +3566,7 @@ PUBLICATIONS PAGE
 /* ============================================
    CONTACT PAGE
    ============================================ */
+
 
 /* ----- Intro Paragraph ----- */
 
@@ -3733,10 +3847,10 @@ PUBLICATIONS PAGE
   box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
 }
 
-/*   CONTACT PAGE - RESPONSIVE */
+/*  ----- CONTACT PAGE - RESPONSIVE  -----  */
 
-/* ----- Tablets (max-width: 992px) ----- */
 @media (max-width: 992px) {
+   
   .contact-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -3749,9 +3863,8 @@ PUBLICATIONS PAGE
   }
 }
 
-/* ----- Phones (max-width: 768px) ----- */
-
 @media (max-width: 768px) {
+   
   .contact-intro {
     font-size: 1rem;
     padding: 0 var(--space-sm);
@@ -3799,9 +3912,8 @@ PUBLICATIONS PAGE
   }
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
-
 @media (max-width: 400px) {
+   
   .contact-form-card {
     padding: var(--space-md);
   }
@@ -3821,6 +3933,7 @@ PUBLICATIONS PAGE
     padding: var(--space-sm);
   }
 }
+
 .blog-read-more-link {
   display: inline-flex;
   align-items: center;
@@ -3944,6 +4057,7 @@ PUBLICATIONS PAGE
 /* ----- Blog Controls Responsive ----- */
 
 @media (max-width: 768px) {
+   
   .blog-controls {
     top: 60px;
     padding: var(--space-xs) 0;
@@ -3995,6 +4109,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
   .blog-controls {
     top: 60px;
   }
@@ -4020,6 +4135,7 @@ PUBLICATIONS PAGE
 /* ============================================
    TOC (left side full style)
    ============================================ */
+
 
 /* ----- TOC Layout ----- */
 
