@@ -4032,18 +4032,25 @@ PUBLICATIONS PAGE
     padding-right: var(--space-md);
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: thin;
-     background: var(--bg-color);
+    background: var(--bg-color);
+    contain: layout paint;
 }
 
 .blog-toc-column::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
 }
 .blog-toc-column::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    border-radius: 999px;
 }
+
+.blog-toc-column:hover::-webkit-scrollbar-thumb {
+background: rgba(0, 0, 0, 0.28);
+}
+
 .blog-toc-column::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 999px;
 }
 
 .toc-heading {
@@ -4054,22 +4061,10 @@ PUBLICATIONS PAGE
     color: var(--dark-color);
     opacity: 0.4;
     margin-bottom: var(--space-sm);
-    position: sticky;
-    top: 0;
-    background: var(--bg-color) !important; /* Ensure it's solid */
-    padding: var(--space-xs) 0;
-    z-index: 15; /* Higher than content */
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: var(--space-xs);
-}
-
-.toc-heading::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: var(--accent-color);
-    width: 40px;
-    margin-top: var(--space-xs);
+    position: relative;
+    background: var(--bg-color);
+    padding: 0 0 var(--space-sm) 0;
+    z-index: 20;
 }
 
 .toc-list {
