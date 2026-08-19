@@ -4026,7 +4026,7 @@ PUBLICATIONS PAGE
 .blog-toc-column {
     flex: 0 0 280px;
     position: sticky;
-    top: 80px;
+    top: 100px;
     align-self: flex-start;
     max-height: calc(100vh - 160px);
     overflow-y: auto;
@@ -4034,8 +4034,6 @@ PUBLICATIONS PAGE
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: auto;
     background: var(--bg-color);
-    contain: layout paint;
-    isolation: isolate;
 }
 
 .blog-toc-column::-webkit-scrollbar {
@@ -4956,8 +4954,4 @@ background: rgba(0, 0, 0, 0.28);
     .callout {
         padding: var(--space-md);
     }
-}
-
-#toc-container {
-    margin-top: 30px !important;
 }
