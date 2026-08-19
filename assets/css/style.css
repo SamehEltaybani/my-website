@@ -4776,11 +4776,11 @@ background: rgba(0, 0, 0, 0.28);
 }
 .mobile-toc-panel {
     position: fixed;
-    top: 65px;
+    top: 62px;
     left: 0;
     width: 85%;
     max-width: 340px;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 62px);
     background: var(--bg-color);
     z-index: 9999;
     overflow: hidden;
