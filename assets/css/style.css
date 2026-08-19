@@ -4017,8 +4017,8 @@ PUBLICATIONS PAGE
 .blog-article-wrapper {
     display: flex;
     gap: var(--space-xl);
-    margin-top: var(--space-md);
-    padding-top: 20px;
+    margin-top: 0;
+    padding-top: calc(var(--space-md) + 20px);
 }
 
 /* ----- TOC Column (Left) ----- */
@@ -4034,6 +4034,7 @@ PUBLICATIONS PAGE
     scrollbar-width: auto;
     background: var(--bg-color);
     contain: layout paint;
+    isolation: isolate;
 }
 
 .blog-toc-column::-webkit-scrollbar {
@@ -4064,14 +4065,15 @@ background: rgba(0, 0, 0, 0.28);
     letter-spacing: 0.08em;
     color: var(--dark-color);
     opacity: 0.4;
-    top: 0;
-    margin-bottom: var(--space-sm);
     position: sticky;
+    top: 0;
     background: var(--bg-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding: 0 0 var(--space-sm) 0;
-    z-index: 50;
+    z-index: 999;
+    margin: 0;
+    padding: 0.75rem 0 0.75rem 0;
+    border-bottom: 6px solid var(--accent-color);
 }
+
 
 .toc-list {
     list-style: none;
@@ -4793,7 +4795,7 @@ background: rgba(0, 0, 0, 0.28);
     position: relative !important;
     top: auto !important;
     margin-top: var(--space-lg) !important;
-    border-bottom: 2px solid var(--accent-color) !important;
+    border-bottom: 4px solid var(--accent-color) !important;
     width: 100% !important;
 }
 
