@@ -288,16 +288,18 @@ function toggleSubHeadings(parentId, toggleButton) {
                 link.classList.add('active');
             });
 
-            const parentLi =
-                parentLink ?
-                parentLink.closest('.toc-h2') :
-                null;
+            const firstParentLink = parentLinks[0];
 
+            const parentLi =
+                firstParentLink ?
+                firstParentLink.closest('.toc-h2') :
+                null;
+            
             const subList =
                 parentLi ?
                 parentLi.querySelector('.toc-sub-list') :
                 null;
-
+            
             const toggleBtn =
                 parentLi ?
                 parentLi.querySelector('.toc-toggle') :
