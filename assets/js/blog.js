@@ -1,9 +1,9 @@
 /**
  * ============================================
  * BLOG.JS – Load, Render, Filter, Sort
+ This is for blog.html 9the main blog page, not each blog article)
  * ============================================
- * Adapted from publications.js – Filter by Category only
- */
+  */
 
 (function() {
     'use strict';
