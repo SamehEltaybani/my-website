@@ -4789,7 +4789,7 @@ background: rgba(0, 0, 0, 0.28);
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 4px 0 40px rgba(0, 0, 0, 0.1);
-}
+   }
 
 .mobile-toc-panel.open {
     transform: translateX(0);
@@ -4847,6 +4847,16 @@ background: rgba(0, 0, 0, 0.28);
     box-shadow: 0 8px 12px var(--bg-color);
 }
 
+.mobile-toc-panel::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background: var(--bg-color);
+    pointer-events: none;
+}
 
 /* ============================================
    RESPONSIVE
