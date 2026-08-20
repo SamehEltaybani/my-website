@@ -2146,18 +2146,6 @@ PUBLICATIONS PAGE
   border-color: #fd7e14;
 }
 
-/* ----- Summary (Truncated) ----- */
-
-.publication-summary {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.75;
-  line-height: 1.6;
-  margin-top: var(--space-sm);
-  padding-top: var(--space-sm);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-}
-
 /* ----- Publications: Responsive ----- */
 
 @media (max-width: 768px) {
@@ -2386,16 +2374,6 @@ PUBLICATIONS PAGE
   color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-}
-
-/* ----- Summary ----- */
-
-.blog-summary {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.75;
-  line-height: 1.6;
-  margin-bottom: var(--space-sm);
 }
 
 /* ----- Read More Link ----- */
