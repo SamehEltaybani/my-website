@@ -301,7 +301,7 @@
     // Year
     html += '<div class="filter-dropdown-section">';
     html += '<div class="filter-dropdown-section-title">Year</div>';
-    html += '<div class="filter-dropdown-scroll">';
+    html += '<div class="filter-dropdown-scroll" data-section="year">';
     years.forEach(function(year) {
         const checked = filters.year[year] ? 'checked' : '';
         html += '<div class="filter-dropdown-item">';
