@@ -651,8 +651,32 @@
                 });
             });
 
+
             // ============================================
-            // 3. TABS
+            // 3. STACKED ACCORDION
+            // ============================================
+            
+            const stackedHeaders = document.querySelectorAll('.stacked-accordion-header');
+            stackedHeaders.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    const body = this.nextElementSibling;
+                    const toggle = this.querySelector('.stacked-accordion-toggle');
+            
+                    if (body.classList.contains('open')) {
+                        body.classList.remove('open');
+                        toggle.textContent = '+';
+                        this.classList.remove('active');
+                    } else {
+                        body.classList.add('open');
+                        toggle.textContent = '−';
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            
+            // ============================================
+            // 4. TABS
             // ============================================
           
             const tabBtns = document.querySelectorAll('.portfolio-tabs-btn');
