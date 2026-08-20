@@ -5584,6 +5584,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Accordion ----- */
+
 .portfolio-accordion {
     padding: var(--space-xl) 0;
 }
@@ -5642,7 +5643,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-accordion-header.active i {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
 }
 
 .portfolio-accordion-body {
@@ -5962,6 +5963,7 @@ BLOG-Article (right side content)
     border: 1px solid rgba(0, 0, 0, 0.02);
     transition: background 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
+    list-style: none;
 }
 
 .portfolio-resources ul li:hover {
@@ -5973,6 +5975,8 @@ BLOG-Article (right side content)
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    flex: 1;
+    min-width: 0;
 }
 
 .portfolio-resources ul li i {
@@ -5994,11 +5998,11 @@ BLOG-Article (right side content)
 }
 
 .portfolio-resources ul li .resource-arrow {
+    flex-shrink: 0;
     color: var(--dark-color);
     opacity: 0.2;
     font-size: 0.8rem;
     transition: opacity 0.2s ease, transform 0.2s ease;
-    flex-shrink: 0;
 }
 
 .portfolio-resources ul li:hover .resource-arrow {
