@@ -1,6 +1,7 @@
 /**
  * ============================================
  * PUBLICATIONS.JS – Load, Render, Filter, Sort
+ This is for the list of publications (publications.html)
  * ============================================
  */
 
@@ -81,10 +82,7 @@
         if (hasLink) {
             html += linksHtml;
         }
-        if (pub.summary) {
-            const truncated = truncateSummary(pub.summary, 200);
-            html += '<div class="publication-summary">' + window.escapeHTML(truncated) + '</div>';
-        }
+        
         return html;
     }
 
