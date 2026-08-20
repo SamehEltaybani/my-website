@@ -5932,6 +5932,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Resource Links ----- */
+
 .portfolio-resources {
     padding: var(--space-xl) 0;
 }
@@ -5963,12 +5964,8 @@ BLOG-Article (right side content)
     border: 1px solid rgba(0, 0, 0, 0.02);
     transition: background 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
-    list-style: none;
-}
-
-.portfolio-resources ul li:hover {
-    background: rgba(0, 173, 181, 0.04);
-    border-color: var(--accent-color);
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .portfolio-resources ul li .resource-left {
@@ -5977,24 +5974,24 @@ BLOG-Article (right side content)
     gap: var(--space-sm);
     flex: 1;
     min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.portfolio-resources ul li i {
+.portfolio-resources ul li .resource-left i {
     color: var(--accent-color);
     font-size: 0.9rem;
     flex-shrink: 0;
 }
 
-.portfolio-resources ul li a {
+.portfolio-resources ul li .resource-left a {
     color: var(--dark-color);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s ease;
-    flex: 1;
-}
-
-.portfolio-resources ul li:hover a {
-    color: var(--accent-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .portfolio-resources ul li .resource-arrow {
@@ -6003,6 +6000,16 @@ BLOG-Article (right side content)
     opacity: 0.2;
     font-size: 0.8rem;
     transition: opacity 0.2s ease, transform 0.2s ease;
+    margin-left: auto;
+}
+
+.portfolio-resources ul li:hover {
+    background: rgba(0, 173, 181, 0.04);
+    border-color: var(--accent-color);
+}
+
+.portfolio-resources ul li:hover a {
+    color: var(--accent-color);
 }
 
 .portfolio-resources ul li:hover .resource-arrow {
