@@ -2038,6 +2038,7 @@ PUBLICATIONS PAGE
 }
 
 /* ----- Journal (Italic, below title) ----- */
+
 .publication-journal {
   font-size: 0.95rem;
   font-style: italic;
@@ -3089,16 +3090,16 @@ PUBLICATIONS PAGE
   flex: 1;
 }
 
-/* ----- Year section: two columns ----- */
+/* ----- Year section: two columns (using data-section attribute) ----- */
 
-.filter-dropdown-section:first-child .filter-dropdown-scroll {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 var(--space-sm);
+.filter-dropdown-scroll[data-section="year"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 var(--space-sm) !important;
 }
 
-.filter-dropdown-section:first-child .filter-dropdown-scroll .filter-dropdown-item {
-    padding: var(--space-xs) 0;
+.filter-dropdown-scroll[data-section="year"] .filter-dropdown-item {
+    padding: var(--space-xs) 0 !important;
 }
 
 /* ----- Filter dropdown actions (sticky) ----- */
@@ -3405,7 +3406,7 @@ PUBLICATIONS PAGE
     }
 
     .filter-dropdown-scroll {
-        max-height: 120px !important; /* Reduced from 150px or whatever */
+        max-height: 120px !important; 
     }
 
     .filter-dropdown-section:first-child .filter-dropdown-scroll {
@@ -3423,6 +3424,11 @@ PUBLICATIONS PAGE
 
     .filter-dropdown-actions {
         padding-top: var(--space-sm) !important;
+    }
+
+   .filter-dropdown-scroll[data-section="year"] {
+        grid-template-columns: 1fr 1fr !important;
+        max-height: 100px !important;
     }
 }
 
