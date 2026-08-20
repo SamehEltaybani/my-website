@@ -5522,7 +5522,7 @@ BLOG-Article (right side content)
 
 .portfolio-bullet-list ul {
     list-style: none;
-    padding: 0;
+    padding-left: var(--space-lg);
     margin: 0;
 }
 
@@ -5545,6 +5545,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Numbered List ----- */
+
 .portfolio-numbered-list {
     padding: var(--space-lg) 0;
 }
