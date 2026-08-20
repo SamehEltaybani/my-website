@@ -6123,6 +6123,156 @@ BLOG-Article (right side content)
     transform: translateX(4px);
 }
 
+
+/* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
+
+.portfolio-stacked-accordion {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-stacked-accordion h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: var(--space-lg);
+}
+
+.stacked-accordion-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--white-color);
+}
+
+/* ----- Each Row ----- */
+.stacked-accordion-item {
+    border-bottom: 1px solid rgba(0, 173, 181, 0.15);
+}
+
+.stacked-accordion-item:last-child {
+    border-bottom: none;
+}
+
+/* ----- Header ----- */
+
+.stacked-accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease;
+}
+
+.stacked-accordion-header:hover {
+    background: rgba(0, 173, 181, 0.04);
+}
+
+.stacked-accordion-header.active {
+    background: rgba(0, 173, 181, 0.06);
+}
+
+/* ----- Icon in Circle ----- */
+
+.stacked-accordion-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: rgba(0, 173, 181, 0.08);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.stacked-accordion-header.active .stacked-accordion-icon-circle {
+    background: var(--accent-color);
+    color: var(--white-color);
+}
+
+/* ----- Title ----- */
+
+.stacked-accordion-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ----- Toggle Icon (+ / -) ----- */
+
+.stacked-accordion-toggle {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--dark-color);
+    opacity: 0.3;
+    transition: opacity 0.25s ease, transform 0.3s ease;
+    width: 24px;
+    text-align: center;
+}
+
+.stacked-accordion-header.active .stacked-accordion-toggle {
+    opacity: 0.8;
+    transform: rotate(180deg);
+}
+
+.stacked-accordion-header:hover .stacked-accordion-toggle {
+    opacity: 0.6;
+}
+
+/* ----- Body (collapsible content) ----- */
+.stacked-accordion-body {
+    display: none;
+    padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
+}
+
+.stacked-accordion-body.open {
+    display: block;
+}
+
+.stacked-accordion-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.85;
+    margin-bottom: var(--space-sm);
+}
+
+.stacked-accordion-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stacked-accordion-body ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.75;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.stacked-accordion-body ul li i {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+
 /* ============================================
    PORTFOLIO - RESPONSIVE
    ============================================ */
@@ -6271,5 +6421,50 @@ BLOG-Article (right side content)
 
     .portfolio-quote blockquote {
         padding: var(--space-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .stacked-accordion-header {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.95rem;
+        gap: var(--space-sm);
+    }
+
+    .stacked-accordion-icon-circle {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 0.9rem;
+    }
+
+    .stacked-accordion-body {
+        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+    }
+
+    .stacked-accordion-toggle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .stacked-accordion-header {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.85rem;
+    }
+
+    .stacked-accordion-icon-circle {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 0.8rem;
+    }
+
+    .stacked-accordion-body {
+        padding: 0 var(--space-sm) var(--space-xs) var(--space-sm);
+    }
+
+    .stacked-accordion-body p {
+        font-size: 0.9rem;
     }
 }
