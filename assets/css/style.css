@@ -2983,7 +2983,7 @@ PUBLICATIONS PAGE
   padding: var(--space-md);
   min-width: 280px;
   max-width: 320px;
-  max-height: 70vh; /* Use the same value */
+  max-height: 70vh; 
   z-index: 9999;
   overflow: hidden;
 }
@@ -3087,6 +3087,18 @@ PUBLICATIONS PAGE
 .filter-dropdown-item label {
   cursor: pointer;
   flex: 1;
+}
+
+/* ----- Year section: two columns ----- */
+
+.filter-dropdown-section:first-child .filter-dropdown-scroll {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--space-sm);
+}
+
+.filter-dropdown-section:first-child .filter-dropdown-scroll .filter-dropdown-item {
+    padding: var(--space-xs) 0;
 }
 
 /* ----- Filter dropdown actions (sticky) ----- */
@@ -3344,40 +3356,74 @@ PUBLICATIONS PAGE
     font-size: 0.75rem;
     white-space: normal;
   }
-  .control-btn {
+ 
+   .control-btn {
     padding: var(--space-xs) var(--space-sm);
     font-size: 0.75rem;
   }
-  .control-btn span {
+ 
+   .control-btn span {
     display: none;
   }
-  .control-btn i {
+ 
+   .control-btn i {
     font-size: 1rem;
   }
-  .control-btn .badge {
+  
+   .control-btn .badge {
     font-size: 0.5rem;
     padding: 0.02rem 0.35rem;
   }
-  .filter-dropdown {
+ 
+   .filter-dropdown {
     min-width: 240px;
     max-width: 280px;
     right: -10px;
     padding: var(--space-sm);
   }
-  .sort-dropdown {
+ 
+   .sort-dropdown {
     min-width: 150px;
     right: -10px;
   }
-  .publications-banner {
+ 
+   .publications-banner {
     padding: var(--space-sm) var(--space-md);
   }
-  .publications-banner-text {
+ 
+   .publications-banner-text {
     font-size: 0.85rem;
   }
-  .publications-banner-btn {
+
+   .publications-banner-btn {
     font-size: 0.8rem;
     padding: var(--space-xs) var(--space-md);
   }
+
+#filter-dropdown-container {
+        max-height: 60vh !important; /* Reduced from 70vh */
+    }
+
+    .filter-dropdown-scroll {
+        max-height: 120px !important; /* Reduced from 150px or whatever */
+    }
+
+    .filter-dropdown-section:first-child .filter-dropdown-scroll {
+        grid-template-columns: 1fr 1fr;
+        max-height: 80px !important;
+    }
+
+    #filter-dropdown-container {
+        padding: var(--space-sm) !important;
+    }
+
+    .filter-dropdown-section {
+        margin-bottom: var(--space-sm) !important;
+    }
+
+    .filter-dropdown-actions {
+        padding-top: var(--space-sm) !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -3385,22 +3431,38 @@ PUBLICATIONS PAGE
   .publications-controls {
     top: 60px;
   }
-  .controls-status {
+ 
+   .controls-status {
     font-size: 0.50rem;
   }
-  .control-btn {
+
+   .control-btn {
     padding: var(--space-xs) var(--space-xs);
     font-size: 0.7rem;
   }
-  .filter-dropdown {
+  
+   .filter-dropdown {
     min-width: 200px;
     max-width: 240px;
     right: -5px;
   }
-  .sort-dropdown {
+
+   .sort-dropdown {
     min-width: 130px;
     right: -5px;
   }
+
+    #filter-dropdown-container {
+        max-height: 50vh !important;
+    }
+
+    .filter-dropdown-scroll {
+        max-height: 100px !important;
+    }
+
+    .filter-dropdown-section:first-child .filter-dropdown-scroll {
+        max-height: 70px !important;
+    }
 }
 
 
