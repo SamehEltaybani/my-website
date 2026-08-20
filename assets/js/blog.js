@@ -1,7 +1,7 @@
 /**
  * ============================================
  * BLOG.JS – Load, Render, Filter, Sort
- This is for blog.html 9the main blog page, not each blog article)
+ This is for the list of blog articles (blog.html), not each blog article
  * ============================================
   */
 
@@ -81,12 +81,6 @@
             });
             tagsHtml += '</div>';
             html += tagsHtml;
-        }
-
-        // Summary (truncated to 200)
-        if (post.summary) {
-            const truncated = truncateSummary(post.summary, 200);
-            html += '<div class="blog-summary">' + window.escapeHTML(truncated) + '</div>';
         }
 
         // Read More link
