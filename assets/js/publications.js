@@ -39,20 +39,7 @@
 
     function createCardHTML(pub) {
         let html = '';
-        if (pub.title) {
-            html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
-        }
-        let journalYear = '';
-        if (pub.journal) {
-            journalYear += window.escapeHTML(pub.journal);
-        }
-        if (pub.year) {
-            if (journalYear) journalYear += ' ';
-            journalYear += '(' + window.escapeHTML(pub.year) + ')';
-        }
-        if (journalYear) {
-            html += '<div class="publication-journal">' + journalYear + '</div>';
-        }
+     
         if (pub.authorship) {
             let tagClass = 'authorship-tag';
             if (pub.authorship.toLowerCase().includes('first') || pub.authorship.toLowerCase().includes('corresponding')) {
@@ -64,6 +51,23 @@
             }
             html += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
         }
+     
+        if (pub.title) {
+            html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
+        }
+     
+        let journalYear = '';
+        if (pub.journal) {
+            journalYear += window.escapeHTML(pub.journal);
+        }
+        if (pub.year) {
+            if (journalYear) journalYear += ' ';
+            journalYear += '(' + window.escapeHTML(pub.year) + ')';
+        }
+        if (journalYear) {
+            html += '<div class="publication-journal">' + journalYear + '</div>';
+        }
+
         let linksHtml = '<div class="publication-links">';
         let hasLink = false;
         if (pub.pubmedLink) {
