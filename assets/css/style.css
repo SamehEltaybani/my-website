@@ -5356,6 +5356,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Image & Text Block (Left Image) ----- */
+
 .portfolio-image-text {
     padding: var(--space-lg) 0;
 }
@@ -5397,11 +5398,13 @@ BLOG-Article (right side content)
 }
 
 /* ----- Image & Text Block (Right Image) ----- */
+
 .portfolio-image-text-right .portfolio-image-text-wrapper {
     flex-direction: row-reverse;
 }
 
 /* ----- Image Credit ----- */
+
 .portfolio-image-credit {
     font-size: 0.7rem;
     color: var(--dark-color);
@@ -5505,6 +5508,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Bullet List ----- */
+
 .portfolio-bullet-list {
     padding: var(--space-lg) 0;
 }
@@ -5789,6 +5793,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Quote Block ----- */
+
 .portfolio-quote {
     padding: var(--space-xl) 0;
 }
@@ -5827,6 +5832,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Stats / Data Dashboard ----- */
+
 .portfolio-stats {
     padding: var(--space-xl) 0;
 }
@@ -6144,6 +6150,20 @@ BLOG-Article (right side content)
 
     .portfolio-hero-description {
         font-size: 1rem;
+    }
+
+   .portfolio-image-text-wrapper,
+    .portfolio-image-text-right .portfolio-image-text-wrapper {
+        flex-direction: column !important;
+    }
+
+    .portfolio-image-text-image {
+        width: 100% !important;
+        flex: 1 1 auto !important;
+    }
+
+    .portfolio-image-text-content {
+        width: 100% !important;
     }
 
     .portfolio-image-text-content h2 {
