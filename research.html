@@ -187,9 +187,9 @@
             </ul>
         </section>
 
-        <!-- ================================================================ -->
-        <!-- ELEMENT: PORTFOLIO NUMBERED LIST                               -->
-        <!-- ================================================================ -->
+<!-- ================================================================ -->
+<!-- ELEMENT: PORTFOLIO NUMBERED LIST                               -->
+<!-- ================================================================ -->
         
         <section class="portfolio-numbered-list">
             <h2>Research Process</h2>
@@ -200,68 +200,6 @@
                 <li>Interpret findings and translate them into actionable insights</li>
                 <li>Disseminate results through publications and presentations</li>
             </ol>
-        </section>
-
-        <!-- ================================================================ -->
-        <!-- ELEMENT: PORTFOLIO ACCORDION                                   -->
-        <!-- ================================================================ -->
-        
-        <section class="portfolio-accordion">
-            <h2>Research Projects</h2>
-
-            <div class="portfolio-accordion-item">
-                <button class="portfolio-accordion-header">
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <span>Project 1: Predictive Analytics in Neonatal Intensive Care</span>
-                </button>
-                <div class="portfolio-accordion-body">
-                    <p>
-                        This project explores the use of predictive analytics to identify neonates at risk of adverse
-                        outcomes in the NICU. Using machine learning models and electronic health record data, we aim to
-                        develop early warning systems that support clinical decision-making.
-                    </p>
-                    <ul>
-                        <li><i class="fa-solid fa-caret-right"></i> Collaborators: Department of Neonatology, Data Science Unit</li>
-                        <li><i class="fa-solid fa-caret-right"></i> Funded by: National Research Grant 2024</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="portfolio-accordion-item">
-                <button class="portfolio-accordion-header">
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <span>Project 2: Qualitative Meta-Synthesis on Health Equity</span>
-                </button>
-                <div class="portfolio-accordion-body">
-                    <p>
-                        A qualitative meta-synthesis exploring barriers and facilitators to health equity in underserved
-                        populations. This study synthesizes findings from over 50 qualitative studies to inform policy
-                        and practice.
-                    </p>
-                    <ul>
-                        <li><i class="fa-solid fa-caret-right"></i> Collaborators: Department of Public Health, Policy Unit</li>
-                        <li><i class="fa-solid fa-caret-right"></i> Funded by: Health Equity Foundation</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="portfolio-accordion-item">
-                <button class="portfolio-accordion-header">
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <span>Project 3: Clinical Data Dashboard for Intensive Care</span>
-                </button>
-                <div class="portfolio-accordion-body">
-                    <p>
-                        Developing a clinical data dashboard for real-time visualization of patient data in the intensive
-                        care unit. The dashboard integrates data from multiple sources to support clinical decision-making
-                        and improve patient safety.
-                    </p>
-                    <ul>
-                        <li><i class="fa-solid fa-caret-right"></i> Collaborators: ICU, Clinical Informatics Team</li>
-                        <li><i class="fa-solid fa-caret-right"></i> Funded by: Hospital Innovation Fund</li>
-                    </ul>
-                </div>
-            </div>
         </section>
 
 
@@ -700,10 +638,11 @@
         (function() {
             'use strict';
 
-            // ============================================
-            // 1. GLIGHTBOX INITIALIZATION
-            // ============================================
-          
+// ============================================
+// 1. GLIGHTBOX INITIALIZATION
+// ============================================
+
+            
             if (typeof GLightbox !== 'undefined') {
                 GLightbox({
                     selector: '.glightbox',
@@ -713,55 +652,33 @@
                 });
             }
 
-            // ============================================
-            // 2. ACCORDION
-            // ============================================
-          
-            const accordionHeaders = document.querySelectorAll('.portfolio-accordion-header');
-            accordionHeaders.forEach(function(header) {
-                header.addEventListener('click', function() {
-                    const body = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-
-                    if (body.classList.contains('open')) {
-                        body.classList.remove('open');
-                        icon.className = 'fa-solid fa-chevron-right';
-                        this.classList.remove('active');
-                    } else {
-                        body.classList.add('open');
-                        icon.className = 'fa-solid fa-chevron-down';
-                        this.classList.add('active');
-                    }
-                });
-            });
-
 
 // ============================================
 // 2. WIDE ACCORDION
 // ============================================
             
-const wideHeaders = document.querySelectorAll('.wide-accordion-header');
-wideHeaders.forEach(function(header) {
-    header.addEventListener('click', function() {
-        const body = this.nextElementSibling;
-        const toggle = this.querySelector('.wide-accordion-toggle i');
+        const wideHeaders = document.querySelectorAll('.wide-accordion-header');
+        wideHeaders.forEach(function(header) {
+            header.addEventListener('click', function() {
+                const body = this.nextElementSibling;
+                const toggle = this.querySelector('.wide-accordion-toggle i');
+        
+                if (body.classList.contains('open')) {
+                    body.classList.remove('open');
+                    toggle.className = 'fa-solid fa-circle-chevron-down';
+                    this.classList.remove('active');
+                } else {
+                    body.classList.add('open');
+                    toggle.className = 'fa-solid fa-circle-chevron-right';
+                    this.classList.add('active');
+                }
+            });
+        });
 
-        if (body.classList.contains('open')) {
-            body.classList.remove('open');
-            toggle.className = 'fa-solid fa-circle-chevron-down';
-            this.classList.remove('active');
-        } else {
-            body.classList.add('open');
-            toggle.className = 'fa-solid fa-circle-chevron-right';
-            this.classList.add('active');
-        }
-    });
-});
 
-
-            // ============================================
-            // 3. STACKED ACCORDION
-            // ============================================
+// ============================================
+// 3. STACKED ACCORDION
+// ============================================
             
             const stackedHeaders = document.querySelectorAll('.stacked-accordion-header');
             stackedHeaders.forEach(function(header) {
@@ -782,9 +699,9 @@ wideHeaders.forEach(function(header) {
             });
 
            
-            // ============================================
-            // 4. TABS
-            // ============================================
+// ============================================
+// 4. TABS
+// ============================================
           
             const tabBtns = document.querySelectorAll('.portfolio-tabs-btn');
             const tabPanels = document.querySelectorAll('.portfolio-tabs-panel');
@@ -807,7 +724,7 @@ wideHeaders.forEach(function(header) {
                 });
             });
 
-            console.log('✅ Research page ready.');
+console.log('✅ Research page ready.');
 
         })();
     </script>
