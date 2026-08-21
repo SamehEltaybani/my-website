@@ -26,8 +26,28 @@
 
 <body>
 
-    <!-- ===== MAIN CONTENT ===== -->
+    <!-- ===== MAIN WRAPPER ===== -->
     <div class="container">
+
+    <!-- ===== TWO-COLUMN LAYOUT ===== -->
+    <div class="page-layout">
+
+     <!-- ===== LEFT: TOC ===== -->
+        <aside class="toc-column">
+    <div class="toc-heading">
+        Table of Content
+    </div>
+    <nav id="toc-container">
+        <ul id="toc-list" class="toc-list"></ul>
+    </nav>
+        </aside>
+
+        
+      <!-- ===== RIGHT: CONTENT ===== -->
+         <main class="page-content-column">
+
+    <div id="page-content">
+
 
         <!-- ================================================================ -->
         <!-- ELEMENT: PORTFOLIO HERO / PAGE HEADER                           -->
@@ -602,7 +622,7 @@
         
       <section class="portfolio-cta">
             <div class="portfolio-cta-content">
-                <h2>Interested in Collaborating?</h2>
+                <h2 class="no-toc">Interested in Collaborating?</h2>
                 <p>
                     I am always open to new research collaborations and interdisciplinary projects.
                     If you share similar research interests, I would love to hear from you.
@@ -622,8 +642,47 @@
             </p>
         </div>
 
+</div> <!-- end #page-content -->
+</div> <!-- end .page-content-column -->
+</div> <!-- end .page-layout -->
+        
     </div><!-- end .container -->
 
+
+<button
+    id="mobile-toc-toggle"
+    class="mobile-toc-toggle"
+    aria-label="Open table of contents">
+    <i class="fa-solid fa-list"></i>
+</button>
+
+<div
+    id="mobile-toc-overlay"
+    class="mobile-toc-overlay">
+
+    <div
+        id="mobile-toc-panel"
+        class="mobile-toc-panel">
+
+        <button
+            id="mobile-toc-close"
+            class="mobile-toc-close"
+            aria-label="Close table of contents">
+            ×
+        </button>
+
+        <div class="toc-heading">
+            Table of Content
+        </div>
+
+        <ul
+            id="mobile-toc-list"
+            class="toc-list">
+        </ul>
+
+    </div>
+</div>
+    
     <!-- ===== JAVASCRIPT ===== -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="/my-website/assets/js/utils.js"></script>
@@ -631,6 +690,8 @@
     <script src="/my-website/assets/js/footer.js"></script>
     <script src="/my-website/assets/js/back-to-top.js"></script>
     <script src="/my-website/assets/js/search.js"></script>
+    <script src="/my-website/assets/js/toc.js"></script>
+
 
     <!-- ===== RESEARCH PAGE SCRIPTS ===== -->
     
