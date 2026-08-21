@@ -342,6 +342,90 @@
 
     </div>
 </section>
+
+
+        <!-- ================================================================ -->
+<!-- ELEMENT: PORTFOLIO WIDE ACCORDION                               -->
+<!-- ================================================================ -->
+<section class="portfolio-wide-accordion">
+    <h2>Research Themes</h2>
+
+    <div class="wide-accordion-wrapper">
+
+        <!-- Row 1 -->
+        <div class="wide-accordion-item">
+            <button class="wide-accordion-header">
+                <span class="wide-accordion-icon-circle">
+                    <i class="fa-solid fa-microscope"></i>
+                </span>
+                <span class="wide-accordion-title">Clinical Research</span>
+                <span class="wide-accordion-toggle">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </span>
+            </button>
+            <div class="wide-accordion-body">
+                <p>
+                    Clinical research focuses on improving patient outcomes through evidence-based interventions.
+                    Our work includes clinical trials, observational studies, and systematic reviews.
+                </p>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Clinical trial design</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Observational studies</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Systematic reviews and meta-analyses</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="wide-accordion-item">
+            <button class="wide-accordion-header">
+                <span class="wide-accordion-icon-circle">
+                    <i class="fa-solid fa-chart-bar"></i>
+                </span>
+                <span class="wide-accordion-title">Data Science</span>
+                <span class="wide-accordion-toggle">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </span>
+            </button>
+            <div class="wide-accordion-body">
+                <p>
+                    Data science research applies advanced statistical methods and machine learning to
+                    healthcare data. We develop predictive models, visualizations, and data-driven insights.
+                </p>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Machine learning models</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Predictive analytics</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Data visualization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="wide-accordion-item">
+            <button class="wide-accordion-header">
+                <span class="wide-accordion-icon-circle">
+                    <i class="fa-solid fa-people-group"></i>
+                </span>
+                <span class="wide-accordion-title">Health Policy</span>
+                <span class="wide-accordion-toggle">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </span>
+            </button>
+            <div class="wide-accordion-body">
+                <p>
+                    Health policy research examines how evidence can inform policy decisions and improve
+                    health outcomes at the population level. We focus on equity, access, and implementation.
+                </p>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Policy analysis</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Health equity research</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Implementation science</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
         
 
         <!-- ================================================================ -->
@@ -652,6 +736,29 @@
             });
 
 
+// ============================================
+// 2. WIDE ACCORDION
+// ============================================
+            
+const wideHeaders = document.querySelectorAll('.wide-accordion-header');
+wideHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+        const body = this.nextElementSibling;
+        const toggle = this.querySelector('.wide-accordion-toggle i');
+
+        if (body.classList.contains('open')) {
+            body.classList.remove('open');
+            toggle.className = 'fa-solid fa-circle-chevron-down';
+            this.classList.remove('active');
+        } else {
+            body.classList.add('open');
+            toggle.className = 'fa-solid fa-circle-chevron-right';
+            this.classList.add('active');
+        }
+    });
+});
+
+
             // ============================================
             // 3. STACKED ACCORDION
             // ============================================
@@ -674,7 +781,7 @@
                 });
             });
 
-            
+           
             // ============================================
             // 4. TABS
             // ============================================
