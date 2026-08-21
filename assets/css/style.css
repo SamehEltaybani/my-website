@@ -6468,3 +6468,210 @@ BLOG-Article (right side content)
         font-size: 0.9rem;
     }
 }
+
+
+/* ============================================
+   PORTFOLIO - WIDE ACCORDION
+   ============================================ */
+
+.portfolio-wide-accordion {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-wide-accordion h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: var(--space-lg);
+}
+
+.wide-accordion-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* ----- Each Row ----- */
+
+.wide-accordion-item {
+    background: var(--white-color);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wide-accordion-item:hover {
+    border-color: rgba(0, 173, 181, 0.15);
+}
+
+/* ----- Header ----- */
+
+.wide-accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-lg);
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease;
+}
+
+.wide-accordion-header:hover {
+    background: rgba(0, 173, 181, 0.03);
+}
+
+.wide-accordion-header.active {
+    background: rgba(0, 173, 181, 0.04);
+}
+
+/* ----- Icon in Circle ----- */
+
+.wide-accordion-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: rgba(0, 173, 181, 0.08);
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.wide-accordion-header.active .wide-accordion-icon-circle {
+    background: var(--accent-color);
+    color: var(--white-color);
+}
+
+/* ----- Title ----- */
+
+.wide-accordion-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ----- Toggle Icon (circle-chevron) ----- */
+
+.wide-accordion-toggle {
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    opacity: 0.25;
+    transition: opacity 0.25s ease, transform 0.4s ease;
+    line-height: 1;
+}
+
+.wide-accordion-header.active .wide-accordion-toggle {
+    opacity: 0.8;
+    transform: rotate(90deg);
+    color: var(--accent-color);
+}
+
+.wide-accordion-header:hover .wide-accordion-toggle {
+    opacity: 0.5;
+}
+
+/* ----- Body (collapsible content) ----- */
+
+.wide-accordion-body {
+    display: none;
+    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+}
+
+.wide-accordion-body.open {
+    display: block;
+}
+
+.wide-accordion-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.85;
+    margin-bottom: var(--space-sm);
+}
+
+.wide-accordion-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wide-accordion-body ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.75;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.wide-accordion-body ul li i {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 768px) {
+    .wide-accordion-header {
+        padding: var(--space-md);
+        font-size: 0.95rem;
+        gap: var(--space-sm);
+    }
+
+    .wide-accordion-icon-circle {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 1rem;
+    }
+
+    .wide-accordion-body {
+        padding: 0 var(--space-md) var(--space-md) var(--space-md);
+    }
+
+    .wide-accordion-toggle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .wide-accordion-header {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.85rem;
+    }
+
+    .wide-accordion-icon-circle {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.85rem;
+    }
+
+    .wide-accordion-toggle {
+        font-size: 1rem;
+    }
+
+    .wide-accordion-body {
+        padding: 0 var(--space-sm) var(--space-sm) var(--space-sm);
+    }
+
+    .wide-accordion-body p {
+        font-size: 0.9rem;
+    }
+}
