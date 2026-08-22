@@ -5769,6 +5769,14 @@ BLOG-Article (right side content)
     margin-bottom: var(--space-sm);
 }
 
+.portfolio-tabs-subtitle{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: var(--space-sm);
+}
+
+
 .portfolio-tabs-panel p {
     font-size: 1rem;
     line-height: 1.7;
