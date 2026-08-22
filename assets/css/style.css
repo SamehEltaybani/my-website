@@ -1126,6 +1126,338 @@ section,
 }
 
 
+
+/* ============================================
+   IMAGED CARDS (Philosophy, Mission, Approach)
+   ============================================ */
+
+.imaged-cards-section {
+    padding: var(--space-xl) 0;
+    background: var(--bg-color);
+}
+
+.imaged-cards-wrapper {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Individual Card ----- */
+.imaged-card {
+    flex: 1;
+    background: var(--white-color);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-right: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.imaged-card:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* ----- Image Area ----- */
+.imaged-card-image {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--dark-color);
+}
+
+.imaged-card-image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.imaged-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.imaged-card-image:hover img {
+    transform: scale(1.02);
+}
+
+/* ----- Image Title Overlay ----- */
+.imaged-card-image-title {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white-color);
+    background: rgba(0, 0, 0, 0.45);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    letter-spacing: 0.02em;
+}
+
+/* ----- Quote Strip ----- */
+.imaged-card-quote {
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(0, 173, 181, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    min-height: 60px;
+}
+
+.imaged-card-quote i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    opacity: 0.3;
+    flex-shrink: 0;
+}
+
+.imaged-card-quote i:last-child {
+    align-self: flex-end;
+}
+
+.imaged-card-quote span {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    opacity: 0.7;
+    text-align: center;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* ----- Card Body (Icon + Text) ----- */
+.imaged-card-body {
+    padding: var(--space-md) var(--space-lg) var(--space-sm) var(--space-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    flex: 1;
+}
+
+.imaged-card-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 173, 181, 0.08);
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-top: 0.15rem;
+}
+
+.imaged-card-text {
+    flex: 1;
+}
+
+.imaged-card-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* ----- Bullet List ----- */
+.imaged-card-list {
+    list-style: none;
+    padding: 0 var(--space-lg) var(--space-sm) var(--space-lg);
+    margin: 0;
+}
+
+.imaged-card-list li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    opacity: 0.7;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.imaged-card-list li:last-child {
+    margin-bottom: 0;
+}
+
+.imaged-card-list li i {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ----- Image Credit ----- */
+.imaged-card-credit {
+    font-size: 0.6rem;
+    color: var(--dark-color);
+    opacity: 0.3;
+    padding: var(--space-xs) var(--space-lg) var(--space-sm) var(--space-lg);
+    margin: 0;
+    text-align: left;
+}
+
+.imaged-card-credit a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.imaged-card-credit a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* ============================================
+   IMAGED CARDS - RESPONSIVE
+   ============================================ */
+
+/* ----- Tablet (max-width: 992px) ----- */
+@media (max-width: 992px) {
+    .imaged-card-image-title {
+        font-size: 1.2rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .imaged-card-quote span {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-body {
+        padding: var(--space-sm) var(--space-md) var(--space-xs) var(--space-md);
+    }
+
+    .imaged-card-text p {
+        font-size: 0.9rem;
+    }
+
+    .imaged-card-list {
+        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+    }
+
+    .imaged-card-list li {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-credit {
+        padding: var(--space-xs) var(--space-md) var(--space-sm) var(--space-md);
+        font-size: 0.55rem;
+    }
+}
+
+/* ----- Mobile (max-width: 768px) ----- */
+@media (max-width: 768px) {
+    .imaged-cards-section {
+        padding: var(--space-lg) 0;
+    }
+
+    .imaged-cards-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .imaged-card {
+        border-right: 1px solid rgba(0, 0, 0, 0.04);
+        border-bottom: none;
+    }
+
+    .imaged-card:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .imaged-card-image-title {
+        font-size: 1.1rem;
+        top: var(--space-sm);
+        left: var(--space-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .imaged-card-quote {
+        padding: var(--space-sm) var(--space-md);
+        min-height: 50px;
+    }
+
+    .imaged-card-quote span {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-quote i {
+        font-size: 1rem;
+    }
+
+    .imaged-card-body {
+        padding: var(--space-sm) var(--space-md) var(--space-xs) var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .imaged-card-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-text p {
+        font-size: 0.9rem;
+    }
+
+    .imaged-card-list {
+        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+    }
+
+    .imaged-card-list li {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-credit {
+        padding: var(--space-xs) var(--space-md) var(--space-sm) var(--space-md);
+        font-size: 0.55rem;
+    }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
+@media (max-width: 400px) {
+    .imaged-card-image-title {
+        font-size: 0.95rem;
+        padding: var(--space-xs) var(--space-sm);
+        top: var(--space-xs);
+        left: var(--space-xs);
+    }
+
+    .imaged-card-quote span {
+        font-size: 0.8rem;
+    }
+
+    .imaged-card-quote i {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-text p {
+        font-size: 0.85rem;
+    }
+
+    .imaged-card-list li {
+        font-size: 0.8rem;
+    }
+
+    .imaged-card-credit {
+        font-size: 0.5rem;
+    }
+}
+
+
+
+
+
 /* ============================================
    PRINCIPLES SECTION (2x2 Grid)
    ============================================ */
