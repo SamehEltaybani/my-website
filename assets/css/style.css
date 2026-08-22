@@ -1138,7 +1138,7 @@ section,
 
 .imaged-cards-wrapper {
     display: flex;
-    gap: 0;
+    gap: var(--space-sm);
     margin: 0;
     padding: 0;
 }
@@ -1148,14 +1148,10 @@ section,
     flex: 1;
     background: var(--white-color);
     border: 1px solid rgba(0, 0, 0, 0.04);
-    border-right: none;
+    border-radius: var(--radius-md);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-.imaged-card:last-child {
-    border-right: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* ----- Image Area ----- */
@@ -1184,21 +1180,20 @@ section,
     transform: scale(1.02);
 }
 
-/* ----- Image Title Overlay ----- */
+/* ----- Image Title Overlay (Green background, left edge flat) ----- */
 .imaged-card-image-title {
     position: absolute;
     top: var(--space-md);
-    left: var(--space-md);
+    left: 0;
     margin: 0;
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--white-color);
-    background: rgba(0, 0, 0, 0.45);
+    background: var(--accent-color);
     padding: var(--space-xs) var(--space-md);
-    border-radius: var(--radius-sm);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ----- Quote Strip ----- */
@@ -1238,7 +1233,7 @@ section,
 .imaged-card-body {
     padding: var(--space-md) var(--space-lg) var(--space-sm) var(--space-lg);
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Vertically centered */
     gap: var(--space-sm);
     flex: 1;
 }
@@ -1254,7 +1249,6 @@ section,
     background: rgba(0, 173, 181, 0.08);
     color: var(--accent-color);
     font-size: 1rem;
-    margin-top: 0.15rem;
 }
 
 .imaged-card-text {
@@ -1324,6 +1318,10 @@ section,
 
 /* ----- Tablet (max-width: 992px) ----- */
 @media (max-width: 992px) {
+    .imaged-cards-wrapper {
+        gap: var(--space-sm);
+    }
+
     .imaged-card-image-title {
         font-size: 1.2rem;
         padding: var(--space-xs) var(--space-sm);
@@ -1363,12 +1361,11 @@ section,
 
     .imaged-cards-wrapper {
         flex-direction: column;
-        gap: 0;
+        gap: var(--space-sm);
     }
 
     .imaged-card {
         border-right: 1px solid rgba(0, 0, 0, 0.04);
-        border-bottom: none;
     }
 
     .imaged-card:last-child {
@@ -1378,7 +1375,6 @@ section,
     .imaged-card-image-title {
         font-size: 1.1rem;
         top: var(--space-sm);
-        left: var(--space-sm);
         padding: var(--space-xs) var(--space-sm);
     }
 
@@ -1426,11 +1422,14 @@ section,
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
 @media (max-width: 400px) {
+    .imaged-cards-wrapper {
+        gap: var(--space-xs);
+    }
+
     .imaged-card-image-title {
         font-size: 0.95rem;
         padding: var(--space-xs) var(--space-sm);
         top: var(--space-xs);
-        left: var(--space-xs);
     }
 
     .imaged-card-quote span {
@@ -1453,7 +1452,6 @@ section,
         font-size: 0.5rem;
     }
 }
-
 
 
 
