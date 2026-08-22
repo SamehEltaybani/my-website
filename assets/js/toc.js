@@ -110,9 +110,12 @@
         console.log('✅ TOC generated with ' + tree.length + ' headings.');
     }
 
+    
     // ============================================
     // RENDER TOC
     // ============================================
+
+    
     function renderTOC(container, tree, isMobile) {
         if (!container) return;
         const ul = document.createElement('ul');
@@ -167,6 +170,10 @@
         });
         
         } else {
+            const placeholder = document.createElement('span');
+            placeholder.className = 'toc-toggle-placeholder';
+            a.prepend(placeholder);
+                
             li.appendChild(a);
         }
 
