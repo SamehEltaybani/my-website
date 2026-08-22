@@ -4357,6 +4357,16 @@ background: rgba(0, 0, 0, 0.28);
     background: rgba(0, 0, 0, 0.04);
 }
 
+.toc-toggle-placeholder {  /* ----- this is for headigs with no sub-headings to maintain the visual hierarchy ----- */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: var(--space-xs);
+    flex-shrink: 0;
+}
+
 /* ----- Mobile TOC Button ----- */
 
 .mobile-toc-toggle {
