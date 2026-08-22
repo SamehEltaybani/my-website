@@ -1144,6 +1144,7 @@ section,
 }
 
 /* ----- Individual Card ----- */
+
 .imaged-card {
     flex: 1;
     background: var(--white-color);
@@ -1154,7 +1155,7 @@ section,
     flex-direction: column;
 }
 
-/* ----- Image Area ----- */
+/* ----- Image Area (positioned relative for overlays) ----- */
 .imaged-card-image {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -1180,7 +1181,7 @@ section,
     transform: scale(1.02);
 }
 
-/* ----- Image Title Overlay (Green background, left edge flat) ----- */
+/* ----- Title Overlay (top-left) ----- */
 .imaged-card-image-title {
     position: absolute;
     top: var(--space-md);
@@ -1194,18 +1195,26 @@ section,
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     letter-spacing: 0.02em;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 2;
 }
 
-/* ----- Quote Strip ----- */
+/* ----- Quotation Strip Overlay (bottom) ----- */
 .imaged-card-quote {
-    padding: var(--space-md) var(--space-lg);
-    background: rgba(0, 173, 181, 0.04);
+    position: absolute;
+    bottom: var(--space-md);
+    left: 0;
+    right: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(0, 173, 181, 0.06);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    min-height: 60px;
+    min-height: 50px;
+    z-index: 2;
 }
 
 .imaged-card-quote i {
@@ -1222,14 +1231,15 @@ section,
 .imaged-card-quote span {
     font-style: italic;
     font-size: 0.95rem;
-    color: var(--dark-color);
-    opacity: 0.7;
+    color: var(--white-color);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     text-align: center;
     line-height: 1.5;
     flex: 1;
 }
 
 /* ----- Card Body (Icon + Text) ----- */
+
 .imaged-card-body {
     padding: var(--space-md) var(--space-lg) var(--space-sm) var(--space-lg);
     display: flex;
@@ -1264,6 +1274,7 @@ section,
 }
 
 /* ----- Bullet List ----- */
+
 .imaged-card-list {
     list-style: none;
     padding: 0 var(--space-lg) var(--space-sm) var(--space-lg);
@@ -1293,6 +1304,7 @@ section,
 }
 
 /* ----- Image Credit ----- */
+
 .imaged-card-credit {
     font-size: 0.6rem;
     color: var(--dark-color);
@@ -1312,11 +1324,10 @@ section,
     text-decoration: underline;
 }
 
-/* ============================================
-   IMAGED CARDS - RESPONSIVE
-   ============================================ */
+/* =========  IMAGED CARDS - RESPONSIVE  ================ */
 
 /* ----- Tablet (max-width: 992px) ----- */
+
 @media (max-width: 992px) {
     .imaged-cards-wrapper {
         gap: var(--space-sm);
@@ -1354,6 +1365,7 @@ section,
 }
 
 /* ----- Mobile (max-width: 768px) ----- */
+
 @media (max-width: 768px) {
     .imaged-cards-section {
         padding: var(--space-lg) 0;
@@ -1421,6 +1433,7 @@ section,
 }
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
+
 @media (max-width: 400px) {
     .imaged-cards-wrapper {
         gap: var(--space-xs);
