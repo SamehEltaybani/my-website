@@ -5335,6 +5335,10 @@ BLOG-Article (right side content)
    ============================================ */
 
 
+#page-content h2,
+#page-content h3 {
+    scroll-margin-top: 180px;
+}
 
 /* ----- Hero / Page Header ----- */
 
@@ -5433,6 +5437,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Text Block ----- */
+
 .portfolio-text-block {
     padding: var(--space-lg) 0;
 }
@@ -5454,6 +5459,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Three-Card Row ----- */
+
 .portfolio-three-cards {
     padding: var(--space-xl) 0;
 }
@@ -6074,6 +6080,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- CTA Banner ----- */
+
 .portfolio-cta {
     padding: var(--space-xl) 0;
 }
