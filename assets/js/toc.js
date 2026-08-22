@@ -22,7 +22,7 @@
         contentSelector: '#page-content',
         headingSelector: 'h2, h3',
         excludeClass: 'no-toc',
-        scrollOffset: 150
+        scrollOffset: 160
     };
 
     let tocItems = [];
