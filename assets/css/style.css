@@ -4877,7 +4877,7 @@ BLOG-Article (right side content)
     font-weight: 700;
     color: var(--dark-color);
     margin: var(--space-xl) 0 var(--space-md) 0;
-    -margin-top: 110px;
+    scroll-margin-top: 110px;
 }
 
 .blog-content h3 {
@@ -4885,7 +4885,7 @@ BLOG-Article (right side content)
     font-weight: 600;
     color: var(--dark-color);
     margin: var(--space-lg) 0 var(--space-sm) 0;
-    -margin-top: 110px;
+    scroll-margin-top: 110px;
 }
 
 /* ----- Blog Paragraphs ----- */
