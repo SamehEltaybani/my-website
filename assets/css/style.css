@@ -4272,7 +4272,8 @@ background: rgba(0, 0, 0, 0.28);
 }
 
 .toc-list a {
-    display: block;
+    display: flex;
+    align-items: flex-start;
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
     text-decoration: none;
