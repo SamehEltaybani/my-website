@@ -4877,7 +4877,7 @@ BLOG-Article (right side content)
     font-weight: 700;
     color: var(--dark-color);
     margin: var(--space-xl) 0 var(--space-md) 0;
-    scroll-margin-top: 100px;
+    scroll-margin-top: 110px;
 }
 
 .blog-content h3 {
@@ -4885,7 +4885,7 @@ BLOG-Article (right side content)
     font-weight: 600;
     color: var(--dark-color);
     margin: var(--space-lg) 0 var(--space-sm) 0;
-    scroll-margin-top: 100px;
+    scroll-margin-top: 110px;
 }
 
 /* ----- Blog Paragraphs ----- */
@@ -5334,7 +5334,13 @@ BLOG-Article (right side content)
    share these styles. Classes are generic to allow reuse.
    ============================================ */
 
+#page-content h2,
+#page-content h3 {
+    scroll-margin-top: 120px;
+}
+
 /* ----- Hero / Page Header ----- */
+
 .portfolio-hero {
     padding: var(--space-xl) 0 var(--space-lg) 0;
 }
@@ -5424,6 +5430,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Smaller credit inside cards ----- */
+
 .portfolio-card .portfolio-image-credit {
     font-size: 0.6rem;
 }
