@@ -1649,9 +1649,7 @@ section,
     transform: translateX(4px);
 }
 
-/* ============================================
-   CORE VALUES - RESPONSIVE
-   ============================================ */
+/* ==========  CORE VALUES - RESPONSIVE   =================== */
 
 /* ----- Tablet (max-width: 992px) ----- */
 @media (max-width: 992px) {
@@ -1660,8 +1658,8 @@ section,
     }
 
     .core-values-card-title {
-        font-size: 1.1rem;
-        padding: var(--space-xs) var(--space-md);
+        font-size: 1.3rem;
+        padding: var(--space-md) var(--space-md);
     }
 
     .core-values-card-text p {
@@ -1689,7 +1687,7 @@ section,
     }
 
     .core-values-card-title {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .core-values-card-text {
@@ -1725,8 +1723,8 @@ section,
     }
 
     .core-values-card-title {
-        font-size: 0.95rem;
-        padding: var(--space-xs) var(--space-sm);
+        font-size: 1.1rem;
+        padding: var(--space-md) var(--space-md);
     }
 
     .core-values-card-text p {
