@@ -1136,23 +1136,12 @@ section,
     background: var(--bg-color);
 }
 
-
-.imaged-cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md); /* Match the gap used in .core-values-grid */
-    margin: 0;
-    padding: 0;
-}
-
-/* ----- 
 .imaged-cards-wrapper {
     display: flex;
     gap: var(--space-sm);
     margin: 0;
     padding: 0;
 }
-Individual Card ----- */
 
 /* ----- Individual Card ----- */
 
@@ -1167,6 +1156,7 @@ Individual Card ----- */
 }
 
 /* ----- Image Area (positioned relative for overlays) ----- */
+
 .imaged-card-image {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -1193,6 +1183,7 @@ Individual Card ----- */
 }
 
 /* ----- Title Overlay (top-left) ----- */
+
 .imaged-card-image-title {
     position: absolute;
     top: var(--space-md);
@@ -1210,6 +1201,7 @@ Individual Card ----- */
 }
 
 /* ----- Quotation Strip Overlay (bottom) ----- */
+
 .imaged-card-quote {
     position: absolute;
     bottom: var(--space-md);
@@ -1909,7 +1901,7 @@ Individual Card ----- */
 }
 
 .whatido-right img {
- width: 100%;
+  width: 100%;
   height: auto;
   max-height: 280px;
   border-radius: var(--radius-sm);
@@ -2090,7 +2082,7 @@ Individual Card ----- */
 
 .whatido-label {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 1.0rem;
     font-weight: 700;
     color: var(--white-color);
     background: var(--accent-color);
