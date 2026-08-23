@@ -1136,12 +1136,23 @@ section,
     background: var(--bg-color);
 }
 
+
+.imaged-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md); /* Match the gap used in .core-values-grid */
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- 
 .imaged-cards-wrapper {
     display: flex;
     gap: var(--space-sm);
     margin: 0;
     padding: 0;
 }
+Individual Card ----- */
 
 /* ----- Individual Card ----- */
 
@@ -1478,6 +1489,7 @@ section,
 }
 
 /* ----- Title and Intro ----- */
+
 .core-values-title {
     font-size: 2rem;
     font-weight: 800;
