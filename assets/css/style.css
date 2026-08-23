@@ -7270,3 +7270,345 @@ BLOG-Article (right side content)
         font-size: 0.9rem;
     }
 }
+
+
+/* ============================================
+   PORTFOLIO – VALUE IN ACTION
+   ============================================ */
+
+.portfolio-value {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-value-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    margin-bottom: var(--space-sm);
+    text-align: left;
+    letter-spacing: -0.02em;
+}
+
+.portfolio-value-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.7;
+    max-width: 800px;
+    margin-bottom: var(--space-xl);
+    text-align: left;
+}
+
+/* ----- Each Row (3 columns) ----- */
+.portfolio-value-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr;
+    gap: 0;
+    margin-bottom: var(--space-xl);
+    align-items: stretch;
+}
+
+.portfolio-value-row:last-child {
+    margin-bottom: 0;
+}
+
+/* ----- Left Card (Value Card – same as homepage) ----- */
+.portfolio-value-card {
+    background: var(--white-color);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-value-card-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white-color);
+    background: var(--accent-color);
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    margin: 0;
+}
+
+.portfolio-value-card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--dark-color);
+}
+
+.portfolio-value-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-value-card-text {
+    padding: var(--space-md) var(--space-lg) var(--space-sm) var(--space-lg);
+    flex: 1;
+}
+
+.portfolio-value-card-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin: 0;
+    text-align: left;
+}
+
+.portfolio-value-card-credit {
+    font-size: 0.6rem;
+    color: var(--dark-color);
+    opacity: 0.3;
+    padding: 0 var(--space-lg) var(--space-sm) var(--space-lg);
+    margin: 0;
+    text-align: left;
+}
+
+.portfolio-value-card-credit a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.portfolio-value-card-credit a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* ----- Middle & Right Cards (What I Do / What I Avoid) ----- */
+.portfolio-value-action,
+.portfolio-value-avoid {
+    background: transparent;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right card gets a vertical separator */
+.portfolio-value-avoid {
+    border-left: 3px solid var(--dark-color);
+    border-image: linear-gradient(to bottom, transparent, var(--dark-color), transparent) 1;
+    opacity: 0.5;
+}
+
+/* Shared styles for action/avoid cards */
+.portfolio-value-action-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.portfolio-value-action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: rgba(0, 173, 181, 0.08);
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.portfolio-value-action-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+/* Thick horizontal divider (fades to right) */
+.portfolio-value-action-divider {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+    border-radius: 2px;
+    margin-bottom: var(--space-sm);
+    opacity: 0.6;
+}
+
+.portfolio-value-action-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    opacity: 0.75;
+    margin-bottom: var(--space-sm);
+}
+
+.portfolio-value-action-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.portfolio-value-action-list li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    opacity: 0.7;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.portfolio-value-action-list li:last-child {
+    margin-bottom: 0;
+}
+
+.portfolio-value-action-list li i {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   PORTFOLIO VALUE - RESPONSIVE
+   ============================================ */
+
+/* ----- Tablet (max-width: 992px) ----- */
+@media (max-width: 992px) {
+    .portfolio-value-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--space-sm);
+    }
+
+    .portfolio-value-card-header {
+        font-size: 1.1rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .portfolio-value-card-text {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .portfolio-value-action,
+    .portfolio-value-avoid {
+        padding: var(--space-md);
+    }
+
+    .portfolio-value-avoid {
+        border-left: 2px solid var(--dark-color);
+        border-image: none;
+    }
+}
+
+/* ----- Mobile (max-width: 768px) ----- */
+@media (max-width: 768px) {
+    .portfolio-value {
+        padding: var(--space-lg) 0;
+    }
+
+    .portfolio-value-title {
+        font-size: 1.6rem;
+    }
+
+    .portfolio-value-intro {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-value-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    .portfolio-value-card-header {
+        font-size: 1rem;
+        padding: var(--space-xs) var(--space-md);
+    }
+
+    .portfolio-value-card-image {
+        aspect-ratio: 16 / 9;
+    }
+
+    .portfolio-value-card-text {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .portfolio-value-card-text p {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-value-card-credit {
+        padding: 0 var(--space-md) var(--space-xs) var(--space-md);
+        font-size: 0.55rem;
+    }
+
+    .portfolio-value-action,
+    .portfolio-value-avoid {
+        padding: var(--space-md);
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .portfolio-value-avoid {
+        border-top: 2px solid var(--dark-color);
+        border-left: none;
+        border-image: none;
+        opacity: 1;
+    }
+
+    .portfolio-value-action-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.8rem;
+    }
+
+    .portfolio-value-action-title {
+        font-size: 1rem;
+    }
+
+    .portfolio-value-action-text {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-value-action-list li {
+        font-size: 0.85rem;
+    }
+}
+
+/* ----- Very Small Phones (max-width: 400px) ----- */
+
+@media (max-width: 400px) {
+    .portfolio-value-title {
+        font-size: 1.3rem;
+    }
+
+    .portfolio-value-intro {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-value-card-header {
+        font-size: 0.95rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .portfolio-value-card-text p {
+        font-size: 0.85rem;
+    }
+
+    .portfolio-value-action,
+    .portfolio-value-avoid {
+        padding: var(--space-sm);
+    }
+
+    .portfolio-value-action-title {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-value-action-text {
+        font-size: 0.85rem;
+    }
+
+    .portfolio-value-action-list li {
+        font-size: 0.8rem;
+    }
+}
