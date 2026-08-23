@@ -1540,7 +1540,7 @@ section,
 
 .core-values-card-image {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     background: var(--dark-color);
 }
@@ -1553,6 +1553,7 @@ section,
 }
 
 /* ----- Card Text ----- */
+
 .core-values-card-text {
     padding: var(--space-md) var(--space-md) var(--space-sm) var(--space-md);
     flex: 1;
@@ -1568,6 +1569,7 @@ section,
 }
 
 /* ----- Card Credit ----- */
+
 .core-values-card-credit {
     font-size: 0.6rem;
     color: var(--dark-color);
