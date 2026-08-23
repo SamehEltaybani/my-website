@@ -1474,7 +1474,7 @@ section,
 
 .home-values {
     padding: var(--space-xl) 0;
-    background: var(--accent-color);
+    background: var(--bg-color);
 }
 
 .home-values-wrapper {
