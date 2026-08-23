@@ -1469,314 +1469,270 @@ section,
 
 
 /* ============================================
-   HOME VALUES (Core Values Section)
+   CORE VALUES SECTION
    ============================================ */
 
-.home-values {
+.core-values-section {
     padding: var(--space-xl) 0;
     background: var(--bg-color);
 }
 
-.home-values-wrapper {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--space-lg);
-}
-
-/* ----- Left Column (25%) ----- */
-
-.home-values-left {
-    flex: 0 0 25%;
-    padding-right: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 1px solid transparent;
-    background-image: linear-gradient(to bottom, transparent, var(--dark-color), transparent);
-    background-size: 1px 100%;
-    background-repeat: no-repeat;
-    background-position: right center;
-    opacity: 0.3;
-}
-
-.home-values-title {
+/* ----- Title and Intro ----- */
+.core-values-title {
     font-size: 2rem;
     font-weight: 800;
     color: var(--dark-color);
     margin-bottom: var(--space-sm);
+    text-align: left;
     letter-spacing: -0.02em;
 }
 
-.home-values-intro {
-    font-size: 0.95rem;
+.core-values-intro {
+    font-size: 1.05rem;
     line-height: 1.7;
     color: var(--dark-color);
     opacity: 0.7;
+    max-width: 700px;
+    margin-bottom: var(--space-xl);
+    text-align: left;
+}
+
+/* ----- Three Cards Grid ----- */
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+/* ----- Individual Card ----- */
+.core-values-card {
+    background: var(--white-color);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* No hover effect */
+.core-values-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ----- Card Title (white text, accent green background) ----- */
+.core-values-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white-color);
+    background: var(--accent-color);
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
     margin: 0;
 }
 
-/* ----- Middle Column (45%) ----- */
-
-.home-values-middle {
-    flex: 0 0 45%;
-    padding: 0 var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-md);
+/* ----- Card Image ----- */
+.core-values-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--dark-color);
 }
 
-/* ----- Value Row ----- */
-
-.home-values-row {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+.core-values-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.home-values-row-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+/* ----- Card Text ----- */
+.core-values-card-text {
+    padding: var(--space-md) var(--space-md) var(--space-sm) var(--space-md);
+    flex: 1;
 }
 
-.home-values-icon-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    border-radius: 50%;
-    background: rgba(0, 173, 181, 0.08);
-    color: var(--accent-color);
-    font-size: 0.9rem;
-}
-
-.home-values-row-name {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--dark-color);
-}
-
-.home-values-row-desc {
-    font-size: 0.9rem;
+.core-values-card-text p {
+    font-size: 0.95rem;
     line-height: 1.6;
     color: var(--dark-color);
-    opacity: 0.65;
-    margin: 0 0 0 calc(32px + var(--space-sm));
+    opacity: 0.8;
+    margin: 0;
+    text-align: left;
 }
 
-/* ----- Right Column (30%) ----- */
-
-.home-values-right {
-    flex: 0 0 30%;
-    padding-left: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-sm);
-    border-left: 1px solid transparent;
-    background-image: linear-gradient(to bottom, transparent, var(--dark-color), transparent);
-    background-size: 1px 100%;
-    background-repeat: no-repeat;
-    background-position: left center;
+/* ----- Card Credit ----- */
+.core-values-card-credit {
+    font-size: 0.6rem;
+    color: var(--dark-color);
     opacity: 0.3;
+    padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+    margin: 0;
+    text-align: left;
 }
 
-.home-values-right-intro {
-    font-size: 0.9rem;
+.core-values-card-credit a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.core-values-card-credit a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* ----- Bottom CTA (Centered) ----- */
+.core-values-cta {
+    text-align: center;
+    padding-top: var(--space-lg);
+}
+
+.core-values-cta-text {
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--dark-color);
     opacity: 0.7;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
-/* ----- Pill Buttons ----- */
+.core-values-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
 
-.home-values-btn {
+.core-values-cta-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-xs) var(--space-md);
+    gap: var(--space-md);
+    padding: var(--space-xs) var(--space-lg);
     border-radius: var(--radius-full);
     border: 2px solid rgba(0, 0, 0, 0.06);
     background: transparent;
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--dark-color);
     text-decoration: none;
     transition: all 0.2s ease;
-    gap: var(--space-md);
+    min-width: 140px;
 }
 
-.home-values-btn:hover {
+.core-values-cta-btn:hover {
     border-color: var(--accent-color);
     background: rgba(0, 173, 181, 0.04);
 }
 
-.home-values-btn span {
+.core-values-cta-btn span {
     text-align: left;
     flex: 1;
 }
 
-.home-values-btn i {
+.core-values-cta-btn i {
     font-size: 0.8rem;
     opacity: 0.3;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.home-values-btn:hover i {
+.core-values-cta-btn:hover i {
     opacity: 0.8;
     transform: translateX(4px);
 }
 
-
-/* ==========   HOME VALUES - RESPONSIVE   ============= */
+/* ============================================
+   CORE VALUES - RESPONSIVE
+   ============================================ */
 
 /* ----- Tablet (max-width: 992px) ----- */
-
 @media (max-width: 992px) {
-    .home-values-wrapper {
-        flex-wrap: wrap;
-        gap: var(--space-lg);
+    .core-values-grid {
+        gap: var(--space-sm);
     }
 
-    .home-values-left {
-        flex: 1 1 100%;
-        padding-right: 0;
-        border-right: none;
-        background-image: none;
-        opacity: 1;
-        text-align: center;
+    .core-values-card-title {
+        font-size: 1.1rem;
+        padding: var(--space-xs) var(--space-md);
     }
 
-    .home-values-middle {
-        flex: 1 1 100%;
-        padding: 0;
-        gap: var(--space-md);
-    }
-
-    .home-values-right {
-        flex: 1 1 100%;
-        padding-left: 0;
-        border-left: none;
-        background-image: none;
-        opacity: 1;
-        align-items: stretch;
-    }
-
-    .home-values-btn {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .home-values-row-desc {
-        margin-left: 0;
-    }
-
-    .home-values-title {
-        font-size: 1.8rem;
+    .core-values-card-text p {
+        font-size: 0.9rem;
     }
 }
 
 /* ----- Mobile (max-width: 768px) ----- */
-
 @media (max-width: 768px) {
-    .home-values {
+    .core-values-section {
         padding: var(--space-lg) 0;
     }
 
-    .home-values-wrapper {
-        padding: 0 var(--space-md);
-        gap: var(--space-md);
-    }
-
-    .home-values-left {
-        text-align: left;
-    }
-
-    .home-values-title {
+    .core-values-title {
         font-size: 1.6rem;
     }
 
-    .home-values-intro {
-        font-size: 0.9rem;
+    .core-values-intro {
+        font-size: 0.95rem;
     }
 
-    .home-values-middle {
-        gap: var(--space-sm);
+    .core-values-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
 
-    .home-values-row {
-        padding-bottom: var(--space-sm);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .home-values-row:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .home-values-row-name {
+    .core-values-card-title {
         font-size: 1rem;
     }
 
-    .home-values-row-desc {
-        font-size: 0.85rem;
-        margin-left: 0;
+    .core-values-card-text {
+        padding: var(--space-sm) var(--space-sm) var(--space-xs) var(--space-sm);
     }
 
-    .home-values-right {
-        gap: var(--space-xs);
+    .core-values-card-text p {
+        font-size: 0.9rem;
     }
 
-    .home-values-right-intro {
-        font-size: 0.85rem;
-        margin-bottom: var(--space-xs);
+    .core-values-cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .home-values-btn {
-        font-size: 0.8rem;
-        padding: var(--space-xs) var(--space-sm);
+    .core-values-cta-btn {
+        width: auto;
+        min-width: 200px;
+        max-width: 280px;
+        justify-content: space-between;
     }
 }
 
 /* ----- Very Small Phones (max-width: 400px) ----- */
 
 @media (max-width: 400px) {
-    .home-values-wrapper {
-        padding: 0 var(--space-sm);
-    }
-
-    .home-values-title {
+    .core-values-title {
         font-size: 1.3rem;
     }
 
-    .home-values-icon-circle {
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        font-size: 0.75rem;
-    }
-
-    .home-values-row-name {
+    .core-values-intro {
         font-size: 0.9rem;
     }
 
-    .home-values-row-desc {
-        font-size: 0.8rem;
-    }
-
-    .home-values-btn {
-        font-size: 0.75rem;
+    .core-values-card-title {
+        font-size: 0.95rem;
         padding: var(--space-xs) var(--space-sm);
     }
+
+    .core-values-card-text p {
+        font-size: 0.85rem;
+    }
+
+    .core-values-cta-btn {
+        font-size: 0.85rem;
+        min-width: 160px;
+        padding: var(--space-xs) var(--space-md);
+    }
 }
+
 
 
 
