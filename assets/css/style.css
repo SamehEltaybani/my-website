@@ -7871,12 +7871,12 @@ BLOG-Article (right side content)
 @media (max-width: 768px) {
    
     .portfolio-share-top {
-        text-align: center;
+        text-align: right;
         margin-bottom: var(--space-xs);
     }
 
     .portfolio-share-bottom {
-        text-align: center;
+        text-align: right;
         margin-top: var(--space-md);
         margin-bottom: var(--space-md);
     }
