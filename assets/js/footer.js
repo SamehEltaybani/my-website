@@ -96,7 +96,7 @@
         
         const legalTitle = document.createElement('h4');
         legalTitle.className = 'footer-heading';
-        legalTitle.textContent = 'Legal & Disclaimer';
+        legalTitle.textContent = 'Legal, Disclaimer & Privacy';
         col3.appendChild(legalTitle);
 
         const legalText = document.createElement('p');
