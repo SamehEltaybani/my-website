@@ -11,12 +11,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="publications.html">
 
+     <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data: https://api.qrserver.com;
+    connect-src 'self';
+    frame-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    ">
+
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
@@ -84,7 +95,7 @@
 
         <!-- ===== PUBLICATIONS LIST ===== -->
         <div id="publications-list" class="publication-list">
-            <p style="color: var(--dark-color); opacity: 0.6;">Loading publications...</p>
+            <p class="item-loading-message">Loading publications...</p>
         </div>
 
         <!-- ===== CLOSING CTA ===== -->
