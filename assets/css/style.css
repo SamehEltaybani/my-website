@@ -4405,6 +4405,7 @@ PUBLICATIONS PAGE
 
 .contact-form-card {
   max-width: 800px;
+  margin: 0 auto;
   background: var(--white-color);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
