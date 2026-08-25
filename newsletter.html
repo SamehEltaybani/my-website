@@ -2,6 +2,7 @@
 <html lang="en">
   
 <head>
+  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -13,23 +14,22 @@
     <meta property="og:url" content="newsletter.html">
 
     <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https://api.qrserver.com;
-        connect-src 'self';
-        frame-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        ">
+    default-src 'self';
+    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data: https://api.qrserver.com;
+    connect-src 'self' https://api.web3forms.com;
+    frame-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    ">
 
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
@@ -51,6 +51,7 @@
     <div class="container">
 
         <!-- ===== INTRO PARAGRAPH ===== -->
+      
         <p class="newsletter-intro">
             I am planning to release a regular newsletter with updates on my latest research,
             new publications, and recent blog articles.<br />
@@ -58,12 +59,15 @@
         </p>
 
         <!-- ===== NEWSLETTER CARD ===== -->
+      
         <div class="newsletter-card">
 
             <!-- ===== BUTTONS ===== -->
+          
             <div class="newsletter-buttons">
 
                 <!-- Subscribe Button -->
+              
                 <button id="subscribe-btn" class="newsletter-btn subscribe-btn">
                     <i class="fa-regular fa-envelope"></i>
                     Subscribe
@@ -71,6 +75,7 @@
                 </button>
 
                 <!-- Unsubscribe Button -->
+              
                 <button id="unsubscribe-btn" class="newsletter-btn unsubscribe-btn">
                     <i class="fa-regular fa-envelope-open"></i>
                     Unsubscribe
@@ -80,6 +85,7 @@
             </div>
 
             <!-- ===== SUCCESS / INFO MESSAGE ===== -->
+          
             <div id="newsletter-message" class="newsletter-message" style="display: none;">
                 <i class="fa-regular fa-circle-check"></i>
                 <p><strong>Thank you!</strong> Your request has been sent. Please check your email to confirm.</p>
@@ -96,15 +102,17 @@
     <script src="/my-website/assets/js/back-to-top.js"></script>
     <script src="/my-website/assets/js/search.js"></script>
 
-    <!-- ===== NEWSLETTER SCRIPTS ===== -->
+    <!-- ===== NEWSLETTER SPECIFIC SCRIPTS ===== -->
   
     <script nonce="secure123">
+      
         (function() {
             'use strict';
 
             // ============================================
             // EMAIL OBFUSCATION (same as contact page)
             // ============================================
+          
             const user = 'eltaybanisameh';
             const domain = 'gmail.com';
             const email = user + '@' + domain;
@@ -112,6 +120,7 @@
             // ============================================
             // SUBSCRIBE
             // ============================================
+          
             const subscribeBtn = document.getElementById('subscribe-btn');
             if (subscribeBtn) {
                 subscribeBtn.addEventListener('click', function(e) {
@@ -126,6 +135,7 @@
             // ============================================
             // UNSUBSCRIBE
             // ============================================
+          
             const unsubscribeBtn = document.getElementById('unsubscribe-btn');
             if (unsubscribeBtn) {
                 unsubscribeBtn.addEventListener('click', function(e) {
@@ -140,6 +150,7 @@
             // ============================================
             // SHOW MESSAGE
             // ============================================
+          
             function showMessage(text) {
                 const msgEl = document.getElementById('newsletter-message');
                 const textEl = msgEl.querySelector('p');
@@ -151,6 +162,7 @@
             }
 
         })();
+      
     </script>
 
 </body>
