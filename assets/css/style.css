@@ -2760,48 +2760,50 @@ PUBLICATIONS PAGE
 
 .publication-separator {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-sm);
   margin: var(--space-lg) 0;
   width: 100%;
 }
 
 .separator-line {
-  flex: 1;
+  width: 100%;
   height: 1px;
-  background: linear-gradient(to right, var(--accent-color), transparent, var(--accent-color));
+  flex: none;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-color),
+    transparent
+  );
   opacity: 0.2;
 }
 
 .separator-label {
+  width: 100%;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--dark-color);
   opacity: 0.5;
+  text-align: center;
   white-space: nowrap;
   letter-spacing: 0.05em;
-}
-
-.separator-above {
-  text-align: left;
-}
-
-.separator-below {
-  text-align: right;
 }
 
 /* ----- Responsive: Separator ----- */
 
 @media (max-width: 768px) {
   .publication-separator {
-    gap: var(--space-sm);
     margin: var(--space-md) 0;
   }
-  
+
   .separator-label {
     font-size: 0.75rem;
   }
 }
+
+
 
 
 /* ----- See More Button ----- */
@@ -2836,7 +2838,7 @@ PUBLICATIONS PAGE
   transform: translateY(3px);
 }
 
-/* ----- Responsive: Separator ----- */
+/* ----- Responsive:  See More Button ----- */
 
 @media (max-width: 768px) {
   
