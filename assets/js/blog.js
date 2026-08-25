@@ -83,10 +83,13 @@
             html += tagsHtml;
         }
 
-        // Read More link
-        if (post.blogfile) {
-            html += '<div class="blog-read-more"><a href="' + window.escapeHTML(post.blogfile) + '" class="blog-read-more-link">Read more <i class="fa-solid fa-arrow-right"></i></a></div>';
-        }
+        // Read More + Share (on the same line)
+if (post.blogfile) {
+    html += '<div class="blog-card-footer">';
+    html += '<button class="blog-share-btn" data-url="' + window.location.origin + '/my-website/' + post.blogfile + '" data-title="' + window.escapeHTML(post.title) + '" aria-label="Share this article"><i class="fa-regular fa-share-from-square"></i></button>';
+    html += '<a href="' + window.escapeHTML(post.blogfile) + '" class="blog-read-more-link">Read more <i class="fa-solid fa-arrow-right"></i></a>';
+    html += '</div>';
+}
 
         return html;
     }
