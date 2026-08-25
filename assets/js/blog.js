@@ -201,7 +201,7 @@
         }
 
         if (loadedCount < filteredPosts.length) {
-            const currentPage = Math.floor(loadedCount / pageSize) + 1;
+            const currentPage = Math.ceil(loadedCount / pageSize);
             const nextPage = currentPage + 1;
             const sep = document.createElement('div');
             sep.className = 'blog-separator';
