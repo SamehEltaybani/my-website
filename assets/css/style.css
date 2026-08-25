@@ -7,7 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* ----- COLORS ----- */
+  
+   /* ----- COLORS ----- */
+   
   --bg-color: #f4f6f8;
   --dark-color: #222831;
   --accent-color: #00ADB5;
@@ -4398,24 +4400,18 @@ PUBLICATIONS PAGE
   line-height: 1.7;
 }
 
-/* ----- Contact Grid (2 columns) ----- */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-xl);
-}
 
 /* ----- Column 1: Form Card ----- */
 
 .contact-form-card {
+  max-width: 800px;
   background: var(--white-color);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.02);
-  border-left: 4px solid var(--accent-color);
+  border-left: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
 }
 
 .contact-card-header {
@@ -4560,131 +4556,15 @@ PUBLICATIONS PAGE
   font-weight: 600;
 }
 
-/* ----- Column 2: Alternative Methods ----- */
-
-.contact-alt-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-/* ----- Alternative Cards ----- */
-
-.contact-alt-card {
-  background: var(--white-color);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  flex: 1;
-}
-
-.contact-alt-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(0, 173, 181, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--accent-color);
-}
-
-.contact-alt-content {
-  flex: 1;
-}
-
-.contact-alt-content h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  margin: 0 0 var(--space-xs) 0;
-}
-
-.contact-alt-helper {
-  font-size: 0.9rem;
-  color: var(--dark-color);
-  opacity: 0.5;
-  margin: 0 0 var(--space-sm) 0;
-}
-
-/* ----- Email Button (Direct) ----- */
-
-.contact-alt-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-lg);
-  border-radius: var(--radius-full);
-  border: 2px solid var(--accent-color);
-  background: transparent;
-  color: var(--accent-color);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.contact-alt-btn:hover {
-  background: var(--accent-color);
-  color: var(--white-color);
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
-}
-
-/* ----- Social Icons ----- */
-
-.contact-social-icons {
-  display: flex;
-  gap: var(--space-md);
-  margin-top: var(--space-xs);
-}
-
-.contact-social-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.04);
-  color: var(--dark-color);
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.contact-social-icons a:hover {
-  background: var(--accent-color);
-  color: var(--white-color);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
-}
-
 .honeypot-field {
     display: none;
 } 
 
+
+
+
 /*  ----- CONTACT PAGE - RESPONSIVE  -----  */
 
-@media (max-width: 992px) {
-   
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .contact-alt-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-  }
-}
 
 @media (max-width: 768px) {
    
@@ -4699,39 +4579,6 @@ PUBLICATIONS PAGE
 
   .contact-card-header h2 {
     font-size: 1.2rem;
-  }
-
-  .contact-alt-column {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .contact-alt-card {
-    padding: var(--space-md);
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .contact-alt-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-
-  .contact-social-icons {
-    justify-content: center;
-  }
-
-  .contact-social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-
-  .contact-alt-btn {
-    width: 100%;
-    justify-content: center;
   }
 }
 
@@ -4751,15 +4598,11 @@ PUBLICATIONS PAGE
     font-size: 0.9rem;
     padding: var(--space-xs) var(--space-lg);
   }
-
-  .contact-alt-card {
-    padding: var(--space-sm);
-  }
 }
 
 
 /* ============================================
-   CONTACT – Simplified Fallback Row
+   CONTACT – Simplified Fallback Row (to be merged with teh above later)
    ============================================ */
 
 .contact-fallback {
