@@ -4468,6 +4468,10 @@ PUBLICATIONS PAGE
   box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
 }
 
+.honeypot-field {
+    display: none;
+} 
+
 /*  ----- CONTACT PAGE - RESPONSIVE  -----  */
 
 @media (max-width: 992px) {
