@@ -3386,6 +3386,11 @@ PUBLICATIONS PAGE
   opacity: 0.8;
 }
 
+.result-loading-message {
+    color: var(--dark-color);
+    opacity: 0.6;
+}
+
 /* ----- Responsive ----- */
 
 @media (max-width: 768px) {
