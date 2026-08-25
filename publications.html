@@ -13,13 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="publications.html">
 
-     <meta http-equiv="Content-Security-Policy" content="
+    <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
     font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
     img-src 'self' data: https://api.qrserver.com;
-    connect-src 'self';
+    connect-src 'self' https://api.web3forms.com;
     frame-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -74,6 +74,7 @@
             <div class="controls-right">
 
                <!-- Filter Button -->
+                
                 <div class="dropdown-wrapper filter-wrapper">
                     <button class="control-btn" id="filter-btn">
                         <i class="fa-solid fa-sliders"></i>
@@ -84,6 +85,7 @@
                 </div>
 
                 <!-- Sort Button -->
+                
                 <div class="dropdown-wrapper">
                     <button class="control-btn" id="sort-btn">
                         <i class="fa-solid fa-arrow-up-wide-short"></i>
@@ -93,6 +95,7 @@
                 </div>
 
                 <!-- Reset Button -->
+                
                 <button class="control-btn" id="reset-btn">
                     <i class="fa-solid fa-rotate-left"></i>
                     <span>Reset</span>
