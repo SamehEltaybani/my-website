@@ -65,9 +65,19 @@
     <div id="page-content">
 
 
-        <!-- ================================================================ -->
-        <!-- ELEMENT: PORTFOLIO HERO / PAGE HEADER                           -->
-        <!-- ================================================================ -->
+<!-- ===== SHARE BUTTON (Top) ===== -->
+        
+<div class="portfolio-share-top">
+    <button class="portfolio-share-btn" data-url="https://sameheltaybani.github.io/my-website/research.html" aria-label="Share this page">
+        <span>Share</span>
+        <i class="fa-regular fa-share-from-square"></i>
+    </button>
+</div>
+        
+        
+<!-- ================================================================ -->
+<!-- ELEMENT: PORTFOLIO HERO / PAGE HEADER                           -->
+<!-- ================================================================ -->
         
         <section class="portfolio-hero">
             <h1 class="portfolio-hero-title">Research</h1>
@@ -875,6 +885,15 @@ particularly interested in how research can inform equitable and effective healt
             </div>
         </section>
 
+        
+<!-- ===== SHARE BUTTON (Bottom) ===== -->
+<div class="portfolio-share-bottom">
+    <button class="portfolio-share-btn" data-url="https://sameheltaybani.github.io/my-website/research.html" aria-label="Share this page">
+        <span>Share</span>
+        <i class="fa-regular fa-share-from-square"></i>
+    </button>
+</div>
+        
         <!-- ================================================================ -->
         <!-- ELEMENT: PORTFOLIO CTA BANNER                                  -->
         <!-- ================================================================ -->
@@ -1043,6 +1062,57 @@ particularly interested in how research can inform equitable and effective healt
                     }
                 });
             });
+
+ 
+    // ============================================
+    // PORTFOLIO SHARE BUTTON (Separate from Blog)
+    // ============================================
+            
+    document.querySelectorAll('.portfolio-share-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = this.dataset.url;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function() {
+                    showPortfolioToast('Link copied to clipboard!');
+                }).catch(function() {
+                    fallbackPortfolioCopy(url);
+                });
+            } else {
+                fallbackPortfolioCopy(url);
+            }
+        });
+    });
+
+    function fallbackPortfolioCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showPortfolioToast('Link copied to clipboard!');
+        } catch (e) {
+            alert('Unable to copy link. Please copy it manually.');
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function showPortfolioToast(message) {
+        let toast = document.getElementById('portfolio-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'portfolio-toast';
+            toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:30px;font-size:0.9rem;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(function() {
+            toast.style.opacity = '0';
+        }, 2500);
+    }
 
 console.log('✅ Research page ready.');
 
