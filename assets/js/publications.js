@@ -549,7 +549,17 @@ function setupControls() {
             singleId = getUrlParam('id');
 
 
-                 // ===== new feature: READ URL PARAMETERS FOR FILTERING =====
+            const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
+            const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
+            const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
+
+            years.forEach(function(y) { if (!filters.year[y]) filters.year[y] = false; });
+            authorshipValues.forEach(function(a) { if (!filters.authorship[a]) filters.authorship[a] = false; });
+            journals.forEach(function(j) { if (!filters.journal[j]) filters.journal[j] = false; });
+
+
+
+         // ===== new feature: READ URL PARAMETERS FOR FILTERING =====
                            const yearParam = getUrlParam('year');
                            const authorshipParam = getUrlParam('authorship');
                            const journalParam = getUrlParam('journal');
@@ -575,14 +585,7 @@ function setupControls() {
                            }
 
                  // ===== End of new feature: READ URL PARAMETERS FOR FILTERING =====
-
-            const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
-            const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
-            const journals = [...new Set(allPublications.map(function(p) { return p.journal; }).filter(Boolean))].sort();
-
-            years.forEach(function(y) { if (!filters.year[y]) filters.year[y] = false; });
-            authorshipValues.forEach(function(a) { if (!filters.authorship[a]) filters.authorship[a] = false; });
-            journals.forEach(function(j) { if (!filters.journal[j]) filters.journal[j] = false; });
+         
 
             setupControls();
 
