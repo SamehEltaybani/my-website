@@ -3848,6 +3848,7 @@ PUBLICATIONS PAGE
   margin-left: var(--space-xs);
   cursor: pointer;
   font-size: 0.9rem;
+   display: none;
 }
 
 .status-info-icon:hover {
