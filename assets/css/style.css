@@ -6056,6 +6056,60 @@ BLOG-Article (right side content)
 
 
 /* ============================================
+   LEGAL PAGE
+   ============================================ */
+
+
+.legal-section {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.legal-section:last-of-type {
+    border-bottom: none;
+}
+
+.legal-section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: var(--space-sm);
+}
+
+.legal-section-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--dark-color);
+    opacity: 0.8;
+    max-width: 800px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+    .legal-section {
+        padding: var(--space-md) 0;
+    }
+
+    .legal-section-title {
+        font-size: 1.2rem;
+    }
+
+    .legal-section-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .legal-section-title {
+        font-size: 1rem;
+    }
+
+    .legal-section-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
    PORTFOLIO – Universal Styles
    ============================================
    All portfolio pages (Research, Teaching, Data Analysis)
