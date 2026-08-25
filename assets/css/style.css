@@ -7758,3 +7758,85 @@ BLOG-Article (right side content)
         font-size: 0.8rem;
     }
 }
+
+
+/* ============================================
+   PORTFOLIO SHARE BUTTON (Specific to portfolio pages)
+   ============================================ */
+
+.portfolio-share-top {
+    text-align: right;
+    margin-bottom: var(--space-sm);
+}
+
+.portfolio-share-bottom {
+    text-align: right;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.portfolio-share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.2rem 0.9rem;
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: transparent;
+    color: var(--dark-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.portfolio-share-btn span {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.portfolio-share-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.portfolio-share-btn:hover {
+    border-color: var(--accent-color);
+    border-width: 2.5px;
+    color: var(--accent-color);
+    background: rgba(0, 173, 181, 0.02);
+}
+
+.portfolio-share-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+   
+    .portfolio-share-top {
+        text-align: center;
+        margin-bottom: var(--space-xs);
+    }
+
+    .portfolio-share-bottom {
+        text-align: center;
+        margin-top: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+
+    .portfolio-share-btn {
+        font-size: 0.8rem;
+        padding: 0.15rem 0.7rem;
+    }
+
+    .portfolio-share-btn span {
+        font-size: 0.8rem;
+    }
+
+    .portfolio-share-btn i {
+        font-size: 0.85rem;
+    }
+}
