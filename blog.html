@@ -15,10 +15,10 @@
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
     font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
     img-src 'self' data: https://api.qrserver.com;
-    connect-src 'self';
+    connect-src 'self' https://api.web3forms.com;
     frame-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -32,11 +32,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
+    
 </head>
     
 <body class="page-blog">
     
     <!-- ===== BLOG HEADER ===== -->
+    
     <div class="page-header-wrapper-simple">
         <div class="container">
             <h1 class="page-header-title-simple">Blog Articles & Insights</h1>
@@ -44,9 +46,11 @@
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
+    
     <div class="container">
 
         <!-- ===== BANNER (Single Result View) ===== -->
+        
         <div class="blog-banner" id="blog-banner">
             <span class="blog-banner-text">
                 <i class="fa-regular fa-eye"></i>
@@ -58,6 +62,7 @@
         </div>
 
         <!-- ===== CONTROLS BAR (Sticky) ===== -->
+        
         <div class="blog-controls" id="blog-controls">
             <div class="controls-left">
                 <span class="controls-status" id="controls-status">
@@ -68,6 +73,7 @@
             <div class="controls-right">
 
                 <!-- Filter Button -->
+                
                 <div class="dropdown-wrapper filter-wrapper">
                     <button class="control-btn" id="filter-btn">
                         <i class="fa-solid fa-sliders"></i>
@@ -77,6 +83,7 @@
                 </div>
 
                 <!-- Sort Button -->
+                
                 <div class="dropdown-wrapper">
                     <button class="control-btn" id="sort-btn">
                         <i class="fa-solid fa-arrow-up-wide-short"></i>
@@ -86,6 +93,7 @@
                 </div>
 
                 <!-- Reset Button -->
+                
                 <button class="control-btn" id="reset-btn">
                     <i class="fa-solid fa-rotate-left"></i>
                     <span>Reset</span>
@@ -94,11 +102,13 @@
         </div>
 
         <!-- ===== BLOG LIST ===== -->
+        
         <div id="blog-list" class="blog-list">
             <p class="item-loading-message">Loading blog articles...</p>
         </div>
 
         <!-- ===== CLOSING CTA ===== -->
+        
         <div class="closing-cta">
             <p class="cta-question">Cannot find what you are looking for or have a question?</p>
             <p class="cta-action">
