@@ -2958,13 +2958,11 @@ PUBLICATIONS PAGE
   letter-spacing: 0.03em;
 }
 
-/* ----- Read More Link ----- */
+/* ----- Blog Card Footer (Share + Read More) ----- */
 
 .blog-read-more {
   text-align: right;
 }
-
-/* ----- Blog Card Footer (Share + Read More) ----- */
 
 .blog-card-footer {
     display: flex;
@@ -2974,25 +2972,6 @@ PUBLICATIONS PAGE
     margin-top: var(--space-sm);
     padding-top: var(--space-xs);
     border-top: 1px solid rgba(0, 0, 0, 0.03);
-}
-
-.blog-share-btn {
-    background: none;
-    border: none;
-    color: var(--dark-color);
-    opacity: 0.35;
-    font-size: 0.95rem;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 0.2s ease, color 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-}
-
-.blog-share-btn:hover {
-    opacity: 1;
-    color: var(--accent-color);
 }
 
 .blog-read-more-link {
@@ -3016,6 +2995,43 @@ PUBLICATIONS PAGE
 
 .blog-read-more-link:hover i {
     transform: translateX(3px);
+}
+
+.blog-share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.2rem 0.9rem;
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: transparent;
+    color: var(--dark-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.blog-share-btn span {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.blog-share-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.blog-share-btn:hover {
+    border-color: var(--accent-color);
+    border-width: 2.5px;
+    color: var(--accent-color);
+    background: rgba(0, 173, 181, 0.02);
+}
+
+.blog-share-btn:hover i {
+    transform: scale(1.1);
 }
 
 /* ----- Blog: Responsive ----- */
