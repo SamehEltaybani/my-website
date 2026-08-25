@@ -2,6 +2,7 @@
 <html lang="en">
     
 <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -13,16 +14,16 @@
     <meta property="og:url" content="search.html">
 
      <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https://api.qrserver.com;
-        connect-src 'self';
-        frame-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        ">
+    default-src 'self';
+    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data: https://api.qrserver.com;
+    connect-src 'self' https://api.web3forms.com;
+    frame-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    ">
 
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
+    
 </head>
     
 <body>
@@ -63,6 +65,7 @@
         </div>
 
         <!-- ===== RECENT SEARCHES ===== -->
+        
         <div class="search-recent" id="search-recent">
             <p class="search-recent-title">Recent Searches</p>
             <div class="search-recent-list" id="recent-list"></div>
@@ -92,6 +95,7 @@
     <!-- ===== SEARCH RESULTS RENDERER ===== -->
     
    <script nonce="secure123">
+       
     (function() {
         'use strict';
 
@@ -375,6 +379,7 @@
         // ============================================
         // RECENT SEARCHES
         // ============================================
+        
         function getRecentSearches() {
             try {
                 const stored = localStorage.getItem('recentSearches');
@@ -451,9 +456,12 @@
             container.appendChild(clearAll);
         }
 
+        
         // ============================================
         // FILTER BUTTONS
         // ============================================
+
+        
         function setupFilters() {
             const buttons = document.querySelectorAll('.search-filter-btn');
             buttons.forEach(function(btn) {
@@ -467,6 +475,7 @@
             });
         }
 
+        
         // ============================================
         // INIT
         // ============================================
@@ -493,9 +502,10 @@
             saveRecentSearch(query);
             renderRecentSearches();
         }
-
+        
         document.addEventListener('DOMContentLoaded', init);
     })();
+       
 </script>
 
 </body>
