@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,12 +12,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="search.html">
 
+     <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https://api.qrserver.com;
+        connect-src 'self';
+        frame-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        ">
+
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
@@ -25,15 +37,18 @@
 <body>
 
     <!-- ===== MAIN CONTENT ===== -->
+    
     <div class="container">
 
         <!-- ===== SEARCH RESULTS HEADER ===== -->
+        
         <div class="search-results-header">
             <h1 class="search-results-title">Search Results</h1>
             <p class="search-results-count" id="results-count">Loading...</p>
         </div>
 
         <!-- ===== FILTER BUTTONS ===== -->
+        
         <div class="search-filters" id="search-filters">
             <button class="search-filter-btn active" data-filter="all">All</button>
             <button class="search-filter-btn" data-filter="publication">Publications</button>
@@ -42,8 +57,9 @@
         </div>
 
         <!-- ===== RESULTS LIST ===== -->
+        
         <div id="search-results-list" class="search-results-list">
-            <p style="color: var(--dark-color); opacity: 0.6;">Loading results...</p>
+            <p class="result-loading-message">Loading results...</p>
         </div>
 
         <!-- ===== RECENT SEARCHES ===== -->
@@ -53,6 +69,7 @@
         </div>
 
         <!-- ===== CLOSING CTA ===== -->
+        
         <div class="closing-cta">
             <p class="cta-question">Cannot find what you are looking for?</p>
             <p class="cta-action">
@@ -73,7 +90,8 @@
     <script src="/my-website/assets/js/search.js"></script>
 
     <!-- ===== SEARCH RESULTS RENDERER ===== -->
-   <script>
+    
+   <script nonce="secure123">
     (function() {
         'use strict';
 
@@ -85,6 +103,8 @@
         // TEXT NORMALIZATION & PHRASE EXTRACTION
         // (same as in search.js)
         // ============================================
+        
+        
         function normalizeText(text) {
             if (!text) return '';
             return text
@@ -107,6 +127,7 @@
         // ============================================
         // GET URL PARAM
         // ============================================
+        
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -115,6 +136,7 @@
         // ============================================
         // LOAD DATA
         // ============================================
+        
         async function loadData() {
             try {
                 const files = [
@@ -183,6 +205,7 @@
         // ============================================
         // SEARCH ITEMS (with consecutive phrase matching)
         // ============================================
+        
         function searchItems(query, filter) {
             if (!query || query.trim().length === 0) {
                 return [];
@@ -282,6 +305,7 @@
         // ============================================
         // HIGHLIGHT TEXT (simple)
         // ============================================
+        
         function highlightText(text, query) {
             if (!text || !query) return text;
             const lowerText = text.toLowerCase();
@@ -297,6 +321,7 @@
         // ============================================
         // RENDER RESULTS
         // ============================================
+        
         function renderResults(results, query) {
             const container = document.getElementById('search-results-list');
             const countEl = document.getElementById('results-count');
@@ -445,6 +470,7 @@
         // ============================================
         // INIT
         // ============================================
+        
         async function init() {
             setupFilters();
 
