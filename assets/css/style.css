@@ -4334,6 +4334,7 @@ PUBLICATIONS PAGE
 /* ----- Success Message ----- */
 
 .form-success {
+  display: none;
   background: rgba(0, 173, 181, 0.06);
   border: 1px solid var(--accent-color);
   border-radius: var(--radius-md);
