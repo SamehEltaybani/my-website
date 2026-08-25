@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +12,33 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="contact.html">
 
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data: https://api.qrserver.com;
+    connect-src 'self';
+    frame-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    ">
+
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
+    
 </head>
     
 <body>
 
     <!-- ===== CONTACT HEADER ===== -->
+    
     <div class="page-header-wrapper-simple">
         <div class="container">
             <h1 class="page-header-title-simple">Contact</h1>
@@ -32,9 +46,11 @@
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
+    
     <div class="container">
 
         <!-- ===== INTRO PARAGRAPH ===== -->
+        
         <p class="contact-intro">
             
             I am always happy to communicate about research collaborations, teaching opportunities, data analysis projects, or any other inquiry.<br> 
@@ -54,12 +70,14 @@
                 </div>
 
                 <!-- Success Message (hidden by default) -->
-                <div id="form-success" class="form-success" style="display: none;">
+                
+                <div id="form-success" class="form-success">
                     <i class="fa-solid fa-circle-check"></i>
                     <p><strong>Thank you!</strong> Your message has been sent successfully. I will get back to you as soon as possible.</p>
                 </div>
 
                 <!-- Form -->
+                
                 <form id="contact-form" class="contact-form">
                     <div class="form-group">
                         <label for="contact-name">Your Name <span class="required">*</span></label>
@@ -80,6 +98,7 @@
                         <input type="checkbox" name="botcheck" id="honeypot" style="display: none;" />
                     
                      <!-- Web3Forms access key -->
+                    
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="access_key" value="fcf046a4-420d-428f-96dd-c00c2f8169a4" />
                         <input type="hidden" name="_subject" value="New message from your website" />
@@ -92,6 +111,7 @@
             </div>
 
             <!-- ===== COLUMN 2: ALTERNATIVE CONTACT METHODS ===== -->
+            
             <div class="contact-alt-column">
 
                 <!-- Option 2: Direct Email -->
@@ -110,6 +130,7 @@
                 </div>
 
                 <!-- Option 3: Social Media -->
+                
                 <div class="contact-alt-card">
                     <div class="contact-alt-icon">
                         <i class="fa-solid fa-share-nodes"></i>
@@ -147,13 +168,16 @@
     <script src="/my-website/assets/js/search.js"></script>
 
     <!-- ===== CONTACT PAGE SCRIPTS ===== -->
-    <script>
+    
+    <script nonce="secure123">
+        
         (function() {
             'use strict';
 
             // ============================================
             // 1. EMAIL OBFUSCATION (Direct Email Button)
             // ============================================
+            
             const emailBtn = document.getElementById('email-btn');
             if (emailBtn) {
                 emailBtn.addEventListener('click', function(e) {
@@ -169,6 +193,7 @@
             // ============================================
             // 2. FORM HANDLING (Web3Forms)
             // ============================================
+            
             const form = document.getElementById('contact-form');
             const successEl = document.getElementById('form-success');
             const submitBtn = document.getElementById('submit-btn');
@@ -233,6 +258,7 @@
             }
 
         })();
+        
     </script>
 
 </body>
