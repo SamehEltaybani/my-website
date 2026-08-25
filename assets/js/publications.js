@@ -531,6 +531,7 @@ function setupControls() {
     
 
     // ----- Load data -----
+ 
     async function loadPublications() {
         container = document.getElementById('publications-list');
         try {
@@ -546,6 +547,34 @@ function setupControls() {
             }
 
             singleId = getUrlParam('id');
+
+
+                 // ===== new feature: READ URL PARAMETERS FOR FILTERING =====
+                           const yearParam = getUrlParam('year');
+                           const authorshipParam = getUrlParam('authorship');
+                           const journalParam = getUrlParam('journal');
+                   
+                           if (yearParam) {
+                               // If the year exists in the filter options, set it to true
+                               if (filters.year[yearParam] !== undefined) {
+                                   filters.year[yearParam] = true;
+                               }
+                           }
+                           if (authorshipParam) {
+                               // Decode URL-encoded values (e.g., "First%2FCorresponding%20author" -> "First/Corresponding author")
+                               const decodedAuthorship = decodeURIComponent(authorshipParam);
+                               if (filters.authorship[decodedAuthorship] !== undefined) {
+                                   filters.authorship[decodedAuthorship] = true;
+                               }
+                           }
+                           if (journalParam) {
+                               const decodedJournal = decodeURIComponent(journalParam);
+                               if (filters.journal[decodedJournal] !== undefined) {
+                                   filters.journal[decodedJournal] = true;
+                               }
+                           }
+
+                 // ===== End of new feature: READ URL PARAMETERS FOR FILTERING =====
 
             const years = [...new Set(allPublications.map(function(p) { return p.year; }).filter(Boolean))].sort();
             const authorshipValues = [...new Set(allPublications.map(function(p) { return p.authorship; }).filter(Boolean))];
