@@ -498,6 +498,7 @@
     }
 
     // ----- Load data -----
+ 
     async function loadPosts() {
         container = document.getElementById('blog-list');
         try {
@@ -514,6 +515,18 @@
 
             singleId = getUrlParam('id');
 
+
+                 // ===== new feature: READ URL PARAMETER FOR CATEGORY FILTER =====
+                             const categoryParam = getUrlParam('category');
+                             if (categoryParam) {
+                                 const decodedCategory = decodeURIComponent(categoryParam);
+                                 // We'll store it temporarily; the category filter will be applied after building the options
+                                 window._pendingCategoryFilter = decodedCategory;
+                             }
+             // ===== end of new feature: READ URL PARAMETER FOR CATEGORY FILTER =====
+  
+         
+
             // Build category filter options
             const categorySet = new Set();
             allPosts.forEach(function(post) {
@@ -523,8 +536,15 @@
                     });
                 }
             });
-            const categories = Array.from(categorySet).sort();
-            categories.forEach(function(c) { if (!filters.category[c]) filters.category[c] = false; });
+        
+        const categories = Array.from(categorySet).sort();
+        categories.forEach(function(c) { if (!filters.category[c]) filters.category[c] = false; });
+
+        // Apply category filter from URL if present
+        if (window._pendingCategoryFilter && filters.category[window._pendingCategoryFilter] !== undefined) {
+            filters.category[window._pendingCategoryFilter] = true;
+            window._pendingCategoryFilter = null; // Clean up
+        }
 
             setupControls();
 
