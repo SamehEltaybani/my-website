@@ -562,4 +562,54 @@ if (post.blogfile) {
     }
 
     document.addEventListener('DOMContentLoaded', loadPosts);
+     // ============================================
+    // SHARE BUTTON (Copy Link to Clipboard)
+    // ============================================
+    document.querySelectorAll('.blog-share-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = this.dataset.url;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function() {
+                    showToast('Link copied to clipboard!');
+                }).catch(function() {
+                    fallbackCopy(url);
+                });
+            } else {
+                fallbackCopy(url);
+            }
+        });
+    });
+
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showToast('Link copied to clipboard!');
+        } catch (e) {
+            alert('Unable to copy link. Please copy it manually.');
+        }
+        document.body.removeChild(textarea);
+    }
+
+    function showToast(message) {
+        // Use existing toast or create a simple one
+        let toast = document.getElementById('blog-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'blog-toast';
+            toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:30px;font-size:0.9rem;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(function() {
+            toast.style.opacity = '0';
+        }, 2500);
+    }
+ 
 })();
