@@ -1655,8 +1655,8 @@ section,
 
 /* ==========  CORE VALUES - RESPONSIVE   =================== */
 
-/* ----- Tablet (max-width: 992px) ----- */
 @media (max-width: 992px) {
+   
     .core-values-grid {
         gap: var(--space-sm);
     }
@@ -1671,8 +1671,8 @@ section,
     }
 }
 
-/* ----- Mobile (max-width: 768px) ----- */
 @media (max-width: 768px) {
+   
     .core-values-section {
         padding: var(--space-lg) 0;
     }
@@ -1715,9 +1715,9 @@ section,
     }
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
 
 @media (max-width: 400px) {
+   
     .core-values-title {
         font-size: 1.3rem;
     }
@@ -2435,6 +2435,7 @@ section,
   }
 }
 
+
 /* ============================================
 404 PAGE - CUSTOM STYLES
  ============================================ */
@@ -2843,6 +2844,10 @@ PUBLICATIONS PAGE
   }
 }
 
+.item-loading-message {
+    color: var(--dark-color);
+    opacity: 0.6;
+}
 
 /* ============================================
    BLOG PAGE (main blog page)
