@@ -2,7 +2,6 @@
 <html lang="en">
     
 <head>
-    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,15 +13,15 @@
     <meta property="og:url" content="contact.html">
 
     <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-    img-src 'self' data: https://api.qrserver.com;
-    connect-src 'self' https://api.web3forms.com;
-    frame-src 'self';
-    object-src 'none';
-    base-uri 'self';
+        default-src 'self';
+        script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https://api.qrserver.com;
+        connect-src 'self' https://api.web3forms.com;
+        frame-src 'self';
+        object-src 'none';
+        base-uri 'self';
     ">
 
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
@@ -30,16 +29,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
-    
 </head>
-    
 <body>
 
     <!-- ===== CONTACT HEADER ===== -->
-    
     <div class="page-header-wrapper-simple">
         <div class="container">
             <h1 class="page-header-title-simple">Contact</h1>
@@ -47,117 +44,83 @@
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
-    
     <div class="container">
 
         <!-- ===== INTRO PARAGRAPH ===== -->
-        
         <p class="contact-intro">
-            
-            I am always happy to communicate about research collaborations, teaching opportunities, data analysis projects, or any other inquiry.<br> 
-            Please feel free to reach out using the form below.<br> 
-            You can email me directly or contact me via social media.  
-            
+            I am always happy to communicate about research collaborations, teaching opportunities,
+            data analysis projects, or any other inquiry.<br>
+            Please feel free to reach out using the form below.
+            You can email me directly or contact me via social media.
         </p>
 
-        <!-- ===== CONTACT GRID ===== -->
-        <div class="contact-grid">
+        <!-- ===== CONTACT FORM (Full Width) ===== -->
+        <div class="contact-form-card">
 
-            <!-- ===== COLUMN 1: CONTACT FORM (Primary) ===== -->
-            <div class="contact-form-card">
-                <div class="contact-card-header">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    <h2>Contact Form</h2>
-                </div>
-
-                <!-- Success Message (hidden by default) -->
-                
-                <div id="form-success" class="form-success">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p><strong>Thank you!</strong> Your message has been sent successfully. I will get back to you as soon as possible.</p>
-                </div>
-
-                <!-- Form -->
-                
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="contact-name">Your Name <span class="required">*</span></label>
-                        <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required autofocus />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-email">Your Email <span class="required">*</span></label>
-                        <input type="email" id="contact-email" name="email" placeholder="Enter your email address" required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-message">Your Message <span class="required">*</span></label>
-                        <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-                    </div>
-
-                    <!-- Honeypot (hidden from users) -->
-                        <input type="checkbox" name="botcheck" id="honeypot" class="honeypot-field" />
-                    
-                     <!-- Web3Forms access key -->
-                    
-                        <input type="hidden" name="_captcha" value="false" />
-                        <input type="hidden" name="access_key" value="fcf046a4-420d-428f-96dd-c00c2f8169a4" />
-                        <input type="hidden" name="_subject" value="New message from your website" />
-                  
-                    <button type="submit" class="contact-submit-btn" id="submit-btn">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </form>
+            <!-- Card Header -->
+            <div class="contact-card-header">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <h2>Contact Form</h2>
             </div>
 
-            <!-- ===== COLUMN 2: ALTERNATIVE CONTACT METHODS ===== -->
-            
-            <div class="contact-alt-column">
-
-                <!-- Option 2: Direct Email -->
-                
-                <div class="contact-alt-card">
-                    <div class="contact-alt-icon">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="contact-alt-content">
-                        <h3>Direct Email</h3>
-                        <p class="contact-alt-helper">Write an email to me</p>
-                        <button id="email-btn" class="contact-alt-btn">
-                            <i class="fa-solid fa-envelope"></i>
-                            Email me directly
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Option 3: Social Media -->
-                
-                <div class="contact-alt-card">
-                    <div class="contact-alt-icon">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </div>
-                    <div class="contact-alt-content">
-                        <h3>Social Media</h3>
-                        <p class="contact-alt-helper">Click an icon to contact me through social media</p>
-                        <div class="contact-social-icons">
-                            <a href="https://www.youtube.com/your-channel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <i class="fa-brands fa-youtube"></i>
-                            </a>
-                            <a href="https://www.facebook.com/your-profile" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <i class="fa-brands fa-facebook"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Fallback line (right‑aligned) -->
+            <div class="contact-fallback">
+                <span class="contact-fallback-text">
+                    If you cannot use this form, contact me via email or social media:
+                </span>
+                <button id="email-btn" class="contact-fallback-btn" aria-label="Email me">
+                    <i class="fa-solid fa-envelope"></i>
+                </button>
+                <a href="https://www.youtube.com/your-channel" target="_blank" rel="noopener noreferrer" class="contact-fallback-icon" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://www.facebook.com/your-profile" target="_blank" rel="noopener noreferrer" class="contact-fallback-icon" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="contact-fallback-icon" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer" class="contact-fallback-icon" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
             </div>
+
+            <!-- Success Message -->
+            <div id="form-success" class="form-success">
+                <i class="fa-solid fa-circle-check"></i>
+                <p><strong>Thank you!</strong> Your message has been sent successfully. I will get back to you as soon as possible.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required autofocus />
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Your Email <span class="required">*</span></label>
+                    <input type="email" id="contact-email" name="email" placeholder="Enter your email address" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Your Message <span class="required">*</span></label>
+                    <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <!-- Honeypot -->
+                <input type="checkbox" name="botcheck" id="honeypot" class="honeypot-field" />
+
+                <!-- Web3Forms access key -->
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="access_key" value="fcf046a4-420d-428f-96dd-c00c2f8169a4" />
+                <input type="hidden" name="_subject" value="New message from your website" />
+
+                <button type="submit" class="contact-submit-btn" id="submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Send Message
+                </button>
+            </form>
         </div>
 
     </div><!-- end .container -->
@@ -172,30 +135,25 @@
     <!-- ===== CONTACT PAGE SCRIPTS ===== -->
     
     <script nonce="secure123">
-        
         (function() {
             'use strict';
 
             // ============================================
-            // 1. EMAIL OBFUSCATION (Direct Email Button)
+            // 1. EMAIL OBFUSCATION
             // ============================================
-            
             const emailBtn = document.getElementById('email-btn');
             if (emailBtn) {
                 emailBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // Assemble email address dynamically (prevents scraping)
                     const user = 'eltaybanisameh';
                     const domain = 'gmail.com';
-                    const email = user + '@' + domain;
-                    window.location.href = 'mailto:' + email + '?subject=Message from your website';
+                    window.location.href = 'mailto:' + user + '@' + domain + '?subject=Message from your website';
                 });
             }
 
             // ============================================
-            // 2. FORM HANDLING (Web3Forms)
+            // 2. FORM HANDLING
             // ============================================
-            
             const form = document.getElementById('contact-form');
             const successEl = document.getElementById('form-success');
             const submitBtn = document.getElementById('submit-btn');
@@ -205,7 +163,6 @@
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
 
-                    // Disable submit button to prevent double submission
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
@@ -219,38 +176,31 @@
                         const result = await response.json();
 
                         if (result.success) {
-                            // Success: fade out form, show success message
                             form.classList.add('form-submitted');
 
-                            // Hide form fields (fade them out)
                             formFields.forEach(function(field) {
                                 field.style.opacity = '0.3';
                                 field.style.pointerEvents = 'none';
                             });
 
-                            // Show success message
                             successEl.style.display = 'block';
                             successEl.style.opacity = '0';
                             setTimeout(function() {
                                 successEl.style.opacity = '1';
                             }, 50);
 
-                            // Reset button
                             submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
                             submitBtn.disabled = false;
 
-                            // Scroll to success message
                             successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
                         } else {
-                            // Error from Web3Forms
                             alert('Something went wrong. Please try again later.');
                             submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
                             submitBtn.disabled = false;
                         }
 
                     } catch (error) {
-                        // Network or other error
                         console.error('Form submission error:', error);
                         alert('Unable to send your message. Please check your internet connection and try again.');
                         submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
