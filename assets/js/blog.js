@@ -448,6 +448,7 @@ function showToast(message) {
     }
 
     // ----- Open/Close functions -----
+ 
     function openFilterDropdown() {
         if (filterDropdown.classList.contains('open')) return;
         closeSortDropdown();
