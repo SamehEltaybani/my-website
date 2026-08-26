@@ -2679,6 +2679,7 @@ PUBLICATIONS PAGE
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
+  justify-content: flex-end;
   margin-bottom: var(--space-sm);
 }
 
