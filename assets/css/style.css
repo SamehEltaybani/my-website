@@ -3565,15 +3565,6 @@ PUBLICATIONS PAGE
   color: var(--accent-color);
 }
 
-/* ----- Short Title ----- */
-
-.blog-short-title {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.6;
-  margin-bottom: var(--space-xs);
-}
-
 /* ----- Meta (Date + Reading Time) ----- */
 
 .blog-meta {
