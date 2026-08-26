@@ -4788,6 +4788,66 @@ PUBLICATIONS PAGE
 
 
 /* ============================================
+   CONTACT & NEWSLETTER – Privacy & Social Notes (css of both contct and newsletter sections will be merged latter)
+   ============================================ */
+
+.contact-privacy-note,
+.contact-newsletter-referral,
+.newsletter-privacy-note,
+.newsletter-social-follow {
+    font-size: 0.85rem;
+    color: var(--dark-color);
+    opacity: 0.5;
+    text-align: center;
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+}
+
+.contact-privacy-note a,
+.contact-newsletter-referral a,
+.newsletter-privacy-note a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-privacy-note a:hover,
+.contact-newsletter-referral a:hover,
+.newsletter-privacy-note a:hover {
+    text-decoration: underline;
+}
+
+.newsletter-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xs);
+}
+
+.newsletter-social-icons a {
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.newsletter-social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-privacy-note,
+    .contact-newsletter-referral,
+    .newsletter-privacy-note,
+    .newsletter-social-follow {
+        font-size: 0.75rem;
+    }
+}
+
+
+
+/* ============================================
    TOC (left side full style) - Unified style for all pages
    ============================================ */
 
