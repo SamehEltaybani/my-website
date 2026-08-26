@@ -47,19 +47,23 @@
         });
     }
 
+    function hasBlogImage(post) {
+        return typeof post.image === 'string' && post.image.trim() !== '';
+    }
+
     function createCardHTML(post) {
-        let html = '';
+        let contentHtml = '';
 
         // Title (linked to blogfile)
         if (post.blogfile) {
-            html += '<div class="blog-title"><a href="' + window.escapeHTML(post.blogfile) + '">' + window.escapeHTML(post.title) + '</a></div>';
+            contentHtml += '<div class="blog-title"><a href="' + window.escapeHTML(post.blogfile) + '">' + window.escapeHTML(post.title) + '</a></div>';
         } else if (post.title) {
-            html += '<div class="blog-title">' + window.escapeHTML(post.title) + '</div>';
+            contentHtml += '<div class="blog-title">' + window.escapeHTML(post.title) + '</div>';
         }
 
         // Short Title (optional)
         if (post.shortTitle) {
-            html += '<div class="blog-short-title">' + window.escapeHTML(post.shortTitle) + '</div>';
+            contentHtml += '<div class="blog-short-title">' + window.escapeHTML(post.shortTitle) + '</div>';
         }
 
         // Date + Reading Time
@@ -71,7 +75,7 @@
             metaHtml += '<span class="blog-reading-time"><i class="fa-regular fa-clock"></i> ' + window.escapeHTML(post.readingTime) + '</span>';
         }
         metaHtml += '</div>';
-        html += metaHtml;
+        contentHtml += metaHtml;
 
         // Categories (tags)
         if (post.categories && post.categories.length > 0) {
@@ -80,18 +84,26 @@
                 tagsHtml += '<span class="blog-tag">' + window.escapeHTML(cat) + '</span>';
             });
             tagsHtml += '</div>';
-            html += tagsHtml;
+            contentHtml += tagsHtml;
         }
 
         // Read More + Share (on the same line)
-if (post.blogfile) {
-    html += '<div class="blog-card-footer">';
-    html += '<button class="blog-share-btn" data-url="' + window.location.origin + '/my-website/' + post.blogfile + '" data-title="' + window.escapeHTML(post.title) + '" aria-label="Share this article"><span>Share</span> <i class="fa-regular fa-share-from-square"></i></button>';
-    html += '<a href="' + window.escapeHTML(post.blogfile) + '" class="blog-read-more-link">Read more <i class="fa-solid fa-arrow-right"></i></a>';
-    html += '</div>';
-}
+        if (post.blogfile) {
+            contentHtml += '<div class="blog-card-footer">';
+            contentHtml += '<button class="blog-share-btn" data-url="' + window.location.origin + '/my-website/' + post.blogfile + '" data-title="' + window.escapeHTML(post.title) + '" aria-label="Share this article"><span>Share</span> <i class="fa-regular fa-share-from-square"></i></button>';
+            contentHtml += '<a href="' + window.escapeHTML(post.blogfile) + '" class="blog-read-more-link">Read more <i class="fa-solid fa-arrow-right"></i></a>';
+            contentHtml += '</div>';
+        }
 
-        return html;
+        let imageHtml = '';
+        if (hasBlogImage(post)) {
+            const imageAlt = post.title ? 'Illustration for ' + post.title : 'Blog article illustration';
+            imageHtml += '<div class="blog-card-image-wrapper">';
+            imageHtml += '<img class="blog-card-image" src="' + window.escapeHTML(post.image.trim()) + '" alt="' + window.escapeHTML(imageAlt) + '" loading="lazy">';
+            imageHtml += '</div>';
+        }
+
+        return '<div class="blog-card-content">' + contentHtml + '</div>' + imageHtml;
     }
 
 function handleShareClick(e) {
@@ -204,7 +216,7 @@ function showToast(message) {
             container.innerHTML = '';
             if (filteredPosts.length > 0) {
                 const card = document.createElement('div');
-                card.className = 'blog-card';
+                card.className = 'blog-card' + (hasBlogImage(filteredPosts[0]) ? ' blog-card--with-image' : '');
                 card.innerHTML = createCardHTML(filteredPosts[0]);
                 container.appendChild(card);
             } else {
@@ -249,7 +261,7 @@ function showToast(message) {
                 container.appendChild(sep);
             }
             const card = document.createElement('div');
-            card.className = 'blog-card';
+            card.className = 'blog-card' + (hasBlogImage(filteredPosts[i]) ? ' blog-card--with-image' : '');
             card.innerHTML = createCardHTML(filteredPosts[i]);
             container.appendChild(card);
         }
@@ -576,16 +588,12 @@ function showToast(message) {
 
             singleId = getUrlParam('id');
 
-
-                 // ===== new feature: READ URL PARAMETER FOR CATEGORY FILTER =====
                              const categoryParam = getUrlParam('category');
                              if (categoryParam) {
                                  const decodedCategory = decodeURIComponent(categoryParam);
                                  // We'll store it temporarily; the category filter will be applied after building the options
                                  window._pendingCategoryFilter = decodedCategory;
-                             }
-             // ===== end of new feature: READ URL PARAMETER FOR CATEGORY FILTER =====
-  
+                             }  
          
 
             // Build category filter options
