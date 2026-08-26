@@ -4338,7 +4338,7 @@ PUBLICATIONS PAGE
 }
 
 
-/* ----- Column 1: Form Card ----- */
+/* ----- Form Card ----- */
 
 .contact-form-card {
   max-width: 800px;
@@ -4498,50 +4498,7 @@ PUBLICATIONS PAGE
     display: none;
 } 
 
-
-
-
-/*  ----- CONTACT PAGE - RESPONSIVE  -----  */
-
-
-@media (max-width: 768px) {
-   
-  .contact-intro {
-    font-size: 1rem;
-    padding: 0 var(--space-sm);
-  }
-
-  .contact-form-card {
-    padding: var(--space-lg);
-  }
-
-  .contact-card-header h2 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 400px) {
-   
-  .contact-form-card {
-    padding: var(--space-md);
-  }
-
-  .form-group input,
-  .form-group textarea {
-    font-size: 0.9rem;
-    padding: var(--space-xs) var(--space-sm);
-  }
-
-  .contact-submit-btn {
-    font-size: 0.9rem;
-    padding: var(--space-xs) var(--space-lg);
-  }
-}
-
-
-/* ============================================
-   CONTACT – Simplified Fallback Row (to be merged with teh above later)
-   ============================================ */
+/*  ----- Simplified Fallback Row  -----  */
 
 .contact-fallback {
     display: flex;
@@ -4584,9 +4541,24 @@ PUBLICATIONS PAGE
     transform: translateY(-2px);
 }
 
-/* Responsive */
+/*  ----- CONTACT PAGE - RESPONSIVE  -----  */
+
 @media (max-width: 768px) {
-    .contact-fallback {
+   
+  .contact-intro {
+    font-size: 1rem;
+    padding: 0 var(--space-sm);
+  }
+
+  .contact-form-card {
+    padding: var(--space-lg);
+  }
+
+  .contact-card-header h2 {
+    font-size: 1.2rem;
+  }
+
+   .contact-fallback {
         justify-content: center;
     }
     .contact-fallback-text {
@@ -4604,6 +4576,22 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
+   
+  .contact-form-card {
+    padding: var(--space-md);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .contact-submit-btn {
+    font-size: 0.9rem;
+    padding: var(--space-xs) var(--space-lg);
+  }
+
     .contact-fallback-text {
         font-size: 0.7rem;
     }
