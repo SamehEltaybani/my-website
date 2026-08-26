@@ -194,6 +194,7 @@ function showToast(message) {
     }
 
     // ----- Render -----
+ 
     function render() {
         if (!container) container = document.getElementById('blog-list');
 
@@ -210,6 +211,11 @@ function showToast(message) {
                 container.innerHTML = '<p style="color: var(--dark-color); opacity: 0.6;">Blog article not found.</p>';
             }
             updateStatus();
+            // ===== ATTACH SHARE EVENTS FOR SINGLE RESULT =====
+            document.querySelectorAll('.blog-share-btn').forEach(function(btn) {
+                btn.removeEventListener('click', handleShareClick);
+                btn.addEventListener('click', handleShareClick);
+            });
             return;
         }
 
