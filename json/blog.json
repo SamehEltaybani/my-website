@@ -7,6 +7,7 @@
     "categories": ["Fictional", "Insights", "Trials"],
     "blogfile": "blog/blog-template.html",
     "readingTime": "",
+    "image": "/my-website/img/data-1.webp",
     "summary": "This is a summary of teh fictional article and will be deleted later . This is used only for search. Example words for testing are deviation and exaggeration."
   },
   {
@@ -17,6 +18,7 @@
     "categories": ["AI", "Clinical Practice", "Nursing"],
     "blogfile": "blog/blog-199.html",
     "readingTime": "10 min.",
+    "image": "/my-website/img/data-1.webp",
     "summary": "This is a summary used only for search. Example words for testing are deviation and exaggeration."
   },
   {
@@ -26,6 +28,7 @@
     "date": "2026-10-02",
     "categories": ["Research Methods", "Evidence-Based Practice"],
     "readingTime": "7 min.",
+    "image": "/my-website/img/data-1.webp",
     "blogfile": "blog/blog-198.html"
   },
   {
@@ -43,6 +46,7 @@
     "shortTitle": "Ethics in multicenter trials",
     "date": "2026-08-12",
     "categories": ["Research Ethics", "Management", "Research"],
+    "image": "/my-website/img/data-1.webp",
     "blogfile": "blog/blog-196.html"
   },
   {
