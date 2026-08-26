@@ -37,8 +37,12 @@
         return text.substring(0, maxLength).trim() + '...';
     }
 
+    function hasPublicationImage(pub) {
+        return typeof pub.image === 'string' && pub.image.trim() !== '';
+    }
+
     function createCardHTML(pub) {
-        let html = '';
+        let contentHtml = '';
      
         if (pub.authorship) {
             let tagClass = 'authorship-tag';
@@ -49,11 +53,11 @@
             } else {
                 tagClass += ' authorship-other';
             }
-            html += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
+            contentHtml += '<span class="' + tagClass + '">' + window.escapeHTML(pub.authorship) + '</span>';
         }
      
         if (pub.title) {
-            html += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
+            contentHtml += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
         }
      
         let journalYear = '';
@@ -65,7 +69,7 @@
             journalYear += '(' + window.escapeHTML(pub.year) + ')';
         }
         if (journalYear) {
-            html += '<div class="publication-journal">' + journalYear + '</div>';
+            contentHtml += '<div class="publication-journal">' + journalYear + '</div>';
         }
 
         let linksHtml = '<div class="publication-links">';
@@ -84,10 +88,18 @@
         }
         linksHtml += '</div>';
         if (hasLink) {
-            html += linksHtml;
+            contentHtml += linksHtml;
+        }
+
+        let imageHtml = '';
+        if (hasPublicationImage(pub)) {
+            const imageAlt = pub.title ? 'Illustration for ' + pub.title : 'Publication illustration';
+            imageHtml += '<div class="publication-card-image-wrapper">';
+            imageHtml += '<img class="publication-card-image" src="' + window.escapeHTML(pub.image.trim()) + '" alt="' + window.escapeHTML(imageAlt) + '" loading="lazy">';
+            imageHtml += '</div>';
         }
         
-        return html;
+        return '<div class="publication-card-content">' + contentHtml + '</div>' + imageHtml;
     }
 
     function allSelectedInCategory(category) {
@@ -152,7 +164,7 @@
             container.innerHTML = '';
             if (filteredPublications.length > 0) {
                 const card = document.createElement('div');
-                card.className = 'publication-card';
+                card.className = 'publication-card' + (hasPublicationImage(filteredPublications[0]) ? ' publication-card--with-image' : '');
                 card.innerHTML = createCardHTML(filteredPublications[0]);
                 container.appendChild(card);
             } else {
@@ -190,7 +202,7 @@
                 container.appendChild(sep);
             }
             const card = document.createElement('div');
-            card.className = 'publication-card';
+            card.className = 'publication-card' + (hasPublicationImage(filteredPublications[i]) ? ' publication-card--with-image' : '');
             card.innerHTML = createCardHTML(filteredPublications[i]);
             container.appendChild(card);
         }
