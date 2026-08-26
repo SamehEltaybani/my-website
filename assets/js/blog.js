@@ -61,11 +61,6 @@
             contentHtml += '<div class="blog-title">' + window.escapeHTML(post.title) + '</div>';
         }
 
-        // Short Title (optional)
-        if (post.shortTitle) {
-            contentHtml += '<div class="blog-short-title">' + window.escapeHTML(post.shortTitle) + '</div>';
-        }
-
         // Date + Reading Time
         let metaHtml = '<div class="blog-meta">';
         if (post.date) {
