@@ -2627,6 +2627,7 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
 }
 
 .publication-card-image {
@@ -3581,6 +3582,7 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
 }
 
 .blog-card-image {
