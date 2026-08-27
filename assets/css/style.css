@@ -8174,12 +8174,6 @@ BLOG-Article (right side content)
   overflow: hidden;
   min-height: clamp(390px, 31vw, 510px);
   background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 35, 42, 0.20) 0%,
-      rgba(0, 79, 85, 0.46) 52%,
-      rgba(0, 103, 109, 0.76) 100%
-    ),
     url("/my-website/img/home.jpg");
   background-position: center center;
   background-size: cover;
