@@ -1,5 +1,5 @@
 /**
- * ============================================
+ * ===========================================
  * BLOG.JS – Load, Render, Filter, Sort
  This is for the list of blog articles (blog.html), not each blog article
  * ============================================
