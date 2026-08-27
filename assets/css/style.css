@@ -821,38 +821,23 @@ section,
 
 .hero-wrapper {
   width: 100%;
-  background: linear-gradient(to bottom, var(--accent-color) 0%, var(--accent-color) 40%, var(--bg-color) 100%);
   margin: 0;
   padding: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-color) 0%,
+    #1ab8bd 34%,
+    #68cecf 68%,
+    var(--bg-color) 100%
+  );
 }
 
 .hero {
-  text-align: center;
-  padding: var(--space-xl) 0;
   margin: 0;
-  background: transparent;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--white-color);
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-lg);
-  white-space: nowrap;
-  display: inline-block;
-  text-align: center;
-  padding: 0 var(--space-xs);
-  max-width: 100%;
-}
-
-
-
-.hero {
-  text-align: center;
-  padding: var(--space-xl) 0;
-  margin: 0;
+  padding: clamp(6.5rem, 11vw, 8.5rem) 0 clamp(4.5rem, 7vw, 5.5rem);
   border-radius: 0;
+  background: transparent;
+  text-align: center;
 }
 
 .hero h1 {
@@ -867,6 +852,7 @@ section,
   padding: 0 var(--space-xs);
   max-width: 100%;
 }
+
 
 .hero h1 .highlight-text {
   background: var(--dark-color);
@@ -937,6 +923,10 @@ section,
 /* ----- Hero: Responsive ----- */
 
 @media (max-width: 768px) {
+
+  .hero {
+  padding: clamp(4.75rem, 14vw, 6rem) 0 clamp(2.75rem, 8vw, 3.5rem);
+}
    
   .hero h1 {
     font-size: 2rem;
