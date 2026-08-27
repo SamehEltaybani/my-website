@@ -2772,10 +2772,11 @@ PUBLICATIONS PAGE
   }
 
   .publication-card-image-wrapper {
-    order: -1;
-    height: clamp(160px, 55vw, 260px);
-    min-height: 0;
-  }
+  order: -1;
+  width: 100%;
+  height: clamp(160px, 55vw, 260px);
+  min-height: 0;
+}
   
   .publication-title {
     font-size: 1rem;
@@ -3829,10 +3830,11 @@ PUBLICATIONS PAGE
   }
 
   .blog-card-image-wrapper {
-    order: -1;
-    height: clamp(160px, 55vw, 260px);
-    min-height: 0;
-  }
+  order: -1;
+  width: 100%;
+  height: clamp(160px, 55vw, 260px);
+  min-height: 0;
+}
 
   .blog-title {
     font-size: 1rem;
