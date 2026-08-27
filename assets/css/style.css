@@ -1739,7 +1739,7 @@ section,
 
 
 /* ============================================
-  WHAT I DO SECTION
+   WHAT I DO SECTION
    ============================================ */
 
 .whatido-container {
@@ -1753,26 +1753,24 @@ section,
 
 .whatido-row {
   display: flex;
-  gap: var(--space-lg);
-  background: var(--white-color);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
   align-items: stretch;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md);
+  background: var(--white-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* ----- Left Column (60%) ----- */
+/* ----- Left Column ----- */
 
 .whatido-left {
-  flex: 0 0 60%;
   display: flex;
+  flex: 0 0 60%;
   flex-direction: column;
   padding-right: var(--space-lg);
   border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
-
-/* Header: Icon + Title */
 
 .whatido-header {
   display: flex;
@@ -1782,83 +1780,75 @@ section,
 }
 
 .whatido-header i {
-  font-size: 2rem;
   color: var(--accent-color);
+  font-size: 2rem;
 }
 
 .whatido-header h3 {
+  margin: 0;
+  color: var(--dark-color);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--dark-color);
-  margin: 0;
 }
-
-/* Divider: Thick green line fading to right */
 
 .whatido-divider {
   width: 100%;
   height: 6px;
-  background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 60%, transparent 100%);
-  border-radius: 4px;
   margin-bottom: var(--space-md);
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 60%, transparent 100%);
 }
-
-/* Paragraph text */
 
 .whatido-text {
+  margin-bottom: var(--space-md);
+  color: var(--dark-color);
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--dark-color);
   opacity: 0.8;
-  margin-bottom: var(--space-md);
 }
 
-/* Bullet points with caret-right */
-
 .whatido-bullets {
-  list-style: none;
-  padding: 0;
   margin: 0 0 var(--space-md) 0;
+  padding: 0;
+  list-style: none;
 }
 
 .whatido-bullets li {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.75;
-  line-height: 1.6;
-  margin-bottom: var(--space-xs);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  color: var(--dark-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.75;
 }
 
 .whatido-bullets li i {
+  width: 1rem;
+  flex-shrink: 0;
   color: var(--accent-color);
   font-size: 0.8rem;
-  width: 1rem;
   text-align: center;
-  flex-shrink: 0;
 }
-
-/* Button: Right-aligned within left column */
 
 .whatido-btn {
   display: inline-flex;
+  align-self: flex-end;
   align-items: center;
   justify-content: space-between;
+  min-width: 140px;
+  gap: var(--space-md);
+  margin-top: auto;
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--radius-full);
   background: transparent;
   color: var(--dark-color);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
-  border: 2px solid var(--accent-color);
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-  gap: var(--space-md);
-  align-self: flex-end;
-  margin-top: auto;
-  min-width: 140px;
 }
 
 .whatido-btn span {
@@ -1866,9 +1856,9 @@ section,
 }
 
 .whatido-btn i {
+  flex-shrink: 0;
   font-size: 0.8rem;
   transition: transform 0.2s ease;
-  flex-shrink: 0;
 }
 
 .whatido-btn:hover {
@@ -1881,11 +1871,11 @@ section,
   transform: translateX(4px);
 }
 
-/* ----- Right Column (30%) ----- */
+/* ----- Right Column ----- */
 
 .whatido-right {
-  flex: 0 0 30%;
   display: flex;
+  flex: 0 0 30%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -1896,20 +1886,20 @@ section,
   width: 100%;
   height: auto;
   max-height: 280px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: var(--radius-sm);
   object-fit: cover;
-  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .whatido-copyright {
-  font-size: 0.8rem;
-  color: var(--dark-color);
-  opacity: 0.5;
-  text-decoration: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
+  color: var(--dark-color);
+  font-size: 0.8rem;
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .whatido-copyright i {
@@ -1918,214 +1908,114 @@ section,
 }
 
 .whatido-copyright:hover {
-  opacity: 1;
   color: var(--accent-color);
+  opacity: 1;
 }
 
 .whatido-copyright:hover i {
   transform: translateX(3px);
 }
 
-/*   WHAT I DO - RESPONSIVE */
+/* ----- Responsive ----- */
 
 @media (max-width: 992px) {
-   
   .whatido-left {
     flex: 0 0 55%;
     padding-right: var(--space-md);
   }
-  
+
   .whatido-right {
     flex: 0 0 35%;
   }
-  
+
   .whatido-header i {
     font-size: 1.6rem;
   }
-  
+
   .whatido-header h3 {
     font-size: 1.3rem;
   }
 }
 
 @media (max-width: 768px) {
-   
   .whatido-container {
     gap: var(--space-lg);
   }
-  
+
   .whatido-row {
     flex-direction: column;
     padding: var(--space-md);
   }
-  
+
   .whatido-left {
     flex: 1 1 auto;
     padding-right: 0;
+    padding-bottom: var(--space-md);
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: var(--space-md);
   }
-  
+
   .whatido-right {
     flex: 1 1 auto;
     padding-top: var(--space-md);
   }
-  
-  .whatido-right img {
-    max-width: 100%;
-  }
-  
+
   .whatido-btn {
     align-self: flex-end;
     min-width: 120px;
     padding: var(--space-xs) var(--space-md);
     font-size: 0.9rem;
   }
-  
+
   .whatido-header i {
     font-size: 1.4rem;
   }
-  
+
   .whatido-header h3 {
     font-size: 1.2rem;
   }
-  
+
   .whatido-text {
     font-size: 0.95rem;
   }
-  
+
   .whatido-bullets li {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 400px) {
-   
   .whatido-row {
     padding: var(--space-sm);
   }
-  
+
   .whatido-btn {
     min-width: 100px;
+    gap: var(--space-sm);
     padding: var(--space-xs) var(--space-sm);
     font-size: 0.85rem;
-    gap: var(--space-sm);
   }
-  
+
   .whatido-header i {
     font-size: 1.2rem;
   }
-  
+
   .whatido-header h3 {
     font-size: 1rem;
   }
-  
+
   .whatido-text {
     font-size: 0.9rem;
   }
-  
+
   .whatido-bullets li {
     font-size: 0.85rem;
   }
-  
+
   .whatido-copyright {
     font-size: 0.7rem;
   }
 }
-
-
-/* ----- Right Column: Image Wrapper with Labels ----- */
-
-.whatido-image-wrapper {
-    position: relative;
-    width: 100%;
-    padding: var(--space-xs);
-    background: var(--white-color);
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.whatido-image-wrapper img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-sm);
-    display: block;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
-
-/* ----- Labels Overlay (Integrity, Trust, Compassion) ----- */
-
-.whatido-image-labels {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Cluster labels in the center */
-    align-items: flex-start;
-    gap: 8px; /* Fine gap between labels */
-    padding: var(--space-md) 0;
-}
-
-.whatido-label {
-    display: inline-block;
-    font-size: 1.0rem;
-    font-weight: 700;
-    color: var(--white-color);
-    background: var(--accent-color);
-    padding: 0.6rem 1rem;
-    border-radius: 0 8px 8px 0;
-    letter-spacing: 0.02em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 50%; /* All labels exactly 50% of image width */
-    max-width: 50%; /* Ensures they don't exceed 50% */
-    box-sizing: border-box;
-    line-height: 1.3;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    pointer-events: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Fallback if text is too long */
-}
-
-/* ----- Responsive Adjustments ----- */
-
-@media (max-width: 768px) {
-    .whatido-image-wrapper {
-        padding: var(--space-xs);
-    }
-
-    .whatido-image-labels {
-        padding: var(--space-sm) 0;
-        gap: 6px;
-    }
-
-    .whatido-label {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.8rem;
-        max-width: 60%; /* Slightly wider on smaller screens */
-        border-radius: 0 6px 6px 0;
-    }
-}
-
-@media (max-width: 400px) {
-    .whatido-image-labels {
-        gap: 4px;
-    }
-
-    .whatido-label {
-        font-size: 0.6rem;
-        padding: 0.3rem 0.6rem;
-        max-width: 65%;
-        border-radius: 0 4px 4px 0;
-    }
-}
-
 
 
 
