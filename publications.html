@@ -66,10 +66,16 @@
         
         <div class="publications-controls" id="publications-controls">
             <div class="controls-left">
-                <span class="controls-status" id="controls-status">
+                <span class="controls-status" id="controls-status" role="status" aria-live="polite">
                     Loading...
                 </span>
-                <i class="fa-regular fa-circle-question status-info-icon" id="status-info-icon"></i>
+                <button class="status-info-icon" id="status-info-icon" type="button" aria-label="Explain filtered results" aria-controls="filter-status-popover" aria-expanded="false">
+                    <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                </button>
+                <div class="filter-status-popover" id="filter-status-popover" role="tooltip" aria-hidden="true">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    <span>This list is currently filtered. Click Reset to remove all filters and see the full list.</span>
+                </div>
             </div>
             <div class="controls-right">
 
