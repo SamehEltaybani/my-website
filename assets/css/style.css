@@ -2642,7 +2642,7 @@ PUBLICATIONS PAGE
   padding: var(--space-lg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.02);
-  border-left: 4px solid var(--accent-color);
+  border-left: 3px solid var(--accent-color);
   transition: box-shadow 0.2s ease;
 }
 
@@ -3767,7 +3767,7 @@ PUBLICATIONS PAGE
   padding: var(--space-lg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.02);
-  border-left: 4px solid var(--accent-color);
+  border-left: 3px solid var(--accent-color);
   transition: box-shadow 0.2s ease;
 }
 
