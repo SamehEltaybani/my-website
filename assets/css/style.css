@@ -2694,7 +2694,7 @@ PUBLICATIONS PAGE
   }
 
   .publications-header-cta .header-cta-trigger {
-    padding: 0.55rem 0.75rem;
+    padding: 0.4rem 0.75rem;
     font-size: 0.8rem;
   }
 
@@ -3115,19 +3115,16 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) {
   .publications-controls,
   .blog-controls {
-    top: 65px;
+    top: 62px;
     gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-sm);
+    padding: calc(var(--space-xs) + 2px) var(--space-sm);
+  }
+
+   .publications-controls .controls-right,
+  .blog-controls .controls-right {
+    gap: calc(var(--space-sm) + 2px);
   }
 }
-
-@media (max-width: 400px) {
-  .publications-controls,
-  .blog-controls {
-    top: 65px;
-  }
-}
-
 
 
 /* ----- Filter wrapper (keeps button above overlay) ----- */
@@ -3840,7 +3837,7 @@ PUBLICATIONS PAGE
   }
 
   .page-blog .header-cta-trigger {
-    padding: 0.55rem 0.75rem;
+    padding: 0.4rem 0.75rem;
     font-size: 0.8rem;
   }
 
