@@ -7850,3 +7850,79 @@ BLOG-Article (right side content)
         font-size: 0.85rem;
     }
 }
+
+
+
+/* ----- Filter Status Popover ( this controill both Blog + Publications)  ----- */
+
+.blog-controls .controls-left,
+.publications-controls .controls-left {
+  position: relative;
+}
+
+.blog-controls .status-info-icon,
+.publications-controls .status-info-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-left: var(--space-xs);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.blog-controls .status-info-icon:hover,
+.publications-controls .status-info-icon:hover {
+  color: var(--dark-color);
+}
+
+.blog-controls .status-info-icon:focus-visible,
+.publications-controls .status-info-icon:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.filter-status-popover {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  z-index: 110;
+  display: none;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  width: min(20rem, calc(100vw - 2rem));
+  box-sizing: border-box;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid rgba(0, 173, 181, 0.2);
+  border-radius: var(--radius-md);
+  background: var(--white-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color: var(--dark-color);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.filter-status-popover.show {
+  display: flex;
+}
+
+.filter-status-popover > i {
+  margin-top: 0.15rem;
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .filter-status-popover {
+    width: min(18rem, calc(100vw - 2rem));
+    padding: var(--space-sm);
+    font-size: 0.8rem;
+  }
+}
