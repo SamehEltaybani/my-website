@@ -2704,8 +2704,6 @@ PUBLICATIONS PAGE
   }
 
   .publications-header-cta .header-cta-trigger {
-    width: 100%;
-    justify-content: space-between;
     padding: 0.55rem 0.75rem;
     font-size: 0.8rem;
   }
@@ -3127,7 +3125,7 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) {
   .publications-controls,
   .blog-controls {
-    top: 60px;
+    top: 65px;
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-sm);
   }
@@ -3136,7 +3134,7 @@ PUBLICATIONS PAGE
 @media (max-width: 400px) {
   .publications-controls,
   .blog-controls {
-    top: 60px;
+    top: 65px;
   }
 }
 
@@ -3852,8 +3850,6 @@ PUBLICATIONS PAGE
   }
 
   .page-blog .header-cta-trigger {
-    width: 100%;
-    justify-content: space-between;
     padding: 0.55rem 0.75rem;
     font-size: 0.8rem;
   }
