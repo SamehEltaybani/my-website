@@ -2607,12 +2607,20 @@ PUBLICATIONS PAGE
   align-items: stretch;
 }
 
-.publication-card-content {
+.publication-card--with-image .publication-card-content {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
+.publication-card--with-image .publication-links {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
 .publication-card-image-wrapper {
-  min-height: 140px;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
 }
@@ -2623,6 +2631,7 @@ PUBLICATIONS PAGE
   height: 100%;
   object-fit: cover;
 }
+
 
 /* ----- Title ----- */
 
@@ -3529,12 +3538,19 @@ PUBLICATIONS PAGE
   align-items: stretch;
 }
 
-.blog-card-content {
+.blog-card--with-image .blog-card-content {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
+.blog-card--with-image .blog-card-footer {
+  margin-top: auto;
+}
+
 .blog-card-image-wrapper {
-  min-height: 140px;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
 }
@@ -3545,6 +3561,7 @@ PUBLICATIONS PAGE
   height: 100%;
   object-fit: cover;
 }
+
 
 /* ----- Title (Linked) ----- */
 
