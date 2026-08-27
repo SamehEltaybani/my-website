@@ -47,6 +47,67 @@
         infoEl.setAttribute('aria-expanded', String(isOpen));
     }
 
+    function setupBlogHeaderCta() {
+        const trigger = document.getElementById('blog-header-cta-trigger');
+        const popover = document.getElementById('blog-header-cta-popover');
+        const wrapper = trigger ? trigger.parentElement : null;
+
+        if (!trigger || !popover || !wrapper) return;
+
+        const closeButton = popover.querySelector('.header-cta-close');
+
+        function closeHeaderCta(returnFocus) {
+            if (!popover.classList.contains('show')) return;
+            popover.classList.remove('show');
+            popover.setAttribute('aria-hidden', 'true');
+            trigger.setAttribute('aria-expanded', 'false');
+
+            if (returnFocus) {
+                trigger.focus();
+            }
+        }
+
+        function openHeaderCta() {
+            popover.classList.add('show');
+            popover.setAttribute('aria-hidden', 'false');
+            trigger.setAttribute('aria-expanded', 'true');
+        }
+
+        trigger.addEventListener('click', function() {
+            if (popover.classList.contains('show')) {
+                closeHeaderCta(true);
+            } else {
+                openHeaderCta();
+            }
+        });
+
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                closeHeaderCta(true);
+            });
+        }
+
+        document.addEventListener('click', function(event) {
+            if (!wrapper.contains(event.target)) {
+                closeHeaderCta(false);
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeHeaderCta(true);
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            closeHeaderCta(false);
+        }, { passive: true });
+
+        window.addEventListener('resize', function() {
+            closeHeaderCta(false);
+        });
+    }
+
     function truncateSummary(text, maxLength) {
         if (!text) return '';
         if (text.length <= maxLength) return text;
@@ -633,6 +694,7 @@ function showToast(message) {
     // ----- Load data -----
  
     async function loadPosts() {
+        setupBlogHeaderCta();
         container = document.getElementById('blog-list');
         try {
             const response = await fetch('/my-website/json/blog.json');
