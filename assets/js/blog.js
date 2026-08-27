@@ -1,5 +1,5 @@
 /**
- * ===========================================
+ * ============================================
  * BLOG.JS – Load, Render, Filter, Sort
  This is for the list of blog articles (blog.html), not each blog article
  * ============================================
@@ -393,6 +393,7 @@ function showToast(message) {
         html += '<span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-color);">Filter by Category</span>';
         html += '<button class="close-dropdown" id="filter-close-btn" aria-label="Close filter menu"><i class="fa-solid fa-xmark"></i></button>';
         html += '</div>';
+        html += '<div class="filter-dropdown-content">';
 
         // Category section (scrollable)
         html += '<div class="filter-dropdown-section">';
@@ -405,6 +406,7 @@ function showToast(message) {
             html += '</div>';
         });
         html += '</div></div>';
+        html += '</div>';
 
         // Actions
         html += '<div class="filter-dropdown-actions">';
@@ -470,19 +472,43 @@ function showToast(message) {
     }
 
     // ----- Open/Close functions -----
+    function positionFilterDropdown() {
+        if (!filterDropdown || !filterBtn) return;
+
+        const viewportPadding = 16;
+        const gap = 8;
+        const rect = filterBtn.getBoundingClientRect();
+        const dropdownHeight = filterDropdown.offsetHeight;
+        const dropdownWidth = filterDropdown.offsetWidth;
+        const spaceBelow = window.innerHeight - rect.bottom - viewportPadding;
+        const spaceAbove = rect.top - viewportPadding;
+        const openBelow = spaceBelow >= dropdownHeight;
+        let top;
+
+        if (openBelow) {
+            top = Math.min(rect.bottom + gap, window.innerHeight - dropdownHeight - viewportPadding);
+        } else {
+            top = Math.max(viewportPadding, rect.top - dropdownHeight - gap);
+        }
+
+        const preferredRight = window.innerWidth - rect.right;
+        const maximumRight = window.innerWidth - dropdownWidth - viewportPadding;
+        const right = Math.max(viewportPadding, Math.min(preferredRight, maximumRight));
+
+        filterDropdown.style.top = Math.max(viewportPadding, top) + 'px';
+        filterDropdown.style.right = right + 'px';
+        filterDropdown.style.left = 'auto';
+        filterDropdown.style.bottom = 'auto';
+    }
+
     function openFilterDropdown() {
         if (filterDropdown.classList.contains('open')) return;
         closeSortDropdown();
-
-        const rect = filterBtn.getBoundingClientRect();
+        buildFilterDropdown();
 
         filterDropdown.style.position = 'fixed';
-        filterDropdown.style.top = (rect.bottom + 8) + 'px';
-        filterDropdown.style.right = (window.innerWidth - rect.right) + 'px';
-        filterDropdown.style.left = 'auto';
-        filterDropdown.style.bottom = 'auto';
-
         filterDropdown.classList.add('open');
+        positionFilterDropdown();
 
         if (!filterOverlay) {
             filterOverlay = document.createElement('div');
@@ -496,7 +522,6 @@ function showToast(message) {
         }
         filterOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        buildFilterDropdown();
     }
 
     function closeFilterDropdown() {
@@ -595,6 +620,12 @@ function showToast(message) {
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeInfoPopover();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (filterDropdown.classList.contains('open')) {
+                window.requestAnimationFrame(positionFilterDropdown);
             }
         });
     }
