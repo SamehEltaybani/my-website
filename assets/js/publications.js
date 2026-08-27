@@ -331,6 +331,7 @@
     html += '<span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-color);">Filter Publications</span>';
     html += '<button class="close-dropdown" id="filter-close-btn" aria-label="Close filter menu"><i class="fa-solid fa-xmark"></i></button>';
     html += '</div>';
+    html += '<div class="filter-dropdown-content">';
 
     // Year
     html += '<div class="filter-dropdown-section">';
@@ -370,6 +371,7 @@
         html += '</div>';
     });
     html += '</div></div>';
+    html += '</div>';
 
     // Actions
     html += '<div class="filter-dropdown-actions">';
@@ -437,38 +439,58 @@
     }
 
     // ----- Open/Close functions -----
-   
-    function openFilterDropdown() {
-    if (filterDropdown.classList.contains('open')) return;
-    closeSortDropdown();
 
-    // Get the filter button position
-    const rect = filterBtn.getBoundingClientRect();
-    
-    // Position the dropdown below the button
-    filterDropdown.style.position = 'fixed';
-    filterDropdown.style.top = (rect.bottom + 8) + 'px';
-    filterDropdown.style.right = (window.innerWidth - rect.right) + 'px';
-    filterDropdown.style.left = 'auto';
-    filterDropdown.style.bottom = 'auto';
-    
-    filterDropdown.classList.add('open');
-    
-    // Create overlay if not exists
-    if (!filterOverlay) {
-        filterOverlay = document.createElement('div');
-        filterOverlay.className = 'filter-overlay';
-        filterOverlay.addEventListener('click', function(e) {
-            if (e.target === filterOverlay) {
-                closeFilterDropdown();
-            }
-        });
-        document.body.appendChild(filterOverlay);
+    function positionFilterDropdown() {
+        if (!filterDropdown || !filterBtn) return;
+
+        const viewportPadding = 16;
+        const gap = 8;
+        const rect = filterBtn.getBoundingClientRect();
+        const dropdownHeight = filterDropdown.offsetHeight;
+        const dropdownWidth = filterDropdown.offsetWidth;
+        const spaceBelow = window.innerHeight - rect.bottom - viewportPadding;
+        const spaceAbove = rect.top - viewportPadding;
+        const openBelow = spaceBelow >= dropdownHeight;
+        let top;
+
+        if (openBelow) {
+            top = Math.min(rect.bottom + gap, window.innerHeight - dropdownHeight - viewportPadding);
+        } else {
+            top = Math.max(viewportPadding, rect.top - dropdownHeight - gap);
+        }
+
+        const preferredRight = window.innerWidth - rect.right;
+        const maximumRight = window.innerWidth - dropdownWidth - viewportPadding;
+        const right = Math.max(viewportPadding, Math.min(preferredRight, maximumRight));
+
+        filterDropdown.style.top = Math.max(viewportPadding, top) + 'px';
+        filterDropdown.style.right = right + 'px';
+        filterDropdown.style.left = 'auto';
+        filterDropdown.style.bottom = 'auto';
     }
-    filterOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    buildFilterDropdown();
-}
+
+    function openFilterDropdown() {
+        if (filterDropdown.classList.contains('open')) return;
+        closeSortDropdown();
+        buildFilterDropdown();
+
+        filterDropdown.style.position = 'fixed';
+        filterDropdown.classList.add('open');
+        positionFilterDropdown();
+
+        if (!filterOverlay) {
+            filterOverlay = document.createElement('div');
+            filterOverlay.className = 'filter-overlay';
+            filterOverlay.addEventListener('click', function(e) {
+                if (e.target === filterOverlay) {
+                    closeFilterDropdown();
+                }
+            });
+            document.body.appendChild(filterOverlay);
+        }
+        filterOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
 function closeFilterDropdown() {
     filterDropdown.classList.remove('open');
@@ -572,10 +594,15 @@ function setupControls() {
             closeInfoPopover();
         }
     });
+
+    window.addEventListener('resize', function() {
+        if (filterDropdown.classList.contains('open')) {
+            window.requestAnimationFrame(positionFilterDropdown);
+        }
+    });
 }
 
-    
-
+   
     // ----- Load data -----
  
     async function loadPublications() {
