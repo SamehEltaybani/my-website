@@ -2613,6 +2613,10 @@ PUBLICATIONS PAGE
   min-width: 0;
 }
 
+.publication-card--with-image .authorship-tag {
+  align-self: flex-start;
+}
+
 .publication-card--with-image .publication-links {
   margin-top: auto;
   margin-bottom: 0;
