@@ -43,6 +43,36 @@
     <div class="page-header-wrapper-simple">
         <div class="container">
             <h1 class="page-header-title-simple">List of Publications</h1>
+            <div class="publications-header-cta">
+                <button class="header-cta-trigger" id="publications-header-cta-trigger" type="button" aria-expanded="false" aria-controls="publications-header-cta-popover">
+                    <span>Want to collaborate or have a question?</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+                <div class="header-cta-popover" id="publications-header-cta-popover" role="dialog" aria-modal="false" aria-labelledby="publications-header-cta-title" aria-hidden="true">
+                    <div class="header-cta-popover-header">
+                        <h2 class="header-cta-popover-title" id="publications-header-cta-title">Collaborate or stay updated</h2>
+                        <button class="header-cta-close" type="button" aria-label="Close collaboration and newsletter information">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="header-cta-option">
+                        <i class="fa-regular fa-comments" aria-hidden="true"></i>
+                        <div>
+                            <p class="header-cta-option-title">Collaborate or ask a question</p>
+                            <p class="header-cta-option-text">Would you like to collaborate, have a question about my work, or need help accessing a publication? You are welcome to contact me at any time.</p>
+                            <a class="header-cta-action-link" href="/my-website/contact.html">Contact me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="header-cta-option">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <div>
+                            <p class="header-cta-option-title">Stay updated</p>
+                            <p class="header-cta-option-text">Subscribe to my newsletter to receive updates when I share new content.</p>
+                            <a class="header-cta-action-link" href="/my-website/newsletter.html">Subscribe to the newsletter <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -109,7 +139,7 @@
             </div>
         </div>
 
-        <!-- ==== PUBLICATIONS LIST ==== -->
+        <!-- ===== PUBLICATIONS LIST ===== -->
         
         <div id="publications-list" class="publication-list">
             <p class="item-loading-message">Loading publications...</p>
