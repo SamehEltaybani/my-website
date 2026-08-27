@@ -1766,7 +1766,7 @@ section,
 
 .whatido-left {
   display: flex;
-  flex: 0 0 60%;
+  flex: 0 0 55%;
   flex-direction: column;
   padding-right: var(--space-lg);
   border-right: 1px solid rgba(0, 0, 0, 0.05);
@@ -1875,7 +1875,7 @@ section,
 
 .whatido-right {
   display: flex;
-  flex: 0 0 30%;
+  flex: 0 0 40%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -1925,7 +1925,7 @@ section,
   }
 
   .whatido-right {
-    flex: 0 0 35%;
+    flex: 0 0 40%;
   }
 
   .whatido-header i {
