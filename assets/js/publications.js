@@ -23,12 +23,29 @@
     let singleId = null;
 
     let container, controlsBar, statusEl, infoEl, filterBtn, sortBtn, resetBtn;
-    let filterDropdown, sortDropdown, badgeEl, bannerEl, filterOverlay;
+    let filterDropdown, sortDropdown, badgeEl, bannerEl, filterOverlay, infoPopover;
 
     // ----- Helpers -----
     function getUrlParam(param) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
+    }
+
+    function closeInfoPopover() {
+        if (infoPopover) {
+            infoPopover.classList.remove('show');
+            infoPopover.setAttribute('aria-hidden', 'true');
+        }
+        if (infoEl) {
+            infoEl.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    function toggleInfoPopover() {
+        if (!infoEl || !infoPopover) return;
+        const isOpen = infoPopover.classList.toggle('show');
+        infoPopover.setAttribute('aria-hidden', String(!isOpen));
+        infoEl.setAttribute('aria-expanded', String(isOpen));
     }
 
     function truncateSummary(text, maxLength) {
@@ -246,7 +263,10 @@
 
         if (singleId) {
             statusEl.innerHTML = 'Showing <span class="status-highlight">1</span> of <span class="status-highlight">1</span> publication';
-            if (infoEl) infoEl.style.display = 'none';
+            if (infoEl) {
+                infoEl.style.display = 'none';
+                closeInfoPopover();
+            }
             return;
         }
         const pubWord = total === 1 ? 'publication' : 'publications';
@@ -259,11 +279,13 @@
 
         if (isFiltered && shown < allPublications.length) {
             if (infoEl) {
-                infoEl.style.display = 'inline';
-                infoEl.title = 'This list is currently filtered. Click Reset to remove all filters and see the full list.';
+                infoEl.style.display = 'inline-flex';
             }
         } else {
-            if (infoEl) infoEl.style.display = 'none';
+            if (infoEl) {
+                infoEl.style.display = 'none';
+                closeInfoPopover();
+            }
         }
     }
 
@@ -466,6 +488,7 @@ function setupControls() {
     controlsBar = document.getElementById('publications-controls');
     statusEl = document.getElementById('controls-status');
     infoEl = document.getElementById('status-info-icon');
+    infoPopover = document.getElementById('filter-status-popover');
     filterBtn = document.getElementById('filter-btn');
     sortBtn = document.getElementById('sort-btn');
     resetBtn = document.getElementById('reset-btn');
@@ -516,9 +539,10 @@ function setupControls() {
     });
 
     // Info icon
-    if (infoEl) {
-        infoEl.addEventListener('click', function() {
-            alert('This list is currently filtered. Click Reset to remove all filters and see the full list.');
+    if (infoEl && infoPopover) {
+        infoEl.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleInfoPopover();
         });
     }
 
@@ -534,8 +558,18 @@ function setupControls() {
     document.addEventListener('click', function(e) {
         const target = e.target;
         const isSortClick = sortDropdown.contains(target) || sortBtn.contains(target);
+        const isInfoPopoverClick = (infoEl && infoEl.contains(target)) || (infoPopover && infoPopover.contains(target));
         if (!isSortClick && sortDropdown.classList.contains('open')) {
             closeSortDropdown();
+        }
+        if (!isInfoPopoverClick) {
+            closeInfoPopover();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeInfoPopover();
         }
     });
 }
