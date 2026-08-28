@@ -8417,7 +8417,7 @@ BLOG-Article (right side content)
 .image-source {
   position: absolute;
   right: 0.1rem;
-  bottom: 0.1rem;
+  bottom: 0.2rem;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -8425,7 +8425,7 @@ BLOG-Article (right side content)
   max-width: 100%;
   padding: 0.35rem 0.6rem;
   background: rgba(34, 40, 49, 0.82);
-  border-top-left-radius: var(--radius-sm);
+  border-radius: var(--radius-sm);
   color: var(--white-color);
   font-size: clamp(0.58rem, 1.3vw, 0.7rem);
   font-weight: 500;
@@ -8472,6 +8472,6 @@ BLOG-Article (right side content)
 }
 
 .glightbox-image-frame > .image-source {
-  bottom: var(--space-md);
+  bottom: 1.2rem;
 }
 
