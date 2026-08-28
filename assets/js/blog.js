@@ -129,6 +129,16 @@
         return typeof post.image === 'string' && post.image.trim() !== '';
     }
 
+
+
+ 
+ function hasBlogImageSource(post) {
+    return typeof post.imageSource === 'string' && post.imageSource.trim() !== '';
+}
+
+
+
+ 
     function createCardHTML(post) {
         let contentHtml = '';
 
@@ -168,13 +178,37 @@
             contentHtml += '</div>';
         }
 
-        let imageHtml = '';
-        if (hasBlogImage(post)) {
-            const imageAlt = post.title ? 'Illustration for ' + post.title : 'Blog article illustration';
-            imageHtml += '<div class="blog-card-image-wrapper">';
-            imageHtml += '<img class="blog-card-image" src="' + window.escapeHTML(post.image.trim()) + '" alt="' + window.escapeHTML(imageAlt) + '" loading="lazy">';
-            imageHtml += '</div>';
-        }
+
+     
+       let imageHtml = '';
+
+if (hasBlogImage(post)) {
+    const imageAlt = post.title
+        ? 'Illustration for ' + post.title
+        : 'Blog article illustration';
+
+    imageHtml += '<div class="blog-card-image-wrapper credited-image">';
+    imageHtml += '<img class="blog-card-image" src="'
+        + window.escapeHTML(post.image.trim())
+        + '" alt="'
+        + window.escapeHTML(imageAlt)
+        + '" loading="lazy">';
+
+    if (hasBlogImageSource(post)) {
+        imageHtml += '<a class="image-source" href="'
+            + window.escapeHTML(post.imageSource.trim())
+            + '" target="_blank" rel="noopener noreferrer"'
+            + ' aria-label="Open image source information">';
+        imageHtml += 'Image source';
+        imageHtml += '<span class="image-source-arrow" aria-hidden="true">→</span>';
+        imageHtml += '</a>';
+    }
+
+    imageHtml += '</div>';
+}
+
+
+     
 
         return '<div class="blog-card-content">' + contentHtml + '</div>' + imageHtml;
     }
