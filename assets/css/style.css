@@ -8471,3 +8471,7 @@ BLOG-Article (right side content)
   height: auto;
 }
 
+.glightbox-image-frame > .image-source {
+  bottom: var(--space-sm);
+}
+
