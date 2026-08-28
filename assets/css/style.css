@@ -8416,8 +8416,8 @@ BLOG-Article (right side content)
 
 .image-source {
   position: absolute;
-  right: 0;
-  bottom: var(--space-xs);
+  right: var(--space-xs);
+  bottom: 0;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -8472,6 +8472,6 @@ BLOG-Article (right side content)
 }
 
 .glightbox-image-frame > .image-source {
-  bottom: var(--space-sm);
+  bottom: var(--space-md);
 }
 
