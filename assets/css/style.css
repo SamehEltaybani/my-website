@@ -1597,10 +1597,10 @@ section,
   align-items: stretch;
   gap: var(--space-lg);
   padding: var(--space-lg);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
   border-radius: var(--radius-md);
   background: var(--white-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
 }
 
 /* ----- Left Column ----- */
