@@ -8451,3 +8451,23 @@ BLOG-Article (right side content)
   transform: translateX(2px);
 }
 
+/* ----- GLightbox Image Overlay Frame ----- */
+
+.glightbox-image-frame {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.glightbox-image-frame > a.glightbox {
+  display: block;
+  max-width: 100%;
+  line-height: 0;
+}
+
+.glightbox-image-frame > a.glightbox > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
