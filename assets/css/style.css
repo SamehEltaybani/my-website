@@ -8173,23 +8173,42 @@ BLOG-Article (right side content)
   isolation: isolate;
   overflow: hidden;
   min-height: clamp(390px, 31vw, 510px);
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(244, 246, 248, 0) 0%,
-       rgba(244, 246, 248, 0) 50%,
-       rgba(244, 246, 248, 0.01) 60%,
-       rgba(244, 246, 248, 0.04) 70%,
-       rgba(244, 246, 248, 0.12) 80%,
-       rgba(244, 246, 248, 0.28) 88%,
-       rgba(244, 246, 248, 0.55) 94%,
-       #f4f6f8 100%
-    ),
-    url("/my-website/img/home.jpg");
+  background-color: #f4f6f8;
+}
+
+.home-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background-image: url("/my-website/img/home.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 50%,
+    rgba(0, 0, 0, 0.98) 55%,
+    rgba(0, 0, 0, 0.90) 62%,
+    rgba(0, 0, 0, 0.72) 72%,
+    rgba(0, 0, 0, 0.46) 82%,
+    rgba(0, 0, 0, 0.18) 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 50%,
+    rgba(0, 0, 0, 0.98) 55%,
+    rgba(0, 0, 0, 0.90) 62%,
+    rgba(0, 0, 0, 0.72) 72%,
+    rgba(0, 0, 0, 0.46) 82%,
+    rgba(0, 0, 0, 0.18) 92%,
+    transparent 100%
+  );
 }
+
 
 .home-hero-content {
   position: relative;
@@ -8294,9 +8313,12 @@ BLOG-Article (right side content)
 
 @media (max-width: 768px) {
   .home-hero {
-    min-height: 0;
-    background-position: center top;
-  }
+  min-height: 0;
+}
+
+.home-hero::before {
+  background-position: center top;
+}
 
   .home-hero-content {
     padding: clamp(4rem, 14vw, 5.5rem) var(--space-md) clamp(2.5rem, 9vw, 4rem);
