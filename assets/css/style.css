@@ -8185,28 +8185,7 @@ BLOG-Article (right side content)
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 50%,
-    rgba(0, 0, 0, 0.98) 55%,
-    rgba(0, 0, 0, 0.90) 62%,
-    rgba(0, 0, 0, 0.72) 72%,
-    rgba(0, 0, 0, 0.46) 82%,
-    rgba(0, 0, 0, 0.18) 92%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 50%,
-    rgba(0, 0, 0, 0.98) 55%,
-    rgba(0, 0, 0, 0.90) 62%,
-    rgba(0, 0, 0, 0.72) 72%,
-    rgba(0, 0, 0, 0.46) 82%,
-    rgba(0, 0, 0, 0.18) 92%,
-    transparent 100%
-  );
+  
 }
 
 
@@ -8379,5 +8358,101 @@ BLOG-Article (right side content)
     gap: 0.3rem;
     padding: 0.45rem 0.55rem;
     font-size: 0.74rem;
+  }
+}
+
+
+/* ============================================
+   EDITORIAL HERO REFINEMENTS
+   ============================================ */
+
+/* Tighter spacing between mission, separator, and work areas */
+.home-hero-primary {
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.home-hero-work {
+  gap: clamp(0.45rem, 1vw, 0.75rem);
+}
+
+/* Non-clickable semi-transparent work-area pills */
+.home-hero-work-item {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius-full);
+  background: rgba(0, 95, 103, 0.58);
+  color: var(--white-color);
+  white-space: nowrap;
+}
+
+/* Keep the three value pills between two horizontal lines */
+.home-hero-values {
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+/* Subtle indication that more page content follows */
+.home-hero-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.home-hero-scroll-cue i {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 0.65;
+}
+
+/* ----- Phone adjustments ----- */
+
+@media (max-width: 768px) {
+  .home-hero-primary {
+    gap: clamp(0.9rem, 4vw, 1.5rem);
+  }
+
+  .home-hero-work {
+    gap: 0.65rem;
+  }
+
+  .home-hero-work-item {
+    width: min(100%, 20rem);
+    padding: 0.5rem 0.85rem;
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  .home-hero-values {
+    gap: clamp(0.35rem, 1.5vw, 0.65rem);
+    margin-top: clamp(1rem, 5vw, 1.75rem);
+    padding-bottom: var(--space-md);
+  }
+
+  .home-hero-scroll-cue {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-hero-work-item {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.92rem;
+  }
+
+  .home-hero-value {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .home-hero-scroll-cue {
+    font-size: 0.66rem;
   }
 }
