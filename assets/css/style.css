@@ -1790,30 +1790,6 @@ section,
 }
 
 
-.whatido-copyright {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  color: var(--dark-color);
-  font-size: 0.8rem;
-  opacity: 0.5;
-  text-decoration: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.whatido-copyright i {
-  font-size: 0.7rem;
-  transition: transform 0.2s ease;
-}
-
-.whatido-copyright:hover {
-  color: var(--accent-color);
-  opacity: 1;
-}
-
-.whatido-copyright:hover i {
-  transform: translateX(3px);
-}
 
 /* ----- Responsive ----- */
 
