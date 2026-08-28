@@ -8395,6 +8395,12 @@ BLOG-Article (right side content)
 
 /* ----- Reusable Image Source Overlay ----- */
 
+.whatido-image-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .credited-image {
   position: relative;
   margin: 0;
@@ -8411,7 +8417,7 @@ BLOG-Article (right side content)
 .image-source {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: var(--space-xs);
   z-index: 2;
   display: inline-flex;
   align-items: center;
