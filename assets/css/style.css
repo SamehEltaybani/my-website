@@ -970,27 +970,11 @@ section,
    ========================================== */
 
 .visitor-guidance-section {
-  padding: var(--space-xxl ) 0;
+  width: 100%;
+  padding: var(--space-xxl) 0;
+  background: var(--white-color);
 }
 
-.visitor-guidance-title {
-  margin: 0 0 var(--space-sm);
-  color: var(--dark-color);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.visitor-guidance-intro {
-  max-width: 760px;
-  margin: 0 0 var(--space-xl);
-  color: var(--dark-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
-  opacity: 0.72;
-}
 
 .visitor-guidance-grid {
   display: grid;
@@ -1088,15 +1072,7 @@ section,
 
 @media (max-width: 768px) {
   
-  .visitor-guidance-title {
-    font-size: 1.7rem;
-  }
-
-  .visitor-guidance-intro {
-    margin-bottom: var(--space-lg);
-  }
-
-  .visitor-guidance-grid {
+   .visitor-guidance-grid {
     grid-template-columns: 1fr;
   }
 
