@@ -8163,6 +8163,13 @@ BLOG-Article (right side content)
 
 }
 
+@media (min-width: 769px) {   /* ----- this is different from other responsive rules; keep it separated from them ----- */
+  .home-hero-values {
+    padding-left: clamp(1rem, 2vw, 1.4rem);
+    padding-right: clamp(1rem, 2vw, 1.4rem);
+  }
+}
+
 .home-hero-value {
   display: inline-flex;
   align-items: center;
@@ -8292,3 +8299,6 @@ BLOG-Article (right side content)
     margin-top: 1.35rem;
   }
 }
+
+
+
