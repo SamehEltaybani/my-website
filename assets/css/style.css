@@ -8115,7 +8115,7 @@ BLOG-Article (right side content)
   box-sizing: border-box;
   margin: 0;
   padding: 0.55rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.42);
+  border: 0.5px solid rgba(255, 255, 255, 0.42);
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.16);
   -webkit-backdrop-filter: blur(12px);
@@ -8146,6 +8146,9 @@ BLOG-Article (right side content)
 /* ----- Core Values ----- */
 
 .home-hero-values {
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
