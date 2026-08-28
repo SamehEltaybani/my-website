@@ -8,6 +8,7 @@
     "blogfile": "blog/blog-template.html",
     "readingTime": "",
     "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
     "summary": "This is a summary of teh fictional article and will be deleted later . This is used only for search. Example words for testing are deviation and exaggeration."
   },
   {
