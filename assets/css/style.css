@@ -1640,6 +1640,57 @@ section,
   background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 60%, transparent 100%);
 }
 
+
+
+/* ----- WHAT I DO DESCRIPTORS ----- */
+
+.whatido-descriptors {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  margin: var(--space-md) 0;
+  padding: 0.65rem 0.85rem;
+  list-style: none;
+  background: rgba(0, 173, 181, 0.06);
+  border: 1px solid rgba(0, 173, 181, 0.12);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.whatido-descriptors li {
+  flex: 1 1 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.35rem;
+  background: rgba(0, 173, 181, 0.09);
+  border-radius: 6px;
+  color: var(--dark-color);
+  font-size: clamp(0.58rem, 2.4vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .whatido-descriptors {
+    gap: var(--space-xs);
+    margin: var(--space-sm) 0 var(--space-md);
+    padding: 0.6rem 0.55rem;
+  }
+
+  .whatido-descriptors li {
+    padding: 0.28rem 0.2rem;
+    font-size: clamp(0.58rem, 2.7vw, 0.72rem);
+  }
+}
+
+
 .whatido-text {
   margin-bottom: var(--space-md);
   color: var(--dark-color);
