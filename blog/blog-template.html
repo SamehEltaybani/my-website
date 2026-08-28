@@ -219,11 +219,27 @@
                         <li>Third numbered item</li>
                     </ol>
 
-                    <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX ===== -->
-                    <a href="/my-website/img/profile.webp" class="glightbox" data-gallery="blog-gallery">
-                        <img src="/my-website/img/profile.webp" alt="Your description" />
-                    </a>
-                    <p class="image-caption">Figure 1: This is an image caption. Click the image to open the lightbox.</p>
+                   <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX AND IMAGE-SOURCE OVERLAY ===== -->
+<div class="credited-image">
+  <a href="/my-website/img/profile.webp"
+     class="glightbox"
+     data-gallery="blog-gallery">
+    <img src="/my-website/img/profile.webp"
+         alt="Your description">
+  </a>
+
+  <a class="image-source"
+     href="legal.html"
+     aria-label="Open image source information">
+    Image source
+    <span class="image-source-arrow" aria-hidden="true">→</span>
+  </a>
+</div>
+
+<p class="image-caption">
+  Figure 1: This is an image caption. Click the image to open the lightbox.
+</p>
+
 
                     <!-- ===== ELEMENT 7: NOTE CALLOUT ===== -->
                     <div class="callout callout-note">
