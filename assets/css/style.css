@@ -8156,7 +8156,7 @@ BLOG-Article (right side content)
   margin: clamp(0.75rem, 1.5vw, 1.25rem) 0 0;
   padding: clamp(1rem, 2vw, 1.4rem) 0 clamp(1.1rem, 2vw, 1.5rem);
   list-style: none;
-   border-radius: var(--radius-lg);
+   border-radius: var(--radius-full);
    background: rgba(255, 255, 255, 0.16);
    -webkit-backdrop-filter: blur(12px);
    backdrop-filter: blur(12px);
@@ -8165,8 +8165,8 @@ BLOG-Article (right side content)
 
 @media (min-width: 769px) {   /* ----- this is different from other responsive rules; keep it separated from them ----- */
   .home-hero-values {
-    padding-left: clamp(1rem, 2vw, 1.4rem);
-    padding-right: clamp(1rem, 2vw, 1.4rem);
+    padding-left: clamp(1rem, 2vw, 1.8rem);
+    padding-right: clamp(1rem, 2vw, 1.8rem);
   }
 }
 
