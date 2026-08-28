@@ -8279,7 +8279,9 @@ BLOG-Article (right side content)
   margin: 0;
   padding: 0.55rem 1.1rem;
   border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: var(--radius-full);
+
+
+   
   background: rgba(0, 95, 103, 0.30);
   color: var(--white-color);
   font-size: clamp(1.05rem, 1.7vw, 1.45rem);
