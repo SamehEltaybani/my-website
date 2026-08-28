@@ -960,346 +960,138 @@ section,
 
 
 
-/* ============================================
-   IMAGED CARDS (Philosophy, Mission, Approach)
-   ============================================ */
+/* ==========================================
+   PHILOSOPHY, MISSION, AND APPROACH
+   ========================================== */
 
-.imaged-cards-section {
-    padding: var(--space-xl) 0;
-    background: var(--bg-color);
+.perspective-section {
+  padding: var(--space-xxl ) 0;
 }
 
-.imaged-cards-wrapper {
-    display: flex;
-    gap: var(--space-sm);
-    margin: 0;
-    padding: 0;
+.perspective-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--dark-color);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
 }
 
-/* ----- Individual Card ----- */
-
-.imaged-card {
-    flex: 1;
-    background: var(--white-color);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.perspective-intro {
+  max-width: 760px;
+  margin: 0 0 var(--space-xl);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  opacity: 0.72;
 }
 
-/* ----- Image Area (positioned relative for overlays) ----- */
-
-.imaged-card-image {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: var(--dark-color);
+.perspective-rows {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white-color);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
 }
 
-.imaged-card-image a {
-    display: block;
-    width: 100%;
-    height: 100%;
+.perspective-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(0, 1.8fr) minmax(190px, 0.95fr);
+  gap: var(--space-lg);
+  align-items: center;
+  min-width: 0;
+  padding: var(--space-lg);
 }
 
-.imaged-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
+.perspective-row + .perspective-row {
+  border-top: 1px solid rgba(34, 40, 49, 0.1);
 }
 
-.imaged-card-image:hover img {
-    transform: scale(1.02);
+.perspective-label h3 {
+  margin: 0;
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--accent-color);
+  color: var(--dark-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-/* ----- Title Overlay (top-left) ----- */
-
-.imaged-card-image-title {
-    position: absolute;
-    top: var(--space-md);
-    left: 0;
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--white-color);
-    background: var(--accent-color);
-    padding: var(--space-xs) var(--space-md);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    letter-spacing: 0.02em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 2;
+.perspective-content {
+  min-width: 0;
 }
 
-/* ----- Quotation Strip Overlay (bottom) ----- */
-
-.imaged-card-quote {
-    position: absolute;
-    bottom: var(--space-md);
-    left: 0;
-    right: 0;
-    padding: var(--space-sm) var(--space-md);
-    background: rgba(0, 173, 181, 0.06);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: 50px;
-    z-index: 2;
+.perspective-content p {
+  margin: 0;
+  color: var(--dark-color);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.78;
 }
 
-.imaged-card-quote i {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    opacity: 0.3;
-    flex-shrink: 0;
+.perspective-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 5px 14px rgba(34, 40, 49, 0.12);
 }
 
-.imaged-card-quote i:last-child {
-    align-self: flex-end;
+.perspective-image::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 40, 49, 0) 48%,
+    rgba(34, 40, 49, 0.28) 100%
+  );
+  content: "";
+  pointer-events: none;
 }
 
-.imaged-card-quote span {
-    font-style: italic;
-    font-size: 0.95rem;
-    color: var(--white-color);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    line-height: 1.5;
-    flex: 1;
+.perspective-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ----- Card Body (Icon + Text) ----- */
-
-.imaged-card-body {
-    padding: var(--space-md) var(--space-lg) var(--space-sm) var(--space-lg);
-    display: flex;
-    align-items: center; /* Vertically centered */
-    gap: var(--space-sm);
-    flex: 1;
+.perspective-image .image-source {
+  right: var(--space-xs);
+  bottom: var(--space-xs);
 }
-
-.imaged-card-icon {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(0, 173, 181, 0.08);
-    color: var(--accent-color);
-    font-size: 1rem;
-}
-
-.imaged-card-text {
-    flex: 1;
-}
-
-.imaged-card-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin: 0;
-}
-
-/* ----- Bullet List ----- */
-
-.imaged-card-list {
-    list-style: none;
-    padding: 0 var(--space-lg) var(--space-sm) var(--space-lg);
-    margin: 0;
-}
-
-.imaged-card-list li {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--dark-color);
-    opacity: 0.7;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.imaged-card-list li:last-child {
-    margin-bottom: 0;
-}
-
-.imaged-card-list li i {
-    color: var(--accent-color);
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-}
-
-/* ----- Image Credit ----- */
-
-.imaged-card-credit {
-    font-size: 0.6rem;
-    color: var(--dark-color);
-    opacity: 0.3;
-    padding: var(--space-xs) var(--space-lg) var(--space-sm) var(--space-lg);
-    margin: 0;
-    text-align: left;
-}
-
-.imaged-card-credit a {
-    color: var(--dark-color);
-    text-decoration: none;
-}
-
-.imaged-card-credit a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* =========  IMAGED CARDS - RESPONSIVE  ================ */
-
-/* ----- Tablet (max-width: 992px) ----- */
-
-@media (max-width: 992px) {
-    .imaged-cards-wrapper {
-        gap: var(--space-sm);
-    }
-
-    .imaged-card-image-title {
-        font-size: 1.2rem;
-        padding: var(--space-xs) var(--space-sm);
-    }
-
-    .imaged-card-quote span {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-body {
-        padding: var(--space-sm) var(--space-md) var(--space-xs) var(--space-md);
-    }
-
-    .imaged-card-text p {
-        font-size: 0.9rem;
-    }
-
-    .imaged-card-list {
-        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
-    }
-
-    .imaged-card-list li {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-credit {
-        padding: var(--space-xs) var(--space-md) var(--space-sm) var(--space-md);
-        font-size: 0.55rem;
-    }
-}
-
-/* ----- Mobile (max-width: 768px) ----- */
 
 @media (max-width: 768px) {
-    .imaged-cards-section {
-        padding: var(--space-lg) 0;
-    }
+  .perspective-section {
+    padding: var(--space-xl) 0;
+  }
 
-    .imaged-cards-wrapper {
-        flex-direction: column;
-        gap: var(--space-sm);
-    }
+  .perspective-title {
+    font-size: 1.7rem;
+  }
 
-    .imaged-card {
-        border-right: 1px solid rgba(0, 0, 0, 0.04);
-    }
+  .perspective-intro {
+    margin-bottom: var(--space-lg);
+  }
 
-    .imaged-card:last-child {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    }
+  .perspective-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+  }
 
-    .imaged-card-image-title {
-        font-size: 1.1rem;
-        top: var(--space-sm);
-        padding: var(--space-xs) var(--space-sm);
-    }
+  .perspective-label h3 {
+    font-size: 1.2rem;
+  }
 
-    .imaged-card-quote {
-        padding: var(--space-sm) var(--space-md);
-        min-height: 50px;
-    }
-
-    .imaged-card-quote span {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-quote i {
-        font-size: 1rem;
-    }
-
-    .imaged-card-body {
-        padding: var(--space-sm) var(--space-md) var(--space-xs) var(--space-md);
-        gap: var(--space-sm);
-    }
-
-    .imaged-card-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-text p {
-        font-size: 0.9rem;
-    }
-
-    .imaged-card-list {
-        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
-    }
-
-    .imaged-card-list li {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-credit {
-        padding: var(--space-xs) var(--space-md) var(--space-sm) var(--space-md);
-        font-size: 0.55rem;
-    }
-}
-
-/* ----- Very Small Phones (max-width: 400px) ----- */
-
-@media (max-width: 400px) {
-    .imaged-cards-wrapper {
-        gap: var(--space-xs);
-    }
-
-    .imaged-card-image-title {
-        font-size: 0.95rem;
-        padding: var(--space-xs) var(--space-sm);
-        top: var(--space-xs);
-    }
-
-    .imaged-card-quote span {
-        font-size: 0.8rem;
-    }
-
-    .imaged-card-quote i {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-text p {
-        font-size: 0.85rem;
-    }
-
-    .imaged-card-list li {
-        font-size: 0.8rem;
-    }
-
-    .imaged-card-credit {
-        font-size: 0.5rem;
-    }
+  .perspective-image {
+    margin-top: var(--space-xs);
+  }
 }
 
 
