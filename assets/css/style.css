@@ -1304,276 +1304,136 @@ section,
 
 
 
-/* ============================================
-   CORE VALUES SECTION
-   ============================================ */
+/* ==========================================
+   CORE VALUES CARDS - Home page
+   ========================================== */
 
 .core-values-section {
-    padding: var(--space-xl) 0;
-    background: var(--bg-color);
+  padding: var(--space-xxl ) 0;
 }
 
-/* ----- Title and Intro ----- */
-
 .core-values-title {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--dark-color);
-    margin-bottom: var(--space-sm);
-    text-align: left;
-    letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  color: var(--dark-color);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
 }
 
 .core-values-intro {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.7;
-    max-width: 700px;
-    margin-bottom: var(--space-xl);
-    text-align: left;
+  max-width: 760px;
+  margin: 0 0 var(--space-xl);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  opacity: 0.72;
 }
-
-/* ----- Three Cards Grid ----- */
 
 .core-values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
 }
 
-/* ----- Individual Card ----- */
-
-.core-values-card {
-    background: var(--white-color);
-    border: 2px solid var(--accent-color);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.core-value-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--white-color);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
 }
 
-/* No hover effect */
-
-.core-values-card:hover {
-    transform: none;
-    box-shadow: none;
+.core-value-card-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: var(--space-lg);
 }
 
-/* ----- Card Title (white text, accent green background) ----- */
-
-.core-values-card-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--white-color);
-    background: var(--accent-color);
-    padding: var(--space-md) var(--space-md);
-    text-align: left;
-    margin: 0;
+.core-value-title {
+  margin: 0 0 var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--accent-color);
+  color: var(--dark-color);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-/* ----- Card Image ----- */
-
-.core-values-card-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: var(--dark-color);
+.core-value-card-content p {
+  margin: 0;
+  color: var(--dark-color);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.78;
 }
 
-.core-values-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.core-value-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* ----- Card Text ----- */
-
-.core-values-card-text {
-    padding: var(--space-md) var(--space-md) var(--space-sm) var(--space-md);
-    flex: 1;
+.core-value-image::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 173, 181, 0) 42%,
+    rgba(0, 173, 181, 0.08) 62%,
+    rgba(34, 40, 49, 0.48) 100%
+  );
+  content: "";
+  pointer-events: none;
 }
 
-.core-values-card-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin: 0;
-    text-align: left;
+.core-value-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ----- Card Credit ----- */
-
-.core-values-card-credit {
-    font-size: 0.6rem;
-    color: var(--dark-color);
-    opacity: 0.3;
-    padding: 0 var(--space-md) var(--space-sm) var(--space-md);
-    margin: 0;
-    text-align: left;
-}
-
-.core-values-card-credit a {
-    color: var(--dark-color);
-    text-decoration: none;
-}
-
-.core-values-card-credit a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* ----- Bottom CTA (Centered) ----- */
-.core-values-cta {
-    text-align: center;
-    padding-top: var(--space-lg);
-}
-
-.core-values-cta-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--dark-color);
-    opacity: 0.7;
-    margin-bottom: var(--space-md);
-}
-
-.core-values-cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-}
-
-.core-values-cta-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-    padding: var(--space-xs) var(--space-lg);
-    border-radius: var(--radius-full);
-    border: 2px solid rgba(0, 0, 0, 0.06);
-    background: transparent;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--dark-color);
-    text-decoration: none;
-    transition: all 0.2s ease;
-    min-width: 140px;
-}
-
-.core-values-cta-btn:hover {
-    border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.04);
-}
-
-.core-values-cta-btn span {
-    text-align: left;
-    flex: 1;
-}
-
-.core-values-cta-btn i {
-    font-size: 0.8rem;
-    opacity: 0.3;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.core-values-cta-btn:hover i {
-    opacity: 0.8;
-    transform: translateX(4px);
-}
-
-/* ==========  CORE VALUES - RESPONSIVE   =================== */
-
-@media (max-width: 992px) {
-   
-    .core-values-grid {
-        gap: var(--space-sm);
-    }
-
-    .core-values-card-title {
-        font-size: 1.3rem;
-        padding: var(--space-md) var(--space-md);
-    }
-
-    .core-values-card-text p {
-        font-size: 0.9rem;
-    }
+.core-value-image .image-source {
+  right: var(--space-sm);
+  bottom: var(--space-sm);
 }
 
 @media (max-width: 768px) {
-   
-    .core-values-section {
-        padding: var(--space-lg) 0;
-    }
+  .core-values-section {
+    padding: var(--space-xl) 0;
+  }
 
-    .core-values-title {
-        font-size: 1.6rem;
-    }
+  .core-values-title {
+    font-size: 1.7rem;
+  }
 
-    .core-values-intro {
-        font-size: 0.95rem;
-    }
+  .core-values-intro {
+    margin-bottom: var(--space-lg);
+  }
 
-    .core-values-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-
-    .core-values-card-title {
-        font-size: 1.2rem;
-    }
-
-    .core-values-card-text {
-        padding: var(--space-sm) var(--space-sm) var(--space-xs) var(--space-sm);
-    }
-
-    .core-values-card-text p {
-        font-size: 0.9rem;
-    }
-
-    .core-values-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .core-values-cta-btn {
-        width: auto;
-        min-width: 200px;
-        max-width: 280px;
-        justify-content: space-between;
-    }
+  .core-values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
 }
 
 
-@media (max-width: 400px) {
-   
-    .core-values-title {
-        font-size: 1.3rem;
-    }
 
-    .core-values-intro {
-        font-size: 0.9rem;
-    }
 
-    .core-values-card-title {
-        font-size: 1.1rem;
-        padding: var(--space-md) var(--space-md);
-    }
 
-    .core-values-card-text p {
-        font-size: 0.85rem;
-    }
 
-    .core-values-cta-btn {
-        font-size: 0.85rem;
-        min-width: 160px;
-        padding: var(--space-xs) var(--space-md);
-    }
-}
+
 
 
 
