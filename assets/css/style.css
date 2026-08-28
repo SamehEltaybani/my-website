@@ -1783,6 +1783,13 @@ section,
   object-fit: cover;
 }
 
+@media (min-width: 769px) {
+  .whatido-right {
+    flex-basis: 42%;
+  }
+}
+
+
 .whatido-copyright {
   display: inline-flex;
   align-items: center;
