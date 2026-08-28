@@ -8186,8 +8186,17 @@ BLOG-Article (right side content)
 }
 
 .home-hero-value i {
-  color: #007882;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  background: #e5f7f8;
+  color: var(--accent-color);
   font-size: 0.78em;
+  line-height: 1;
 }
 
 /* ----- Below-Content Cue ----- */
