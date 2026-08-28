@@ -959,6 +959,159 @@ section,
 }
 
 
+/* ==========================================
+   FIRST-TIME VISITOR GUIDANCE
+   ========================================== */
+
+.visitor-guidance-section {
+  padding: var(--space-xxl ) 0;
+}
+
+.visitor-guidance-title {
+  margin: 0 0 var(--space-sm);
+  color: var(--dark-color);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.visitor-guidance-intro {
+  max-width: 760px;
+  margin: 0 0 var(--space-xl);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  opacity: 0.72;
+}
+
+.visitor-guidance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  background: var(--white-color);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
+}
+
+.visitor-guidance-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: var(--space-lg);
+}
+
+.visitor-guidance-panel + .visitor-guidance-panel {
+  border-left: 1px solid rgba(34, 40, 49, 0.1);
+}
+
+.visitor-guidance-panel-title {
+  margin: 0 0 var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--accent-color);
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.visitor-guidance-panel-text {
+  min-height: 5.2rem;
+  margin: 0 0 var(--space-md);
+  color: var(--dark-color);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  opacity: 0.78;
+}
+
+.visitor-guidance-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-top: auto;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 5px 14px rgba(34, 40, 49, 0.12);
+}
+
+.visitor-guidance-image::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 40, 49, 0) 48%,
+    rgba(34, 40, 49, 0.28) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.visitor-guidance-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visitor-guidance-image .image-source {
+  right: var(--space-xs);
+  bottom: var(--space-xs);
+}
+
+.visitor-guidance-action {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.visitor-guidance-action:hover,
+.visitor-guidance-action:focus-visible {
+  color: var(--dark-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .visitor-guidance-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .visitor-guidance-title {
+    font-size: 1.7rem;
+  }
+
+  .visitor-guidance-intro {
+    margin-bottom: var(--space-lg);
+  }
+
+  .visitor-guidance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visitor-guidance-panel + .visitor-guidance-panel {
+    border-top: 1px solid rgba(34, 40, 49, 0.1);
+    border-left: 0;
+  }
+
+  .visitor-guidance-panel-text {
+    min-height: 0;
+  }
+}
+
 
 /* ==========================================
    PHILOSOPHY, MISSION, AND APPROACH
