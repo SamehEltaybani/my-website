@@ -3670,7 +3670,8 @@ PUBLICATIONS PAGE
 }
 
 .blog-card-image-wrapper {
-  aspect-ratio: 16 / 10;
+  position: relative;
+   aspect-ratio: 16 / 10;
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
