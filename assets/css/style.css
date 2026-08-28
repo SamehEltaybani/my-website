@@ -8190,12 +8190,12 @@ BLOG-Article (right side content)
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.35em;
+  height: 1.35em;
   border-radius: 50%;
-  background: #e5f7f8;
+  background: #dff5f6;
   color: var(--accent-color);
-  font-size: 0.78em;
+  font-size: 0.62em;
   line-height: 1;
 }
 
