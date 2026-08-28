@@ -969,19 +969,9 @@ section,
    FIRST-TIME VISITOR GUIDANCE
    ========================================== */
 
-.visitor-guidance-section > .container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-lg);
-  padding-left: var(--space-lg);
-}
 
 .visitor-guidance-section {
-  width: 100%;
   padding: var(--space-xxl) 0;
-  background: var(--white-color);
 }
 
 
