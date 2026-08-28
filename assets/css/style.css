@@ -8176,9 +8176,14 @@ BLOG-Article (right side content)
   background-image:
     linear-gradient(
       to bottom,
-      rgba(0, 35, 42, 0.20) 0%,
-      rgba(0, 79, 85, 0.46) 52%,
-      rgba(0, 103, 109, 0.76) 100%
+      rgba(244, 246, 248, 0) 0%,
+       rgba(244, 246, 248, 0) 50%,
+       rgba(244, 246, 248, 0.01) 60%,
+       rgba(244, 246, 248, 0.04) 70%,
+       rgba(244, 246, 248, 0.12) 80%,
+       rgba(244, 246, 248, 0.28) 88%,
+       rgba(244, 246, 248, 0.55) 94%,
+       #f4f6f8 100%
     ),
     url("/my-website/img/home.jpg");
   background-position: center center;
@@ -8224,8 +8229,9 @@ BLOG-Article (right side content)
 }
 
 .home-hero-title span {
-  font-size: clamp(2.25rem, 4.1vw, 4.5rem);
+  font-size: clamp(2rem, 2.8vw, 3.5rem);
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .home-hero-separator {
@@ -8309,9 +8315,10 @@ BLOG-Article (right side content)
     align-items: center;
   }
 
-  .home-hero-title span {
-    font-size: clamp(2rem, 9vw, 3rem);
-  }
+ .home-hero-title span {
+  font-size: clamp(2rem, 9vw, 3rem);
+  white-space: normal;
+}
 
   .home-hero-separator {
     width: min(100%, 18rem);
