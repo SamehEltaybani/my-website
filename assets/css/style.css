@@ -8387,3 +8387,85 @@ BLOG-Article (right side content)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- Reusable Image Source Overlay ----- */
+
+.credited-image {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.credited-image > img,
+.credited-image > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-source {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 100%;
+  padding: 0.35rem 0.6rem;
+  background: rgba(34, 40, 49, 0.82);
+  border-top-left-radius: var(--radius-sm);
+  color: var(--white-color);
+  font-size: clamp(0.58rem, 1.3vw, 0.7rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.image-source:hover,
+.image-source:focus-visible {
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+.image-source-arrow {
+  font-size: 1.05em;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.image-source:hover .image-source-arrow,
+.image-source:focus-visible .image-source-arrow {
+  transform: translateX(2px);
+}
+
