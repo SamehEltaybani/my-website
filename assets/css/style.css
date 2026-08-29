@@ -677,8 +677,8 @@ body {
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -718,8 +718,8 @@ body {
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   transition: none;
 }
 
@@ -757,8 +757,8 @@ body {
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg) var(--space-lg) 3.5rem var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+ border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   color: var(--dark-color);
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -2004,8 +2004,8 @@ section,
   padding: var(--space-md) var(--space-lg);
   text-decoration: none;
   color: var(--dark-color);
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   min-height: 70px;
 }
@@ -2605,8 +2605,8 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   border-left: 3px solid var(--accent-color);
   transition: box-shadow 0.2s ease;
 }
@@ -3731,8 +3731,8 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   border-left: 3px solid var(--accent-color);
   transition: box-shadow 0.2s ease;
 }
@@ -4341,8 +4341,8 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   border-left: 4px solid var(--accent-color);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -4571,8 +4571,8 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
   border-left: 2px solid var(--accent-color);
   border-right: 2px solid var(--accent-color);
 }
@@ -4849,8 +4849,8 @@ PUBLICATIONS PAGE
     background: var(--white-color);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(34, 40, 49, 0.08);
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
     border-left: 2px solid var(--accent-color);
     border-right: 2px solid var(--accent-color);
     text-align: center;
@@ -6052,8 +6052,8 @@ BLOG-Article (right side content)
     background: var(--white-color);
     border-radius: var(--radius-md);
     padding: var(--space-md);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
+    border: 1px solid rgba(34, 40, 49, 0.08);
     transition: all 0.2s ease;
     color: var(--dark-color);
 }
@@ -6604,8 +6604,8 @@ BLOG-Article (right side content)
     background: var(--white-color);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(34, 40, 49, 0.08);
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -6835,7 +6835,7 @@ BLOG-Article (right side content)
 .portfolio-tabs-wrapper {
     background: var(--white-color);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(34, 40, 49, 0.08);
     overflow: hidden;
 }
 
@@ -6991,8 +6991,9 @@ BLOG-Article (right side content)
     background: var(--white-color);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(34, 40, 49, 0.08);
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
+
 }
 
 .portfolio-stats-number {
@@ -7195,7 +7196,7 @@ BLOG-Article (right side content)
 }
 
 .stacked-accordion-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(34, 40, 49, 0.07);
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--white-color);
@@ -7551,8 +7552,8 @@ BLOG-Article (right side content)
 .wide-accordion-item {
     background: var(--white-color);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(34, 40, 49, 0.07);
+    box-shadow: 0 2px 8px rgba(34, 40, 49, 0.08);
     overflow: hidden;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
