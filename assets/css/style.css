@@ -6484,6 +6484,11 @@ BLOG-Article (right side content)
 
 
 
+
+
+
+
+
 /* ----- Hero / Page Header ----- */
 
 .portfolio-hero {
@@ -6504,6 +6509,169 @@ BLOG-Article (right side content)
     color: var(--dark-color);
     opacity: 0.8;
     max-width: 800px;
+}
+
+
+/* ==========================================
+   PORTFOLIO SCHOLARLY DATABASE BUTTON
+   ========================================== */
+
+.portfolio-scholarly-button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.25rem;
+  align-items: center;
+  width: 100%;
+  height: 92px;
+  min-height: 92px;
+  max-height: 92px;
+  overflow: hidden;
+  padding: 0.55rem 0.7rem;
+  background: transparent;
+  border: 1px solid rgba(34, 40, 49, 0.14);
+  border-radius: var(--radius-sm);
+  color: var(--dark-color);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-scholarly-button:hover,
+.portfolio-scholarly-button:focus-visible {
+  background: rgba(0, 173, 181, 0.05);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 14px rgba(34, 40, 49, 0.08);
+}
+
+.portfolio-scholarly-button-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  height: 100%;
+  padding: 0.2rem;
+}
+
+.portfolio-scholarly-button-logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+.portfolio-scholarly-button-label {
+  min-width: 0;
+  margin-left: 0.45rem;
+  overflow: hidden;
+  color: var(--dark-color);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portfolio-scholarly-button-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-scholarly-button:hover .portfolio-scholarly-button-chevron,
+.portfolio-scholarly-button:focus-visible .portfolio-scholarly-button-chevron {
+  color: var(--accent-color);
+  transform: translateX(2px);
+}
+
+
+/* ==========================================
+   PORTFOLIO Element: SCHOLARLY PROFILES
+   ========================================== */
+
+.portfolio-scholarly-profiles {
+  width: 100%;
+  margin: var(--space-xxl) 0;
+  background: transparent;
+}
+
+.portfolio-scholarly-profiles-header {
+  margin-bottom: var(--space-xl);
+}
+
+.portfolio-scholarly-profiles-title {
+  margin-bottom: var(--space-sm);
+}
+
+.portfolio-scholarly-profiles-intro {
+  max-width: 760px;
+  margin: 0;
+}
+
+.portfolio-scholarly-profiles-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.portfolio-scholarly-profile-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.8fr) minmax(0, 2fr);
+  gap: var(--space-xl);
+  align-items: center;
+  width: 100%;
+}
+
+.portfolio-scholarly-profile-button-column {
+  min-width: 0;
+}
+
+.portfolio-scholarly-profile-bullets {
+  min-width: 0;
+}
+
+.portfolio-scholarly-profile-bullets a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.portfolio-scholarly-profile-bullets a:hover,
+.portfolio-scholarly-profile-bullets a:focus-visible {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.portfolio-scholarly-profile-bullet-arrow {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .portfolio-scholarly-profiles {
+    margin: var(--space-xl) 0;
+  }
+
+  .portfolio-scholarly-profiles-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .portfolio-scholarly-profile-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
+
+  .portfolio-scholarly-profile-button-column {
+    width: min(100%, 280px);
+    justify-self: center;
+  }
 }
 
 
