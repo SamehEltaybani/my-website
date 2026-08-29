@@ -6274,6 +6274,171 @@ BLOG-Article (right side content)
    ============================================ */
 
 
+
+/* ==========================================
+   PORTFOLIO GENERIC ELEMENTS
+   ========================================== */
+
+.portfolio-generic-h2,
+.portfolio-generic-h3,
+.portfolio-generic-h4 {
+  color: var(--dark-color);
+  font-weight: 700;
+}
+
+.portfolio-generic-h2 {
+  margin: 0 0 var(--space-sm);
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.portfolio-generic-h3 {
+  margin: 0 0 var(--space-md);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.portfolio-generic-h4 {
+  margin: 0 0 var(--space-sm);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.portfolio-generic-h3--icon,
+.portfolio-generic-h4--icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.portfolio-generic-heading-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  background: #dff5f6;
+  color: var(--accent-color);
+  font-size: 0.7em;
+}
+
+.portfolio-generic-intro,
+.portfolio-generic-paragraph {
+  color: var(--dark-color);
+  line-height: 1.65;
+}
+
+.portfolio-generic-intro {
+  max-width: 760px;
+  margin: 0 0 var(--space-lg);
+  font-size: 1rem;
+  opacity: 0.72;
+}
+
+.portfolio-generic-paragraph {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.78;
+}
+
+.portfolio-generic-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-generic-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  color: var(--dark-color);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.portfolio-generic-bullet-list li i {
+  flex: 0 0 auto;
+  margin-top: 0.35rem;
+  color: #667684;
+  font-size: 0.75rem;
+}
+
+.portfolio-generic-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.portfolio-generic-image > img,
+.portfolio-generic-image-link > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-generic-image-link {
+  display: block;
+  line-height: 0;
+}
+
+.portfolio-generic-image-source {
+  position: absolute;
+  right: var(--space-xs);
+  bottom: var(--space-xs);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: calc(100% - var(--space-sm));
+  padding: 0.35rem 0.6rem;
+  overflow: hidden;
+  background: rgba(34, 40, 49, 0.82);
+  border-top-left-radius: var(--radius-sm);
+  color: var(--white-color);
+  font-size: clamp(0.58rem, 1.3vw, 0.7rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.portfolio-generic-image-source:hover,
+.portfolio-generic-image-source:focus-visible {
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+.portfolio-generic-image-source-arrow {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+  .portfolio-generic-h2 {
+    font-size: 1.7rem;
+  }
+
+  .portfolio-generic-h3 {
+    font-size: 1.2rem;
+  }
+
+  .portfolio-generic-image-source {
+    font-size: 0.62rem;
+  }
+}
+
+
+
+
+
+
 /* ----- Hero / Page Header ----- */
 
 .portfolio-hero {
@@ -7525,30 +7690,13 @@ BLOG-Article (right side content)
    ========================================== */
 
 .portfolio-value-action-section {
-  padding: var(--space-xxl ) 0;
-}
-
-.portfolio-value-action-title {
-  margin: 0 0 var(--space-sm);
-  color: var(--dark-color);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.portfolio-value-action-intro {
-  max-width: 760px;
-  margin: 0 0 var(--space-lg);
-  color: var(--dark-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  opacity: 0.72;
+  padding: var(--space-xxl) 0;
 }
 
 .portfolio-value-action-rows {
   display: flex;
   flex-direction: column;
+  gap: var(--space-xl);
 }
 
 .portfolio-value-action-row {
@@ -7556,7 +7704,6 @@ BLOG-Article (right side content)
   grid-template-columns: minmax(210px, 0.85fr) minmax(0, 1.6fr);
   gap: var(--space-xl);
   align-items: stretch;
-  padding: var(--space-xl) 0;
 }
 
 .portfolio-value-action-card {
@@ -7576,55 +7723,24 @@ BLOG-Article (right side content)
 }
 
 .portfolio-value-action-card-title {
-  margin: 0 0 var(--space-md);
+  margin-bottom: var(--space-md);
   padding-left: var(--space-md);
   border-left: 4px solid var(--accent-color);
-  color: var(--dark-color);
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.25;
 }
 
 .portfolio-value-action-card-text {
   margin: 0;
-  color: var(--dark-color);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  opacity: 0.78;
 }
 
 .portfolio-value-action-image {
-  position: relative;
-  width: 100%;
   aspect-ratio: 16 / 10;
-  overflow: hidden;
   border-radius: 0;
-  box-shadow: none;
-}
-
-.portfolio-value-action-image::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 40, 49, 0) 50%,
-    rgba(34, 40, 49, 0.3) 100%
-  );
-  content: "";
-  pointer-events: none;
 }
 
 .portfolio-value-action-image > img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.portfolio-value-action-image .image-source {
-  right: var(--space-xs);
-  bottom: var(--space-xs);
 }
 
 .portfolio-value-action-details {
@@ -7636,9 +7752,6 @@ BLOG-Article (right side content)
 
 .portfolio-value-action-summary {
   margin: 0 0 var(--space-lg);
-  color: var(--dark-color);
-  font-size: 1rem;
-  line-height: 1.7;
 }
 
 .portfolio-value-action-groups {
@@ -7648,37 +7761,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-value-action-group-title {
-  margin: 0 0 var(--space-sm);
-  color: var(--dark-color);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.portfolio-value-action-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.portfolio-value-action-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  color: var(--dark-color);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  opacity: 0.8;
-}
-
-.portfolio-value-action-list li i {
-  flex: 0 0 auto;
-  margin-top: 0.35rem;
-  color: #667684;
-  font-size: 0.75rem;
+  margin-bottom: var(--space-sm);
 }
 
 @media (max-width: 900px) {
@@ -7696,27 +7779,9 @@ BLOG-Article (right side content)
   .portfolio-value-action-section {
     padding: var(--space-xl) 0;
   }
-
-  .portfolio-value-action-title {
-    font-size: 1.7rem;
-  }
-
-  .portfolio-value-action-intro {
-    margin-bottom: var(--space-lg);
-  }
-
-  .portfolio-value-action-row {
-    padding: var(--space-lg) 0;
-  }
-
-  .portfolio-value-action-card-content {
-    padding: var(--space-md);
-  }
-
-  .portfolio-value-action-summary {
-    font-size: 0.95rem;
-  }
 }
+
+
 
 
 
