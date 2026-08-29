@@ -6518,14 +6518,13 @@ BLOG-Article (right side content)
 
 .portfolio-scholarly-button {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 2.25rem;
+  grid-template-columns: 1fr 2.5rem;
   align-items: center;
   width: 100%;
-  height: 70px;
-  min-height: 70px;
-  max-height: 70px;
-  overflow: hidden;
-  padding: 0.55rem 0.7rem;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+  padding: 0 0.5rem 0 1.25rem;
   background: var(--white-color); 
   border: 1px solid rgba(34, 40, 49, 0.14);
   border-radius: var(--radius-full);
@@ -6544,10 +6543,9 @@ BLOG-Article (right side content)
 .portfolio-scholarly-button-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
-  padding: 0;
   overflow: hidden;
 }
 
@@ -6555,9 +6553,10 @@ BLOG-Article (right side content)
   display: block;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 32px; 
+  max-width: 140px;
+  max-height: 30px;
   object-fit: contain;
+  mix-blend-mode: multiply; 
 }
 
 .portfolio-scholarly-button-chevron {
