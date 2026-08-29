@@ -6434,6 +6434,52 @@ BLOG-Article (right side content)
   }
 }
 
+.portfolio-generic-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 280px);
+  gap: var(--space-md);
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.portfolio-generic-button:hover,
+.portfolio-generic-button:focus-visible {
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+.portfolio-generic-button--left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.portfolio-generic-button--center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.portfolio-generic-button--right {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.portfolio-generic-button-arrow {
+  flex: 0 0 auto;
+  font-size: 1.1em;
+  line-height: 1;
+}
 
 
 
