@@ -6526,9 +6526,9 @@ BLOG-Article (right side content)
   max-height: 92px;
   overflow: hidden;
   padding: 0.55rem 0.7rem;
-  background: transparent;
+  background: var(--white-color); 
   border: 1px solid rgba(34, 40, 49, 0.14);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   color: var(--dark-color);
   text-decoration: none;
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -6553,22 +6553,10 @@ BLOG-Article (right side content)
 .portfolio-scholarly-button-logo img {
   display: block;
   width: auto;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
   max-height: 58px;
   object-fit: contain;
-}
-
-.portfolio-scholarly-button-label {
-  min-width: 0;
-  margin-left: 0.45rem;
-  overflow: hidden;
-  color: var(--dark-color);
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1.2;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .portfolio-scholarly-button-chevron {
@@ -6587,6 +6575,7 @@ BLOG-Article (right side content)
   color: var(--accent-color);
   transform: translateX(2px);
 }
+
 
 
 /* ==========================================
@@ -6670,8 +6659,7 @@ BLOG-Article (right side content)
 
   .portfolio-scholarly-profile-button-column {
     width: min(100%, 280px);
-    justify-self: center;
-  }
+    }
 }
 
 
