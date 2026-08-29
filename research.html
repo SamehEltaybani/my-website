@@ -324,7 +324,7 @@ Use the same generic structure in four ways:
 
 
 <!-- ================================================================ -->
-<!-- Portfolio element: PORTFOLIO MEDIA (content and image)           -->
+<!-- Portfolio element: PORTFOLIO MEDIA (content and images)           -->
 <!-- ================================================================ -->
         
         
@@ -391,9 +391,254 @@ Use the same generic structure in four ways:
   </div>
 </section>
 
+
+ <!-- ===== One-by-one layout (one row containing two cells) ===== -->
+
+<section class="portfolio-media-section portfolio-media-section--one-by-one"
+         aria-labelledby="portfolio-media-one-title">
+  <div class="portfolio-media-section-heading">
+    <h3 id="portfolio-media-one-title"
+        class="portfolio-generic-h3 portfolio-media-section-title">
+      Section Title
+    </h3>
+
+    <p class="portfolio-generic-intro portfolio-media-section-intro">
+      Introductory paragraph for this section.
+    </p>
+  </div>
+
+  <div class="portfolio-media-section-grid">
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">
+        First Topic
+      </h4>
+
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">
+        Descriptive text for the first topic.
+      </p>
+
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="First topic illustration" loading="lazy">
+      </div>
+    </article>
+
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">
+        Second Topic
+      </h4>
+
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">
+        Descriptive text for the second topic.
+      </p>
+
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Second topic illustration" loading="lazy">
+
+        <a class="portfolio-generic-image-source"
+           href="https://unsplash.com/@kmuza"
+           target="_blank"
+           rel="noopener noreferrer">
+          Image source
+          <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+ <!-- ===== Two-by-two layout (using all four image variations once) ===== -->
+
         
+   <section class="portfolio-media-section portfolio-media-section--two-by-two"
+         aria-labelledby="portfolio-media-two-title">
+  <div class="portfolio-media-section-heading">
+    <h3 id="portfolio-media-two-title"
+        class="portfolio-generic-h3 portfolio-media-section-title">
+      Section Title
+    </h3>
+
+    <p class="portfolio-generic-intro portfolio-media-section-intro">
+      Introductory paragraph for this section.
+    </p>
+  </div>
+
+  <div class="portfolio-media-section-grid">
+
+    <!-- Non-clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">First Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the first topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="First topic illustration" loading="lazy">
+      </div>
+    </article>
+
+    <!-- Non-clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Second Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the second topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Second topic illustration" loading="lazy">
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Third Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the third topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Third topic illustration" loading="lazy">
+        </a>
+      </div>
+    </article>
+
+    <!-- Clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Fourth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the fourth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Fourth topic illustration" loading="lazy">
+        </a>
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+     
+
+ <!-- ===== Three-by-three layout (using all four image variations across the nine cells) ===== -->
 
 
+        <section class="portfolio-media-section portfolio-media-section--three-by-three"
+         aria-labelledby="portfolio-media-three-title">
+  <div class="portfolio-media-section-heading">
+    <h3 id="portfolio-media-three-title"
+        class="portfolio-generic-h3 portfolio-media-section-title">
+      Section Title
+    </h3>
+
+    <p class="portfolio-generic-intro portfolio-media-section-intro">
+      Introductory paragraph for this section.
+    </p>
+  </div>
+
+  <div class="portfolio-media-section-grid">
+
+    <!-- 1. Non-clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">First Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the first topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="First topic illustration" loading="lazy">
+      </div>
+    </article>
+
+    <!-- 2. Non-clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Second Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the second topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Second topic illustration" loading="lazy">
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 3. Clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Third Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the third topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Third topic illustration" loading="lazy">
+        </a>
+      </div>
+    </article>
+
+    <!-- 4. Clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Fourth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the fourth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Fourth topic illustration" loading="lazy">
+        </a>
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 5. Non-clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Fifth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the fifth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Fifth topic illustration" loading="lazy">
+      </div>
+    </article>
+
+    <!-- 6. Non-clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Sixth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the sixth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Sixth topic illustration" loading="lazy">
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 7. Clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Seventh Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the seventh topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Seventh topic illustration" loading="lazy">
+        </a>
+      </div>
+    </article>
+
+    <!-- 8. Clickable, sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Eighth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the eighth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <a class="portfolio-generic-image-link" href="img/data-1.webp">
+          <img src="img/data-1.webp" alt="Eighth topic illustration" loading="lazy">
+        </a>
+        <a class="portfolio-generic-image-source" href="https://unsplash.com/@kmuza" target="_blank" rel="noopener noreferrer">
+          Image source <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 9. Non-clickable, non-sourced -->
+    <article class="portfolio-media-section-cell">
+      <h4 class="portfolio-generic-h4 portfolio-media-section-cell-title">Ninth Topic</h4>
+      <p class="portfolio-generic-paragraph portfolio-media-section-cell-text">Descriptive text for the ninth topic.</p>
+      <div class="portfolio-generic-image portfolio-media-section-cell-image">
+        <img src="img/data-1.webp" alt="Ninth topic illustration" loading="lazy">
+      </div>
+    </article>
+
+  </div>
+</section>
+
+        
+        
 <!-- ================================================================ -->
 <!-- ELEMENT: PORTFOLIO HORIZONTAL SEPARATOR                        -->
 <!-- ================================================================ -->
