@@ -77,6 +77,10 @@
 
 
 
+
+
+        
+
 <!--
  ================================================================ 
 Note for image variations in the whol portfolio        
@@ -120,8 +124,38 @@ Use the same generic structure in four ways:
     ================================================================ -->
 
 
+        
+
+
+<!--
+ ================================================================ 
+Note for button variations in the whol portfolio - except teh share button on the top & buttom      
+Use the same generic structure in four ways:
+ ================================================================ 
+
+    <a class="portfolio-generic-button portfolio-generic-button--left" href="#">
+  <span>Left-aligned button</span>
+  <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+</a>
+    
+
+        <a class="portfolio-generic-button portfolio-generic-button--center" href="#">
+  <span>Centered button</span>
+  <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+</a>
+
+
+
+        <a class="portfolio-generic-button portfolio-generic-button--right" href="#">
+  <span>Right-aligned button</span>
+  <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+</a>
+
+         ================================================================ -->
+
 
         
+
         
 <!-- ================================================================ -->
 <!-- ELEMENT: PORTFOLIO HERO / PAGE HEADER                           -->
@@ -166,11 +200,137 @@ Use the same generic structure in four ways:
 
 
         
+        
+<!-- ================================================================ -->
+<!-- TEST SECTION                          -->
+<!-- ================================================================ -->
+        
+        
+<section aria-labelledby="portfolio-test-section-title">
+  <div class="container">
+
+    <h2 id="portfolio-test-section-title" class="portfolio-generic-h2">
+      Test Section
+    </h2>
+
+    <p class="portfolio-generic-intro">
+      This section demonstrates the reusable Portfolio headings, paragraphs, lists, image treatments, iconed headings, and button-alignment variants.
+    </p>
+
+    <h3 class="portfolio-generic-h3">
+      Standard Second-Level Heading
+    </h3>
+
+    <p class="portfolio-generic-paragraph">
+      This is a standard reusable Portfolio paragraph. It can be used for explanatory text in courses, activities, mission statements, research descriptions, and other sections.
+    </p>
+
+    <h3 class="portfolio-generic-h3 portfolio-generic-h3--icon">
+      <span class="portfolio-generic-heading-icon" aria-hidden="true">
+        <i class="fa-solid fa-lightbulb"></i>
+      </span>
+      Iconed Second-Level Heading
+    </h3>
+
+    <h4 class="portfolio-generic-h4">
+      Standard Third-Level Heading
+    </h4>
+
+    <p class="portfolio-generic-paragraph">
+      This paragraph demonstrates the standard third-level content pattern.
+    </p>
+
+    <h4 class="portfolio-generic-h4 portfolio-generic-h4--icon">
+      <span class="portfolio-generic-heading-icon" aria-hidden="true">
+        <i class="fa-solid fa-circle-check"></i>
+      </span>
+      Iconed Third-Level Heading
+    </h4>
+
+    <ul class="portfolio-generic-bullet-list">
+      <li><i class="fa-solid fa-caret-right" aria-hidden="true"></i>First reusable bullet point</li>
+      <li><i class="fa-solid fa-caret-right" aria-hidden="true"></i>Second reusable bullet point</li>
+      <li><i class="fa-solid fa-caret-right" aria-hidden="true"></i>Third reusable bullet point</li>
+    </ul>
+
+    <h3 class="portfolio-generic-h3">
+      Image Variations
+    </h3>
+
+    <!-- 1. Non-clickable, non-sourced image -->
+    <div class="portfolio-generic-image">
+      <img src="img/data-1.webp" alt="Non-clickable non-sourced example image">
+    </div>
+
+    <!-- 2. Non-clickable, sourced image -->
+    <div class="portfolio-generic-image">
+      <img src="img/data-1.webp" alt="Non-clickable sourced example image">
+      <a class="portfolio-generic-image-source"
+         href="https://unsplash.com/@kmuza"
+         target="_blank"
+         rel="noopener noreferrer">
+        Image source
+        <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <!-- 3. Clickable, non-sourced image -->
+    <div class="portfolio-generic-image">
+      <a class="portfolio-generic-image-link"
+         href="img/data-1.webp">
+        <img src="img/data-1.webp" alt="Clickable non-sourced example image">
+      </a>
+    </div>
+
+    <!-- 4. Clickable, sourced image -->
+    <div class="portfolio-generic-image">
+      <a class="portfolio-generic-image-link"
+         href="img/data-1.webp">
+        <img src="img/data-1.webp" alt="Clickable sourced example image">
+      </a>
+
+      <a class="portfolio-generic-image-source"
+         href="https://unsplash.com/@kmuza"
+         target="_blank"
+         rel="noopener noreferrer">
+        Image source
+        <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <h3 class="portfolio-generic-h3">
+      Button Variations
+    </h3>
+
+    <a class="portfolio-generic-button portfolio-generic-button--left" href="#">
+      <span>Left-aligned button</span>
+      <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="portfolio-generic-button portfolio-generic-button--center" href="#">
+      <span>Centered button</span>
+      <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="portfolio-generic-button portfolio-generic-button--right" href="#">
+      <span>Right-aligned button</span>
+      <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+    </a>
+
+  </div>
+</section>
+
+
+        
+
+        
 
 
 <!-- ================================================================ -->
 <!-- ELEMENT: PORTFOLIO HORIZONTAL SEPARATOR                        -->
 <!-- ================================================================ -->
+
+        
         <div class="portfolio-divider">
             <div class="portfolio-divider-line"></div>
         </div>
