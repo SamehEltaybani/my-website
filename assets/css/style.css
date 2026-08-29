@@ -6594,12 +6594,14 @@ BLOG-Article (right side content)
 
 .portfolio-profile-descriptor-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
   margin-bottom: var(--space-lg);
   text-align: center;
 }
+
 
 .portfolio-profile-descriptor-icon {
   width: 2.9rem;
@@ -6612,6 +6614,7 @@ BLOG-Article (right side content)
 }
 
 @media (max-width: 700px) {
+   
   .portfolio-profile-descriptor {
     margin: var(--space-lg) 0;
   }
@@ -6626,6 +6629,17 @@ BLOG-Article (right side content)
 
   .portfolio-profile-descriptor-column:not(:last-child)::after {
     display: none;
+  }
+
+  .portfolio-profile-descriptor-title {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .portfolio-profile-descriptor-list {
+    margin-left: calc(2.9rem + var(--space-sm));
   }
 }
 
