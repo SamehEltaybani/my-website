@@ -6512,6 +6512,126 @@ BLOG-Article (right side content)
 }
 
 
+
+/* ----- Stats / Data Dashboard ----- */
+
+.portfolio-stats {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    text-align: center;
+}
+
+.portfolio-stats-item {
+    background: var(--white-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    border: 1px solid rgba(34, 40, 49, 0.08);
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
+
+}
+
+.portfolio-stats-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 1.2;
+    margin-bottom: var(--space-xs);
+}
+
+.portfolio-stats-label {
+    display: block;
+    font-size: 1rem;
+    color: var(--dark-color);
+    opacity: 0.6;
+}
+
+
+
+/* ==========================================
+   PORTFOLIO PROFILE DESCRIPTOR
+   ========================================== */
+
+.portfolio-profile-descriptor {
+  width: 100%;
+  margin: var(--space-xl) 0;
+  background: transparent;
+}
+
+.portfolio-profile-descriptor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}
+
+.portfolio-profile-descriptor-column {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.portfolio-profile-descriptor-column:not(:last-child)::after {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  bottom: 10%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(34, 40, 49, 0.12) 28%,
+    rgba(34, 40, 49, 0.3) 50%,
+    rgba(34, 40, 49, 0.12) 72%,
+    transparent 100%
+  );
+  content: "";
+}
+
+.portfolio-profile-descriptor-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.portfolio-profile-descriptor-icon {
+  width: 2.9rem;
+  height: 2.9rem;
+  font-size: 1.1rem;
+}
+
+.portfolio-profile-descriptor-list {
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .portfolio-profile-descriptor {
+    margin: var(--space-lg) 0;
+  }
+
+  .portfolio-profile-descriptor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-profile-descriptor-column {
+    padding: var(--space-lg) 0;
+  }
+
+  .portfolio-profile-descriptor-column:not(:last-child)::after {
+    display: none;
+  }
+}
+
+
+
+
 /* ==========================================
    PORTFOLIO SCHOLARLY DATABASE BUTTON (only the buttons)
    ========================================== */
@@ -7146,43 +7266,13 @@ BLOG-Article (right side content)
     opacity: 0.5;
 }
 
-/* ----- Stats / Data Dashboard ----- */
 
-.portfolio-stats {
-    padding: var(--space-xl) 0;
-}
 
-.portfolio-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
-    text-align: center;
-}
 
-.portfolio-stats-item {
-    background: var(--white-color);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    border: 1px solid rgba(34, 40, 49, 0.08);
-    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.07);
 
-}
 
-.portfolio-stats-number {
-    display: block;
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    line-height: 1.2;
-    margin-bottom: var(--space-xs);
-}
 
-.portfolio-stats-label {
-    display: block;
-    font-size: 1rem;
-    color: var(--dark-color);
-    opacity: 0.6;
-}
+
 
 /* ----- Timeline ----- */
 .portfolio-timeline {
