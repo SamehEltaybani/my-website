@@ -7539,7 +7539,7 @@ BLOG-Article (right side content)
 
 .portfolio-value-action-intro {
   max-width: 760px;
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-lg);
   color: var(--dark-color);
   font-size: 1rem;
   line-height: 1.6;
@@ -7557,10 +7557,6 @@ BLOG-Article (right side content)
   gap: var(--space-xl);
   align-items: stretch;
   padding: var(--space-xl) 0;
-}
-
-.portfolio-value-action-row + .portfolio-value-action-row {
-  border-top: 1px solid rgba(34, 40, 49, 0.12);
 }
 
 .portfolio-value-action-card {
@@ -7649,11 +7645,6 @@ BLOG-Article (right side content)
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-}
-
-.portfolio-value-action-group + .portfolio-value-action-group {
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(34, 40, 49, 0.1);
 }
 
 .portfolio-value-action-group-title {
