@@ -186,6 +186,63 @@ body {
 }
 
 
+
+
+/* ==========================================
+   TEMPORARY MAINTENANCE CALLOUT
+   ========================================== */
+
+.temporary-maintenance-callout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: var(--container-max);
+  margin: var(--space-lg) auto;
+  padding: var(--space-md) var(--space-lg);
+  background: #fff1f1;
+  border: 1px solid #efb8b8;
+  border-left: 4px solid #c94b4b;
+  border-radius: var(--radius-md);
+  color: #5b2525;
+}
+
+.temporary-maintenance-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c94b4b;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.temporary-maintenance-content p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .temporary-maintenance-callout {
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+    padding: var(--space-md);
+  }
+
+  .temporary-maintenance-icon {
+    font-size: 1.8rem;
+  }
+
+  .temporary-maintenance-content p {
+    font-size: 0.86rem;
+  }
+}
+
+
+
+
 /* ============================================
    NAVIGATION (Navbar + Dropdown)
    ============================================ */
@@ -8331,4 +8388,7 @@ BLOG-Article (right side content)
 .glightbox-image-frame > .image-source {
   bottom: 1.2rem;
 }
+
+
+
 
