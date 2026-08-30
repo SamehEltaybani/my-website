@@ -1829,9 +1829,49 @@ particularly interested in how research can inform equitable and effective healt
                 });
             });
 
-           
+
 // ============================================
-// 4. TABS
+// 4. TABS - new (old is to be removed)
+// ============================================
+
+
+const portfolioTabsNewComponents = document.querySelectorAll('.portfolio-tabs-new');
+
+portfolioTabsNewComponents.forEach(function(component) {
+  const tabBtns = component.querySelectorAll('.portfolio-tabs-new-btn');
+  const tabPanels = component.querySelectorAll('.portfolio-tabs-new-panel');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(button) {
+        button.classList.remove('active');
+        button.setAttribute('aria-selected', 'false');
+      });
+
+      tabPanels.forEach(function(panel) {
+        panel.classList.remove('active');
+        panel.hidden = true;
+      });
+
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      const targetPanel = component.querySelector('#' + this.dataset.tab);
+
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        targetPanel.hidden = false;
+      }
+    });
+  });
+});
+
+
+
+
+            
+// ============================================
+// 4. TABS - old
 // ============================================
           
             const tabBtns = document.querySelectorAll('.portfolio-tabs-btn');
