@@ -7185,7 +7185,7 @@ BLOG-Article (right side content)
 
 
 /* ==========================================
-   PORTFOLIO TABS (NEW) - old still exist
+   PORTFOLIO TABS 
    ========================================== */
 
 .portfolio-tabs-new {
@@ -7324,121 +7324,7 @@ BLOG-Article (right side content)
 
 
 
-/* ----- Tabs ----- */
 
-.portfolio-tabs {
-    padding: var(--space-xl) 0;
-}
-
-.portfolio-tabs h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-lg);
-}
-
-.portfolio-tabs-wrapper {
-    background: var(--white-color);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(34, 40, 49, 0.08);
-    overflow: hidden;
-}
-
-.portfolio-tabs-nav {
-    display: flex;
-    gap: 0;
-    background: rgba(0, 0, 0, 0.01);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.portfolio-tabs-btn {
-    flex: 1;
-    padding: var(--space-md) var(--space-lg);
-    background: transparent;
-    border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--dark-color);
-    opacity: 0.5;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-}
-
-.portfolio-tabs-btn:hover {
-    opacity: 0.8;
-    background: rgba(0, 173, 181, 0.06);
-}
-
-.portfolio-tabs-btn.active {
-    opacity: 1;
-    color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.12);
-}
-
-.portfolio-tabs-btn i {
-    font-size: 0.9rem;
-}
-
-.portfolio-tabs-panel {
-    display: none;
-    padding: var(--space-lg);
-}
-
-.portfolio-tabs-panel.active {
-    display: block;
-}
-
-.portfolio-tabs-panel h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    margin-bottom: var(--space-sm);
-}
-
-.portfolio-tabs-subtitle{
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    margin-bottom: var(--space-sm);
-}
-
-
-.portfolio-tabs-panel p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.85;
-    margin-bottom: var(--space-sm);
-}
-
-.portfolio-tabs-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.portfolio-tabs-panel ul li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.portfolio-tabs-panel ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-}
 
 /* ----- Quote Block ----- */
 
