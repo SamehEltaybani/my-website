@@ -6361,6 +6361,27 @@ BLOG-Article (right side content)
   line-height: 1.3;
 }
 
+
+.portfolio-generic-h2-iconed {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.portfolio-generic-h2-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3.25rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--accent-color);
+  font-size: 1.7rem;
+}
+
+
 .portfolio-generic-h3--icon,
 .portfolio-generic-h4--icon {
   display: flex;
