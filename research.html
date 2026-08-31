@@ -1174,7 +1174,7 @@ Use the same generic structure in four ways:
         
 
 <!-- ================================================================ -->
-<!-- Portfolio element: PORTFOLIO TABS                                -->
+<!-- Portfolio element: PORTFOLIO TABS   (non-iconed titles)         -->
 <!-- ================================================================ -->
 
 
@@ -1348,1096 +1348,167 @@ Use the same generic structure in four ways:
 
 
 <!-- ================================================================ -->
-<!-- Teaching courses for the teaching portfolio                       -->
+<!-- Portfolio element: PORTFOLIO TABS   (iconed titles)         -->
 <!-- ================================================================ -->
 
 
-        <!-- =============================== -->
-<!-- Portfolio tabs-new course 001: Critical care -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-001">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-bed-pulse"></i> Critical care
-  </h3>
+<section class="portfolio-tabs-new" aria-labelledby="course-001-title">
+  <h2 id="course-001-title" class="portfolio-generic-h2 portfolio-generic-h2-iconed">
+  <span class="portfolio-generic-h2-icon" aria-hidden="true">
+    <i class="fas fa-bed-pulse"></i>
+  </span>
+  <span>Critical Care</span>
+</h2>
 
   <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Critical care course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-001-description" data-tab="course-001-description">
-        <i class="fas fa-clipboard-question"></i> Description
+    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Critical Care course information">
+      <button class="portfolio-tabs-new-btn active"
+              id="course-001-tab-description"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="course-001-panel-description"
+              data-tab="course-001-panel-description">
+        Description
       </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-001-audience" data-tab="course-001-audience">
-        <i class="fas fa-user-group"></i> Audience
+
+      <button class="portfolio-tabs-new-btn"
+              id="course-001-tab-audience"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="course-001-panel-audience"
+              data-tab="course-001-panel-audience">
+        Audience
       </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-001-contribution" data-tab="course-001-contribution">
-        <i class="fas fa-gear"></i> Contribution
+
+      <button class="portfolio-tabs-new-btn"
+              id="course-001-tab-contribution"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="course-001-panel-contribution"
+              data-tab="course-001-panel-contribution">
+        Contribution
       </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-001-resources" data-tab="course-001-resources">
-        <i class="fas fa-link"></i> Resources
+
+      <button class="portfolio-tabs-new-btn"
+              id="course-001-tab-resources"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="course-001-panel-resources"
+              data-tab="course-001-panel-resources">
+        Resources
       </button>
     </div>
 
     <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-001-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to equip students with the essential clinical foundations for managing critically ill patients and supporting their families within intensive and coronary care settings.</p>
+      <div id="course-001-panel-description"
+           class="portfolio-tabs-new-panel active"
+           role="tabpanel"
+           aria-labelledby="course-001-tab-description">
+        <h3 class="portfolio-generic-h3 portfolio-generic-h3--icon portfolio-tabs-new-panel-title">
+          <span class="portfolio-generic-heading-icon" aria-hidden="true">
+            <i class="fa-solid fa-book-open"></i>
+          </span>
+          <span>Course Description</span>
+        </h3>
+        <p class="portfolio-generic-paragraph">
+          This course aims to develop knowledge and practical understanding of critical care principles, assessment, decision-making, and patient-centred practice.
+        </p>
       </div>
 
-      <div class="portfolio-tabs-new-panel" id="course-001-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Undergraduate students (Nursing)</p>
+      <div id="course-001-panel-audience"
+           class="portfolio-tabs-new-panel"
+           role="tabpanel"
+           aria-labelledby="course-001-tab-audience"
+           hidden>
+        <h3 class="portfolio-generic-h3 portfolio-generic-h3--icon portfolio-tabs-new-panel-title">
+          <span class="portfolio-generic-heading-icon" aria-hidden="true">
+            <i class="fa-solid fa-users"></i>
+          </span>
+          <span>Course Audience</span>
+        </h3>
+        <p class="portfolio-generic-paragraph">
+          Undergraduate nursing students and healthcare learners developing foundational knowledge in critical care.
+        </p>
       </div>
 
-      <div class="portfolio-tabs-new-panel" id="course-001-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Lead clinical instructor across hospital units and simulation laboratories.</li>
-<li><i class="fas fa-caret-right"></i> Managed both formative and summative student assessments.</li>
-<li><i class="fas fa-caret-right"></i> Provided ongoing clinical mentorship and student support.</li>
-</ul>
+      <div id="course-001-panel-contribution"
+           class="portfolio-tabs-new-panel"
+           role="tabpanel"
+           aria-labelledby="course-001-tab-contribution"
+           hidden>
+        <h3 class="portfolio-generic-h3 portfolio-generic-h3--icon portfolio-tabs-new-panel-title">
+          <span class="portfolio-generic-heading-icon" aria-hidden="true">
+            <i class="fa-solid fa-person-chalkboard"></i>
+          </span>
+          <span>My Contribution</span>
+        </h3>
+        <p class="portfolio-generic-paragraph">
+          I contributed to course planning, teaching, clinical application, student support, and the development of practical learning activities.
+        </p>
       </div>
 
-      <div class="portfolio-tabs-new-panel" id="course-001-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
+      <div id="course-001-panel-resources"
+           class="portfolio-tabs-new-panel"
+           role="tabpanel"
+           aria-labelledby="course-001-tab-resources"
+           hidden>
+        <h3 class="portfolio-generic-h3 portfolio-generic-h3--icon portfolio-tabs-new-panel-title">
+          <span class="portfolio-generic-heading-icon" aria-hidden="true">
+            <i class="fa-solid fa-link"></i>
+          </span>
+          <span>Resources</span>
+        </h3>
+
+        <ul class="portfolio-generic-bullet-list portfolio-tabs-new-resource-list">
+          <li>
+            <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+            <a href="https://sameheltaybani.github.io/website/research.html">
+              Recommended reading for critical care learners
+              <span class="portfolio-tabs-new-resource-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+            <a href="https://sameheltaybani.github.io/website/research.html">
+              Related article and teaching insight
+              <span class="portfolio-tabs-new-resource-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
         </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
+
+        <div class="portfolio-tabs-new-resource-buttons">
+          <a class="portfolio-generic-button portfolio-generic-button--left"
+             href="https://sameheltaybani.github.io/website/research.html">
+            <span>Course resource</span>
+            <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="portfolio-generic-button portfolio-generic-button--right"
+             href="https://sameheltaybani.github.io/website/research.html">
+            <span>Teaching article</span>
+            <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="portfolio-generic-button portfolio-generic-button--left"
+             href="https://sameheltaybani.github.io/website/research.html">
+            <span>Related publication</span>
+            <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="portfolio-generic-button portfolio-generic-button--right"
+             href="https://sameheltaybani.github.io/website/research.html">
+            <span>External resource</span>
+            <span class="portfolio-generic-button-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 002: Critical care nursing essential practices -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-002">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-bed"></i> Critical care nursing essential practices
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Critical care nursing essential practices course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-002-description" data-tab="course-002-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-002-audience" data-tab="course-002-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-002-contribution" data-tab="course-002-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-002-resources" data-tab="course-002-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-002-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to provide practitioners-in-training with the foundational clinical competencies necessary for an immediate and effective transition to independent patient care.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-002-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Intern students (Nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-002-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Co-designed the course curriculum.</li>
-<li><i class="fas fa-caret-right"></i> Delivered core instruction and clinical skill refinement.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-002-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 003: Emergency care -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-003">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-truck-medical"></i> Emergency care
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Emergency care course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-003-description" data-tab="course-003-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-003-audience" data-tab="course-003-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-003-contribution" data-tab="course-003-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-003-resources" data-tab="course-003-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-003-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>TThis course aims to provide specialized knowledge and develop the rapid decision-making capabilities required for managing patients in emergency department environments.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-003-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Undergraduate students (Nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-003-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Served as lead clinical instructor.</li>
-<li><i class="fas fa-caret-right"></i> Supervised complex clinical practice and simulation-based training.</li>
-<li><i class="fas fa-caret-right"></i> Evaluated student performance in high-pressure clinical scenarios.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-003-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 004: Health assessment -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-004">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-user-doctor"></i> Health assessment
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Health assessment course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-004-description" data-tab="course-004-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-004-audience" data-tab="course-004-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-004-contribution" data-tab="course-004-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-004-resources" data-tab="course-004-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-004-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to integrate theoretical health appraisal concepts with precise, evidence-based physical examination techniques.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-004-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Undergraduate students (Nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-004-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Co-developed the course design and curriculum structure.</li>
-<li><i class="fas fa-caret-right"></i> Delivered didactic and practical instruction.</li>
-<li><i class="fas fa-caret-right"></i> Conducted comprehensive evaluations of student clinical performance.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-004-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 005: Basic and advanced life support -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-005">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-hand-holding-medical"></i> Basic and advanced life support
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Basic and advanced life support course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-005-description" data-tab="course-005-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-005-audience" data-tab="course-005-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-005-contribution" data-tab="course-005-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-005-resources" data-tab="course-005-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-005-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to deliver intensive, hands-on certification in emergency resuscitation protocols and life-saving interventions.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-005-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Hospital staff (Nurse practitioners and care helpers)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-005-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Maintained full responsibility for course curriculum and instructional design.</li>
-<li><i class="fas fa-caret-right"></i> Facilitated practical training </li>
-<li><i class="fas fa-caret-right"></i> Evaluated participants' performance under varius possible scenarios</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-005-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 006: Ethics in practice -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-006">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-magnifying-glass-plus"></i> Ethics in practice
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Ethics in practice course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-006-description" data-tab="course-006-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-006-audience" data-tab="course-006-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-006-contribution" data-tab="course-006-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-006-resources" data-tab="course-006-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-006-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to address the complex ethical and legal dilemmas frequently encountered during direct patient care.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-006-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Hospital staff (Nurse practitioners and care helpers)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-006-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Served as sole instructor for the course.</li>
-<li><i class="fas fa-caret-right"></i> Implemented diverse pedagogical methods, including role-play simulations and interactive ethical debates.</li>
-<li><i class="fas fa-caret-right"></i> Assessed participant' knowledge and attitude.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-006-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 007: Palliatve and end-of-life care -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-007">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-dove"></i> Palliatve and end-of-life care
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Palliatve and end-of-life care course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-007-description" data-tab="course-007-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-007-audience" data-tab="course-007-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-007-contribution" data-tab="course-007-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-007-resources" data-tab="course-007-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-007-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to explore the foundations of end-of-life care, global perspectives, and the core principles of compassionate symptom management.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-007-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students(Multidisciplinary)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-007-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Designed the course structure and content.</li>
-<li><i class="fas fa-caret-right"></i> Managed course content delivery and student mentorship.</li>
-<li><i class="fas fa-caret-right"></i> Discussed participants' concerns and experiences.</li>
-<li><i class="fas fa-caret-right"></i> Evaluated participants at the end of the course</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-007-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 008: Patient safety -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-008">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-hands-holding-circle"></i> Patient safety
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Patient safety course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-008-description" data-tab="course-008-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-008-audience" data-tab="course-008-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-008-contribution" data-tab="course-008-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-008-resources" data-tab="course-008-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-008-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to investigate the fundamental principles of patient safety, the mechanisms underlying safety violations, and evidence-based strategies for harm prevention.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-008-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Multidisciplinary)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-008-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Served as subject matter expert and lead lecturer.</li>
-<li><i class="fas fa-caret-right"></i> Facilitated high-level discussions regarding institutional safety cultures.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-008-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 009: Gerontological nursing -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-009">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-person-cane"></i> Gerontological nursing
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Gerontological nursing course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-009-description" data-tab="course-009-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-009-audience" data-tab="course-009-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-009-contribution" data-tab="course-009-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-009-resources" data-tab="course-009-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-009-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to advance clinical practice in gerontology, specifically addressing complex care needs in long-term and home-care settings.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-009-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-009-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Coordinated all aspects of the course schedule and operations.</li>
-<li><i class="fas fa-caret-right"></i> Managed curriculum development and provided high-level student support.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-009-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 010: Research methodology -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-010">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-hexagon-nodes"></i> Research methodology
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Research methodology course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-010-description" data-tab="course-010-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-010-audience" data-tab="course-010-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-010-contribution" data-tab="course-010-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-010-resources" data-tab="course-010-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-010-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to cover the core principles of study design, rigorous data collection, and advanced research analysis.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-010-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Health science and nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-010-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Designed the course and instruction.</li>
-<li><i class="fas fa-caret-right"></i> Conducted all student assessments and performance evaluations.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-010-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 011: Evidence synthesis -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-011">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-puzzle-piece"></i> Evidence synthesis
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Evidence synthesis course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-011-description" data-tab="course-011-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-011-audience" data-tab="course-011-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-011-contribution" data-tab="course-011-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-011-resources" data-tab="course-011-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-011-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to guide students through the systematic process of evidence synthesis and advanced academic writing.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-011-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Health science and nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-011-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Served as course coordinator and mentor.</li>
-<li><i class="fas fa-caret-right"></i> Provided direct, individualized guidance on analytical techniques and academic writing.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-011-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 012: Research integrity -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-012">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-scale-balanced"></i> Research integrity
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Research integrity course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-012-description" data-tab="course-012-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-012-audience" data-tab="course-012-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-012-contribution" data-tab="course-012-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-012-resources" data-tab="course-012-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-012-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to explore the ethics of the research lifecycle and the preservation of institutional and academic honesty.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-012-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Multidisciplinary)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-012-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Served as subject matter expert and lead lecturer for the series.</li>
-<li><i class="fas fa-caret-right"></i> Designed the course structure and content.</li>
-<li><i class="fas fa-caret-right"></i> Delivered course content.</li>
-<li><i class="fas fa-caret-right"></i> Evaluated participants' understanding of several complext scenarios</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-012-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 013: International and collaborative research -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-013">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-globe"></i> International and collaborative research
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="International and collaborative research course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-013-description" data-tab="course-013-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-013-audience" data-tab="course-013-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-013-contribution" data-tab="course-013-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-013-resources" data-tab="course-013-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-013-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to teach the complexities of managing multi-site and international research partnerships.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-013-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Undergraduate students (Multidisciplinary) <br/>
-                    Graduate students (Multidisciplinary) <br/>
-                    Post-doctoral fellows (Health science and nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-013-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Held sole (and shared) responsibility for full course delivery.</li>
-<li><i class="fas fa-caret-right"></i> Served as an invited expert lecturer at external institutions.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-013-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 014: Notes on scientific publishing -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-014">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-book-medical"></i> Notes on scientific publishing
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Notes on scientific publishing course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-014-description" data-tab="course-014-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-014-audience" data-tab="course-014-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-014-contribution" data-tab="course-014-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-014-resources" data-tab="course-014-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-014-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to cover advanced topics including retraction management, reporting guidelines, AI ethics, and the identification of predatory publishing.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-014-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Multidisciplinary)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-014-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Designed the curriculum and served as lead lecturer for the series.</li>
-<li><i class="fas fa-caret-right"></i> Evaluated participants at the end of the course</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-014-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 015: Scientific writing -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-015">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-feather-pointed"></i> Scientific writing
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Scientific writing course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-015-description" data-tab="course-015-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-015-audience" data-tab="course-015-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-015-contribution" data-tab="course-015-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-015-resources" data-tab="course-015-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-015-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to provide advanced training in structuring, drafting, and refining scientific manuscripts for high-impact publication.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-015-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Post-doctoral fellows (Health science and nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-015-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Co-designed the curriculum and served as primary instructor.</li>
-<li><i class="fas fa-caret-right"></i> Delivered expert instruction and provided iterative, high-level feedback on fellow-authored works.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-015-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 016: Scientific presentation -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-016">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-person-chalkboard"></i> Scientific presentation
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="Scientific presentation course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-016-description" data-tab="course-016-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-016-audience" data-tab="course-016-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-016-contribution" data-tab="course-016-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-016-resources" data-tab="course-016-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-016-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to develop the capacity to communicate complex data effectively in oral presentations for international conferences and academic forums.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-016-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Multidisciplinary) <br/> 
-                    Post-doctoral fellows (Health science and nursing)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-016-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Co-designed the curriculum and served as primary instructor.</li>
-<li><i class="fas fa-caret-right"></i> Coached fellows on delivery techniques, visual design, and audience engagement.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-016-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================== -->
-<!-- Portfolio tabs-new course 017: English communication for science -->
-<!-- =============================== -->
-<section class="portfolio-tabs-new portfolio-tabs-new-course" id="course-017">
-  <h3 class="portfolio-third-heading portfolio-iconed-third-heading">
-    <i class="fas fa-comments"></i> English communication for science
-  </h3>
-
-  <div class="portfolio-tabs-new-wrapper">
-    <div class="portfolio-tabs-new-nav" role="tablist" aria-label="English communication for science course information">
-      <button class="portfolio-tabs-new-btn active" type="button" role="tab" aria-selected="true" aria-controls="course-017-description" data-tab="course-017-description">
-        <i class="fas fa-clipboard-question"></i> Description
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-017-audience" data-tab="course-017-audience">
-        <i class="fas fa-user-group"></i> Audience
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-017-contribution" data-tab="course-017-contribution">
-        <i class="fas fa-gear"></i> Contribution
-      </button>
-      <button class="portfolio-tabs-new-btn" type="button" role="tab" aria-selected="false" aria-controls="course-017-resources" data-tab="course-017-resources">
-        <i class="fas fa-link"></i> Resources
-      </button>
-    </div>
-
-    <div class="portfolio-tabs-new-content">
-      <div class="portfolio-tabs-new-panel active" id="course-017-description" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-clipboard-question"></i> Description</h4>
-        <p>This course aims to provide targeted practice in academic dialogue, professional meetings, and scientific networking.</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-017-audience" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-user-group"></i> Audience</h4>
-        <p>Graduate students (Health science and nursing; Non-native English speakers)</p>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-017-contribution" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-gear"></i> Contribution</h4>
-        <strong>Contribution:</strong>
-<ul class="portfolio-tabs-new-list">
-<li><i class="fas fa-caret-right"></i> Facilitated weekly professional discussions and communicative training sessions.</li>
-</ul>
-      </div>
-
-      <div class="portfolio-tabs-new-panel" id="course-017-resources" role="tabpanel">
-        <h4 class="portfolio-fourth-heading portfolio-iconed-fourth-heading"><i class="fas fa-link"></i> Resources</h4>
-        <ul class="portfolio-tabs-new-list">
-          <li><i class="fas fa-caret-right"></i> <a href="blog/blog-999.html">Read more <i class="fas fa-angle-right"></i></a></li>
-          <li><i class="fas fa-caret-right"></i> <a href="#">Additional course resource placeholder <i class="fas fa-angle-right"></i></a></li>
-        </ul>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-left">
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-left">Left resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="portfolio-tabs-new-buttons portfolio-tabs-new-buttons-right">
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 1 <i class="fas fa-arrow-right"></i></a>
-          <a href="#" class="portfolio-button portfolio-button-right">Right resource placeholder 2 <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
 
 
 
