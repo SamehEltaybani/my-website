@@ -7104,189 +7104,56 @@ BLOG-Article (right side content)
 
 /* ================================================================
    PORTFOLIO STACKED ACCORDION NEW
-   Rows touch and are separated by fine lines.
    ================================================================ */
 
-.portfolio-accordion-stacked-new {
-  --portfolio-accordion-new-accent: var(--accent-color);
-  --portfolio-accordion-new-dark: var(--dark-color);
-  --portfolio-accordion-new-white: var(--white-color);
-  --portfolio-accordion-new-border: rgba(34, 40, 49, 0.12);
-  --portfolio-accordion-new-soft: rgba(0, 173, 181, 0.10);
-  --portfolio-accordion-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  margin: var(--space-xl) 0;
-}
+(function () {
+  const sections = document.querySelectorAll('.portfolio-accordion-stacked-new');
 
-.portfolio-accordion-stacked-new-wrapper {
-  overflow: hidden;
-  border: 1px solid var(--portfolio-accordion-new-border);
-  border-radius: var(--radius-md);
-  background: var(--portfolio-accordion-new-white);
-  box-shadow: var(--portfolio-accordion-new-shadow);
-}
+  sections.forEach(function (section) {
+    const headers = section.querySelectorAll('.portfolio-accordion-stacked-new-header');
 
-.portfolio-accordion-stacked-new-item + .portfolio-accordion-stacked-new-item {
-  border-top: 1px solid var(--portfolio-accordion-new-border);
-}
+    headers.forEach(function (header) {
+      header.addEventListener('click', function () {
+        const body = this.nextElementSibling;
+        const toggle = this.querySelector('.portfolio-accordion-stacked-new-toggle');
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
 
-.portfolio-accordion-stacked-new-header,
-.portfolio-accordion-wide-new-header {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 4.5rem;
-  padding: var(--space-md) var(--space-lg);
-  border: 0;
-  background: var(--portfolio-accordion-new-white);
-  color: var(--portfolio-accordion-new-dark);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.portfolio-accordion-stacked-new-header:hover,
-.portfolio-accordion-stacked-new-header.active,
-.portfolio-accordion-wide-new-header:hover,
-.portfolio-accordion-wide-new-header.active {
-  background: var(--portfolio-accordion-new-soft);
-}
-
-.portfolio-accordion-stacked-new-header:focus-visible,
-.portfolio-accordion-wide-new-header:focus-visible {
-  outline: 3px solid rgba(0, 173, 181, 0.35);
-  outline-offset: -3px;
-}
-
-.portfolio-accordion-stacked-new-icon-circle,
-.portfolio-accordion-wide-new-icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 2.75rem;
-  width: 2.75rem;
-  height: 2.75rem;
-  margin-right: var(--space-md);
-  border-radius: var(--radius-full);
-  background: var(--portfolio-accordion-new-soft);
-  color: var(--portfolio-accordion-new-accent);
-  font-size: 1.15rem;
-}
-
-.portfolio-accordion-stacked-new-title,
-.portfolio-accordion-wide-new-title {
-  flex: 1;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.portfolio-accordion-stacked-new-toggle {
-  margin-left: var(--space-md);
-  color: var(--portfolio-accordion-new-accent);
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.portfolio-accordion-stacked-new-body,
-.portfolio-accordion-wide-new-body {
-  padding: 0 var(--space-lg) var(--space-lg);
-  color: var(--portfolio-accordion-new-dark);
-}
-
-.portfolio-accordion-stacked-new-body[hidden],
-.portfolio-accordion-wide-new-body[hidden] {
-  display: none;
-}
-
-.portfolio-accordion-stacked-new-body p,
-.portfolio-accordion-wide-new-body p {
-  margin: 0 0 var(--space-md);
-}
-
-.portfolio-accordion-stacked-new-body .portfolio-generic-list,
-.portfolio-accordion-wide-new-body .portfolio-generic-list {
-  margin: 0;
-}
+        this.setAttribute('aria-expanded', String(!isOpen));
+        this.classList.toggle('active', !isOpen);
+        body.hidden = isOpen;
+        toggle.textContent = isOpen ? '+' : '−';
+      });
+    });
+  });
+})();
 
 
 /* ================================================================
    PORTFOLIO WIDE ACCORDION NEW
-   Rows are separated by visible gaps.
    ================================================================ */
 
-.portfolio-accordion-wide-new {
-  --portfolio-accordion-new-accent: var(--accent-color);
-  --portfolio-accordion-new-dark: var(--dark-color);
-  --portfolio-accordion-new-white: var(--white-color);
-  --portfolio-accordion-new-border: rgba(34, 40, 49, 0.12);
-  --portfolio-accordion-new-soft: rgba(0, 173, 181, 0.10);
-  --portfolio-accordion-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  margin: var(--space-xl) 0;
-}
+(function () {
+  const sections = document.querySelectorAll('.portfolio-accordion-wide-new');
 
-.portfolio-accordion-wide-new-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
+  sections.forEach(function (section) {
+    const headers = section.querySelectorAll('.portfolio-accordion-wide-new-header');
 
-.portfolio-accordion-wide-new-item {
-  overflow: hidden;
-  border: 1px solid var(--portfolio-accordion-new-border);
-  border-radius: var(--radius-md);
-  background: var(--portfolio-accordion-new-white);
-  box-shadow: var(--portfolio-accordion-new-shadow);
-}
+    headers.forEach(function (header) {
+      header.addEventListener('click', function () {
+        const body = this.nextElementSibling;
+        const toggle = this.querySelector('.portfolio-accordion-wide-new-toggle i');
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
 
-.portfolio-accordion-wide-new-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: var(--space-md);
-  color: var(--portfolio-accordion-new-accent);
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-
-.portfolio-accordion-wide-new-header.active .portfolio-accordion-wide-new-toggle {
-  transform: rotate(0deg);
-}
-
-@media (max-width: 700px) {
-  .portfolio-accordion-stacked-new,
-  .portfolio-accordion-wide-new {
-    margin: var(--space-lg) 0;
-  }
-
-  .portfolio-accordion-stacked-new-header,
-  .portfolio-accordion-wide-new-header {
-    min-height: 4rem;
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .portfolio-accordion-stacked-new-icon-circle,
-  .portfolio-accordion-wide-new-icon-circle {
-    flex-basis: 2.4rem;
-    width: 2.4rem;
-    height: 2.4rem;
-    margin-right: var(--space-sm);
-    font-size: 1rem;
-  }
-
-  .portfolio-accordion-stacked-new-title,
-  .portfolio-accordion-wide-new-title {
-    font-size: 0.98rem;
-  }
-
-  .portfolio-accordion-stacked-new-body,
-  .portfolio-accordion-wide-new-body {
-    padding: 0 var(--space-md) var(--space-md);
-  }
-}
-
-
-
+        this.setAttribute('aria-expanded', String(!isOpen));
+        this.classList.toggle('active', !isOpen);
+        body.hidden = isOpen;
+        toggle.className = isOpen
+          ? 'fa-solid fa-circle-chevron-down'
+          : 'fa-solid fa-circle-chevron-right';
+      });
+    });
+  });
+})();
 
 
 
