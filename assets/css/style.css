@@ -7099,7 +7099,212 @@ BLOG-Article (right side content)
     flex-shrink: 0;
 }
 
-/* ----- Accordion ----- */
+
+
+
+/* ================================================================
+   PORTFOLIO STACKED ACCORDION NEW
+   Rows touch and are separated by fine lines.
+   ================================================================ */
+
+.portfolio-accordion-stacked-new {
+  --portfolio-accordion-new-accent: var(--accent-color);
+  --portfolio-accordion-new-dark: var(--dark-color);
+  --portfolio-accordion-new-white: var(--white-color);
+  --portfolio-accordion-new-border: rgba(34, 40, 49, 0.12);
+  --portfolio-accordion-new-soft: rgba(0, 173, 181, 0.10);
+  --portfolio-accordion-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  margin: var(--space-xl) 0;
+}
+
+.portfolio-accordion-stacked-new-wrapper {
+  overflow: hidden;
+  border: 1px solid var(--portfolio-accordion-new-border);
+  border-radius: var(--radius-md);
+  background: var(--portfolio-accordion-new-white);
+  box-shadow: var(--portfolio-accordion-new-shadow);
+}
+
+.portfolio-accordion-stacked-new-item + .portfolio-accordion-stacked-new-item {
+  border-top: 1px solid var(--portfolio-accordion-new-border);
+}
+
+.portfolio-accordion-stacked-new-header,
+.portfolio-accordion-wide-new-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 4.5rem;
+  padding: var(--space-md) var(--space-lg);
+  border: 0;
+  background: var(--portfolio-accordion-new-white);
+  color: var(--portfolio-accordion-new-dark);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.portfolio-accordion-stacked-new-header:hover,
+.portfolio-accordion-stacked-new-header.active,
+.portfolio-accordion-wide-new-header:hover,
+.portfolio-accordion-wide-new-header.active {
+  background: var(--portfolio-accordion-new-soft);
+}
+
+.portfolio-accordion-stacked-new-header:focus-visible,
+.portfolio-accordion-wide-new-header:focus-visible {
+  outline: 3px solid rgba(0, 173, 181, 0.35);
+  outline-offset: -3px;
+}
+
+.portfolio-accordion-stacked-new-icon-circle,
+.portfolio-accordion-wide-new-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: var(--space-md);
+  border-radius: var(--radius-full);
+  background: var(--portfolio-accordion-new-soft);
+  color: var(--portfolio-accordion-new-accent);
+  font-size: 1.15rem;
+}
+
+.portfolio-accordion-stacked-new-title,
+.portfolio-accordion-wide-new-title {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.portfolio-accordion-stacked-new-toggle {
+  margin-left: var(--space-md);
+  color: var(--portfolio-accordion-new-accent);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.portfolio-accordion-stacked-new-body,
+.portfolio-accordion-wide-new-body {
+  padding: 0 var(--space-lg) var(--space-lg);
+  color: var(--portfolio-accordion-new-dark);
+}
+
+.portfolio-accordion-stacked-new-body[hidden],
+.portfolio-accordion-wide-new-body[hidden] {
+  display: none;
+}
+
+.portfolio-accordion-stacked-new-body p,
+.portfolio-accordion-wide-new-body p {
+  margin: 0 0 var(--space-md);
+}
+
+.portfolio-accordion-stacked-new-body .portfolio-generic-list,
+.portfolio-accordion-wide-new-body .portfolio-generic-list {
+  margin: 0;
+}
+
+
+/* ================================================================
+   PORTFOLIO WIDE ACCORDION NEW
+   Rows are separated by visible gaps.
+   ================================================================ */
+
+.portfolio-accordion-wide-new {
+  --portfolio-accordion-new-accent: var(--accent-color);
+  --portfolio-accordion-new-dark: var(--dark-color);
+  --portfolio-accordion-new-white: var(--white-color);
+  --portfolio-accordion-new-border: rgba(34, 40, 49, 0.12);
+  --portfolio-accordion-new-soft: rgba(0, 173, 181, 0.10);
+  --portfolio-accordion-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  margin: var(--space-xl) 0;
+}
+
+.portfolio-accordion-wide-new-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.portfolio-accordion-wide-new-item {
+  overflow: hidden;
+  border: 1px solid var(--portfolio-accordion-new-border);
+  border-radius: var(--radius-md);
+  background: var(--portfolio-accordion-new-white);
+  box-shadow: var(--portfolio-accordion-new-shadow);
+}
+
+.portfolio-accordion-wide-new-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--space-md);
+  color: var(--portfolio-accordion-new-accent);
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-accordion-wide-new-header.active .portfolio-accordion-wide-new-toggle {
+  transform: rotate(0deg);
+}
+
+@media (max-width: 700px) {
+  .portfolio-accordion-stacked-new,
+  .portfolio-accordion-wide-new {
+    margin: var(--space-lg) 0;
+  }
+
+  .portfolio-accordion-stacked-new-header,
+  .portfolio-accordion-wide-new-header {
+    min-height: 4rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .portfolio-accordion-stacked-new-icon-circle,
+  .portfolio-accordion-wide-new-icon-circle {
+    flex-basis: 2.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: var(--space-sm);
+    font-size: 1rem;
+  }
+
+  .portfolio-accordion-stacked-new-title,
+  .portfolio-accordion-wide-new-title {
+    font-size: 0.98rem;
+  }
+
+  .portfolio-accordion-stacked-new-body,
+  .portfolio-accordion-wide-new-body {
+    padding: 0 var(--space-md) var(--space-md);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- Accordion old ----- */
 
 .portfolio-accordion {
     padding: var(--space-xl) 0;
@@ -7202,6 +7407,163 @@ BLOG-Article (right side content)
     margin-top: 0.3rem;
     flex-shrink: 0;
 }
+
+
+
+
+
+
+/* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
+
+.portfolio-stacked-accordion {
+    padding: var(--space-xl) 0;
+}
+
+.portfolio-stacked-accordion h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: var(--space-lg);
+}
+
+.stacked-accordion-wrapper {
+    border: 1px solid rgba(34, 40, 49, 0.07);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--white-color);
+}
+
+/* ----- Each Row ----- */
+.stacked-accordion-item {
+    border-bottom: 1px solid rgba(0, 173, 181, 0.15);
+}
+
+.stacked-accordion-item:last-child {
+    border-bottom: none;
+}
+
+/* ----- Header ----- */
+
+.stacked-accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease;
+}
+
+.stacked-accordion-header:hover {
+    background: rgba(0, 173, 181, 0.04);
+}
+
+.stacked-accordion-header.active {
+    background: rgba(0, 173, 181, 0.06);
+}
+
+/* ----- Icon in Circle ----- */
+
+.stacked-accordion-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: rgba(0, 173, 181, 0.08);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.stacked-accordion-header.active .stacked-accordion-icon-circle {
+    background: var(--accent-color);
+    color: var(--white-color);
+}
+
+/* ----- Title ----- */
+
+.stacked-accordion-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ----- Toggle Icon (+ / -) ----- */
+
+.stacked-accordion-toggle {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--dark-color);
+    opacity: 0.3;
+    transition: opacity 0.25s ease, transform 0.3s ease;
+    width: 24px;
+    text-align: center;
+}
+
+.stacked-accordion-header.active .stacked-accordion-toggle {
+    opacity: 0.8;
+    transform: rotate(180deg);
+}
+
+.stacked-accordion-header:hover .stacked-accordion-toggle {
+    opacity: 0.6;
+}
+
+/* ----- Body (collapsible content) ----- */
+.stacked-accordion-body {
+    display: none;
+    padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
+}
+
+.stacked-accordion-body.open {
+    display: block;
+}
+
+.stacked-accordion-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.85;
+    margin-bottom: var(--space-sm);
+}
+
+.stacked-accordion-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stacked-accordion-body ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--dark-color);
+    opacity: 0.75;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.stacked-accordion-body ul li i {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+
+
+
 
 
 
@@ -7537,156 +7899,21 @@ BLOG-Article (right side content)
 }
 
 
-/* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
-
-.portfolio-stacked-accordion {
-    padding: var(--space-xl) 0;
-}
-
-.portfolio-stacked-accordion h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-lg);
-}
-
-.stacked-accordion-wrapper {
-    border: 1px solid rgba(34, 40, 49, 0.07);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--white-color);
-}
-
-/* ----- Each Row ----- */
-.stacked-accordion-item {
-    border-bottom: 1px solid rgba(0, 173, 181, 0.15);
-}
-
-.stacked-accordion-item:last-child {
-    border-bottom: none;
-}
-
-/* ----- Header ----- */
-
-.stacked-accordion-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    width: 100%;
-    padding: var(--space-md) var(--space-lg);
-    background: transparent;
-    border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.25s ease;
-}
-
-.stacked-accordion-header:hover {
-    background: rgba(0, 173, 181, 0.04);
-}
-
-.stacked-accordion-header.active {
-    background: rgba(0, 173, 181, 0.06);
-}
-
-/* ----- Icon in Circle ----- */
-
-.stacked-accordion-icon-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 50%;
-    background: rgba(0, 173, 181, 0.08);
-    color: var(--accent-color);
-    font-size: 1.1rem;
-    transition: background 0.25s ease, color 0.25s ease;
-}
-
-.stacked-accordion-header.active .stacked-accordion-icon-circle {
-    background: var(--accent-color);
-    color: var(--white-color);
-}
-
-/* ----- Title ----- */
-
-.stacked-accordion-title {
-    flex: 1;
-    font-weight: 500;
-}
-
-/* ----- Toggle Icon (+ / -) ----- */
-
-.stacked-accordion-toggle {
-    flex-shrink: 0;
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: var(--dark-color);
-    opacity: 0.3;
-    transition: opacity 0.25s ease, transform 0.3s ease;
-    width: 24px;
-    text-align: center;
-}
-
-.stacked-accordion-header.active .stacked-accordion-toggle {
-    opacity: 0.8;
-    transform: rotate(180deg);
-}
-
-.stacked-accordion-header:hover .stacked-accordion-toggle {
-    opacity: 0.6;
-}
-
-/* ----- Body (collapsible content) ----- */
-.stacked-accordion-body {
-    display: none;
-    padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
-}
-
-.stacked-accordion-body.open {
-    display: block;
-}
-
-.stacked-accordion-body p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.85;
-    margin-bottom: var(--space-sm);
-}
-
-.stacked-accordion-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.stacked-accordion-body ul li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.75;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.stacked-accordion-body ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-}
 
 
-/* ==========   PORTFOLIO - RESPONSIVE  =============== */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========   PORTFOLIO - RESPONSIVE  (including old tabs and accordion) =============== */
 
 @media (max-width: 992px) {
     .portfolio-image-text-wrapper {
