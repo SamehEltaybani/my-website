@@ -7828,7 +7828,7 @@ BLOG-Article (right side content)
 
 
 /* ================================================================
-   PORTFOLIO PROCESS NEW
+   PORTFOLIO PROCESS NEW (version 1)
    ================================================================ */
 
 .portfolio-process-new,
@@ -7917,6 +7917,101 @@ BLOG-Article (right side content)
 .portfolio-process-new-content p {
   margin: 0;
   color: var(--portfolio-element-new-dark);
+}
+
+
+
+/* ================================================================
+   PORTFOLIO PROCESS NEW — VARIANTS 2, 3, AND 4
+   Add after the Version 1 process CSS.
+   ================================================================ */
+
+/* Versions 2 and 4: right-aligned Read more button */
+
+.portfolio-process-new-v2 .portfolio-process-new-step,
+.portfolio-process-new-v4 .portfolio-process-new-step {
+  align-items: center;
+}
+
+.portfolio-process-new-read-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  gap: var(--space-md);
+  min-width: 7.75rem;
+  margin-left: auto;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--portfolio-element-new-accent, var(--accent-color));
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--portfolio-element-new-dark, var(--dark-color));
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-process-new-read-more i {
+  color: var(--portfolio-element-new-accent, var(--accent-color));
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-process-new-read-more:hover,
+.portfolio-process-new-read-more:focus-visible {
+  background: var(--portfolio-element-new-accent, var(--accent-color));
+  color: var(--white-color);
+  transform: translateX(2px);
+}
+
+.portfolio-process-new-read-more:hover i,
+.portfolio-process-new-read-more:focus-visible i {
+  color: var(--white-color);
+  transform: translateX(3px);
+}
+
+.portfolio-process-new-read-more:focus-visible {
+  outline: 3px solid rgba(0, 173, 181, 0.28);
+  outline-offset: 3px;
+}
+
+
+/* Versions 3 and 4: light-circle process icons */
+
+.portfolio-process-new-v3 .portfolio-process-new-icon,
+.portfolio-process-new-v4 .portfolio-process-new-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 173, 181, 0.12);
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+  .portfolio-process-new-v2 .portfolio-process-new-step,
+  .portfolio-process-new-v4 .portfolio-process-new-step {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .portfolio-process-new-v2 .portfolio-process-new-read-more,
+  .portfolio-process-new-v4 .portfolio-process-new-read-more {
+    margin-left: calc(2.6rem + var(--space-sm));
+  }
+
+  .portfolio-process-new-v3 .portfolio-process-new-icon,
+  .portfolio-process-new-v4 .portfolio-process-new-icon {
+    flex-basis: 2.6rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
+  }
 }
 
 
