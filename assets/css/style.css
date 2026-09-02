@@ -4272,14 +4272,17 @@ PUBLICATIONS PAGE
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  border-left: 4px solid var(--accent-color);
+  border-left: 2px solid var(--accent-color);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .search-result-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
+  box-shadow: 0 8px 20px rgba(34, 40, 49, 0.4);
+ }
+
+
+
+
 
 .search-result-card .result-row {
   display: flex;
