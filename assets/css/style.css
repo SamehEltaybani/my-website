@@ -892,7 +892,7 @@ section,
   z-index: 0;
   inset: 0;
   content: "";
-  background-image: url("/my-website/img/home.jpg");
+  background-image: url("/my-website/img/home.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
