@@ -2465,6 +2465,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 768px) {
+   
   .publications-header-cta {
     display: block;
     margin-top: var(--space-xs);
@@ -2534,7 +2535,7 @@ PUBLICATIONS PAGE
 }
 
 .publication-card:hover {
-  border: 2px solid var(--accent-color);
+   box-shadow: 0 8px 20px rgba(34, 40, 49, 0.4);
 }
 
 
@@ -3664,7 +3665,7 @@ PUBLICATIONS PAGE
 }
 
 .blog-card:hover {
-  border: 2px solid var(--accent-color);
+   box-shadow: 0 8px 20px rgba(34, 40, 49, 0.4);
 }
 
 
@@ -7093,7 +7094,9 @@ BLOG-Article (right side content)
     flex-shrink: 0;
 }
 
+
 /* ----- Accordion  ----- */
+
 
 .portfolio-accordion {
     padding: var(--space-xl) 0;
@@ -7326,6 +7329,7 @@ BLOG-Article (right side content)
     line-height: 1.7;
     color: var(--dark-color);
     opacity: 0.85;
+    margin-top: var(--space-sm);
     margin-bottom: var(--space-sm);
 }
 
@@ -7349,7 +7353,7 @@ BLOG-Article (right side content)
 .stacked-accordion-body ul li i {
     color: var(--accent-color);
     font-size: 0.8rem;
-    margin-top: 0.3rem;
+    margin-top: var(--space-xs);
     flex-shrink: 0;
 }
 
