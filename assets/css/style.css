@@ -2350,7 +2350,7 @@ section,
             padding: var(--space-xl) 0 var(--space-lg) 0;
         }
 
-        .error-number {
+        .error-top {
             font-size: 8rem;
             font-weight: 800;
             color: var(--accent-color);
@@ -2419,7 +2419,7 @@ section,
 
         @media (max-width: 768px) {
            
-            .error-number {
+            .error-top {
                 font-size: 5rem;
             }
 
@@ -2440,7 +2440,7 @@ section,
 
         @media (max-width: 400px) {
            
-            .error-number {
+            .error-top {
                 font-size: 4rem;
             }
 
@@ -7017,7 +7017,7 @@ BLOG-Article (right side content)
   min-width: 0;
 }
 
-/* ----- Existing right-image and left-image layouts ----- */
+/* ----- right-image and left-image layouts ----- */
 
 .portfolio-media-section--image-right,
 .portfolio-media-section--image-left {
@@ -7223,7 +7223,6 @@ BLOG-Article (right side content)
     flex-shrink: 0;
 }
 
-
 /* ----- Accordion  ----- */
 
 .portfolio-accordion {
@@ -7335,6 +7334,8 @@ BLOG-Article (right side content)
 
 /* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
 
+
+
 .portfolio-stacked-accordion {
     padding: var(--space-xl) 0;
 }
@@ -7440,6 +7441,7 @@ BLOG-Article (right side content)
 }
 
 /* ----- Body (collapsible content) ----- */
+
 .stacked-accordion-body {
     display: none;
     padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
@@ -7480,10 +7482,6 @@ BLOG-Article (right side content)
     margin-top: 0.3rem;
     flex-shrink: 0;
 }
-
-
-
-
 
 
 
@@ -7677,6 +7675,8 @@ BLOG-Article (right side content)
 
 
 /* ----- Timeline ----- */
+
+
 .portfolio-timeline {
     padding: var(--space-xl) 0;
 }
@@ -7817,13 +7817,6 @@ BLOG-Article (right side content)
 .portfolio-cta-btn:hover i {
     transform: translateX(4px);
 }
-
-
-
-
-
-
-
 
 
 
@@ -8249,14 +8242,6 @@ BLOG-Article (right side content)
     flex-direction: column;
   }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -8780,6 +8765,7 @@ BLOG-Article (right side content)
 /* ============================================
    Portfolio element: PORTFOLIO SHARE BUTTON (Specific to portfolio pages)
    ============================================ */
+
 
 .portfolio-share-top {
     text-align: right;
