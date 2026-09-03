@@ -615,24 +615,28 @@ body {
 /* ----- Footer: Sitemap ----- */
 
 .footer-sitemap {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs) var(--space-lg);
+}
+
+.footer-sitemap li {
+    margin: 0;
 }
 
 .footer-sitemap li a {
-  color: var(--dark-color);
-  text-decoration: none;
-  font-size: 0.9rem;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
 }
 
 .footer-sitemap li a:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* ----- Footer: Legal Text ----- */
@@ -693,7 +697,8 @@ body {
   }
   
   .footer-sitemap {
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs) var(--space-lg);
   }
 }
 
