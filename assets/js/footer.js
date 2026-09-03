@@ -27,6 +27,7 @@
         container.className = 'container';
 
         // --- COLUMN 1: Copyright + Social Icons ---
+        
         const col1 = document.createElement('div');
         col1.className = 'footer-col footer-col-1';
         
@@ -67,13 +68,16 @@
         col2.appendChild(sitemapTitle);
 
         const navLinks = [
-        { label: 'Home', link: '/my-website/index.html' },
-        { label: 'Research', link: '/my-website/research.html' },
-        { label: 'Publications', link: '/my-website/publications.html' },
-        { label: 'Data Analysis', link: '/my-website/data-analysis.html' },
-        { label: 'Teaching', link: '/my-website/teaching.html' },
-        { label: 'Blog', link: '/my-website/blog.html' }
-    ];
+            { label: 'Home', link: '/my-website/index.html' },
+            { label: 'Research', link: '/my-website/research.html' },
+            { label: 'Publications', link: '/my-website/publications.html' },
+            { label: 'Data Analysis', link: '/my-website/data-analysis.html' },
+            { label: 'Teaching', link: '/my-website/teaching.html' },
+            { label: 'Blog', link: '/my-website/blog.html' },
+            { label: 'Contact', link: '/my-website/contact.html' },
+            { label: 'Newsletter', link: '/my-website/newsletter.html' },
+            { label: 'Legal', link: '/my-website/legal.html' }
+        ];
 
         const sitemapList = document.createElement('ul');
         sitemapList.className = 'footer-sitemap';
