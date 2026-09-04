@@ -49,9 +49,15 @@
 
 --transition-fast: 0.2s ease;
 
-/* ============================================
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ===============Temporarily deactivated =============================
+
    GLOBAL RESET & BASE
-   ============================================ */
+  
 
 * {
   margin: 0;
@@ -73,11 +79,6 @@ body {
 }
 
 
-/* ============================================
-   CONTAINER & LAYOUT
-   ============================================ */
-
-
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -85,10 +86,6 @@ body {
   width: 100%;
 }
 
-
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
 
 .section-title {
   font-size: 2rem;
@@ -107,15 +104,6 @@ body {
 
 
 
-
-/* ============================================
-  RESPONSIVE BREAKPOINTS (Global)
-   ============================================ */
-
-
-
-
-/* ----- Phones (max-width: 768px) ----- */
 
 @media (max-width: 768px) {
   body {
@@ -141,7 +129,6 @@ body {
   
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
 
 @media (max-width: 400px) {
   .section-title {
@@ -149,6 +136,7 @@ body {
   }
 }
 
+ ============================================ */
 
 
 
