@@ -815,12 +815,14 @@ section,
    
     .within-page-search-box-wrapper {
         padding: var(--space-md) 0;
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
     }
 
     .within-page-search-box {
         font-size: 0.9rem;
         padding: var(--space-xs) var(--space-md);
-        max-width: 100%;
+        max-width: 90%;
     }
 
     .within-page-search-box i {
@@ -832,11 +834,14 @@ section,
    
     .within-page-search-box-wrapper {
         padding: var(--space-sm) 0;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
     }
 
     .within-page-search-box {
         font-size: 0.8rem;
         padding: var(--space-xs) var(--space-sm);
+        max-width: 95%;
     }
 
     .within-page-search-box i {
