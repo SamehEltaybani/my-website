@@ -327,7 +327,10 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.navbar-links li a:hover,
+.navbar-links li a:hover
+  background-color: var(--accent-color-light);
+  }
+
 .navbar-links li a.active {
   background-color: var(--accent-color);
   color: var(--white-color);
