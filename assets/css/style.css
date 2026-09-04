@@ -3635,7 +3635,7 @@ PUBLICATIONS PAGE
   width: min(28rem, calc(100vw - 2rem));
   box-sizing: border-box;
   padding: var(--space-md);
-  border: 1px solid rgba(0, 173, 181, 0.2);
+  border: 1px solid var(--accent-color-light);
   border-radius: var(--radius-md);
   background: var(--white-color);
   box-shadow: var(--card-shadow);
@@ -3881,7 +3881,7 @@ PUBLICATIONS PAGE
   font-weight: 500;
   padding: 0.15rem 0.7rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 173, 181, 0.08);
+  background: var(--accent-color-very-light);
   color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -3966,7 +3966,7 @@ PUBLICATIONS PAGE
   border-color: var(--accent-color);
   border-width: 2.5px;
   color: var(--accent-color);
-  background: rgba(0, 173, 181, 0.02);
+  background: var(--accent-color-very-light);
 }
 
 .blog-share-btn:hover i {
@@ -4276,7 +4276,7 @@ PUBLICATIONS PAGE
 
 .search-dropdown-item:hover,
 .search-dropdown-item.active {
-  background: rgba(0, 173, 181, 0.06);
+  background: var(--accent-color-very-light);
 }
 
 .search-dropdown-item .suggestion-text {
@@ -4449,7 +4449,7 @@ PUBLICATIONS PAGE
 
 .search-filter-btn:hover {
   border-color: var(--accent-color);
-  background: rgba(0, 173, 181, 0.04);
+  background: var(--accent-color-very-light);
 }
 
 .search-filter-btn.active {
@@ -4494,7 +4494,7 @@ PUBLICATIONS PAGE
 }
 
 .search-recent-item:hover {
-  background: rgba(0, 173, 181, 0.1);
+  background: var(--accent-color-light);
 }
 
 .search-recent-item .clear-recent {
@@ -4688,7 +4688,7 @@ PUBLICATIONS PAGE
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 4px rgba(0, 173, 181, 0.1);
+  box-shadow: 0 0 0 4px var(--accent-color-very-light);
 }
 
 .form-group input::placeholder,
@@ -4724,7 +4724,7 @@ PUBLICATIONS PAGE
 .contact-submit-btn:hover {
   background: var(--dark-color);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
+  box-shadow: 0 6px 20px var(--accent-color-light);
 }
 
 .contact-submit-btn:disabled {
@@ -4741,7 +4741,7 @@ PUBLICATIONS PAGE
 
 .form-success {
   display: none;
-  background: rgba(0, 173, 181, 0.06);
+  background: var(--accent-color-very-light);
   border: 1px solid var(--accent-color);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
@@ -4939,7 +4939,7 @@ PUBLICATIONS PAGE
 .subscribe-btn:hover {
     background: var(--dark-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
+    box-shadow: 0 6px 20px var(--accent-color-light);
 }
 
 .subscribe-btn:hover i:last-child {
@@ -4959,7 +4959,7 @@ PUBLICATIONS PAGE
 .newsletter-message {
     margin-top: var(--space-lg);
     padding: var(--space-md);
-    background: rgba(0, 173, 181, 0.06);
+    background: var(--accent-color-very-light);
     border: 1px solid var(--accent-color);
     border-radius: var(--radius-md);
     text-align: center;
@@ -5207,7 +5207,7 @@ background: rgba(0, 0, 0, 0.28);
 }
 .toc-list a:hover {
     opacity: 0.9;
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 /* ----- Active TOC Item ----- */
@@ -5303,7 +5303,7 @@ background: rgba(0, 0, 0, 0.28);
     background: var(--accent-color);
     color: var(--white-color);
     border: none;
-    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.35);
+    box-shadow: 0 4px 20px var(--accent-color-light);
     font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -5312,7 +5312,7 @@ background: rgba(0, 0, 0, 0.28);
 
 .mobile-toc-toggle:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 28px rgba(0, 173, 181, 0.45);
+    box-shadow: 0 6px 28px var(--accent-color-light);
 }
 
 /* ----- Mobile TOC Overlay ----- */
@@ -5509,7 +5509,7 @@ BLOG-Article (right side content)
 
 .blog-top-nav .nav-btn:hover {
     border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 .blog-top-nav .nav-btn i {
@@ -5523,7 +5523,7 @@ BLOG-Article (right side content)
 
 .blog-top-nav .nav-btn-center:hover {
     border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 /* ----- Article Header ----- */
@@ -5584,7 +5584,7 @@ BLOG-Article (right side content)
     font-weight: 500;
     padding: 0.1rem 0.7rem;
     border-radius: var(--radius-full);
-    background: rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-very-light);
     color: var(--accent-color);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -5623,7 +5623,7 @@ BLOG-Article (right side content)
 
 .blog-action-btn:hover {
     border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 .blog-action-btn i {
@@ -5713,11 +5713,11 @@ BLOG-Article (right side content)
     background: var(--accent-color);
     color: var(--white-color);
     transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(0, 173, 181, 0.25);
+    box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
 .share-icons a#copy-link-btn {
-    background: rgba(0, 173, 181, 0.1);
+    background: var(--accent-color-light);
     color: var(--accent-color);
 }
 
@@ -5978,7 +5978,7 @@ BLOG-Article (right side content)
 /* ----- Note Callout ----- */
 
 .callout-note {
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
     border-color: var(--accent-color);
 }
 
@@ -5993,7 +5993,7 @@ BLOG-Article (right side content)
 
 .callout-note .callout-btn:hover {
     background: var(--dark-color);
-    box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+    box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
 /* ----- Warning Callout ----- */
@@ -6049,7 +6049,7 @@ BLOG-Article (right side content)
 
 .blog-bottom-nav .nav-btn:hover {
     border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 .blog-bottom-nav .nav-btn i {
@@ -6059,8 +6059,8 @@ BLOG-Article (right side content)
 /* ----- Copyright Sentence ----- */
 
 .blog-copyright-sentence {
-    background: rgba(0, 173, 181, 0.04);
-    border: 1px solid rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-very-light);
+    border: 1px solid var(--accent-color-light);
     border-radius: var(--radius-md);
     padding: var(--space-md) var(--space-lg);
     margin: var(--space-lg) 0;
@@ -6723,7 +6723,7 @@ BLOG-Article (right side content)
   --quick-note-new-accent: var(--accent-color);
   --quick-note-new-dark: var(--dark-color);
   --quick-note-new-bg: rgba(255, 255, 255, 0.42);
-  --quick-note-new-border: rgba(0, 173, 181, 0.18);
+  --quick-note-new-border: var(--accent-color-light);
   --quick-note-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   margin: var(--space-lg) 0;
   padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xl);
@@ -6756,7 +6756,7 @@ BLOG-Article (right side content)
   width: 2rem;
   height: 2rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 173, 181, 0.12);
+  background: var(--accent-color-light);
   color: var(--quick-note-new-accent);
   font-size: 1rem;
 }
@@ -6813,7 +6813,7 @@ BLOG-Article (right side content)
 }
 
 .quick-note-new-button:focus-visible {
-  outline: 3px solid rgba(0, 173, 181, 0.28);
+  outline: 3px solid var(--accent-color-light);
   outline-offset: 3px;
 }
 
@@ -6862,7 +6862,7 @@ BLOG-Article (right side content)
 
 .portfolio-scholarly-button:hover,
 .portfolio-scholarly-button:focus-visible {
-  background: rgba(0, 173, 181, 0.05);
+  background: var(--accent-color-very-light);
   border-color: var(--accent-color);
   box-shadow: var(--card-shadow);
 }
@@ -7260,7 +7260,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-accordion-header:hover {
-    background: rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-very-light);
 }
 
 .portfolio-accordion-header i {
@@ -7271,7 +7271,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-accordion-header.active {
-    background: rgba(0, 173, 181, 0.12);
+    background: var(--accent-color-light);
     color: var(--accent-color);
 }
 
@@ -7349,7 +7349,7 @@ BLOG-Article (right side content)
 
 /* ----- Each Row ----- */
 .stacked-accordion-item {
-    border-bottom: 1px solid rgba(0, 173, 181, 0.15);
+    border-bottom: 1px solid var(--accent-color-light);
 }
 
 .stacked-accordion-item:last-child {
@@ -7376,11 +7376,11 @@ BLOG-Article (right side content)
 }
 
 .stacked-accordion-header:hover {
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 .stacked-accordion-header.active {
-    background: rgba(0, 173, 181, 0.06);
+    background: var(--accent-color-light);
 }
 
 /* ----- Icon in Circle ----- */
@@ -7393,7 +7393,7 @@ BLOG-Article (right side content)
     height: 40px;
     min-width: 40px;
     border-radius: 50%;
-    background: rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-very-light);
     color: var(--accent-color);
     font-size: 1.1rem;
     transition: background 0.25s ease, color 0.25s ease;
@@ -7522,8 +7522,8 @@ BLOG-Article (right side content)
 
 .portfolio-tabs-new-btn:hover,
 .portfolio-tabs-new-btn:focus-visible {
-  background: rgba(0, 173, 181, 0.06);
-  border-color: rgba(0, 173, 181, 0.3);
+  background: var(--accent-color-very-light);
+  border-color: var(--accent-color-light);
   color: var(--accent-color);
 }
 
@@ -7631,7 +7631,7 @@ BLOG-Article (right side content)
     max-width: 800px;
     margin: 0 auto;
     padding: var(--space-xl) var(--space-lg);
-    background: rgba(0, 173, 181, 0.02);
+    background: var(--accent-color-very-light);
     border-left: 4px solid var(--accent-color);
     border-radius: var(--radius-md);
 }
@@ -7694,7 +7694,7 @@ BLOG-Article (right side content)
     top: 0;
     bottom: 0;
     width: 2px;
-    background: rgba(0, 173, 181, 0.2);
+    background: var(--accent-color-light);
 }
 
 .portfolio-timeline-item {
@@ -7756,8 +7756,8 @@ BLOG-Article (right side content)
 }
 
 .portfolio-cta-content {
-    background: rgba(0, 173, 181, 0.02);
-    border: 1px solid rgba(0, 173, 181, 0.06);
+    background: var(--accent-color-very-light);
+    border: 1px solid var(--accent-color-light);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     text-align: center;
@@ -7800,7 +7800,7 @@ BLOG-Article (right side content)
 .portfolio-cta-btn:hover {
     background: var(--dark-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
+    box-shadow: 0 6px 20px var(--accent-color-light);
     color: var(--white-color);
 }
 
@@ -7825,7 +7825,7 @@ BLOG-Article (right side content)
   --portfolio-element-new-accent: var(--accent-color);
   --portfolio-element-new-dark: var(--dark-color);
   --portfolio-element-new-white: var(--white-color);
-  --portfolio-element-new-soft: rgba(0, 173, 181, 0.08);
+  --portfolio-element-new-soft: var(--accent-color-very-light);
   --portfolio-element-new-border: rgba(34, 40, 49, 0.12);
   --portfolio-element-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
@@ -7960,7 +7960,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-process-new-read-more:focus-visible {
-  outline: 3px solid rgba(0, 173, 181, 0.28);
+  outline: 3px solid var(--accent-color-light);
   outline-offset: 3px;
 }
 
@@ -7976,7 +7976,7 @@ BLOG-Article (right side content)
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 173, 181, 0.12);
+  background: var(--accent-color-light);
   color: var(--accent-color);
   font-size: 1.2rem;
 }
@@ -8187,7 +8187,7 @@ BLOG-Article (right side content)
 .portfolio-resource-new-button:focus-visible,
 .portfolio-publication-highlight-new-button:focus-visible,
 .portfolio-publication-highlight-new-link:focus-visible {
-  outline: 3px solid rgba(0, 173, 181, 0.28);
+  outline: 3px solid var(--accent-color-light);
   outline-offset: 3px;
 }
 
@@ -8480,7 +8480,7 @@ BLOG-Article (right side content)
 }
 
 .wide-accordion-item:hover {
-    border-color: rgba(0, 173, 181, 0.15);
+    border-color: var(--accent-color-light);
 }
 
 /* ----- Header ----- */
@@ -8503,11 +8503,11 @@ BLOG-Article (right side content)
 }
 
 .wide-accordion-header:hover {
-    background: rgba(0, 173, 181, 0.03);
+    background: var(--accent-color-very-light);
 }
 
 .wide-accordion-header.active {
-    background: rgba(0, 173, 181, 0.04);
+    background: var(--accent-color-very-light);
 }
 
 /* ----- Icon in Circle ----- */
@@ -8520,7 +8520,7 @@ BLOG-Article (right side content)
     height: 44px;
     min-width: 44px;
     border-radius: 50%;
-    background: rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-light);
     color: var(--accent-color);
     font-size: 1.2rem;
     transition: background 0.25s ease, color 0.25s ease;
@@ -8802,7 +8802,7 @@ BLOG-Article (right side content)
     border-color: var(--accent-color);
     border-width: 2.5px;
     color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.02);
+    background: var(--accent-color-very-light);
 }
 
 .portfolio-share-btn:hover i {
@@ -8888,7 +8888,7 @@ BLOG-Article (right side content)
   width: min(20rem, calc(100vw - 2rem));
   box-sizing: border-box;
   padding: var(--space-sm) var(--space-md);
-  border: 1px solid rgba(0, 173, 181, 0.2);
+  border: 1px solid var(--accent-color-light);
   border-radius: var(--radius-md);
   background: var(--white-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
