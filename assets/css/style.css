@@ -756,6 +756,80 @@ section,
 }
 
 
+
+
+
+/* ============================================
+   WITHIN‑PAGE SEARCH BOX (Trigger)
+   ============================================ */
+
+.within-page-search-box {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: transparent;
+    color: var(--dark-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    max-width: 400px;
+    width: 100%;
+}
+
+.within-page-search-box i {
+    font-size: 1.2rem;
+    opacity: 0.4;
+}
+
+.within-page-search-box span {
+    flex: 1;
+    text-align: left;
+    opacity: 0.5;
+}
+
+.within-page-search-box:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 173, 181, 0.02);
+    box-shadow: 0 4px 16px rgba(0, 173, 181, 0.08);
+}
+
+.within-page-search-box:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 768px) {
+    .within-page-search-box {
+        font-size: 0.9rem;
+        padding: var(--space-xs) var(--space-md);
+        max-width: 100%;
+    }
+
+    .within-page-search-box i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .within-page-search-box {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .within-page-search-box i {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
 /* ============================================
 HOME PAGE
 ============================================ */
