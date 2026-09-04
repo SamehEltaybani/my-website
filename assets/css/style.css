@@ -16,9 +16,10 @@
   --card-border: 1px solid rgba(34, 40, 49, 0.1);
   --card-shadow: 0 6px 18px rgba(34, 40, 49, 0.2);
   --accent-color: #00ADB5;
+  --accent-color-light: rgba(0, 173, 181, 0.15);
+  --accent-color-very-light: rgba(0, 173, 181, 0.07);
    
  
-
    
   /* ----- SPACING SYSTEM ----- */
    
@@ -350,7 +351,7 @@ body {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid var(--accent-color);
-  box-shadow: 0 2px 8px rgba(0, 173, 181, 0.2);
+  box-shadow: 0 2px 8px var(--accent-color-light);
   color: var(--dark-color);
   font-size: 1.1rem;
   text-decoration: none;
@@ -360,7 +361,7 @@ body {
 .navbar-icons a:hover {
   background: var(--accent-color);
   color: var(--white-color);
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.35);
+  box-shadow: 0 4px 16px var(--accent-color-light);
   transform: scale(1.05);
 }
 
@@ -800,8 +801,8 @@ section,
 
 .within-page-search-box:hover {
     border-color: var(--accent-color);
-    background: rgba(0, 173, 181, 0.02);
-    box-shadow: 0 4px 16px rgba(0, 173, 181, 0.08);
+    background: var(--accent-color-very-light);
+    box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
 .within-page-search-box:focus-visible {
@@ -1326,8 +1327,8 @@ HOME PAGE
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: hidden;
-  background: rgba(0, 173, 181, 0.02);
-  border: 1px solid rgba(0, 173, 181, 0.14);
+  background: var(--accent-color-very-light);
+  border: 1px solid var(--accent-color-light);
   border-top: 3px solid var(--accent-color);
   border-bottom: 3px solid var(--accent-color);
   border-radius: var(--radius-md);
@@ -1781,8 +1782,8 @@ HOME PAGE
   margin: var(--space-md) 0;
   padding: 0.65rem 0.85rem;
   list-style: none;
-  background: rgba(0, 173, 181, 0.06);
-  border: 1px solid rgba(0, 173, 181, 0.12);
+  background: var(--accent-color-very-light);
+  border: 1px solid var(--accent-color-light);
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
@@ -1794,7 +1795,7 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   padding: 0.42rem 0.35rem;
-  background: rgba(0, 173, 181, 0.09);
+  background: var(--accent-color-light);
   border-radius: 6px;
   color: var(--dark-color);
   font-size: clamp(0.64rem, 2.4vw, 0.82rem);
@@ -1884,7 +1885,7 @@ HOME PAGE
 .whatido-btn:hover {
   background: var(--accent-color);
   color: var(--white-color);
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+  box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
 .whatido-btn:hover i {
@@ -2050,7 +2051,7 @@ HOME PAGE
 
 .explore-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 173, 181, 0.12);
+  box-shadow: 0 8px 24px var(--accent-color-light);
   border-color: var(--accent-color);
 }
 
@@ -2061,7 +2062,7 @@ HOME PAGE
   height: 48px;
   min-width: 48px;
   border-radius: var(--radius-sm);
-  background: rgba(0, 173, 181, 0.08);
+  background: var(--accent-color-very-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2279,7 +2280,7 @@ HOME PAGE
   color: var(--white-color);
   font-size: 1.4rem;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+  box-shadow: 0 4px 16px var(--accent-color-light);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   border: none;
   cursor: pointer;
@@ -2375,7 +2376,7 @@ HOME PAGE
             background: var(--accent-color);
             color: var(--white-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 173, 181, 0.3);
+            box-shadow: 0 6px 20px var(--accent-color-light);
         }
 
         .error-btn i {
@@ -2451,9 +2452,9 @@ PUBLICATIONS PAGE
   align-items: center;
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
-  border: 1px solid rgba(0, 173, 181, 0.28);
+  border: 1px solid var(--accent-color);
   border-radius: var(--radius-full);
-  background: rgba(0, 173, 181, 0.12);
+  background: var(--accent-color-light);
   color: var(--accent-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -2464,8 +2465,8 @@ PUBLICATIONS PAGE
 }
 
 .publications-header-cta .header-cta-trigger:hover {
-  border-color: rgba(0, 173, 181, 0.48);
-  background: rgba(0, 173, 181, 0.18);
+  border-color: var(--accent-color-light);
+  background: var(--accent-color-very-light);
   transform: translateY(-1px);
 }
 
@@ -2485,7 +2486,7 @@ PUBLICATIONS PAGE
   width: min(28rem, calc(100vw - 2rem));
   box-sizing: border-box;
   padding: var(--space-md);
-  border: 1px solid rgba(0, 173, 181, 0.2);
+  border: 1px solid var(--accent-color-light);
   border-radius: var(--radius-md);
   background: var(--white-color);
   box-shadow: var(--card-shadow);
@@ -2734,7 +2735,7 @@ PUBLICATIONS PAGE
 }
 
 .authorship-first {
-  background: rgba(0, 173, 181, 0.15);
+  background: var(--accent-color-very-light);
   color: var(--accent-color);
 }
 
@@ -2937,7 +2938,7 @@ PUBLICATIONS PAGE
 .see-more-btn:hover {
   background: var(--accent-color);
   color: var(--white-color);
-  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+  box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
 .see-more-btn i {
@@ -3005,7 +3006,7 @@ PUBLICATIONS PAGE
   margin-bottom: var(--space-md);
   padding: var(--space-sm) var(--space-md);
   border: 0;
-  border-bottom: 1px solid rgba(0, 173, 181, 0.28);
+  border-bottom: 1px solid var(--accent-color-light);
   border-radius: 0;
   background: var(--white-color);
   box-shadow: none;
@@ -3600,9 +3601,9 @@ PUBLICATIONS PAGE
   align-items: center;
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
-  border: 1px solid rgba(0, 173, 181, 0.28);
+  border: 1px solid var(--accent-color);
   border-radius: var(--radius-full);
-  background: rgba(0, 173, 181, 0.12);
+  background: var(--accent-color-light);
   color: var(--accent-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -3613,8 +3614,8 @@ PUBLICATIONS PAGE
 }
 
 .page-blog .header-cta-trigger:hover {
-  border-color: rgba(0, 173, 181, 0.48);
-  background: rgba(0, 173, 181, 0.18);
+  border-color: var(--accent-color-light);
+  background: var(--accent-color-very-light);
   transform: translateY(-1px);
 }
 
