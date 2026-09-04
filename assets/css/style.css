@@ -7688,7 +7688,7 @@ BLOG-Article (right side content)
 
 .portfolio-divider-line {
     width: 100%;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(to right, var(--accent-color), transparent 70%);
     opacity: 0.15;
 }
