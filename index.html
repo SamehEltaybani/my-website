@@ -620,12 +620,51 @@
     
 
     <!-- ===== JAVASCRIPT LOAD ORDER (CRITICAL) ===== -->
-   
+
+    
     <script src="/my-website/assets/js/utils.js"></script>
     <script src="/my-website/assets/js/navbar.js"></script>
     <script src="/my-website/assets/js/footer.js"></script>
     <script src="/my-website/assets/js/back-to-top.js"></script>
     <script src="/my-website/assets/js/search.js"></script>
+
+    
+    <!-- ===== Page specific scripts ===== -->
+
+    
+    <script nonce="secure123">
+    (function() {
+        'use strict';
+
+        const trigger = document.querySelector('.within-page-search-box');
+        if (!trigger) return;
+
+        function openSearch() {
+            // Try using the global search.open method first
+            if (window.search && typeof window.search.open === 'function') {
+                window.search.open();
+                return;
+            }
+
+            // Fallback: click the central search icon in the navbar
+            const icon = document.querySelector('.navbar-icons a[aria-label*="Search"]');
+            if (icon) {
+                icon.click();
+            } else {
+                console.warn('Search trigger not found.');
+            }
+        }
+
+        trigger.addEventListener('click', openSearch);
+        trigger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+
+    })();
+</script>
 
 </body>
 </html>
