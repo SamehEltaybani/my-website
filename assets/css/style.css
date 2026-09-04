@@ -10,7 +10,6 @@
   
    /* ----- COLORS ----- */
 
-   
   --bg-color: #f4f6f8;
   --dark-color: #222831;
   --white-color: #ffffff;
@@ -20,10 +19,8 @@
   --accent-color-light: rgba(0, 173, 181, 0.15);
   --accent-color-very-light: rgba(0, 173, 181, 0.07);
    
- 
-   
+    
   /* ----- SPACING SYSTEM ----- */
-
    
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -47,6 +44,10 @@
   --radius-xl: 40px;
   --radius-full: 60px;
 }
+
+  /* ----- Transition speed ----- */
+
+--transition-fast: 0.2s ease;
 
 /* ============================================
    GLOBAL RESET & BASE
@@ -246,7 +247,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 /* ----- LEFT: Photo + Name ----- */
@@ -289,7 +290,7 @@ body {
   font-weight: 500;
   font-size: 0.95rem;
   border-radius: var(--radius-xl);
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .navbar-links li a:hover {
@@ -323,7 +324,7 @@ body {
   color: var(--dark-color);
   font-size: 1.1rem;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .navbar-icons a:hover {
@@ -386,7 +387,7 @@ body {
   color: var(--dark-color);
   font-weight: 500;
   border-radius: var(--radius-xl);
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .navbar-dropdown li a:hover {
@@ -568,7 +569,7 @@ body {
 .footer-social-link {
   color: var(--dark-color);
   font-size: 1.3rem;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
   text-decoration: none;
 }
 
@@ -605,7 +606,7 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     opacity: 0.7;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--transition-fast);
 }
 
 .footer-sitemap li a:hover {
@@ -631,7 +632,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  transition: gap 0.2s ease;
+  transition: gap var(--transition-fast);
 }
 
 .footer-read-more:hover {
@@ -640,7 +641,7 @@ body {
 
 .footer-read-more i {
   font-size: 0.8rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .footer-read-more:hover i {
@@ -727,7 +728,7 @@ section,
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     max-width: 400px;
     width: 100%;
 }
@@ -1813,7 +1814,7 @@ HOME PAGE
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .whatido-btn span {
@@ -1823,7 +1824,7 @@ HOME PAGE
 .whatido-btn i {
   flex-shrink: 0;
   font-size: 0.8rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .whatido-btn:hover {
@@ -1989,7 +1990,7 @@ HOME PAGE
   color: var(--dark-color);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   min-height: 70px;
 }
 
@@ -2034,7 +2035,7 @@ HOME PAGE
   font-size: 1rem;
   color: var(--dark-color);
   opacity: 0.3;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
   flex-shrink: 0;
 }
 
@@ -2161,7 +2162,7 @@ HOME PAGE
   color: var(--accent-color);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .cta-link:hover {
@@ -2169,7 +2170,7 @@ HOME PAGE
 }
 
 .cta-link i {
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .cta-link:hover i {
@@ -2225,7 +2226,7 @@ HOME PAGE
   font-size: 1.4rem;
   text-decoration: none;
   box-shadow: 0 4px 16px var(--accent-color-light);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   border: none;
   cursor: pointer;
 }
@@ -2312,7 +2313,7 @@ HOME PAGE
             font-size: 1.05rem;
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all var(--transition-fast);
             box-shadow: var(--card-shadow);
         }
 
@@ -2324,7 +2325,7 @@ HOME PAGE
         }
 
         .error-btn i {
-            transition: transform 0.2s ease;
+            transition: transform var(--transition-fast);
         }
 
         .error-btn:hover i {
@@ -2405,7 +2406,7 @@ PUBLICATIONS PAGE
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .publications-header-cta .header-cta-trigger:hover {
@@ -2471,7 +2472,7 @@ PUBLICATIONS PAGE
   font-size: 1rem;
   opacity: 0.5;
   cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
 }
 
 .publications-header-cta .header-cta-close:hover {
@@ -2592,7 +2593,7 @@ PUBLICATIONS PAGE
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   border-left: 2px solid var(--accent-color);
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow var(--transition-fast);
 }
 
 .publication-card:hover {
@@ -2714,7 +2715,7 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   color: var(--dark-color);
   border: 2px solid var(--bg-color);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .publication-link i {
@@ -2875,7 +2876,7 @@ PUBLICATIONS PAGE
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   font-family: 'Inter', sans-serif;
 }
 
@@ -2886,7 +2887,7 @@ PUBLICATIONS PAGE
 }
 
 .see-more-btn i {
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .see-more-btn:hover i {
@@ -3073,7 +3074,7 @@ PUBLICATIONS PAGE
   color: var(--dark-color);
   opacity: 0.4;
   padding: 0 var(--space-xs);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
   line-height: 1;
 }
 
@@ -3184,7 +3185,7 @@ PUBLICATIONS PAGE
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .filter-dropdown-actions .filter-clear {
@@ -3249,7 +3250,7 @@ PUBLICATIONS PAGE
 .sort-dropdown-item .check-mark {
   margin-left: auto;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition-fast);
 }
 
 .sort-dropdown-item.active .check-mark {
@@ -3302,7 +3303,7 @@ PUBLICATIONS PAGE
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background var(--transition-fast);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -3354,7 +3355,7 @@ PUBLICATIONS PAGE
   font-weight: 500;
   color: var(--dark-color);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
@@ -3554,7 +3555,7 @@ PUBLICATIONS PAGE
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .page-blog .header-cta-trigger:hover {
@@ -3620,7 +3621,7 @@ PUBLICATIONS PAGE
   font-size: 1rem;
   opacity: 0.5;
   cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
 }
 
 .page-blog .header-cta-close:hover {
@@ -3722,7 +3723,7 @@ PUBLICATIONS PAGE
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   border-left: 2px solid var(--accent-color);
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow var(--transition-fast);
 }
 
 .blog-card:hover {
@@ -3779,7 +3780,7 @@ PUBLICATIONS PAGE
 .blog-title a {
   color: var(--dark-color);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .blog-title a:hover {
@@ -3865,7 +3866,7 @@ PUBLICATIONS PAGE
   font-weight: 500;
   color: var(--accent-color);
   text-decoration: none;
-  transition: gap 0.2s ease;
+  transition: gap var(--transition-fast);
 }
 
 .blog-read-more-link:hover {
@@ -3873,7 +3874,7 @@ PUBLICATIONS PAGE
 }
 
 .blog-read-more-link i {
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .blog-read-more-link:hover i {
@@ -3893,7 +3894,7 @@ PUBLICATIONS PAGE
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .blog-share-btn span {
@@ -3903,7 +3904,7 @@ PUBLICATIONS PAGE
 
 .blog-share-btn i {
   font-size: 0.9rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .blog-share-btn:hover {
@@ -3986,7 +3987,7 @@ PUBLICATIONS PAGE
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background var(--transition-fast);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -4180,7 +4181,7 @@ PUBLICATIONS PAGE
   opacity: 0.4;
   cursor: pointer;
   padding: var(--space-xs) var(--space-sm);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .search-close-btn:hover {
@@ -4334,7 +4335,7 @@ PUBLICATIONS PAGE
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   border-left: 2px solid var(--accent-color);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .search-result-card:hover {
@@ -4388,7 +4389,7 @@ PUBLICATIONS PAGE
   font-weight: 500;
   color: var(--dark-color);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .search-filter-btn:hover {
@@ -4434,7 +4435,7 @@ PUBLICATIONS PAGE
   text-decoration: none;
   font-size: 0.85rem;
   color: var(--dark-color);
-  transition: background 0.2s ease;
+  transition: background var(--transition-fast);
 }
 
 .search-recent-item:hover {
@@ -4625,7 +4626,7 @@ PUBLICATIONS PAGE
   font-size: 1rem;
   color: var(--dark-color);
   background: var(--bg-color);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-group input:focus,
@@ -4660,7 +4661,7 @@ PUBLICATIONS PAGE
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   width: 100%;
   justify-content: center;
 }
@@ -4749,7 +4750,7 @@ PUBLICATIONS PAGE
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .contact-fallback-btn:hover,
@@ -4867,7 +4868,7 @@ PUBLICATIONS PAGE
     font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     text-decoration: none;
 }
 
@@ -5023,7 +5024,7 @@ PUBLICATIONS PAGE
 .newsletter-social-icons a {
     color: var(--dark-color);
     font-size: 1.3rem;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .newsletter-social-icons a:hover {
@@ -5146,7 +5147,7 @@ background: rgba(0, 0, 0, 0.28);
     font-size: 0.9rem;
     font-weight: 500;
     opacity: 0.6;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     cursor: pointer;
 }
 .toc-list a:hover {
@@ -5213,7 +5214,7 @@ background: rgba(0, 0, 0, 0.28);
     font-size: 0.7rem;
     color: inherit;
     opacity: 0.4;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     margin-right: var(--space-xs);
     padding: 0;
 }
@@ -5250,7 +5251,7 @@ background: rgba(0, 0, 0, 0.28);
     box-shadow: 0 4px 20px var(--accent-color-light);
     font-size: 1.4rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     z-index: 500;
 }
 
@@ -5448,7 +5449,7 @@ BLOG-Article (right side content)
     color: var(--dark-color);
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .blog-top-nav .nav-btn:hover {
@@ -5561,7 +5562,7 @@ BLOG-Article (right side content)
     font-weight: 500;
     color: var(--dark-color);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     position: relative;
 }
 
@@ -5615,7 +5616,7 @@ BLOG-Article (right side content)
     color: var(--dark-color);
     opacity: 0.3;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     padding: 0 var(--space-xs);
     line-height: 1;
 }
@@ -5650,7 +5651,7 @@ BLOG-Article (right side content)
     color: var(--dark-color);
     font-size: 1.2rem;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .share-icons a:hover {
@@ -5705,7 +5706,7 @@ BLOG-Article (right side content)
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 500;
-    transition: gap 0.2s ease;
+    transition: gap var(--transition-fast);
 }
 
 .copyright-read-more:hover {
@@ -5713,7 +5714,7 @@ BLOG-Article (right side content)
 }
 
 .copyright-read-more i {
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 .copyright-read-more:hover i {
@@ -5903,7 +5904,7 @@ BLOG-Article (right side content)
     font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     margin-top: var(--space-sm);
     text-decoration: none;
     align-self: flex-end;
@@ -5988,7 +5989,7 @@ BLOG-Article (right side content)
     color: var(--dark-color);
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .blog-bottom-nav .nav-btn:hover {
@@ -6047,7 +6048,7 @@ BLOG-Article (right side content)
     padding: var(--space-md);
     box-shadow: var(--card-shadow);
     border: var(--card-border);
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     color: var(--dark-color);
 }
 
@@ -6734,13 +6735,13 @@ BLOG-Article (right side content)
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .quick-note-new-button i {
   flex: 0 0 auto;
   color: var(--quick-note-new-accent);
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .quick-note-new-button:hover,
@@ -6801,7 +6802,7 @@ BLOG-Article (right side content)
   border-radius: var(--radius-full);
   color: var(--dark-color);
   text-decoration: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .portfolio-scholarly-button:hover,
@@ -6841,7 +6842,7 @@ BLOG-Article (right side content)
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .portfolio-scholarly-button:hover .portfolio-scholarly-button-chevron,
@@ -7179,7 +7180,7 @@ BLOG-Article (right side content)
     margin-bottom: var(--space-sm);
     overflow: hidden;
     background: var(--white-color);
-    transition: border-color 0.2s ease;
+    transition: border-color var(--transition-fast);
 }
 
 .portfolio-accordion-item:hover {
@@ -7738,7 +7739,7 @@ BLOG-Article (right side content)
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .portfolio-cta-btn:hover {
@@ -7749,7 +7750,7 @@ BLOG-Article (right side content)
 }
 
 .portfolio-cta-btn i {
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 .portfolio-cta-btn:hover i {
@@ -7882,12 +7883,12 @@ BLOG-Article (right side content)
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .portfolio-process-new-read-more i {
   color: var(--portfolio-element-new-accent, var(--accent-color));
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .portfolio-process-new-read-more:hover,
@@ -8014,14 +8015,14 @@ BLOG-Article (right side content)
   color: var(--portfolio-element-new-dark);
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .portfolio-resource-new-button i,
 .portfolio-publication-highlight-new-button i,
 .portfolio-publication-highlight-new-link i {
   color: var(--portfolio-element-new-accent);
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .portfolio-resource-new-button:hover,
@@ -8729,7 +8730,7 @@ BLOG-Article (right side content)
     font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .portfolio-share-btn span {
@@ -8739,7 +8740,7 @@ BLOG-Article (right side content)
 
 .portfolio-share-btn i {
     font-size: 0.9rem;
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 .portfolio-share-btn:hover {
@@ -8917,7 +8918,7 @@ BLOG-Article (right side content)
 .image-source-arrow {
   font-size: 1.05em;
   line-height: 1;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .image-source:hover .image-source-arrow,
