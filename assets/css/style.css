@@ -763,6 +763,13 @@ section,
    WITHIN‑PAGE SEARCH BOX (Trigger)
    ============================================ */
 
+.within-page-search-box-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) 0;
+    width: 100%;
+}
+
 .within-page-search-box {
     display: inline-flex;
     align-items: center;
@@ -805,6 +812,11 @@ section,
 /* ----- Responsive ----- */
 
 @media (max-width: 768px) {
+   
+    .within-page-search-box-wrapper {
+        padding: var(--space-md) 0;
+    }
+
     .within-page-search-box {
         font-size: 0.9rem;
         padding: var(--space-xs) var(--space-md);
@@ -817,6 +829,11 @@ section,
 }
 
 @media (max-width: 400px) {
+   
+    .within-page-search-box-wrapper {
+        padding: var(--space-sm) 0;
+    }
+
     .within-page-search-box {
         font-size: 0.8rem;
         padding: var(--space-xs) var(--space-sm);
