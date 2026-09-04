@@ -1,59 +1,98 @@
+<!-- ============================================
+     SITEMAP.XML 
+    This helps search engines understand and locate the website
+     ============================================
+
+     INSTRUCTIONS FOR FUTURE UPDATES
+
+     1.  Update <lastmod> to today's date (YYYY-MM-DD) 
+         whenever a page changes.
+     2.  Add a new <url> block for any new page.
+     3.  Priority values:
+         - 1.0: Home page
+         - 0.8: Main pages (Research, Publications, etc.)
+         - 0.7: Blog, Contact
+         - 0.6: Newsletter
+         - 0.5: Legal
+         - 0.3: 404
+     4.  Save in root folder (same level as index.html).
+     5.  Commit and push to GitHub.
+6. In the future, it is preferable to submit this file to search engines. Submission URLs are as follows: 
+* Google	→　　https://www.google.com/ping?sitemap=https://sameheltaybani.github.io/my-website/sitemap.xml
+* Bing	→　　https://www.bing.com/ping?sitemap=https://sameheltaybani.github.io/my-website/sitemap.xml
+
+     ============================================ -->
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ 
   <!-- MAIN PAGES -->
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>1.0</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/index.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>1.0</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/research.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/publications.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/data-analysis.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/teaching.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/blog.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.7</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/contact.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.7</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/newsletter.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.6</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/legal.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.5</priority>
   </url>
+  
   <url>
     <loc>https://sameheltaybani.github.io/my-website/404.html</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.3</priority>
   </url>
+  
 </urlset>
