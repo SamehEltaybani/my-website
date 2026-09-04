@@ -1,0 +1,37 @@
+# ============================================================
+# ROBOTS.TXT – INSTRUCTIONS FOR SEARCH ENGINE CRAWLERS
+# ============================================================
+# 
+# What this file does:
+#   - Tells search engines (Google, Bing, etc.) which parts
+#     of your site they can visit and index.
+#   - It does NOT block human visitors – they can still see
+#     all pages by clicking links in the navigation.
+#
+# Current setting:
+#   - Allow: Everything (all pages are crawlable)
+#   - Sitemap: Points to your sitemap.xml
+#
+# How to block a page in the future:
+#   - To block a single page, add a line like this:
+#     Disallow: /research.html
+#
+#   - To block an entire folder, add:
+#     Disallow: /folder-name/
+#
+#   - To block multiple pages, list them separately:
+#     Disallow: /research.html
+#     Disallow: /publications.html
+#
+#   - To block all pages (not recommended), use:
+#     Disallow: /
+#
+#   - Remember: Changes take effect after you commit and push
+#     to GitHub, and search engines may take a few days to
+#     re-crawl your site.
+# ============================================================
+
+User-agent: *
+Allow: /
+
+Sitemap: https://sameheltaybani.github.io/my-website/sitemap.xml
