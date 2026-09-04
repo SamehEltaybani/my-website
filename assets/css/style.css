@@ -43,20 +43,22 @@
   --radius-lg: 24px;
   --radius-xl: 40px;
   --radius-full: 60px;
+
+
+   /* ----- Transition speed ----- */
+   
+   --transition-fast: 0.2s ease;
 }
 
-  /* ----- Transition speed ----- */
-
---transition-fast: 0.2s ease;
-
-html {
-  scroll-behavior: smooth;
-}
+  
 
 
-/* ===============Temporarily deactivated =============================
 
+
+/* ============================================
    GLOBAL RESET & BASE
+ ============================================ */
+
   
 
 * {
@@ -136,7 +138,6 @@ body {
   }
 }
 
- ============================================ */
 
 
 
