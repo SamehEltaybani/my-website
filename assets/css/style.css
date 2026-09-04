@@ -9,6 +9,7 @@
 :root {
   
    /* ----- COLORS ----- */
+
    
   --bg-color: #f4f6f8;
   --dark-color: #222831;
@@ -22,6 +23,7 @@
  
    
   /* ----- SPACING SYSTEM ----- */
+
    
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -29,11 +31,13 @@
   --space-lg: 2rem;
   --space-xl: 4rem;
   --space-xxl: 6rem;
-  
+
+   
   /* ----- CONTAINER ----- */
    
   --container-max: 1200px;
-  
+
+   
   /* ----- BORDER RADIUS ----- */
    
   --radius-xs: 4px;
@@ -101,30 +105,6 @@ body {
 }
 
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-
-.text-center { text-align: center; }
-
-.mt-xs { margin-top: var(--space-xs); }
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-
-.mb-xs { margin-bottom: var(--space-xs); }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-
-.p-xs { padding: var(--space-xs); }
-.p-sm { padding: var(--space-sm); }
-.p-md { padding: var(--space-md); }
-.p-lg { padding: var(--space-lg); }
-.p-xl { padding: var(--space-xl); }
 
 
 /* ============================================
@@ -192,6 +172,7 @@ body {
    TEMPORARY MAINTENANCE CALLOUT
    ========================================== */
 
+
 .temporary-maintenance-callout {
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr);
@@ -246,6 +227,7 @@ body {
 /* ============================================
    NAVIGATION (Navbar + Dropdown)
    ============================================ */
+
 
 /* ----- NAVBAR WRAPPER (Solid background behind glass) ----- */
 
