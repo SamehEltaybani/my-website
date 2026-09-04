@@ -29,9 +29,21 @@
 #   - Remember: Changes take effect after you commit and push
 #     to GitHub, and search engines may take a few days to
 #     re-crawl your site.
+
+
+#    I am now disallowing everything (the same as the old website) to limit visits. 
+#    Once I finish, I should replace the disallow code with the following (after deleting # at teh begining): 
+
+#    User-agent: *
+#    Allow: /
+
+#    Sitemap: https://sameheltaybani.github.io/my-website/sitemap.xml
+
+
+
 # ============================================================
 
-User-agent: *
-Allow: /
 
-Sitemap: https://sameheltaybani.github.io/my-website/sitemap.xml
+User-agent: *
+Disallow: /
+
