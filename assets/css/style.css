@@ -1325,18 +1325,6 @@ HOME PAGE
   box-shadow: 0 5px 14px rgba(34, 40, 49, 0.12);
 }
 
-.visitor-guidance-image::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 40, 49, 0) 48%,
-    rgba(34, 40, 49, 0.28) 100%
-  );
-  content: "";
-  pointer-events: none;
-}
 
 .visitor-guidance-image > img {
   display: block;
