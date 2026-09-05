@@ -747,10 +747,10 @@ section,
 
 @media (max-width: 768px) {
     .primary-button {
-    width: 130px;
+    width: 150px;
     height: 40px;
     padding: var(--space-xs) var(--space-md);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
    }
  
@@ -758,7 +758,7 @@ section,
    .primary-button {
     gap: var(--space-sm);
     padding: var(--space-xs) var(--space-sm);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 }
 
