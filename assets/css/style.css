@@ -2916,7 +2916,7 @@ PUBLICATIONS PAGE
 .publications-controls,
 .blog-controls {
   position: sticky;
-  top: 90px;       /* ----- where teh controls bar stop ----- */
+  top: 90px;       /* ----- where the controls bar stop ----- */
   z-index: 100;
   display: flex;
   align-items: center;
@@ -2928,7 +2928,7 @@ PUBLICATIONS PAGE
   border: 0;
   border-bottom: 1px solid var(--accent-color-light);
   border-radius: 0;
-  background: var(--white-color);
+  background: var(--accent-color-very-light);
   box-shadow: none;
 }
 
@@ -2980,7 +2980,7 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: var(--card-border);
   padding: var(--space-md);
   width: min(320px, calc(100vw - 2rem));
   min-width: 0;
@@ -3037,9 +3037,10 @@ PUBLICATIONS PAGE
   align-items: center;
   justify-content: space-between;
   padding-bottom: var(--space-sm);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: var(--card-border);
   margin-bottom: var(--space-sm);
 }
+
 
 .filter-dropdown-header .close-dropdown {
   background: none;
@@ -3173,12 +3174,12 @@ PUBLICATIONS PAGE
 }
 
 .filter-dropdown-actions .filter-apply {
-  background: #3b82f6;
-  color: #fff;
+  background: var(--accent-color);
+  color: var(--white-color);
 }
 
 .filter-dropdown-actions .filter-apply:hover {
-  background: #2563eb;
+  background: var(--dark-color);
 }
 
 /* ----- Sort Dropdown ----- */
@@ -3213,12 +3214,12 @@ PUBLICATIONS PAGE
 }
 
 .sort-dropdown-item:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: var(--accent-very-light-color);
 }
 
 .sort-dropdown-item.active {
-  background: rgba(59, 130, 246, 0.06);
-  color: #3b82f6;
+  background: var(--accent-light-color);
+  color: var(--accent-color);
   font-weight: 500;
 }
 
@@ -3230,7 +3231,7 @@ PUBLICATIONS PAGE
 
 .sort-dropdown-item.active .check-mark {
   opacity: 1;
-  color: #3b82f6;
+  color: var(--accent-color);
 }
 
 /* ----- Utility: dropdown wrapper for positioning ----- */
