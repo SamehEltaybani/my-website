@@ -5034,7 +5034,7 @@ PUBLICATIONS PAGE
 
 
 /* ============================================
-   TOC (left side full style) - Unified style for all pages
+   Table of contnt (TOC) (left side full style) - Unified style for all pages
    ============================================ */
 
 #page-content h2,
@@ -5149,7 +5149,7 @@ background: rgba(0, 0, 0, 0.28);
 .toc-list a.active {
     opacity: 1;
     color: var(--white-color);
-    background: var(--accent-color);
+    background: var(--accent-color-light);
     font-weight: 600;
     border-radius: var(--radius-sm);
 }
