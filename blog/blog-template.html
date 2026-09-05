@@ -26,12 +26,13 @@
     base-uri 'self';
     ">
 
-    <script type="application/ld+json">
+   <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           "headline": "Your Article Title Here",
           "description": "A brief summary of the article content.",
+          "image": "https://sameheltaybani.github.io/my-website/img/data-1.webp",
           "datePublished": "2026-01-01",
           "dateModified": "2026-01-01",
           "author": {
@@ -39,19 +40,21 @@
             "name": "Dr. Sameh Eltaybani"
           },
           "publisher": {
-            "@type": "Person",
-            "name": "Dr. Sameh Eltaybani"
-          },
-          "url": "https://sameheltaybani.github.io/my-website/blog/blog-template.html",
-          "isPartOf": {
-            "@type": "WebSite",
+            "@type": "Organization",
             "name": "Dr. Sameh Eltaybani - Academic Website",
-            "url": "https://sameheltaybani.github.io/my-website/"
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://sameheltaybani.github.io/my-website/img/data-1.webp"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://sameheltaybani.github.io/my-website/blog/blog-template.html"
           },
           "keywords": "healthcare, research, data analysis"
         }
     </script>
-
+    
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
