@@ -2926,9 +2926,9 @@ PUBLICATIONS PAGE
   margin-bottom: var(--space-md);
   padding: var(--space-sm) var(--space-md);
   border: 0;
-  border-bottom: 1px solid var(--accent-color-light);
+  border-bottom: 1.5px solid var(--accent-color-light);
   border-radius: 0;
-  background: var(--accent-color-very-light);
+  background: var(--white-color);
   box-shadow: none;
 }
 
@@ -3119,7 +3119,7 @@ PUBLICATIONS PAGE
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #3b82f6;
+  accent-color: var(--accent-color);
   flex-shrink: 0;
 }
 
@@ -3214,11 +3214,11 @@ PUBLICATIONS PAGE
 }
 
 .sort-dropdown-item:hover {
-  background: var(--accent-very-light-color);
+  background: var(--accent-color-very-light);
 }
 
 .sort-dropdown-item.active {
-  background: var(--accent-light-color);
+  background: var(--accent-color-light);
   color: var(--accent-color);
   font-weight: 500;
 }
@@ -3273,7 +3273,7 @@ PUBLICATIONS PAGE
   padding: var(--space-xs) var(--space-lg);
   border-radius: var(--radius-full);
   background: #3b82f6;
-  color: #fff;
+  color: var(--white-color);
   border: none;
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -3291,7 +3291,7 @@ PUBLICATIONS PAGE
   color: #fff;
 }
 
-/* ----- Status sentence & buttons (existing styles remain) ----- */
+/* ----- Status sentence & buttons ----- */
 
 .controls-status {
   font-size: 0.9rem;
@@ -3433,7 +3433,7 @@ PUBLICATIONS PAGE
   }
 
 #filter-dropdown-container {
-        max-height: 60vh !important; /* Reduced from 70vh */
+        max-height: 60vh !important; 
     }
 
     .filter-dropdown-scroll {
