@@ -5148,10 +5148,11 @@ background: rgba(0, 0, 0, 0.28);
 
 .toc-list a.active {
     opacity: 1;
-    color: var(--white-color);
+    color: var(--accent-color);
     background: var(--accent-color-light);
     font-weight: 600;
     border-radius: var(--radius-sm);
+    border-left: 2px solid var(--accent-color);
 }
 
 /* ----- TOC Heading Levels ----- */
@@ -5202,7 +5203,7 @@ background: rgba(0, 0, 0, 0.28);
     cursor: pointer;
     font-size: 0.7rem;
     color: inherit;
-    opacity: 0.4;
+    opacity: 0.6;
     transition: all var(--transition-fast);
     margin-right: var(--space-xs);
     padding: 0;
@@ -5213,7 +5214,7 @@ background: rgba(0, 0, 0, 0.28);
     background: rgba(0, 0, 0, 0.04);
 }
 
-.toc-toggle-placeholder {  /* ----- this is for headigs with no sub-headings to maintain the visual hierarchy ----- */
+.toc-toggle-placeholder {  /* ----- this is for headings with no sub-headings to maintain the visual hierarchy ----- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
