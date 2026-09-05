@@ -701,8 +701,11 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
+  width: 180px;
+  height: 44px;
   gap: var(--space-md);
-  padding: var(--space-sm) var(--space-lg);
+  padding: 0 var(--space-lg);
   border: 2px solid var(--accent-color);
   border-radius: var(--radius-full);
   background: transparent;
@@ -710,20 +713,24 @@ section,
   font: inherit;
   font-size: 0.95rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .primary-button span {
+  overflow: hidden;
   text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .primary-button i {
   flex-shrink: 0;
   font-size: 0.8rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .primary-button:hover,
@@ -2037,32 +2044,14 @@ HOME PAGE
 
 /* ============================================
    WHAT I DO BUTTON
-   Component-specific layout rules only.
+   Section-specific positioning only
    ============================================ */
 
 .whatido-btn-2 {
   align-self: flex-end;
-  min-width: 140px;
   margin-top: auto;
 }
 
-@media (max-width: 768px) {
-  .whatido-btn-2 {
-    align-self: flex-end;
-    min-width: 120px;
-    padding: var(--space-xs) var(--space-md);
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .whatido-btn-2 {
-    min-width: 100px;
-    gap: var(--space-sm);
-    padding: var(--space-xs) var(--space-sm);
-    font-size: 0.85rem;
-  }
-}
 
 
 
