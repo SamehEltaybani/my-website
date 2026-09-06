@@ -730,7 +730,6 @@ section,
 .primary-button i {
   flex-shrink: 0;
   font-size: 0.8rem;
-  color: var(--accent-color);
   transition: transform var(--transition-fast);
 }
 
@@ -6774,47 +6773,9 @@ BLOG-Article (right side content)
 }
 
 .quick-note-new-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-lg);
-  width: min(100%, 260px);
-  min-height: 2.5rem;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--quick-note-new-accent);
-  border-radius: var(--radius-full);
-  background: transparent;
-  color: var(--quick-note-new-dark);
-  font: inherit;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-}
+   width: 250px;
+ }
 
-.quick-note-new-button i {
-  flex: 0 0 auto;
-  color: var(--quick-note-new-accent);
-  transition: transform var(--transition-fast), color var(--transition-fast);
-}
-
-.quick-note-new-button:hover,
-.quick-note-new-button:focus-visible {
-  background: var(--quick-note-new-accent);
-  color: var(--white-color);
-  transform: translateX(2px);
-}
-
-.quick-note-new-button:hover i,
-.quick-note-new-button:focus-visible i {
-  color: var(--white-color);
-  transform: translateX(3px);
-}
-
-.quick-note-new-button:focus-visible {
-  outline: 3px solid var(--accent-color-light);
-  outline-offset: 3px;
-}
 
 @media (max-width: 700px) {
    
@@ -6831,10 +6792,7 @@ BLOG-Article (right side content)
     line-height: 1.6;
   }
 
-  .quick-note-new-button {
-    width: min(100%, 260px);
-  }
-}
+ }
 
 
 
