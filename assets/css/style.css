@@ -703,7 +703,7 @@ section,
   justify-content: space-between;
   box-sizing: border-box;
   width: 180px;
-  height: 48px;
+  height: 44px;
   gap: var(--space-md);
   padding: 0 var(--space-lg);
   border: 2px solid var(--accent-color);
@@ -713,7 +713,7 @@ section,
   font: inherit;
   font-size: 0.95rem;
   font-weight: 500;
-  line-height: 1;
+  line-height: 0.9;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -748,7 +748,7 @@ section,
 @media (max-width: 768px) {
     .primary-button {
     width: 150px;
-    height: 44px;
+    height: 40px;
     padding: var(--space-xs) var(--space-md);
     font-size: 0.9rem;
   }
