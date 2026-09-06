@@ -730,6 +730,7 @@ section,
 .primary-button i {
   flex-shrink: 0;
   font-size: 0.8rem;
+  color: var(accent-color);
   transition: transform var(--transition-fast);
 }
 
@@ -8771,6 +8772,9 @@ BLOG-Article (right side content)
 }
 
 
+.portfolio-share-btn {
+background: transparent;
+}
 
 /* Responsive */
 
