@@ -7818,48 +7818,6 @@ BLOG-Article (right side content)
   align-items: center;
 }
 
-.portfolio-process-new-read-more {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  flex: 0 0 auto;
-  gap: var(--space-md);
-  min-width: 7.75rem;
-  margin-left: auto;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--portfolio-element-new-accent, var(--accent-color));
-  border-radius: var(--radius-full);
-  background: transparent;
-  color: var(--portfolio-element-new-dark, var(--dark-color));
-  font: inherit;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-}
-
-.portfolio-process-new-read-more i {
-  color: var(--portfolio-element-new-accent, var(--accent-color));
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.portfolio-process-new-read-more:hover,
-.portfolio-process-new-read-more:focus-visible {
-  background: var(--portfolio-element-new-accent, var(--accent-color));
-  color: var(--white-color);
-  transform: translateX(2px);
-}
-
-.portfolio-process-new-read-more:hover i,
-.portfolio-process-new-read-more:focus-visible i {
-  color: var(--white-color);
-  transform: translateX(3px);
-}
-
-.portfolio-process-new-read-more:focus-visible {
-  outline: 3px solid var(--accent-color-light);
-  outline-offset: 3px;
-}
 
 
 /* Versions 3 and 4: light-circle process icons */
@@ -7883,11 +7841,6 @@ BLOG-Article (right side content)
   .portfolio-process-new-v4 .portfolio-process-new-step {
     align-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  .portfolio-process-new-v2 .portfolio-process-new-read-more,
-  .portfolio-process-new-v4 .portfolio-process-new-read-more {
-    margin-left: calc(2.6rem + var(--space-sm));
   }
 
   .portfolio-process-new-v3 .portfolio-process-new-icon,
