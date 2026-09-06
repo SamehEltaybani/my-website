@@ -703,7 +703,7 @@ section,
   justify-content: space-between;
   box-sizing: border-box;
   width: 180px;
-  height: 44px;
+  height: 46px;
   gap: var(--space-md);
   padding: 0 var(--space-lg);
   border: 2px solid var(--accent-color);
@@ -748,7 +748,7 @@ section,
 @media (max-width: 768px) {
     .primary-button {
     width: 150px;
-    height: 40px;
+    height: 42px;
     padding: var(--space-xs) var(--space-md);
     font-size: 0.9rem;
   }
@@ -6773,7 +6773,7 @@ BLOG-Article (right side content)
 }
 
 .quick-note-new-button {
-   width: 250px;
+   width: 270px;
  }
 
 
@@ -6791,6 +6791,10 @@ BLOG-Article (right side content)
   .quick-note-new-text {
     line-height: 1.6;
   }
+
+   .quick-note-new-button {
+   width: 250px;
+ }
 
  }
 
