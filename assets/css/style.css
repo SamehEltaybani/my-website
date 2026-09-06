@@ -5494,7 +5494,7 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 2px solid var(--accent-color);
+    border: 1px solid var(--accent-color);
     background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -5516,7 +5516,7 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn-center {
     font-weight: 600;
-    border-color: var(--white-color);
+    border-color: var(--accent-color);
 }
 
 .blog-top-nav .nav-btn-center:hover {
@@ -6033,7 +6033,7 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 2px solid var(--accent-color);
+    border: 1px solid var(--accent-color);
     background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
