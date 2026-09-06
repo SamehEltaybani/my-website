@@ -109,7 +109,7 @@
         col3.appendChild(legalText);
 
         const readMore = document.createElement('a');
-        readMore.href = 'legal.html';
+        readMore.href = '/my-website/legal.html';
         readMore.className = 'footer-read-more';
         readMore.textContent = 'Read more';
         
