@@ -5466,7 +5466,7 @@ background: rgba(0, 0, 0, 0.28);
 
 
 /* ============================================
-BLOG-Article (right side content)
+BLOG Article (right side content)
 ============================================ */
 
 
@@ -5494,8 +5494,8 @@ BLOG-Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 2px solid rgba(0, 0, 0, 0.06);
-    background: transparent;
+    border: 2px solid var(--accent-color);
+    background: var(--accent-color-very-light);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
@@ -5506,8 +5506,8 @@ BLOG-Article (right side content)
 }
 
 .blog-top-nav .nav-btn:hover {
-    border-color: var(--accent-color);
-    background: var(--accent-color-very-light);
+    background: var(--accent-color);
+    color: var(--white-color);
 }
 
 .blog-top-nav .nav-btn i {
@@ -5516,12 +5516,11 @@ BLOG-Article (right side content)
 
 .blog-top-nav .nav-btn-center {
     font-weight: 600;
-    border-color: rgba(0, 0, 0, 0.06); 
+    border-color: var(--accent-color);
 }
 
 .blog-top-nav .nav-btn-center:hover {
-    border-color: var(--accent-color);
-    background: var(--accent-color-very-light);
+    background: var(--accent-color);
 }
 
 /* ----- Article Header ----- */
@@ -5608,7 +5607,7 @@ BLOG-Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 2px solid rgba(0, 0, 0, 0.06);
+    border: 2px solid var(--accent-color-light);
     background: transparent;
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
