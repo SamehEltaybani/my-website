@@ -730,7 +730,7 @@ section,
 .primary-button i {
   flex-shrink: 0;
   font-size: 0.8rem;
-  color: var(accent-color);
+  color: var(--accent-color);
   transition: transform var(--transition-fast);
 }
 
