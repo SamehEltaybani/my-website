@@ -7716,7 +7716,7 @@ BLOG-Article (right side content)
    PORTFOLIO PROCESS NEW (version 1)
    ================================================================ */
 
-.portfolio-process-new,
+.row-process,
 .portfolio-resource-new,
 .portfolio-publication-highlight-new {
   --portfolio-element-new-accent: var(--accent-color);
@@ -7727,30 +7727,30 @@ BLOG-Article (right side content)
   --portfolio-element-new-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.portfolio-process-new {
+.row-process {
   margin: var(--space-xl) 0;
 }
 
-.portfolio-process-new-heading,
+.row-process-heading,
 .portfolio-resource-new h2,
 .portfolio-publication-highlight-new h2 {
   color: var(--portfolio-element-new-dark);
 }
 
-.portfolio-process-new-intro {
+.row-process-intro {
   max-width: 720px;
   margin: 0 0 var(--space-lg);
   color: var(--portfolio-element-new-dark);
 }
 
-.portfolio-process-new-list {
+.row-process-list {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
-.portfolio-process-new-list::before {
+.row-process-list::before {
   position: absolute;
   top: 1.5rem;
   bottom: 1.5rem;
@@ -7760,7 +7760,7 @@ BLOG-Article (right side content)
   content: "";
 }
 
-.portfolio-process-new-step {
+.row-process-step {
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -7772,7 +7772,7 @@ BLOG-Article (right side content)
   box-shadow: var(--portfolio-element-new-shadow);
 }
 
-.portfolio-process-new-number {
+.row-process-number {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -7788,18 +7788,18 @@ BLOG-Article (right side content)
   font-weight: 700;
 }
 
-.portfolio-process-new-content {
+.row-process-content {
   min-width: 0;
 }
 
-.portfolio-process-new-content h3 {
+.row-process-content h3 {
   margin: 0 0 var(--space-xs);
   color: var(--portfolio-element-new-dark);
   font-size: 1.05rem;
   font-weight: 700;
 }
 
-.portfolio-process-new-content p {
+.row-process-content p {
   margin: 0;
   color: var(--portfolio-element-new-dark);
 }
@@ -7813,17 +7813,16 @@ BLOG-Article (right side content)
 
 /* Versions 2 and 4: right-aligned Read more button */
 
-.portfolio-process-new-v2 .portfolio-process-new-step,
-.portfolio-process-new-v4 .portfolio-process-new-step {
+.row-process-v2 .row-process-step,
+.row-process-v4 .row-process-step {
   align-items: center;
 }
 
 
 
-/* Versions 3 and 4: light-circle process icons */
+/* Version 4: light-circle process icons */
 
-.portfolio-process-new-v3 .portfolio-process-new-icon,
-.portfolio-process-new-v4 .portfolio-process-new-icon {
+.row-process-v4 .row-process-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7837,14 +7836,13 @@ BLOG-Article (right side content)
 }
 
 @media (max-width: 700px) {
-  .portfolio-process-new-v2 .portfolio-process-new-step,
-  .portfolio-process-new-v4 .portfolio-process-new-step {
+  .row-process-v2 .row-process-step,
+  .row-process-v4 .row-process-step {
     align-items: flex-start;
     flex-wrap: wrap;
   }
 
-  .portfolio-process-new-v3 .portfolio-process-new-icon,
-  .portfolio-process-new-v4 .portfolio-process-new-icon {
+  .row-process-v4 .row-process-icon {
     flex-basis: 2.6rem;
     width: 2.6rem;
     height: 2.6rem;
@@ -8042,18 +8040,18 @@ BLOG-Article (right side content)
 }
 
 @media (max-width: 700px) {
-  .portfolio-process-new,
+  .row-process,
   .portfolio-resource-new,
   .portfolio-publication-highlight-new {
     margin: var(--space-lg) 0;
   }
 
-  .portfolio-process-new-step {
+  .row-process-step {
     gap: var(--space-sm);
     padding: var(--space-md);
   }
 
-  .portfolio-process-new-number {
+  .row-process-number {
     flex-basis: 2.6rem;
     width: 2.6rem;
     height: 2.6rem;
