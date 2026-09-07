@@ -8482,14 +8482,13 @@ BLOG Article (right side content)
 
 
 .portfolio-share-btn {
-background: transparent;
+background: var(--white-color);
 }
 
 /* Responsive */
 
 @media (max-width: 768px) {
-   
-    .portfolio-share-top {
+       .portfolio-share-top {
         text-align: right;
         margin-bottom: var(--space-xs);
     }
