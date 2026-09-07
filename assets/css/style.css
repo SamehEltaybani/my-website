@@ -7663,7 +7663,6 @@ BLOG Article (right side content)
 
 .portfolio-cta-btn:hover {
     background: var(--dark-color);
-    transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--accent-color-light);
     color: var(--white-color);
 }
