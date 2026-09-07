@@ -693,6 +693,115 @@ section,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================
+   PRIMARY HEADINGS
+   Shared h2, h3, and h4 styles with optional icons
+   ================================================================ */
+
+.primary-heading-h2,
+.primary-heading-h3,
+.primary-heading-h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0 var(--space-md);
+  color: var(--dark-color);
+  line-height: 1.2;
+}
+
+.primary-heading-h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.primary-heading-h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.primary-heading-h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.primary-heading-icon {
+  flex: 0 0 auto;
+  color: var(--accent-color);
+  font-size: 0.85em;
+}
+
+@media (max-width: 768px) {
+  .primary-heading-h2 {
+    font-size: 1.6rem;
+  }
+
+  .primary-heading-h3 {
+    font-size: 1.3rem;
+  }
+
+  .primary-heading-h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .primary-heading-h2 {
+    font-size: 1.4rem;
+  }
+
+  .primary-heading-h3 {
+    font-size: 1.2rem;
+  }
+
+  .primary-heading-h4 {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================================
    SHARED PRIMARY BUTTON
    ============================================ */
