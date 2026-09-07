@@ -5506,7 +5506,7 @@ BLOG Article (right side content)
 }
 
 .blog-top-nav .nav-btn:hover {
-    background: var(--darrk-color);
+    background: var(--dark-color);
     border: var(--dark-color);
 }
 
@@ -5520,7 +5520,7 @@ BLOG Article (right side content)
 }
 
 .blog-top-nav .nav-btn-center:hover {
-    background: var(--darrk-color);
+    background: var(--dark-color);
     border: var(--dark-color);
 }
 
