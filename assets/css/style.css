@@ -2046,7 +2046,6 @@ HOME PAGE
 }
 
 .explore-card:hover {
-  transform: translateY(-3px);
   box-shadow: 0 8px 24px var(--accent-color-light);
   border-color: var(--accent-color);
 }
@@ -2080,8 +2079,6 @@ HOME PAGE
   text-align: left;
 }
 
-/* ----- Right: Arrow ----- */
-
 .explore-arrow {
   font-size: 1rem;
   color: var(--dark-color);
@@ -2096,7 +2093,6 @@ HOME PAGE
   color: var(--accent-color);
 }
 
-/*  -----  EXPLORE THE SITE - RESPONSIVE ----- */
 
 @media (max-width: 992px) {
   .explore-grid {
@@ -2123,11 +2119,8 @@ HOME PAGE
   }
 }
 
-/* ----- Phones (max-width: 768px) ----- */
-
 @media (max-width: 768px) {
-   
-  .explore-grid {
+   .explore-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
   }
@@ -2156,11 +2149,9 @@ HOME PAGE
   }
 }
 
-/* ----- Very Small Phones (max-width: 400px) ----- */
 
 @media (max-width: 400px) {
-   
-  .explore-card {
+   .explore-card {
     padding: var(--space-xs) var(--space-sm);
     min-height: 48px;
     gap: var(--space-sm);
@@ -2183,7 +2174,7 @@ HOME PAGE
 
 
 /* ============================================
-   CLOSING CTA (Call to Action)
+   CLOSING CTA (Call to Action at the end of the page)
    ============================================ */
 
 .closing-cta {
@@ -2228,11 +2219,8 @@ HOME PAGE
   transform: translateX(2px);
 }
 
-/* ----- Closing CTA: Responsive ----- */
-
 @media (max-width: 768px) {
-   
-  .closing-cta {
+   .closing-cta {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
   
@@ -2293,11 +2281,9 @@ HOME PAGE
   outline-offset: 2px;
 }
 
-/* ----- Back-to-Top: Responsive ----- */
 
 @media (max-width: 768px) {
-   
-  .back-to-top {
+    .back-to-top {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
@@ -2307,8 +2293,7 @@ HOME PAGE
 }
 
 @media (max-width: 400px) {
-   
-  .back-to-top {
+   .back-to-top {
     width: 36px;
     height: 36px;
     font-size: 1rem;
@@ -2371,7 +2356,6 @@ HOME PAGE
         .error-btn:hover {
             background: var(--accent-color);
             color: var(--white-color);
-            transform: translateY(-2px);
             box-shadow: 0 6px 20px var(--accent-color-light);
         }
 
@@ -2392,11 +2376,9 @@ HOME PAGE
             opacity: 0.4;
         }
 
-        /* ----- Responsive ----- */
 
         @media (max-width: 768px) {
-           
-            .error-top {
+               .error-top {
                 font-size: 3rem;
             }
 
@@ -2416,7 +2398,6 @@ HOME PAGE
         }
 
         @media (max-width: 400px) {
-           
             .error-top {
                 font-size: 2rem;
             }
@@ -2434,6 +2415,7 @@ HOME PAGE
 /* ============================================
 PUBLICATIONS PAGE
 ============================================ */
+
 
 /* ========  PUBLICATIONS PAGE - HEADER CALL TO ACTION (below the header) =========== */
 
@@ -2461,9 +2443,8 @@ PUBLICATIONS PAGE
 }
 
 .publications-header-cta .header-cta-trigger:hover {
-  border-color: var(--accent-color-light);
-  background: var(--accent-color-very-light);
-  transform: translateY(-1px);
+  color: var(--white-color);
+  background: var(--dark-color);
 }
 
 .publications-header-cta .header-cta-trigger:focus-visible,
@@ -2652,9 +2633,6 @@ PUBLICATIONS PAGE
 }
 
 
-
-
-
 /* ----- Publication Card: Optional Image ----- */
 
 .publication-card--with-image {
@@ -2812,7 +2790,6 @@ PUBLICATIONS PAGE
 /* ----- Publications: Responsive ----- */
 
 @media (max-width: 768px) {
-   
  .page-header-wrapper-simple {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
@@ -2852,8 +2829,7 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
-   
-  .page-header-title-simple {
+    .page-header-title-simple {
     font-size: 1.6rem;
   }
 }
@@ -2967,8 +2943,6 @@ PUBLICATIONS PAGE
 
 
 /* ----- Sticky Controls Bar ----- */
-
-
 
 .controls-left {
   display: flex;
@@ -3576,14 +3550,10 @@ PUBLICATIONS PAGE
 
 
 
-
-
-
-
-
 /* ============================================
    BLOG PAGE (main blog page)
    ============================================ */
+
 
 /* =====  BLOG PAGE - HEADER CALL TO ACTION  (below the heading) ======== */
 
@@ -3611,9 +3581,8 @@ PUBLICATIONS PAGE
 }
 
 .page-blog .header-cta-trigger:hover {
-  border-color: var(--accent-color-light);
-  background: var(--accent-color-very-light);
-  transform: translateY(-1px);
+  color: var(--white-color);
+  background: var(--dark-color);
 }
 
 .page-blog .header-cta-trigger:focus-visible,
