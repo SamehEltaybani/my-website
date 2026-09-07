@@ -716,6 +716,7 @@ section,
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  margin: var(--space-lg) 0 var(--space-md);
   color: var(--dark-color);
   line-height: 1.2;
 }
@@ -738,7 +739,7 @@ section,
 .primary-heading-icon {
   flex: 0 0 auto;
   color: var(--accent-color);
-  font-size: 0.85em;
+  font-size: 3.85em;
 }
 
 @media (max-width: 768px) {
