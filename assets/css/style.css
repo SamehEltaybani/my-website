@@ -819,7 +819,7 @@ section,
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-full);
     border: 2px solid rgba(0, 0, 0, 0.08);
-    background: transparent;
+    background: var(--white-color);
     color: var(--dark-color);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -842,7 +842,6 @@ section,
 
 .within-page-search-box:hover {
     border-color: var(--accent-color);
-    background: var(--accent-color-very-light);
     box-shadow: 0 4px 16px var(--accent-color-light);
 }
 
@@ -853,8 +852,7 @@ section,
 
 /* ----- Responsive ----- */
 
-@media (max-width: 768px) {
-   
+@media (max-width: 768px) {   
     .within-page-search-box-wrapper {
         padding: var(--space-md) 0;
         padding-left: var(--space-md);
@@ -872,8 +870,7 @@ section,
     }
 }
 
-@media (max-width: 400px) {
-   
+@media (max-width: 400px) {   
     .within-page-search-box-wrapper {
         padding: var(--space-sm) 0;
         padding-left: var(--space-sm);
@@ -1078,21 +1075,7 @@ HOME PAGE
            white-space: nowrap;
          }
          
-         .home-hero-value i {
-           display: inline-flex;
-           flex: 0 0 auto;
-           align-items: center;
-           justify-content: center;
-           width: 1.35em;
-           height: 1.35em;
-           border-radius: 50%;
-           background: #dff5f6;
-           color: var(--accent-color);
-           font-size: 0.62em;
-           line-height: 1;
-         }
-
-/* ----- Below-Content Cue ----- */
+   /* ----- Below-Content Cue ----- */
 
          .home-hero-scroll-cue {
            display: flex;
@@ -1221,7 +1204,6 @@ HOME PAGE
          }
          
 
-
 /* ====== ABOUT SECTION (Homepage) ======= */
 
          .about-section {
@@ -1297,15 +1279,13 @@ HOME PAGE
 /* ----- About: Responsive ----- */
 
          @media (max-width: 992px) {
-            
-           .kpi-grid {
+            .kpi-grid {
              grid-template-columns: repeat(2, 1fr);
              gap: var(--space-md);
            }
          }
          
-         @media (max-width: 768px) {
-            
+         @media (max-width: 768px) { 
            .about-header {
              flex-direction: column;
              text-align: center;
@@ -1337,7 +1317,6 @@ HOME PAGE
          }
          
          @media (max-width: 400px) {
-            
            .about-content {
              padding: 0 var(--space-md);
            }
