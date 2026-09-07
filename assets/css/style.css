@@ -716,7 +716,6 @@ section,
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  margin: var(--space-lg) 0 var(--space-md);
   color: var(--dark-color);
   line-height: 1.2;
 }
