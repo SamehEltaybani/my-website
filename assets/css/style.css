@@ -5495,19 +5495,19 @@ BLOG Article (right side content)
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--accent-color);
-    background: var(--white-color);
+    background: var(--accent-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--dark-color);
+    color: var(--white-color);
     text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .blog-top-nav .nav-btn:hover {
-    background: var(--accent-color);
-    color: var(--white-color);
+    background: var(--darrk-color);
+    border: var(--dark-color);
 }
 
 .blog-top-nav .nav-btn i {
@@ -5520,7 +5520,8 @@ BLOG Article (right side content)
 }
 
 .blog-top-nav .nav-btn-center:hover {
-    background: var(--accent-color);
+    background: var(--darrk-color);
+    border: var(--dark-color);
 }
 
 /* ----- Article Header ----- */
@@ -6034,20 +6035,19 @@ BLOG Article (right side content)
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--accent-color);
-    background: var(--white-color);
+    background: var(--accent-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--dark-color);
+    color: var(--white-color);
     text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .blog-bottom-nav .nav-btn:hover {
-    background: var(--accent-color);
-    color: var(--white-color);
-}
+    background: var(--dark-color);
+    }
 
 .blog-bottom-nav .nav-btn i {
     font-size: 0.8rem;
