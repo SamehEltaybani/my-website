@@ -739,7 +739,7 @@ section,
 .primary-heading-icon {
   flex: 0 0 auto;
   color: var(--accent-color);
-  font-size: 3.85em;
+  font-size: 0.85em;
 }
 
 @media (max-width: 768px) {
