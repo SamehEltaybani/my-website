@@ -741,9 +741,9 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 2.2em;
-  width: 2.2em;
-  height: 2.2em;
+  flex: 0 0 2.0em;
+  width: 2.0em;
+  height: 2.0em;
   border-radius: 50%;
   background: var(--accent-color-light);
   color: var(--accent-color);
@@ -753,6 +753,7 @@ section,
 
 .primary-heading-text {
    flex: 1;
+   min-width: 0;
    }
 
 @media (max-width: 768px) {
