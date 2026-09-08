@@ -752,9 +752,8 @@ section,
 }
 
 .primary-heading-text {
-   flex: 1;
-   min-width: 0;
-   }
+   flex: 1 1 auto;
+      }
 
 @media (max-width: 768px) {
   .primary-heading-h2 {
