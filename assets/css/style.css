@@ -908,7 +908,7 @@ section,
 .primary-button {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   box-sizing: border-box;
   width: 180px;
   height: 40px;
