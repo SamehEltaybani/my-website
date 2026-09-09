@@ -693,10 +693,30 @@ section,
 
 
 
+/* ============================================
+   Professional callout. This is just a placeholder and will revied laster to merge the format with 
+- this one
+- at the end of portfolio
+- at the end of blog articles
+- a new one before blog list
+   ============================================ */
 
 
+.professional-callout {
+  background: rgba(255, 255, 255, 0.03); /* Adjust for light/dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--accent-color, #00E5FF); /* Uses your electric mint accent */
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin: var(--space-lg) 0 var(--space-md);
+}
 
-
+.professional-callout p {
+  font-size: 0.9rem;
+  color: var(--text-color, #e2e8f0);
+  line-height: 1.6;
+  margin: 0;
+}
 
 
 
