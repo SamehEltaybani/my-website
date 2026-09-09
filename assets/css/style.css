@@ -6872,7 +6872,7 @@ BLOG Article (right side content)
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-sm);
+  gap: var(--space-lg);
 }
 
 .quick-note-button {
