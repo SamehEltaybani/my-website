@@ -715,7 +715,7 @@ section,
   font-size: 0.9rem;
   color: var(--dark-color);
   line-height: 1.6;
-  margin: 0;
+  margin: var(--space-md);
 }
 
 
@@ -6836,22 +6836,17 @@ BLOG Article (right side content)
 
 
 /* ================================================================
-   QUICK NOTE NEW
+   QUICK NOTE
    Standalone section-specific styling.
    ================================================================ */
 
 .quick-note {
-  --quick-note-accent: var(--accent-color);
-  --quick-note-dark: var(--dark-color);
-  --quick-note-bg: rgba(255, 255, 255, 0.42);
-  --quick-note-border: var(--accent-color-light);
-  --quick-note-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   margin: var(--space-lg) 0;
   padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xl);
-  border-left: 4px solid var(--quick-note-accent);
+  border-left: 4px solid var(--accent-color);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: var(--quick-note-bg);
-  box-shadow: var(--quick-note-shadow);
+  background: var(--white-color);
+  box-shadow: var(--card-shadow);
 }
 
 .quick-note-content {
@@ -6863,7 +6858,7 @@ BLOG Article (right side content)
   align-items: center;
   gap: var(--space-sm);
   margin: 0 0 var(--space-sm);
-  color: var(--quick-note-dark);
+  color: var(--dark-color);
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.3;
@@ -6878,13 +6873,13 @@ BLOG Article (right side content)
   height: 2rem;
   border-radius: var(--radius-full);
   background: var(--accent-color-light);
-  color: var(--quick-note-accent);
+  color: var(--accent-color);
   font-size: 1rem;
 }
 
 .quick-note-text {
   margin: 0 0 var(--space-md);
-  color: var(--quick-note-dark);
+  color: var(--dark-color);
   line-height: 1.7;
 }
 
@@ -6892,7 +6887,7 @@ BLOG Article (right side content)
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .quick-note-button {
