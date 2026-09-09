@@ -713,7 +713,7 @@ section,
 
 .professional-callout p {
   font-size: 0.9rem;
-  color: var(--text-color, #e2e8f0);
+  color: var(--dark-color);
   line-height: 1.6;
   margin: 0;
 }
