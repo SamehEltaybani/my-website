@@ -786,7 +786,32 @@ section,
 
 
 
+/* ================================================================
+   PRIMARY Paragraph 
+   ================================================================ */
 
+
+.primary-paragraph {
+    font-size: 1.5rem;
+    line-height: 1.9;
+    color: var(--dark-color);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 0 var(--space-md) 0;
+}
+
+@media (max-width: 768px) {
+  .primary-paragraph {
+       font-size: 1.2rem;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .primary-paragraph {
+    font-size: 1.0rem;
+  }
+}
 
 
 
