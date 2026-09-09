@@ -26,6 +26,11 @@
     base-uri 'self';
     ">
 
+        <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
+        <link rel="preload" href="/my-website/assets/css/style.css" as="style">
+        <link rel="preload" href="/my-website/assets/js/navbar.js" as="script">
+        <link rel="preload" href="/my-website/assets/js/utils.js" as="script">
+
    <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -62,22 +67,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
 
-</head>
-    
+</head> 
 <body>
 
-    <!-- ===== MOBILE TOC BUTTON ===== -->
+    <!-- ===== MOBILE TOC BUTTON, OVERLAY, PANEL ===== -->
     <button class="mobile-toc-toggle" id="mobile-toc-toggle" aria-label="Open table of contents">
         <i class="fa-solid fa-list"></i>
     </button>
 
-    <!-- ===== MOBILE TOC OVERLAY ===== -->
     <div class="mobile-toc-overlay" id="mobile-toc-overlay"></div>
 
-    <!-- ===== MOBILE TOC PANEL ===== -->
     <div class="mobile-toc-panel" id="mobile-toc-panel">
         <button class="mobile-toc-close" id="mobile-toc-close" aria-label="Close table of contents">
             <i class="fa-solid fa-xmark"></i>
