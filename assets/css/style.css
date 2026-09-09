@@ -13,11 +13,15 @@
   --bg-color: #f4f6f8;
   --dark-color: #222831;
   --white-color: #ffffff;
+  --grey-color-medium: rgba(0, 0, 0, 0.18);
+  --grey-color-dark: rgba(0, 0, 0, 0.28);
+  --grey-color-light: rgba(0, 0, 0, 0.08);
   --card-border: 1px solid rgba(34, 40, 49, 0.1);
   --card-shadow: 0 6px 18px rgba(34, 40, 49, 0.2);
   --accent-color: #00ADB5;
   --accent-color-light: rgba(0, 173, 181, 0.15);
   --accent-color-very-light: rgba(0, 173, 181, 0.07);
+
    
     
   /* ----- SPACING SYSTEM ----- */
@@ -5332,7 +5336,7 @@ background: rgba(0, 0, 0, 0.28);
 }
 
 .toc-column::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--white-color);
     border-radius: 999px;
 }
 
