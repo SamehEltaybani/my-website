@@ -835,7 +835,7 @@ section,
 .primary-bullet-list ul li i {
     color: var(--accent-color);
     font-size: 0.8rem;
-    margin-top: 0.8rem;
+    margin-top: 0.7rem;
     flex-shrink: 0;
 }
 
@@ -6704,7 +6704,6 @@ BLOG Article (right side content)
     padding: var(--space-lg);
     border: var(--card-border);
     box-shadow: var(--card-shadow);
-
 }
 
 .portfolio-stats-number {
