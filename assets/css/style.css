@@ -8699,49 +8699,19 @@ BLOG Article (right side content)
 
 
 
+.portfolio-share-btn {
+   background: var(--white-color);
+   width: 260px;
+}
+
+/* Responsive */
+
 @media (max-width: 768px) {
        .grouped-btn {
         text-align: right;
         margin-top: var(--space-md);
         margin-bottom: var(--space-md);
     }  
-}
-
-
-
-
-
-
-
-.portfolio-share-top {
-    text-align: right;
-    margin-bottom: var(--space-sm);
-}
-
-.portfolio-share-bottom {
-    text-align: right;
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-lg);
-}
-
-
-.portfolio-share-btn {
-background: var(--white-color);
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-       .portfolio-share-top {
-        text-align: right;
-        margin-bottom: var(--space-xs);
-    }
-
-    .portfolio-share-bottom {
-        text-align: right;
-        margin-top: var(--space-md);
-        margin-bottom: var(--space-md);
-    }
 }
 
 
