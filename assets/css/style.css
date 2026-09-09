@@ -792,26 +792,14 @@ section,
 
 
 .primary-paragraph {
-    font-size: 1.5rem;
-    line-height: 1.9;
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: var(--dark-color);
     opacity: 0.8;
     max-width: 800px;
-    margin: 0 0 var(--space-md) 0;
+    margin: 0 0 var(--space-lg) 0;
 }
 
-@media (max-width: 768px) {
-  .primary-paragraph {
-       font-size: 1.2rem;
-  }
-}
-
-
-@media (max-width: 400px) {
-  .primary-paragraph {
-    font-size: 1.0rem;
-  }
-}
 
 
 
