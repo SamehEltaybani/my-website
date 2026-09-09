@@ -835,7 +835,7 @@ section,
 .primary-bullet-list ul li i {
     color: var(--accent-color);
     font-size: 0.8rem;
-    margin-top: 0.4rem;
+    margin-top: 0.6rem;
     flex-shrink: 0;
 }
 
