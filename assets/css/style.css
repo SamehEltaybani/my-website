@@ -808,9 +808,6 @@ section,
    ================================================================ */
 
 
-
-
-
 /* ----- Portfolio element: Bullet List ----- */
 
 .primary-bullet-list {
@@ -875,22 +872,32 @@ section,
 }
 
 
+.secondary-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
+.secondary-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-left: 0;   /*  indentation of the points; can be changed by var(--space-md) for example */
+  color: var(--dark-color);
+  font-size: 1.0rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.secondary-bullet-list li i {
+  flex: 0 0 auto;
+  margin-top: 0.35rem;
+  color: var(--dark-color);
+  font-size: 0.75rem;
+}
 
 
 
