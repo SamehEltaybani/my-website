@@ -7301,109 +7301,6 @@ BLOG Article (right side content)
 /* ----- Accordion  ----- */
 
 
-.element-accordion {
-    padding: var(--space-xl) 0;
-}
-
-.element-accordion h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-lg);
-}
-
-.element-accordion-item {
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-sm);
-    overflow: hidden;
-    background: var(--white-color);
-    transition: border-color var(--transition-fast);
-}
-
-.element-accordion-item:hover {
-    border-color: var(--accent-color);
-}
-
-.element-accordion-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    width: 100%;
-    padding: var(--space-md) var(--space-lg);
-    background: transparent;
-    border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.25s ease, color 0.25s ease;
-}
-
-.element-accordion-header:hover {
-    background: var(--accent-color-very-light);
-}
-
-.element-accordion-header i {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.element-accordion-header.active {
-    background: var(--accent-color-light);
-    color: var(--accent-color);
-}
-
-.element-accordion-header.active i {
-    transform: rotate(45deg);
-}
-
-.element-accordion-body {
-    display: none;
-    padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
-}
-
-.element-accordion-body.open {
-    display: block;
-}
-
-.element-accordion-body p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.85;
-    margin-bottom: var(--space-sm);
-}
-
-.element-accordion-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.element-accordion-body ul li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.element-accordion-body ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-}
-
-
 
 
 
@@ -8330,14 +8227,7 @@ BLOG Article (right side content)
         font-size: 1.8rem;
     }
 
-    .element-accordion-header {
-        font-size: 0.95rem;
-        padding: var(--space-sm) var(--space-md);
-    }
-
-    .element-accordion-body {
-        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
-    }
+   
 
     .portfolio-quote blockquote {
         padding: var(--space-md);
