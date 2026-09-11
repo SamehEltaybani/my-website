@@ -388,7 +388,7 @@ body {
 }
 
 .navbar-dropdown li a:hover i {
-  color: var(--white-color);
+  color: var(--white-color) !important;
 }
 
 .navbar-dropdown li a i {
