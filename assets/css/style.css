@@ -7414,13 +7414,13 @@ BLOG Article (right side content)
    PORTFOLIO TABS 
    ========================================== */
 
-.element-tabs {
+.tabs {
   width: 100%;
   margin: var(--space-xxl ) 0;
   background: transparent;
 }
 
-.element-tabs-wrapper {
+.tabs-wrapper {
   width: 100%;
   background: var(--white-color);
   border: var(--card-border);
@@ -7428,7 +7428,7 @@ BLOG Article (right side content)
   box-shadow: var(--card-shadow);
 }
 
-.element-tabs-nav {
+.tabs-nav {
   display: flex;
   gap: var(--space-xs);
   padding: var(--space-sm);
@@ -7436,12 +7436,12 @@ BLOG Article (right side content)
   border-bottom: 1px solid rgba(34, 40, 49, 0.1);
 }
 
-.element-tabs-btn {
+.tabs-btn {
   flex: 0 0 auto;
   padding: 0.65rem 0.85rem;
-  border: 1px solid transparent;
+  border: 1px solid var(--grey-color-medium);
   border-radius: var(--radius-sm);
-  background: transparent;
+  background: var(--grey-color-light);
   color: var(--dark-color);
   font: inherit;
   font-size: 0.86rem;
@@ -7451,35 +7451,35 @@ BLOG Article (right side content)
   cursor: pointer;
 }
 
-.element-tabs-btn:hover,
-.element-tabs-btn:focus-visible {
+.tabs-btn:hover,
+.tabs-btn:focus-visible {
   background: var(--accent-color-very-light);
   border-color: var(--accent-color-light);
   color: var(--accent-color);
 }
 
-.element-tabs-btn.active {
+.tabs-btn.active {
   background: var(--accent-color);
   color: var(--white-color);
 }
 
-.element-tabs-content {
+.tabs-content {
   padding: var(--space-lg);
 }
 
-.element-tabs-panel[hidden] {
+.tabs-panel[hidden] {
   display: none;
 }
 
-.element-tabs-panel-title {
+.tabs-panel-title {
   margin-bottom: var(--space-md);
 }
 
-.element-tabs-resource-list {
+.tabs-resource-list {
   margin-bottom: var(--space-lg);
 }
 
-.element-tabs-resource-list a {
+.tabs-resource-list a {
   display: inline-flex;
   align-items: baseline;
   gap: var(--space-xs);
@@ -7487,18 +7487,18 @@ BLOG Article (right side content)
   text-decoration: none;
 }
 
-.element-tabs-resource-list a:hover,
-.element-tabs-resource-list a:focus-visible {
+.tabs-resource-list a:hover,
+.tabs-resource-list a:focus-visible {
   color: var(--accent-color);
   text-decoration: underline;
 }
 
-.element-tabs-resource-arrow {
+.tabs-resource-arrow {
   color: var(--accent-color);
   font-weight: 600;
 }
 
-.element-tabs-resource-buttons {
+.tabs-resource-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-sm) var(--space-lg);
@@ -7508,25 +7508,25 @@ BLOG Article (right side content)
 
 
 @media (max-width: 700px) {
-  .element-tabs {
+  .tabs {
     margin: var(--space-xl) 0;
   }
 
-  .element-tabs-nav {
+  .tabs-nav {
     gap: var(--space-xs);
     padding: var(--space-xs);
   }
 
-  .element-tabs-btn {
+  .tabs-btn {
     padding: 0.6rem 0.7rem;
     font-size: 0.8rem;
   }
 
-  .element-tabs-content {
+  .tabs-content {
     padding: var(--space-md);
   }
 
-  .element-tabs-resource-buttons {
+  .tabs-resource-buttons {
     grid-template-columns: 1fr;
   }
    
@@ -7588,23 +7588,23 @@ BLOG Article (right side content)
 /* ----- Timeline ----- */
 
 
-.portfolio-timeline {
+.timeline {
     padding: var(--space-xl) 0;
 }
 
-.portfolio-timeline h2 {
+.timeline h2 {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-color);
     margin-bottom: var(--space-lg);
 }
 
-.portfolio-timeline-wrapper {
+.timeline-wrapper {
     position: relative;
     padding-left: var(--space-xl);
 }
 
-.portfolio-timeline-wrapper::before {
+.timeline-wrapper::before {
     content: '';
     position: absolute;
     left: 8px;
@@ -7614,14 +7614,14 @@ BLOG Article (right side content)
     background: var(--accent-color-light);
 }
 
-.portfolio-timeline-item {
+.timeline-item {
     display: flex;
     gap: var(--space-lg);
     margin-bottom: var(--space-lg);
     position: relative;
 }
 
-.portfolio-timeline-marker {
+.timeline-marker {
     position: absolute;
     left: calc(-1 * var(--space-xl) + 2px);
     top: 4px;
@@ -7633,14 +7633,14 @@ BLOG Article (right side content)
     box-shadow: 0 0 0 2px var(--accent-color);
 }
 
-.portfolio-timeline-content h3 {
+.timeline-content h3 {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--dark-color);
     margin-bottom: var(--space-xs);
 }
 
-.portfolio-timeline-content p {
+.timeline-content p {
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--dark-color);
@@ -8152,11 +8152,11 @@ BLOG Article (right side content)
         font-size: 1.4rem;
     }
 
-    .portfolio-timeline-wrapper {
+    .timeline-wrapper {
         padding-left: var(--space-xl);
     }
 
-    .portfolio-timeline-marker {
+    .timeline-marker {
         left: calc(-1 * var(--space-xl) + 2px);
     }
 }
