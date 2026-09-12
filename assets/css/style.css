@@ -828,18 +828,15 @@ section,
     max-width: 800px;
     margin: 0 0 var(--space-lg) 0;
 }
-
   
 .primary-paragraph a {
   color: var(--accent-color);
-  text-decoration: underline;
-  transition: color var(--transition-fast);
+  text-decoration: none;
 }
 
 .primary-paragraph a:hover {
-  color: var(--dark-color);
-  opacity: 0.9;
-}  
+  text-decoration: underline;
+  }  
 
 
 /* ================================================================
@@ -876,6 +873,15 @@ section,
     flex-shrink: 0;
 }
 
+.primary-bullet-list ul li a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.primary-bullet-list ul li a:hover {
+    text-decoration: underline;
+}
+
 .secondary-bullet-list {
   display: flex;
   flex-direction: column;
@@ -901,6 +907,15 @@ section,
   margin-top: 0.35rem;
   color: var(--dark-color);
   font-size: 0.75rem;
+}
+
+.secondary-bullet-list li a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.secondary-bullet-list li a:hover {
+    text-decoration: underline;
 }
 
 .primary-numbered-list {
@@ -933,8 +948,52 @@ section,
     flex-shrink: 0;
 }
 
+.primary-numbered-list ol li a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
 
+.primary-numbered-list ol li a:hover {
+    text-decoration: underline;
+}
 
+.secondary-numbered-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: item;
+}
+
+.secondary-numbered-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding-left: 0;
+    color: var(--dark-color);
+    font-size: 1.0rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    counter-increment: item;
+}
+
+.secondary-numbered-list li::before {
+    content: counter(item) ".";
+    color: var(--dark-color);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.secondary-numbered-list li a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.secondary-numbered-list li a:hover {
+    text-decoration: underline;
+}
 
 /* ============================================
    PRIMARY BUTTON
