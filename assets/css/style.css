@@ -824,11 +824,21 @@ section,
     line-height: 1.8;
     color: var(--dark-color);
     opacity: 0.8;
+    min-width: 0;
     max-width: 800px;
     margin: 0 0 var(--space-lg) 0;
 }
 
+  
+.primary-paragraph a {
+  color: var(--dark-color);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
 
+.primary-paragraph a:hover {
+  color: var(--accent-color);
+}  
 
 
 /* ================================================================
@@ -1698,16 +1708,6 @@ HOME PAGE
   text-align: left;
 }
 
-.perspective-intro {
-  max-width: 760px;
-  margin: 0 0 var(--space-xl);
-  color: var(--dark-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
-  opacity: 0.72;
-}
-
 .perspective-rows {
   display: flex;
   flex-direction: column;
@@ -1741,17 +1741,6 @@ HOME PAGE
   line-height: 1.25;
 }
 
-.perspective-content {
-  min-width: 0;
-}
-
-.perspective-content p {
-  margin: 0;
-  color: var(--dark-color);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  opacity: 0.78;
-}
 
 .perspective-image {
   position: relative;
@@ -1796,11 +1785,7 @@ HOME PAGE
     font-size: 1.7rem;
   }
 
-  .perspective-intro {
-    margin-bottom: var(--space-lg);
-  }
-
-  .perspective-row {
+   .perspective-row {
     grid-template-columns: 1fr;
     gap: var(--space-md);
     padding: var(--space-lg);
