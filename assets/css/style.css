@@ -836,160 +836,99 @@ section,
 
 
 /* ================================================================
-   Bullet (Primary and secondary) and numbered (primary) lists 
+   PRIMARY AND SECONDARY LISTS (bullets and numberes)
+   The class is placed directly on the ul or ol element.
    ================================================================ */
 
-
-.primary-bullet-list {
-    padding: var(--space-lg) 0;   /*  Space above and below the list  */
-}
-
-
-.primary-bullet-list ul {
-    list-style: none;
-    padding-left: 0;   /*  indentation of the points; can be changed by var(--space-md) for example */
-    margin: 0;
-}
-
-.primary-bullet-list ul li {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin-bottom: var(--space-xs);    /*  vertical space between points  */
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.primary-bullet-list ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: 0.7rem;
-    flex-shrink: 0;
-}
-
-.primary-bullet-list ul li a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-.primary-bullet-list ul li a:hover {
-    text-decoration: underline;
-}
-
-.secondary-bullet-list {
+.primary-bullet-list,
+.secondary-bullet-list,
+.primary-numbered-list,
+.secondary-numbered-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  margin: 0;
+  margin: 0 0 var(--space-lg);
   padding: 0;
   list-style: none;
 }
 
-.secondary-bullet-list li {
+.primary-bullet-list,
+.primary-numbered-list {
+  gap: var(--space-xs);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.secondary-bullet-list,
+.secondary-numbered-list {
+  gap: var(--space-xs);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.primary-bullet-list li,
+.secondary-bullet-list li,
+.primary-numbered-list li,
+.secondary-numbered-list li {
   display: flex;
   align-items: flex-start;
   gap: var(--space-sm);
-  padding-left: 0;   /*  indentation of the points; can be changed by var(--space-md) for example */
+  margin: 0;
+  padding: 0;
   color: var(--dark-color);
-  font-size: 1.0rem;
-  line-height: 1.6;
   opacity: 0.8;
 }
 
-.secondary-bullet-list li i {
+.primary-bullet-list li::before,
+.secondary-bullet-list li::before {
   flex: 0 0 auto;
-  margin-top: 0.35rem;
-  color: var(--dark-color);
-  font-size: 0.75rem;
+  margin-top: 0.35em;
+  color: var(--accent-color);
+  content: "\\f0da";
+  font-family: "Font Awesome 6 Free";
+  font-size: 0.8em;
+  font-weight: 900;
+  line-height: 1;
 }
 
-.secondary-bullet-list li a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-.secondary-bullet-list li a:hover {
-    text-decoration: underline;
-}
-
-.primary-numbered-list {
-    padding: var(--space-lg) 0;     /*  Space above and below the list  */
-}
-
-.primary-numbered-list ol {
-    padding-left: 0;   /*  indentation of the points; can be changed by var(--space-md) for example  */
-    margin: 0;
-    list-style: none;
-    counter-reset: item;
-}
-
-.primary-numbered-list ol li {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin-bottom: var(--space-xs);     /*  vertical space between points  */
-    counter-increment: item;
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.primary-numbered-list ol li::before {
-    content: counter(item) ".";
-    color: var(--accent-color);
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.primary-numbered-list ol li a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-.primary-numbered-list ol li a:hover {
-    text-decoration: underline;
-}
-
+.primary-numbered-list,
 .secondary-numbered-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: item;
+  counter-reset: primary-list-item;
 }
 
+.primary-numbered-list li,
 .secondary-numbered-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-    padding-left: 0;
-    color: var(--dark-color);
-    font-size: 1.0rem;
-    line-height: 1.6;
-    opacity: 0.8;
-    counter-increment: item;
+  counter-increment: primary-list-item;
 }
 
+.primary-numbered-list li::before,
 .secondary-numbered-list li::before {
-    content: counter(item) ".";
-    color: var(--dark-color);
-    font-weight: 600;
-    flex-shrink: 0;
+  flex: 0 0 auto;
+  color: var(--accent-color);
+  content: counter(primary-list-item) ".";
+  font-weight: 700;
+  line-height: inherit;
 }
 
-.secondary-numbered-list li a {
-    color: var(--accent-color);
-    text-decoration: none;
+.secondary-bullet-list li::before,
+.secondary-numbered-list li::before {
+  color: var(--dark-color);
 }
 
-.secondary-numbered-list li a:hover {
-    text-decoration: underline;
+.primary-bullet-list a,
+.secondary-bullet-list a,
+.primary-numbered-list a,
+.secondary-numbered-list a {
+  color: var(--accent-color);
+  text-decoration: none;
 }
+
+.primary-bullet-list a:hover,
+.secondary-bullet-list a:hover,
+.primary-numbered-list a:hover,
+.secondary-numbered-list a:hover {
+  text-decoration: underline;
+}
+
 
 /* ============================================
    PRIMARY BUTTON
