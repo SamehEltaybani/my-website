@@ -105,16 +105,6 @@ body {
   margin: var(--space-xxl) 0 var(--space-lg) 0;
 }
 
-.section-sub {
-  text-align: center;
-  opacity: 0.6;
-  font-weight: 400;
-  margin-bottom: var(--space-lg);
-}
-
-
-
-
 @media (max-width: 768px) {
   body {
     padding-top: 75px;
@@ -837,6 +827,10 @@ section,
 .primary-paragraph a:hover {
   text-decoration: underline;
   }  
+
+.primary-paragraph-centered {
+ text-align: center;
+}
 
 
 /* ================================================================
@@ -2517,15 +2511,6 @@ HOME PAGE
             margin-bottom: var(--space-md);
         }
 
-        .error-text {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-            opacity: 0.75;
-            max-width: 600px;
-            margin: 0 auto var(--space-lg) auto;
-            line-height: 1.7;
-        }
-
         .error-btn {
             display: inline-flex;
             align-items: center;
@@ -2575,11 +2560,6 @@ HOME PAGE
                 font-size: 1.6rem;
             }
 
-            .error-text {
-                font-size: 1rem;
-                padding: 0 var(--space-md);
-            }
-
             .error-btn {
                 font-size: 0.95rem;
                 padding: var(--space-xs) var(--space-lg);
@@ -2593,10 +2573,6 @@ HOME PAGE
 
             .error-heading {
                 font-size: 1.3rem;
-            }
-
-            .error-text {
-                font-size: 0.9rem;
             }
         }
 
