@@ -7366,24 +7366,6 @@ BLOG Article (right side content)
   margin-bottom: var(--space-md);
 }
 
-.tabs-resource-list {
-  margin-bottom: var(--space-lg);
-}
-
-.tabs-resource-list a {
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--space-xs);
-  color: var(--dark-color);
-  text-decoration: none;
-}
-
-.tabs-resource-list a:hover,
-.tabs-resource-list a:focus-visible {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
 .tabs-resource-arrow {
   color: var(--accent-color);
   font-weight: 600;
