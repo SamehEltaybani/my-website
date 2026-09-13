@@ -8,9 +8,11 @@
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41494315/",
     "journalLink": "https://doi.org/10.1016/j.iccn.2025.104324",
     "blogLink": "blog/blog-200.html",
-    "image": "",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
     "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-052",
     "title": "Alcohol use and environmental factors: A cross-sectional study exploring health risks and social implications among Myanmar migrant workers",
@@ -19,8 +21,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41785299/",
     "journalLink": "https://doi.org/10.1371/journal.pone.0343825",
-    "blogLink": "blog/blog-197.html"
+    "blogLink": "blog/blog-197.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-051",
     "title": "Critical Commentary on 'Stressors, Needs and Satisfaction of Families of Critically Ill Arabic Patients: A Systematic Review'",
@@ -29,10 +35,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41867082/",
     "journalLink": "https://doi.org/10.1111/nicc.70453",
+    "blogLink": "blog/blog-194.html",
     "image": "/my-website/img/data-1.webp",
     "imageSource": "https://sameheltaybani.github.io/website/",
-    "blogLink": "blog/blog-194.html"
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-050",
     "title": "Intern Nurses' Self-Reported Professional Competency, Intention to Leave, Work Stress and Work Satisfaction: A Cross-Sectional Study in Adult Intensive Care Units",
@@ -41,8 +49,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41331789/",
     "journalLink": "https://doi.org/10.1111/nicc.70231",
-    "blogLink": "blog/blog-191.html"
+    "blogLink": "blog/blog-191.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-049",
     "title": "Knowledge Cut-Off in Large Language Models: Implications for Critical Care Nursing",
@@ -51,9 +63,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41906802/",
     "journalLink": "https://doi.org/10.1111/nicc.70458",
+    "blogLink": "blog/blog-188.html",
     "image": "/my-website/img/data-1.webp",
-    "blogLink": "blog/blog-188.html"
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-048",
     "title": "Research integrity throughout the research lifecycle and stakeholders: Part 1 - A broad concept broken down",
@@ -62,8 +77,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41911641/",
     "journalLink": "https://doi.org/10.1016/j.iccn.2026.104387",
-    "blogLink": "blog/blog-185.html"
+    "blogLink": "blog/blog-185.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-047",
     "title": "The Association Between Home-Visit Nursing Use and the Incidence of Potentially Avoidable Hospitalisation and Its Duration Among Community-Dwelling Older People: A 12-Month Prospective Cohort Study",
@@ -72,8 +91,12 @@
     "year": "2026",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41796979/",
     "journalLink": "https://doi.org/10.1111/opn.70068",
-    "blogLink": "blog/blog-182.html"
+    "blogLink": "blog/blog-182.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-046",
     "title": "A checklist for translating and adapting questionnaires (CTAQ) in healthcare research: insights from a Delphi method approach",
@@ -82,8 +105,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/41204310/",
     "journalLink": "https://doi.org/10.1186/s41182-025-00798-2",
-    "blogLink": "blog/blog-179.html"
+    "blogLink": "blog/blog-179.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-045",
     "title": "Assessing the reliability and feasibility of quality indicators used to evaluate long-term care for older adults",
@@ -92,8 +119,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/39876615/",
     "journalLink": "https://doi.org/10.1111/ggi.15074",
-    "blogLink": "blog/blog-176.html"
+    "blogLink": "blog/blog-176.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-044",
     "title": "Association between home-visit nursing use and the occurrence of unfavorable health outcomes among community-dwelling older adults: A prospective cohort study",
@@ -102,9 +133,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40367667/",
     "journalLink": "https://doi.org/10.1016/j.gerinurse.2025.04.010",
+    "blogLink": "blog/blog-173.html",
     "image": "/my-website/img/data-1.webp",
-    "blogLink": "blog/blog-173.html"
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-043",
     "title": "Exploring nurse educators' and students' use of large language models for academic purposes in a developing country: Unethical uses reported",
@@ -113,8 +147,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40812086/",
     "journalLink": "https://doi.org/10.1016/j.nepr.2025.104502",
-    "blogLink": "blog/blog-170.html"
+    "blogLink": "blog/blog-170.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-042",
     "title": "Insights from the top-cited papers in the critical care nursing literature: A bibliometric and visualized analysis",
@@ -125,6 +163,7 @@
     "journalLink": "https://doi.org/10.1111/nicc.13236",
     "blogLink": "blog/blog-167.html"
   },
+
   {
     "id": "Pub-041",
     "title": "Is double-blind peer review detrimental to scientific integrity?",
@@ -133,8 +172,12 @@
     "year": "2025",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1093/etojnl/vgaf078",
-    "blogLink": "blog/blog-164.html"
+    "blogLink": "blog/blog-164.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-040",
     "title": "Navigating the realities of multinational surveys: Lessons learned and recommendations",
@@ -143,8 +186,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40382798/",
     "journalLink": "https://doi.org/10.1016/j.gerinurse.2025.04.020",
-    "blogLink": "blog/blog-161.html"
+    "blogLink": "blog/blog-161.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-039",
     "title": "Reporting Guidelines: An Overview",
@@ -153,8 +200,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40702628/",
     "journalLink": "https://doi.org/10.1097/AJN.0000000000000120",
-    "blogLink": "blog/blog-158.html"
+    "blogLink": "blog/blog-158.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+  
   {
     "id": "Pub-038",
     "title": "Research Metrics: An Overview",
@@ -163,8 +214,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40993876/",
     "journalLink": "https://doi.org/10.1097/AJN.0000000000000161",
-    "blogLink": "blog/blog-155.html"
+    "blogLink": "blog/blog-155.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-037",
     "title": "Self-reported quality of life of older adults receiving home care: The feasibility and reliability of new items",
@@ -175,6 +230,7 @@
     "journalLink": "https://doi.org/10.1016/j.gerinurse.2025.03.058",
     "blogLink": "blog/blog-152.html"
   },
+  
   {
     "id": "Pub-036",
     "title": "Correction to \"Soulful support: Exploring critical care nurses' spiritual caregiving towards end-of-life scenario\"",
@@ -183,9 +239,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40574531/",
     "journalLink": "https://doi.org/10.1111/nicc.70064",
+    "blogLink": "blog/blog-150.html",
     "image": "/my-website/img/data-1.webp",
-    "blogLink": "blog/blog-150.html"
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-035",
     "title": "Soulful support: Exploring critical care nurses' spiritual caregiving towards end-of-life scenario",
@@ -194,8 +253,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40207429/",
     "journalLink": "https://doi.org/10.1111/nicc.70026",
-    "blogLink": "blog/blog-149.html"
+    "blogLink": "blog/blog-149.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-034",
     "title": "The Longitudinal Effects of Low Body Mass Index on Unfavorable Physical Health Outcomes Among Older Adults Receiving Homecare Nursing: A Prospective Cohort Study",
@@ -204,8 +267,12 @@
     "year": "2025",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/40423666/",
     "journalLink": "https://doi.org/10.1002/nur.22471",
-    "blogLink": "blog/blog-146.html"
+    "blogLink": "blog/blog-146.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-033",
     "title": "Effect of using gamification and augmented reality in mechanical ventilation unit of critical care nursing on nurse students' knowledge, motivation, and self-efficacy: A randomized controlled trial",
@@ -214,8 +281,12 @@
     "year": "2024",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/39116661/",
     "journalLink": "https://doi.org/10.1016/j.nedt.2024.106329",
-    "blogLink": "blog/blog-143.html"
+    "blogLink": "blog/blog-143.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-032",
     "title": "Factors associated with the readiness for oral intake in post-extubated critically ill adult patients: A prospective observational study",
@@ -224,8 +295,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.13109",
-    "blogLink": "blog/blog-140.html"
+    "blogLink": "blog/blog-140.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-031",
     "title": "Long-term care facilities' response to the COVID-19 pandemic: An international, cross-sectional survey",
@@ -234,8 +309,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/jan.15785",
-    "blogLink": "blog/blog-137.html"
+    "blogLink": "blog/blog-137.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+  
   {
     "id": "Pub-030",
     "title": "Prevalence and determinants of COVID-19 vaccine acceptance among vulnerable populations in Thailand: An application of the health belief model",
@@ -244,8 +323,12 @@
     "year": "2024",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/38384553/",
     "journalLink": "https://doi.org/10.1016/j.heliyon.2024.e26043",
-    "blogLink": "blog/blog-134.html"
+    "blogLink": "blog/blog-134.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-029",
     "title": "Promoting workplace retention during global crises: An international survey of the preventive role of psychological support among victims of social discrimination in long-term care facilities",
@@ -254,8 +337,12 @@
     "year": "2024",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/38996770/",
     "journalLink": "https://doi.org/10.1016/j.gerinurse.2024.06.021",
-    "blogLink": "blog/blog-131.html"
+    "blogLink": "blog/blog-131.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-028",
     "title": "Revisiting the Why of Peer Review: Sustainability of the Current System",
@@ -264,8 +351,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/opn.12642",
-    "blogLink": "blog/blog-128.html"
+    "blogLink": "blog/blog-128.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-027",
     "title": "Revitalizing peer review: Recommendations for efficiency and excellence in critical care nursing research",
@@ -274,8 +365,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.13063",
-    "blogLink": "blog/blog-125.html"
+    "blogLink": "blog/blog-125.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-026",
     "title": "Spotlight on BACCN Conference 2024: Celebrating the diversity in critical care education, research and clinical practice",
@@ -284,8 +379,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.13147",
-    "blogLink": "blog/blog-122.html"
+    "blogLink": "blog/blog-122.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-025",
     "title": "Spotlight on respiratory care, delirium, well-being and moral injury",
@@ -294,8 +393,12 @@
     "year": "2024",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.13189",
-    "blogLink": "blog/blog-119.html"
+    "blogLink": "blog/blog-119.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-024",
     "title": "Spotlight on the psychological and emotional aspects of critical care",
@@ -304,8 +407,12 @@
     "year": "2024",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/39031792/",
     "journalLink": "https://doi.org/10.1111/nicc.13101",
-    "blogLink": "blog/blog-116.html"
+    "blogLink": "blog/blog-116.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-023",
     "title": "The Transformative Role of Large Language Models in Post-Acute and Long-Term Care",
@@ -314,8 +421,12 @@
     "year": "2024",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/38614135/",
     "journalLink": "https://doi.org/10.1016/j.jamda.2024.03.002",
-    "blogLink": "blog/blog-113.html"
+    "blogLink": "blog/blog-113.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-022",
     "title": "Capabilities and limitations of large language models in critical care nursing research: Examples from the big three",
@@ -324,8 +435,12 @@
     "year": "2023",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.12974",
-    "blogLink": "blog/blog-110.html"
+    "blogLink": "blog/blog-110.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-021",
     "title": "Celebrating our success over the holiday period: 40 papers to read over the holiday",
@@ -334,8 +449,12 @@
     "year": "2023",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nicc.12987",
-    "blogLink": "blog/blog-107.html"
+    "blogLink": "blog/blog-107.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-020",
     "title": "Effectiveness of home visit nursing on improving mortality, hospitalization, institutionalization, satisfaction, and quality of life among older people: Umbrella review",
@@ -344,8 +463,12 @@
     "year": "2023",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1016/j.gerinurse.2023.03.018",
-    "blogLink": "blog/blog-104.html"
+    "blogLink": "blog/blog-104.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+  
   {
     "id": "Pub-019",
     "title": "Perceived Work Environment, Educational Status, Staffing Levels, and Work Outcomes in Long-Term Care Settings During COVID-19",
@@ -354,8 +477,12 @@
     "year": "2023",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1016/j.jamda.2023.08.009",
-    "blogLink": "blog/blog-101.html"
+    "blogLink": "blog/blog-101.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-018",
     "title": "Toward developing care outcome quality indicators for home care for older people: A prospective cohort study in Japan",
@@ -364,8 +491,12 @@
     "year": "2023",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/ggi.14578",
-    "blogLink": "blog/blog-98.html"
+    "blogLink": "blog/blog-98.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-017",
     "title": "Effectiveness of home visit nursing for improving patient-related clinical outcomes in older people: an umbrella review protocol",
@@ -374,8 +505,12 @@
     "year": "2022",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/35971205/",
     "journalLink": "https://doi.org/10.11124/JBIES-21-00343",
-    "blogLink": "blog/blog-95.html"
+    "blogLink": "blog/blog-95.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-016",
     "title": "Family-oriented interventions in long-term care residential facilities for older people: A scoping review of the characteristics and outcomes",
@@ -384,8 +519,12 @@
     "year": "2022",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1111/nuf.12768",
-    "blogLink": "blog/blog-92.html"
+    "blogLink": "blog/blog-92.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-015",
     "title": "Long-term care facilities' response to the COVID-19 pandemic: A protocol of a cross-sectional, multi-site, international survey",
@@ -394,8 +533,12 @@
     "year": "2022",
     "pubmedLink": "",
     "journalLink": "https://doi.org/10.1002/nop2.1264",
-    "blogLink": "blog/blog-89.html"
+    "blogLink": "blog/blog-89.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-014",
     "title": "Assessing the Palliative and End-of-Life Care Education-Practice-Competence Triad in Intensive Care Units: Content Validity, Feasibility, and Reliability of a New Tool",
@@ -404,8 +547,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/32779529/",
     "journalLink": "https://doi.org/10.1177/0825859720948972",
-    "blogLink": "blog/blog-86.html"
+    "blogLink": "blog/blog-86.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+  
   {
     "id": "Pub-013",
     "title": "Comparison across 12 countries on knowledge, attitude, and behavior scores about medication errors in Intensive Care Units: an international study",
@@ -414,8 +561,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/34919221/",
     "journalLink": "https://doi.org/10.26355/eurrev_202112_27415",
-    "blogLink": "blog/blog-83.html"
-  },
+    "blogLink": "blog/blog-83.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
+    },
+  
   {
     "id": "Pub-012",
     "title": "Family satisfaction in Egyptian adult intensive care units: A mixed-method study",
@@ -424,8 +575,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33875339/",
     "journalLink": "https://doi.org/10.1016/j.iccn.2021.103060",
-    "blogLink": "blog/blog-80.html"
-  },
+    "blogLink": "blog/blog-80.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
+    },
+ 
   {
     "id": "Pub-011",
     "title": "Family-oriented interventions in long-term care residential settings: a scoping review protocol",
@@ -434,8 +589,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33577233/",
     "journalLink": "https://doi.org/10.11124/JBIES-20-00289",
-    "blogLink": "blog/blog-77.html"
+    "blogLink": "blog/blog-77.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-010",
     "title": "Homecare nurses' length of conversation and intention to remain at the workplace: A multilevel analysis",
@@ -444,8 +603,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33179317/",
     "journalLink": "https://doi.org/10.1111/jonm.13212",
-    "blogLink": "blog/blog-74.html"
+    "blogLink": "blog/blog-74.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+  
   {
     "id": "Pub-009",
     "title": "Nursing students' and educators' experience with e-learning during a pandemic: An online survey",
@@ -454,8 +617,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/34318491/",
     "journalLink": "https://doi.org/10.1111/nuf.12634",
-    "blogLink": "blog/blog-71.html"
+    "blogLink": "blog/blog-71.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-008",
     "title": "Palliative and end-of-life care education in prelicensure nursing curricula: A nationwide survey in an Arab country",
@@ -464,8 +631,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33242705/",
     "journalLink": "https://doi.org/10.1016/j.nedt.2020.104644",
-    "blogLink": "blog/blog-68.html"
+    "blogLink": "blog/blog-68.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-007",
     "title": "Palliative care in adult intensive care units: A nationwide survey",
@@ -474,8 +645,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33107206/",
     "journalLink": "https://doi.org/10.1111/nicc.12565",
-    "blogLink": "blog/blog-65.html"
+    "blogLink": "blog/blog-65.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-006",
     "title": "The association between nurses' burnout and objective care quality indicators: a cross-sectional survey in long-term care wards",
@@ -484,8 +659,12 @@
     "year": "2021",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/33622305/",
     "journalLink": "https://doi.org/10.1186/s12912-021-00552-z",
-    "blogLink": "blog/blog-62.html"
+    "blogLink": "blog/blog-62.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-005",
     "title": "Palliative and end-of-life care in Egypt: overview and recommendations for improvement",
@@ -494,8 +673,12 @@
     "year": "2020",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/32841078/",
     "journalLink": "https://doi.org/10.12968/ijpn.2020.26.6.284",
-    "blogLink": "blog/blog-59.html"
+    "blogLink": "blog/blog-59.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-004",
     "title": "Quality Assurance in Long-Term Care and Development of Quality Indicators in Japan",
@@ -504,8 +687,12 @@
     "year": "2020",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/35047653/",
     "journalLink": "https://doi.org/10.1177/2333721420975320",
-    "blogLink": "blog/blog-56.html"
+    "blogLink": "blog/blog-56.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-003",
     "title": "Recommendations to prevent nursing errors: Content analysis of semi-structured interviews with intensive care unit nurses in a developing country",
@@ -514,8 +701,12 @@
     "year": "2020",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/32104934/",
     "journalLink": "https://doi.org/10.1111/jonm.12985",
-    "blogLink": "blog/blog-50.html"
+    "blogLink": "blog/blog-50.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+
   {
     "id": "Pub-002",
     "title": "Nature of nursing errors and their contributing factors in intensive care units",
@@ -524,8 +715,12 @@
     "year": "2019",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/29701274/",
     "journalLink": "https://doi.org/10.1111/nicc.12350",
-    "blogLink": "blog/blog-50.html"
+    "blogLink": "blog/blog-50.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   },
+ 
   {
     "id": "Pub-001",
     "title": "Factors related to intention to stay in the current workplace among long-term care nurses: A nationwide survey",
@@ -534,6 +729,9 @@
     "year": "2018",
     "pubmedLink": "https://pubmed.ncbi.nlm.nih.gov/29407345/",
     "journalLink": "https://doi.org/10.1016/j.ijnurstu.2018.01.008",
-    "blogLink": "blog/blog-47.html"
+    "blogLink": "blog/blog-47.html",
+    "image": "/my-website/img/data-1.webp",
+    "imageSource": "https://sameheltaybani.github.io/website/",
+    "summary": "this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later and here is one more time this is a summary only for search test words include summary and exaggeration and is repeated to test the length and to be deleted later"
   }
 ]
