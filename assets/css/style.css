@@ -2002,31 +2002,6 @@ HOME PAGE
 }
 
 
-.whatido-bullets {
-  margin: 0 0 var(--space-md) 0;
-  padding: 0;
-  list-style: none;
-}
-
-.whatido-bullets li {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-xs);
-  color: var(--dark-color);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  opacity: 0.75;
-}
-
-.whatido-bullets li i {
-  width: 1rem;
-  flex-shrink: 0;
-  color: var(--accent-color);
-  font-size: 0.8rem;
-  text-align: center;
-}
-
 .whatido-btn {
   align-self: flex-end;
   margin-top: auto;
@@ -2112,10 +2087,6 @@ HOME PAGE
   .whatido-header h3 {
     font-size: 1.2rem;
   }
-
-   .whatido-bullets li {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 400px) {
@@ -2132,11 +2103,7 @@ HOME PAGE
     font-size: 1rem;
   }
 
-  .whatido-bullets li {
-    font-size: 0.85rem;
-  }
-
-  .whatido-copyright {
+   .whatido-copyright {
     font-size: 0.7rem;
   }
 }
