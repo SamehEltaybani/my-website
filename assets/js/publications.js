@@ -183,23 +183,12 @@ if (hasPublicationImage(pub)) {
         ? 'Illustration for ' + pub.title
         : 'Publication illustration';
 
-    imageHtml += '<div class="publication-card-image-wrapper credited-image">';
+    imageHtml += '<div class="publication-card-image-wrapper">';
     imageHtml += '<img class="publication-card-image" src="'
         + window.escapeHTML(pub.image.trim())
         + '" alt="'
         + window.escapeHTML(imageAlt)
         + '" loading="lazy">';
-
-    if (hasPublicationImageSource(pub)) {
-        imageHtml += '<a class="image-source" href="'
-            + window.escapeHTML(pub.imageSource.trim())
-            + '" target="_blank" rel="noopener noreferrer"'
-            + ' aria-label="Open image source information">';
-        imageHtml += 'Image source';
-        imageHtml += '<span class="image-source-arrow" aria-hidden="true">→</span>';
-        imageHtml += '</a>';
-    }
-
     imageHtml += '</div>';
 }
 
