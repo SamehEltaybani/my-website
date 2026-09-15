@@ -117,16 +117,6 @@ Use the same generic structure in four ways:
 </div>
 
         
-2. Non-clickable, sourced 
-<div class="portfolio-generic-image">
-  <img 
-        src="IMAGE-URL" 
-        alt="IMAGE-DESCRIPTION">
-  <a class="portfolio-generic-image-source" href="SOURCE-URL">
-    Image source <span class="portfolio-generic-image-source-arrow">→</span>
-  </a>
-</div>
-
         
 3. Clickable, non-sourced
 <div class="portfolio-generic-image">
@@ -138,17 +128,6 @@ Use the same generic structure in four ways:
 </div>
 
         
-4. Clickable, sourced 
-<div class="portfolio-generic-image">
-  <a class="portfolio-generic-image-link" href="IMAGE-URL">
-    <img 
-        src="IMAGE-URL" 
-        alt="IMAGE-DESCRIPTION">
-  </a>
-  <a class="portfolio-generic-image-source" href="SOURCE-URL">
-    Image source <span class="portfolio-generic-image-source-arrow">→</span>
-  </a>
-</div>
 
     ================================================================ -->
 
@@ -359,45 +338,23 @@ Use the same generic structure in four ways:
   
     <!-- 1. Non-clickable, non-sourced image -->
     <div class="portfolio-generic-image">
-      <img src="img/data-1.webp" alt="Non-clickable non-sourced example image" loading="lazy">
+      <img src="img/data-1.webp" 
+           alt="Non-clickable non-sourced example image" 
+           loading="lazy">
     </div>
 
-    <!-- 2. Non-clickable, sourced image -->
-    <div class="portfolio-generic-image">
-      <img src="img/data-1.webp" alt="Non-clickable sourced example image" loading="lazy">
-      <a class="portfolio-generic-image-source"
-         href="https://unsplash.com/@kmuza"
-         target="_blank"
-         rel="noopener noreferrer">
-        Image source
-        <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
-
+  
     <!-- 3. Clickable, non-sourced image -->
     <div class="portfolio-generic-image">
       <a class="portfolio-generic-image-link"
          href="img/data-1.webp">
-        <img src="img/data-1.webp" alt="Clickable non-sourced example image" loading="lazy">
+        <img src="img/data-1.webp" 
+            alt="Clickable non-sourced example image" 
+            loading="lazy">
       </a>
     </div>
 
-    <!-- 4. Clickable, sourced image -->
-    <div class="portfolio-generic-image">
-      <a class="portfolio-generic-image-link"
-         href="img/data-1.webp">
-        <img src="img/data-1.webp" alt="Clickable sourced example image" loading="lazy">
-      </a>
-
-      <a class="portfolio-generic-image-source"
-         href="https://unsplash.com/@kmuza"
-         target="_blank"
-         rel="noopener noreferrer">
-        Image source
-        <span class="portfolio-generic-image-source-arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
-
+ 
 
         
 <!-- ================================================================ -->
