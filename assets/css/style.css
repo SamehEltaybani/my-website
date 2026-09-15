@@ -6650,12 +6650,6 @@ BLOG Article (right side content)
   font-size: 1rem;
 }
 
-.quick-note-text {
-  margin: 0 0 var(--space-md);
-  color: var(--dark-color);
-  line-height: 1.7;
-}
-
 .quick-note-actions {
   display: flex;
   flex-direction: column;
@@ -6677,10 +6671,6 @@ BLOG Article (right side content)
 
   .quick-note-title {
     font-size: 1.1rem;
-  }
-
-  .quick-note-text {
-    line-height: 1.6;
   }
 
    .quick-note-button {
@@ -7421,12 +7411,6 @@ BLOG Article (right side content)
 }
 
 .row-process-heading {
-  color: var(--dark-color);
-}
-
-.row-process-intro {
-  max-width: 720px;
-  margin: 0 0 var(--space-lg);
   color: var(--dark-color);
 }
 
