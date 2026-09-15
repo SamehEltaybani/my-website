@@ -1867,11 +1867,6 @@ HOME PAGE
   object-fit: cover;
 }
 
-.core-value-image .image-source {
-  right: var(--space-sm);
-  bottom: var(--space-sm);
-}
-
 @media (max-width: 768px) {
   .core-values-section {
     padding: var(--space-xl) 0;
@@ -6443,37 +6438,6 @@ BLOG Article (right side content)
   line-height: 0;
 }
 
-.portfolio-generic-image-source {
-  position: absolute;
-  right: var(--space-xs);
-  bottom: var(--space-xs);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  max-width: calc(100% - var(--space-sm));
-  padding: 0.35rem 0.6rem;
-  overflow: hidden;
-  background: rgba(34, 40, 49, 0.82);
-  border-top-left-radius: var(--radius-sm);
-  color: var(--white-color);
-  font-size: clamp(0.58rem, 1.3vw, 0.7rem);
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.portfolio-generic-image-source:hover,
-.portfolio-generic-image-source:focus-visible {
-  background: var(--accent-color);
-  color: var(--white-color);
-}
-
-.portfolio-generic-image-source-arrow {
-  flex: 0 0 auto;
-}
 
 @media (max-width: 600px) {
   .portfolio-generic-h2 {
@@ -6482,10 +6446,6 @@ BLOG Article (right side content)
 
   .portfolio-generic-h3 {
     font-size: 1.2rem;
-  }
-
-  .portfolio-generic-image-source {
-    font-size: 0.62rem;
   }
 }
 
@@ -7148,38 +7108,7 @@ BLOG Article (right side content)
     display: block;
 }
 
-.stacked-accordion-body p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.85;
-    margin-top: var(--space-sm);
-    margin-bottom: var(--space-sm);
-}
 
-.stacked-accordion-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.stacked-accordion-body ul li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.75;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.stacked-accordion-body ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: var(--space-xs);
-    flex-shrink: 0;
-}
 
 
 
@@ -7286,10 +7215,6 @@ BLOG Article (right side content)
   }
    
 }
-
-
-
-
 
 
 
@@ -7816,10 +7741,6 @@ BLOG Article (right side content)
         width: 100%;
     }
 
-    .portfolio-three-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .portfolio-stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -7864,12 +7785,7 @@ BLOG Article (right side content)
         font-size: 0.95rem;
     }
 
-    .portfolio-three-cards-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-
-    .portfolio-card {
+     .portfolio-card {
         padding: var(--space-md);
     }
 
@@ -7880,14 +7796,6 @@ BLOG Article (right side content)
 
     .portfolio-stats-number {
         font-size: 2rem;
-    }
-
-    .portfolio-tabs-nav {
-        flex-direction: column;
-    }
-
-    .portfolio-tabs-panel {
-        padding: var(--space-md);
     }
 
     .portfolio-image-grid-wrapper {
@@ -7978,10 +7886,6 @@ BLOG Article (right side content)
 
     .stacked-accordion-body {
         padding: 0 var(--space-sm) var(--space-xs) var(--space-sm);
-    }
-
-    .stacked-accordion-body p {
-        font-size: 0.9rem;
     }
 }
 
@@ -8392,71 +8296,6 @@ BLOG Article (right side content)
 
 
 
-
-
-
-
-
-
-
-/* ----- Reusable Image Source Overlay ----- */
-
-.whatido-image-frame {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.credited-image {
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-}
-
-.credited-image > img,
-.credited-image > a > img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.image-source {
-  position: absolute;
-  right: 0.1rem;
-  bottom: 0.2rem;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  max-width: 100%;
-  padding: 0.35rem 0.6rem;
-  background: rgba(34, 40, 49, 0.82);
-  border-radius: var(--radius-sm);
-  color: var(--white-color);
-  font-size: clamp(0.58rem, 1.3vw, 0.7rem);
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.image-source:hover,
-.image-source:focus-visible {
-  background: var(--accent-color);
-  color: var(--white-color);
-}
-
-.image-source-arrow {
-  font-size: 1.05em;
-  line-height: 1;
-  transition: transform var(--transition-fast);
-}
-
-.image-source:hover .image-source-arrow,
-.image-source:focus-visible .image-source-arrow {
-  transform: translateX(2px);
-}
-
 /* ----- GLightbox Image Overlay Frame ----- */
 
 .glightbox-image-frame {
@@ -8476,11 +8315,6 @@ BLOG Article (right side content)
   max-width: 100%;
   height: auto;
 }
-
-.glightbox-image-frame > .image-source {
-  bottom: 1.2rem;
-}
-
 
 
 
