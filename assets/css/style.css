@@ -2731,8 +2731,8 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  border: 1px solid var(--accent-color-dark);
-   background: #ffffff;
+  border: 1px solid var(--accent-color-light);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
 }
 
 .publication-card-image {
