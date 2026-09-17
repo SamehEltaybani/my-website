@@ -2684,7 +2684,7 @@ PUBLICATIONS PAGE
   margin: var(--space-xl) 0;
 }
 
-/* ----- Publication Card (with green left border) ----- */
+/* ----- Publication Card ----- */
 
 .publication-card {
   background: var(--white-color);
@@ -2727,11 +2727,11 @@ PUBLICATIONS PAGE
 
 .publication-card-image-wrapper {
   position: relative;
-   aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-   box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow);
 }
 
 .publication-card-image {
