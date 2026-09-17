@@ -13,7 +13,7 @@
   --bg-color: #f4f6f8;
   --dark-color: #222831;
   --white-color: #ffffff;
-  --grey-color-medium: rgba(0, 0, 0, 0.18);
+  --grey-color: rgba(0, 0, 0, 0.18);
   --grey-color-dark: rgba(0, 0, 0, 0.28);
   --grey-color-light: rgba(0, 0, 0, 0.08);
   --card-border: 1px solid rgba(34, 40, 49, 0.1);
@@ -2732,6 +2732,7 @@ PUBLICATIONS PAGE
   overflow: hidden;
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-color-light);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   }
 
 .publication-card-image {
@@ -3842,11 +3843,12 @@ PUBLICATIONS PAGE
 
 .blog-card-image-wrapper {
   position: relative;
-   aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 10;
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-color-light);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
 }
 
 .blog-card-image {
@@ -3976,7 +3978,7 @@ PUBLICATIONS PAGE
   gap: var(--space-xs);
   padding: 0.2rem 0.9rem;
   border-radius: var(--radius-full);
-  border: 2px solid rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--grey-color);
   background: transparent;
   color: var(--dark-color);
   font-family: 'Inter', sans-serif;
@@ -6444,8 +6446,6 @@ BLOG Article (right side content)
 
 
 
-
-
 /* ----- Hero / Page Header ----- */
 
 .portfolio-hero {
@@ -6966,11 +6966,6 @@ BLOG Article (right side content)
 
 
 
-/* ----- Accordion  ----- */
-
-
-
-
 /* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
 
 
@@ -7123,7 +7118,7 @@ BLOG Article (right side content)
 .tabs-btn {
   flex: 0 0 auto;
   padding: 0.65rem 0.85rem;
-  border: 1px solid var(--grey-color-medium);
+  border: 1px solid var(--grey-color);
   border-radius: var(--radius-sm);
   background: var(--grey-color-light);
   color: var(--dark-color);
@@ -7694,11 +7689,6 @@ BLOG Article (right side content)
     flex-direction: column;
   }
 }
-
-
-
-
-
 
 
 
