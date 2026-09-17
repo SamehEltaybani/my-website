@@ -2727,11 +2727,12 @@ PUBLICATIONS PAGE
 
 .publication-card-image-wrapper {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  box-shadow: var(--card-shadow);
+  border: 1px solidvar(--accent-color-light);
+  /* box-shadow: var(--card-shadow);*/
 }
 
 .publication-card-image {
