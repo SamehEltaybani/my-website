@@ -97,14 +97,6 @@ body {
 }
 
 
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  text-align: center;
-  margin: var(--space-xxl) 0 var(--space-lg) 0;
-}
-
 @media (max-width: 768px) {
   body {
     padding-top: 75px;
@@ -119,23 +111,8 @@ body {
   .section,
   .about-section {
     padding: var(--space-lg) 0;
-  }
-  
-  .section-title {
-    font-size: 1.6rem;
-    margin: var(--space-xl) 0 var(--space-md) 0;
-  }
-  
+  } 
 }
-
-
-@media (max-width: 400px) {
-  .section-title {
-    font-size: 1.3rem;
-  }
-}
-
-
 
 
 /* ==========================================
@@ -1674,15 +1651,6 @@ HOME PAGE
   padding: var(--space-xxl ) 0;
 }
 
-.perspective-title {
-  margin: 0 0 var(--space-sm);
-  color: var(--dark-color);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
-}
-
 .perspective-rows {
   display: flex;
   flex-direction: column;
@@ -1756,11 +1724,7 @@ HOME PAGE
     padding: var(--space-xl) 0;
   }
 
-  .perspective-title {
-    font-size: 1.7rem;
-  }
-
-   .perspective-row {
+    .perspective-row {
     grid-template-columns: 1fr;
     gap: var(--space-md);
     padding: var(--space-lg);
@@ -1783,15 +1747,6 @@ HOME PAGE
 
 .core-values-section {
   padding: var(--space-xxl ) 0;
-}
-
-.core-values-title {
-  margin: 0 0 var(--space-sm);
-  color: var(--dark-color);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
 }
 
 .core-values-grid {
@@ -1872,10 +1827,7 @@ HOME PAGE
     padding: var(--space-xl) 0;
   }
 
-  .core-values-title {
-    font-size: 1.7rem;
-  }
-
+ 
    .core-values-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
