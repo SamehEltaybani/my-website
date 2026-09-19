@@ -192,7 +192,7 @@ if (hasBlogImage(post)) {
         + window.escapeHTML(post.image.trim())
         + '" alt="'
         + window.escapeHTML(imageAlt)
-        + '" loading="lazy">';
+        + '">';
       imageHtml += '</div>';
 }
 
