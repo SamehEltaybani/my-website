@@ -779,6 +779,10 @@ section,
 }
 
 
+.primary-heading-left-border,
+   {
+border-left: 8px solid var(--accent-color);
+   }
 
 
 /* ================================================================
