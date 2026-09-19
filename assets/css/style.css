@@ -1771,24 +1771,6 @@ HOME PAGE
   padding: var(--space-lg);
 }
 
-.core-value-title {
-  margin: 0 0 var(--space-md);
-  padding-left: var(--space-md);
-  border-left: 4px solid var(--accent-color);
-  color: var(--dark-color);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.core-value-card-content p {
-  margin: 0;
-  color: var(--dark-color);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  opacity: 0.78;
-}
-
 .core-value-image {
   position: relative;
   width: 100%;
