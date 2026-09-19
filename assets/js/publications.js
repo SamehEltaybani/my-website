@@ -188,7 +188,7 @@ if (hasPublicationImage(pub)) {
         + window.escapeHTML(pub.image.trim())
         + '" alt="'
         + window.escapeHTML(imageAlt)
-        + '" loading="lazy">';
+        + '">';
     imageHtml += '</div>';
 }
 
