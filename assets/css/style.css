@@ -812,7 +812,7 @@ section,
 
 .primary-paragraph a:hover {
   color: var(--accent-color);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 4px;
 }
 
 
@@ -906,16 +906,23 @@ section,
 .secondary-bullet-list a,
 .primary-numbered-list a,
 .secondary-numbered-list a {
-  color: var(--accent-color);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition:
+    color var(--transition-fast),
+    text-decoration-thickness var(--transition-fast);
 }
 
 .primary-bullet-list a:hover,
 .secondary-bullet-list a:hover,
 .primary-numbered-list a:hover,
 .secondary-numbered-list a:hover {
-  text-decoration: underline;
+   color: var(--accent-color);
+   text-decoration-thickness: 4px;
 }
+
 
 
 /* ============================================
