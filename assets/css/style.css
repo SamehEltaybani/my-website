@@ -2966,7 +2966,7 @@ PUBLICATIONS PAGE
 .publications-controls,
 .blog-controls {
   position: sticky;
-  top: 90px;       /* ----- where the controls bar stop ----- */
+  top: 92px;       /* ----- where the controls bar stop ----- */
   z-index: 100;
   display: flex;
   align-items: center;
