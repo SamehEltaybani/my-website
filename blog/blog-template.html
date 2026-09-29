@@ -2,7 +2,6 @@
 <html lang="en">
     
 <head>
-    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,18 +13,6 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="blog/blog-article.html">
 
-    <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'nonce-secure123' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-    img-src 'self' data: https://api.qrserver.com;
-    connect-src 'self' https://api.web3forms.com;
-    frame-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    ">
-
         <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
         <link rel="preload" href="/my-website/assets/css/style.css" as="style">
         <link rel="preload" href="/my-website/assets/js/navbar.js" as="script">
@@ -35,7 +22,7 @@
         {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": "Your Article Title Here",
+          "headline": "Article Title Here",
           "description": "A brief summary of the article content.",
           "image": "https://sameheltaybani.github.io/my-website/img/data-1.webp",
           "datePublished": "2026-01-01",
@@ -80,8 +67,7 @@
     <div class="mobile-toc-overlay" id="mobile-toc-overlay"></div>
 
     <div class="mobile-toc-panel" id="mobile-toc-panel">
-        <button class="mobile-toc-close" id="mobile-toc-close" aria-label="Close table of contents">
-            <i class="fa-solid fa-xmark"></i>
+        <button class="mobile-toc-close" id="mobile-toc-close" aria-label="Close table of contents"><i class="fa-solid fa-xmark"></i>
         </button>
         <div class="toc-heading">Table of Content</div>
         <div id="mobile-toc-list"></div>
@@ -98,9 +84,7 @@
             <aside class="toc-column" id="toc-column">
                 <div class="toc-heading">Table of Content</div>
                 <nav id="toc-container">
-                    <ul class="toc-list" id="toc-list">
-                        <!-- Populated by JavaScript -->
-                    </ul>
+                    <ul class="toc-list" id="toc-list"></ul>
                 </nav>
             </aside>
 
@@ -114,32 +98,21 @@
                 <span>Previous Article</span>
             </a>
             <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
-                <i class="fa-solid fa-grid-2"></i>
-                View All Articles
+                <i class="fa-solid fa-grid-2"></i>View All Articles
             </a>
             <a href="#" class="nav-btn" id="next-article">
-                <span>Next Article</span>
-                <i class="fa-solid fa-arrow-right"></i>
+                <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
 
-                <!-- ===== ARTICLE HEADER ===== -->
+               <!-- ===== ARTICLE HEADER (auto-filled by JS) ===== -->
                 <header class="blog-article-header">
-                    <h1 class="blog-article-title" id="article-title">Placeholder for Article Title</h1>
-                    <div class="blog-article-short-title" id="article-short-title"> Placeholder for Your short title</div>
+                    <h1 class="blog-article-title" id="article-title"></h1>
+                    <div class="blog-article-short-title" id="article-short-title"></div>
                     <div class="blog-article-meta">
-                        <span class="meta-item" id="article-date">
-                            <i class="fa-solid fa-calendar"></i>
-                            <span>Placeholder for Date January 1, 2026</span>
-                        </span>
-                        <span class="meta-item" id="article-reading-time">
-                            <i class="fa-solid fa-clock"></i>
-                            <span>Placeholder for x min read</span>
-                        </span>
-                        <span class="meta-item blog-article-categories" id="article-categories">
-                            <span class="category-tag">Placeholder for Category 1</span>
-                            <span class="category-tag">Placeholder for Category 2</span>
-                        </span>
+                        <span class="meta-item" id="article-date"><i class="fa-solid fa-calendar"></i><span></span></span>
+                        <span class="meta-item" id="article-reading-time"><i class="fa-solid fa-clock"></i><span></span></span>
+                        <span class="meta-item blog-article-categories" id="article-categories"></span>
                     </div>
                 </header>
 
@@ -147,16 +120,13 @@
                 
                 <div class="blog-action-bar" id="action-bar">
                     <button class="blog-action-btn" id="share-btn">
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <span>Share</span>
+                        <i class="fa-solid fa-share-nodes"></i><span>Share</span>
                     </button>
                     <button class="blog-action-btn" id="qr-btn">
-                        <i class="fa-solid fa-qrcode"></i>
-                        <span>QR Code</span>
+                        <i class="fa-solid fa-qrcode"></i><span>QR Code</span>
                     </button>
                     <button class="blog-action-btn" id="copyright-btn">
-                        <i class="fa-solid fa-copyright"></i>
-                        <span>Copyright</span>
+                        <i class="fa-solid fa-copyright"></i><span>Copyright</span>
                     </button>
                 </div>
 
@@ -197,21 +167,17 @@
 
                 <div id="copyright-tooltip" class="action-tooltip" style="display: none;">
                     <div class="tooltip-header">
-                        <span>Copyright &amp; License</span>
+                        <span>Copyright & License</span>
                         <button class="tooltip-close" data-tooltip="copyright">×</button>
                     </div>
                     <div class="tooltip-body copyright-body">
                         <p>
-                            This article is licensed under the
-                            <strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</strong>
-                            (CC BY-NC-ND 4.0) license.
+                            This article is licensed under the<strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</strong>(CC BY-NC-ND 4.0) license.
                         </p>
                         <p>
-                            You are free to share this article for non-commercial purposes, provided you give appropriate
-                            credit and do not make changes or adaptations.
+                            You are free to share this article for non-commercial purposes, provided you give appropriate credit and do not make changes or adaptations.
                         </p>
-                        <a href="/my-website/legal.html" class="copyright-read-more">
-                            Read more <i class="fa-solid fa-arrow-right"></i>
+                        <a href="/my-website/legal.html" class="copyright-read-more">Read more <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -228,15 +194,6 @@
 <!-- ===== BLOG CONTENT ===== -->
                 <div class="blog-content" id="page-content">
 
-
-
-
-<!-- ================================================================ -->
-<!-- new elements will be used steb by step to replace the above     
-                    This is only a placeholder to ensure the TOC is functioning
-                    And will be deleted later 
-                    (all updates of new elements are in teh research page)-->
-<!-- ================================================================ -->
 
         
  <h2 id="primary-heading-preview-title" class="primary-heading-h2">
@@ -433,16 +390,13 @@
                 
                 <div class="blog-action-bar">
                     <button class="blog-action-btn" id="share-btn-bottom">
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <span>Share</span>
+                        <i class="fa-solid fa-share-nodes"></i><span>Share</span>
                     </button>
                     <button class="blog-action-btn" id="qr-btn-bottom">
-                        <i class="fa-solid fa-qrcode"></i>
-                        <span>QR Code</span>
+                        <i class="fa-solid fa-qrcode"></i><span>QR Code</span>
                     </button>
                     <button class="blog-action-btn" id="copyright-btn-bottom">
-                        <i class="fa-solid fa-copyright"></i>
-                        <span>Copyright</span>
+                        <i class="fa-solid fa-copyright"></i><span>Copyright</span>
                     </button>
                 </div>
 
@@ -463,16 +417,13 @@
                 
                     <div class="blog-bottom-nav">
                         <a href="#" class="nav-btn" id="prev-article-bottom">
-                            <i class="fa-solid fa-arrow-left"></i>
-                            <span>Previous Article</span>
+                            <i class="fa-solid fa-arrow-left"></i><span>Previous Article</span>
                         </a>
                         <a href="/my-website/blog.html" class="nav-btn">
-                            <i class="fa-regular fa-grid-2"></i>
-                            View All Articles
+                            <i class="fa-regular fa-grid-2"></i>View All Articles
                         </a>
                         <a href="#" class="nav-btn" id="next-article-bottom">
-                            <span>Next Article</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
 
@@ -503,7 +454,7 @@
 
     <!-- ===== ARTICLE-SPECIFIC DATA (edit this for each article) ===== -->
     
-    <script nonce="secure123">
+    <script>
         const articleData = {
             id: 'blog-1111',
             title: 'This is the title of the fictional blog article',
