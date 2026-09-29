@@ -1,0 +1,416 @@
+/**
+*SEARCH-RENDER.JS
+* This handles rendering results, filtering, sorting, and recent searches (specific to the search results page only).
+* It is different from search.js, which handles the modal, autocomplete, and dropdown suggestions (used on all pages).
+**/
+
+
+(function() {
+        'use strict';
+
+        let allItems = [];
+        let currentFilter = 'all';
+        let currentQuery = '';
+
+        // ============================================
+        // TEXT NORMALIZATION & PHRASE EXTRACTION
+        // (same as in search.js)
+        // ============================================
+        
+        
+        function normalizeText(text) {
+            if (!text) return '';
+            return text
+                .toLowerCase()
+                .replace(/[.,!?;:()\[\]{}"'“”‘’\/\-_]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function extractPhrases(text, n) {
+            const words = text.split(/\s+/);
+            if (words.length < n) return [];
+            const phrases = [];
+            for (let i = 0; i <= words.length - n; i++) {
+                phrases.push(words.slice(i, i + n).join(' '));
+            }
+            return phrases;
+        }
+
+        // ============================================
+        // GET URL PARAM
+        // ============================================
+        
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // ============================================
+        // LOAD DATA
+        // ============================================
+        
+        async function loadData() {
+            try {
+                const files = [
+                    { url: '/my-website/json/publications.json', source: 'publication', label: 'Publication' },
+                    { url: '/my-website/json/blog.json', source: 'blog', label: 'Blog' },
+                    { url: '/my-website/json/pages.json', source: 'page', label: 'Page' }
+                ];
+
+                let allResults = [];
+
+                for (const file of files) {
+                    try {
+                        const response = await fetch(file.url);
+                        if (!response.ok) continue;
+                        const data = await response.json();
+
+                        data.forEach(function(item) {
+                            const rawText = [
+                                item.title || '',
+                                item.shortTitle || '',
+                                item.authorship || '',
+                                item.journal || '',
+                                item.year || '',
+                                item.summary || '',
+                                item.categories ? item.categories.join(' ') : '',
+                                item.keywords ? item.keywords.join(' ') : ''
+                            ].join(' ').toLowerCase();
+
+                            const normalizedText = normalizeText(rawText);
+
+                            let link = '#';
+                            let id = item.id || '';
+
+                            if (file.source === 'publication') {
+                                link = '/my-website/publications.html?id=' + encodeURIComponent(id);
+                            } else if (file.source === 'blog') {
+                                link = '/my-website/blog.html?id=' + encodeURIComponent(id);
+                            } else if (file.source === 'page') {
+                                link = item.url || '#';
+                            }
+
+                            allResults.push({
+                                id: id,
+                                title: item.title || 'Untitled',
+                                source: file.source,
+                                sourceLabel: file.label,
+                                link: link,
+                                searchableText: rawText,
+                                normalizedText: normalizedText,
+                                raw: item
+                            });
+                        });
+                    } catch (e) {
+                        console.warn('Could not load', file.url, e);
+                    }
+                }
+
+                allItems = allResults;
+                return allItems;
+            } catch (error) {
+                console.error('Error loading search data:', error);
+                return [];
+            }
+        }
+
+        // ============================================
+        // SEARCH ITEMS (with consecutive phrase matching)
+        // ============================================
+        
+        function searchItems(query, filter) {
+            if (!query || query.trim().length === 0) {
+                return [];
+            }
+
+            const normalizedQuery = normalizeText(query);
+            const queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+            const isPhrase = queryWords.length >= 3;
+
+            let results = allItems;
+
+            // Apply filter
+            if (filter !== 'all') {
+                results = results.filter(function(item) {
+                    return item.source === filter;
+                });
+            }
+
+            if (!isPhrase) {
+                // Short query: use simple word matching (but still use normalized)
+                const lowerQuery = query.toLowerCase().trim();
+                const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+
+                const scored = results.map(function(item) {
+                    let score = 0;
+                    const text = item.normalizedText;
+                    const titleLower = (item.title || '').toLowerCase();
+
+                    words.forEach(function(word) {
+                        if (text.includes(word)) score += 5;
+                        if (titleLower.includes(word)) score += 10;
+                    });
+
+                    return { item: item, score: score };
+                });
+
+                const filtered = scored
+                    .filter(function(s) { return s.score > 0; })
+                    .sort(function(a, b) { return b.score - a.score; })
+                    .map(function(s) { return s.item; });
+
+                return filtered;
+            }
+
+            // Phrase query: extract bigrams and trigrams
+            const bigrams = extractPhrases(normalizedQuery, 2);
+            const trigrams = extractPhrases(normalizedQuery, 3);
+
+            const scored = results.map(function(item) {
+                const itemText = item.normalizedText;
+                let score = 0;
+                let matchedBigrams = 0;
+                let matchedTrigrams = 0;
+
+                bigrams.forEach(function(phrase) {
+                    if (itemText.includes(phrase)) {
+                        matchedBigrams++;
+                        score += 2;
+                    }
+                });
+
+                trigrams.forEach(function(phrase) {
+                    if (itemText.includes(phrase)) {
+                        matchedTrigrams++;
+                        score += 5;
+                    }
+                });
+
+                if (itemText.includes(normalizedQuery)) {
+                    score += 10;
+                }
+
+                return {
+                    item: item,
+                    score: score,
+                    matchedBigrams: matchedBigrams,
+                    matchedTrigrams: matchedTrigrams
+                };
+            });
+
+            // Threshold: require at least 1 trigram OR 2 bigrams
+            const minBigrams = 2;
+            const minTrigrams = 1;
+
+            const filtered = scored
+                .filter(function(s) {
+                    if (s.matchedTrigrams >= minTrigrams) return true;
+                    if (s.matchedBigrams >= minBigrams) return true;
+                    return false;
+                })
+                .sort(function(a, b) { return b.score - a.score; })
+                .map(function(s) { return s.item; });
+
+            return filtered;
+        }
+
+        // ============================================
+        // HIGHLIGHT TEXT (simple)
+        // ============================================
+        
+        function highlightText(text, query) {
+            if (!text || !query) return text;
+            const lowerText = text.toLowerCase();
+            const lowerQuery = query.toLowerCase().trim();
+            const index = lowerText.indexOf(lowerQuery);
+            if (index === -1) return text;
+            const before = text.substring(0, index);
+            const match = text.substring(index, index + query.length);
+            const after = text.substring(index + query.length);
+            return before + '<span style="background: rgba(0, 173, 181, 0.15); font-weight: 600; padding: 0 2px; border-radius: 2px;">' + match + '</span>' + after;
+        }
+
+        // ============================================
+        // RENDER RESULTS
+        // ============================================
+        
+        function renderResults(results, query) {
+            const container = document.getElementById('search-results-list');
+            const countEl = document.getElementById('results-count');
+
+            if (results.length === 0) {
+                countEl.innerHTML = 'No results found for "<strong>' + window.escapeHTML(query) + '</strong>".';
+            } else {
+                countEl.innerHTML = results.length + ' result' + (results.length > 1 ? 's' : '') + ' for "<strong>' + window.escapeHTML(query) + '</strong>"';
+            }
+
+            container.innerHTML = '';
+
+            if (results.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: var(--space-xl) 0;">
+                        <p style="font-size: 1.2rem; color: var(--dark-color); opacity: 0.6; margin-bottom: var(--space-sm);">
+                            <i class="fa-regular fa-face-sad-tear" style="font-size: 2rem; display: block; margin-bottom: var(--space-md); color: var(--accent-color);"></i>
+                            No results found for "<strong>${window.escapeHTML(query)}</strong>".
+                        </p>
+                        <p style="color: var(--dark-color); opacity: 0.4; font-size: 0.95rem;">
+                            Try different keywords, check your spelling, or browse the site navigation above.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            results.forEach(function(item) {
+                const card = document.createElement('a');
+                card.className = 'search-result-card';
+                card.href = item.link;
+
+                const row = document.createElement('div');
+                row.className = 'result-row';
+
+                const title = document.createElement('span');
+                title.className = 'result-title';
+                title.innerHTML = highlightText(item.title, query);
+
+                const source = document.createElement('span');
+                source.className = 'result-source source-' + item.source;
+                source.textContent = item.sourceLabel;
+
+                row.appendChild(title);
+                row.appendChild(source);
+                card.appendChild(row);
+                container.appendChild(card);
+            });
+        }
+
+        // ============================================
+        // RECENT SEARCHES
+        // ============================================
+        
+        function getRecentSearches() {
+            try {
+                const stored = localStorage.getItem('recentSearches');
+                if (stored) return JSON.parse(stored);
+            } catch (e) {}
+            return [];
+        }
+
+        function saveRecentSearch(query) {
+            if (!query || query.trim().length === 0) return;
+            let recent = getRecentSearches();
+            recent = recent.filter(function(item) {
+                return item.toLowerCase() !== query.toLowerCase().trim();
+            });
+            recent.unshift(query.trim());
+            recent = recent.slice(0, 5);
+            try {
+                localStorage.setItem('recentSearches', JSON.stringify(recent));
+            } catch (e) {}
+            renderRecentSearches();
+        }
+
+        function clearRecentSearches() {
+            try {
+                localStorage.removeItem('recentSearches');
+            } catch (e) {}
+            renderRecentSearches();
+        }
+
+        function renderRecentSearches() {
+            const container = document.getElementById('recent-list');
+            const recent = getRecentSearches();
+
+            if (recent.length === 0) {
+                container.innerHTML = '<span style="font-size: 0.85rem; color: var(--dark-color); opacity: 0.3;">No recent searches</span>';
+                return;
+            }
+
+            container.innerHTML = '';
+            recent.forEach(function(query) {
+                const a = document.createElement('a');
+                a.className = 'search-recent-item';
+                a.href = '/my-website/search.html?q=' + encodeURIComponent(query);
+                a.textContent = query;
+
+                const clearBtn = document.createElement('button');
+                clearBtn.className = 'clear-recent';
+                clearBtn.setAttribute('aria-label', 'Remove from recent searches');
+                clearBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                clearBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let recent = getRecentSearches();
+                    recent = recent.filter(function(item) {
+                        return item.toLowerCase() !== query.toLowerCase();
+                    });
+                    try {
+                        localStorage.setItem('recentSearches', JSON.stringify(recent));
+                    } catch (e) {}
+                    renderRecentSearches();
+                });
+
+                a.appendChild(clearBtn);
+                container.appendChild(a);
+            });
+
+            const clearAll = document.createElement('button');
+            clearAll.className = 'search-recent-item';
+            clearAll.style.cssText = 'background: transparent; opacity: 0.4; font-size: 0.75rem; cursor: pointer; border: none; font-family: inherit;';
+            clearAll.textContent = 'Clear all';
+            clearAll.addEventListener('click', function() {
+                clearRecentSearches();
+            });
+            container.appendChild(clearAll);
+        }
+
+        
+        // ============================================
+        // FILTER BUTTONS
+        // ============================================
+
+        
+        function setupFilters() {
+            const buttons = document.querySelectorAll('.search-filter-btn');
+            buttons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    buttons.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    const results = searchItems(currentQuery, currentFilter);
+                    renderResults(results, currentQuery);
+                });
+            });
+        }
+
+        
+        // ============================================
+        // INIT
+        // ============================================
+        
+        async function init() {
+            setupFilters();
+
+            const query = getQueryParam('q');
+            if (!query) {
+                document.getElementById('results-count').textContent = 'No search query provided.';
+                document.getElementById('search-results-list').innerHTML = `
+                    <div style="text-align: center; padding: var(--space-xl) 0;">
+                        <p style="color: var(--dark-color); opacity: 0.5;">Please use the search box to search the site.</p>
+                    </div>
+                `;
+                renderRecentSearches();
+                return;
+            }
+
+            currentQuery = query;
+            await loadData();
+            const results = searchItems(query, 'all');
+            renderResults(results, query);
+            saveRecentSearch(query);
+            renderRecentSearches();
+        }
+        
+        document.addEventListener('DOMContentLoaded', init);
+    })();
