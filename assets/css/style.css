@@ -97,6 +97,14 @@ body {
 }
 
 
+section,
+.section,
+.about-section {
+  padding: var(--space-xl) 0;
+  margin: 0;
+}
+
+
 @media (max-width: 768px) {
   body {
     padding-top: 75px;
@@ -649,19 +657,6 @@ body {
 
 }
 
-
-
-
-/* ============================================
-   SECTION SPACING
-   ============================================ */
-
-section,
-.section,
-.about-section {
-  padding: var(--space-xl) 0;
-  margin: 0;
-}
 
 
 
@@ -2558,7 +2553,6 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 768px) {
-   
   .publications-header-cta {
     display: block;
     margin-top: var(--space-xs);
@@ -2924,7 +2918,6 @@ PUBLICATIONS PAGE
 /* ----- Responsive:  See More Button ----- */
 
 @media (max-width: 768px) {
-  
   .see-more-btn {
     font-size: 0.9rem;
     padding: var(--space-xs) var(--space-lg);
@@ -3515,7 +3508,6 @@ PUBLICATIONS PAGE
 }
 
 @media (max-width: 400px) {
-   
    .controls-status {
     font-size: 0.50rem;
   }
@@ -4778,7 +4770,6 @@ PUBLICATIONS PAGE
 /*  ----- CONTACT PAGE - RESPONSIVE  -----  */
 
 @media (max-width: 768px) {
-   
   .contact-intro {
     font-size: 1rem;
     padding: 0 var(--space-sm);
@@ -4809,8 +4800,7 @@ PUBLICATIONS PAGE
     }
 }
 
-@media (max-width: 400px) {
-   
+@media (max-width: 400px) {   
   .contact-form-card {
     padding: var(--space-md);
   }
@@ -5399,7 +5389,6 @@ background: rgba(0, 0, 0, 0.28);
    }
 
 @media (max-width: 768px) {
-   
     .toc-column {
         display: none;
     }
@@ -5412,7 +5401,6 @@ background: rgba(0, 0, 0, 0.28);
 }
 
 @media (max-width: 400px) {
-   
     .mobile-toc-toggle {
         width: 44px;
         height: 44px;
@@ -6072,14 +6060,12 @@ BLOG Article (right side content)
 /* ----- Responsive Blog Article ----- */
 
 @media (max-width: 992px) {
-   
         .recommended-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-   
     .blog-article-wrapper {
         flex-direction: column;
         gap: var(--space-md);
@@ -6476,8 +6462,7 @@ BLOG Article (right side content)
   text-align: left;
 }
 
-@media (max-width: 700px) {
-   
+@media (max-width: 700px) { 
   .portfolio-profile-descriptor {
     margin: var(--space-lg) 0;
   }
@@ -6562,7 +6547,6 @@ BLOG Article (right side content)
 
 
 @media (max-width: 700px) {
-   
   .quick-note {
     margin: var(--space-md) 0;
     padding: var(--space-md) var(--space-md) var(--space-md) var(--space-lg);
@@ -6575,7 +6559,6 @@ BLOG Article (right side content)
    .quick-note-button {
      width: 250px;
  }
-
  }
 
 
@@ -7096,8 +7079,7 @@ BLOG Article (right side content)
 
   .tabs-resource-buttons {
     grid-template-columns: 1fr;
-  }
-   
+  }  
 }
 
 
@@ -7140,9 +7122,6 @@ BLOG Article (right side content)
     color: var(--dark-color);
     opacity: 0.5;
 }
-
-
-
 
 
 
@@ -7229,6 +7208,7 @@ BLOG Article (right side content)
     background: linear-gradient(to right, var(--accent-color), transparent 70%);
     opacity: 0.15;
 }
+
 
 /* ----- CTA Banner ----- */
 
