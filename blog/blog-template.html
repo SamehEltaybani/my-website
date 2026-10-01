@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== DYNAMIC TITLE & DESCRIPTION (set per article) ===== -->
+    <!-- ===== EDIT PER ARTICLE: TITLE & META ===== -->
     <title>Dr. Sameh Eltaybani - Blog Article</title>
     <meta name="description" content="Blog article by Dr. Sameh Eltaybani.">
     <meta property="og:title" content="Dr. Sameh Eltaybani - Blog Article">
@@ -13,40 +12,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="blog/blog-article.html">
 
-        <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
-        <link rel="preload" href="/my-website/assets/css/style.css" as="style">
-        <link rel="preload" href="/my-website/assets/js/navbar.js" as="script">
-        <link rel="preload" href="/my-website/assets/js/utils.js" as="script">
+    <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
+    <link rel="preload" href="/my-website/assets/css/style.css" as="style">
+    <link rel="preload" href="/my-website/assets/js/navbar.js" as="script">
+    <link rel="preload" href="/my-website/assets/js/utils.js" as="script">
 
-   <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": "Article Title Here",
-          "description": "A brief summary of the article content.",
-          "image": "https://sameheltaybani.github.io/my-website/img/data-1.webp",
-          "datePublished": "2026-01-01",
-          "dateModified": "2026-01-01",
-          "author": {
-            "@type": "Person",
-            "name": "Dr. Sameh Eltaybani"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Dr. Sameh Eltaybani - Academic Website",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://sameheltaybani.github.io/my-website/img/data-1.webp"
-            }
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://sameheltaybani.github.io/my-website/blog/blog-template.html"
-          },
-          "keywords": "healthcare, research, data analysis"
-        }
-    </script>
-    
     <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,8 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     <link rel="stylesheet" href="/my-website/assets/css/style.css" />
-
-</head> 
+</head>
 <body>
 
     <!-- ===== MOBILE TOC BUTTON, OVERLAY, PANEL ===== -->
@@ -76,7 +45,6 @@
     <!-- ===== MAIN WRAPPER ===== -->
     <div class="container">
 
-       
         <!-- ===== TWO-COLUMN LAYOUT ===== -->
         <div class="page-layout">
 
@@ -91,21 +59,21 @@
             <!-- ===== RIGHT: CONTENT ===== -->
             <main class="page-content-column">
 
-                 <!-- ===== TOP NAV ===== -->
-        <div class="blog-top-nav">
-            <a href="#" class="nav-btn" id="prev-article">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Previous Article</span>
-            </a>
-            <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
-                <i class="fa-solid fa-grid-2"></i>View All Articles
-            </a>
-            <a href="#" class="nav-btn" id="next-article">
-                <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
+                <!-- ===== TOP NAV ===== -->
+                <div class="blog-top-nav">
+                    <a href="#" class="nav-btn" id="prev-article">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Previous Article</span>
+                    </a>
+                    <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
+                        <i class="fa-solid fa-grid-2"></i>View All Articles
+                    </a>
+                    <a href="#" class="nav-btn" id="next-article">
+                        <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
 
-               <!-- ===== ARTICLE HEADER (auto-filled by JS) ===== -->
+                <!-- ===== ARTICLE HEADER (auto-filled by JS) ===== -->
                 <header class="blog-article-header">
                     <h1 class="blog-article-title" id="article-title"></h1>
                     <div class="blog-article-short-title" id="article-short-title"></div>
@@ -117,7 +85,6 @@
                 </header>
 
                 <!-- ===== ACTION BAR ===== -->
-                
                 <div class="blog-action-bar" id="action-bar">
                     <button class="blog-action-btn" id="share-btn">
                         <i class="fa-solid fa-share-nodes"></i><span>Share</span>
@@ -131,7 +98,6 @@
                 </div>
 
                 <!-- ===== TOOLTIP CONTAINERS ===== -->
-                
                 <div id="share-tooltip" class="action-tooltip" style="display: none;">
                     <div class="tooltip-header">
                         <span>Share this article</span>
@@ -158,8 +124,8 @@
                         <button class="tooltip-close" data-tooltip="qr">×</button>
                     </div>
                     <div class="tooltip-body qr-container">
-                        <img id="qr-code-image" 
-                             src="" 
+                        <img id="qr-code-image"
+                             src=""
                              alt="QR Code for this article" />
                         <p class="qr-help">Scan this QR code to view this article on your mobile device.</p>
                     </div>
@@ -183,84 +149,71 @@
                 </div>
 
                 <!-- ===== TOAST ===== -->
-                
                 <div id="toast-message" class="toast-message" style="display: none;">
                     <span id="toast-text">Copied to clipboard!</span>
                 </div>
 
-                
-                
-                
-<!-- ===== BLOG CONTENT ===== -->
+                <!-- ===== BLOG CONTENT ===== -->
                 <div class="blog-content" id="page-content">
 
+                    <!-- ===== ELEMENT: HEADINGS ===== -->
+                    <h2 id="primary-heading-preview-title" class="primary-heading-h2">
+                        <span class="primary-heading-icon" aria-hidden="true">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </span>
+                        <span class="primary-heading-text">H2 heading with icon</span>
+                    </h2>
 
-        
- <h2 id="primary-heading-preview-title" class="primary-heading-h2">
-    <span class="primary-heading-icon" aria-hidden="true">
-      <i class="fa-solid fa-layer-group"></i>
-    </span>
-    <span class="primary-heading-text">H2 heading with icon</span>
-  </h2>
+                    <h2 class="primary-heading-h2">
+                        <span class="primary-heading-text">H2 heading without icon</span>
+                    </h2>
 
-  <h2 class="primary-heading-h2">
-    <span class="primary-heading-text">H2 heading without icon</span>
-  </h2>
+                    <h3 class="primary-heading-h3">
+                        <span class="primary-heading-icon" aria-hidden="true">
+                            <i class="fa-solid fa-book-open"></i>
+                        </span>
+                        <span class="primary-heading-text">H3 heading with icon</span>
+                    </h3>
 
-  <h3 class="primary-heading-h3">
-    <span class="primary-heading-icon" aria-hidden="true">
-      <i class="fa-solid fa-book-open"></i>
-    </span>
-    <span class="primary-heading-text">H3 heading with icon</span>
-  </h3>
+                    <h3 class="primary-heading-h3">
+                        <span class="primary-heading-text">H3 heading without icon</span>
+                    </h3>
 
-  <h3 class="primary-heading-h3">
-    <span class="primary-heading-text">H3 heading without icon</span>
-  </h3>
+                    <h4 class="primary-heading-h4">
+                        <span class="primary-heading-icon" aria-hidden="true">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </span>
+                        <span class="primary-heading-text">H4 heading with icon</span>
+                    </h4>
 
-  <h4 class="primary-heading-h4">
-    <span class="primary-heading-icon" aria-hidden="true">
-      <i class="fa-solid fa-circle-info"></i>
-    </span>
-    <span class="primary-heading-text">H4 heading with icon</span>
-  </h4>
+                    <h4 class="primary-heading-h4">
+                        <span class="primary-heading-text">H4 heading without icon</span>
+                    </h4>
 
-  <h4 class="primary-heading-h4">
-    <span class="primary-heading-text">H4 heading without icon</span>
-  </h4>
+                    <!-- ===== ELEMENT: PARAGRAPHS ===== -->
+                    <p class="primary-paragraph">
+                        Unified text style for all paragraphs.
+                    </p>
 
+                    <p class="primary-paragraph primary-paragraph-centered">
+                        Centered paragraph.
+                    </p>
 
- <p class="primary-paragraph">
-      Unified text style for all paragraphs.
-    </p>
+                    <!-- ===== ELEMENT: IMAGE WITH GLIGHTBOX AND IMAGE-SOURCE OVERLAY ===== -->
+                    <div class="glightbox-image-frame">
+                        <a href="/my-website/img/profile.webp"
+                           class="glightbox"
+                           data-gallery="blog-gallery">
+                            <img src="/my-website/img/profile.webp"
+                                 alt="Your description">
+                        </a>
+                    </div>
 
- <p class="primary-paragraph primary-paragraph-centered">
-      Centered paragraph.
-    </p>
+                    <p class="image-caption">
+                        Figure 1: This is an image caption. Click the image to open the lightbox.
+                    </p>
 
-                    
-
-                    
-                 
-                   <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX AND IMAGE-SOURCE OVERLAY ===== -->
-                    
-<div class="glightbox-image-frame">
-  <a href="/my-website/img/profile.webp"
-     class="glightbox"
-     data-gallery="blog-gallery">
-    <img src="/my-website/img/profile.webp"
-         alt="Your description">
-  </a>
-</div>
-
-<p class="image-caption">
-  Figure 1: This is an image caption. Click the image to open the lightbox.
-</p>
-
-
-
-
-                    <!-- ===== ELEMENT 7: NOTE CALLOUT ===== -->
+                    <!-- ===== ELEMENT: NOTE CALLOUT ===== -->
                     <div class="callout callout-note">
                         <div class="callout-icon">
                             <i class="fa-solid fa-lightbulb"></i>
@@ -271,12 +224,11 @@
                                 <li>You can include bullet points inside callouts</li>
                                 <li>Or any other content block</li>
                             </ul>
-                            <!-- Optional button -->
                             <a href="#" class="callout-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <!-- ===== ELEMENT 8: WARNING CALLOUT ===== -->
+                    <!-- ===== ELEMENT: WARNING CALLOUT ===== -->
                     <div class="callout callout-warning">
                         <div class="callout-icon">
                             <i class="fa-solid fa-triangle-exclamation"></i>
@@ -284,110 +236,22 @@
                         <div class="callout-content">
                             <p><strong>Warning:</strong> This is a warning callout. Use it to highlight critical information.</p>
                             <p>It works exactly like the note callout but with a different color.</p>
-                            <!-- Optional button -->
                             <a href="#" class="callout-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-
-
-
-
-
-  
-
-                    <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX ===== -->
-                    <a href="/my-website/img/profile.webp" 
-                        class="glightbox" 
-                        data-gallery="blog-gallery">
-                        <img src="/my-website/img/profile.webp" 
+                    <!-- ===== ELEMENT: IMAGE WITH GLIGHTBOX ===== -->
+                    <a href="/my-website/img/profile.webp"
+                       class="glightbox"
+                       data-gallery="blog-gallery">
+                        <img src="/my-website/img/profile.webp"
                              alt="Your description" />
                     </a>
                     <p class="image-caption">Figure 1: This is an image caption. Click the image to open the lightbox.</p>
 
-                    <!-- ===== ELEMENT 7: NOTE CALLOUT ===== -->
-                    <div class="callout callout-note">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <div class="callout-content">
-                            <p><strong>Note:</strong> This is a note callout. Use it to highlight important information.</p>
-                            <ul>
-                                <li>You can include bullet points inside callouts</li>
-                                <li>Or any other content block</li>
-                            </ul>
-                            <!-- Optional button -->
-                            <a href="#" class="callout-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                </div><!-- end page-content -->
 
-                    <!-- ===== ELEMENT 8: WARNING CALLOUT ===== -->
-                    <div class="callout callout-warning">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-                        <div class="callout-content">
-                            <p><strong>Warning:</strong> This is a warning callout. Use it to highlight critical information.</p>
-                            <p>It works exactly like the note callout but with a different color.</p>
-                            <!-- Optional button -->
-                            <a href="#" class="callout-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    
-
-                    <!-- ===== ELEMENT 6: IMAGE WITH GLIGHTBOX ===== -->
-                    <a href="/my-website/img/profile.webp" 
-                            class="glightbox" 
-                            data-gallery="blog-gallery">
-                        <img src="/my-website/img/profile.webp" 
-                             alt="Your description" />
-                    </a>
-                    <p class="image-caption">Figure 1: This is an image caption. Click the image to open the lightbox.</p>
-
-                    <!-- ===== ELEMENT 7: NOTE CALLOUT ===== -->
-                    <div class="callout callout-note">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <div class="callout-content">
-                            <p><strong>Note:</strong> This is a note callout. Use it to highlight important information.</p>
-                            <ul>
-                                <li>You can include bullet points inside callouts</li>
-                                <li>Or any other content block</li>
-                            </ul>
-                            <!-- Optional button -->
-                            <a href="#" class="callout-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== ELEMENT 8: WARNING CALLOUT ===== -->
-                    <div class="callout callout-warning">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-                        <div class="callout-content">
-                            <p><strong>Warning:</strong> This is a warning callout. Use it to highlight critical information.</p>
-                            <p>It works exactly like the note callout but with a different color.</p>
-                            <!-- Optional button -->
-                            <a href="#" class="callout-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                                           
-
-                   
-
-
-
-
-
-                    
-
-                </div><!-- end blog-content -->
-
-                <!-- ===== BOTTOM ACTION BAR (replicated) ===== -->
-                
+                <!-- ===== BOTTOM ACTION BAR ===== -->
                 <div class="blog-action-bar">
                     <button class="blog-action-btn" id="share-btn-bottom">
                         <i class="fa-solid fa-share-nodes"></i><span>Share</span>
@@ -412,23 +276,20 @@
                     </p>
                 </div>
 
-                
-               <!-- ===== BOTTOM NAV ===== -->
-                
-                    <div class="blog-bottom-nav">
-                        <a href="#" class="nav-btn" id="prev-article-bottom">
-                            <i class="fa-solid fa-arrow-left"></i><span>Previous Article</span>
-                        </a>
-                        <a href="/my-website/blog.html" class="nav-btn">
-                            <i class="fa-regular fa-grid-2"></i>View All Articles
-                        </a>
-                        <a href="#" class="nav-btn" id="next-article-bottom">
-                            <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <!-- ===== BOTTOM NAV ===== -->
+                <div class="blog-bottom-nav">
+                    <a href="#" class="nav-btn" id="prev-article-bottom">
+                        <i class="fa-solid fa-arrow-left"></i><span>Previous Article</span>
+                    </a>
+                    <a href="/my-website/blog.html" class="nav-btn">
+                        <i class="fa-regular fa-grid-2"></i>View All Articles
+                    </a>
+                    <a href="#" class="nav-btn" id="next-article-bottom">
+                        <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
 
                 <!-- ===== RECOMMENDED ARTICLES ===== -->
-                
                 <section class="recommended-section">
                     <h2 class="recommended-title">Recommended for You</h2>
                     <div class="recommended-grid" id="recommended-grid">
@@ -443,7 +304,6 @@
     </div><!-- end container -->
 
     <!-- ===== JAVASCRIPT ===== -->
-    
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="/my-website/assets/js/utils.js"></script>
     <script src="/my-website/assets/js/navbar.js"></script>
@@ -451,22 +311,6 @@
     <script src="/my-website/assets/js/back-to-top.js"></script>
     <script src="/my-website/assets/js/search.js"></script>
     <script src="/my-website/assets/js/toc.js"></script>
-
-    <!-- ===== ARTICLE-SPECIFIC DATA (edit this for each article) ===== -->
-    
-    <script>
-        const articleData = {
-            id: 'blog-1111',
-            title: 'This is the title of the fictional blog article',
-            shortTitle: 'Short title of the fictional blog article',
-            date: '2027-01-01',
-            categories: ['Fictional', 'Insights', 'Trials'],
-            blogfile: 'blog/blog-template.html'
-        };
-    </script>
-
-    
-    <!-- ===== ARTICLE LOGIC (shared) ===== -->
     <script src="/my-website/assets/js/blog-article.js"></script>
 
 </body>
