@@ -5449,6 +5449,7 @@ BLOG Article (right side content)
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
+    padding-bottom: var(--space-lg);
     border-bottom: 4px solid var(--accent-color);
 }
 
@@ -5559,7 +5560,6 @@ BLOG Article (right side content)
     justify-content: flex-end;
     gap: var(--space-sm);
     padding-bottom: var(--space-sm);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.04);
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
     position: relative;
