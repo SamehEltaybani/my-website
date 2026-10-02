@@ -6594,10 +6594,7 @@ BLOG Article (right side content)
 .portfolio-scholarly-button {
   width: 220px;
   height: 40px;
-
-  /* More space after the external-link icon */
-  padding: 0 var(--space-md) 0 var(--space-sm);
-
+  padding: 0 var(--space-md) 0 var(--space-xs);
   justify-content: flex-start;
   gap: var(--space-sm);
 }
@@ -6643,7 +6640,7 @@ BLOG Article (right side content)
 /* Reuse the primary-button hover movement */
 .portfolio-scholarly-button:hover i,
 .portfolio-scholarly-button:focus-visible i {
-  transform: translateX(2px);
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
