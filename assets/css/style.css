@@ -990,6 +990,31 @@ section,
 }
 
 
+/* -----  PRIMARY ACCENT BUTTON   ----- */
+
+.primary-button-accent {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.primary-button-accent:hover,
+.primary-button-accent:focus-visible {
+  background: var(--dark-color);
+  border-color: var(--dark-color);
+  color: var(--white-color);
+  box-shadow: 0 4px 16px rgba(0, 173, 181, 0.3);
+}
+
+.primary-button-accent i {
+  color: var(--white-color);
+}
+
+.primary-button-accent:hover i,
+.primary-button-accent:focus-visible i {
+  color: var(--white-color);
+  transform: translateX(4px);
+}
 
 
 
