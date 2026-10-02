@@ -25,7 +25,6 @@
   --complementary-Color: #b50800;
    
    
-
    
     
   /* ----- SPACING SYSTEM ----- */
@@ -6594,7 +6593,7 @@ BLOG Article (right side content)
 .portfolio-scholarly-button {
   width: 220px;
   height: 40px;
-  padding: 0 var(--space-md) 0 var(--space-xs);
+  padding: 0 var(--space-md) 0 3px;
   justify-content: flex-start;
   gap: var(--space-sm);
 }
@@ -6612,7 +6611,6 @@ BLOG Article (right side content)
   background: var(--white-color);
 }
 
-/* Preserve the original logo proportions */
 .portfolio-scholarly-button-logo img {
   display: block;
   width: 100%;
@@ -6671,10 +6669,6 @@ BLOG Article (right side content)
     height: 26px;
   }
 }
-
-
-
-
 
 
 /* ==========================================
