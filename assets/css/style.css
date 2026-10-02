@@ -6588,32 +6588,34 @@ BLOG Article (right side content)
 
 
 /* ==========================================
-   SCHOLARLY DATABASE BUTTON
-   Uses the shared primary-button style
+   SCHOLARLY BUTTON-SPECIFIC LAYOUT
    ========================================== */
 
 .portfolio-scholarly-button {
   width: 220px;
   height: 40px;
+
+  /* More space after the external-link icon */
+  padding: 0 var(--space-md) 0 var(--space-sm);
+
   justify-content: flex-start;
   gap: var(--space-sm);
-  padding: 0 var(--space-sm);
 }
 
-/* Circular logo container */
+/* Larger circular logo */
 .portfolio-scholarly-button-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 26px;
-  width: 26px;
-  height: 26px;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
   overflow: hidden;
   border-radius: var(--radius-full);
   background: var(--white-color);
 }
 
-/* Database logo */
+/* Preserve the original logo proportions */
 .portfolio-scholarly-button-logo img {
   display: block;
   width: 100%;
@@ -6634,44 +6636,45 @@ BLOG Article (right side content)
 /* External-link icon */
 .portfolio-scholarly-button i {
   flex: 0 0 auto;
-  font-size: 0.8rem;
-  transition: transform var(--transition-fast);
+  margin-right: var(--space-xs);
 }
+
 
 /* Reuse the primary-button hover movement */
 .portfolio-scholarly-button:hover i,
 .portfolio-scholarly-button:focus-visible i {
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 @media (max-width: 768px) {
   .portfolio-scholarly-button {
     width: 210px;
     height: 36px;
+    padding: 0 var(--space-md) 0 var(--space-sm);
     font-size: 0.9rem;
   }
 
   .portfolio-scholarly-button-logo {
-    flex-basis: 24px;
-    width: 24px;
-    height: 24px;
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
   }
 }
 
 @media (max-width: 400px) {
   .portfolio-scholarly-button {
     width: 200px;
-    gap: var(--space-xs);
-    padding: 0 var(--space-xs);
+    padding: 0 var(--space-md) 0 var(--space-xs);
     font-size: 0.8rem;
   }
 
   .portfolio-scholarly-button-logo {
-    flex-basis: 22px;
-    width: 22px;
-    height: 22px;
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
   }
 }
+
 
 
 
