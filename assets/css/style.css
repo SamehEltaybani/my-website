@@ -6645,7 +6645,7 @@ BLOG Article (right side content)
   .portfolio-scholarly-button {
     width: 210px;
     height: 36px;
-    padding: 0 var(--space-md) 0 var(--space-sm);
+    padding: 0 var(--space-md) 0 3px;
     font-size: 0.9rem;
   }
 
@@ -6659,7 +6659,7 @@ BLOG Article (right side content)
 @media (max-width: 400px) {
   .portfolio-scholarly-button {
     width: 200px;
-    padding: 0 var(--space-md) 0 var(--space-xs);
+    padding: 0 var(--space-md) 0 3px;
     font-size: 0.8rem;
   }
 
