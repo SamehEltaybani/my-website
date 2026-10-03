@@ -84,7 +84,7 @@ body {
   font-weight: 400;
   color: var(--dark-color);
   line-height: 1.6;
-  padding-top: 80px;
+  padding-top: 110px;
 }
 
 
@@ -752,9 +752,8 @@ section,
   width: 100%;
   background: transparent;
   margin: 0;
-  padding-top: 12rem !important;
+  padding-top: var(--space-xl); 
   padding-bottom: var(--space-xl);  
-  margin-top: 80px;
 }
 
 .page-header-title {
