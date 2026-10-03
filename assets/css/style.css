@@ -5096,7 +5096,7 @@ PUBLICATIONS PAGE
     display: flex;
     gap: var(--space-xl);
     margin-top: 0;
-    padding-top: var(--space-md);
+    padding-top: var(--space-xs);
 }
 
 /* ----- Desktop TOC Column ----- */
