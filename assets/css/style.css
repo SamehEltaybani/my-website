@@ -5118,7 +5118,7 @@ PUBLICATIONS PAGE
 #toc-container {
     flex: 1;
     overflow-y: auto;
-    padding-top: 8px;
+    padding-top: 12px;
 }
 
 /* ----- Desktop TOC Scrollbar ----- */
@@ -5156,7 +5156,7 @@ background: rgba(0, 0, 0, 0.28);
     background: var(--bg-color);
     padding: 0 0 12px 0;
     margin: 0;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 4px solid var(--accent-color);
     flex-shrink: 0;
 }
 
