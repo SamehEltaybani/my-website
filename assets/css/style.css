@@ -752,7 +752,7 @@ section,
   width: 100%;
   background: transparent;
   margin: 0;
-  padding-top: var(--space-xl); 
+  padding-top: var(--space-xxl); 
   padding-bottom: var(--space-xl);  
 }
 
