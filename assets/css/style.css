@@ -724,7 +724,11 @@ section,
   }
 }
 
+/* ----- Centered Header ----- */
 
+.page-header-title-center {
+    text-align: center;
+}
 
 
 
