@@ -84,7 +84,7 @@ body {
   font-weight: 400;
   color: var(--dark-color);
   line-height: 1.6;
-  padding-top: 110px;
+  padding-top: 100px;
 }
 
 
@@ -752,7 +752,7 @@ section,
   width: 100%;
   background: transparent;
   margin: 0;
-  padding-top: var(--space-xl); 
+  padding-top: 10rem; 
   padding-bottom: var(--space-xl);  
 }
 
