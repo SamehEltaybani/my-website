@@ -5165,7 +5165,7 @@ background: rgba(0, 0, 0, 0.28);
 .toc-list {
     list-style: none;
     padding: 0;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     margin: 0;
     background: var(--bg-color);
 }
