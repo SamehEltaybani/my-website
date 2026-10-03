@@ -5103,9 +5103,9 @@ PUBLICATIONS PAGE
 .toc-column {
     flex: 0 0 280px;
     position: sticky;
-    top: 140px;
+    top: 166px;
     align-self: flex-start;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 180px);
     padding-right: var(--space-md);
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: auto;
