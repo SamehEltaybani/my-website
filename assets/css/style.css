@@ -5198,7 +5198,7 @@ background: rgba(0, 0, 0, 0.28);
     color: var(--accent-color);
     background: var(--accent-color-light);
     font-weight: 600;
-    0 var(--radius-sm) var(--radius-sm) 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     border-left: 2px solid var(--accent-color);
 }
 
