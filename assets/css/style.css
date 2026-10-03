@@ -5096,7 +5096,7 @@ PUBLICATIONS PAGE
     display: flex;
     gap: var(--space-xl);
     margin-top: 0;
-    padding-top: calc(var(--space-md) + 20px);
+    padding-top: var(--space-md);
 }
 
 /* ----- Desktop TOC Column ----- */
@@ -5104,9 +5104,9 @@ PUBLICATIONS PAGE
 .toc-column {
     flex: 0 0 280px;
     position: sticky;
-    top: 166px;
+    top: 140px;
     align-self: flex-start;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 160px);
     padding-right: var(--space-md);
     border-right: 1px solid rgba(0, 0, 0, 0.04);
     scrollbar-width: auto;
