@@ -696,7 +696,7 @@ section,
   width: 100%;
   background: transparent;
   margin: 0;
-  padding: var(--space-xl) 0 var(--space-lg) 0;
+  padding: var(--space-xxl) 0 var(--space-xl) 0;
 }
 
 .page-header-title {
@@ -710,7 +710,7 @@ section,
 
 @media (max-width: 768px) {
  .page-header-wrapper {
-    padding: var(--space-lg) 0 var(--space-md) 0;
+    padding: var(--space-lg) 0 var(--space-lg) 0;
   }
   
   .page-header-title {
