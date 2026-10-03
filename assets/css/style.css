@@ -6005,9 +6005,9 @@ BLOG Article (right side content)
     justify-content: space-between;
     gap: var(--space-sm);
     margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
+    padding-top: var(--space-xs);
     flex-wrap: wrap;
-    border-top: 4px solid var(--accent-color);
+    border-top: 4px solid var(--complementary-color);
 }
 
 .blog-bottom-nav .nav-btn {
