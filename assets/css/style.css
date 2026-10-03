@@ -620,8 +620,7 @@ section,
 
 /* ----- Footer: Responsive (Mobile) ----- */
 
-@media (max-width: 768px) {
-   
+@media (max-width: 768px) {  
   .site-footer .container {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -653,7 +652,6 @@ section,
   .footer-sitemap li {
         text-align: center; 
   }
-
 }
 
 
@@ -688,6 +686,43 @@ section,
 }
 
 
+
+/* =============================================================
+/* ----- Page Header ----- */
+================================================================ */
+
+
+.page-header-wrapper {
+  width: 100%;
+  background: transparent;
+  margin: 0;
+  padding: var(--space-xl) 0 var(--space-lg) 0;
+}
+
+.page-header-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--dark-color);
+  text-align: left;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+ .page-header-wrapper {
+    padding: var(--space-lg) 0 var(--space-md) 0;
+  }
+  
+  .page-header-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+    .page-header-title {
+    font-size: 1.6rem;
+  }
+}
 
 
 
@@ -2605,25 +2640,6 @@ PUBLICATIONS PAGE
 }
 
 
-
-/* ----- Page Header ----- */
-
-.page-header-wrapper-simple {
-  width: 100%;
-  background: transparent;
-  margin: 0;
-  padding: var(--space-xl) 0 var(--space-lg) 0;
-}
-
-.page-header-title-simple {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--dark-color);
-  text-align: left;
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
 /* ----- Publication List ----- */
 
 .publication-list {
@@ -2807,15 +2823,7 @@ PUBLICATIONS PAGE
 
 /* ----- Publications: Responsive ----- */
 
-@media (max-width: 768px) {
- .page-header-wrapper-simple {
-    padding: var(--space-lg) 0 var(--space-md) 0;
-  }
-  
-  .page-header-title-simple {
-    font-size: 2rem;
-  }
-  
+@media (max-width: 768px) { 
   .publication-card {
     padding: var(--space-md);
   }
@@ -2843,12 +2851,6 @@ PUBLICATIONS PAGE
   .publication-link {
     font-size: 0.7rem;
     padding: 0.15rem 0.7rem;
-  }
-}
-
-@media (max-width: 400px) {
-    .page-header-title-simple {
-    font-size: 1.6rem;
   }
 }
 
@@ -6363,30 +6365,6 @@ BLOG Article (right side content)
 
 
 
-/* ----- Hero / Page Header ----- */
-
-.portfolio-hero {
-    padding: var(--space-xl) 0 var(--space-lg) 0;
-}
-
-.portfolio-hero-title {
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: var(--dark-color);
-    margin-bottom: var(--space-sm);
-    letter-spacing: -0.02em;
-}
-
-.portfolio-hero-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--dark-color);
-    opacity: 0.8;
-    max-width: 800px;
-}
-
-
-
 /* ----- Stats / Data Dashboard ----- */
 
 .portfolio-stats {
@@ -7647,15 +7625,7 @@ BLOG Article (right side content)
 }
 
 @media (max-width: 768px) {
-    .portfolio-hero-title {
-        font-size: 2rem;
-    }
-
-    .portfolio-hero-description {
-        font-size: 1rem;
-    }
-
-   .portfolio-image-text-wrapper,
+    .portfolio-image-text-wrapper,
     .portfolio-image-text-right .portfolio-image-text-wrapper {
         flex-direction: column !important;
     }
@@ -7717,12 +7687,8 @@ BLOG Article (right side content)
 }
 
 @media (max-width: 400px) {
-    .portfolio-hero-title {
-        font-size: 1.6rem;
-    }
-
     .portfolio-image-grid-wrapper {
-        grid-template-columns: 1fr;
+     grid-template-columns: 1fr;
     }
 
     .portfolio-stats-grid {
