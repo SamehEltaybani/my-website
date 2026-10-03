@@ -5119,6 +5119,7 @@ PUBLICATIONS PAGE
     flex: 1;
     overflow-y: auto;
     padding-top: 12px;
+    padding-bottom: 40px;
 }
 
 /* ----- Desktop TOC Scrollbar ----- */
@@ -5413,7 +5414,6 @@ background: rgba(0, 0, 0, 0.28);
 /* -----  RESPONSIVE - TOC ---- */
 
 @media (max-width: 992px) {
-   
     .toc-column {
         flex: 0 0 240px;
     }
