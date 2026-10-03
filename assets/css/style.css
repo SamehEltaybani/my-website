@@ -1252,6 +1252,8 @@ HOME PAGE
            overflow: hidden;
            min-height: clamp(390px, 31vw, 510px);
            background-color: #f4f6f8;
+           margin-top: -130px; 
+           padding-top: 130px; 
          }
          
          .home-hero::before {
