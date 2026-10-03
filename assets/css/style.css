@@ -2476,6 +2476,7 @@ PUBLICATIONS PAGE
   position: relative;
   display: inline-block;
   margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .publications-header-cta .header-cta-trigger {
@@ -2615,6 +2616,7 @@ PUBLICATIONS PAGE
   .publications-header-cta {
     display: block;
     margin-top: var(--space-xs);
+     margin-bottom: var(--space-sm);
   }
 
   .publications-header-cta .header-cta-trigger {
