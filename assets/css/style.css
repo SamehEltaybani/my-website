@@ -5468,8 +5468,8 @@ BLOG Article (right side content)
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
-    padding-bottom: var(--space-lg);
-    border-bottom: 4px solid var(--accent-color);
+    padding-bottom: var(--space-xs);
+    border-bottom: 4px solid var(--complementary-color);
 }
 
 .blog-top-nav .nav-btn {
