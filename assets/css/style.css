@@ -754,6 +754,7 @@ section,
   margin: 0;
   padding-top: 12rem !important;
   padding-bottom: var(--space-xl);  
+  margin-top: 80px;
 }
 
 .page-header-title {
