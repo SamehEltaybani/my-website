@@ -696,7 +696,8 @@ section,
   width: 100%;
   background: transparent;
   margin: 0;
-  padding: 8rem 0 var(--space-xl) 0;
+  padding-top: 12rem; 
+   pading-bottom: var(--space-xl);
 }
 
 .page-header-title {
