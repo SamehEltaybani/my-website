@@ -5165,7 +5165,6 @@ background: rgba(0, 0, 0, 0.28);
 .toc-list {
     list-style: none;
     padding: 0;
-    padding-bottom: 80px;
     margin: 0;
     background: var(--bg-color);
 }
@@ -5199,7 +5198,7 @@ background: rgba(0, 0, 0, 0.28);
     color: var(--accent-color);
     background: var(--accent-color-light);
     font-weight: 600;
-    border-radius: var(--radius-sm);
+    0 var(--radius-sm) var(--radius-sm) 0;
     border-left: 2px solid var(--accent-color);
 }
 
