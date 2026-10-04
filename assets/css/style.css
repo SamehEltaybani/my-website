@@ -1368,45 +1368,6 @@ HOME PAGE
 
 
 /* ---------------------------------------------------------
-   Small Context Label
-   --------------------------------------------------------- */
-
-.home-hero-kicker {
-  position: relative;
-
-  width: fit-content;
-
-  margin: 0 auto clamp(0.65rem, 1.2vw, 0.9rem);
-  padding-left: 0.85rem;
-
-  color: rgba(255, 255, 255, 0.92);
-
-  font-size: clamp(0.68rem, 1vw, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1.2;
-
-  text-shadow: 0 2px 10px rgba(0, 29, 34, 0.5);
-}
-
-.home-hero-kicker::before {
-  position: absolute;
-  left: 0;
-  top: 50%;
-
-  width: 3px;
-  height: 1.1em;
-
-  content: "";
-
-  background: #b50800;
-  border-radius: 2px;
-
-  transform: translateY(-50%);
-}
-
-
-/* ---------------------------------------------------------
    Hero Statement
    --------------------------------------------------------- */
 
@@ -1709,15 +1670,6 @@ HOME PAGE
       var(--space-md)
       clamp(2.75rem, 9vw, 4rem);
   }
-
-
-  .home-hero-kicker {
-    margin-bottom: 0.7rem;
-
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-  }
-
 
   .home-hero-title {
     max-width: 100%;
