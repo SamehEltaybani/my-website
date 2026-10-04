@@ -1519,8 +1519,14 @@ HOME PAGE
 
 .home-hero-scroll-cue i {
   display: block;
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  line-height: 0.55;
   animation: homeHeroScroll 2s ease-in-out infinite;
+}
+
+.home-hero-scroll-cue i:nth-child(2) {
+  animation-delay: 0.15s;
+  opacity: 0.6;
 }
 
 
