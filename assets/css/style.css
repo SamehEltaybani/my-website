@@ -1267,7 +1267,7 @@ HOME PAGE
   inset: 0;
   content: "";
   background-image: url("/my-website/img/home.webp");
-  background-position: 65% center;
+  background-position: 85% center;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -1640,7 +1640,7 @@ HOME PAGE
   }
 
   .home-hero::before {
-    background-position: 65% top;
+    background-position: 82% top;
 
     -webkit-mask-image: linear-gradient(
       to bottom,
