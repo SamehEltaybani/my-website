@@ -1404,8 +1404,16 @@ HOME PAGE
 }
 
 
-.home-hero-title span {
+.home-hero-title-line {
   display: block;
+}
+
+.home-hero-title-line-one {
+  white-space: nowrap;
+}
+
+.home-hero-title-line-two {
+  white-space: nowrap;
 }
 
 
@@ -1528,7 +1536,7 @@ HOME PAGE
 
   color: rgba(255, 255, 255, 0.92);
 
-  font-size: clamp(0.9rem, 1.3vw, 1.08rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
   font-weight: 500;
   line-height: 1.4;
 
@@ -1598,9 +1606,7 @@ HOME PAGE
 }
 
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/*    Responsive  */
 
 @media (max-width: 900px) {
 
@@ -1626,10 +1632,6 @@ HOME PAGE
   }
 }
 
-
-/* =========================================================
-   PHONE
-   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1695,12 +1697,6 @@ HOME PAGE
     letter-spacing: -0.025em;
   }
 
-
-  .home-hero-title span {
-    display: block;
-  }
-
-
   .home-hero-title::after {
     width: 3.5rem;
     height: 3px;
@@ -1708,6 +1704,17 @@ HOME PAGE
     margin-top: 1rem;
   }
 
+.home-hero-title-line-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: normal;
+}
+
+.home-hero-title-line-one > span {
+  display: block;
+  white-space: nowrap;
+}
 
   .home-hero-work {
     display: flex;
