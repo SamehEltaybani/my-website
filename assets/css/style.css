@@ -1438,14 +1438,14 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   gap: 0.35em;
-  width: clamp(14rem, 25vw, 21rem);
+  width: clamp(15rem, 27vw, 23rem);
   min-height: 4rem;
   box-sizing: border-box;
   margin: 0;
   padding: 0.75rem 1.5rem;
-  background: rgba(181, 8, 0, 0.68);
+  background: rgba(181, 8, 0, 0.58);
   color: var(--white-color);
-  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
@@ -1476,22 +1476,16 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-
   width: 100%;
   margin: clamp(1.5rem, 2.8vw, 2.2rem) auto 0;
   padding: 0;
-
   color: rgba(255, 255, 255, 0.92);
-
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
   line-height: 1.4;
-
   letter-spacing: 0.025em;
   text-align: center;
-
   white-space: nowrap;
-
   text-shadow: 0 1px 7px rgba(0, 29, 34, 0.55);
 }
 
@@ -1501,12 +1495,9 @@ HOME PAGE
 
 .home-hero-value-separator {
   margin: 0 0.8rem;
-
   color: rgba(255, 255, 255, 0.55);
-
   font-size: 0.8em;
   font-weight: 400;
-
   text-shadow: none;
 }
 
@@ -1519,22 +1510,16 @@ HOME PAGE
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin-top: clamp(1.75rem, 3vw, 2.5rem);
-
   color: rgba(255, 255, 255, 0.72);
-
   line-height: 1;
-
   text-shadow: 0 2px 8px rgba(0, 29, 34, 0.45);
 }
 
 
 .home-hero-scroll-cue i {
   display: block;
-
   font-size: clamp(1.35rem, 2vw, 1.7rem);
-
   animation: homeHeroScroll 2s ease-in-out infinite;
 }
 
