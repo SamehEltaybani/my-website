@@ -1459,14 +1459,12 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
- 
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   background-color: #006469;
-  padding: 0.8rem 0;
-  margin-top: auto; 
- 
-   
-   color: rgba(255, 255, 255, 0.92);
+  padding: 0.8rem 0;  
+  color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
   line-height: 1.4;
@@ -1582,7 +1580,7 @@ HOME PAGE
       rgba(0, 0, 0, 0.45) 93%,
       transparent 100%
     );
-     clip-path: inset(0 0 15% 0);
+     clip-path: inset(0 0 12% 0);
   }
 
 
@@ -1679,6 +1677,12 @@ HOME PAGE
       0.85rem
       0.5rem;
   }
+
+
+ .home-hero::before {
+        clip-path: inset(0 0 10% 0);
+  }
+   
 }    
 
 /* ====== ABOUT SECTION (Homepage) ======= */
