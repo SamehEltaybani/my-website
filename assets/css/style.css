@@ -21,7 +21,7 @@
   --accent-color: #00ADB5;
   --accent-color-light: rgba(0, 173, 181, 0.15);
   --accent-color-very-light: rgba(0, 173, 181, 0.07);
-  --accent-color-dark: #006469;
+  --accent-color-dark: #003f42;
   --complementary-color: #b50800;
    
    
@@ -1475,12 +1475,16 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #006469;
+  
+  /* --- Clean absolute breakout to span exact section width --- */
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #003f42;
   padding: 0.8rem 0;
+  /* --------------------------------------------------------- */
+
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
@@ -1490,6 +1494,7 @@ HOME PAGE
   white-space: nowrap;
   text-shadow: 0 1px 7px rgba(0, 29, 34, 0.55);
 }
+
 
 .home-hero-value {
   white-space: nowrap;
