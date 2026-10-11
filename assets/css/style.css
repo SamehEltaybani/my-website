@@ -1340,7 +1340,7 @@ HOME PAGE
   padding:
     clamp(5.5rem, 9vw, 7rem)
     clamp(1.25rem, 5vw, 4rem)
-    clamp(3rem, 6vw, 4.5rem);
+    0;
 }
 
 
