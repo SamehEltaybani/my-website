@@ -1253,6 +1253,7 @@ HOME PAGE
   overflow: hidden;
   min-height: clamp(480px, 38vw, 620px);
   margin-top: -50px;
+  background-color: #f4f6f8;
   
 }
 
@@ -1458,12 +1459,14 @@ HOME PAGE
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  background-color: var(--accent-color-dark);
+ 
+  width: 100%;
+  background-color: #006469;
   padding: 0.8rem 0;
-  color: rgba(255, 255, 255, 0.92);
+  margin-top: auto; 
+ 
+   
+   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
   line-height: 1.4;
