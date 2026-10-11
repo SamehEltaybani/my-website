@@ -1476,14 +1476,13 @@ HOME PAGE
   justify-content: center;
   flex-wrap: nowrap;
   
-  /* --- Clean absolute breakout to span exact section width --- */
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: #003f42;
+  /* --- Full-width breakout that stays in place at the bottom --- */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background-color: #006469;
   padding: 0.8rem 0;
-  /* --------------------------------------------------------- */
+  /* ------------------------------------------------------------- */
 
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
