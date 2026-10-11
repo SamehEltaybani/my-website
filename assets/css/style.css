@@ -1253,7 +1253,7 @@ HOME PAGE
   overflow: hidden;
   min-height: clamp(480px, 38vw, 620px);
   margin-top: -50px;
-  background-color: #f4f6f8;
+  
 }
 
 
@@ -1261,13 +1261,6 @@ HOME PAGE
 /* ---------------------------------------------------------
    Background Image
    --------------------------------------------------------- */
-
-
-
-.home-hero {
-  background-color: #f4f6f8;
-  position: relative;
-}
 
 .home-hero::before {
   position: absolute;
