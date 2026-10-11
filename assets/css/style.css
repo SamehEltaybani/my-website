@@ -1478,9 +1478,7 @@ HOME PAGE
   width: 100vw;
   position: relative;
   left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  transform: translateX(-50%);
   background-color: #006469;
   padding: 0.8rem 0;
   color: rgba(255, 255, 255, 0.92);
