@@ -1251,7 +1251,7 @@ HOME PAGE
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: clamp(480px, 38vw, 620px);
+  
   margin-top: -50px;
   background-color: #f4f6f8;
   
