@@ -1281,7 +1281,7 @@ HOME PAGE
   background-position: 85% center;
   background-size: cover;   
   background-repeat: no-repeat;
-   clip-path: inset(0 0 20% 0);
+   clip-path: inset(0 0 30% 0);   /* -- to crop the lower part of the image -- */
 }
 
 .home-hero::after {
