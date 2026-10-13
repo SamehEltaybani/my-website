@@ -726,19 +726,12 @@ section,
 
 
 .professional-callout {
-  background: rgba(255, 255, 255, 0.03); /* Adjust for light/dark mode */
+  background: rgba(255, 255, 255, 0.03); 
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: 4px solid var(--accent-color, #00E5FF); /* Uses your electric mint accent */
+  border-left: 4px solid var(--accent-color, #00E5FF); 
   border-radius: 6px;
   padding: 1.25rem;
   margin: var(--space-lg) 0 var(--space-md);
-}
-
-.professional-callout p {
-  font-size: 0.9rem;
-  color: var(--dark-color);
-  line-height: 1.6;
-  margin: var(--space-md);
 }
 
 
@@ -876,7 +869,7 @@ section,
 
 
 /* ================================================================
-   PRIMARY Paragraph 
+   PRIMARY / SECONDARY Paragraph 
    ================================================================ */
 
 
@@ -889,8 +882,16 @@ section,
     max-width: 800px;
     margin: 0 0 var(--space-lg) 0;
 }
-  
-.primary-paragraph a {
+
+.secondary-paragraph {
+  font-size: 0.9rem;
+  color: var(--dark-color);
+  line-height: 1.6;
+  margin: var(--space-md);
+}
+
+.primary-paragraph a,
+.secondary-paragraph a {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -900,17 +901,21 @@ section,
     text-decoration-thickness var(--transition-fast);
 }
 
-.primary-paragraph a:hover {
+.primary-paragraph a:hover, 
+.secondary-paragraph a:hover {
   color: var(--accent-color);
   text-decoration-thickness: 4px;
 }
 
 
-.primary-paragraph-centered {
+.primary-paragraph-centered, 
+.secondary-paragraph-centered {
    max-width: 600px;
    text-align: center;
    margin: 0 auto var(--space-lg);
 }
+
+
 
 
 /* ================================================================
