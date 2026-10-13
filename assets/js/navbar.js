@@ -8,7 +8,7 @@
     'use strict';
 
     const CONFIG = {
-        yourName: 'Dr. Sameh Eltaybani',
+        yourName: 'Sameh Eltaybani',
         photoPath: '/my-website/img/profile.webp',
         photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
         navLinks: [
