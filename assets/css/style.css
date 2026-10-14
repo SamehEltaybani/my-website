@@ -1810,10 +1810,10 @@ HOME PAGE
 }
 
 .first-time-image {
-    grid-area: image;
     position: relative;
 }
 
+/* The Red Box: Floating above the page background */
 .first-time-image::before {
     content: '';
     position: absolute;
@@ -1824,17 +1824,23 @@ HOME PAGE
     background: #b50800;
     border-radius: var(--radius-md);
     z-index: 0;
+    /* Soft, deep shadow to lift the red box off the page */
+    box-shadow: 0 10px 25px rgba(181, 8, 0, 0.3); 
 }
 
+/* The Image: Floating above the red box */
 .first-time-image img {
     position: relative;
     z-index: 1;
     width: 100%;
     height: auto;
     display: block;
-    border: var(--card-border);
-    box-shadow: var(--card-shadow);
     border-radius: var(--radius-md);
+    
+    /* Removed the flat border and applied a stronger, layered shadow */
+    border: none; 
+    box-shadow: 0 12px 32px rgba(34, 40, 49, 0.25), 
+                0 2px 6px rgba(34, 40, 49, 0.15);
 }
 
 /* Inline icons inside paragraphs */
