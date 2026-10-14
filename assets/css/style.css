@@ -1782,7 +1782,7 @@ HOME PAGE
 
 
 /* ============================================
-   FIRST-TIME USER SECTION
+   FIRST-TIME USER SECTION (Fixed)
    ============================================ */
 
 .first-time-section {
@@ -1792,28 +1792,25 @@ HOME PAGE
 
 .first-time-grid {
     display: grid;
+    /* Create a 2-column layout: Left content, Right image */
     grid-template-columns: 1.6fr 1fr;
-    grid-template-areas:
-        "title image"
-        "text  image";
-    gap: var(--space-md) var(--space-xl);
-    align-items: start;
-    align-content: start;
+    /* We only need one row now, content flows naturally inside the left column */
+    grid-template-areas: "content image";
+    gap: var(--space-xl); /* Consistent gap between left content and image */
+    align-items: center; /* Vertically centers the text block against the image */
 }
 
+/* Create a wrapper style or target the left content elements */
 .first-time-title {
-    grid-area: title;
-    align-self: start;
-    margin: 0;
+    margin: 0 0 var(--space-md) 0; /* Keeps a nice controlled gap between title and text */
 }
 
 .first-time-text {
-    grid-area: text;
-    align-self: start;
     margin: 0;
 }
 
 .first-time-image {
+    grid-area: image;
     position: relative;
 }
 
@@ -1860,7 +1857,6 @@ HOME PAGE
         gap: var(--space-md);
     }
 }
-
 
 
 
