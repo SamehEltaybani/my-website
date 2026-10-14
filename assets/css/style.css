@@ -1793,6 +1793,7 @@ HOME PAGE
 .first-time-grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: min-content 1fr;
     grid-template-areas:
         "title image"
         "text  image";
@@ -1820,11 +1821,11 @@ HOME PAGE
 .first-time-image::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 25%;
     left: 0;
-    right: 0;
+    right: 25%;
     bottom: 0;
-    background: #b50800;
+    background: var(--complementary-color);
     border-radius: var(--radius-md);
     z-index: 0;
 }
@@ -1835,7 +1836,8 @@ HOME PAGE
     width: 100%;
     height: auto;
     display: block;
-    border: 6px solid #ffffff;
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
     border-radius: var(--radius-md);
 }
 
