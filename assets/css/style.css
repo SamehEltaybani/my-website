@@ -1778,6 +1778,103 @@ HOME PAGE
          }
 
 
+
+
+
+/* ============================================
+   FIRST-TIME USER SECTION
+   ============================================ */
+
+.first-time-section {
+    background: transparent;
+    padding: var(--space-xl) 0;
+}
+
+.first-time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "title image"
+        "text  image";
+    gap: var(--space-md) var(--space-xl);
+    align-items: start;
+}
+
+.first-time-title {
+    grid-area: title;
+    align-self: start;
+    margin: 0;
+}
+
+.first-time-text {
+    grid-area: text;
+    align-self: start;
+    margin: 0;
+}
+
+.first-time-image {
+    grid-area: image;
+    align-self: start;
+}
+
+.first-time-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Inline icons inside paragraphs */
+.primary-inline-icon {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    margin: 0 0.2rem;
+    vertical-align: middle;
+}
+
+/* Links inside primary paragraphs */
+.primary-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.primary-link:hover {
+    text-decoration: underline;
+}
+
+/* ----- Responsive: phone layout = title, image, text ----- */
+@media (max-width: 768px) {
+    .first-time-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "image"
+            "text";
+        gap: var(--space-md);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===========  FIRST-TIME VISITOR GUIDANCE (Home page)  ======= */
 
 
