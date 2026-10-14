@@ -1793,12 +1793,12 @@ HOME PAGE
 .first-time-grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
-    grid-template-rows: min-content 1fr;
     grid-template-areas:
         "title image"
         "text  image";
     gap: var(--space-md) var(--space-xl);
     align-items: start;
+    align-content: start;
 }
 
 .first-time-title {
@@ -1815,17 +1815,16 @@ HOME PAGE
 
 .first-time-image {
     position: relative;
-    padding: 0 0 20px 20px; /* reserves space for the offset box */
 }
 
 .first-time-image::before {
     content: '';
     position: absolute;
     top: 25%;
-    left: 0;
+    left: -20px;
     right: 25%;
-    bottom: 0;
-    background: var(--complementary-color);
+    bottom: -20px;
+    background: #b50800;
     border-radius: var(--radius-md);
     z-index: 0;
 }
