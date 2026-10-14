@@ -795,7 +795,7 @@ section,
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  margin: 0 0 var(--space-md);
+  margin: 0 0 var(--space-lg);
   color: var(--dark-color);
   font-weight: 700;
   }
@@ -1792,7 +1792,7 @@ HOME PAGE
 
 .first-time-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
     grid-template-areas:
         "title image"
         "text  image";
@@ -1813,16 +1813,30 @@ HOME PAGE
 }
 
 .first-time-image {
-    grid-area: image;
-    align-self: start;
+    position: relative;
+    padding: 0 0 20px 20px; /* reserves space for the offset box */
+}
+
+.first-time-image::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #b50800;
+    border-radius: var(--radius-md);
+    z-index: 0;
 }
 
 .first-time-image img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: auto;
     display: block;
+    border: 6px solid #ffffff;
     border-radius: var(--radius-md);
-    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* Inline icons inside paragraphs */
@@ -1831,18 +1845,6 @@ HOME PAGE
     font-size: 0.95rem;
     margin: 0 0.2rem;
     vertical-align: middle;
-}
-
-/* Links inside primary paragraphs */
-.primary-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-.primary-link:hover {
-    text-decoration: underline;
 }
 
 /* ----- Responsive: phone layout = title, image, text ----- */
