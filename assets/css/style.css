@@ -1743,6 +1743,11 @@ section,
 
 
 @media (max-width: 768px) {
+
+   .text-image-1-section {
+    padding: var(--space-lg) var(--space-md);
+}
+   
     .text-image-1-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
