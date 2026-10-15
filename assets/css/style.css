@@ -1251,21 +1251,21 @@ section,
 
 
 /* =========================================================
-   Redesigned 50/50 Split Hero Section with Floating Card
+   Redesigned Consistent 50/50 Split Hero Section
    ========================================================= */
 
 .home-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  margin-top: 0; /* Fixed desktop gap by removing negative offset */
+  margin-top: 0;
   width: 100%;
-  min-height: clamp(560px, 52vw, 720px);
+  min-height: clamp(540px, 48vw, 700px);
   display: flex;
-  flex-direction: row; 
+  flex-direction: row; /* Strict side-by-side split across all screens */
 }
 
-/* ----- LEFT SIDE (50% Width, Subtle Gradient Background) ----- */
+/* ----- LEFT SIDE (50% Width, Master Canvas Background) ----- */
 
 .home-hero-left {
   flex: 0 0 50%;
@@ -1275,7 +1275,7 @@ section,
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4vw, 4rem);
   position: relative;
   z-index: 1;
 }
@@ -1284,7 +1284,7 @@ section,
   display: flex;
   flex-direction: column;
   gap: clamp(1.25rem, 2.5vw, 2rem);
-  max-width: 600px;
+  max-width: 580px;
   width: 100%;
 }
 
@@ -1299,8 +1299,8 @@ section,
   align-items: center;
   padding: 0.6rem 1.6rem;
   border-radius: var(--radius-full, 9999px);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
@@ -1334,7 +1334,7 @@ section,
   gap: 0.08em;
   margin: 0;
   color: var(--white-color, #ffffff);
-  font-size: clamp(2rem, 3.2vw, 3.6rem);
+  font-size: clamp(1.9rem, 3vw, 3.4rem);
   font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -1351,7 +1351,7 @@ section,
 }
 
 
-/* ----- RIGHT SIDE (50% Width, Stacked Floating Card Layer) ----- */
+/* ----- RIGHT SIDE (50% Width, Floating Red Card Layer) ----- */
 
 .home-hero-right {
   flex: 0 0 50%;
@@ -1359,11 +1359,24 @@ section,
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  
   /* 70% height with 15% margins top and bottom */
   height: 70%;
   margin: auto 0; 
-  box-shadow: -16px 12px 40px rgba(0, 0, 0, 0.28);
-  border-radius: 16px 0 0 16px;
+  
+  /* Thick white borders on top, left, and bottom */
+  border-top: 5px solid #ffffff;
+  border-left: 5px solid #ffffff;
+  border-bottom: 5px solid #ffffff;
+  border-right: none;
+  
+  /* Rounded corners on the left side only */
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  
+  box-shadow: -16px 12px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 2;
   position: relative;
@@ -1378,7 +1391,7 @@ section,
   align-items: center;
   justify-content: center;
   gap: clamp(0.5rem, 1vw, 0.8rem);
-  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1.25rem, 2.2vw, 1.8rem) clamp(1rem, 2vw, 1.5rem);
   box-sizing: border-box;
   width: 100%;
 }
@@ -1389,14 +1402,14 @@ section,
   justify-content: center;
   gap: 0.4em;
   width: 100%;
-  max-width: 380px;
-  min-height: 3.2rem;
+  max-width: 360px;
+  min-height: 3rem;
   box-sizing: border-box;
   margin: 0;
   padding: 0.6rem 1.2rem;
   /* Glassmorphism Effect */
   background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 8px;
@@ -1420,7 +1433,7 @@ section,
   flex: 1;
   position: relative;
   width: 100%;
-  min-height: 180px;
+  min-height: 160px;
   overflow: hidden;
   background-color: #b50800;
 }
@@ -1451,34 +1464,11 @@ section,
 
 
 /* =========================================================
-   Responsive Adjustments
+   Responsive Adjustments (Maintains 50/50 split across sizes)
    ========================================================= */
 
-@media (max-width: 900px) {
-  .home-hero-title {
-    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  }
-}
-
 @media (max-width: 768px) {
-  .home-hero {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .home-hero-left,
-  .home-hero-right {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-
-  .home-hero-right {
-    height: auto;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
+  /* Phone layout: switches headline to strict 3-line format while preserving 50/50 split */
   .home-hero-title-line-one {
     display: flex;
     flex-direction: column;
@@ -1491,16 +1481,22 @@ section,
   }
 
   .home-hero-title {
-    font-size: clamp(1.6rem, 5.2vw, 2.2rem);
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
     letter-spacing: -0.02em;
   }
 
   .home-hero-left {
-    padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 2vw, 1.25rem);
   }
 
   .home-hero-work {
-    padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+    padding: 1rem 0.75rem;
+  }
+
+  .home-hero-work-item {
+    min-height: 2.6rem;
+    font-size: 0.88rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 
