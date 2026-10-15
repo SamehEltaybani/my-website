@@ -1864,6 +1864,11 @@ HOME PAGE
             "text";
         gap: var(--space-md);
     }
+
+    /* Push the text down on mobile so it doesn't crowd the red box */
+    .first-time-text {
+        margin-top: var(--space-md);
+    }
 }
 
 
