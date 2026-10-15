@@ -1793,11 +1793,11 @@ HOME PAGE
 .first-time-grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
-    grid-template-rows: auto auto; /* Keeps title and text tightly packed on desktop */
+    grid-template-rows: auto auto; 
     grid-template-areas:
         "title image"
         "text  image";
-    gap: var(--space-md) var(--space-xl);
+    gap: var(--space-lg) var(--space-xl);
     align-items: start;
     align-content: start;
 }
@@ -1862,12 +1862,12 @@ HOME PAGE
             "title"
             "image"
             "text";
-        gap: var(--space-md);
+        gap: var(--space-lg);
     }
 
     /* Push the text down on mobile so it doesn't crowd the red box */
     .first-time-text {
-        margin-top: var(--space-md);
+        margin-top: var(--space-lg);
     }
 }
 
