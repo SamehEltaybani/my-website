@@ -1251,18 +1251,18 @@ section,
 
 
 /* =========================================================
-   Redesigned 50/50 Split Hero Section
+   Redesigned 50/50 Split Hero Section with Floating Card
    ========================================================= */
 
 .home-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  margin-top: -50px;
+  margin-top: 0; /* Fixed desktop gap by removing negative offset */
   width: 100%;
-  min-height: clamp(520px, 48vw, 680px);
+  min-height: clamp(560px, 52vw, 720px);
   display: flex;
-  flex-direction: row; /* Enforces the 50/50 side-by-side split across all screens */
+  flex-direction: row; 
 }
 
 /* ----- LEFT SIDE (50% Width, Subtle Gradient Background) ----- */
@@ -1276,6 +1276,8 @@ section,
   justify-content: center;
   box-sizing: border-box;
   padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
+  position: relative;
+  z-index: 1;
 }
 
 .home-hero-content-wrapper {
@@ -1332,7 +1334,7 @@ section,
   gap: 0.08em;
   margin: 0;
   color: var(--white-color, #ffffff);
-  font-size: clamp(2rem, 3.4vw, 3.8rem);
+  font-size: clamp(2rem, 3.2vw, 3.6rem);
   font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -1343,14 +1345,13 @@ section,
   display: block;
 }
 
-/* Desktop: strict 2-line visual setup */
 .home-hero-title-line-one,
 .home-hero-title-line-two {
   white-space: nowrap;
 }
 
 
-/* ----- RIGHT SIDE (50% Width, Floating Panel Layout) ----- */
+/* ----- RIGHT SIDE (50% Width, Stacked Floating Card Layer) ----- */
 
 .home-hero-right {
   flex: 0 0 50%;
@@ -1358,7 +1359,12 @@ section,
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+  /* 70% height with 15% margins top and bottom */
+  height: 70%;
+  margin: auto 0; 
+  box-shadow: -16px 12px 40px rgba(0, 0, 0, 0.28);
+  border-radius: 16px 0 0 16px;
+  overflow: hidden;
   z-index: 2;
   position: relative;
 }
@@ -1371,8 +1377,8 @@ section,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.6rem, 1.2vw, 1rem);
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(0.5rem, 1vw, 0.8rem);
+  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem);
   box-sizing: border-box;
   width: 100%;
 }
@@ -1383,11 +1389,11 @@ section,
   justify-content: center;
   gap: 0.4em;
   width: 100%;
-  max-width: 420px;
-  min-height: 3.6rem;
+  max-width: 380px;
+  min-height: 3.2rem;
   box-sizing: border-box;
   margin: 0;
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   /* Glassmorphism Effect */
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -1395,7 +1401,7 @@ section,
   -webkit-backdrop-filter: blur(10px);
   border-radius: 8px;
   color: var(--white-color, #ffffff);
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
@@ -1414,9 +1420,9 @@ section,
   flex: 1;
   position: relative;
   width: 100%;
-  min-height: 240px;
+  min-height: 180px;
   overflow: hidden;
-  background-color: #b50800; /* Fallback matching the top row */
+  background-color: #b50800;
 }
 
 /* Gradient Overlay: Solid #b50800 at top blending down to transparent */
@@ -1445,17 +1451,34 @@ section,
 
 
 /* =========================================================
-   Responsive Adjustments (Maintaining the 50/50 Split)
+   Responsive Adjustments
    ========================================================= */
 
 @media (max-width: 900px) {
   .home-hero-title {
-    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   }
 }
 
 @media (max-width: 768px) {
-  /* Forces strict 3-line breakdown on mobile as requested */
+  .home-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .home-hero-left,
+  .home-hero-right {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .home-hero-right {
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
   .home-hero-title-line-one {
     display: flex;
     flex-direction: column;
