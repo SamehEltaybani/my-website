@@ -1376,7 +1376,7 @@ section,
   align-items: center;
   justify-content: center;
   padding: 1.5rem clamp(1rem, 3vw, 2rem);
-  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   background-color: #006469;
   color: rgba(255, 255, 255, 0.92);
   font-weight: 500;
