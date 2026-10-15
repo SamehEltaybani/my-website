@@ -1251,6 +1251,7 @@ section,
   isolation: isolate;
   overflow: hidden;
   margin-top: -50px;
+  min-height: clamp(480px, 42vw, 620px);
   background-color: var(--bg-color);
 }
 
@@ -1258,11 +1259,13 @@ section,
          desktop/tablet; fills the box on mobile) ----- */
 
 .home-hero-media {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
+  z-index: 0;
 }
 
 /* ----- Content Layer (sits on top of the image) ----- */
@@ -1372,10 +1375,10 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem clamp(1rem, 3vw, 2rem);
+  padding: 1.5rem clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
   background-color: #006469;
   color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.025em;
@@ -1388,8 +1391,8 @@ section,
 .home-hero-values-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 1.6rem;
-  border-radius: var(--radius-full);
+  padding: 0.7rem 1.9rem;
+   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(10px);
@@ -1433,12 +1436,7 @@ section,
     min-height: 620px;
   }
 
-  .home-hero-media {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    z-index: 0;
-  }
+ 
 
   .home-hero-main {
     padding:
@@ -1493,6 +1491,10 @@ section,
   .home-hero-work-item:nth-child(3) { align-self: flex-end; }
 }
 
+.home-hero-values {
+  font-size: 1.25rem;
+}
+
 @media (max-width: 380px) {
   .home-hero {
     min-height: 560px;
@@ -1524,11 +1526,6 @@ section,
     margin: 0 0.5rem;
   }
 }
-
-
-/* ============================================
-HOME PAGE
-============================================ */
 
 
    
