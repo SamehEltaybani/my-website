@@ -54,75 +54,62 @@
 
 
 
-<!-- ===== EDITORIAL HOME HERO (outside restricted container) ===== -->
-<section class="home-hero" aria-labelledby="home-hero-title">
-  
-  <!-- LEFT SIDE: Full-Width Master Background & Headline Content -->
-  <div class="home-hero-left">
-    <div class="home-hero-content-wrapper">
-      
-      <!-- Pre-Header Pill Badge -->
-      <div class="home-hero-values" aria-label="Core values">
-        <div class="home-hero-values-pill">
-          <span class="home-hero-value">Integrity</span>
-          <span class="home-hero-value-separator">•</span>
-          <span class="home-hero-value">Impact</span>
-          <span class="home-hero-value-separator">•</span>
-          <span class="home-hero-value">Inspiration</span>
-        </div>
-      </div>
-
-      <!-- Hero Statement & Title -->
-      <div class="home-hero-statement">
-        <h1 class="home-hero-title" id="home-hero-title">
-          <span class="home-hero-title-line home-hero-title-line-one">
-            <span class="line-part-one">Value-Based</span>
-            <span class="line-part-two">Integrated Approach</span>
-          </span>
-          <span class="home-hero-title-line home-hero-title-line-two">
-            for Better Healthcare
-          </span>
-        </h1>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- RIGHT SIDE: Floating Red Card Layer (Positioned over the right half) -->
-  <div class="home-hero-right">
+<!-- ===== HOME HERO ===== -->
     
-    <!-- Top Row: Three Work Areas with Glassmorphic Bars -->
-    <section class="home-hero-work" aria-label="Professional work areas">
-      <div class="home-hero-work-item">
-        <span class="home-hero-work-adjective">Rigorous</span>
-        <span class="home-hero-work-name">Research</span>
+<section class="home-hero" aria-labelledby="home-hero-title">
+  <div class="home-hero-inner">
+
+    <!-- LEFT: eyebrow + title -->
+    <div class="home-hero-left">
+
+      <div class="home-hero-eyebrow" aria-label="Core values">
+        <span>Integrity</span>
+        <span class="home-hero-eyebrow-sep" aria-hidden="true">•</span>
+        <span>Impact</span>
+        <span class="home-hero-eyebrow-sep" aria-hidden="true">•</span>
+        <span>Inspiration</span>
       </div>
 
-      <div class="home-hero-work-item">
-        <span class="home-hero-work-adjective">Robust</span>
-        <span class="home-hero-work-name">Data Analysis</span>
-      </div>
+      <h1 class="home-hero-title" id="home-hero-title">
+        <span>Value-Based</span>
+        <span>Integrated Approach</span>
+        <span>for Better Healthcare</span>
+      </h1>
 
-      <div class="home-hero-work-item">
-        <span class="home-hero-work-adjective">Compassionate</span>
-        <span class="home-hero-work-name">Teaching</span>
-      </div>
-    </section>
+    </div>
 
-    <!-- Lower Row: Image Container with Top-to-Bottom Gradient Overlay -->
-    <div class="home-hero-media-container">
-      <div class="home-hero-gradient-overlay"></div>
-      <img
-        class="home-hero-media"
-        src="/my-website/img/home.webp"
-        alt="Healthcare professional team and research lab"
-        loading="eager"
-        fetchpriority="high"
-      >
+    <!-- RIGHT: red card with work areas + image -->
+    <div class="home-hero-right">
+      <div class="home-hero-card">
+
+        <ul class="home-hero-work" aria-label="Professional work areas">
+          <li class="home-hero-work-item">
+            <span class="home-hero-work-adjective">Rigorous</span>
+            <span class="home-hero-work-name">Research</span>
+          </li>
+          <li class="home-hero-work-item">
+            <span class="home-hero-work-adjective">Robust</span>
+            <span class="home-hero-work-name">Data Analysis</span>
+          </li>
+          <li class="home-hero-work-item">
+            <span class="home-hero-work-adjective">Compassionate</span>
+            <span class="home-hero-work-name">Teaching</span>
+          </li>
+        </ul>
+
+        <div class="home-hero-image">
+          <img
+            src="/my-website/img/home.webp"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+          >
+        </div>
+
+      </div>
     </div>
 
   </div>
-
 </section>
 
 
