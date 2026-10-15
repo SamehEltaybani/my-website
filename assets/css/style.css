@@ -1246,17 +1246,192 @@ section,
    HERO SECTION
    ========================================================= */
 
+
+
+
+
+/* =========================================================
+   Redesigned 50/50 Split Hero Section
+   ========================================================= */
+
 .home-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   margin-top: -50px;
-  min-height: clamp(480px, 42vw, 620px);
-  background-color: var(--bg-color);
+  width: 100%;
+  min-height: clamp(520px, 48vw, 680px);
+  display: flex;
+  flex-direction: row; /* Enforces the 50/50 side-by-side split across all screens */
 }
 
-/* ----- Hero Image (natural size drives hero height on
-         desktop/tablet; fills the box on mobile) ----- */
+/* ----- LEFT SIDE (50% Width, Subtle Gradient Background) ----- */
+
+.home-hero-left {
+  flex: 0 0 50%;
+  width: 50%;
+  background: linear-gradient(135deg, #005256 0%, #00ADB5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
+}
+
+.home-hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Eyebrow Pill Badge */
+.home-hero-values {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.home-hero-values-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.6rem;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.home-hero-value {
+  white-space: nowrap;
+}
+
+.home-hero-value-separator {
+  margin: 0 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8em;
+}
+
+/* Headline Styling */
+.home-hero-statement {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.home-hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+  margin: 0;
+  color: var(--white-color, #ffffff);
+  font-size: clamp(2rem, 3.4vw, 3.8rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 8px rgba(0, 29, 34, 0.4);
+}
+
+.home-hero-title-line {
+  display: block;
+}
+
+/* Desktop: strict 2-line visual setup */
+.home-hero-title-line-one,
+.home-hero-title-line-two {
+  white-space: nowrap;
+}
+
+
+/* ----- RIGHT SIDE (50% Width, Floating Panel Layout) ----- */
+
+.home-hero-right {
+  flex: 0 0 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+  position: relative;
+}
+
+/* TOP ROW: Three Work Areas (#b50800 Solid Background + Glass Bars) */
+.home-hero-work {
+  flex: 0 0 auto;
+  background-color: #b50800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.home-hero-work-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  width: 100%;
+  max-width: 420px;
+  min-height: 3.6rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: var(--white-color, #ffffff);
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.home-hero-work-adjective,
+.home-hero-work-name {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* LOWER ROW: Image with Top-to-Bottom Gradient Overlay */
+.home-hero-media-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  overflow: hidden;
+  background-color: #b50800; /* Fallback matching the top row */
+}
+
+/* Gradient Overlay: Solid #b50800 at top blending down to transparent */
+.home-hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    #b50800 0%,
+    rgba(181, 8, 0, 0.65) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
 
 .home-hero-media {
   position: absolute;
@@ -1268,7 +1443,71 @@ section,
   z-index: 0;
 }
 
-/* ----- Content Layer (sits on top of the image) ----- */
+
+/* =========================================================
+   Responsive Adjustments (Maintaining the 50/50 Split)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .home-hero-title {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Forces strict 3-line breakdown on mobile as requested */
+  .home-hero-title-line-one {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .home-hero-title-line-one span {
+    white-space: nowrap;
+  }
+
+  .home-hero-title {
+    font-size: clamp(1.6rem, 5.2vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .home-hero-left {
+    padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .home-hero-work {
+    padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+  }
+}
+
+
+
+
+
+/* -----
+
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: -50px;
+  min-height: clamp(480px, 42vw, 620px);
+  background-color: var(--bg-color);
+}
+
+
+
+.home-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+}
+
 
 .home-hero-content {
   position: absolute;
@@ -1278,7 +1517,6 @@ section,
   flex-direction: column;
 }
 
-/* ----- Middle Zone (headline band + work tiles) ----- */
 
 .home-hero-main {
   flex: 1;
@@ -1291,7 +1529,6 @@ section,
   padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 
-/* ----- Headline Band (full-width, flat translucent gray) ----- */
 
 .home-hero-statement {
   width: 100%;
@@ -1331,7 +1568,6 @@ section,
   white-space: nowrap;
 }
 
-/* ----- Work Tiles (red, slanted) ----- */
 
 .home-hero-work {
   display: flex;
@@ -1369,7 +1605,6 @@ section,
   white-space: nowrap;
 }
 
-/* ----- Values Strip (bottom separator) ----- */
 
 .home-hero-values {
   display: flex;
@@ -1386,7 +1621,6 @@ section,
   text-shadow: 0 1px 7px rgba(0, 29, 34, 0.55);
 }
 
-/* ----- Frosted Glass Pill Around the Values ----- */
 
 .home-hero-values-pill {
   display: inline-flex;
@@ -1413,9 +1647,7 @@ section,
   text-shadow: none;
 }
 
-/* =========================================================
-   Responsive
-   ========================================================= */
+
 
 @media (max-width: 900px) {
   .home-hero-title {
@@ -1430,8 +1662,6 @@ section,
 }
 
 @media (max-width: 768px) {
-  /* Content is now the tallest thing, so let it set the height
-     and let the image fill the box behind it. */
   .home-hero {
     min-height: 620px;
   }
@@ -1527,7 +1757,7 @@ section,
   }
 }
 
-
+----- */
    
 
 /* ====== ABOUT SECTION (Homepage) ======= */
