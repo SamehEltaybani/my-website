@@ -1251,7 +1251,7 @@ section,
 
 
 /* =========================================================
-   Redesigned Consistent 50/50 Split Hero Section
+   Redesigned Layered Hero Section
    ========================================================= */
 
 .home-hero {
@@ -1260,23 +1260,21 @@ section,
   overflow: hidden;
   margin-top: 0;
   width: 100%;
-  min-height: clamp(540px, 48vw, 700px);
-  display: flex;
-  flex-direction: row; /* Strict side-by-side split across all screens */
+  min-height: clamp(560px, 50vw, 720px);
 }
 
-/* ----- LEFT SIDE (50% Width, Master Canvas Background) ----- */
+/* ----- LEFT SIDE (Full-Width Master Background, Content Restricted to 50%) ----- */
 
 .home-hero-left {
-  flex: 0 0 50%;
-  width: 50%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #005256 0%, #00ADB5 100%);
   display: flex;
   align-items: center;
-  justify-content: center;
   box-sizing: border-box;
   padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4vw, 4rem);
-  position: relative;
   z-index: 1;
 }
 
@@ -1284,8 +1282,10 @@ section,
   display: flex;
   flex-direction: column;
   gap: clamp(1.25rem, 2.5vw, 2rem);
-  max-width: 580px;
-  width: 100%;
+  width: 50%; /* Restricts content layout strictly to the left half */
+  max-width: 600px;
+  box-sizing: border-box;
+  padding-right: clamp(1rem, 2vw, 2rem);
 }
 
 /* Eyebrow Pill Badge */
@@ -1334,7 +1334,7 @@ section,
   gap: 0.08em;
   margin: 0;
   color: var(--white-color, #ffffff);
-  font-size: clamp(1.9rem, 3vw, 3.4rem);
+  font-size: clamp(1.8rem, 2.9vw, 3.3rem);
   font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -1351,18 +1351,18 @@ section,
 }
 
 
-/* ----- RIGHT SIDE (50% Width, Floating Red Card Layer) ----- */
+/* ----- RIGHT SIDE (Floating Red Card Layer over the right half) ----- */
 
 .home-hero-right {
-  flex: 0 0 50%;
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  right: 0;
   width: 50%;
+  
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  
-  /* 70% height with 15% margins top and bottom */
-  height: 70%;
-  margin: auto 0; 
   
   /* Thick white borders on top, left, and bottom */
   border-top: 5px solid #ffffff;
@@ -1379,7 +1379,6 @@ section,
   box-shadow: -16px 12px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 2;
-  position: relative;
 }
 
 /* TOP ROW: Three Work Areas (#b50800 Solid Background + Glass Bars) */
@@ -1390,8 +1389,8 @@ section,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.5rem, 1vw, 0.8rem);
-  padding: clamp(1.25rem, 2.2vw, 1.8rem) clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(0.4rem, 0.9vw, 0.7rem);
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.5rem);
   box-sizing: border-box;
   width: 100%;
 }
@@ -1402,11 +1401,11 @@ section,
   justify-content: center;
   gap: 0.4em;
   width: 100%;
-  max-width: 360px;
-  min-height: 3rem;
+  max-width: 340px;
+  min-height: 2.8rem;
   box-sizing: border-box;
   margin: 0;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   /* Glassmorphism Effect */
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -1414,7 +1413,7 @@ section,
   -webkit-backdrop-filter: blur(10px);
   border-radius: 8px;
   color: var(--white-color, #ffffff);
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
@@ -1433,7 +1432,7 @@ section,
   flex: 1;
   position: relative;
   width: 100%;
-  min-height: 160px;
+  min-height: 140px;
   overflow: hidden;
   background-color: #b50800;
 }
@@ -1464,11 +1463,11 @@ section,
 
 
 /* =========================================================
-   Responsive Adjustments (Maintains 50/50 split across sizes)
+   Responsive Adjustments (Maintains overlay structure)
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* Phone layout: switches headline to strict 3-line format while preserving 50/50 split */
+  /* Phone layout: switches headline to strict 3-line format while preserving layout structure */
   .home-hero-title-line-one {
     display: flex;
     flex-direction: column;
@@ -1481,7 +1480,7 @@ section,
   }
 
   .home-hero-title {
-    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-size: clamp(1.3rem, 3.8vw, 1.8rem);
     letter-spacing: -0.02em;
   }
 
@@ -1489,17 +1488,20 @@ section,
     padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 2vw, 1.25rem);
   }
 
+  .home-hero-home-content-wrapper {
+    padding-right: 0.5rem;
+  }
+
   .home-hero-work {
-    padding: 1rem 0.75rem;
+    padding: 0.8rem 0.5rem;
   }
 
   .home-hero-work-item {
-    min-height: 2.6rem;
-    font-size: 0.88rem;
-    padding: 0.4rem 0.8rem;
+    min-height: 2.4rem;
+    font-size: 0.84rem;
+    padding: 0.35rem 0.6rem;
   }
 }
-
 
 
 
