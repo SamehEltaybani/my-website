@@ -1761,6 +1761,12 @@ section,
     .text-image-1-text {
         margin-top: var(--space-lg);
     }
+
+   .text-image-1-image::before {
+    left: -10px;
+    bottom: -10px;
+}
+   
 }
 
 
