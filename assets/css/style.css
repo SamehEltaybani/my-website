@@ -1809,10 +1809,9 @@ HOME PAGE
 
 .first-time-text {
     grid-area: text;
+    align-self: start;
     margin: 0;
-    max-width: none;
-    min-width: none;
-}
+   }
 
 .first-time-image {
     grid-area: image;
