@@ -1785,10 +1785,6 @@ HOME PAGE
    FIRST-TIME USER SECTION
    ============================================ */
 
-.first-time-section {
-    background: transparent;
-    padding: var(--space-xl) 0;
-}
 
 .text-image-1-grid {
     display: grid;
@@ -1853,7 +1849,6 @@ HOME PAGE
     vertical-align: middle;
 }
 
-/* ----- Responsive: phone layout = title, image, text ----- */
 
 @media (max-width: 768px) {
     .text-image-1-grid {
@@ -1866,7 +1861,6 @@ HOME PAGE
         gap: var(--space-lg);
     }
 
-    /* Push the text down on mobile so it doesn't crowd the red box */
     .text-image-1-text {
         margin-top: var(--space-lg);
     }
