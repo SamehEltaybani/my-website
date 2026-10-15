@@ -1790,7 +1790,7 @@ HOME PAGE
     padding: var(--space-xl) 0;
 }
 
-.first-time-grid {
+.text-image-1-grid {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
     grid-template-rows: auto auto; 
@@ -1802,38 +1802,38 @@ HOME PAGE
     align-content: start;
 }
 
-.first-time-title {
+.text-image-1-title {
     grid-area: title;
     margin: 0;
 }
 
-.first-time-text {
+.text-image-1-text {
     grid-area: text;
     align-self: start;
     margin: 0;
    }
 
-.first-time-image {
+.text-image-1-image {
     grid-area: image;
     position: relative;
 }
 
 /* The Red Box: Floating above the page background */
-.first-time-image::before {
+.text-image-1-image::before {
     content: '';
     position: absolute;
     top: 25%;
     left: -20px;
     right: 25%;
     bottom: -20px;
-    background: #b50800;
+    background: var(--complementary-color);
     border-radius: var(--radius-md);
     z-index: 0;
     box-shadow: 0 10px 25px rgba(181, 8, 0, 0.3);
 }
 
 /* The Image: Floating above the red box */
-.first-time-image img {
+.text-image-1-image img {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -1856,7 +1856,7 @@ HOME PAGE
 /* ----- Responsive: phone layout = title, image, text ----- */
 
 @media (max-width: 768px) {
-    .first-time-grid {
+    .text-image-1-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas:
@@ -1867,7 +1867,7 @@ HOME PAGE
     }
 
     /* Push the text down on mobile so it doesn't crowd the red box */
-    .first-time-text {
+    .text-image-1-text {
         margin-top: var(--space-lg);
     }
 }
