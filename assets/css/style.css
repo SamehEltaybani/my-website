@@ -1335,6 +1335,8 @@ HOME PAGE
 .home-hero-lede strong {
   color: var(--white-color);
   font-weight: 700;
+  display: block;
+  margin-bottom: 0.5em;
 }
 
 /* ----- Hero CTA wrapper (right-aligns the button to the lede) ----- */
