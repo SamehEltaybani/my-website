@@ -1378,7 +1378,7 @@ HOME PAGE
     padding-top: 6rem;
   }
    .home-hero-eyebrow {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
    .home-hero-pillars > span:not(.home-hero-pillars-sep) {
     display: block;
