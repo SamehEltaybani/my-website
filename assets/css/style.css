@@ -1243,8 +1243,8 @@ section,
 
 
 /* =========================================================
-   HERO SECTION
-   ========================================================= */
+HOME PAGE
+========================================================= */
 
 
 
@@ -1338,281 +1338,84 @@ section,
 }
 
 
+/* =========================================================
+   HERO QUICK-LINKS CARDS
+   ========================================================= */
 
-/* -----
-
-.home-hero {
+.hero-cards-section {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  margin-top: -50px;
-  min-height: clamp(480px, 42vw, 620px);
-  background-color: var(--bg-color);
-}
-
-
-
-.home-hero-media {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  z-index: 0;
-}
-
-
-.home-hero-content {
-  position: absolute;
-  inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
+  margin-top: clamp(-70px, -4vw, -40px);   /* moderate overlap with hero */
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
+.hero-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+}
 
-.home-hero-main {
-  flex: 1;
-  min-height: 0;
+/* ----- Card ----- */
+
+.hero-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
-}
+  gap: 0.65rem;
 
+  padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
+  min-height: clamp(120px, 11vw, 150px);
 
-.home-hero-statement {
-  width: 100%;
-  box-sizing: border-box;
-  padding:
-    clamp(1rem, 1.8vw, 1.5rem)
-    clamp(1.25rem, 5vw, 4rem);
-  background: rgba(64, 64, 64, 0.42);
+  background: var(--white-color);
+  border: var(--card-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--card-shadow);
+
+  text-decoration: none;
+  color: var(--dark-color);
   text-align: center;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.home-hero-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.04em;
-  max-width: 1050px;
-  margin: 0 auto;
-  color: var(--white-color);
-  font-size: clamp(2.35rem, 4.3vw, 4.35rem);
-  font-weight: 750;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  text-align: center;
-  text-shadow:
-    0 2px 4px rgba(0, 29, 34, 0.45),
-    0 8px 24px rgba(0, 29, 34, 0.35);
+.hero-card:hover,
+.hero-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(34, 40, 49, 0.28);
+  outline: none;
 }
 
-.home-hero-title-line {
-  display: block;
+/* ----- Card contents ----- */
+
+.hero-card-icon {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: var(--accent-color);
+  line-height: 1;
 }
 
-.home-hero-title-line-one,
-.home-hero-title-line-two {
-  white-space: nowrap;
-}
-
-
-.home-hero-work {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: clamp(0.5rem, 1.2vw, 1rem);
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 clamp(1.25rem, 5vw, 4rem);
-}
-
-.home-hero-work-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35em;
-  width: clamp(15rem, 27vw, 23rem);
-  min-height: 4rem;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0.75rem 1.5rem;
-  background: rgba(181, 8, 0, 0.58);
-  color: var(--white-color);
-  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+.hero-card-title {
+  font-size: clamp(0.9rem, 0.8rem + 0.35vw, 1.05rem);
   font-weight: 600;
-  line-height: 1.2;
-  text-align: center;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
-  clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
+  line-height: 1.25;
+  color: var(--dark-color);
 }
 
-.home-hero-work-adjective,
-.home-hero-work-name {
-  display: inline;
-  white-space: nowrap;
+.hero-card-arrow {
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  opacity: 0.65;
+  margin-top: auto;
 }
 
-
-.home-hero-values {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem clamp(1rem, 3vw, 2rem);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  background-color: #006469;
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.025em;
-  text-align: center;
-  text-shadow: 0 1px 7px rgba(0, 29, 34, 0.55);
-}
-
-
-.home-hero-values-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.7rem 1.9rem;
-   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  white-space: nowrap;
-}
-
-.home-hero-value {
-  white-space: nowrap;
-}
-
-.home-hero-value-separator {
-  margin: 0 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.8em;
-  font-weight: 400;
-  text-shadow: none;
-}
-
-
+/* ----- Responsive: 4 cols → 2 cols ----- */
 
 @media (max-width: 900px) {
-  .home-hero-title {
-    max-width: 850px;
-    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-  }
-
-  .home-hero-main {
-    padding-top: clamp(3rem, 8vw, 5rem);
-    padding-bottom: clamp(2rem, 6vw, 3.5rem);
+  .hero-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-@media (max-width: 768px) {
-  .home-hero {
-    min-height: 620px;
-  }
-
- 
-
-  .home-hero-main {
-    padding:
-      clamp(3rem, 10vw, 4.5rem)
-      0
-      clamp(2rem, 7vw, 3rem);
-  }
-
-  .home-hero-statement {
-    padding:
-      clamp(0.9rem, 3vw, 1.25rem)
-      var(--space-md);
-  }
-
-  .home-hero-title {
-    max-width: 100%;
-    gap: 0.08em;
-    font-size: clamp(2.05rem, 9vw, 3rem);
-    line-height: 1.06;
-    letter-spacing: -0.025em;
-  }
-
-  .home-hero-title-line-one {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    white-space: normal;
-  }
-
-  .home-hero-title-line-one > span {
-    display: block;
-    white-space: nowrap;
-  }
-
-  .home-hero-work {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.7rem;
-    width: 100%;
-    padding: 0 var(--space-md);
-  }
-
-  .home-hero-work-item {
-    width: min(88%, 22rem);
-    min-height: 4rem;
-    padding: 0.8rem 1.3rem;
-    font-size: 1.08rem;
-  }
-
-  .home-hero-work-item:nth-child(1) { align-self: flex-start; }
-  .home-hero-work-item:nth-child(2) { align-self: center; }
-  .home-hero-work-item:nth-child(3) { align-self: flex-end; }
-}
-
-.home-hero-values {
-  font-size: 1.25rem;
-}
-
-@media (max-width: 380px) {
-  .home-hero {
-    min-height: 560px;
-  }
-
-  .home-hero-main {
-    padding-right: var(--space-sm);
-    padding-left: var(--space-sm);
-  }
-
-  .home-hero-title {
-    font-size: 1.9rem;
-  }
-
-  .home-hero-work {
-    width: 100%;
-  }
-
-  .home-hero-work-item {
-    padding: 0.85rem 0.5rem;
-  }
-
-  .home-hero-values-pill {
-    padding: 0.5rem 1rem;
-    font-size: 0.92em;
-  }
-
-  .home-hero-value-separator {
-    margin: 0 0.5rem;
-  }
-}
-
------ */
-   
+  
 
 /* ====== ABOUT SECTION (Homepage) ======= */
 
