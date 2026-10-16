@@ -315,6 +315,7 @@
      First-time user section: title + text on the left, image on the right.
      On mobile: title, image, text (via CSS grid-template-areas).
 ================= -->
+    
 <section class="text-image-1-section home-anchor-target" id="first-time">
     <div class="container">
         <div class="text-image-1-grid">
@@ -351,126 +352,148 @@
  <div class="container">   
     
     
-    <!-- ===== WHAT I DO ===== -->
-    
-<h2 class="primary-heading-h2">
-    <span class="primary-heading-text">What I Do</span>
- </h2>
-<p class="primary-paragraph">Explore my core areas of expertise</p>
 
-<div class="whatido-container">
 
-    <!-- ROW 1: Research -->
-    
-    <div class="whatido-row" id="research">
-        <div class="whatido-left">
-            <div class="whatido-header">
-                <i class="fa-solid fa-microscope"></i>
-                <h3>Research</h3>
-            </div>
-            <div class="whatido-divider"></div>
-            <ul class="whatido-descriptors" aria-label="Research approach">
-              <li>Rigorous</li>
-              <li>Actionable</li>
-              <li>Collaborative</li>
-            </ul>
+
+
+     <!-- ===== WHAT I DO ===== -->
+
+     
+<section class="whatido-section" aria-labelledby="whatido-title">
+  <div class="container">
+
+    <h2 class="primary-heading-h2" id="whatido-title">
+      <span class="primary-heading-text">What I Do</span>
+    </h2>
+    <p class="primary-paragraph">Explore my core areas of expertise</p>
+
+    <div class="whatido-rows">
+
+      <!-- ===== ROW 1: Research ===== -->
+      <article class="whatido-row home-anchor-target" id="research">
+        <div class="whatido-header">
+          <i class="fa-solid fa-microscope" aria-hidden="true"></i>
+          <h3>Research</h3>
+        </div>
+        <div class="whatido-divider"></div>
+
+        <div class="whatido-body">
+          <div class="whatido-text">
             <p class="primary-paragraph">
-                I conduct healthcare research through a comprehensive lifecycle approach that integrates rigor, integrity, and real-world relevance. My work combines diverse methodologies, strong statistical expertise, and international collaboration to address complex challenges. I contribute not only to producing high quality research but also to advancing the broader scientific ecosystem.
+              I conduct healthcare research through a comprehensive lifecycle
+              that integrates rigor, integrity, and real-world relevance. My work
+              combines diverse methodologies, strong statistical expertise, and
+              international collaboration to address complex challenges.
             </p>
             <ul class="primary-bullet-list">
-                <li>Mixed-methods research design</li>
-                <li>Clinical and health services research</li>
-                <li>Evidence synthesis and implementation science</li>
+              <li>Mixed-methods research design</li>
+              <li>Clinical and health services research</li>
+              <li>Evidence synthesis and implementation science</li>
             </ul>
             <a href="research.html" class="primary-button whatido-btn">
-                <span>Read more</span>
-                <i class="fa-solid fa-arrow-right"></i>
+              <span>Read more</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-        </div>
-                            <div class="whatido-right">
-                          <div class="whatido-image-frame">
-                            <img src="img/research-1.webp" 
-                                alt="Research"
-                                loading="lazy">
-                          </div>
-                        </div>
-       
-    </div>
+          </div>
 
-    <!-- ROW 2: Education -->
-    
-    <div class="whatido-row" id="education">
-        <div class="whatido-left">
-            <div class="whatido-header">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <h3>Education</h3>
+          <div class="whatido-image">
+            <img src="img/research-1.webp" alt="" loading="lazy">
+            <div class="whatido-strip">
+              <span>Rigorous</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Actionable</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Collaborative</span>
             </div>
-            <div class="whatido-divider"></div>
-            <ul class="whatido-descriptors" aria-label="Teaching approach">
-              <li>Compassionate</li>
-              <li>Transformative</li>
-              <li>Engaging</li>
-            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== ROW 2: Education ===== -->
+      <article class="whatido-row home-anchor-target" id="education">
+        <div class="whatido-header">
+          <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+          <h3>Education</h3>
+        </div>
+        <div class="whatido-divider"></div>
+
+        <div class="whatido-body">
+          <div class="whatido-text">
             <p class="primary-paragraph">
-                I deliver teaching that is inclusive, adaptable, and grounded in real world healthcare practice. My approach integrates interdisciplinary thinking, evidence based learning, and strong support for individual learner needs. I aim to develop confident, competent professionals who can work effectively across diverse and complex environments.
+              I deliver teaching that is inclusive, adaptable, and grounded in
+              real-world practice. My approach integrates interdisciplinary
+              thinking, evidence-based learning, and strong support for individual
+              learner needs to develop confident, competent professionals.
             </p>
             <ul class="primary-bullet-list">
-                <li>Undergraduate and graduate teaching</li>
-                <li>Curriculum development and innovation</li>
-                <li>Mentorship and academic advising</li>
+              <li>Undergraduate and graduate teaching</li>
+              <li>Curriculum development and innovation</li>
+              <li>Mentorship and academic advising</li>
             </ul>
             <a href="teaching.html" class="primary-button whatido-btn">
-                <span>Read more</span>
-                <i class="fa-solid fa-arrow-right"></i>
+              <span>Read more</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-        </div>
-                        <div class="whatido-right">
-                          <div class="whatido-image-frame">
-                            <img src="img/education-1.webp" 
-                                alt="Research"
-                                loading="lazy">
-                          </div>
-                        </div>
+          </div>
 
-    </div>
-
-    <!-- ROW 3: Data Analysis -->
-    
-    <div class="whatido-row" id="data-analysis">
-        <div class="whatido-left">
-            <div class="whatido-header">
-                <i class="fa-solid fa-chart-bar"></i>
-                <h3>Data Analysis</h3>
+          <div class="whatido-image">
+            <img src="img/education-1.webp" alt="" loading="lazy">
+            <div class="whatido-strip">
+              <span>Compassionate</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Transformative</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Engaging</span>
             </div>
-            <div class="whatido-divider"></div>
-            <ul class="whatido-descriptors" aria-label="Data analysis approach">
-              <li>Accurate</li>
-              <li>Actionable</li>
-              <li>Clear</li>
-            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== ROW 3: Data Analysis ===== -->
+      <article class="whatido-row home-anchor-target" id="data-analysis">
+        <div class="whatido-header">
+          <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+          <h3>Data Analysis</h3>
+        </div>
+        <div class="whatido-divider"></div>
+
+        <div class="whatido-body">
+          <div class="whatido-text">
             <p class="primary-paragraph">
-                I transform data into meaningful insights through strong statistical analysis and deep healthcare understanding. My work integrates quantitative and qualitative approaches to reflect real world complexity. I deliver clear, actionable results that support informed decisions while maintaining the highest ethical standards.
+              I transform data into meaningful insights through strong statistical
+              analysis and deep healthcare understanding. My work integrates
+              quantitative and qualitative approaches to deliver clear, actionable
+              results while maintaining the highest ethical standards.
             </p>
             <ul class="primary-bullet-list">
-                <li>Advanced biostatistics and epidemiology</li>
-                <li>Data visualization and dashboard design</li>
-                <li>Reproducible research and open science</li>
+              <li>Advanced biostatistics and epidemiology</li>
+              <li>Data visualization and dashboard design</li>
+              <li>Reproducible research and open science</li>
             </ul>
             <a href="data-analysis.html" class="primary-button whatido-btn">
-                <span>Read more</span>
-                <i class="fa-solid fa-arrow-right"></i>
+              <span>Read more</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-        </div>
-                             <div class="whatido-right">
-                          <div class="whatido-image-frame">
-                            <img src="img/data-1.webp" 
-                                alt="Research"
-                                loading="lazy">
-                          </div>
-                        </div>
-    </div>
+          </div>
 
-</div>
+          <div class="whatido-image">
+            <img src="img/data-1.webp" alt="" loading="lazy">
+            <div class="whatido-strip">
+              <span>Accurate</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Actionable</span>
+              <span class="whatido-strip-dot" aria-hidden="true">·</span>
+              <span>Clear</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+     
 
   
    <!-- ===== EXPLORE THE SITE ===== -->
