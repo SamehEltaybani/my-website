@@ -1341,8 +1341,9 @@ HOME PAGE
 
 .home-hero-cta {
   width: 100%;
-  max-width: 62ch;      /* matches the lede width */
+  max-width: 62ch;
   text-align: right;
+  line-height: 0;      /* kills the inline descender gap */
 }
 
 /* ----- Button override for the dark hero background ----- */
@@ -1353,7 +1354,7 @@ HOME PAGE
   color: var(--white-color);
   border-color: rgba(255, 255, 255, 0.85);
 }
-}
+
 
 /* =========================================================
    HERO QUICK-LINKS CARDS
@@ -1386,7 +1387,7 @@ HOME PAGE
   justify-content: space-between;   
   gap: 0.75rem;
 
-  height: 180px;
+  height: 170px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
 
   background: var(--white-color);
