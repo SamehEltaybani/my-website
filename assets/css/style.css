@@ -1258,9 +1258,9 @@ HOME PAGE
   background-color: var(--accent-color-dark);
   margin-top: -50px;
   padding:
-    clamp(4rem, 7vw, 6rem)
-    clamp(1rem, 4vw, 3rem)
-    clamp(3rem, 5vw, 5rem);
+  clamp(4rem, 7vw, 6rem)
+  clamp(1rem, 4vw, 3rem)
+  clamp(6rem, 9vw, 9rem);
 }
 
 .home-hero-inner {
@@ -1345,7 +1345,7 @@ HOME PAGE
 .hero-cards-section {
   position: relative;
   z-index: 2;
-  margin-top: clamp(-70px, -4vw, -40px);   /* moderate overlap with hero */
+  margin-top: -40px;   /* exactly 25% of the 160px card */
   padding-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
@@ -1361,11 +1361,10 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
+  gap: 1rem;
 
+  height: 160px;                       /* fixed → 25% = 40px overlap */
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
-  min-height: clamp(120px, 11vw, 150px);
 
   background: var(--white-color);
   border: var(--card-border);
@@ -1389,8 +1388,15 @@ HOME PAGE
 /* ----- Card contents ----- */
 
 .hero-card-icon {
-  font-size: clamp(1.4rem, 2vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.4rem, 3.2vw, 3rem);
+  height: clamp(2.4rem, 3.2vw, 3rem);
+  border-radius: var(--radius-sm);
+  background: var(--accent-color-very-light);
   color: var(--accent-color);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
   line-height: 1;
 }
 
