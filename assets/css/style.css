@@ -1364,7 +1364,7 @@ HOME PAGE
   z-index: 2;
   padding-top: 0;                 /* overrides the global section padding */
   padding-bottom: var(--space-xl);
-  margin-top: -40px;
+  margin-top: -80px;
 }
 
 .hero-cards-grid {
@@ -1386,7 +1386,7 @@ HOME PAGE
   justify-content: space-between;   
   gap: 0.75rem;
 
-  height: 160px;
+  height: 180px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
 
   background: var(--white-color);
