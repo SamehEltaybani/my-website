@@ -1879,7 +1879,7 @@ HOME PAGE
 .whatido-header {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   margin-bottom: var(--space-sm);
 }
 
@@ -1941,10 +1941,11 @@ HOME PAGE
 .whatido-image {
   position: relative;
   margin-left: clamp(-2rem, -1.5vw, -0.75rem);
+  margin-top: 0.15rem;
   aspect-ratio: 16 / 10;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 14px 32px rgba(34, 40, 49, 0.18);
+  box-shadow: -6px 14px 32px rgba(34, 40, 49, 0.18);
 }
 
 .whatido-image > img {
