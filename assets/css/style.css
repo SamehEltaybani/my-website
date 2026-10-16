@@ -1374,7 +1374,10 @@ HOME PAGE
 }
 
 @media (max-width: 768px) {
-  .home-hero-pillars > span:not(.home-hero-pillars-sep) {
+ .home-hero {
+    padding-top: 6rem;
+  }
+   .home-hero-pillars > span:not(.home-hero-pillars-sep) {
     display: block;
   }
   .home-hero-pillars-sep {
