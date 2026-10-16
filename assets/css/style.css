@@ -1740,126 +1740,24 @@ HOME PAGE
 
 
 
-
-
-
-
-
-
 /* ==========================================
-   PHILOSOPHY, MISSION, AND APPROACH
+   COMMITMENTS (Philosophy, Mission, Approach, Values)
    ========================================== */
 
-.perspective-section {
-  padding: var(--space-xxl ) 0;
+.commitments-section {
+  padding: var(--space-xxl) 0;
 }
 
-.perspective-rows {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--white-color);
-  border: var(--card-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--card-shadow);
-}
-
-.perspective-row {
+.commitments-grid {
   display: grid;
-  grid-template-columns: minmax(130px, 0.7fr) minmax(0, 1.8fr) minmax(190px, 0.95fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-lg);
-  align-items: center;
-  min-width: 0;
-  padding: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
-.perspective-row + .perspective-row {
-  border-top: 1px solid rgba(34, 40, 49, 0.1);
-}
+/* ----- Card ----- */
 
-.perspective-label h3 {
-  margin: 0;
-  padding-left: var(--space-md);
-  border-left: 4px solid var(--accent-color);
-  color: var(--dark-color);
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-
-.perspective-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 5px 14px rgba(34, 40, 49, 0.12);
-}
-
-.perspective-image::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 40, 49, 0) 48%,
-    rgba(34, 40, 49, 0.28) 100%
-  );
-  content: "";
-  pointer-events: none;
-}
-
-.perspective-image > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.perspective-image .image-source {
-  right: var(--space-xs);
-  bottom: var(--space-xs);
-}
-
-@media (max-width: 768px) {
-  .perspective-section {
-    padding: var(--space-xl) 0;
-  }
-
-    .perspective-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-    padding: var(--space-lg);
-  }
-
-  .perspective-label h3 {
-    font-size: 1.2rem;
-  }
-
-  .perspective-image {
-    margin-top: var(--space-xs);
-  }
-}
-
-
-
-/* ==========================================
-   CORE VALUES CARDS - Home page
-   ========================================== */
-
-.core-values-section {
-  padding: var(--space-xxl ) 0;
-}
-
-.core-values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-lg);
-  align-items: stretch;
-}
-
-.core-value-card {
+.commitment-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -1870,54 +1768,67 @@ HOME PAGE
   box-shadow: var(--card-shadow);
 }
 
-.core-value-card-content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: var(--space-lg);
-}
+/* ----- Image + overlay strip ----- */
 
-.core-value-image {
+.commitment-image {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-radius: 0;
-  box-shadow: none;
 }
 
-.core-value-image::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 173, 181, 0) 42%,
-    rgba(0, 173, 181, 0.08) 62%,
-    rgba(34, 40, 49, 0.48) 100%
-  );
-  content: "";
-  pointer-events: none;
-}
-
-.core-value-image > img {
+.commitment-image > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.commitment-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(0.9rem, 1.8vw, 1.4rem);   /* small gap from the top of the image */
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem 0.6rem 1.1rem;
+  background: rgba(34, 40, 49, 0.62);  /* grey translucent */
+  border-left: 6px solid var(--accent-color);
+}
+
+.commitment-title {
+  margin: 0;
+  color: var(--white-color);
+}
+
+/* ----- Body ----- */
+
+.commitment-body {
+  flex: 1 1 auto;
+  padding: var(--space-lg);
+}
+
+.commitment-text {
+  margin: 0;
+}
+
+/* ----- Responsive ----- */
+
 @media (max-width: 768px) {
-  .core-values-section {
+  .commitments-section {
     padding: var(--space-xl) 0;
   }
 
- 
-   .core-values-grid {
+  .commitments-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+    margin-top: var(--space-lg);
   }
 }
+
+
+
+
 
 
 
