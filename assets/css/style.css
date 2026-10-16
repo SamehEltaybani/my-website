@@ -1260,7 +1260,7 @@ HOME PAGE
   padding:
   clamp(4rem, 7vw, 6rem)
   clamp(1rem, 4vw, 3rem)
-  clamp(6rem, 9vw, 9rem);
+  clamp(3rem, 5vw, 5rem);
 }
 
 .home-hero-inner {
