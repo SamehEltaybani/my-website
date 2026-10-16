@@ -86,71 +86,63 @@
 
 
 
-<!-- =====
-    
-    
-EDITORIAL HOME HERO (outside restricted container) 
-<section class="home-hero" aria-labelledby="home-hero-title">
+<!-- ===== HERO QUICK-LINKS CARDS ===== -->
+<section class="hero-cards-section" aria-label="Explore site sections">
+  <div class="container">
+    <div class="hero-cards-grid">
 
-  <img
-    class="home-hero-media"
-    src="/my-website/img/home.webp"
-    alt=""
-    aria-hidden="true"
-    loading="eager"
-    fetchpriority="high"
-  >
+      <a href="#first-time" class="hero-card">
+        <i class="fa-solid fa-compass hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">First Time User</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-  <div class="home-hero-content">
+      <a href="#about" class="hero-card">
+        <i class="fa-solid fa-user hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">About Me</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-    <div class="home-hero-main">
+      <a href="#commitments" class="hero-card">
+        <i class="fa-solid fa-handshake hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Commitments</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-      <div class="home-hero-statement">
-        <h1 class="home-hero-title" id="home-hero-title">
-          <span class="home-hero-title-line home-hero-title-line-one">
-            <span>Value-Based</span>
-            <span>Integrated Approach</span>
-          </span>
-          <span class="home-hero-title-line home-hero-title-line-two">
-            for Better Healthcare
-          </span>
-        </h1>
-      </div>
+      <a href="#research" class="hero-card">
+        <i class="fa-solid fa-microscope hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Research</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-      <section class="home-hero-work" aria-label="Professional work areas">
-        <p class="home-hero-work-item">
-          <span class="home-hero-work-adjective">Rigorous</span>
-          <span class="home-hero-work-name">Research</span>
-        </p>
+      <a href="#education" class="hero-card">
+        <i class="fa-solid fa-graduation-cap hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Education</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-        <p class="home-hero-work-item">
-          <span class="home-hero-work-adjective">Robust</span>
-          <span class="home-hero-work-name">Data Analysis</span>
-        </p>
+      <a href="#data-analysis" class="hero-card">
+        <i class="fa-solid fa-chart-line hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Data Analysis</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
-        <p class="home-hero-work-item">
-          <span class="home-hero-work-adjective">Compassionate</span>
-          <span class="home-hero-work-name">Teaching</span>
-        </p>
-      </section>
+      <a href="#publications" class="hero-card">
+        <i class="fa-solid fa-file-lines hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Publications</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="#blog" class="hero-card">
+        <i class="fa-solid fa-pen-to-square hero-card-icon" aria-hidden="true"></i>
+        <span class="hero-card-title">Blog Articles</span>
+        <i class="fa-solid fa-angles-down hero-card-arrow" aria-hidden="true"></i>
+      </a>
 
     </div>
-
-    <div class="home-hero-values" aria-label="Core values">
-      <div class="home-hero-values-pill">
-        <span class="home-hero-value">Integrity</span>
-        <span class="home-hero-value-separator">•</span>
-        <span class="home-hero-value">Impact</span>
-        <span class="home-hero-value-separator">•</span>
-        <span class="home-hero-value">Inspiration</span>
-      </div>
-    </div>
-
   </div>
 </section>
-
-
-    ===== -->
+    
 
 
 <!-- ===== MAIN CONTENT (begining of restricted content to 1200px) ===== -->
@@ -191,7 +183,7 @@ EDITORIAL HOME HERO (outside restricted container)
     
    <!-- ===== ABOUT SECTION (Photo + Bio + KPIs) ===== -->
     
-<section class="about-section">
+<section class="about-section" id="about">
     <div class="about-content">
         <div class="about-header">
             <img src="img/profile.webp" 
@@ -238,7 +230,7 @@ EDITORIAL HOME HERO (outside restricted container)
      First-time user section: title + text on the left, image on the right.
      On mobile: title, image, text (via CSS grid-template-areas).
 ================= -->
-<section class="text-image-1-section">
+<section class="text-image-1-section" id="first-time">
     <div class="container">
         <div class="text-image-1-grid">
 
@@ -277,7 +269,7 @@ EDITORIAL HOME HERO (outside restricted container)
 <!-- SECTION: Philosophy, Mission, and Approach                        -->
 <!-- ================================================================ -->
 
-    <section class="perspective-section" 
+    <section class="perspective-section id="commitments"" 
              aria-labelledby="perspective-title">
   <div class="container">
      <h2 class="primary-heading-h2">
@@ -436,7 +428,7 @@ EDITORIAL HOME HERO (outside restricted container)
 
     <!-- ROW 1: Research -->
     
-    <div class="whatido-row">
+    <div class="whatido-row" id="research">
         <div class="whatido-left">
             <div class="whatido-header">
                 <i class="fa-solid fa-microscope"></i>
@@ -473,7 +465,7 @@ EDITORIAL HOME HERO (outside restricted container)
 
     <!-- ROW 2: Education -->
     
-    <div class="whatido-row">
+    <div class="whatido-row" id="education">
         <div class="whatido-left">
             <div class="whatido-header">
                 <i class="fa-solid fa-chalkboard-user"></i>
@@ -510,7 +502,7 @@ EDITORIAL HOME HERO (outside restricted container)
 
     <!-- ROW 3: Data Analysis -->
     
-    <div class="whatido-row">
+    <div class="whatido-row" id="data-analysis">
         <div class="whatido-left">
             <div class="whatido-header">
                 <i class="fa-solid fa-chart-bar"></i>
