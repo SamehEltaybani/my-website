@@ -1373,7 +1373,7 @@ HOME PAGE
   box-shadow: 0 4px 16px rgba(34, 40, 49, 0.35);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .home-hero-pillars > span:not(.home-hero-pillars-sep) {
     display: block;
   }
