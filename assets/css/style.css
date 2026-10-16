@@ -1910,12 +1910,14 @@ HOME PAGE
 .whatido-body {
   display: grid;
   grid-template-columns: minmax(0, 58%) minmax(0, 42%);
-  gap: 0;
+  gap: clamp(1rem, 2.5vw, 2rem);
   align-items: start;
 }
 
 .whatido-text {
   padding-right: clamp(1rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
 }
 
 .whatido-text .primary-paragraph {
@@ -1924,13 +1926,14 @@ HOME PAGE
 
 .whatido-btn {
   margin-top: var(--space-md);
+  align-self: flex-end;
 }
 
 /* ----- Image (floats over the text column edge) ----- */
 
 .whatido-image {
   position: relative;
-  margin-left: clamp(-2.5rem, -2vw, -1rem);
+  margin-left: clamp(-2rem, -1.5vw, -0.75rem);
   aspect-ratio: 16 / 10;
   border-radius: var(--radius-md);
   overflow: hidden;
