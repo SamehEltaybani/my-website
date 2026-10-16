@@ -1333,12 +1333,19 @@ HOME PAGE
    text-wrap: pretty;
 }
 
-.home-hero-lede strong {
-  color: var(--white-color);
-  font-weight: 700;
+.home-hero-pillars {
   display: block;
   margin-bottom: 0.5em;
+  color: var(--white-color);
+  font-weight: 700;
 }
+
+.home-hero-pillars-sep {
+  margin: 0 0.45em;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+}
+
 
 /* ----- Hero CTA wrapper (right-aligns the button to the lede) ----- */
 
@@ -1367,8 +1374,11 @@ HOME PAGE
 }
 
 @media (max-width: 600px) {
-  .home-hero-lede strong span {
+  .home-hero-pillars > span:not(.home-hero-pillars-sep) {
     display: block;
+  }
+  .home-hero-pillars-sep {
+    display: none;
   }
 }
 
