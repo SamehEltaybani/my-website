@@ -1337,6 +1337,20 @@ HOME PAGE
   font-weight: 700;
 }
 
+/* ----- Hero CTA wrapper (right-aligns the button to the lede) ----- */
+
+.home-hero-cta {
+  width: 100%;
+  max-width: 62ch;      /* matches the lede width */
+  text-align: right;
+}
+
+/* ----- Button override for the dark hero background ----- */
+
+.hero-explore-btn {
+  color: var(--white-color);
+  border-color: rgba(255, 255, 255, 0.85);
+}
 
 /* =========================================================
    HERO QUICK-LINKS CARDS
