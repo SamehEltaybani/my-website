@@ -1807,8 +1807,9 @@ HOME PAGE
 .commitment-body {
   position: relative;
   z-index: 2;
+  flex: 1 1 auto;                  /* ← stretch to match the card's full height */
   width: 88%;
-  margin: -2.5rem auto 0;             /* pulls the card up over the image, centers it */
+  margin: -2.5rem auto 0;        /* Change -2.5 to change teh overlap with teh image */
   padding: var(--space-lg);
   background: var(--white-color);
   border-radius: var(--radius-md);
