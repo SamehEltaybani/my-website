@@ -1859,14 +1859,19 @@ HOME PAGE
 .whatido-rows {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xxl);
+  gap: var(--space-xl);
   margin-top: var(--space-xl);
 }
 
-/* ----- Each Row ----- */
+/* ----- Each Row (white card) ----- */
 
 .whatido-row {
   position: relative;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--white-color);
+  border: 1px solid rgba(34, 40, 49, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
 }
 
 /* ----- Header (icon + title) ----- */
@@ -1890,7 +1895,7 @@ HOME PAGE
   font-weight: 700;
 }
 
-/* ----- Divider (runs full row width) ----- */
+/* ----- Divider (full row width) ----- */
 
 .whatido-divider {
   width: 100%;
@@ -1914,10 +1919,12 @@ HOME PAGE
   align-items: start;
 }
 
+/* ----- Text column ----- */
+
 .whatido-text {
-  padding-right: clamp(1rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
+  padding-right: clamp(1rem, 3vw, 2.5rem);
 }
 
 .whatido-text .primary-paragraph {
@@ -1929,7 +1936,7 @@ HOME PAGE
   align-self: flex-end;
 }
 
-/* ----- Image (floats over the text column edge) ----- */
+/* ----- Image (floats over text column's empty right edge) ----- */
 
 .whatido-image {
   position: relative;
@@ -1937,7 +1944,7 @@ HOME PAGE
   aspect-ratio: 16 / 10;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 14px 32px rgba(34, 40, 49, 0.16);
+  box-shadow: 0 14px 32px rgba(34, 40, 49, 0.18);
 }
 
 .whatido-image > img {
@@ -1990,8 +1997,12 @@ HOME PAGE
   }
 
   .whatido-rows {
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     margin-top: var(--space-lg);
+  }
+
+  .whatido-row {
+    padding: var(--space-lg) var(--space-md);
   }
 
   .whatido-header i {
