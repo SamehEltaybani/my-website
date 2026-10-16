@@ -1766,6 +1766,7 @@ HOME PAGE
   border: 1px solid rgba(34, 40, 49, 0.08);
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
+  padding-bottom: var(--space-lg);
 }
 
 /* ----- Image + overlay strip ----- */
@@ -1804,8 +1805,16 @@ HOME PAGE
 /* ----- Body ----- */
 
 .commitment-body {
-  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+  width: 88%;
+  margin: -2.5rem auto 0;             /* pulls the card up over the image, centers it */
   padding: var(--space-lg);
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 10px 28px rgba(34, 40, 49, 0.18),
+    0 2px 6px rgba(34, 40, 49, 0.08);
 }
 
 .commitment-text {
@@ -1824,6 +1833,11 @@ HOME PAGE
     gap: var(--space-lg);
     margin-top: var(--space-lg);
   }
+
+   .commitment-body {
+  width: 92%;
+  margin-top: -2rem;
+}
 }
 
 
