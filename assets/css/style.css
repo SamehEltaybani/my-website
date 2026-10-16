@@ -1867,11 +1867,6 @@ HOME PAGE
 
 .whatido-row {
   position: relative;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--white-color);
-  border: 1px solid rgba(34, 40, 49, 0.08);
-  border-radius: var(--radius-md);
-  box-shadow: var(--card-shadow);
 }
 
 /* ----- Header (icon + title) ----- */
@@ -1924,7 +1919,11 @@ HOME PAGE
 .whatido-text {
   display: flex;
   flex-direction: column;
-  padding-right: clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding-right: clamp(2rem, 4vw, 3.5rem);   /* extra right space so the image has room to overlap */
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
 }
 
 .whatido-text .primary-paragraph {
@@ -1940,7 +1939,7 @@ HOME PAGE
 
 .whatido-image {
   position: relative;
-  margin-left: clamp(-2rem, -1.5vw, -0.75rem);
+  margin-left: clamp(-3rem, -2.5vw, -1.5rem);
   aspect-ratio: 16 / 10;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1981,9 +1980,7 @@ HOME PAGE
   font-weight: 400;
 }
 
-/* ============================================
-   WHAT I DO — Responsive
-   ============================================ */
+/*    WHAT I DO — Responsive  */
 
 @media (max-width: 900px) {
   .whatido-body {
@@ -2026,11 +2023,11 @@ HOME PAGE
   }
 
   .whatido-text {
-    order: 2;
-    width: 100%;
-    padding-right: 0;
-    margin-top: var(--space-lg);
-  }
+  order: 2;
+  width: 100%;
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
 
   .whatido-strip {
     font-size: clamp(0.58rem, 2.4vw, 0.78rem);
