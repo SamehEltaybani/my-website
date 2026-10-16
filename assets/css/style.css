@@ -1668,10 +1668,10 @@ HOME PAGE
 .text-image-1-image::before {
     content: '';
     position: absolute;
-    top: 25%;
-    left: -20px;
-    right: 25%;
-    bottom: -20px;
+    top: 15%;
+    left: -10px;
+    right: 15%;
+    bottom: -10px;
     background: var(--complementary-color);
     border-radius: var(--radius-md);
     z-index: 0;
