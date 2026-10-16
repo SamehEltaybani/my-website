@@ -1356,9 +1356,15 @@ HOME PAGE
   min-width: 180px;
   color: var(--white-color);
   border-color: rgba(255, 255, 255, 0.85);
-   background: #c9a227;
-}
+  }
 
+.hero-explore-btn:hover,
+.hero-explore-btn:focus-visible {
+  background: var(--dark-color);
+  color: var(--white-color);
+  border-color: var(--dark-color);
+  box-shadow: 0 4px 16px rgba(34, 40, 49, 0.35);
+}
 
 @media (max-width: 600px) {
   .home-hero-lede strong span {
