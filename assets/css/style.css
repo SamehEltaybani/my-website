@@ -1358,6 +1358,12 @@ HOME PAGE
 }
 
 
+@media (max-width: 400px) {
+  .home-hero-lede strong span {
+    display: block;
+  }
+}
+
 /* =========================================================
    HERO QUICK-LINKS CARDS
    ========================================================= */
