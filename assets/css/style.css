@@ -1357,7 +1357,7 @@ HOME PAGE
 }
 
 .home-anchor-target {
-    scroll-margin-top: 100px; /* Only for scrolling in the HOME page to not compete with TOC scrolling */
+    scroll-margin-top: 90px; /* Only for scrolling in the HOME page to not compete with TOC scrolling */
 }
 
 /* ----- Card ----- */
@@ -1366,9 +1366,10 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;   
+  gap: 0.75rem;
 
-  height: 160px;                       /* fixed → 25% = 40px overlap */
+  height: 160px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
 
   background: var(--white-color);
@@ -1379,7 +1380,6 @@ HOME PAGE
   text-decoration: none;
   color: var(--dark-color);
   text-align: center;
-
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1396,12 +1396,12 @@ HOME PAGE
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(2.4rem, 3.2vw, 3rem);
-  height: clamp(2.4rem, 3.2vw, 3rem);
+  width: clamp(3rem, 3.8vw, 3.75rem);
+  height: clamp(3rem, 3.8vw, 3.75rem);
   border-radius: var(--radius-sm);
   background: var(--accent-color-very-light);
   color: var(--accent-color);
-  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  font-size: clamp(1.25rem, 1.6vw, 1.6rem);
   line-height: 1;
 }
 
@@ -1413,10 +1413,9 @@ HOME PAGE
 }
 
 .hero-card-arrow {
-  font-size: 0.7rem;
-  color: var(--accent-color);
+  font-size: 0.75rem;
+  color: var(--accent-color-dark);
   opacity: 0.65;
-  margin-top: auto;
 }
 
 /* ----- Responsive: 4 cols → 2 cols ----- */
@@ -1431,6 +1430,12 @@ HOME PAGE
   .hero-cards-section {
     padding-bottom: var(--space-lg);
   }
+
+  .hero-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+}
 }
 
 /* ====== ABOUT SECTION (Homepage) ======= */
