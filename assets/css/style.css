@@ -1377,8 +1377,8 @@ HOME PAGE
  .home-hero {
     padding-top: 6rem;
   }
-   .home-hero-inner {
-    gap: 1.75rem;
+   .home-hero-eyebrow {
+    margin-bottom: 1rem;
   }
    .home-hero-pillars > span:not(.home-hero-pillars-sep) {
     display: block;
