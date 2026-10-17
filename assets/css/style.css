@@ -5396,7 +5396,7 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn:hover {
     background: var(--dark-color);
-    border: var(--dark-color);
+    border: 1px solid var(--dark-color);
 }
 
 .blog-top-nav .nav-btn i {
@@ -5410,7 +5410,7 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn-center:hover {
     background: var(--dark-color);
-    border: var(--dark-color);
+    border: 1px solid var(--dark-color);
 }
 
 
@@ -5855,7 +5855,7 @@ BLOG Article (right side content)
 
 .blog-bottom-nav .nav-btn:hover {
     background: var(--dark-color);
-    border: var(--dark-color);
+    border: 1px solid var(--dark-color);
     }
 
 .blog-bottom-nav .nav-btn i {
