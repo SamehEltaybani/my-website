@@ -1794,7 +1794,7 @@ HOME PAGE
   align-items: center;
   padding: 0.6rem 1rem 0.6rem 1.1rem;
   background: rgba(34, 40, 49, 0.62);  /* grey translucent */
-  border-left: 6px solid var(--accent-color);
+  border-left: 6px solid var(--complementary-color);
 }
 
 .commitment-title {
@@ -1967,7 +1967,7 @@ HOME PAGE
   gap: 0.5em;
   padding: 0.55rem 1rem 0.55rem 1.1rem;
   background: rgba(34, 40, 49, 0.62);
-  border-left: 6px solid var(--accent-color);
+  border-left: 6px solid var(--complementary-color);
   color: var(--white-color);
   font-size: clamp(0.68rem, 1.05vw, 0.88rem);
   font-weight: 600;
@@ -5374,7 +5374,7 @@ BLOG Article (right side content)
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
     padding-bottom: var(--space-xs);
-    border-bottom: 4px solid var(--complementary-color);
+    border-bottom: 4px solid var(--accent-color-dark);
 }
 
 .blog-top-nav .nav-btn {
@@ -5383,8 +5383,8 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid var(--complementary-color);
-    background: var(--complementary-color);
+    border: 1px solid var(--accent-color);
+    background: var(--accent-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
@@ -5395,7 +5395,8 @@ BLOG Article (right side content)
 }
 
 .blog-top-nav .nav-btn:hover {
-    background: var(--accent-color);
+    background: var(--dark-color);
+    border: var(--dark-color);
 }
 
 .blog-top-nav .nav-btn i {
@@ -5404,11 +5405,12 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn-center {
     font-weight: 600;
-    border-color: var(--complementary-color);
+    border-color: var(--accent-color);
 }
 
 .blog-top-nav .nav-btn-center:hover {
-    background: var(--accent-color);
+    background: var(--dark-color);
+    border: var(--dark-color);
 }
 
 
@@ -5831,7 +5833,7 @@ BLOG Article (right side content)
     margin-top: var(--space-xl);
     padding-top: var(--space-xs);
     flex-wrap: wrap;
-    border-top: 4px solid var(--complementary-color);
+    border-top: 4px solid var(--accent-color-dark);
 }
 
 .blog-bottom-nav .nav-btn {
@@ -5840,8 +5842,8 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid var(--complementary-color);
-    background: var(--complementary-color);
+    border: 1px solid var(--accent-color);
+    background: var(--accent-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
@@ -5852,7 +5854,8 @@ BLOG Article (right side content)
 }
 
 .blog-bottom-nav .nav-btn:hover {
-    background: var(--accent-color);
+    background: var(--dark-color);
+    border: var(--dark-color);
     }
 
 .blog-bottom-nav .nav-btn i {
