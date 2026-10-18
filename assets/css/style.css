@@ -135,8 +135,8 @@ section,
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
-  margin-top: -50px;    /* Pulls the banner up to touch the navbar */
-  margin-bottom: 50px;  /* Pushes the page back down so nothing else moves */
+  margin-top: -40px;    /* Pulls the banner up to touch the navbar */
+  margin-bottom: 40px;  /* Pushes the page back down so nothing else moves */
 }
 
 .maintenance-banner .container {
