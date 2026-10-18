@@ -1772,9 +1772,6 @@ HOME PAGE
     margin: 0;
 }
 
-.text-image-1-section {
-    
-}
 
 
 .whatido-rows {
@@ -2020,9 +2017,9 @@ HOME PAGE
     content: '';
     position: absolute;
     top: 15%;
-    left: -10px;
+    left: -7px;
     right: 15%;
-    bottom: -10px;
+    bottom: -7px;
     background: var(--complementary-color);
     border-radius: var(--radius-md);
     z-index: 0;
