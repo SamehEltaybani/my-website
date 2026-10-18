@@ -128,14 +128,15 @@ section,
 .maintenance-banner {
   position: relative;
   z-index: 100;
-  background-color: #fff3cd; /* Soft warning amber */
-  color: #856404;            /* Dark amber text */
+  background-color: #fff3cd; 
+  color: #856404;            
   border-bottom: 1px solid #ffeeba;
   padding: 0.65rem 0;
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
-  /* NO margin-bottom here */
+  margin-top: -50px;    /* Pulls the banner up to touch the navbar */
+  margin-bottom: 50px;  /* Pushes the page back down so nothing else moves */
 }
 
 .maintenance-banner .container {
@@ -151,9 +152,6 @@ section,
 }
 
 /* Apply the 50px margin ONLY on the Home page where the hero pulls up */
-body:has(.home-hero) .maintenance-banner {
-  margin-bottom: 50px;
-}
 
 @media (max-width: 768px) {
   .maintenance-banner {
