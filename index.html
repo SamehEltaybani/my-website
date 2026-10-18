@@ -752,20 +752,22 @@ First-time user section:
 
   const cards = track.querySelectorAll('.home-pub-card');
   
-  // Calculate scroll amount based on card width + gap
   const getScrollAmount = () => {
     const card = cards[0];
     const gap = parseFloat(getComputedStyle(track).gap) || 16;
     return card.offsetWidth + gap;
   };
 
-  // Scroll to the 4th card (index 3) on load
-  // We use a tiny timeout to ensure the DOM is fully painted and widths are correct
+  // Scroll to center on card 5 (index 4)
   setTimeout(() => {
-    track.scrollTo({ left: getScrollAmount() * 3, behavior: 'instant' });
+    // With scroll-snap-align: center, we calculate the exact center position
+    const trackCenter = track.offsetWidth / 2;
+    const card = cards[4];
+    const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+    
+    track.scrollTo({ left: cardCenter - trackCenter, behavior: 'instant' });
   }, 50);
 
-  // Arrow Buttons
   prevBtn.addEventListener('click', () => {
     track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
   });
@@ -774,31 +776,38 @@ First-time user section:
     track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
   });
 
-  // Generate Dots (9 cards = 9 dots)
   cards.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('home-pub-dot');
-    if (index === 3) dot.classList.add('active'); // Start at card 4
+    if (index === 4) dot.classList.add('active'); // Start at card 5
     dot.dataset.index = index;
     
     dot.addEventListener('click', () => {
-      track.scrollTo({ left: index * getScrollAmount(), behavior: 'smooth' });
+      const trackCenter = track.offsetWidth / 2;
+      const cardCenter = cards[index].offsetLeft + (cards[index].offsetWidth / 2);
+      track.scrollTo({ left: cardCenter - trackCenter, behavior: 'smooth' });
     });
     
     dotsContainer.appendChild(dot);
   });
 
-  // Sync dots with manual swiping
   track.addEventListener('scroll', () => {
-    const scrollLeft = track.scrollLeft;
-    const amount = getScrollAmount();
-    const activeIndex = Math.round(scrollLeft / amount);
-    
-    const maxIndex = cards.length - 1;
-    const currentIndex = Math.min(activeIndex, maxIndex);
+    const trackCenter = track.offsetWidth / 2;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+      const distance = Math.abs(cardCenter - (track.scrollLeft + trackCenter));
+      
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
 
     document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
-      if (index === currentIndex) {
+      if (index === closestIndex) {
         dot.classList.add('active');
       } else {
         dot.classList.remove('active');
