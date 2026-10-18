@@ -499,10 +499,10 @@ First-time user section:
     
 
 
-    <!-- ===== PUBLICATIONS SECTION ===== -->
-<section class="publication-section" aria-labelledby="pub-title">
-  <div class="container publication-header">
-    <h2 class="primary-heading-h2" id="pub-title">
+   <!-- ===== PUBLICATIONS SECTION ===== -->
+<section class="home-pub-section" aria-labelledby="home-pub-title">
+  <div class="container home-pub-header">
+    <h2 class="primary-heading-h2" id="home-pub-title">
       <span class="primary-heading-text" style="color: var(--white-color);">Selected Publications</span>
     </h2>
     <p class="primary-paragraph" style="color: rgba(255,255,255,0.9); max-width: 700px;">
@@ -510,82 +510,121 @@ First-time user section:
     </p>
   </div>
 
-  <div class="carousel-wrapper">
+  <div class="home-pub-carousel-wrapper">
     <div class="container">
       
       <!-- Left Arrow -->
-      <button class="carousel-btn prev-btn" aria-label="Previous publications">
+      <button class="home-pub-btn home-pub-prev" aria-label="Previous publications">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
 
       <!-- The Track -->
-      <div class="carousel-track" id="pub-track">
+      <div class="home-pub-track" id="home-pub-track">
         
-        <!-- Card 1 -->
-        <div class="publication-card">
-          <div class="pub-image">
-            <img src="img/pub-1.webp" alt="" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">Research integrity throughout the research lifecycle</h3>
-            <p class="pub-journal">Intensive and Critical Care Nursing</p>
-            <p class="pub-year">2027</p>
-            <a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Card 1: Pseudo (Left) -->
+        <div class="home-pub-card home-pub-pseudo-card">
+          <a href="publications.html" class="home-pub-pseudo-link">
+            <i class="fa-solid fa-arrow-left home-pub-pseudo-arrow"></i>
+            <span class="home-pub-pseudo-title">See all<br>publications</span>
+          </a>
+        </div>
+
+        <!-- Card 2: Real -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-2.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Research integrity throughout the research lifecycle</h3>
+            <p class="home-pub-journal">Intensive and Critical Care Nursing</p>
+            <p class="home-pub-year">2027</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="publication-card">
-          <div class="pub-image">
-            <img src="img/pub-2.webp" alt="" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">Methodological and conceptual considerations in ranking review types</h3>
-            <p class="pub-journal">Intensive and Critical Care Nursing</p>
-            <p class="pub-year">2027</p>
-            <a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Card 3: Real -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-3.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Methodological and conceptual considerations in ranking review types</h3>
+            <p class="home-pub-journal">Intensive and Critical Care Nursing</p>
+            <p class="home-pub-year">2027</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="publication-card">
-          <div class="pub-image">
-            <img src="img/pub-3.webp" alt="" loading="lazy">
-          </div>
-          <div class="pub-content">
-            <h3 class="pub-title">AI in nursing practice: A systematic review</h3>
-            <p class="pub-journal">Journal of Advanced Nursing</p>
-            <p class="pub-year">2026</p>
-            <a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Card 4: Real (Visible - Start Position) -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-4.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">AI in nursing practice: A systematic review</h3>
+            <p class="home-pub-journal">Journal of Advanced Nursing</p>
+            <p class="home-pub-year">2026</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- Card 4, 5, 6, 7, 8 (Shortened for brevity, duplicate Card 1 structure) -->
-        <div class="publication-card"><div class="pub-image"><img src="img/pub-1.webp" alt=""></div><div class="pub-content"><h3 class="pub-title">Publication Title 4</h3><p class="pub-journal">Journal Name</p><p class="pub-year">2025</p><a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="publication-card"><div class="pub-image"><img src="img/pub-2.webp" alt=""></div><div class="pub-content"><h3 class="pub-title">Publication Title 5</h3><p class="pub-journal">Journal Name</p><p class="pub-year">2025</p><a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="publication-card"><div class="pub-image"><img src="img/pub-3.webp" alt=""></div><div class="pub-content"><h3 class="pub-title">Publication Title 6</h3><p class="pub-journal">Journal Name</p><p class="pub-year">2024</p><a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="publication-card"><div class="pub-image"><img src="img/pub-1.webp" alt=""></div><div class="pub-content"><h3 class="pub-title">Publication Title 7</h3><p class="pub-journal">Journal Name</p><p class="pub-year">2024</p><a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="publication-card"><div class="pub-image"><img src="img/pub-2.webp" alt=""></div><div class="pub-content"><h3 class="pub-title">Publication Title 8</h3><p class="pub-journal">Journal Name</p><p class="pub-year">2023</p><a href="#" class="primary-button pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <!-- Card 5: Real (Visible) -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-5.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Publication Title 5</h3>
+            <p class="home-pub-journal">Journal Name</p>
+            <p class="home-pub-year">2025</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
 
-        <!-- Card 9: Pseudo Card -->
-        <div class="publication-card pseudo-card">
-          <a href="publications.html" class="pseudo-card-link">
-            <span class="pseudo-title">See all<br>publications</span>
-            <i class="fa-solid fa-arrow-right pseudo-arrow"></i>
+        <!-- Card 6: Real (Visible) -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-6.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Publication Title 6</h3>
+            <p class="home-pub-journal">Journal Name</p>
+            <p class="home-pub-year">2025</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 7: Real (Hidden) -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-7.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Publication Title 7</h3>
+            <p class="home-pub-journal">Journal Name</p>
+            <p class="home-pub-year">2024</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 8: Real (Hidden) -->
+        <div class="home-pub-card">
+          <div class="home-pub-image"><img src="img/pub-8.webp" alt=""></div>
+          <div class="home-pub-content">
+            <h3 class="home-pub-title-text">Publication Title 8</h3>
+            <p class="home-pub-journal">Journal Name</p>
+            <p class="home-pub-year">2024</p>
+            <a href="#" class="primary-button home-pub-read-btn">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 9: Pseudo (Right) -->
+        <div class="home-pub-card home-pub-pseudo-card">
+          <a href="publications.html" class="home-pub-pseudo-link">
+            <span class="home-pub-pseudo-title">See all<br>publications</span>
+            <i class="fa-solid fa-arrow-right home-pub-pseudo-arrow"></i>
           </a>
         </div>
 
       </div>
 
       <!-- Right Arrow -->
-      <button class="carousel-btn next-btn" aria-label="Next publications">
+      <button class="home-pub-btn home-pub-next" aria-label="Next publications">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
 
     </div>
     
     <!-- Dots -->
-    <div class="carousel-dots" id="pub-dots"></div>
+    <div class="home-pub-dots" id="home-pub-dots"></div>
   </div>
 </section>
 
@@ -703,23 +742,29 @@ First-time user section:
     
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById('pub-track');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const dotsContainer = document.getElementById('pub-dots');
+  const track = document.getElementById('home-pub-track');
+  const prevBtn = document.querySelector('.home-pub-prev');
+  const nextBtn = document.querySelector('.home-pub-next');
+  const dotsContainer = document.getElementById('home-pub-dots');
   
-  if (!track) return; // Exit if not on the home page
+  if (!track) return;
 
-  const cards = track.querySelectorAll('.publication-card');
+  const cards = track.querySelectorAll('.home-pub-card');
   
-  // 1. Calculate scroll amount based on card width + gap
+  // Calculate scroll amount based on card width + gap
   const getScrollAmount = () => {
     const card = cards[0];
     const gap = parseFloat(getComputedStyle(track).gap) || 16;
     return card.offsetWidth + gap;
   };
 
-  // 2. Arrow Button Logic (Scroll by 1 card)
+  // Scroll to the 4th card (index 3) on load
+  // We use a tiny timeout to ensure the DOM is fully painted and widths are correct
+  setTimeout(() => {
+    track.scrollTo({ left: getScrollAmount() * 3, behavior: 'instant' });
+  }, 50);
+
+  // Arrow Buttons
   prevBtn.addEventListener('click', () => {
     track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
   });
@@ -728,18 +773,11 @@ First-time user section:
     track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
   });
 
-  // 3. Dot Logic
-  // Calculate how many pages there are based on visible cards
-  let cardsPerView = 3;
-  if (window.innerWidth <= 1100) cardsPerView = 2;
-  if (window.innerWidth <= 768) cardsPerView = 1;
-  
-  // For 9 cards and 3 per view, we technically need 9 dots (one per card) 
-  // because clicking next slides by exactly one card, not a full page.
+  // Generate Dots (9 cards = 9 dots)
   cards.forEach((_, index) => {
     const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
+    dot.classList.add('home-pub-dot');
+    if (index === 3) dot.classList.add('active'); // Start at card 4
     dot.dataset.index = index;
     
     dot.addEventListener('click', () => {
@@ -749,17 +787,16 @@ First-time user section:
     dotsContainer.appendChild(dot);
   });
 
-  // 4. Sync dots with scroll position
+  // Sync dots with manual swiping
   track.addEventListener('scroll', () => {
     const scrollLeft = track.scrollLeft;
     const amount = getScrollAmount();
     const activeIndex = Math.round(scrollLeft / amount);
     
-    // Clamp the active index so it doesn't overshoot
     const maxIndex = cards.length - 1;
     const currentIndex = Math.min(activeIndex, maxIndex);
 
-    document.querySelectorAll('.dot').forEach((dot, index) => {
+    document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
       if (index === currentIndex) {
         dot.classList.add('active');
       } else {
