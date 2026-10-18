@@ -157,6 +157,8 @@ section,
   .maintenance-banner {
     font-size: 0.8rem;
     padding: 0.5rem var(--space-sm);
+    margin-top: -20px;
+    margin-bottom: 20px;
   }
   
   .maintenance-banner .container {
