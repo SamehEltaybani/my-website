@@ -713,27 +713,6 @@ section,
 
 
 
-
-/* ============================================
-   Professional callout. This is just a placeholder and will revied laster to merge the format with 
-- this one
-- at the end of portfolio
-- at the end of blog articles
-- a new one before blog list
-   ============================================ */
-
-
-.professional-callout {
-  background: rgba(255, 255, 255, 0.03); 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: 4px solid var(--accent-color, #00E5FF); 
-  border-radius: 6px;
-  padding: 1.25rem;
-  margin: var(--space-lg) 0 var(--space-md);
-}
-
-
-
 /* =============================================================
 ----- Page Header -----
 ================================================================ */
@@ -1491,7 +1470,7 @@ HOME PAGE
 
 
 /* ============================================
-   ABOUT SECTION
+   ABOUT ME SECTION
    ============================================ */
 
 .about-section {
@@ -1546,6 +1525,30 @@ HOME PAGE
   margin: 0;
   font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
+
+
+/* ----- About Me: Disclaimer ----- */
+
+.about-disclaimer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px dashed rgba(34, 40, 49, 0.15);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--dark-color);
+  opacity: 0.65;
+}
+
+.about-disclaimer a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.about-disclaimer a:hover {
+  color: var(--dark-color);
+}
+
 
 /* ----- KPI Grid ----- */
 
