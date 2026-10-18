@@ -2088,9 +2088,11 @@ HOME PAGE
    HOME: PUBLICATIONS CAROUSEL SECTION
    ============================================ */
 
+
+
 .home-pub-section {
   background: var(--accent-color); /* Top half color */
-  padding: var(--space-xxl) 0 0 0; /* Bottom padding handled by wrapper */
+  padding: var(--space-xxl) 0 0 0; 
   position: relative;
   overflow: hidden;
 }
@@ -2105,17 +2107,21 @@ HOME PAGE
   position: relative;
   z-index: 1;
   padding-bottom: var(--space-xxl);
+  /* Define the height here so all children (buttons, background) can see it */
+  --home-pub-image-height: 220px; 
+  /* The exact Y position where the image ends (padding + image height) */
+  --home-pub-split-y: calc(var(--space-sm) + var(--home-pub-image-height));
 }
 
 /* The Split Background Magic */
 .home-pub-carousel-wrapper::before {
   content: '';
   position: absolute;
-  top: var(--home-pub-image-height); /* Aligns exactly with image bottom */
+  top: var(--home-pub-split-y);
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: calc(100% - var(--home-pub-image-height));
+  height: calc(100% - var(--home-pub-split-y));
   background: var(--bg-color); /* Bottom half color */
   z-index: 0;
   pointer-events: none;
@@ -2132,7 +2138,6 @@ HOME PAGE
   scroll-behavior: smooth;
   scrollbar-width: none;
   padding: var(--space-sm) 0 var(--space-lg);
-  --home-pub-image-height: 220px; /* Controls the split line */
 }
 
 .home-pub-track::-webkit-scrollbar {
@@ -2148,7 +2153,7 @@ HOME PAGE
   background: var(--white-color);
   border-radius: var(--radius-md);
   box-shadow: 0 10px 30px rgba(34, 40, 49, 0.15);
-  height: 480px; /* Fixed height guarantees symmetry */
+  height: 480px;
   overflow: hidden;
 }
 
@@ -2200,14 +2205,14 @@ HOME PAGE
 }
 
 .home-pub-read-btn {
-  margin-top: auto; /* Pushes button to bottom */
+  margin-top: auto;
   align-self: center;
   height: 36px;
   width: 140px;
   font-size: 0.85rem;
 }
 
-/* Pseudo Cards (Left and Right ends) */
+/* Pseudo Cards */
 .home-pub-pseudo-card {
   background: var(--accent-color-very-light);
   border: 2px dashed var(--accent-color);
@@ -2241,10 +2246,10 @@ HOME PAGE
   font-size: 1.5rem;
 }
 
-/* Arrows */
+/* Arrows (Now perfectly vertically aligned with the center of the image) */
 .home-pub-btn {
   position: absolute;
-  top: calc(var(--home-pub-image-height) / 2);
+  top: calc(var(--space-sm) + (var(--home-pub-image-height) / 2));
   transform: translateY(-50%);
   z-index: 3;
   width: 44px;
@@ -2310,8 +2315,8 @@ HOME PAGE
     padding-top: var(--space-xl);
   }
   
-  .home-pub-track {
-    --home-pub-image-height: 180px;
+  .home-pub-carousel-wrapper {
+    --home-pub-image-height: 180px; /* Update the variable here for mobile */
   }
 
   .home-pub-card {
@@ -2323,7 +2328,6 @@ HOME PAGE
     display: none;
   }
 }
-
 
 
 
