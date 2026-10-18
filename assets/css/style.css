@@ -2104,6 +2104,14 @@ HOME PAGE
   margin-bottom: var(--space-xl);
 }
 
+.home-pub-header-action {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 700px; /* Aligns with the right edge of the paragraph above it */
+  margin-top: var(--space-lg);
+}
+
 /* Header Action Button */
 .primary-button-wide-light {
   width: auto;
