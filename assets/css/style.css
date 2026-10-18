@@ -2104,6 +2104,19 @@ HOME PAGE
   margin-bottom: var(--space-xl);
 }
 
+/* Header Action Button */
+.home-pub-header-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-lg);
+}
+
+.home-pub-header-action .primary-button:hover {
+  background: var(--white-color);
+  color: var(--accent-color-dark);
+  border-color: var(--white-color);
+}
+
 /* Added position: relative so buttons stay inside the content area */
 .home-pub-carousel-wrapper .container {
   position: relative;
@@ -2114,7 +2127,7 @@ HOME PAGE
   z-index: 1;
   padding-bottom: var(--space-xxl);
   --home-pub-image-height: 220px; 
-  --home-pub-split-y: calc(var(--space-sm) + var(--home-pub-image-height));
+  --home-pub-split-y: var(--home-pub-image-height); 
 }
 
 /* The Split Background Magic */
@@ -2181,7 +2194,7 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 0 var(--space-md) var(--space-md); /* Removed top padding since image has it */
+  padding: var(--space-md); 
   text-align: center;
 }
 
@@ -2254,19 +2267,19 @@ HOME PAGE
   font-size: 1.5rem;
 }
 
-/* Arrows (Moved down to the bg-color area) */
+/* Arrows */
 .home-pub-btn {
   position: absolute;
-  top: 65%; /* Moved down from the image center */
+  top: 65%; 
   transform: translateY(-50%);
   z-index: 3;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--white-color);
-  border: 1px solid rgba(34,40,49,0.1);
-  box-shadow: var(--card-shadow);
-  color: var(--dark-color);
+  background: var(--accent-color-dark); 
+  border: none; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: var(--white-color); 
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -2276,9 +2289,8 @@ HOME PAGE
 }
 
 .home-pub-btn:hover {
-  background: var(--accent-color);
-  color: var(--white-color);
-  border-color: var(--accent-color);
+  background: var(--dark-color); 
+  transform: translateY(-50%) scale(1.05);
 }
 
 .home-pub-prev { left: -22px; }
