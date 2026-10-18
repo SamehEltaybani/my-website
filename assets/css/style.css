@@ -1766,8 +1766,16 @@ HOME PAGE
    ============================================ */
 
 .whatido-section {
-  padding: var(--space-xxl) 0;
+  width: 100%;
+    background: var(--accent-color-light);
+    padding: var(--space-xxl) 0;
+    margin: 0;
 }
+
+.text-image-1-section {
+    
+}
+
 
 .whatido-rows {
   display: flex;
