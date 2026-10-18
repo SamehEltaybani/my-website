@@ -2105,16 +2105,20 @@ HOME PAGE
 }
 
 /* Header Action Button */
-.home-pub-header-action {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: var(--space-lg);
+.primary-button-wide-light {
+  width: auto;
+  min-width: 240px;
+  padding: 0 var(--space-lg);
+  color: var(--white-color);
+  border-color: var(--white-color);
 }
 
-.home-pub-header-action .primary-button:hover {
-  background: var(--white-color);
-  color: var(--accent-color-dark);
-  border-color: var(--white-color);
+.primary-button-wide-light:hover,
+.primary-button-wide-light:focus-visible {
+  background: var(--dark-color);
+  color: var(--white-color);
+  border-color: var(--dark-color);
+  box-shadow: 0 4px 16px rgba(34, 40, 49, 0.35);
 }
 
 /* Added position: relative so buttons stay inside the content area */
