@@ -120,11 +120,14 @@ section,
 }
 
 
+
 /* ============================================
    MAINTENANCE BANNER
    ============================================ */
 
 .maintenance-banner {
+  position: relative;
+  z-index: 100;
   background-color: #fff3cd; /* Soft warning amber */
   color: #856404;            /* Dark amber text */
   border-bottom: 1px solid #ffeeba;
@@ -132,6 +135,7 @@ section,
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
+  /* NO margin-bottom here */
 }
 
 .maintenance-banner .container {
@@ -144,6 +148,11 @@ section,
 .maintenance-banner i {
   color: #d39e00;
   font-size: 1.1rem;
+}
+
+/* Apply the 50px margin ONLY on the Home page where the hero pulls up */
+body:has(.home-hero) .maintenance-banner {
+  margin-bottom: 50px;
 }
 
 @media (max-width: 768px) {
