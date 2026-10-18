@@ -105,7 +105,7 @@
 
         const legalText = document.createElement('p');
         legalText.className = 'footer-legal-text';
-        legalText.textContent = 'This website is the independent personal portfolio. Content is provided for informational purposes only and does not constitute medical, legal, or professional advice. Usage of this site and external links is at your own risk. Your personal data is never sold or rented, and analytics are used strictly to improve site performance. Original content is licensed under CC BY-NC-ND 4.0.';
+        legalText.textContent = 'This website is an independent personal portfolio. Views are solely my own and do not represent, reflect, are sponsored by, endorsed by, monitored by, or entail any form of official relation to any entity where I have studied, worked, or been affiliated with in the past, present, or future. Content is for informational purposes only and does not constitute medical, legal, or professional advice. Usage of this site and external links is at your own risk. Your personal data is never sold or rented, and analytics are used strictly to improve site performance. Original content is licensed under CC BY-NC-ND 4.0.';
         col3.appendChild(legalText);
 
         const readMore = document.createElement('a');
