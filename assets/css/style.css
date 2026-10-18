@@ -2278,8 +2278,8 @@ HOME PAGE
 }
 
 /* Adjusted left/right so they sit just outside the track */
-.home-pub-prev { left: -22px; }
-.home-pub-next { right: -22px; }
+.home-pub-prev { left: -10px; }
+.home-pub-next { right: -10px; }
 
 /* Dots */
 .home-pub-dots {
