@@ -3200,7 +3200,7 @@ PUBLICATIONS PAGE
   border: none; 
   box-shadow: none; 
   padding: var(--space-sm); /* The dark teal frame */
-  background: var(--white-color); 
+  background: var(--accent-color-very-light); 
 }
 
 .publication-card-image {
@@ -3333,8 +3333,7 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) { 
   .publication-card {
     padding: var(--space-md);
-    border-right: 3px solid var(--accent-color-dark);
-     border-top: 3px solid var(--accent-color-dark);
+    
   }
 
   .publication-card--with-image {
