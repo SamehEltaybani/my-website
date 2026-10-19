@@ -2977,23 +2977,23 @@ PUBLICATIONS PAGE
   align-items: center;
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
-  border: none; /* Removed full border */
-  border-bottom: 4px solid var(--accent-color); /* Added thick bottom border */
-  border-radius: 0; /* Removed pill shape */
-  background: transparent; /* Made background transparent */
+  border: none;
+  border-bottom: 4px solid transparent; 
+  border-radius: 0;
+  background: transparent;
   color: var(--accent-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .publications-header-cta .header-cta-trigger:hover {
-  background: var(--accent-color-light); /* Light background on hover */
-  color: var(--dark-color); /* Dark text on hover for contrast */
-  transform: translateY(-2px); /* Small lift effect */
+  background: var(--accent-color-light);
+  color: var(--dark-color);
+  border-bottom-color: var(--accent-color); 
 }
 
 
@@ -3194,10 +3194,10 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  border: none; /* Removed border */
-  box-shadow: none; /* Removed harsh shadow */
-  padding: var(--space-sm); /* Added inset frame padding */
-  background: var(--white-color); /* Ensures the frame is white */
+  border: none;
+  box-shadow: none;
+  padding: var(--space-sm);
+  background: var(--accent-color-dark); /* Changed from white */
 }
 
 .publication-card-image {
@@ -4089,7 +4089,7 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
   border: none;
-  border-bottom: 4px solid var(--accent-color);
+  border-bottom: 4px solid transparent;
   border-radius: 0;
   background: transparent;
   color: var(--accent-color);
@@ -4098,13 +4098,13 @@ PUBLICATIONS PAGE
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .page-blog .header-cta-trigger:hover {
   background: var(--accent-color-light);
   color: var(--dark-color);
-  transform: translateY(-2px);
+  border-bottom-color: var(--accent-color);
 }
 
 .page-blog .header-cta-trigger:focus-visible,
@@ -4303,7 +4303,7 @@ PUBLICATIONS PAGE
   border: none;
   box-shadow: none;
   padding: var(--space-sm);
-  background: var(--white-color);
+  background: var(--accent-color-dark); /* Changed from white */
 }
 
 .blog-card-image {
