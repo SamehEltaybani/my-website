@@ -765,15 +765,12 @@ First-time user section:
     return card.offsetWidth + gap;
   };
 
-  // Function to update which dots are active based on what is actually visible
+  // Function to update which dots are active based on visibility
   const updateDots = () => {
     const trackRect = track.getBoundingClientRect();
     
     document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
       const cardRect = cards[index].getBoundingClientRect();
-      
-      // A card is "visible" if its left edge is inside the track and its right edge is inside
-      // We add a small 20px tolerance for the peeking edges
       const isVisible = (cardRect.left >= trackRect.left - 20) && (cardRect.right <= trackRect.right + 20);
       
       if (isVisible) {
@@ -784,24 +781,19 @@ First-time user section:
     });
   };
 
-  // Scroll to the 5th card (index 4) on load
+  // Initialize on the 5th card
   setTimeout(() => {
     const trackCenter = track.offsetWidth / 2;
     const card = cards[4];
     const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
     
     track.scrollTo({ left: cardCenter - trackCenter, behavior: 'instant' });
-    updateDots(); // Highlight the initial visible dots
+    updateDots();
   }, 50);
 
-  // Arrow Buttons
-  prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-  });
+  // Arrows
+  prevBtn.addEventListener('click', () => track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }));
+  nextBtn.addEventListener('click', () => track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' }));
 
   // Generate Dots
   cards.forEach((_, index) => {
@@ -812,17 +804,71 @@ First-time user section:
     dot.addEventListener('click', () => {
       const trackCenter = track.offsetWidth / 2;
       const cardCenter = cards[index].offsetLeft + (cards[index].offsetWidth / 2);
-      
-      // Scroll to the clicked card. 
-      // If it's the 1st or 9th card, the browser will automatically stop at the edge.
       track.scrollTo({ left: cardCenter - trackCenter, behavior: 'smooth' });
     });
     
     dotsContainer.appendChild(dot);
   });
 
-  // Listen for manual scrolling/swiping and update dots
   track.addEventListener('scroll', updateDots);
+
+  // ============================================
+  // CLICK-AND-DRAG LOGIC
+  // ============================================
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let hasDragged = false;
+
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hasDragged = false;
+    track.classList.add('grabbing');
+    
+    // Temporarily disable snapping for a smooth, continuous drag
+    track.style.scrollSnapType = 'none';
+    track.style.scrollBehavior = 'auto';
+    
+    startX = e.clientX;
+    scrollLeft = track.scrollLeft;
+  });
+
+  // Stop dragging if the mouse leaves the track or is released
+  const stopDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove('grabbing');
+    
+    // Re-enable snapping so it locks into place when let go
+    track.style.scrollSnapType = 'x mandatory';
+    track.style.scrollBehavior = 'smooth';
+  };
+
+  track.addEventListener('mouseleave', stopDrag);
+  track.addEventListener('mouseup', stopDrag);
+
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    
+    const x = e.clientX;
+    const walk = (x - startX) * 2; // Multiply by 2 for a slightly faster drag feel
+    
+    // If the mouse moved more than 5 pixels, it's a drag, not a click
+    if (Math.abs(walk) > 5) {
+      hasDragged = true;
+    }
+    
+    e.preventDefault(); // Prevent text/image ghost-dragging
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  // Prevent link clicks if the user was dragging
+  track.addEventListener('click', (e) => {
+    if (hasDragged) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true); // Use capture phase to catch the click before it reaches the link
 });
 </script>
 
