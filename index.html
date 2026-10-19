@@ -749,7 +749,7 @@ First-time user section:
 <!-- ===== PUBLICATIONS CAROUSEL ===== -->
     
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('home-pub-track');
   const prevBtn = document.querySelector('.home-pub-prev');
   const nextBtn = document.querySelector('.home-pub-next');
@@ -765,16 +765,36 @@ First-time user section:
     return card.offsetWidth + gap;
   };
 
-  // Scroll to center on card 5 (index 4)
+  // Function to update which dots are active based on what is actually visible
+  const updateDots = () => {
+    const trackRect = track.getBoundingClientRect();
+    
+    document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
+      const cardRect = cards[index].getBoundingClientRect();
+      
+      // A card is "visible" if its left edge is inside the track and its right edge is inside
+      // We add a small 20px tolerance for the peeking edges
+      const isVisible = (cardRect.left >= trackRect.left - 20) && (cardRect.right <= trackRect.right + 20);
+      
+      if (isVisible) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  };
+
+  // Scroll to the 5th card (index 4) on load
   setTimeout(() => {
-    // With scroll-snap-align: center, we calculate the exact center position
     const trackCenter = track.offsetWidth / 2;
     const card = cards[4];
     const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
     
     track.scrollTo({ left: cardCenter - trackCenter, behavior: 'instant' });
+    updateDots(); // Highlight the initial visible dots
   }, 50);
 
+  // Arrow Buttons
   prevBtn.addEventListener('click', () => {
     track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
   });
@@ -783,44 +803,26 @@ First-time user section:
     track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
   });
 
+  // Generate Dots
   cards.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('home-pub-dot');
-    if (index === 4) dot.classList.add('active'); // Start at card 5
     dot.dataset.index = index;
     
     dot.addEventListener('click', () => {
       const trackCenter = track.offsetWidth / 2;
       const cardCenter = cards[index].offsetLeft + (cards[index].offsetWidth / 2);
+      
+      // Scroll to the clicked card. 
+      // If it's the 1st or 9th card, the browser will automatically stop at the edge.
       track.scrollTo({ left: cardCenter - trackCenter, behavior: 'smooth' });
     });
     
     dotsContainer.appendChild(dot);
   });
 
-  track.addEventListener('scroll', () => {
-    const trackCenter = track.offsetWidth / 2;
-    let closestIndex = 0;
-    let minDistance = Infinity;
-
-    cards.forEach((card, index) => {
-      const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-      const distance = Math.abs(cardCenter - (track.scrollLeft + trackCenter));
-      
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = index;
-      }
-    });
-
-    document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
-      if (index === closestIndex) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
-  });
+  // Listen for manual scrolling/swiping and update dots
+  track.addEventListener('scroll', updateDots);
 });
 </script>
 
