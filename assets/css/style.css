@@ -3209,7 +3209,7 @@ PUBLICATIONS PAGE
   left: var(--space-sm);
   width: calc(100% - (var(--space-sm) * 2));
   height: calc(100% - (var(--space-sm) * 2));
-  border: 4px solid var(--white-color);
+  border: 12px solid var(--white-color);
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -4329,7 +4329,7 @@ PUBLICATIONS PAGE
   left: var(--space-sm);
   width: calc(100% - (var(--space-sm) * 2));
   height: calc(100% - (var(--space-sm) * 2));
-  border: 4px solid var(--white-color);
+  border: 12px solid var(--white-color);
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
