@@ -3156,7 +3156,6 @@ PUBLICATIONS PAGE
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   border-left: 3px solid var(--accent-color-dark);
-  border-right: 3px solid var(--accent-color-dark);
   transition: box-shadow var(--transition-fast);
 }
 
@@ -3334,6 +3333,8 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) { 
   .publication-card {
     padding: var(--space-md);
+    border-right: 3px solid var(--accent-color-dark);
+     border-top: 3px solid var(--accent-color-dark);
   }
 
   .publication-card--with-image {
@@ -4278,7 +4279,7 @@ PUBLICATIONS PAGE
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  border-left: 2px solid var(--accent-color);
+  border-left: 3px solid var(--accent-color-dark);
   transition: box-shadow var(--transition-fast);
 }
 
@@ -4581,6 +4582,8 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) {
   .blog-card {
     padding: var(--space-md);
+     border-right: 3px solid var(--accent-color-dark);
+     border-top: 3px solid var(--accent-color-dark);
   }
 
   .blog-card--with-image {
