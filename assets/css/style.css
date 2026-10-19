@@ -2112,7 +2112,8 @@ HOME PAGE
   margin-top: var(--space-lg);
 }
 
-/* Header Action Button */
+/* Header Action Button -REUSABLE in the home BLOG section- */
+
 .primary-button-wide-light {
   width: auto;
   min-width: 240px;
@@ -2338,9 +2339,7 @@ HOME PAGE
   transform: scale(1.3);
 }
 
-/* ============================================
-   HOME: PUBLICATIONS — Responsive
-   ============================================ */
+/* ==== Responsive ======= */
 
 @media (max-width: 1100px) {
   .home-pub-card {
@@ -2368,6 +2367,267 @@ HOME PAGE
   }
 }
 
+
+
+
+
+
+
+
+/* ============================================
+   HOME: BLOG ARTICLES CAROUSEL SECTION
+   ============================================ */
+
+
+.home-blog-section {
+  background: var(--accent-color-dark); /* Changed to Dark */
+  padding: var(--space-xxl) 0 0 0; 
+  position: relative;
+  overflow: hidden;
+}
+
+.home-blog-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-xl);
+}
+
+.home-blog-header-action {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1200px; /* If 700, it will aligns with the right edge of the paragraph above it */
+  margin-top: var(--space-lg);
+}
+
+/* Added position: relative so buttons stay inside the content area */
+.home-blog-carousel-wrapper .container {
+  position: relative;
+}
+
+.home-blog-carousel-wrapper {
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--space-xxl);
+  --home-blog-image-height: 220px; 
+  --home-blog-split-y: var(--home-blog-image-height); 
+}
+
+/* The Split Background Magic */
+.home-blog-carousel-wrapper::before {
+  content: '';
+  position: absolute;
+  top: var(--home-blog-split-y);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: calc(100% - var(--home-blog-split-y));
+  background: var(--bg-color); 
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* The Track */
+.home-blog-track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: var(--space-sm) 0 var(--space-lg);
+   cursor: grab;
+}
+
+.home-blog-track::-webkit-scrollbar {
+  display: none;
+}
+
+.home-blog-track.grabbing {
+  cursor: grabbing;
+  user-select: none; /* Prevents highlighting text while dragging */
+}
+
+/* The Card (Centered with peeks on both sides) */
+.home-blog-card {
+  flex: 0 0 calc((100% - (var(--space-md) * 2)) / 3.35); 
+  scroll-snap-align: center; /* Changed from start to center */
+  display: flex;
+  flex-direction: column;
+  background: var(--white-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(34, 40, 49, 0.15);
+  height: 450px; /* Shortened from 480px */
+  overflow: hidden;
+}
+
+/* Image Padding */
+.home-blog-image {
+  height: var(--home-blog-image-height);
+  width: 100%;
+  flex-shrink: 0;
+  padding: var(--space-sm); /* Inset frame effect */
+  background: var(--white-color);
+}
+
+.home-blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm); /* Rounded corners on the image */
+}
+
+.home-blog-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-md); 
+  text-align: center;
+}
+
+.home-blog-title-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  line-height: 1.4;
+  margin-bottom: var(--space-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-blog-short-title {
+  font-size: 0.85rem;
+  color: var(--dark-color);
+  opacity: 0.8;
+  margin-bottom: var(--space-xs);
+}
+
+.home-blog-read-btn {
+  margin-top: auto;
+  align-self: center;
+  height: 36px;
+  width: 140px;
+  font-size: 0.85rem;
+}
+
+/* Pseudo Cards */
+.home-blog-pseudo-card {
+  background: var(--white-color);
+  border: 2px dashed var(--accent-color);
+  box-shadow: none;
+}
+
+.home-blog-pseudo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--space-md);
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: background var(--transition-fast);
+}
+
+.home-blog-pseudo-link:hover {
+  background: var(--accent-color-very-light);
+}
+
+.home-blog-pseudo-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.home-blog-pseudo-arrow {
+  font-size: 1.5rem;
+}
+
+/* Arrows */
+.home-blog-btn {
+  position: absolute;
+  top: 65%; 
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-color-dark); 
+  border: none; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: var(--white-color); 
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.home-blog-btn:hover {
+  background: var(--dark-color); 
+  transform: translateY(-50%) scale(1.05);
+}
+
+.home-blog-prev { left: -22px; }
+.home-blog-next { right: -22px; }
+
+/* Dots (Enlarged) */
+.home-blog-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+.home-blog-dot {
+  width: 14px; /* Enlarged from 10px */
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(34,40,49,0.2);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.home-blog-dot.active {
+  background: var(--accent-color);
+  transform: scale(1.3);
+}
+
+/* ====== Responsive  ============ */
+
+@media (max-width: 1100px) {
+  .home-blog-card {
+    flex: 0 0 calc((100% - var(--space-md)) / 2.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-blog-section {
+    padding-top: var(--space-xl);
+  }
+  
+  .home-blog-carousel-wrapper {
+    --home-blog-image-height: 180px; /* Update the variable here for mobile */
+  }
+
+   .home-blog-card {
+    flex: 0 0 85%;
+    height: 400px; /* to match desktop ratio */
+    scroll-snap-align: center; 
+  }
+  
+  .home-blog-btn {
+    display: none;
+  }
+} 
 
 
 
