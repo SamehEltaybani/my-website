@@ -2167,10 +2167,16 @@ HOME PAGE
   scroll-behavior: smooth;
   scrollbar-width: none;
   padding: var(--space-sm) 0 var(--space-lg);
+   cursor: grab;
 }
 
 .home-pub-track::-webkit-scrollbar {
   display: none;
+}
+
+.home-pub-track.grabbing {
+  cursor: grabbing;
+  user-select: none; /* Prevents highlighting text while dragging */
 }
 
 /* The Card (Centered with peeks on both sides) */
