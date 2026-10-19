@@ -3209,7 +3209,7 @@ PUBLICATIONS PAGE
   left: var(--space-sm);
   width: calc(100% - (var(--space-sm) * 2));
   height: calc(100% - (var(--space-sm) * 2));
-  border: 12px solid var(--white-color);
+  border: 4px solid var(--white-color);
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -4319,7 +4319,7 @@ PUBLICATIONS PAGE
   border: none; 
   box-shadow: none; 
   padding: var(--space-sm); /* The dark teal frame */
-  background: var(--accent-color-dark);
+  background: var(--accent-color-very-light);
 }
 
 .blog-card-image {
@@ -4328,7 +4328,7 @@ PUBLICATIONS PAGE
   left: var(--space-sm);
   width: calc(100% - (var(--space-sm) * 2));
   height: calc(100% - (var(--space-sm) * 2));
-  border: 12px solid var(--white-color);
+  border: 4px solid var(--white-color);
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -4582,8 +4582,6 @@ PUBLICATIONS PAGE
 @media (max-width: 768px) {
   .blog-card {
     padding: var(--space-md);
-     border-right: 3px solid var(--accent-color-dark);
-     border-top: 3px solid var(--accent-color-dark);
   }
 
   .blog-card--with-image {
