@@ -3193,10 +3193,10 @@ PUBLICATIONS PAGE
 
 .publication-card-image-wrapper {
   position: relative;
-  height: 200px; 
+  height: 100%; 
   min-height: 0;
   overflow: hidden;
-  border-radius: 0; /* Removes corner rounding since it's flush with the card edge */
+  border-radius: 0;
   border: none; 
   box-shadow: none; 
   padding: var(--space-sm); /* The dark teal frame */
@@ -3208,7 +3208,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-sm); /* Rounds the image corners */
+  border-radius: var(--radius-sm);
 }
 
 
@@ -3334,7 +3334,7 @@ PUBLICATIONS PAGE
 
   .publication-card--with-image {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-md);
+    gap: 0;
     padding: 0; 
   }
 
@@ -3346,9 +3346,8 @@ PUBLICATIONS PAGE
     order: -1;
     width: 100%;
     height: clamp(160px, 55vw, 260px);
-    border-radius: 0; /* Rounds the frame corners on mobile */
-    padding: var(--space-sm);
-    margin-bottom: var(--space-md); /* Space between image and text */
+    border-radius: 0; 
+    margin-bottom: 0; /* Space between image and text */
   }
   
   .publication-title {
@@ -4309,14 +4308,14 @@ PUBLICATIONS PAGE
 
 .blog-card-image-wrapper {
   position: relative;
-  height: 200px;
+  height: 100%; 
   min-height: 0;
   overflow: hidden;
   border-radius: 0;
-  border: none;
-  box-shadow: none;
-  padding: var(--space-sm);
-  background: var(--accent-color-dark);
+  border: none; 
+  box-shadow: none; 
+  padding: var(--space-sm); /* The dark teal frame */
+  background: var(--accent-color-dark); 
 }
 
 .blog-card-image {
@@ -4580,7 +4579,7 @@ PUBLICATIONS PAGE
 
   .blog-card--with-image {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-md);
+    gap: 0;
      padding: 0;
   }
 
@@ -4593,8 +4592,7 @@ PUBLICATIONS PAGE
     width: 100%;
     height: clamp(160px, 55vw, 260px);
     border-radius: 0;
-    margin-bottom: var(--space-md);
-    padding: var(--space-sm);
+    margin-bottom: 0;
   }
 
   .blog-title {
