@@ -2977,22 +2977,25 @@ PUBLICATIONS PAGE
   align-items: center;
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
-  border: 1px solid var(--accent-color);
-  border-radius: var(--radius-full);
-  background: var(--accent-color-light);
+  border: none; /* Removed full border */
+  border-bottom: 4px solid var(--accent-color); /* Added thick bottom border */
+  border-radius: 0; /* Removed pill shape */
+  background: transparent; /* Made background transparent */
   color: var(--accent-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .publications-header-cta .header-cta-trigger:hover {
-  color: var(--white-color);
-  background: var(--dark-color);
+  background: var(--accent-color-light); /* Light background on hover */
+  color: var(--dark-color); /* Dark text on hover for contrast */
+  transform: translateY(-2px); /* Small lift effect */
 }
+
 
 .publications-header-cta .header-cta-trigger:focus-visible,
 .publications-header-cta .header-cta-close:focus-visible,
@@ -3191,15 +3194,18 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  border: 1px solid var(--accent-color-light);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-  }
+  border: none; /* Removed border */
+  box-shadow: none; /* Removed harsh shadow */
+  padding: var(--space-sm); /* Added inset frame padding */
+  background: var(--white-color); /* Ensures the frame is white */
+}
 
 .publication-card-image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: var(--radius-sm); /* Rounds the image corners */
 }
 
 
@@ -4082,21 +4088,23 @@ PUBLICATIONS PAGE
   align-items: center;
   gap: var(--space-sm);
   padding: 0.55rem 0.9rem;
-  border: 1px solid var(--accent-color);
-  border-radius: var(--radius-full);
-  background: var(--accent-color-light);
+  border: none;
+  border-bottom: 4px solid var(--accent-color);
+  border-radius: 0;
+  background: transparent;
   color: var(--accent-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .page-blog .header-cta-trigger:hover {
-  color: var(--white-color);
-  background: var(--dark-color);
+  background: var(--accent-color-light);
+  color: var(--dark-color);
+  transform: translateY(-2px);
 }
 
 .page-blog .header-cta-trigger:focus-visible,
@@ -4292,8 +4300,10 @@ PUBLICATIONS PAGE
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  border: 1px solid var(--accent-color-light);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  border: none;
+  box-shadow: none;
+  padding: var(--space-sm);
+  background: var(--white-color);
 }
 
 .blog-card-image {
@@ -4301,6 +4311,7 @@ PUBLICATIONS PAGE
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: var(--radius-sm);
 }
 
 
