@@ -3193,7 +3193,7 @@ PUBLICATIONS PAGE
 
 .publication-card-image-wrapper {
   position: relative;
-  height: 100%; /* Forces the image column to fill the full height */
+  height: 200px; 
   min-height: 0;
   overflow: hidden;
   border-radius: 0; /* Removes corner rounding since it's flush with the card edge */
@@ -3335,18 +3335,19 @@ PUBLICATIONS PAGE
   .publication-card--with-image {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-md);
-    padding: var(--space-md); 
+    padding: 0; 
   }
 
    .publication-card--with-image .publication-card-content {
-    padding: 0; 
+    padding: var(--space-md); 
   }
 
   .publication-card-image-wrapper {
     order: -1;
     width: 100%;
     height: clamp(160px, 55vw, 260px);
-    border-radius: var(--radius-sm); /* Rounds the frame corners on mobile */
+    border-radius: 0; /* Rounds the frame corners on mobile */
+    padding: var(--space-sm);
     margin-bottom: var(--space-md); /* Space between image and text */
   }
   
@@ -4308,7 +4309,7 @@ PUBLICATIONS PAGE
 
 .blog-card-image-wrapper {
   position: relative;
-  height: 100%;
+  height: 200px;
   min-height: 0;
   overflow: hidden;
   border-radius: 0;
@@ -4580,19 +4581,20 @@ PUBLICATIONS PAGE
   .blog-card--with-image {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-md);
-     padding: var(--space-md);
+     padding: 0;
   }
 
     .blog-card--with-image .blog-card-content {
-    padding: 0;
+    padding: var(--space-md);
   }
 
  .blog-card-image-wrapper {
     order: -1;
     width: 100%;
     height: clamp(160px, 55vw, 260px);
-    border-radius: var(--radius-sm);
+    border-radius: 0;
     margin-bottom: var(--space-md);
+    padding: var(--space-sm);
   }
 
   .blog-title {
