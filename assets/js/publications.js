@@ -143,17 +143,14 @@
             contentHtml += '<div class="publication-title">' + window.escapeHTML(pub.title) + '</div>';
         }
      
-        let journalYear = '';
+        let journalHtml = '';
         if (pub.journal) {
-            journalYear += window.escapeHTML(pub.journal);
+            journalHtml += '<div class="publication-journal">' + window.escapeHTML(pub.journal) + '</div>';
         }
         if (pub.year) {
-            if (journalYear) journalYear += ' ';
-            journalYear += '(' + window.escapeHTML(pub.year) + ')';
+            journalHtml += '<div class="publication-year">' + window.escapeHTML(pub.year) + '</div>';
         }
-        if (journalYear) {
-            contentHtml += '<div class="publication-journal">' + journalYear + '</div>';
-        }
+        contentHtml += journalHtml;
 
         let linksHtml = '<div class="publication-links">';
         let hasLink = false;
