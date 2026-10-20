@@ -3161,6 +3161,7 @@ PUBLICATIONS PAGE
 
 .publication-card:hover {
    box-shadow: 0 8px 20px rgba(34, 40, 49, 0.4);
+   border-left: 6px solid var(--accent-color-dark);
 }
 
 
@@ -4286,12 +4287,13 @@ PUBLICATIONS PAGE
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  border-left: 6px solid var(--accent-color-dark);
+  border-left: 6px solid var(--accent-color);
   transition: box-shadow var(--transition-fast);
 }
 
 .blog-card:hover {
    box-shadow: 0 8px 20px rgba(34, 40, 49, 0.4);
+   border-left: 6px solid var(--accent-color-dark);
 }
 
 
