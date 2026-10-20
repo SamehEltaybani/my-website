@@ -3222,7 +3222,7 @@ PUBLICATIONS PAGE
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--dark-color);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   line-height: 1.4;
 }
 
@@ -3241,12 +3241,11 @@ PUBLICATIONS PAGE
 
 .authorship-tag {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  padding: 0.2rem 0.9rem;
+  padding: 0.1rem 0.7rem;
   border-radius: var(--radius-full);
-  margin-bottom: var(--space-sm);
-  text-transform: uppercase;
+  margin-bottom: var(--space-md);
   letter-spacing: 0.03em;
 }
 
