@@ -3233,7 +3233,7 @@ PUBLICATIONS PAGE
   font-style: italic;
   color: var(--dark-color);
   opacity: 0.75;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 1px;
 }
 
 .publication-year {
