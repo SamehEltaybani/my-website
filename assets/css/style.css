@@ -3226,7 +3226,7 @@ PUBLICATIONS PAGE
   line-height: 1.4;
 }
 
-/* ----- Journal (Italic, below title) ----- */
+/* ----- Journal  and year (Italic, below title) ----- */
 
 .publication-journal {
   font-size: 0.95rem;
@@ -3236,6 +3236,13 @@ PUBLICATIONS PAGE
   margin-bottom: var(--space-xs);
 }
 
+.publication-year {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--dark-color);
+  opacity: 0.75;
+  margin-bottom: var(--space-xs);
+}
 
 /* ----- Authorship Tag ----- */
 
