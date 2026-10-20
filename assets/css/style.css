@@ -3233,7 +3233,7 @@ PUBLICATIONS PAGE
   font-style: italic;
   color: var(--dark-color);
   opacity: 0.75;
-  margin-bottom: 1px;
+  margin-bottom: 0;
 }
 
 .publication-year {
@@ -4348,7 +4348,7 @@ PUBLICATIONS PAGE
   font-weight: 600;
   font-size: 1.1rem;
   line-height: 1.4;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
 .blog-title a {
@@ -4402,19 +4402,9 @@ PUBLICATIONS PAGE
   border-radius: var(--radius-full);
   background: var(--accent-color-very-light);
   color: var(--accent-color);
-  text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
-/* ----- Blog Summary ----- */
-
-.blog-summary {
-  font-size: 0.95rem;
-  color: var(--dark-color);
-  opacity: 0.75;
-  line-height: 1.6;
-  margin-bottom: var(--space-sm);
-}
 
 /* ----- Blog Card Footer (Share + Read More) ----- */
 
@@ -4435,25 +4425,24 @@ PUBLICATIONS PAGE
 .blog-read-more-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-xs); /* Keep the gap fixed */
+  padding-bottom: 2px; /* Room for the underline */
+  border-bottom: 3px solid transparent; /* Invisible underline by default */
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--accent-color);
   text-decoration: none;
-  transition: gap var(--transition-fast);
 }
 
 .blog-read-more-link:hover {
-  gap: var(--space-sm);
+  color: var(--accent-color-dark);
+  border-bottom-color: var(--accent-color-dark);
 }
 
 .blog-read-more-link i {
-  transition: transform var(--transition-fast);
+  transition: color var(--transition-fast); 
 }
 
-.blog-read-more-link:hover i {
-  transform: translateX(3px);
-}
 
 .blog-share-btn {
   display: inline-flex;
@@ -4483,7 +4472,6 @@ PUBLICATIONS PAGE
 
 .blog-share-btn:hover {
   border-color: var(--accent-color);
-  border-width: 2.5px;
   color: var(--accent-color);
   background: var(--accent-color-very-light);
 }
