@@ -3168,11 +3168,11 @@ PUBLICATIONS PAGE
 
 .publication-card--with-image {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(160px, 22vw, 260px);
-  gap: 0; /* Removed gap so image touches the text area */
+  grid-template-columns: minmax(0, 1fr) clamp(200px, 28vw, 320px);
+  gap: 0; 
   align-items: stretch;
-  padding: 0; /* Removes the white padding from the whole card */
-  overflow: hidden; /* Ensures the image wrapper respects the card's rounded corners */
+  padding: 0;
+  overflow: hidden; 
 }
 
 .publication-card--with-image .publication-card-content {
