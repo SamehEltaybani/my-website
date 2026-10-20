@@ -3151,11 +3151,11 @@ PUBLICATIONS PAGE
 
 .publication-card {
   background: var(--white-color);
-  border-radius: var(--radius-md);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  border-left: 3px solid var(--accent-color-dark);
+  border-left: 6px solid var(--accent-color);
   transition: box-shadow var(--transition-fast);
 }
 
@@ -4282,11 +4282,11 @@ PUBLICATIONS PAGE
 
 .blog-card {
   background: var(--white-color);
-  border-radius: var(--radius-md);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
-  border-left: 3px solid var(--accent-color-dark);
+  border-left: 6px solid var(--accent-color-dark);
   transition: box-shadow var(--transition-fast);
 }
 
