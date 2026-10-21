@@ -6285,7 +6285,7 @@ BLOG Article (right side content)
 
 .toast-message {
     position: fixed;
-    bottom: var(--space-xl);
+    top: 120px; /* Changed from bottom to top. Adjust this value if it overlaps the navbar */
     left: 50%;
     transform: translateX(-50%);
     background: var(--dark-color);
@@ -6589,9 +6589,7 @@ BLOG Article (right side content)
     }
    
     .toast-message {
-        bottom: var(--space-lg);
         font-size: 0.8rem;
-        padding: var(--space-xs) var(--space-md);
         max-width: 90%;
     }
 }
