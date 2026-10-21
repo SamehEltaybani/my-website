@@ -4942,9 +4942,10 @@ PUBLICATIONS PAGE
   top: 90px;
   z-index: 100;
   background: var(--bg-color);
-  padding: var(--space-md) var(--space-xs);
+  padding: var(--space-sm) var(--space-xs);
   margin-bottom: var(--space-lg);
   border-bottom: 3px solid var(--accent-color);
+   box-shadow: 0 6px 12px rgba(34, 40, 49, 0.08);
 }
 
 .search-filter-btn {
@@ -5066,13 +5067,13 @@ PUBLICATIONS PAGE
   }
   
   .search-filters {
-    gap: var(--space-xs);
+    gap: var(--space-sm);
      top: 60px;
   }
   
   .search-filter-btn {
-    font-size: 0.8rem;
-    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.95rem;
+    padding: var(--space-sm) var(--space-md);
   }
 }
 
