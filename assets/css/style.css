@@ -4953,7 +4953,7 @@ PUBLICATIONS PAGE
   left: 0;
   right: 0;
   top: calc(100% + 3px);
-  height: 12px;
+  height: 8px;
   background: linear-gradient(to bottom, rgba(34, 40, 49, 0.10), transparent);
   pointer-events: none;
 }
@@ -5082,8 +5082,8 @@ PUBLICATIONS PAGE
   }
   
   .search-filter-btn {
-    font-size: 0.95rem;
-    padding: var(--space-sm) var(--space-md);
+    font-size: 0.90rem;
+    padding: var(--space-xs) var(--space-md);
   }
 }
 
