@@ -150,21 +150,34 @@
     // ============================================
     let toastTimeout = null;
 
-    function showToast(message) {
-        const toast = document.getElementById('toast-message');
-        const textEl = document.getElementById('toast-text');
-        if (!toast || !textEl) return;
-        textEl.textContent = message;
-        toast.style.display = 'block';
-        toast.style.opacity = '0';
-        setTimeout(function() { toast.style.opacity = '1'; }, 50);
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(function() {
-            toast.style.opacity = '0';
-            setTimeout(function() { toast.style.display = 'none'; }, 300);
-        }, 3000);
-    }
+   function showToast(message) {
+    const toast = document.getElementById('toast-message');
+    const textEl = document.getElementById('toast-text');
+    if (!toast || !textEl) return;
 
+    // 1. Add the icon and message inside the text element
+    textEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color:var(--accent-color);margin-right:10px;font-size:1.2rem;"></i><span>' + message + '</span>';
+
+    // 2. Force the toast to be wider and use flexbox for perfect vertical alignment
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.justifyContent = 'center';
+    toast.style.minWidth = '320px';
+    
+    // Ensure the text element also aligns properly
+    textEl.style.display = 'flex';
+    textEl.style.alignItems = 'center';
+
+    // 3. Your original fade-in/out logic
+    toast.style.opacity = '0';
+    setTimeout(function() { toast.style.opacity = '1'; }, 50);
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.style.display = 'none'; }, 300);
+    }, 3000);
+}
+    
     // ============================================
     // SHARE
     // ============================================
