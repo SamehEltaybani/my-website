@@ -233,7 +233,7 @@ function showToast(message) {
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'blog-toast';
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:30px;font-size:0.9rem;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
+        toast.style.cssText = 'position:fixed;top:120px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:30px;font-size:0.9rem;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
         document.body.appendChild(toast);
     }
     toast.textContent = message;
