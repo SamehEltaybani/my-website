@@ -4939,10 +4939,10 @@ PUBLICATIONS PAGE
   gap: var(--space-sm);
   flex-wrap: wrap;
   position: sticky;
-  top: 100px;
+  top: 90px;
   z-index: 100;
   background: var(--bg-color);
-  padding: var(--space-sm) 0;
+  padding: var(--space-md) var(--space-xs);
   margin-bottom: var(--space-lg);
   border-bottom: 3px solid var(--accent-color);
 }
@@ -5067,6 +5067,7 @@ PUBLICATIONS PAGE
   
   .search-filters {
     gap: var(--space-xs);
+     top: 60px;
   }
   
   .search-filter-btn {
