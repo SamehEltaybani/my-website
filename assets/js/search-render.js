@@ -11,6 +11,8 @@
         let allItems = [];
         let currentFilter = 'all';
         let currentQuery = '';
+        let loadedCount = 0;
+        const pageSize = 10;
 
         // ============================================
         // TEXT NORMALIZATION & PHRASE EXTRACTION
@@ -234,8 +236,8 @@
         // ============================================
         // RENDER RESULTS
         // ============================================
-        
-        function renderResults(results, query) {
+
+                function renderResults(results, query) {
             const container = document.getElementById('search-results-list');
             const countEl = document.getElementById('results-count');
 
@@ -262,7 +264,26 @@
                 return;
             }
 
-            results.forEach(function(item) {
+            if (loadedCount === 0 || loadedCount > results.length) {
+                loadedCount = Math.min(pageSize, results.length);
+            }
+
+            for (let i = 0; i < loadedCount; i++) {
+                if (i > 0 && i % pageSize === 0) {
+                    const pageNum = Math.floor(i / pageSize) + 1;
+                    const abovePage = pageNum - 1;
+                    const belowPage = pageNum;
+                    const sep = document.createElement('div');
+                    sep.className = 'search-separator';
+                    sep.innerHTML = `
+                        <span class="separator-label separator-above">Page ${abovePage} ▲</span>
+                        <span class="separator-line"></span>
+                        <span class="separator-label separator-below">Page ${belowPage} ▼</span>
+                    `;
+                    container.appendChild(sep);
+                }
+
+                const item = results[i];
                 const card = document.createElement('a');
                 card.className = 'search-result-card';
                 card.href = item.link;
@@ -282,8 +303,34 @@
                 row.appendChild(source);
                 card.appendChild(row);
                 container.appendChild(card);
-            });
+            }
+
+            if (loadedCount < results.length) {
+                const currentPage = Math.ceil(loadedCount / pageSize);
+                const nextPage = currentPage + 1;
+                const sep = document.createElement('div');
+                sep.className = 'search-separator';
+                sep.innerHTML = `
+                    <span class="separator-label separator-above">Page ${currentPage} ▲</span>
+                    <span class="separator-line"></span>
+                    <span class="separator-label separator-below">Page ${nextPage} ▼</span>
+                `;
+                container.appendChild(sep);
+                
+                const wrapper = document.createElement('div');
+                wrapper.style.cssText = 'text-align: center; margin: var(--space-md) 0;';
+                const seeMoreBtn = document.createElement('button');
+                seeMoreBtn.className = 'see-more-btn';
+                seeMoreBtn.innerHTML = 'See more <i class="fa-solid fa-arrow-down"></i>';
+                seeMoreBtn.addEventListener('click', function() {
+                    loadedCount = Math.min(loadedCount + pageSize, results.length);
+                    renderResults(results, query);
+                });
+                wrapper.appendChild(seeMoreBtn);
+                container.appendChild(wrapper);
+            }
         }
+       
 
         // ============================================
         // RECENT SEARCHES
@@ -371,13 +418,14 @@
         // ============================================
 
         
-        function setupFilters() {
+          function setupFilters() {
             const buttons = document.querySelectorAll('.search-filter-btn');
             buttons.forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     buttons.forEach(function(b) { b.classList.remove('active'); });
                     btn.classList.add('active');
                     currentFilter = btn.dataset.filter;
+                    loadedCount = 0;
                     const results = searchItems(currentQuery, currentFilter);
                     renderResults(results, currentQuery);
                 });
@@ -406,6 +454,7 @@
 
             currentQuery = query;
             await loadData();
+            loadedCount = 0;
             const results = searchItems(query, 'all');
             renderResults(results, query);
             saveRecentSearch(query);
