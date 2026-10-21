@@ -5511,9 +5511,10 @@ PUBLICATIONS PAGE
         max-width: 280px;
         justify-content: center;
         font-size: 0.9rem;
-        padding: var(--space-xs) var(--space-lg);
+        padding: var(--space-sm) var(--space-lg);
     }
 
+   
     .newsletter-message {
         padding: var(--space-sm);
         margin-top: var(--space-md);
