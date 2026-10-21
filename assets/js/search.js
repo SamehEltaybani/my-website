@@ -26,7 +26,6 @@
     let allItems = [];
     let wordFrequency = {};
     let uniqueWords = [];
-    let currentQuery = '';
     let selectedIndex = -1;
     let isModalOpen = false;
     let overlay, input, dropdown, closeBtn;
@@ -46,19 +45,7 @@
             .trim();
     }
 
-    // ============================================
-    // EXTRACT PHRASES (n-grams) of consecutive words
-    // ============================================
-    
-    function extractPhrases(text, n) {
-        const words = text.split(/\s+/);
-        if (words.length < n) return [];
-        const phrases = [];
-        for (let i = 0; i <= words.length - n; i++) {
-            phrases.push(words.slice(i, i + n).join(' '));
-        }
-        return phrases;
-    }
+   
 
     // ============================================
     // LEVENSHTEIN DISTANCE (for spelling suggestions)
@@ -332,20 +319,7 @@
         textSpan.textContent = displayText;
         div.appendChild(textSpan);
 
-        // Add source label ONLY for word and spelling suggestions (not for phrase)
-        if (item.type === 'word') {
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-word';
-            sourceSpan.textContent = 'Suggestion';
-            div.appendChild(sourceSpan);
-        } else if (item.type === 'spelling') {
-            const sourceSpan = document.createElement('span');
-            sourceSpan.className = 'suggestion-source source-spelling';
-            sourceSpan.textContent = 'Spelling';
-            div.appendChild(sourceSpan);
-        }
-        // Phrase suggestions do NOT get a source label
-
+      
         // Click behavior
         div.addEventListener('click', function() {
             if (item.type === 'word' || item.type === 'spelling') {
@@ -401,10 +375,7 @@
     
     let debounceTimer = null;
 
-    function handleInput() {
-        const query = input.value;
-        currentQuery = query;
-
+       function handleInput() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(function() {
             renderDropdown();
@@ -500,7 +471,6 @@
         }
         if (input) {
             input.value = '';
-            currentQuery = '';
         }
 
         document.addEventListener('keydown', handleKeydown);
