@@ -4945,7 +4945,17 @@ PUBLICATIONS PAGE
   padding: var(--space-sm) var(--space-xs);
   margin-bottom: var(--space-lg);
   border-bottom: 3px solid var(--accent-color);
-   box-shadow: 0 6px 12px rgba(34, 40, 49, 0.08);
+}
+
+.search-filters::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 3px);
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(34, 40, 49, 0.10), transparent);
+  pointer-events: none;
 }
 
 .search-filter-btn {
