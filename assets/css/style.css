@@ -4938,14 +4938,20 @@ PUBLICATIONS PAGE
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
+  position: sticky;
+  top: 100px;
+  z-index: 100;
+  background: var(--bg-color);
+  padding: var(--space-sm) 0;
   margin-bottom: var(--space-lg);
+  border-bottom: 3px solid var(--accent-color);
 }
 
 .search-filter-btn {
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-full);
   border: 2px solid rgba(0, 0, 0, 0.08);
-  background: transparent;
+  background: var(--white-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
