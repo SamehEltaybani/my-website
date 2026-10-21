@@ -233,10 +233,14 @@ function showToast(message) {
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'blog-toast';
-        toast.style.cssText = 'position:fixed;top:120px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:30px;font-size:0.9rem;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
+        // Added flexbox, min-width, and padding adjustments
+        toast.style.cssText = 'position:fixed;top:140px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;min-width:320px;background:#222;color:#fff;padding:12px 24px;border-radius:30px;font-size:0.95rem;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none;';
         document.body.appendChild(toast);
     }
-    toast.textContent = message;
+    
+    // Inject the Font Awesome icon with the teal accent color, followed by the message
+    toast.innerHTML = '<i class="fa-solid fa-circle-check" style="color:var(--accent-color);margin-right:10px;font-size:1.2rem;"></i> <span>' + message + '</span>';
+    
     toast.style.opacity = '1';
     clearTimeout(toast._timeout);
     toast._timeout = setTimeout(function() {
