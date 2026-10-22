@@ -19,6 +19,46 @@
         // (same as in search.js)
         // ============================================
         
+
+// Stop words and protected words
+        
+        const STOP_WORDS = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'it', 'its', 'this', 'that', 'these', 'those'];
+        const PROTECTED_ACRONYMS = ['ai', 'llm', 'llms', 'rn', 'icu', 'np', 'md', 'phd', 'covid', 'sars', 'ehr', 'emr'];
+
+        function filterStopWords(words) {
+            return words.filter(function(w) {
+                const lower = w.toLowerCase();
+                if (PROTECTED_ACRONYMS.includes(lower)) return true;
+                return !STOP_WORDS.includes(lower);
+            });
+        }
+
+        function stem(word) {
+            let w = word.toLowerCase();
+            if (w.length < 4) return w;
+            if (w.endsWith('ies')) w = w.slice(0, -3) + 'y';
+            else if (w.endsWith('es')) w = w.slice(0, -2);
+            else if (w.endsWith('s') && !w.endsWith('ss')) w = w.slice(0, -1);
+            else if (w.endsWith('ing')) w = w.slice(0, -3);
+            else if (w.endsWith('ed')) w = w.slice(0, -2);
+            return w;
+        }
+
+        function levenshteinDistance(a, b) {
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
+            const matrix = [];
+            for (let i = 0; i <= b.length; i++) { matrix[i] = [i]; }
+            for (let j = 0; j <= a.length; j++) { matrix[0][j] = j; }
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b[i-1] === a[j-1]) { matrix[i][j] = matrix[i-1][j-1]; }
+                    else { matrix[i][j] = Math.min(matrix[i-1][j-1] + 1, matrix[i][j-1] + 1, matrix[i-1][j] + 1); }
+                }
+            }
+            return matrix[b.length][a.length];
+        }
+
         
         function normalizeText(text) {
             if (!text) return '';
@@ -121,37 +161,46 @@
         // SEARCH ITEMS (with consecutive phrase matching)
         // ============================================
         
-        function searchItems(query, filter) {
+               function searchItems(query, filter) {
             if (!query || query.trim().length === 0) {
                 return [];
             }
 
             const normalizedQuery = normalizeText(query);
-            const queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
-            const isPhrase = queryWords.length >= 3;
-
+            let queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+            
             let results = allItems;
-
-            // Apply filter
             if (filter !== 'all') {
-                results = results.filter(function(item) {
-                    return item.source === filter;
-                });
+                results = results.filter(function(item) { return item.source === filter; });
             }
 
+            // Apply Stop Words ONLY if > 1 word
+            let activeQuery = normalizedQuery;
+            if (queryWords.length > 1) {
+                const filteredWords = filterStopWords(queryWords);
+                if (filteredWords.length > 0) {
+                    activeQuery = filteredWords.join(' ');
+                    queryWords = filteredWords;
+                }
+            }
+
+            const isPhrase = queryWords.length >= 3;
+
             if (!isPhrase) {
-                // Short query: use simple word matching (but still use normalized)
-                const lowerQuery = query.toLowerCase().trim();
-                const words = lowerQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+                // Short query: use simple word matching + Stemming
+                const words = activeQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+                const stemmedWords = words.map(stem);
 
                 const scored = results.map(function(item) {
                     let score = 0;
                     const text = item.normalizedText;
                     const titleLower = (item.title || '').toLowerCase();
+                    const stemmedText = text.split(/\s+/).map(stem).join(' ');
 
-                    words.forEach(function(word) {
-                        if (text.includes(word)) score += 5;
-                        if (titleLower.includes(word)) score += 10;
+                    words.forEach(function(word, index) {
+                        const sWord = stemmedWords[index];
+                        if (text.includes(word) || stemmedText.includes(sWord)) score += 5;
+                        if (titleLower.includes(word) || stem(titleLower).includes(sWord)) score += 10;
                     });
 
                     return { item: item, score: score };
@@ -165,56 +214,33 @@
                 return filtered;
             }
 
-            // Phrase query: extract bigrams and trigrams
+            // Phrase query: EXACTLY AS BEFORE (Untouched for safety)
             const bigrams = extractPhrases(normalizedQuery, 2);
             const trigrams = extractPhrases(normalizedQuery, 3);
 
             const scored = results.map(function(item) {
                 const itemText = item.normalizedText;
-                let score = 0;
-                let matchedBigrams = 0;
-                let matchedTrigrams = 0;
+                let score = 0, matchedBigrams = 0, matchedTrigrams = 0;
 
                 bigrams.forEach(function(phrase) {
-                    if (itemText.includes(phrase)) {
-                        matchedBigrams++;
-                        score += 2;
-                    }
+                    if (itemText.includes(phrase)) { matchedBigrams++; score += 2; }
                 });
-
                 trigrams.forEach(function(phrase) {
-                    if (itemText.includes(phrase)) {
-                        matchedTrigrams++;
-                        score += 5;
-                    }
+                    if (itemText.includes(phrase)) { matchedTrigrams++; score += 5; }
                 });
+                if (itemText.includes(normalizedQuery)) { score += 10; }
 
-                if (itemText.includes(normalizedQuery)) {
-                    score += 10;
-                }
-
-                return {
-                    item: item,
-                    score: score,
-                    matchedBigrams: matchedBigrams,
-                    matchedTrigrams: matchedTrigrams
-                };
+                return { item: item, score: score, matchedBigrams: matchedBigrams, matchedTrigrams: matchedTrigrams };
             });
 
-            // Threshold: require at least 1 trigram OR 2 bigrams
-            const minBigrams = 2;
-            const minTrigrams = 1;
-
-            const filtered = scored
+            return scored
                 .filter(function(s) {
-                    if (s.matchedTrigrams >= minTrigrams) return true;
-                    if (s.matchedBigrams >= minBigrams) return true;
+                    if (s.matchedTrigrams >= 1) return true;
+                    if (s.matchedBigrams >= 2) return true;
                     return false;
                 })
                 .sort(function(a, b) { return b.score - a.score; })
                 .map(function(s) { return s.item; });
-
-            return filtered;
         }
 
         // ============================================
@@ -237,9 +263,40 @@
         // RENDER RESULTS
         // ============================================
 
-                function renderResults(results, query) {
+                function renderResults(results, query)         function renderResults(results, query) {
             const container = document.getElementById('search-results-list');
             const countEl = document.getElementById('results-count');
+
+            let autocorrectMessage = '';
+
+            // TYPO TOLERANCE (New)
+            if (results.length === 0 && query.length > 2) {
+                const qWords = query.toLowerCase().split(/\s+/);
+                const allWords = new Set();
+                allItems.forEach(item => {
+                    item.normalizedText.split(/\s+/).forEach(w => { if (w.length >= 4) allWords.add(w); });
+                });
+                let bestMatch = null;
+                let minDist = 3;
+                qWords.forEach(qw => {
+                    if (qw.length < 4) return;
+                    allWords.forEach(w => {
+                        const d = levenshteinDistance(qw, w);
+                        if (d < minDist) { minDist = d; bestMatch = w; }
+                    });
+                });
+
+                if (bestMatch) {
+                    const correctedResults = searchItems(bestMatch, currentFilter);
+                    if (correctedResults.length > 0) {
+                        const originalQuery = query;
+                        results = correctedResults; 
+                        query = bestMatch;          
+                        loadedCount = 0;            
+                        autocorrectMessage = `No results found for "<strong>${window.escapeHTML(originalQuery)}</strong>". Showing results for "<a href="#" onclick="window.location.href='?q=${encodeURIComponent(bestMatch)}'; return false;">${window.escapeHTML(bestMatch)}</a>" instead.`;
+                    }
+                }
+            }
 
             if (results.length === 0) {
                 countEl.innerHTML = 'No results found for "<strong>' + window.escapeHTML(query) + '</strong>".';
@@ -248,6 +305,13 @@
             }
 
             container.innerHTML = '';
+
+            if (autocorrectMessage) {
+                const banner = document.createElement('div');
+                banner.className = 'autocorrect-banner';
+                banner.innerHTML = autocorrectMessage;
+                container.appendChild(banner);
+            }
 
             if (results.length === 0) {
                 container.innerHTML = `
