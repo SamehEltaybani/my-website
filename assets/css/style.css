@@ -8595,3 +8595,69 @@ BLOG Article (right side content)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- New Dropdown Headers ----- */
+.search-dropdown-header {
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-color);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ----- Autocorrect Banner on Search Results ----- */
+.autocorrect-banner {
+  background: rgba(0, 173, 181, 0.08);
+  border-left: 4px solid var(--accent-color);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--dark-color);
+}
+.autocorrect-banner a {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
