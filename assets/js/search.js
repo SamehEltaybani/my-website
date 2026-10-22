@@ -33,6 +33,34 @@
     // ============================================
     // TEXT NORMALIZATION
     // ============================================
+
+     // Stop words and protected words
+    
+        const STOP_WORDS = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'it', 'its', 'this', 'that', 'these', 'those'];
+    const PROTECTED_ACRONYMS = ['ai', 'llm', 'llms', 'rn', 'icu', 'np', 'md', 'phd', 'covid', 'sars', 'ehr', 'emr'];
+
+    function filterStopWords(words) {
+        return words.filter(function(w) {
+            const lower = w.toLowerCase();
+            if (PROTECTED_ACRONYMS.includes(lower)) return true;
+            return !STOP_WORDS.includes(lower);
+        });
+    }
+
+    function stem(word) {
+        let w = word.toLowerCase();
+        if (w.length < 4) return w;
+        if (w.endsWith('ies')) w = w.slice(0, -3) + 'y';
+        else if (w.endsWith('es')) w = w.slice(0, -2);
+        else if (w.endsWith('s') && !w.endsWith('ss')) w = w.slice(0, -1);
+        else if (w.endsWith('ing')) w = w.slice(0, -3);
+        else if (w.endsWith('ed')) w = w.slice(0, -2);
+        return w;
+    }
+
+
+
+    
     
     function normalizeText(text) {
         if (!text) return '';
@@ -73,13 +101,12 @@
         return matrix[b.length][a.length];
     }
 
-    function getSpellingSuggestions(query, maxSuggestions = 3) {
+       function getSpellingSuggestions(query, maxSuggestions = 5) {
         if (!query || query.trim().length < 3) return [];
         const lowerQuery = query.toLowerCase().trim();
         const wordList = Object.keys(wordFrequency);
         if (wordList.length === 0) return [];
 
-        // For multi-word queries, check each word individually
         const words = lowerQuery.split(/\s+/);
         const allSuggestions = [];
         words.forEach(function(word) {
@@ -87,15 +114,15 @@
             const scored = wordList.map(function(w) {
                 return { word: w, distance: levenshteinDistance(word, w) };
             });
+            // Get top 3 matches per word for a richer list
             const matches = scored
                 .filter(function(s) { return s.distance <= 2 && s.distance > 0; })
                 .sort(function(a, b) { return a.distance - b.distance; })
-                .slice(0, 1)
+                .slice(0, 3) 
                 .map(function(s) { return s.word; });
-            allSuggestions.push(matches[0]);
+            matches.forEach(m => allSuggestions.push(m));
         });
-        // Return unique suggestions, remove undefined
-        return allSuggestions.filter(function(w) { return w !== undefined; }).slice(0, maxSuggestions);
+        return [...new Set(allSuggestions)].slice(0, maxSuggestions);
     }
 
     // ============================================
@@ -219,22 +246,46 @@
     // GET SUGGESTIONS (for dropdown)
     // ============================================
     
-   function getSuggestions(query) {
-    if (!query || query.trim().length === 0) return [];
+     function getSuggestions(query) {
+        if (!query || query.trim().length === 0) return [];
 
-    const normalizedQuery = normalizeText(query);
-    const queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
-    const isPhrase = queryWords.length >= 3;
-
-    // For short queries (1-2 words): show word suggestions with counts
-    if (!isPhrase) {
-        const wordSuggestions = getWordSuggestions(query);
-        if (wordSuggestions.length > 0) {
-            return wordSuggestions.map(function(s) {
-                return { type: 'word', word: s.word, count: s.count };
-            });
+        const normalizedQuery = normalizeText(query);
+        let queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
+        
+        // Apply Stop Words ONLY if > 1 word
+        if (queryWords.length > 1) {
+            queryWords = filterStopWords(queryWords);
         }
-        const spellingSuggestions = getSpellingSuggestions(query);
+        
+        const isPhrase = queryWords.length >= 3;
+        const cleanedQuery = queryWords.join(' ');
+
+        if (!isPhrase) {
+            const wordSuggestions = getWordSuggestions(cleanedQuery);
+            if (wordSuggestions.length > 0) {
+                return wordSuggestions.map(function(s) {
+                    return { type: 'word', word: s.word, count: s.count };
+                });
+            }
+            const spellingSuggestions = getSpellingSuggestions(cleanedQuery);
+            if (spellingSuggestions.length > 0) {
+                return spellingSuggestions.map(function(word) {
+                    return { type: 'spelling', word: word, count: 0 };
+                });
+            }
+            return [];
+        }
+
+        // Phrase logic
+        const phraseMatches = allItems.filter(function(item) {
+            return item.normalizedText.includes(cleanedQuery);
+        });
+
+        if (phraseMatches.length > 0) {
+            return [{ type: 'phrase', word: cleanedQuery, count: phraseMatches.length }];
+        }
+
+        const spellingSuggestions = getSpellingSuggestions(cleanedQuery);
         if (spellingSuggestions.length > 0) {
             return spellingSuggestions.map(function(word) {
                 return { type: 'spelling', word: word, count: 0 };
@@ -243,105 +294,88 @@
         return [];
     }
 
-    // For phrase queries (3+ words): count how many items contain this phrase
-    const phraseMatches = allItems.filter(function(item) {
-        return item.normalizedText.includes(normalizedQuery);
-    });
-
-    if (phraseMatches.length > 0) {
-        // Return the phrase itself as a suggestion with count
-        return [{ type: 'phrase', word: query, count: phraseMatches.length }];
-    }
-
-    // If no phrase matches, try spelling suggestions for individual words
-    const spellingSuggestions = getSpellingSuggestions(query);
-    if (spellingSuggestions.length > 0) {
-        return spellingSuggestions.map(function(word) {
-            return { type: 'spelling', word: word, count: 0 };
-        });
-    }
-
-    return [];
-}
-
     // ============================================
     // RENDER DROPDOWN
     // ============================================
     
-    function renderDropdown() {
-    if (!dropdown) return;
-    dropdown.innerHTML = '';
+     function renderDropdown() {
+        if (!dropdown) return;
+        dropdown.innerHTML = '';
 
-    const query = input.value.trim();
-    if (query.length === 0) {
-        dropdown.classList.remove('active');
-        return;
-    }
-
-    const suggestions = getSuggestions(query);
-
-    if (!suggestions || suggestions.length === 0) {
-        const empty = document.createElement('div');
-        empty.className = 'search-dropdown-empty';
-        empty.textContent = 'No matches found. Try a different keyword.';
-        dropdown.appendChild(empty);
-        dropdown.classList.add('active');
-        return;
-    }
-
-    // Render suggestions
-    const maxDisplay = 20;
-    const displayItems = suggestions.slice(0, maxDisplay);
-
-    displayItems.forEach(function(item, index) {
-        const div = document.createElement('div');
-        div.className = 'search-dropdown-item';
-        if (index === selectedIndex) {
-            div.classList.add('active');
+        const query = input.value.trim();
+        if (query.length === 0) {
+            dropdown.classList.remove('active');
+            return;
         }
 
-        const textSpan = document.createElement('span');
-        textSpan.className = 'suggestion-text';
+        const suggestions = getSuggestions(query);
 
-        let displayText = '';
-
-        if (item.type === 'word') {
-            displayText = item.word + ' (' + item.count + ')';
-        } else if (item.type === 'spelling') {
-            displayText = item.word + ' (did you mean?)';
-        } else if (item.type === 'phrase') {
-            // Show only the phrase and count, no quotes, no source label
-            displayText = item.word + ' (' + item.count + ')';
-        } else {
-            displayText = item.word || 'Unknown';
+        if (!suggestions || suggestions.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'search-dropdown-empty';
+            empty.textContent = 'No matches found. Try a different keyword.';
+            dropdown.appendChild(empty);
+            dropdown.classList.add('active');
+            return;
         }
 
-        textSpan.textContent = displayText;
-        div.appendChild(textSpan);
+        // Check if we only have spelling suggestions
+        const isSpelling = suggestions[0].type === 'spelling';
 
-      
-        // Click behavior
-        div.addEventListener('click', function() {
-            if (item.type === 'word' || item.type === 'spelling') {
-                performSearch(item.word);
-            } else if (item.type === 'phrase') {
-                performSearch(item.word);
-            } else {
-                performSearch(query);
+        if (isSpelling) {
+            const header = document.createElement('div');
+            header.className = 'search-dropdown-header';
+            header.textContent = 'No direct matches. Did you mean:';
+            dropdown.appendChild(header);
+        } else if (suggestions[0].type === 'word') {
+            const header = document.createElement('div');
+            header.className = 'search-dropdown-header';
+            header.textContent = 'Suggestions:';
+            dropdown.appendChild(header);
+        }
+
+        const maxDisplay = 20;
+        const displayItems = suggestions.slice(0, maxDisplay);
+
+        displayItems.forEach(function(item, index) {
+            const div = document.createElement('div');
+            div.className = 'search-dropdown-item';
+            if (index === selectedIndex) {
+                div.classList.add('active');
             }
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'suggestion-text';
+
+            let displayText = '';
+            if (item.type === 'word') {
+                displayText = item.word + ' (' + item.count + ')';
+            } else if (item.type === 'spelling') {
+                displayText = item.word; // Removed "(did you mean?)"
+            } else if (item.type === 'phrase') {
+                displayText = item.word + ' (' + item.count + ')';
+            } else {
+                displayText = item.word || 'Unknown';
+            }
+
+            textSpan.textContent = displayText;
+            div.appendChild(textSpan);
+
+            div.addEventListener('click', function() {
+                performSearch(item.word || query);
+            });
+
+            div.addEventListener('mouseenter', function() {
+                selectedIndex = index;
+                highlightSelected();
+            });
+
+            dropdown.appendChild(div);
         });
 
-        div.addEventListener('mouseenter', function() {
-            selectedIndex = index;
-            highlightSelected();
-        });
-
-        dropdown.appendChild(div);
-    });
-
-    dropdown.classList.add('active');
-    selectedIndex = -1;
-}
+        dropdown.classList.add('active');
+        selectedIndex = -1;
+    }
 
     // ============================================
     // HIGHLIGHT
