@@ -4756,7 +4756,7 @@ PUBLICATIONS PAGE
   background: var(--accent-color-light);
   color: var(--accent-color);
   border: none;
-  border-radius: var(--radius-md); /* Follows the modal's roundness */
+  border-radius: var(--radius-lg); /* Follows the modal's roundness */
   width: 58px;  /* Horizontally wider */
   height: 42px;
   display: flex;
