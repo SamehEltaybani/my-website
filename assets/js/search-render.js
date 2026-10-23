@@ -216,11 +216,15 @@
             }
         }
 
+        const tipsIconHtml = '<a href="#closing-cta" class="search-tips-icon" title="Looking for better results?"><i class="fa-solid fa-circle-question"></i></a>';
+
         if (results.length === 0) {
-            countEl.innerHTML = 'No results found for "<strong>' + window.escapeHTML(query) + '</strong>".';
+            countEl.innerHTML = tipsIconHtml + 'No results found for "<strong>' + window.escapeHTML(query) + '</strong>".';
         } else {
-            countEl.innerHTML = results.length + ' result' + (results.length > 1 ? 's' : '') + ' for "<strong>' + window.escapeHTML(query) + '</strong>"';
+            countEl.innerHTML = tipsIconHtml + results.length + ' result' + (results.length > 1 ? 's' : '') + ' for "<strong>' + window.escapeHTML(query) + '</strong>"';
         }
+
+        
 
         container.innerHTML = '';
 
@@ -231,15 +235,13 @@
             container.appendChild(banner);
         }
 
-        if (results.length === 0) {
+               if (results.length === 0) {
             container.innerHTML = `
                 <div style="text-align: center; padding: var(--space-xl) 0;">
+                    <i class="fa-regular fa-face-sad-tear" style="font-size: 2rem; display: block; margin-bottom: var(--space-md); color: var(--accent-color);"></i>
                     <p style="font-size: 1.2rem; color: var(--dark-color); opacity: 0.6; margin-bottom: var(--space-sm);">
-                        <i class="fa-regular fa-face-sad-tear" style="font-size: 2rem; display: block; margin-bottom: var(--space-md); color: var(--accent-color);"></i>
+                        <a href="#closing-cta" class="search-tips-icon" title="Looking for better results?"><i class="fa-solid fa-circle-question"></i></a>
                         No results found for "<strong>${window.escapeHTML(query)}</strong>".
-                    </p>
-                    <p style="color: var(--dark-color); opacity: 0.4; font-size: 0.95rem;">
-                        Try different keywords, check your spelling, or browse the site navigation above.
                     </p>
                 </div>
             `;
