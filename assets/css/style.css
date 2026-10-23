@@ -4765,13 +4765,12 @@ PUBLICATIONS PAGE
   cursor: pointer;
   margin-left: var(--space-sm);
   padding: 0;
-  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .search-submit-btn:hover {
   background: var(--accent-color);
   color: var(--white-color);
-  transform: scale(1.03);
 }
 
 .search-submit-btn i {
