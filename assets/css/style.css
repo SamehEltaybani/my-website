@@ -5127,27 +5127,22 @@ PUBLICATIONS PAGE
     font-size: 1rem;
   }
   
-    .search-dropdown {
+  .search-dropdown {
     max-height: 200px;
-    overflow-y: scroll !important; 
-     box-shadow: inset -14px 0 0 rgba(0, 0, 0, 0.08) !important;
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    overflow-y: auto; /* Only shows a scrollbar if content overflows */
   }
 
+  /* Thick scrollbar when scrolling IS needed (Android/Chrome) */
   .search-dropdown::-webkit-scrollbar {
-    width: 14px !important; 
-    display: block !important;
+    width: 14px;
   }
-   
   .search-dropdown::-webkit-scrollbar-track {
-    background: transparent !important;
+    background: transparent;
   }
-   
   .search-dropdown::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5) !important;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-  }
+  } 
 
    
   
