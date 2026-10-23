@@ -75,9 +75,8 @@
             { label: 'Teaching', link: '/my-website/teaching.html' },
             { label: 'Blog', link: '/my-website/blog.html' },
             { label: 'Contact', link: '/my-website/contact.html' },
-            { label: 'Newsletter', link: '/my-website/newsletter.html' },
-            { label: 'Legal', link: '/my-website/legal.html' }
-        ];
+            { label: 'Newsletter', link: '/my-website/newsletter.html' }
+           ];
 
         const sitemapList = document.createElement('ul');
         sitemapList.className = 'footer-sitemap';
