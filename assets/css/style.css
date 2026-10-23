@@ -5127,33 +5127,26 @@ PUBLICATIONS PAGE
     font-size: 1rem;
   }
   
-  .search-dropdown {
+    .search-dropdown {
     max-height: 200px;
-    /* Forces the scrollbar to always be visible on some Android devices */
     overflow-y: scroll !important; 
-    /* Visual clue for iOS/Android even if the scrollbar is hidden by the OS */
-    background-image: linear-gradient(to left, rgba(0,0,0,0.08) 0%, transparent 100%);
-    background-position: right;
-    background-size: 12px 100%;
-    background-repeat: no-repeat;
+     box-shadow: inset -14px 0 0 rgba(0, 0, 0, 0.08) !important;
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   }
 
-  /* Force a thicker, permanent scrollbar on mobile WebKit (Android/iOS) */
   .search-dropdown::-webkit-scrollbar {
-    width: 16px !important; /* Very thick */
-    -webkit-appearance: none !important; /* Forces custom styling */
+    width: 14px !important; 
+    display: block !important;
   }
    
   .search-dropdown::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1) !important;
-    border-radius: 8px;
+    background: transparent !important;
   }
    
   .search-dropdown::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.6) !important;
-    border-radius: 8px;
-    border: 2px solid transparent; /* Makes the thumb look slimmer inside the track */
-    background-clip: padding-box;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 10px;
   }
 
    
