@@ -4,7 +4,6 @@
 * It is different from search.js, which handles the modal, autocomplete, and dropdown suggestions (used on all pages).
 **/
 
-
 (function() {
         'use strict';
 
@@ -16,12 +15,8 @@
 
         // ============================================
         // TEXT NORMALIZATION & PHRASE EXTRACTION
-        // (same as in search.js)
         // ============================================
-        
 
-// Stop words and protected words
-        
         const STOP_WORDS = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'it', 'its', 'this', 'that', 'these', 'those'];
         const PROTECTED_ACRONYMS = ['ai', 'llm', 'llms', 'rn', 'icu', 'np', 'md', 'phd', 'covid', 'sars', 'ehr', 'emr'];
 
@@ -58,7 +53,6 @@
             }
             return matrix[b.length][a.length];
         }
-
         
         function normalizeText(text) {
             if (!text) return '';
@@ -79,19 +73,11 @@
             return phrases;
         }
 
-        // ============================================
-        // GET URL PARAM
-        // ============================================
-        
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
-        // ============================================
-        // LOAD DATA
-        // ============================================
-        
         async function loadData() {
             try {
                 const files = [
@@ -157,11 +143,7 @@
             }
         }
 
-        // ============================================
-        // SEARCH ITEMS (with consecutive phrase matching)
-        // ============================================
-        
-               function searchItems(query, filter) {
+        function searchItems(query, filter) {
             if (!query || query.trim().length === 0) {
                 return [];
             }
@@ -242,6 +224,7 @@
                 .sort(function(a, b) { return b.score - a.score; })
                 .map(function(s) { return s.item; });
         }
+
 
         // ============================================
         // HIGHLIGHT TEXT (simple)
