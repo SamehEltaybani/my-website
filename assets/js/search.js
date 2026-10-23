@@ -409,6 +409,7 @@
 
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden'; 
 
         setTimeout(function() {
             if (input) {
@@ -440,7 +441,9 @@
         if (overlay) {
             overlay.classList.remove('active');
         }
+        
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = ''; 
         document.removeEventListener('keydown', handleKeydown);
     }
 
