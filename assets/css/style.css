@@ -4700,7 +4700,7 @@ PUBLICATIONS PAGE
   width: 90%;
   max-width: 700px;
   background: var(--white-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-xl);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   animation: searchFadeIn 0.25s ease;
@@ -4773,10 +4773,16 @@ PUBLICATIONS PAGE
   color: var(--white-color);
 }
 
-.search-submit-btn i {
-  font-size: 1.4rem; /* Bigger arrow */
+.search-input-row .search-submit-btn i {
+  font-size: 1.4rem;
   margin: 0;
-    -webkit-text-stroke: 1px currentColor; 
+  opacity: 1; /* Overrides the 0.4 transparency */
+  color: inherit; /* Inherits the button's color */
+  -webkit-text-stroke: 1px currentColor; 
+}
+
+.search-input-row .search-submit-btn:hover i {
+  color: var(--white-color); /* Forces the arrow to be white on hover */
 }
 
 /* Mobile adjustments */
