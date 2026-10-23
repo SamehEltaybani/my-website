@@ -4720,15 +4720,17 @@ PUBLICATIONS PAGE
 /* ----- Search Input Row ----- */
 
 /* ----- New Modal Layout ----- */
+
 .search-modal-wrapper {
   width: 90%;
   max-width: 700px;
   position: relative;
 }
 
+/* Bring the X closer to the box */
 .search-close-wrapper {
   text-align: right;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs); /* Reduced from space-sm */
 }
 
 /* The floating X above the box */
@@ -4736,8 +4738,8 @@ PUBLICATIONS PAGE
   background: transparent;
   border: none;
   font-size: 1.8rem;
-  color: var(--white-color);
-  opacity: 0.7;
+  color: var(--accent-color-light); /* Changed to your brand color */
+  opacity: 1; /* Made fully visible */
   cursor: pointer;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
   padding: 0;
@@ -4745,34 +4747,38 @@ PUBLICATIONS PAGE
 }
 
 .search-close-btn:hover {
-  opacity: 1;
+  opacity: 0.8;
   transform: scale(1.1);
 }
 
 /* The new Search Arrow Button inside the input row */
 .search-submit-btn {
-  background: var(--accent-color);
-  color: var(--white-color);
+  background: var(--accent-color-very-light);
+  color: var(--accent-color);
   border: none;
-  border-radius: var(--radius-full);
-  width: 36px;
-  height: 36px;
+  border-radius: var(--radius-md); /* Follows the modal's roundness */
+  width: 42px;  /* Slightly wider to match input height */
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-left: var(--space-sm);
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  padding: 0; /* Ensures the icon is perfectly centered */
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .search-submit-btn:hover {
-  background: var(--accent-color-light);
-  transform: scale(1.05);
+  background: var(--accent-color);
+  color: var(--white-color);
+  transform: scale(1.03);
 }
 
 .search-submit-btn i {
-  font-size: 0.9rem;
-  margin: 0; /* Removes the old margin from the magnifying glass */
+  font-size: 1.1rem; /* Bigger arrow */
+  margin: 0;
+  /* Makes the FontAwesome arrow appear thicker */
+  -webkit-text-stroke: 0.5px currentColor; 
 }
 
 /* Mobile adjustments */
@@ -4781,6 +4787,7 @@ PUBLICATIONS PAGE
     width: 95%;
   }
 }
+
 
 
 .search-input-row {
