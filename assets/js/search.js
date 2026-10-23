@@ -31,12 +31,10 @@
     let overlay, input, dropdown, closeBtn;
 
     // ============================================
-    // TEXT NORMALIZATION
+    // TEXT NORMALIZATION & HELPERS
     // ============================================
-
-     // Stop words and protected words
     
-        const STOP_WORDS = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'it', 'its', 'this', 'that', 'these', 'those'];
+    const STOP_WORDS = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'it', 'its', 'this', 'that', 'these', 'those'];
     const PROTECTED_ACRONYMS = ['ai', 'llm', 'llms', 'rn', 'icu', 'np', 'md', 'phd', 'covid', 'sars', 'ehr', 'emr'];
 
     function filterStopWords(words) {
@@ -47,38 +45,15 @@
         });
     }
 
-    function stem(word) {
-        let w = word.toLowerCase();
-        if (w.length < 4) return w;
-        if (w.endsWith('ies')) w = w.slice(0, -3) + 'y';
-        else if (w.endsWith('es')) w = w.slice(0, -2);
-        else if (w.endsWith('s') && !w.endsWith('ss')) w = w.slice(0, -1);
-        else if (w.endsWith('ing')) w = w.slice(0, -3);
-        else if (w.endsWith('ed')) w = w.slice(0, -2);
-        return w;
-    }
-
-
-
-    
-    
     function normalizeText(text) {
         if (!text) return '';
         return text
             .toLowerCase()
-            // Replace punctuation and special characters with space
             .replace(/[.,!?;:()\[\]{}"'“”‘’\/\-_]/g, ' ')
-            // Collapse multiple spaces
             .replace(/\s+/g, ' ')
             .trim();
     }
 
-   
-
-    // ============================================
-    // LEVENSHTEIN DISTANCE (for spelling suggestions)
-    // ============================================
-    
     function levenshteinDistance(a, b) {
         if (a.length === 0) return b.length;
         if (b.length === 0) return a.length;
@@ -101,7 +76,7 @@
         return matrix[b.length][a.length];
     }
 
-       function getSpellingSuggestions(query, maxSuggestions = 5) {
+    function getSpellingSuggestions(query, maxSuggestions = 5) {
         if (!query || query.trim().length < 3) return [];
         const lowerQuery = query.toLowerCase().trim();
         const wordList = Object.keys(wordFrequency);
@@ -114,7 +89,6 @@
             const scored = wordList.map(function(w) {
                 return { word: w, distance: levenshteinDistance(word, w) };
             });
-            // Get top 3 matches per word for a richer list
             const matches = scored
                 .filter(function(s) { return s.distance <= 2 && s.distance > 0; })
                 .sort(function(a, b) { return a.distance - b.distance; })
@@ -125,10 +99,6 @@
         return [...new Set(allSuggestions)].slice(0, maxSuggestions);
     }
 
-    // ============================================
-    // BUILD WORD FREQUENCY INDEX
-    // ============================================
-    
     function buildWordFrequency() {
         const freq = {};
         allItems.forEach(function(item) {
@@ -142,9 +112,7 @@
             });
         });
         wordFrequency = freq;
-        uniqueWords = Object.keys(freq).sort(function(a, b) {
-            return freq[b] - freq[a];
-        });
+        uniqueWords = Object.keys(freq).sort(function(a, b) { return freq[b] - freq[a]; });
     }
 
     function getWordSuggestions(query) {
@@ -162,10 +130,6 @@
         return suggestions;
     }
 
-    // ============================================
-    // BUILD SEARCH INDEX (with normalized text)
-    // ============================================
-    
     function buildSearchIndex(data, source) {
         const items = [];
         data.forEach(function(item) {
@@ -211,10 +175,6 @@
         return items;
     }
 
-    // ============================================
-    // LOAD DATA
-    // ============================================
-    
     async function loadAllData() {
         try {
             const fetchPromises = CONFIG.jsonFiles.map(function(file) {
@@ -242,17 +202,12 @@
         }
     }
 
-    // ============================================
-    // GET SUGGESTIONS (for dropdown)
-    // ============================================
-    
-     function getSuggestions(query) {
+    function getSuggestions(query) {
         if (!query || query.trim().length === 0) return [];
 
         const normalizedQuery = normalizeText(query);
         let queryWords = normalizedQuery.split(/\s+/).filter(function(w) { return w.length > 0; });
         
-        // Apply Stop Words ONLY if > 1 word
         if (queryWords.length > 1) {
             queryWords = filterStopWords(queryWords);
         }
@@ -276,29 +231,19 @@
             return [];
         }
 
-        // Phrase logic
         const phraseMatches = allItems.filter(function(item) {
             return item.normalizedText.includes(cleanedQuery);
         });
 
         if (phraseMatches.length > 0) {
-            return [{ type: 'phrase', word: cleanedQuery, count: phraseMatches.length }];
+            return [{ type: 'phrase', word: query, count: phraseMatches.length }];
         }
 
-        const spellingSuggestions = getSpellingSuggestions(cleanedQuery);
-        if (spellingSuggestions.length > 0) {
-            return spellingSuggestions.map(function(word) {
-                return { type: 'spelling', word: word, count: 0 };
-            });
-        }
-        return [];
+        // Fallback for long phrases to prevent confusing "No direct matches"
+        return [{ type: 'phrase', word: query, count: 0 }];
     }
 
-    // ============================================
-    // RENDER DROPDOWN
-    // ============================================
-    
-     function renderDropdown() {
+    function renderDropdown() {
         if (!dropdown) return;
         dropdown.innerHTML = '';
 
@@ -319,7 +264,6 @@
             return;
         }
 
-        // Check if we only have spelling suggestions
         const isSpelling = suggestions[0].type === 'spelling';
 
         if (isSpelling) {
@@ -351,9 +295,9 @@
             if (item.type === 'word') {
                 displayText = item.word + ' (' + item.count + ')';
             } else if (item.type === 'spelling') {
-                displayText = item.word; // Removed "(did you mean?)"
+                displayText = item.word; 
             } else if (item.type === 'phrase') {
-                displayText = item.word + ' (' + item.count + ')';
+                displayText = item.word + (item.count > 0 ? ' (' + item.count + ')' : '');
             } else {
                 displayText = item.word || 'Unknown';
             }
@@ -377,10 +321,6 @@
         selectedIndex = -1;
     }
 
-    // ============================================
-    // HIGHLIGHT
-    // ============================================
-    
     function highlightSelected() {
         if (!dropdown) return;
         const items = dropdown.querySelectorAll('.search-dropdown-item');
@@ -393,33 +333,21 @@
         });
     }
 
-    // ============================================
-    // PERFORM SEARCH
-    // ============================================
-    
     function performSearch(query) {
         if (!query || query.trim().length === 0) return;
         const encoded = encodeURIComponent(query.trim());
         window.location.href = '/my-website/search.html?q=' + encoded;
     }
 
-    // ============================================
-    // INPUT HANDLING
-    // ============================================
-    
     let debounceTimer = null;
 
-       function handleInput() {
+    function handleInput() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(function() {
             renderDropdown();
         }, CONFIG.debounceDelay);
     }
 
-    // ============================================
-    // KEYBOARD NAVIGATION
-    // ============================================
-    
     function handleKeydown(e) {
         const dropdownItems = dropdown ? dropdown.querySelectorAll('.search-dropdown-item') : [];
 
@@ -434,7 +362,6 @@
                 const item = dropdownItems[selectedIndex];
                 const titleEl = item.querySelector('.suggestion-text');
                 if (titleEl) {
-                    // Extract the title from the text (before the source label)
                     const text = titleEl.textContent.trim();
                     const titleOnly = text.split(' (')[0];
                     performSearch(titleOnly);
@@ -472,10 +399,6 @@
         }
     }
 
-    // ============================================
-    // MODAL CONTROLS
-    // ============================================
-    
     function openModal() {
         if (isModalOpen) return;
         isModalOpen = true;
@@ -521,10 +444,6 @@
         document.removeEventListener('keydown', handleKeydown);
     }
 
-    // ============================================
-    // BUILD MODAL DOM
-    // ============================================
-    
     function buildModal() {
         overlay = document.createElement('div');
         overlay.className = 'search-overlay';
@@ -586,10 +505,6 @@
         console.log('✅ Search modal built.');
     }
 
-    // ============================================
-    // INITIALIZE
-    // ============================================
-    
     function initSearch() {
         const checkInterval = setInterval(function() {
             const searchIconElement = document.querySelector('.navbar-icons a[aria-label*="Search"]') ||
