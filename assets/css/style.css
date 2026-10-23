@@ -4700,7 +4700,7 @@ PUBLICATIONS PAGE
   width: 90%;
   max-width: 700px;
   background: var(--white-color);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   animation: searchFadeIn 0.25s ease;
