@@ -2799,9 +2799,12 @@ HOME PAGE
    CLOSING CTA (Call to Action at the end of the page)
    ============================================ */
 
+
 .closing-cta {
   text-align: center;
   padding: var(--space-xl) 0 var(--space-lg) 0;
+  max-width: 800px; 
+  margin: 0 auto; 
 }
 
 .cta-question {
@@ -2812,9 +2815,14 @@ HOME PAGE
 }
 
 .cta-action {
-  font-size: 1.05rem;
+  font-size: 1.1rem; 
+  line-height: 1.8; 
   color: var(--dark-color);
-  opacity: 0.85;
+  opacity: 0.8; 
+}
+
+.cta-action p {
+  margin-bottom: var(--space-md); 
 }
 
 .cta-action i {
@@ -2823,14 +2831,17 @@ HOME PAGE
 }
 
 .cta-link {
-  color: var(--accent-color);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast);
   font-weight: 500;
-  transition: color var(--transition-fast);
 }
 
 .cta-link:hover {
-  color: var(--dark-color);
+  color: var(--accent-color);
+  text-decoration-thickness: 4px;
 }
 
 .cta-link i {
@@ -2842,7 +2853,7 @@ HOME PAGE
 }
 
 @media (max-width: 768px) {
-   .closing-cta {
+  .closing-cta {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
   
@@ -2851,18 +2862,18 @@ HOME PAGE
   }
   
   .cta-action {
-    font-size: 0.95rem;
+    font-size: 1rem; 
+    line-height: 1.6;
   }
 }
 
 @media (max-width: 400px) {
-   
   .cta-question {
     font-size: 1rem;
   }
   
   .cta-action {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -4891,6 +4902,33 @@ PUBLICATIONS PAGE
   color: var(--dark-color);
   margin-bottom: var(--space-xs);
 }
+
+/* ----- Search Tips Icon ----- */
+.search-tips-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--accent-color-very-light);
+  color: var(--accent-color);
+  border-radius: var(--radius-sm); 
+  margin-right: var(--space-xs);
+  text-decoration: none;
+  vertical-align: middle;
+  transition: background var(--transition-fast);
+}
+
+.search-tips-icon:hover {
+  background: var(--accent-color-light);
+  color: var(--accent-color);
+}
+
+.search-tips-icon i {
+  font-size: 0.9rem;
+}
+
+
 
 .search-results-count {
   font-size: 1rem;
