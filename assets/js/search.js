@@ -460,6 +460,7 @@
         document.removeEventListener('keydown', handleKeydown);
     }
 
+
     function buildModal() {
         overlay = document.createElement('div');
         overlay.className = 'search-overlay';
@@ -471,6 +472,22 @@
             }
         });
 
+        // 1. The new wrapper that holds everything
+        const wrapper = document.createElement('div');
+        wrapper.className = 'search-modal-wrapper';
+
+        // 2. The Top Row (Floating Close Button)
+        const closeWrapper = document.createElement('div');
+        closeWrapper.className = 'search-close-wrapper';
+        closeBtn = document.createElement('button');
+        closeBtn.className = 'search-close-btn';
+        closeBtn.setAttribute('aria-label', 'Close search');
+        closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        closeBtn.addEventListener('click', closeModal);
+        closeWrapper.appendChild(closeBtn);
+        wrapper.appendChild(closeWrapper);
+
+        // 3. The Bottom Row (The White Box)
         const container = document.createElement('div');
         container.className = 'search-box-container';
 
@@ -486,23 +503,28 @@
         input.setAttribute('aria-label', 'Search the site');
         input.autocomplete = 'off';
 
-        closeBtn = document.createElement('button');
-        closeBtn.className = 'search-close-btn';
-        closeBtn.setAttribute('aria-label', 'Close search');
-        closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-        closeBtn.addEventListener('click', closeModal);
+        // 4. The new Search Arrow Button
+        const searchBtn = document.createElement('button');
+        searchBtn.className = 'search-submit-btn';
+        searchBtn.setAttribute('aria-label', 'Submit search');
+        searchBtn.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+        searchBtn.addEventListener('click', function() {
+            performSearch(input.value);
+        });
 
         inputRow.appendChild(magnifier);
         inputRow.appendChild(input);
-        inputRow.appendChild(closeBtn);
+        inputRow.appendChild(searchBtn); 
 
         dropdown = document.createElement('div');
         dropdown.className = 'search-dropdown';
 
         container.appendChild(inputRow);
         container.appendChild(dropdown);
-        overlay.appendChild(container);
-
+        
+        // 5. Assemble the final structure
+        wrapper.appendChild(container);
+        overlay.appendChild(wrapper);
         document.body.appendChild(overlay);
 
         input.addEventListener('input', handleInput);
@@ -520,6 +542,8 @@
 
         console.log('✅ Search modal built.');
     }
+
+    
 
     function initSearch() {
         const checkInterval = setInterval(function() {
