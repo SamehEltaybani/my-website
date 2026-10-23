@@ -4679,6 +4679,8 @@ PUBLICATIONS PAGE
   align-items: flex-start;
   justify-content: center;
   padding-top: 15vh;
+  touch-action: none; 
+  overscroll-behavior: contain; 
 }
 
 .search-overlay.active {
@@ -4765,6 +4767,9 @@ PUBLICATIONS PAGE
   background: var(--white-color);
   display: none;
   padding: var(--space-xs) 0;
+  touch-action: pan-y; 
+  overscroll-behavior: contain; 
+  -webkit-overflow-scrolling: touch; 
 }
 
 .search-dropdown.active {
@@ -5122,8 +5127,20 @@ PUBLICATIONS PAGE
     font-size: 1rem;
   }
   
-  .search-dropdown {
+    .search-dropdown {
     max-height: 200px;
+  }
+
+  .search-dropdown::-webkit-scrollbar {
+    width: 14px;
+  }
+  .search-dropdown::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  .search-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
   
   .search-dropdown-item {
