@@ -4753,18 +4753,18 @@ PUBLICATIONS PAGE
 
 /* The new Search Arrow Button inside the input row */
 .search-submit-btn {
-  background: var(--accent-color-very-light);
+  background: var(--accent-color-light);
   color: var(--accent-color);
   border: none;
   border-radius: var(--radius-md); /* Follows the modal's roundness */
-  width: 42px;  /* Slightly wider to match input height */
+  width: 58px;  /* Horizontally wider */
   height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-left: var(--space-sm);
-  padding: 0; /* Ensures the icon is perfectly centered */
+  padding: 0;
   transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -4775,10 +4775,9 @@ PUBLICATIONS PAGE
 }
 
 .search-submit-btn i {
-  font-size: 1.1rem; /* Bigger arrow */
+  font-size: 1.4rem; /* Bigger arrow */
   margin: 0;
-  /* Makes the FontAwesome arrow appear thicker */
-  -webkit-text-stroke: 0.5px currentColor; 
+    -webkit-text-stroke: 1px currentColor; 
 }
 
 /* Mobile adjustments */
