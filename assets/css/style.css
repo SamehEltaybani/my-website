@@ -2844,14 +2844,6 @@ HOME PAGE
   text-decoration-thickness: 4px;
 }
 
-.cta-link i {
-  transition: transform var(--transition-fast);
-}
-
-.cta-link:hover i {
-  transform: translateX(2px);
-}
-
 @media (max-width: 768px) {
   .closing-cta {
     padding: var(--space-lg) 0 var(--space-md) 0;
@@ -2864,6 +2856,10 @@ HOME PAGE
   .cta-action {
     font-size: 1rem; 
     line-height: 1.6;
+  }
+
+    #closing-cta {
+    scroll-margin-top: 160px; 
   }
 }
 
