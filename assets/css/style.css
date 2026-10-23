@@ -4738,8 +4738,8 @@ PUBLICATIONS PAGE
   background: transparent;
   border: none;
   font-size: 1.8rem;
-  color: var(--accent-color-light); /* Changed to your brand color */
-  opacity: 1; /* Made fully visible */
+  color: var(--white-color);
+  opacity: 0.9;
   cursor: pointer;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
   padding: 0;
@@ -4747,8 +4747,8 @@ PUBLICATIONS PAGE
 }
 
 .search-close-btn:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+  opacity: 1;
+  transform: scale(1.15); /* Zooms in slightly on hover */
 }
 
 /* The new Search Arrow Button inside the input row */
