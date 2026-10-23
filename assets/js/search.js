@@ -29,6 +29,8 @@
     let selectedIndex = -1;
     let isModalOpen = false;
     let overlay, input, dropdown, closeBtn;
+    let fetchDataPromise = null;
+    let isWordFreqBuilt = false;
 
     // ============================================
     // TEXT NORMALIZATION & HELPERS
@@ -175,31 +177,42 @@
         return items;
     }
 
-    async function loadAllData() {
-        try {
-            const fetchPromises = CONFIG.jsonFiles.map(function(file) {
-                return fetch(file.url)
-                    .then(function(response) {
-                        if (!response.ok) throw new Error('Failed to load ' + file.url);
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        return buildSearchIndex(data, file.source);
-                    })
-                    .catch(function(error) {
-                        console.warn('Could not load ' + file.url, error);
-                        return [];
+       async function loadAllData() {
+        if (allItems.length > 0) return allItems;
+        
+        if (!fetchDataPromise) {
+            fetchDataPromise = (async () => {
+                try {
+                    const fetchPromises = CONFIG.jsonFiles.map(function(file) {
+                        return fetch(file.url)
+                            .then(function(response) {
+                                if (!response.ok) throw new Error('Failed to load ' + file.url);
+                                return response.json();
+                            })
+                            .then(function(data) {
+                                return buildSearchIndex(data, file.source);
+                            })
+                            .catch(function(error) {
+                                console.warn('Could not load ' + file.url, error);
+                                return [];
+                            });
                     });
-            });
-            const results = await Promise.all(fetchPromises);
-            allItems = results.flat();
-            buildWordFrequency();
-            return allItems;
-        } catch (error) {
-            console.error('Error loading search data:', error);
-            allItems = [];
-            return allItems;
+                    const results = await Promise.all(fetchPromises);
+                    return results.flat();
+                } catch (error) {
+                    console.error('Error loading search data:', error);
+                    return [];
+                }
+            })();
         }
+
+        allItems = await fetchDataPromise;
+        
+        if (!isWordFreqBuilt) {
+            buildWordFrequency();
+            isWordFreqBuilt = true;
+        }
+        return allItems;
     }
 
     function getSuggestions(query) {
@@ -531,11 +544,12 @@
         }, 1000);
     }
 
-    window.search = {
+       window.search = {
         open: openModal,
         close: closeModal,
         loadData: loadAllData
     };
+    window.getSearchData = loadAllData; 
 
     document.addEventListener('DOMContentLoaded', function() {
         buildModal();
