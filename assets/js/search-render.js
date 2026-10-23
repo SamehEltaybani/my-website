@@ -78,64 +78,14 @@
         return urlParams.get(param);
     }
 
-    async function loadData() {
+       async function loadData() {
         try {
-            const files = [
-                { url: '/my-website/json/publications.json', source: 'publication', label: 'Publication' },
-                { url: '/my-website/json/blog.json', source: 'blog', label: 'Blog' },
-                { url: '/my-website/json/pages.json', source: 'page', label: 'Page' }
-            ];
-
-            let allResults = [];
-
-            for (const file of files) {
-                try {
-                    const response = await fetch(file.url);
-                    if (!response.ok) continue;
-                    const data = await response.json();
-
-                    data.forEach(function(item) {
-                        const rawText = [
-                            item.title || '',
-                            item.shortTitle || '',
-                            item.authorship || '',
-                            item.journal || '',
-                            item.year || '',
-                            item.summary || '',
-                            item.categories ? item.categories.join(' ') : '',
-                            item.keywords ? item.keywords.join(' ') : ''
-                        ].join(' ').toLowerCase();
-
-                        const normalizedText = normalizeText(rawText);
-
-                        let link = '#';
-                        let id = item.id || '';
-
-                        if (file.source === 'publication') {
-                            link = '/my-website/publications.html?id=' + encodeURIComponent(id);
-                        } else if (file.source === 'blog') {
-                            link = '/my-website/blog.html?id=' + encodeURIComponent(id);
-                        } else if (file.source === 'page') {
-                            link = item.url || '#';
-                        }
-
-                        allResults.push({
-                            id: id,
-                            title: item.title || 'Untitled',
-                            source: file.source,
-                            sourceLabel: file.label,
-                            link: link,
-                            searchableText: rawText,
-                            normalizedText: normalizedText,
-                            raw: item
-                        });
-                    });
-                } catch (e) {
-                    console.warn('Could not load', file.url, e);
-                }
+            if (typeof window.getSearchData === 'function') {
+                allItems = await window.getSearchData();
+            } else {
+                console.error('Search data loader not found.');
+                allItems = [];
             }
-
-            allItems = allResults;
             return allItems;
         } catch (error) {
             console.error('Error loading search data:', error);
