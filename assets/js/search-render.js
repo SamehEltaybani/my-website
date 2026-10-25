@@ -428,7 +428,7 @@
             if (resultsCount) resultsCount.textContent = 'No search query provided.';
             if (resultsList) resultsList.innerHTML = `
                 <div style="text-align: center; padding: var(--space-xl) 0;">
-                    <p style="color: var(--dark-color); opacity: 0.5;">Please use the search box to search the site.</p>
+                    <p style="color: var(--dark-color); opacity: 0.5;">Please use the central search option on the top right corner to search the site.</p>
                 </div>
             `;
             renderRecentSearches();
