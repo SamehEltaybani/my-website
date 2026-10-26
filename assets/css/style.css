@@ -1588,7 +1588,7 @@ HOME PAGE
 }
 
 .kpi-number sup {
-  font-size: 0.55em;       /* Makes the plus sign smaller */
+  font-size: 0.65em;       /* Makes the plus sign smaller */
   font-weight: 400;        /* Makes it thinner than the bold number */
   line-height: 1;          /* Prevents vertical spacing issues */
   vertical-align: super;   /* Ensures it sits up high */
