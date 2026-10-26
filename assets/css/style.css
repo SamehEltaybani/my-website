@@ -1569,7 +1569,6 @@ HOME PAGE
   padding: 1.25rem 0.5rem;
   background: var(--bg-color);
   border-radius: var(--radius-sm);
-   border-left: 2px solid var(--complementary-color); 
 }
 
 .about-kpi-icon {
