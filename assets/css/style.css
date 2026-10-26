@@ -1569,6 +1569,7 @@ HOME PAGE
   padding: 1.25rem 0.5rem;
   background: var(--bg-color);
   border-radius: var(--radius-sm);
+   border-left: 2px solid var(--complementary-color); 
 }
 
 .about-kpi-icon {
@@ -1580,7 +1581,7 @@ HOME PAGE
 
 .kpi-number {
   display: block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.55rem;
   color: var(--accent-color);
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   font-weight: 800;
