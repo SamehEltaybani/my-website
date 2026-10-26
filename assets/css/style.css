@@ -1575,7 +1575,7 @@ HOME PAGE
   font-size: 3.0rem; /* Adjust this to make the icon bigger or smaller */
   color: var(--accent-color); /* Matches the teal number color */
   margin-bottom: var(--space-lg); /* gap between icon and number */
-  opacity: 0.50; /* Slightly softened so it doesn't overpower the number */
+  opacity: 0.40; /* Slightly softened so it doesn't overpower the number */
 }
 
 .kpi-number {
@@ -1585,6 +1585,15 @@ HOME PAGE
   font-size: clamp(1.8rem, 2.5vw, 2.2rem);
   font-weight: 800;
   line-height: 1;
+}
+
+.kpi-number sup {
+  font-size: 0.55em;       /* Makes the plus sign smaller */
+  font-weight: 400;        /* Makes it thinner than the bold number */
+  line-height: 1;          /* Prevents vertical spacing issues */
+  vertical-align: super;   /* Ensures it sits up high */
+  top: -0.1em;             /* Fine-tunes the upward position if needed */
+  margin-left: 2px;        /* Adds a tiny sliver of space between number and plus */
 }
 
 .kpi-label {
