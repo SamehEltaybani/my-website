@@ -1100,121 +1100,6 @@ section,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ============================================
-   WITHIN‑PAGE SEARCH BOX (Trigger)
-   ============================================ */
-
-.within-page-search-box-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: var(--space-lg) 0;
-    width: 100%;
-}
-
-.within-page-search-box {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--radius-full);
-    border: 2px solid rgba(0, 0, 0, 0.08);
-    background: var(--white-color);
-    color: var(--dark-color);
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    max-width: 400px;
-    width: 100%;
-}
-
-.within-page-search-box i {
-    font-size: 1.2rem;
-    opacity: 0.4;
-}
-
-.within-page-search-box span {
-    flex: 1;
-    text-align: left;
-    opacity: 0.5;
-}
-
-.within-page-search-box:hover {
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 16px var(--accent-color-light);
-}
-
-.within-page-search-box:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-/* ----- Responsive ----- */
-
-@media (max-width: 768px) {   
-    .within-page-search-box-wrapper {
-        padding: var(--space-md) 0;
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
-    }
-
-    .within-page-search-box {
-        font-size: 0.9rem;
-        padding: var(--space-xs) var(--space-md);
-        max-width: 90%;
-    }
-
-    .within-page-search-box i {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 400px) {   
-    .within-page-search-box-wrapper {
-        padding: var(--space-sm) 0;
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
-    }
-
-    .within-page-search-box {
-        font-size: 0.8rem;
-        padding: var(--space-xs) var(--space-sm);
-        max-width: 95%;
-    }
-
-    .within-page-search-box i {
-        font-size: 0.9rem;
-    }
-}
-
-
-
 /* =========================================================
 HOME PAGE
 ========================================================= */
@@ -2979,6 +2864,100 @@ HOME PAGE
                 font-size: 1.3rem;
             }
         }
+
+
+
+/* ============================================
+   WITHIN‑PAGE SEARCH BOX (Trigger)
+   ============================================ */
+
+.within-page-search-box-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) 0;
+    width: 100%;
+}
+
+.within-page-search-box {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 16px var(--accent-color-light);
+    background: var(--white-color);
+    color: var(--dark-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    max-width: 400px;
+    width: 100%;
+}
+
+.within-page-search-box i {
+    font-size: 1.2rem;
+    opacity: 0.4;
+}
+
+.within-page-search-box span {
+    flex: 1;
+    text-align: left;
+    opacity: 0.5;
+}
+
+.within-page-search-box:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 20px var(--accent-color-light);
+    background: var(--accent-color);
+    color: var(--white-color);
+}
+
+.within-page-search-box:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+
+/* ----- Responsive ----- */
+
+@media (max-width: 768px) {   
+    .within-page-search-box-wrapper {
+        padding: var(--space-md) 0;
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    .within-page-search-box {
+        font-size: 0.9rem;
+        padding: var(--space-xs) var(--space-md);
+        max-width: 90%;
+    }
+
+    .within-page-search-box i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {   
+    .within-page-search-box-wrapper {
+        padding: var(--space-sm) 0;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+
+    .within-page-search-box {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+        max-width: 95%;
+    }
+
+    .within-page-search-box i {
+        font-size: 0.9rem;
+    }
+}
+
 
 
 /* ============================================
