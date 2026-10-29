@@ -3158,7 +3158,7 @@ PUBLICATIONS PAGE
 
 .publication-card {
   background: var(--white-color);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border-radius: -4px var(--radius-md) var(--radius-md) -4px;
   padding: var(--space-lg);
   border: var(--card-border);
   box-shadow: var(--card-shadow);
