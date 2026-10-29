@@ -2917,8 +2917,11 @@ HOME PAGE
     outline-offset: 2px;
 }
 
+.within-page-search-box i:hover {
+     opacity: 1.0;
+}
 .within-page-search-box span:hover {
-    opacity: 0;
+    opacity: 1.0;
 }
 
 
