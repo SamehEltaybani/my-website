@@ -2867,9 +2867,7 @@ HOME PAGE
 
 
 
-/* ============================================
-   WITHIN‑PAGE SEARCH BOX (Trigger)
-   ============================================ */
+/* ====  WITHIN‑PAGE SEARCH BOX (Trigger) ===== */
 
 .within-page-search-box-wrapper {
     display: flex;
@@ -2917,6 +2915,10 @@ HOME PAGE
 .within-page-search-box:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+.within-page-search-box span:hover {
+    opacity: 0;
 }
 
 
