@@ -1554,6 +1554,154 @@ HOME PAGE
 
 
 
+/* ============================================
+ TIMELINE
+  ============================================ */
+
+.about-timeline {
+  margin-top: var(--space-xl);
+}
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+/* The central line (Desktop) */
+.timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--accent-color-light);
+  transform: translateX(-50%);
+}
+
+/* ----- The Items ----- */
+.timeline-item {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  padding-right: 3rem;
+  margin-bottom: var(--space-xl);
+}
+
+/* Alternate sides (Even items go right) */
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 3rem;
+  margin-left: auto;
+}
+
+/* ----- The Icons in Circles ----- */
+.timeline-marker {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white-color);
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 0 4px var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+/* ----- Typography Hierarchy ----- */
+.timeline-item:nth-child(odd) .timeline-content {
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: left;
+}
+
+.timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-place {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--dark-color);
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  /* Move line to the left */
+  .timeline-wrapper::before {
+    left: 20px;
+    transform: none;
+  }
+
+  /* Make all items align to the left */
+  .timeline-item {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 3.5rem;
+    justify-content: flex-start;
+    margin-bottom: var(--space-lg);
+  }
+
+  .timeline-item:nth-child(even) {
+    padding-left: 3.5rem;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+  }
+
+  /* Adjust icons for mobile */
+  .timeline-marker {
+    left: 20px;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+}
+
+
 
 
 
@@ -7713,73 +7861,6 @@ BLOG Article (right side content)
 
 
 
-/* ----- Timeline ----- */
-
-
-.timeline {
-    padding: var(--space-xl) 0;
-}
-
-.timeline h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-lg);
-}
-
-.timeline-wrapper {
-    position: relative;
-    padding-left: var(--space-xl);
-}
-
-.timeline-wrapper::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--accent-color-light);
-}
-
-.timeline-item {
-    display: flex;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
-    position: relative;
-}
-
-.timeline-marker {
-    position: absolute;
-    left: calc(-1 * var(--space-xl) + 2px);
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    border: 2px solid var(--white-color);
-    box-shadow: 0 0 0 2px var(--accent-color);
-}
-
-.timeline-content h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-xs);
-}
-
-.timeline-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--dark-color);
-    opacity: 0.8;
-    margin: 0;
-}
-
-
-
-
-
 /* ----- Horizontal Separator ----- */
 
 
@@ -8245,13 +8326,6 @@ BLOG Article (right side content)
         font-size: 1.4rem;
     }
 
-    .timeline-wrapper {
-        padding-left: var(--space-xl);
-    }
-
-    .timeline-marker {
-        left: calc(-1 * var(--space-xl) + 2px);
-    }
 }
 
 @media (max-width: 400px) {
