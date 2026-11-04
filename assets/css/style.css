@@ -1562,6 +1562,24 @@ HOME PAGE
   margin-top: var(--space-xl);
 }
 
+/* ----- Timeline Header (Title & Paragraph) ----- */
+.timeline-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* Forces the flexbox heading to center its text */
+.timeline-header .primary-heading-h2 {
+  justify-content: center;
+}
+
+/* Centers the paragraph block */
+.timeline-header .primary-paragraph {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .timeline-wrapper {
   position: relative;
   max-width: 900px;
@@ -1667,6 +1685,16 @@ HOME PAGE
 
 
 @media (max-width: 768px) {
+
+  .timeline-header {
+    text-align: left;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .timeline-header .primary-heading-h2 {
+    justify-content: flex-start;
+  }
+   
   /* Move line to the left */
   .timeline-wrapper::before {
     left: 20px;
