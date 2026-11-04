@@ -1699,6 +1699,10 @@ HOME PAGE
     height: 34px;
     font-size: 0.85rem;
   }
+ 
+   .timeline-item:nth-child(even) .timeline-marker {
+    left: 20px;
+  }
 }
 
 
