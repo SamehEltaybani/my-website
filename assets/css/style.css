@@ -2730,8 +2730,11 @@ HOME PAGE
 
 .explore-card {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
+  flex-direction: column; /* Changed from row */
+  align-items: stretch;   /* Changed from center */
+  justify-content: flex-start;
+  gap: var(--space-sm);   /* Adds space between the top row and description */
+  
   background: var(--white-color);
   border-radius: var(--radius-md);
   padding: var(--space-md) var(--space-lg);
@@ -2740,7 +2743,24 @@ HOME PAGE
   border: var(--card-border);
   box-shadow: var(--card-shadow);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-  min-height: 70px;
+  height: 100%; /* Ensures cards in the same row stretch to match heights */
+}
+
+.explore-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.explore-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--dark-color);
+  opacity: 0.7;
+  margin: 0;
+  /* Optional: pushes text to align with the title instead of the icon */
+  padding-left: calc(48px + var(--space-md)); 
 }
 
 .explore-card:hover {
@@ -2849,6 +2869,11 @@ HOME PAGE
   
   .explore-arrow {
     font-size: 0.9rem;
+  }
+
+   .explore-desc {
+    padding-left: 0; /* Removes the indentation on mobile */
+    font-size: 0.8rem;
   }
 }
 
