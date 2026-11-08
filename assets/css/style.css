@@ -2835,6 +2835,10 @@ HOME PAGE
   .explore-title {
     font-size: 0.95rem;
   }
+
+     .explore-desc {
+    padding-left: calc(40px + var(--space-md)); /* Matches the 40px icon */
+  }
 }
 
 @media (max-width: 768px) {
@@ -2872,6 +2876,7 @@ HOME PAGE
   }
 
    .explore-desc {
+    padding-left: calc(36px + var(--space-md)); /* Matches the 36px icon */
     font-size: 0.8rem;
   }
 }
@@ -2896,6 +2901,10 @@ HOME PAGE
   
   .explore-title {
     font-size: 0.85rem;
+  }
+
+     .explore-desc {
+    padding-left: calc(32px + var(--space-md)); /* Matches the 32px icon */
   }
 }
 
