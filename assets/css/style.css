@@ -2872,7 +2872,6 @@ HOME PAGE
   }
 
    .explore-desc {
-    padding-left: 0; /* Removes the indentation on mobile */
     font-size: 0.8rem;
   }
 }
