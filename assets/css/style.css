@@ -2281,14 +2281,14 @@ HOME PAGE
   flex-shrink: 0;
   padding: var(--space-sm); /* Inset frame effect */
   background: var(--white-color);
-  border: var(--card-border);
-}
+  }
 
 .home-pub-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: var(--radius-sm); /* Rounded corners on the image */
+  border: var(--card-border);
 }
 
 .home-pub-content {
@@ -2552,14 +2552,14 @@ HOME PAGE
   flex-shrink: 0;
   padding: var(--space-sm); /* Inset frame effect */
   background: var(--white-color);
-  border: var(--card-border);
-}
+  }
 
 .home-blog-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: var(--radius-sm); /* Rounded corners on the image */
+   border: var(--card-border);
 }
 
 .home-blog-content {
