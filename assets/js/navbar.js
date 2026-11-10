@@ -13,9 +13,9 @@
         photoAlt: 'Profile photo of Dr. Sameh Eltaybani',
         navLinks: [
             { label: 'Home', link: '/my-website/index.html', icon: 'fa-solid fa-house' },
-            { label: 'Research', link: '/my-website/research.html', icon: 'fa-solid fa-flask' },
+            { label: 'Research', link: '/my-website/research.html', icon: 'fa-solid fa-brain' },
             { label: 'Publications', link: '/my-website/publications.html', icon: 'fa-solid fa-file-lines' },
-            { label: 'Data Analysis', link: '/my-website/data-analysis.html', icon: 'fa-solid fa-chart-bar' },
+            { label: 'Data Analysis', link: '/my-website/data-analysis.html', icon: 'fa-solid fa-chart-column' },
             { label: 'Teaching', link: '/my-website/teaching.html', icon: 'fa-solid fa-chalkboard-user' },
             { label: 'Blog', link: '/my-website/blog.html', icon: 'fa-solid fa-pen-to-square' }
         ],
