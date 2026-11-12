@@ -1330,6 +1330,10 @@ HOME PAGE
   opacity: 0.85;
 }
 
+.hero-card-arrow:hover {
+  color: var(--complementary-color);
+}
+
 /* ----- Responsive: 4 cols → 2 cols ----- */
 
 @media (max-width: 900px) {
