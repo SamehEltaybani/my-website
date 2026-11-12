@@ -1302,6 +1302,11 @@ HOME PAGE
   outline: none;
 }
 
+.hero-card:hover .hero-card-arrow,
+.hero-card:focus-visible .hero-card-arrow {
+  color: var(--complementary-color);
+}
+
 /* ----- Card contents ----- */
 
 .hero-card-icon {
@@ -1330,9 +1335,6 @@ HOME PAGE
   opacity: 0.85;
 }
 
-.hero-card-arrow:hover {
-  color: var(--complementary-color);
-}
 
 /* ----- Responsive: 4 cols → 2 cols ----- */
 
@@ -2884,6 +2886,7 @@ HOME PAGE
    .explore-desc {
     padding-left: calc(36px + var(--space-md)); /* Matches the 36px icon */
     font-size: 0.8rem;
+    margin-bottom: var(--space-sm);
   }
 }
 
