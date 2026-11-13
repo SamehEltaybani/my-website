@@ -49,6 +49,16 @@
     }
 
     // ============================================
+    // URL HELPER FOR ARTICLE LINKS
+    // ============================================
+    function articleUrl(blogfile) {
+        if (!blogfile) return '#';
+        if (blogfile.startsWith('/')) return blogfile;
+        if (blogfile.startsWith('my-website/')) return '/' + blogfile;
+        return '/my-website/' + blogfile;
+    }
+
+    // ============================================
     // BUILD TOC
     // ============================================
     function buildTOC() {
@@ -176,6 +186,7 @@
                 
             li.appendChild(a);
         }
+
 
 
 
@@ -394,26 +405,33 @@ function toggleSubHeadings(parentId, toggleButton) {
         build: buildTOC,
         setupNav: function(articleId, allArticles) {
             if (!allArticles || allArticles.length === 0) return;
+
+            // Sort by date descending (newest first)
+            const sorted = allArticles.slice().sort(function(a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
+
             let currentIndex = -1;
-            for (let i = 0; i < allArticles.length; i++) {
-                if (allArticles[i].id === articleId) {
+            for (let i = 0; i < sorted.length; i++) {
+                if (sorted[i].id === articleId) {
                     currentIndex = i;
                     break;
                 }
             }
             if (currentIndex === -1) return;
 
-            // Custom logic: Previous = newer (higher index), Next = older (lower index)
+            // Previous = older (higher index, since sorted newest-first)
+            // Next = newer (lower index)
             const prevIndex = currentIndex + 1;
             const nextIndex = currentIndex - 1;
 
             const prevBtns = document.querySelectorAll('#prev-article, #prev-article-bottom');
             const nextBtns = document.querySelectorAll('#next-article, #next-article-bottom');
 
-            if (prevIndex < allArticles.length) {
-                const prevArticle = allArticles[prevIndex];
+            if (prevIndex < sorted.length) {
+                const prevArticle = sorted[prevIndex];
                 prevBtns.forEach(function(btn) {
-                    btn.href = prevArticle.blogfile;
+                    btn.href = articleUrl(prevArticle.blogfile);
                     btn.style.display = 'inline-flex';
                 });
             } else {
@@ -423,9 +441,9 @@ function toggleSubHeadings(parentId, toggleButton) {
             }
 
             if (nextIndex >= 0) {
-                const nextArticle = allArticles[nextIndex];
+                const nextArticle = sorted[nextIndex];
                 nextBtns.forEach(function(btn) {
-                    btn.href = nextArticle.blogfile;
+                    btn.href = articleUrl(nextArticle.blogfile);
                     btn.style.display = 'inline-flex';
                 });
             } else {
