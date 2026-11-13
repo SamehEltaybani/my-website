@@ -6433,7 +6433,7 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -6446,7 +6446,7 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn:hover {
     background: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     color: var(--white-color);
 }
 
@@ -6461,7 +6461,7 @@ BLOG Article (right side content)
 
 .blog-top-nav .nav-btn-center:hover {
     background: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     color: var(--white-color);
 }
 
@@ -6885,7 +6885,7 @@ BLOG Article (right side content)
     margin-top: var(--space-xl);
     padding-top: var(--space-xs);
     flex-wrap: wrap;
-    border-top: 4px solid var(--accent-color-dark);
+    border-top: 4px solid var(--accent-color);
 }
 
 .blog-bottom-nav .nav-btn {
@@ -6894,7 +6894,7 @@ BLOG Article (right side content)
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -6907,7 +6907,7 @@ BLOG Article (right side content)
 
 .blog-bottom-nav .nav-btn:hover {
     background: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
     color: var(--white-color);
     }
 
