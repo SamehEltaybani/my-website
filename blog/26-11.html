@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- ===== EDIT PER ARTICLE: TITLE & META ===== -->
+    <title>Dr. Sameh Eltaybani - Blog Article</title>
+    <meta name="description" content="Blog article by Dr. Sameh Eltaybani.">
+    <meta property="og:title" content="Dr. Sameh Eltaybani - Blog Article">
+    <meta property="og:description" content="Blog article by Dr. Sameh Eltaybani.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="blog/26-11.html">
+
+    <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
+    <link rel="preload" href="/my-website/assets/css/style.css" as="style">
+    <link rel="preload" href="/my-website/assets/js/navbar.js" as="script">
+    <link rel="preload" href="/my-website/assets/js/utils.js" as="script">
+
+    <link rel="icon" type="image/x-icon" href="/my-website/img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/my-website/assets/css/style.css" />
+</head>
+<body>
+
+    <!-- ===== MOBILE TOC BUTTON, OVERLAY, PANEL ===== -->
+    <button class="mobile-toc-toggle" id="mobile-toc-toggle" aria-label="Open table of contents">
+        <i class="fa-solid fa-list"></i>
+    </button>
+
+    <div class="mobile-toc-overlay" id="mobile-toc-overlay"></div>
+
+    <div class="mobile-toc-panel" id="mobile-toc-panel">
+        <button class="mobile-toc-close" id="mobile-toc-close" aria-label="Close table of contents"><i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="toc-heading">Table of Content</div>
+        <div id="mobile-toc-list"></div>
+    </div>
+
+    <!-- ===== MAIN WRAPPER ===== -->
+    <div class="container">
+
+        <!-- ===== TWO-COLUMN LAYOUT ===== -->
+        <div class="page-layout">
+
+            <!-- ===== LEFT: TOC ===== -->
+            <aside class="toc-column" id="toc-column">
+                <div class="toc-heading">Table of Content</div>
+                <nav id="toc-container">
+                    <ul class="toc-list" id="toc-list"></ul>
+                </nav>
+            </aside>
+
+            <!-- ===== RIGHT: CONTENT ===== -->
+            <main class="page-content-column">
+
+                <!-- ===== TOP NAV ===== -->
+                <div class="blog-top-nav">
+                    <a href="#" class="nav-btn" id="prev-article">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Previous Article</span>
+                    </a>
+                    <a href="/my-website/blog.html" class="nav-btn nav-btn-center">
+                        <i class="fa-solid fa-grid-2"></i>View All Articles
+                    </a>
+                    <a href="#" class="nav-btn" id="next-article">
+                        <span>Next Article</span><i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- ===== ARTICLE HEADER (auto-filled by JS) ===== -->
+                <header class="blog-article-header">
+                    <h1 class="blog-article-title" id="article-title"></h1>
+                    <div class="blog-article-short-title" id="article-short-title"></div>
+                    <div class="blog-article-meta">
+                        <span class="meta-item" id="article-date"><i class="fa-solid fa-calendar"></i><span></span></span>
+                        <span class="meta-item" id="article-reading-time"><i class="fa-solid fa-clock"></i><span></span></span>
+                        <span class="meta-item blog-article-categories" id="article-categories"></span>
+                    </div>
+                </header>
+
+                <!-- ===== ACTION BAR ===== -->
+                <div class="blog-action-bar" id="action-bar">
+                    <button class="blog-action-btn" id="share-btn">
+                        <i class="fa-solid fa-share-nodes"></i><span>Share</span>
+                    </button>
+                    <button class="blog-action-btn" id="qr-btn">
+                        <i class="fa-solid fa-qrcode"></i><span>QR Code</span>
+                    </button>
+                    <button class="blog-action-btn" id="copyright-btn">
+                        <i class="fa-solid fa-copyright"></i><span>Copyright</span>
+                    </button>
+                </div>
+
+                <!-- ===== TOOLTIP CONTAINERS ===== -->
+                <div id="share-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>Share this article</span>
+                        <button class="tooltip-close" data-tooltip="share">×</button>
+                    </div>
+                    <div class="tooltip-body share-icons">
+                        <a href="#" data-share="facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" data-share="twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" data-share="linkedin" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" data-share="telegram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" data-share="whatsapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" data-share="email" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" data-share="line" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-line"></i></a>
+                        <a href="#" data-share="copy" id="copy-link-btn"><i class="fa-solid fa-copy"></i></a>
+                    </div>
+                    <div class="tooltip-footer" id="copy-feedback" style="display: none;">
+                        <span>✅ Link copied to clipboard!</span>
+                    </div>
+                </div>
+
+                <div id="qr-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>QR Code</span>
+                        <button class="tooltip-close" data-tooltip="qr">×</button>
+                    </div>
+                    <div class="tooltip-body qr-container">
+                        <img id="qr-code-image"
+                             src=""
+                             alt="QR Code for this article" />
+                        <p class="qr-help">Scan this QR code to view this article on your mobile device.</p>
+                    </div>
+                </div>
+
+                <div id="copyright-tooltip" class="action-tooltip" style="display: none;">
+                    <div class="tooltip-header">
+                        <span>Copyright & License</span>
+                        <button class="tooltip-close" data-tooltip="copyright">×</button>
+                    </div>
+                    <div class="tooltip-body copyright-body">
+                        <p>
+                            This article is licensed under the<strong>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</strong>(CC BY-NC-ND 4.0) license.
+                        </p>
+                        <p>
+                            You are free to share this article for non-commercial purposes, provided you give appropriate credit and do not make changes or adaptations.
+                        </p>
+                        <a href="/my-website/legal.html" class="copyright-read-more">Read more <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== TOAST ===== -->
+                <div id="toast-message" class="toast-message" style="display: none;">
+                    <span id="toast-text">Copied to clipboard!</span>
+                </div>
+
+                <!-- ===== BLOG CONTENT ===== -->
+                <div class="blog-content" id="page-content">
+
+
+                  
+                    <p class="primary-paragraph primary-paragraph-centered">
+                        This website is currently undergoing maintenance and updates. Some contents and features are temporarily unavailable..
+                    </p>
+
+                    <!-- ===== ELEMENT: IMAGE WITH GLIGHTBOX AND IMAGE-SOURCE OVERLAY ===== -->
+                    <div class="glightbox-image-frame">
+                        <a href="/my-website/img/comming-soon.webp"
+                           class="glightbox"
+                           data-gallery="blog-gallery">
+                            <img src="/my-website/img/coming-soon.webp"
+                                 alt="coming-soon">
+                        </a>
+                    </div>
+
+                    <p class="image-caption">
+                        This website is currently undergoing maintenance and updates.
+                    </p>
+
+                   
+
+                </div><!-- end page-content -->
+
+                <!-- ===== BOTTOM ACTION BAR ===== -->
+                <div class="blog-action-bar">
+                    <button class="blog-action-btn" id="share-btn-bottom"><i class="fa-solid fa-share-nodes"></i><span>Share</span></button>
+                    <button class="blog-action-btn" id="qr-btn-bottom"><i class="fa-solid fa-qrcode"></i><span>QR Code</span></button>
+                    <button class="blog-action-btn" id="copyright-btn-bottom"><i class="fa-solid fa-copyright"></i><span>Copyright</span></button>
+                </div>
+
+
+                <!-- ===== BOTTOM NAV ===== -->
+                <div class="blog-bottom-nav">
+                    <a href="#" class="nav-btn" id="prev-article-bottom"><i class="fa-solid fa-arrow-left"></i><span>Previous Article</span></a>
+                    <a href="/my-website/blog.html" class="nav-btn"><i class="fa-regular fa-grid-2"></i>View All Articles</a>
+                    <a href="#" class="nav-btn" id="next-article-bottom"><span>Next Article</span><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- ===== RECOMMENDED ARTICLES ===== -->
+                <section class="recommended-section">
+                    <h2 class="recommended-title">Recommended for You</h2>
+                    <div class="recommended-grid" id="recommended-grid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </section>
+
+            </main>
+
+        </div><!-- end page-layout -->
+
+    </div><!-- end container -->
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="/my-website/assets/js/utils.js"></script>
+    <script src="/my-website/assets/js/navbar.js"></script>
+    <script src="/my-website/assets/js/footer.js"></script>
+    <script src="/my-website/assets/js/back-to-top.js"></script>
+    <script src="/my-website/assets/js/search.js"></script>
+    <script src="/my-website/assets/js/toc.js"></script>
+    <script src="/my-website/assets/js/blog-article.js"></script>
+
+</body>
+</html>
