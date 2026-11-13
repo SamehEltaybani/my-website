@@ -506,7 +506,7 @@ function toggleSubHeadings(parentId, toggleButton) {
             recommendations.forEach(function(item) {
                 const card = document.createElement('a');
                 card.className = 'recommended-card';
-                card.href = item.article.blogfile;
+                card.href = articleUrl(item.article.blogfile);
 
                 const title = document.createElement('div');
                 title.className = 'rec-title';
