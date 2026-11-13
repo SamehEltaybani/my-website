@@ -2886,7 +2886,7 @@ HOME PAGE
    .explore-desc {
     padding-left: calc(36px + var(--space-md)); /* Matches the 36px icon */
     font-size: 0.8rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 }
 
@@ -6424,7 +6424,7 @@ BLOG Article (right side content)
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
     padding-bottom: var(--space-xs);
-    border-bottom: 4px solid var(--accent-color-dark);
+    border-bottom: 4px solid var(--accent-color);
 }
 
 .blog-top-nav .nav-btn {
@@ -6434,19 +6434,20 @@ BLOG Article (right side content)
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--accent-color);
-    background: var(--accent-color);
+    background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--white-color);
+    color: var(--dark-color);
     text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .blog-top-nav .nav-btn:hover {
-    background: var(--dark-color);
-    border: 1px solid var(--dark-color);
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--white-color);
 }
 
 .blog-top-nav .nav-btn i {
@@ -6459,8 +6460,9 @@ BLOG Article (right side content)
 }
 
 .blog-top-nav .nav-btn-center:hover {
-    background: var(--dark-color);
-    border: 1px solid var(--dark-color);
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--white-color);
 }
 
 
@@ -6893,19 +6895,20 @@ BLOG Article (right side content)
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--accent-color);
-    background: var(--accent-color);
+    background: var(--white-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--white-color);
+    color: var(--dark-color);
     text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .blog-bottom-nav .nav-btn:hover {
-    background: var(--dark-color);
-    border: 1px solid var(--dark-color);
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--white-color);
     }
 
 .blog-bottom-nav .nav-btn i {
