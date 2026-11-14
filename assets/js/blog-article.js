@@ -369,7 +369,7 @@
     function setupNavAndRecommended() {
         if (!articleData || !allArticles.length) return;
         setupNav(articleData.id, allArticles);
-        setupRecommended(articleData.id, allArticles, 6);
+        setupRecommended(articleData.id, allArticles, 9);
     }
 
     // ============================================
