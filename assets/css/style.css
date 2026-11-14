@@ -1281,7 +1281,7 @@ HOME PAGE
   justify-content: space-between;   
   gap: 0.75rem;
 
-  height: 200px;
+  height: 210px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
 
   background: var(--white-color);
@@ -1316,7 +1316,7 @@ HOME PAGE
   margin: calc(-1 * clamp(1rem, 1.6vw, 1.5rem)) calc(-1 * clamp(0.75rem, 1.2vw, 1.1rem)) var(--space-sm);
   
   /* Set the height of the image band */
-  height: 100px; /* Adjust this to make the image taller or shorter */
+  height: 110px; /* Adjust this to make the image taller or shorter */
   flex-shrink: 0;
   
   /* Round only the top corners to match the card */
