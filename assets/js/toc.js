@@ -285,7 +285,7 @@ function toggleSubHeadings(parentId, toggleButton) {
             link.classList.add('active');
         });
 
-        const parentId =
+                const parentId =
             headingMap[activeId].parent;
 
         if (parentId) {
@@ -294,12 +294,12 @@ function toggleSubHeadings(parentId, toggleButton) {
                 document.querySelectorAll(
                     '.toc-list a[data-target="' + parentId + '"]'
                 );
-            
-            parentLinks.forEach(function(link) {
-                link.classList.add('active');
-            });
 
             const firstParentLink = parentLinks[0];
+
+
+
+        
 
             const parentLi =
                 firstParentLink ?
