@@ -10,6 +10,9 @@
  *   - + / - toggle for expanding/collapsing sub-headings
  *   - Scroll Spy: highlights active section as user scrolls
  *   - Mobile TOC toggle with overlay
+ * 
+ * NOTE: Prev/next navigation and recommended articles are handled
+ *       in blog-article.js (blog-specific, not TOC-related).
  * ============================================
  */
 
@@ -46,16 +49,6 @@
                 }, limit);
             }
         };
-    }
-
-    // ============================================
-    // URL HELPER FOR ARTICLE LINKS
-    // ============================================
-    function articleUrl(blogfile) {
-        if (!blogfile) return '#';
-        if (blogfile.startsWith('/')) return blogfile;
-        if (blogfile.startsWith('my-website/')) return '/' + blogfile;
-        return '/my-website/' + blogfile;
     }
 
     // ============================================
@@ -402,130 +395,7 @@ function toggleSubHeadings(parentId, toggleButton) {
     // PUBLIC API
     // ============================================
     window.TOC = {
-        build: buildTOC,
-        setupNav: function(articleId, allArticles) {
-            if (!allArticles || allArticles.length === 0) return;
-
-            // Sort by date descending (newest first)
-            const sorted = allArticles.slice().sort(function(a, b) {
-                return new Date(b.date) - new Date(a.date);
-            });
-
-            let currentIndex = -1;
-            for (let i = 0; i < sorted.length; i++) {
-                if (sorted[i].id === articleId) {
-                    currentIndex = i;
-                    break;
-                }
-            }
-            if (currentIndex === -1) return;
-
-            // Previous = older (higher index, since sorted newest-first)
-            // Next = newer (lower index)
-            const prevIndex = currentIndex + 1;
-            const nextIndex = currentIndex - 1;
-
-            const prevBtns = document.querySelectorAll('#prev-article, #prev-article-bottom');
-            const nextBtns = document.querySelectorAll('#next-article, #next-article-bottom');
-
-            if (prevIndex < sorted.length) {
-                const prevArticle = sorted[prevIndex];
-                prevBtns.forEach(function(btn) {
-                    btn.href = articleUrl(prevArticle.blogfile);
-                    btn.style.display = 'inline-flex';
-                });
-            } else {
-                prevBtns.forEach(function(btn) {
-                    btn.style.display = 'none';
-                });
-            }
-
-            if (nextIndex >= 0) {
-                const nextArticle = sorted[nextIndex];
-                nextBtns.forEach(function(btn) {
-                    btn.href = articleUrl(nextArticle.blogfile);
-                    btn.style.display = 'inline-flex';
-                });
-            } else {
-                nextBtns.forEach(function(btn) {
-                    btn.style.display = 'none';
-                });
-            }
-        },
-        setupRecommended: function(articleId, allArticles, maxItems) {
-            maxItems = maxItems || 6;
-            if (!allArticles || allArticles.length === 0) return;
-
-            let currentArticle = null;
-            for (let i = 0; i < allArticles.length; i++) {
-                if (allArticles[i].id === articleId) {
-                    currentArticle = allArticles[i];
-                    break;
-                }
-            }
-            if (!currentArticle) return;
-
-            const currentCategories = currentArticle.categories || [];
-            const scored = allArticles.map(function(article) {
-                if (article.id === articleId) return null;
-                const categories = article.categories || [];
-                let score = 0;
-                currentCategories.forEach(function(cat) {
-                    if (categories.includes(cat)) score++;
-                });
-                return { article: article, score: score };
-            }).filter(function(item) { return item !== null; });
-
-            scored.sort(function(a, b) {
-                if (a.score !== b.score) return b.score - a.score;
-                return new Date(b.article.date) - new Date(a.article.date);
-            });
-
-            let recommendations = scored.slice(0, maxItems);
-
-            if (recommendations.length < maxItems) {
-                const existingIds = recommendations.map(function(item) { return item.article.id; });
-                const allArticlesSorted = allArticles.slice().sort(function(a, b) {
-                    return new Date(b.date) - new Date(a.date);
-                });
-                allArticlesSorted.forEach(function(article) {
-                    if (article.id === articleId) return;
-                    if (existingIds.includes(article.id)) return;
-                    if (recommendations.length >= maxItems) return;
-                    recommendations.push({
-                        article: article,
-                        score: 0
-                    });
-                });
-            }
-
-            const grid = document.getElementById('recommended-grid');
-            if (!grid) return;
-
-            grid.innerHTML = '';
-            recommendations.forEach(function(item) {
-                const card = document.createElement('a');
-                card.className = 'recommended-card';
-                card.href = articleUrl(item.article.blogfile);
-
-                const title = document.createElement('div');
-                title.className = 'rec-title';
-                title.textContent = item.article.title;
-
-                const date = document.createElement('div');
-                date.className = 'rec-date';
-                const d = new Date(item.article.date);
-                if (!isNaN(d)) {
-                    date.textContent = d.toLocaleDateString('en-US', {
-                        year: 'numeric', month: 'short', day: 'numeric'
-                    });
-                }
-
-                card.appendChild(title);
-                card.appendChild(date);
-                grid.appendChild(card);
-            });
-        }
+        build: buildTOC
     };
 
 
