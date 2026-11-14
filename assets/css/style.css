@@ -1281,7 +1281,7 @@ HOME PAGE
   justify-content: space-between;   
   gap: 0.75rem;
 
-  height: 190px;
+  height: 200px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
 
   background: var(--white-color);
@@ -1308,29 +1308,6 @@ HOME PAGE
 }
 
 /* ----- Card contents ----- */
-
-.hero-card-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Stretch to full width of the card, breaking out of padding */
-  width: calc(100% + 2 * clamp(0.75rem, 1.2vw, 1.1rem));
-  margin: calc(-1 * clamp(1rem, 1.6vw, 1.5rem)) calc(-1 * clamp(0.75rem, 1.2vw, 1.1rem)) 0;
-  padding: clamp(1.5rem, 2.25vw, 2.25rem) 0; /* Controls the height of the top bar */
-  height: auto;
-  
-  /* Round only the top corners to match the card */
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  background: var(--accent-color-very-light);
-  color: var(--accent-color);
-  font-size: clamp(2.5rem, 3.2vw, 3.2rem);
-  line-height: 1;
-}
-
-
-
-
-
 
 /* ----- Hero Card Image ----- */
 .hero-card-image-wrapper {
@@ -1386,11 +1363,7 @@ HOME PAGE
   .hero-cards-section {
     padding-bottom: var(--space-lg);
   }
-
-  .hero-card-icon {
-  font-size: 3.0rem;
-   padding: 2.0rem 0; /* vertical length of the top colored part of the card */
-}
+   
 }
 
 
