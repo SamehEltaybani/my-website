@@ -2304,6 +2304,13 @@ HOME PAGE
   object-fit: cover;
   border-radius: var(--radius-sm); /* Rounded corners on the image */
   border: var(--card-border);
+
+  -webkit-user-drag: none; /* Disables native image dragging in Chrome/Safari */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;    /* Disables native image dragging in Firefox */
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;    /* Prevents the image from stealing the mouse click/drag event */
 }
 
 .home-pub-content {
@@ -2575,6 +2582,13 @@ HOME PAGE
   object-fit: cover;
   border-radius: var(--radius-sm); /* Rounded corners on the image */
    border: var(--card-border);
+
+  -webkit-user-drag: none; /* Disables native image dragging in Chrome/Safari */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;    /* Disables native image dragging in Firefox */
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;    /* Prevents the image from stealing the mouse click/drag event */
 }
 
 .home-blog-content {
