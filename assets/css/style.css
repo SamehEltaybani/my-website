@@ -6132,7 +6132,7 @@ background: rgba(0, 0, 0, 0.28);
     display: flex;
     align-items: flex-start;
     padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     text-decoration: none;
     color: var(--dark-color);
     font-size: 0.9rem;
@@ -6154,7 +6154,7 @@ background: rgba(0, 0, 0, 0.28);
     background: var(--accent-color-light);
     font-weight: 600;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    border-left: 2px solid var(--accent-color);
+    border-left: 4px solid var(--accent-color);
 }
 
 /* ----- TOC Heading Levels ----- */
