@@ -1313,9 +1313,14 @@ HOME PAGE
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(3rem, 3.8vw, 3.75rem);
-  height: clamp(3rem, 3.8vw, 3.75rem);
-  border-radius: var(--radius-sm);
+  /* Stretch to full width of the card, breaking out of padding */
+  width: calc(100% + 2 * clamp(0.75rem, 1.2vw, 1.1rem));
+  margin: calc(-1 * clamp(1rem, 1.6vw, 1.5rem)) calc(-1 * clamp(0.75rem, 1.2vw, 1.1rem)) 0;
+  padding: clamp(0.75rem, 1.2vw, 1rem) 0; /* Controls the height of the top bar */
+  height: auto;
+  
+  /* Round only the top corners to match the card */
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   background: var(--accent-color-very-light);
   color: var(--accent-color);
   font-size: clamp(1.25rem, 1.6vw, 1.6rem);
@@ -1350,8 +1355,6 @@ HOME PAGE
   }
 
   .hero-card-icon {
-  width: 3.5rem;
-  height: 3.5rem;
   font-size: 1.5rem;
 }
 }
