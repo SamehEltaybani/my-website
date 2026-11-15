@@ -6448,7 +6448,8 @@ BLOG Article (right side content)
     margin-bottom: var(--space-xs);
     flex-wrap: wrap;
     padding-bottom: var(--space-xs);
-   border-bottom: 4px solid var(--accent-color);
+    opacity: 0.4;
+    border-bottom: 4px solid var(--accent-color);
     
 }
 
@@ -6494,7 +6495,7 @@ BLOG Article (right side content)
 /* ----- Article Header ----- */
 
 .blog-article-header {
-    margin-top: var(--space-xl); 
+    margin-top: var(--space-lg); 
     margin-bottom: var(--space-lg);
 }
 
@@ -6503,7 +6504,7 @@ BLOG Article (right side content)
     font-weight: 800;
     color: var(--dark-color);
     line-height: 1.2;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .blog-article-short-title {
@@ -6911,6 +6912,7 @@ BLOG Article (right side content)
     margin-top: var(--space-xl);
     padding-top: var(--space-xs);
     flex-wrap: wrap;
+    opacity: 0.4;
     border-top: 4px solid var(--accent-color);
 }
 
