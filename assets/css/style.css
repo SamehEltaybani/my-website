@@ -1300,6 +1300,7 @@ HOME PAGE
   transform: translateY(-4px);
   box-shadow: 0 12px 26px rgba(34, 40, 49, 0.28);
   outline: none;
+   background: var(--accent-color-light);
 }
 
 .hero-card:hover .hero-card-arrow,
