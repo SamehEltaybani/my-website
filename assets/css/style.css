@@ -6445,6 +6445,8 @@ BLOG Article (right side content)
     align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
+    margin-top: -8px; 
+    padding-bottom: calc(var(--space-xs) + 8px); 
     margin-bottom: var(--space-xs);
     flex-wrap: wrap;
     padding-bottom: var(--space-xs);
