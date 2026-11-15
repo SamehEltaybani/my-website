@@ -1300,7 +1300,7 @@ HOME PAGE
   transform: translateY(-4px);
   box-shadow: 0 12px 26px rgba(34, 40, 49, 0.28);
   outline: none;
-   background: var(--accent-color-light);
+   background: var(--accent-color-very-light);
 }
 
 .hero-card:hover .hero-card-arrow,
@@ -6455,7 +6455,7 @@ BLOG Article (right side content)
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-lg) var(--space-md);
     border-radius: var(--radius-full);
     border: 2px solid var(--accent-color);
     background: var(--white-color);
