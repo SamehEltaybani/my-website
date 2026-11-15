@@ -6445,17 +6445,17 @@ BLOG Article (right side content)
     align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xs);
     flex-wrap: wrap;
     padding-bottom: var(--space-lg);
-    border-bottom: 4px solid var(--accent-color);
+    
 }
 
 .blog-top-nav .nav-btn {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-md) var(--space-md);
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-full);
     border: 2px solid var(--accent-color);
     background: var(--white-color);
