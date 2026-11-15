@@ -6447,7 +6447,7 @@ BLOG Article (right side content)
     gap: var(--space-sm);
     margin-bottom: var(--space-xs);
     flex-wrap: wrap;
-    padding-bottom: var(--space-lg);
+    padding-bottom: var(--space-xs);
    border-bottom: 4px solid var(--accent-color);
     
 }
