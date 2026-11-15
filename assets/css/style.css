@@ -6448,8 +6448,7 @@ BLOG Article (right side content)
     margin-bottom: var(--space-xs);
     flex-wrap: wrap;
     padding-bottom: var(--space-xs);
-    opacity: 0.4;
-    border-bottom: 4px solid var(--accent-color);
+    border-bottom: 4px solid rgba(0, 173, 181, 0.4);   /* ← accent color at 40% */;
     
 }
 
@@ -6912,8 +6911,7 @@ BLOG Article (right side content)
     margin-top: var(--space-xl);
     padding-top: var(--space-xs);
     flex-wrap: wrap;
-    opacity: 0.4;
-    border-top: 4px solid var(--accent-color);
+    border-top: 4px solid rgba(0, 173, 181, 0.4);   /* ← accent color at 40% */
 }
 
 .blog-bottom-nav .nav-btn {
