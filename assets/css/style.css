@@ -6449,7 +6449,6 @@ BLOG Article (right side content)
     padding-bottom: calc(var(--space-xs) + 8px); 
     margin-bottom: var(--space-xs);
     flex-wrap: wrap;
-    padding-bottom: var(--space-xs);
     border-bottom: 4px solid rgba(0, 173, 181, 0.4);   /* ← accent color at 40% */;
     
 }
