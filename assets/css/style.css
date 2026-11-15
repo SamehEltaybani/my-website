@@ -6447,7 +6447,7 @@ BLOG Article (right side content)
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
     flex-wrap: wrap;
-    padding-bottom: var(--space-xs);
+    padding-bottom: var(--space-lg);
     border-bottom: 4px solid var(--accent-color);
 }
 
@@ -6455,7 +6455,7 @@ BLOG Article (right side content)
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-md);
     border-radius: var(--radius-full);
     border: 2px solid var(--accent-color);
     background: var(--white-color);
