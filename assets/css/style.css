@@ -6457,7 +6457,7 @@ BLOG Article (right side content)
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-xs) var(--space-lg);
     border-radius: var(--radius-full);
     border: 2px solid var(--accent-color);
     background: var(--white-color);
@@ -6910,16 +6910,16 @@ BLOG Article (right side content)
     justify-content: space-between;
     gap: var(--space-sm);
     margin-top: var(--space-xl);
-    padding-top: var(--space-xs);
+    padding-top: calc(var(--space-xs) + 8px);   /* ← increased gap */
     flex-wrap: wrap;
-    border-top: 4px solid rgba(0, 173, 181, 0.4);   /* ← accent color at 40% */
+    border-top: 4px solid rgba(0, 173, 181, 0.4);
 }
 
 .blog-bottom-nav .nav-btn {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-xs) var(--space-lg);
     border-radius: var(--radius-full);
     border: 2px solid var(--accent-color);
     background: var(--white-color);
