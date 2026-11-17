@@ -1172,8 +1172,8 @@ HOME PAGE
   content: '';
   position: absolute;
   inset: 0;
-  /* Transparent in center, exact bg color at edges */
-  background: radial-gradient(circle at center, transparent 20%, var(--accent-color-dark) 55%);
+  background:  linear-gradient(to right, var(--accent-color-dark) 0%, transparent 30%),
+               radial-gradient(circle at center, transparent 20%, var(--accent-color-dark) 55%);
   pointer-events: none;
   z-index: 2;
 }
@@ -1207,7 +1207,8 @@ HOME PAGE
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.20);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 
+               0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -1237,6 +1238,7 @@ HOME PAGE
   letter-spacing: 0.005em;
   font-weight: 400;
    text-wrap: pretty;
+   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .home-hero-pillars {
@@ -1244,6 +1246,7 @@ HOME PAGE
   margin-bottom: 0.5em;
   color: var(--white-color);
   font-weight: 700;
+   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .home-hero-pillars-sep {
@@ -1269,6 +1272,7 @@ HOME PAGE
   min-width: 180px;
   color: var(--white-color);
   border-color: rgba(255, 255, 255, 0.85);
+   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
 
 .hero-explore-btn:hover,
