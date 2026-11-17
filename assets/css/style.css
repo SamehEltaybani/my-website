@@ -1125,19 +1125,25 @@ HOME PAGE
 
 .home-hero-inner {
   position: relative;
-  max-width: 100%; /* Remove the 1600px limit so it spans the full screen */
+  max-width: 100%; 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: clamp(2rem, 10vw, 15rem); /* Keeps text pushed right on wide screens */
+  padding-left: 0; /* Removed the left padding */
   padding-right: 0;
 }
 
 .home-hero-text {
   position: relative;
   z-index: 2;
-  width: min(100%, 900px); /* Keeps text readable */
+  width: 100%; 
+  max-width: 900px; /* Controls the width of the text */
+  
+  /* These two lines do the magic for the gap: */
+  margin-left: auto; /* Pushes the text to the right */
+  margin-right: clamp(4rem, 12vw, 18rem); /* Sets a FIXED middle gap */
+  
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1146,24 +1152,33 @@ HOME PAGE
 
 .home-hero-image-wrapper {
   position: absolute;
-  right: -25vw; /* Pushes the image far off the right edge of the screen */
+  right: -15vw; 
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(800px, 100vw, 1600px); /* Massive size ensures top/bottom cropping */
-  height: clamp(800px, 100vw, 1600px);
+  width: clamp(800px, 95vw, 1600px); 
+  height: clamp(800px, 95vw, 1600px);
   z-index: 1;
   pointer-events: none;
-  /* Adds a tiny bit of right padding to ensure the fade is visible before the screen edge */
-  padding-right: 5vw; 
 }
 
+/* The image itself keeps the mask for the fading shape */
 .home-hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* The mask creates the perfect fading circle */
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
-  mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 25%, transparent 60%);
+  mask-image: radial-gradient(circle at center, black 25%, transparent 60%);
+}
+
+/* The Magic Fix: An overlay that uses your EXACT background color */
+.home-hero-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Fades from transparent in the middle to your exact teal at the edges */
+  background: radial-gradient(circle at center, transparent 25%, var(--accent-color-dark) 60%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* ----- Thin eyebrow pill ----- */
@@ -1290,8 +1305,9 @@ HOME PAGE
   }
 
   .home-hero-text {
-    width: 100%;
-    z-index: 2; /* Text sits above the image */
+    margin-left: 0;  /* Resets the right-push */
+    margin-right: 0; /* Resets the fixed middle gap */
+    max-width: 100%;
   }
 
   .home-hero-image-wrapper {
@@ -1304,6 +1320,10 @@ HOME PAGE
     z-index: 1;
     margin: 0;
     order: unset; /* Removes the stacking */
+  }
+
+     .home-hero-image-wrapper::after {
+    display: none; 
   }
 
   .home-hero-image {
