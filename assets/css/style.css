@@ -1121,22 +1121,21 @@ HOME PAGE
   clamp(6rem, 9vw, 9rem);
 }
 
-/* Updated Inner Layout (Grid for Desktop) */
 .home-hero-inner {
-  position: relative; /* Required for the absolute image */
-  max-width: 100%;
-  margin: 0 auto;
+  position: relative;
+  max-width: 1600px; /* Caps the width on 34-inch monitors */
+  margin: 0 auto;    /* Centers the content block */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: clamp(1rem, 5vw, 4rem);
+  padding-left: clamp(2rem, 12vw, 15rem); /* Pulls text in from the left edge */
   padding-right: 0;
 }
 
 .home-hero-text {
   position: relative;
-  z-index: 2; /* Keeps text above the image so it never gets covered */
-  width: min(100%, 1000px); /* Constrains text to original width */
+  z-index: 2;
+  width: min(100%, 900px); /* Keeps text readable */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1145,11 +1144,11 @@ HOME PAGE
 
 .home-hero-image-wrapper {
   position: absolute;
-  right: -10vw; /* Pushes the image off the right edge */
+  right: -15vw; /* Pushes it further off the right edge */
   top: 50%;
-  transform: translateY(-50%); /* Centers it vertically */
-  width: clamp(400px, 60vw, 1000px); /* Massive size */
-  height: clamp(400px, 60vw, 1000px);
+  transform: translateY(-50%);
+  width: clamp(600px, 80vw, 1400px); /* Much larger, forcing top/bottom crops */
+  height: clamp(600px, 80vw, 1400px);
   z-index: 1;
   pointer-events: none;
 }
@@ -1288,18 +1287,25 @@ HOME PAGE
 
   .home-hero-text {
     width: 100%;
-    order: 2;
+    z-index: 2; /* Text sits above the image */
   }
 
   .home-hero-image-wrapper {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    order: 1;
-    width: 160px;
-    height: 160px;
-    margin: 0 auto var(--space-lg);
+    position: absolute;
+    right: -25vw; /* Bleeds off the right edge on mobile */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90vw;  /* Scales with phone width */
+    height: 90vw;
+    z-index: 1;
+    margin: 0;
+    order: unset; /* Removes the stacking */
+  }
+
+  .home-hero-image {
+    /* Shifts the fade to the right so the left side (where text is) remains perfectly clear */
+    -webkit-mask-image: radial-gradient(circle at 70% 50%, black 20%, transparent 65%);
+    mask-image: radial-gradient(circle at 70% 50%, black 20%, transparent 65%);
   }
 }
 
