@@ -1119,17 +1119,23 @@ HOME PAGE
   clamp(4rem, 7vw, 6rem)
   clamp(1rem, 4vw, 3rem)
   clamp(6rem, 9vw, 9rem);
+   overflow: hidden; 
 }
 
 .home-hero-inner {
   position: relative;
-  max-width: 1600px; /* Caps the width on 34-inch monitors */
-  margin: 0 auto;    /* Centers the content block */
+  max-width: 1600px; 
+  margin: 0 auto;    
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: clamp(2rem, 12vw, 15rem); /* Pulls text in from the left edge */
+  
+  /* CHANGE THIS LINE: Reduced from 12vw/15rem to 6vw/8rem */
+  padding-left: clamp(1.5rem, 6vw, 8rem); 
   padding-right: 0;
+  
+  /* ADD THIS LINE: Clips the massive image so it doesn't bleed into the next section */
+  overflow: hidden; 
 }
 
 .home-hero-text {
