@@ -1138,11 +1138,13 @@ HOME PAGE
   position: relative;
   z-index: 2;
   width: 100%; 
-  max-width: 900px; /* Controls the width of the text */
+  max-width: 850px; /* Slightly narrower to keep it away from the image */
   
-  /* These two lines do the magic for the gap: */
-  margin-left: auto; /* Pushes the text to the right */
-  margin-right: clamp(4rem, 12vw, 18rem); /* Sets a FIXED middle gap */
+  /* This replaces margin-left: auto. It grows with the screen but stops at 15rem */
+  margin-left: clamp(2rem, 12vw, 15rem); 
+  
+  /* This sets the fixed middle gap between text and image */
+  margin-right: clamp(4rem, 8vw, 10rem); 
   
   display: flex;
   flex-direction: column;
@@ -1175,8 +1177,8 @@ HOME PAGE
   content: '';
   position: absolute;
   inset: 0;
-  /* Fades from transparent in the middle to your exact teal at the edges */
-  background: radial-gradient(circle at center, transparent 25%, var(--accent-color-dark) 60%);
+  /* Transparent in center, exact bg color at edges */
+  background: radial-gradient(circle at center, transparent 20%, var(--accent-color-dark) 55%);
   pointer-events: none;
   z-index: 2;
 }
