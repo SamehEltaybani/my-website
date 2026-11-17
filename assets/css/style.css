@@ -1350,14 +1350,14 @@ HOME PAGE
     position: absolute;
     
     /* Cap the left push so it stops moving off-screen after 400px */
-    left: clamp(-500px, -20vw, -150px); 
+    left: clamp(-400px, -15vw, -100px); 
     
     top: 50%;
     transform: translateY(-50%) scaleX(-1); 
     
     /* Increase the max size to 1200px so it grows on ultrawide screens */
-    width: clamp(350px, 40vw, 900px);
-    height: clamp(350px, 40vw, 900px);
+    width: clamp(350px, 45vw, 1000px);
+    height: clamp(350px, 45vw, 1000px);
     
     z-index: 1;
     pointer-events: none;
