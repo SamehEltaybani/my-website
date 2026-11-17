@@ -1123,12 +1123,14 @@ HOME PAGE
 
 /* Updated Inner Layout (Grid for Desktop) */
 .home-hero-inner {
-  max-width: 1150px; /* Slightly wider to accommodate the image */
+  max-width: 100%; /* Uses the full screen width */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 320px; /* Text gets remaining space, image gets 320px */
+  grid-template-columns: minmax(0, 1fr) 1.2fr; /* Text gets less space, image gets more */
   gap: var(--space-xl);
-  align-items: center; /* Vertically centers the image and text */
+  align-items: center;
+  padding-left: clamp(1rem, 5vw, 4rem); /* Pushes the text away from the left screen edge */
+  padding-right: 0;
 }
 
 /* Ensure the text column behaves exactly as before */
@@ -1142,19 +1144,23 @@ HOME PAGE
 /* The Fading Image Styles */
 .home-hero-image-wrapper {
   width: 100%;
+  height: 100%;
+  max-height: 800px;
   aspect-ratio: 1 / 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  overflow: visible; /* Allows the image to bleed off the screen */
+  pointer-events: none;
 }
 
 .home-hero-image {
-  width: 100%;
+  width: 130%; /* Scales the image up so it gets cut off on the right */
   height: 100%;
-  object-fit: cover;
-  /* The Magic: Fades the image edges into the teal background */
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
-  mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+  object-fit: cover; /* Ensures the image fills the massive space */
+  margin-right: -15vw; /* Pushes it far to the right */
+  /* Fades the image on the left side so it blends into the text */
+  -webkit-mask-image: radial-gradient(circle at 20% 50%, black 30%, transparent 70%);
+  mask-image: radial-gradient(circle at 20% 50%, black 30%, transparent 70%);
 }
 
 /* ----- Thin eyebrow pill ----- */
@@ -1260,26 +1266,6 @@ HOME PAGE
 
 @media (max-width: 768px) {
 
-     /* Stack the layout and center it */
-  .home-hero-inner {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .home-hero-text {
-    width: 100%;
-    order: 2; /* Keeps the text below the image */
-    /* Note: Your existing mobile rules for .home-hero-title, etc., will still apply perfectly here */
-  }
-
-  .home-hero-image-wrapper {
-    order: 1; /* Puts the image above the text */
-    width: 160px;
-    height: 160px;
-    margin: 0 auto; /* Centers the image */
-  }
-   
  .home-hero {
     padding-top: 6rem;
   }
@@ -1294,7 +1280,36 @@ HOME PAGE
   }
 }
 
+@media (max-width: 768px) {
+  .home-hero-inner {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0; /* Resets the left padding */
+    gap: var(--space-lg);
+  }
 
+  .home-hero-text {
+    width: 100%;
+    order: 2;
+  }
+
+  .home-hero-image-wrapper {
+    order: 1;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    overflow: hidden; /* Restores the clean circle clipping */
+  }
+
+  .home-hero-image {
+    width: 100%;
+    height: 100%;
+    margin-right: 0; /* Resets the bleeding off-screen */
+    /* Restores the centered fade for the small circle */
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+  }
+}
 
 
 
