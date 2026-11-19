@@ -7734,7 +7734,12 @@ BLOG Article (right side content)
 }
 
 @media (max-width: 768px) {
-  .scholarly-grid {
+ 
+  .portfolio-scholarly-profiles {
+    margin: var(--space-xl) 0;
+  }
+   
+   .scholarly-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-sm);
   }
