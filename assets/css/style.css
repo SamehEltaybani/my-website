@@ -7522,6 +7522,7 @@ BLOG Article (right side content)
    SCHOLARLY BUTTON-SPECIFIC LAYOUT
    ========================================== */
 
+
 .scholarly-button {
   width: 220px;
   height: 40px;
@@ -7606,6 +7607,11 @@ BLOG Article (right side content)
 /* ==========================================
    SCHOLARLY PROFILES GRID
    ========================================== */
+.portfolio-scholarly-profiles {
+  width: 100%;
+  margin: var(--space-xxl) 0;
+  background: transparent;
+}
 
 .scholarly-grid {
   display: grid;
