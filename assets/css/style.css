@@ -8884,16 +8884,20 @@ BLOG Article (right side content)
 
 .value-action-body {
   display: grid;
-  grid-template-columns: 65% 50%; /* Image is 65%, Text is 50% (Overlap) */
+  /* Image takes 45%, Text takes 60% (overlapping by 5%) */
+  grid-template-columns: 45% 60%;
   align-items: center;
+  gap: 0;
+  margin-top: var(--space-md);
 }
 
 .value-action-image {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3; /* Better, less elongated proportion than 16/9 */
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(34, 40, 49, 0.15);
+  box-shadow: 0 10px 30px rgba(34, 40, 49, 0.12);
+  background: var(--bg-color); /* Adds a background in case the image doesn't fill */
 }
 
 .value-action-image img {
@@ -8910,10 +8914,10 @@ BLOG Article (right side content)
   padding: var(--space-lg);
   border-radius: var(--radius-md);
   box-shadow: 
-    0 12px 32px rgba(34, 40, 49, 0.18),
-    0 2px 6px rgba(34, 40, 49, 0.08);
-  /* Pulls the text box leftwards over the image */
-  margin-left: -15%; 
+    0 12px 32px rgba(34, 40, 49, 0.15),
+    0 2px 8px rgba(34, 40, 49, 0.05);
+  /* Pulls the text box leftwards to overlap the image slightly */
+  margin-left: -5%; 
 }
 
 .value-action-subtitle {
@@ -8925,16 +8929,16 @@ BLOG Article (right side content)
   border-bottom: 2px solid var(--accent-color-light);
 }
 
-/* Ensure the bullet list inside the box is compact */
 .value-action-content .primary-bullet-list {
   margin-bottom: 0;
   font-size: 0.95rem;
 }
 
 
+
 @media (max-width: 992px) {
   .value-action-body {
-    grid-template-columns: 55% 60%;
+    grid-template-columns: 40% 60%;
   }
 }
 
@@ -8967,8 +8971,7 @@ BLOG Article (right side content)
     width: 92%; /* Slightly narrower than image */
     margin-left: auto;
     margin-right: auto;
-    margin-top: -2.5rem; /* Overlap bottom of image */
-    padding: var(--space-md);
+    margin-top: -2.0rem; /* Overlap bottom of image */
   }
 }
 
