@@ -8828,102 +8828,149 @@ BLOG Article (right side content)
 
 
 
+
+
 /* ==========================================
-   PORTFOLIO VALUE IN ACTION
+   VALUE IN ACTION SECTION
    ========================================== */
 
 .portfolio-value-action-section {
   padding: var(--space-xxl) 0;
 }
 
-.portfolio-value-action-rows {
+.value-action-rows {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
+  margin-top: var(--space-xl);
 }
 
-.portfolio-value-action-row {
-  display: grid;
-  grid-template-columns: minmax(210px, 0.85fr) minmax(0, 1.6fr);
-  gap: var(--space-xl);
-  align-items: stretch;
-}
+/* ----- The Header (Number, Title, Description) ----- */
 
-.portfolio-value-action-card {
+.value-action-header {
   display: flex;
-  min-width: 0;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--white-color);
-  border: var(--card-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--card-shadow);
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
-.portfolio-value-action-card-content {
-  flex: 1 1 auto;
-  padding: var(--space-lg);
+.value-action-number {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.8;
+  color: var(--accent-color);
+  opacity: 0.2; /* Faded effect */
+  margin-top: 0.1em;
 }
 
-.portfolio-value-action-card-title {
-  margin-bottom: var(--space-md);
-  padding-left: var(--space-md);
-  border-left: 4px solid var(--accent-color);
+.value-action-title-wrapper {
+  flex: 1;
 }
 
-.portfolio-value-action-card-text {
+.value-action-title-wrapper .primary-heading-h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.value-action-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--dark-color);
+  opacity: 0.8;
   margin: 0;
+  max-width: 800px;
 }
 
-.portfolio-value-action-image {
-  aspect-ratio: 16 / 10;
-  border-radius: 0;
+/* ----- The Body (Image Left, Overlapping Text Box Right) ----- */
+
+.value-action-body {
+  display: grid;
+  grid-template-columns: 65% 50%; /* Image is 65%, Text is 50% (Overlap) */
+  align-items: center;
 }
 
-.portfolio-value-action-image > img {
+.value-action-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(34, 40, 49, 0.15);
+}
+
+.value-action-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.portfolio-value-action-details {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  justify-content: center;
+.value-action-content {
+  position: relative;
+  z-index: 2;
+  background: var(--white-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    0 12px 32px rgba(34, 40, 49, 0.18),
+    0 2px 6px rgba(34, 40, 49, 0.08);
+  /* Pulls the text box leftwards over the image */
+  margin-left: -15%; 
 }
 
-.portfolio-value-action-summary {
-  margin: 0 0 var(--space-lg);
-}
-
-.portfolio-value-action-groups {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.portfolio-value-action-group-title {
+.value-action-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-color);
   margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--accent-color-light);
 }
 
-@media (max-width: 900px) {
-  .portfolio-value-action-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
+/* Ensure the bullet list inside the box is compact */
+.value-action-content .primary-bullet-list {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
 
-  .portfolio-value-action-card {
-    max-width: 520px;
+
+@media (max-width: 992px) {
+  .value-action-body {
+    grid-template-columns: 55% 60%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .portfolio-value-action-section {
     padding: var(--space-xl) 0;
   }
-}
 
+  .value-action-rows {
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+  }
+
+  .value-action-number {
+    font-size: 3rem;
+  }
+
+  /* Stack image on top, text below */
+  .value-action-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .value-action-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .value-action-content {
+    width: 92%; /* Slightly narrower than image */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2.5rem; /* Overlap bottom of image */
+    padding: var(--space-md);
+  }
+}
 
 
 
