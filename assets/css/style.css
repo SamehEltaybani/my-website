@@ -7950,109 +7950,118 @@ BLOG Article (right side content)
 
 
 
-
 /* ==========================================
-   PORTFOLIO TABS 
+   PORTFOLIO TABS (Modern Redesign)
    ========================================== */
 
 .tabs {
   width: 100%;
-  margin: var(--space-xxl ) 0;
+  margin: var(--space-xxl) 0;
   background: transparent;
 }
 
+/* The Unified Card */
 .tabs-wrapper {
   width: 100%;
   background: var(--white-color);
-  border: var(--card-border);
+  border: 1px solid rgba(34, 40, 49, 0.08);
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
+  overflow: hidden; /* Keeps the nav inside the rounded corners */
+  margin-top: var(--space-lg);
 }
 
+/* The Navigation Bar */
 .tabs-nav {
   display: flex;
   gap: var(--space-xs);
-  padding: var(--space-sm);
+  padding: 0 var(--space-lg);
+  background: var(--bg-color); /* Subtle contrast from the white card */
+  border-bottom: 1px solid rgba(34, 40, 49, 0.08);
   overflow-x: auto;
-  border-bottom: 1px solid rgba(34, 40, 49, 0.1);
 }
 
+/* The Tab Buttons (Underline Style) */
 .tabs-btn {
   flex: 0 0 auto;
-  padding: 0.65rem 0.85rem;
-  border: 1px solid var(--grey-color);
-  border-radius: var(--radius-sm);
-  background: var(--grey-color-light);
+  padding: var(--space-md) var(--space-md);
+  border: none;
+  border-bottom: 3px solid transparent; /* Invisible by default */
+  border-radius: 0;
+  background: transparent;
   color: var(--dark-color);
   font: inherit;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .tabs-btn:hover,
 .tabs-btn:focus-visible {
-  background: var(--accent-color-very-light);
-  border-color: var(--accent-color-light);
   color: var(--accent-color);
+  outline: none;
 }
 
 .tabs-btn.active {
-  background: var(--accent-color);
-  color: var(--white-color);
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color); /* The modern underline */
+  background: transparent;
 }
 
+/* The Content Area */
 .tabs-content {
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
 }
 
 .tabs-panel[hidden] {
   display: none;
 }
 
-.tabs-panel-title {
-  margin-bottom: var(--space-md);
+/* Ensure paragraphs inside the panel sit nicely */
+.tabs-panel .primary-paragraph {
+  margin-bottom: 0;
 }
 
-.tabs-resource-arrow {
-  color: var(--accent-color);
-  font-weight: 600;
+.tabs-panel .primary-paragraph:not(:last-child) {
+  margin-bottom: var(--space-lg);
 }
 
+/* Resource Buttons Grid */
 .tabs-resource-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-sm) var(--space-lg);
+  gap: var(--space-md);
+  margin-top: var(--space-md);
 }
 
-
-
-
-@media (max-width: 700px) {
-  .tabs {
-    margin: var(--space-xl) 0;
-  }
-
+@media (max-width: 768px) {
   .tabs-nav {
-    gap: var(--space-xs);
-    padding: var(--space-xs);
+    padding: 0 var(--space-sm);
   }
 
   .tabs-btn {
-    padding: 0.6rem 0.7rem;
-    font-size: 0.8rem;
+    padding: var(--space-md) var(--space-sm);
+    font-size: 0.85rem;
   }
 
   .tabs-content {
-    padding: var(--space-md);
+    padding: var(--space-lg) var(--space-md);
   }
 
   .tabs-resource-buttons {
-    grid-template-columns: 1fr;
-  }  
+    grid-template-columns: 1fr; /* Stack buttons on mobile */
+  }
 }
+
+
+
+
+
+
+
 
 
 
