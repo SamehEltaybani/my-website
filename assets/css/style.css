@@ -8841,26 +8841,36 @@ BLOG Article (right side content)
 .value-action-rows {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xxl);
+  gap: var(--space-xl);
   margin-top: var(--space-xl);
 }
 
-/* ----- The Header (Number, Title, Description) ----- */
+/* ----- The Card ----- */
+.value-action-card {
+  background: var(--white-color);
+  border: var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  padding: var(--space-lg);
+}
 
+/* ----- The Header (Number, Title, Description) ----- */
 .value-action-header {
   display: flex;
   align-items: flex-start;
   gap: var(--space-md);
   margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(34, 40, 49, 0.08);
 }
 
 .value-action-number {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  line-height: 0.8;
+  line-height: 1;
   color: var(--accent-color);
-  opacity: 0.2; /* Faded effect */
-  margin-top: 0.1em;
+  opacity: 0.25;
+  margin-top: -0.1em;
 }
 
 .value-action-title-wrapper {
@@ -8872,32 +8882,27 @@ BLOG Article (right side content)
 }
 
 .value-action-desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--dark-color);
   opacity: 0.8;
   margin: 0;
-  max-width: 800px;
 }
 
-/* ----- The Body (Image Left, Overlapping Text Box Right) ----- */
-
+/* ----- The Body (Image Left, List Right) ----- */
 .value-action-body {
   display: grid;
-  /* Image takes 45%, Text takes 60% (overlapping by 5%) */
-  grid-template-columns: 45% 60%;
-  align-items: center;
-  gap: 0;
-  margin-top: var(--space-md);
+  grid-template-columns: 35% 1fr;
+  gap: var(--space-lg);
+  align-items: start;
 }
 
 .value-action-image {
   position: relative;
-  aspect-ratio: 4 / 3; /* Better, less elongated proportion than 16/9 */
-  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(34, 40, 49, 0.12);
-  background: var(--bg-color); /* Adds a background in case the image doesn't fill */
+  box-shadow: 0 4px 12px rgba(34, 40, 49, 0.1);
 }
 
 .value-action-image img {
@@ -8907,38 +8912,32 @@ BLOG Article (right side content)
   object-fit: cover;
 }
 
-.value-action-content {
-  position: relative;
-  z-index: 2;
-  background: var(--white-color);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  box-shadow: 
-    0 12px 32px rgba(34, 40, 49, 0.15),
-    0 2px 8px rgba(34, 40, 49, 0.05);
-  /* Pulls the text box leftwards to overlap the image slightly */
-  margin-left: -5%; 
-}
-
 .value-action-subtitle {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--dark-color);
   margin-bottom: var(--space-sm);
-  padding-bottom: var(--space-xs);
-  border-bottom: 2px solid var(--accent-color-light);
 }
 
 .value-action-content .primary-bullet-list {
   margin-bottom: 0;
   font-size: 0.95rem;
+  gap: var(--space-sm); /* Slightly more breathing room between list items */
 }
 
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
-
-@media (max-width: 992px) {
+@media (max-width: 900px) {
+  /* Stack the image and text inside the card */
   .value-action-body {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .value-action-image {
+    aspect-ratio: 16 / 9; /* Wider aspect ratio for horizontal image */
   }
 }
 
@@ -8948,34 +8947,26 @@ BLOG Article (right side content)
   }
 
   .value-action-rows {
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     margin-top: var(--space-lg);
   }
 
+  .value-action-card {
+    padding: var(--space-md);
+  }
+
+  .value-action-header {
+    gap: var(--space-sm);
+  }
+
   .value-action-number {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
-  /* Stack image on top, text below */
-  .value-action-body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .value-action-image {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-  }
-
-  .value-action-content {
-    width: 92%; /* Slightly narrower than image */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -2.0rem; /* Overlap bottom of image */
+  .value-action-desc {
+    font-size: 0.95rem;
   }
 }
-
-
 
 
 
