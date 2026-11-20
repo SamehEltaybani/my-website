@@ -8029,13 +8029,57 @@ BLOG Article (right side content)
   margin-bottom: var(--space-lg);
 }
 
-/* Resource Buttons Grid */
+/* Resource Cards Grid (Forced 2x2 on all devices) */
 .tabs-resource-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-md);
   margin-top: var(--space-md);
 }
+
+/* Individual Resource Card */
+.tabs-resource-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  
+  padding: var(--space-md);
+  background: var(--white-color);
+  border: var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(34, 40, 49, 0.05);
+  text-decoration: none;
+  color: var(--dark-color);
+  
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tabs-resource-card:hover,
+.tabs-resource-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow);
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.tabs-resource-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tabs-resource-card-arrow {
+  align-self: flex-end; /* Pushes the arrow to the bottom right */
+  color: var(--accent-color);
+  font-size: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.tabs-resource-card:hover .tabs-resource-card-arrow {
+  transform: translateX(4px);
+}
+
 
 @media (max-width: 768px) {
   .tabs-nav {
@@ -8051,9 +8095,14 @@ BLOG Article (right side content)
     padding: var(--space-lg) var(--space-md);
   }
 
-  .tabs-resource-buttons {
-    grid-template-columns: 1fr; /* Stack buttons on mobile */
+    .tabs-resource-card {
+    padding: var(--space-sm);
   }
+  
+  .tabs-resource-card-title {
+    font-size: 0.85rem;
+  }
+
 }
 
 
