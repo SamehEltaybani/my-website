@@ -798,13 +798,13 @@ section,
   font-size: 0.75em;
   line-height: 1;
   border-radius: 50%;
-  border: 1.5px solid transparent;
-  background: transparent;
+  border: 1.5px solid var(--white-color);
+  background: var(--accent-color-light);
   color: var(--accent-color);
 }
 
 .primary-heading-icon i {
-  opacity: 0.3; 
+  opacity: 1.0; 
 }
 
 .primary-heading-text {
