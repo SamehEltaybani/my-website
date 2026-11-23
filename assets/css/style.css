@@ -793,9 +793,18 @@ section,
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--accent-color);
-  font-size: 0.9em; /* Slightly larger than before since there is no circle */
+  width: 1.7em;
+  height: 1.7em;
+  font-size: 0.75em;
   line-height: 1;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-color);
+  background: transparent;
+    color: var(--accent-color);
+}
+
+.primary-heading-icon i {
+  opacity: 0.6; 
 }
 
 .primary-heading-text {
