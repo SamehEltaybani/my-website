@@ -1256,14 +1256,47 @@ HOME PAGE
 
 /* Force the quote styling */
 .home-hero-strip-quote {
-  color: var(--white-color) !important; /* Forces white */
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0;
+  position: relative;
+  color: var(--white-color);
+  
+  /* 1. Change to a serif italic font */
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  
+  /* 2. Reduce the size slightly and increase line-height */
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem); 
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  
+  /* 3. Keep it centered */
+  text-align: center;
   max-width: 900px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 4. The Massive, Distant Quotation Marks */
+.home-hero-strip-quote::before {
+  content: '“';
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 6rem;
+  line-height: 0.1; /* Pulls the text closer to the quote mark */
+  color: var(--accent-color-light); /* Faded teal watermark */
+  margin-bottom: 1.5rem;
+  font-style: normal;
+}
+
+.home-hero-strip-quote::after {
+  content: '”';
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 6rem;
+  line-height: 0;
+  color: var(--accent-color-light); /* Faded teal watermark */
+  margin-top: 1.5rem;
+  font-style: normal;
 }
 
 /* ==========================================
