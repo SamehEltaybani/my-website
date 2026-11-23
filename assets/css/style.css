@@ -1114,81 +1114,119 @@ HOME PAGE
 
 
 
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
+/* ==========================================
+   TEXT-ONLY HERO SECTION
+   ========================================== */
 
 .home-hero {
   background-color: var(--accent-color-dark);
   margin-top: -50px;
   padding: 
-    clamp(4rem, 7vw, 6rem)
-    clamp(1rem, 4vw, 3rem)
-    clamp(6rem, 9vw, 9rem);
-  position: relative;
-  overflow: hidden; /* Crucial: Clips the image at the section boundaries */
+    clamp(6rem, 10vw, 9rem) 
+    clamp(1rem, 5vw, 3rem) 
+    clamp(8rem, 12vw, 11rem); /* Extra bottom padding for card overlap */
+  text-align: center;
 }
 
-.home-hero-inner {
-  position: relative;
-  max-width: 100%; 
-  margin: 0 auto;
+.home-hero-name {
+  color: var(--white-color);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-lg);
+}
+
+.home-hero-message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+  max-width: 900px; /* Prevents lines from getting too long on ultrawide screens */
+  margin: 0 auto var(--space-xl);
+}
+
+.home-hero-message strong {
+  color: var(--white-color);
+  font-weight: 700;
+}
+
+.home-hero-cta {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding-left: 0; /* Ensure this is 0 */
-  padding-right: 0;
 }
 
-.home-hero-text {
+/* Keep button style, remove shadow */
+.hero-explore-btn {
+  width: auto;
+  min-width: 200px;
+  color: var(--white-color);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: none; /* Shadow removed as requested */
+}
+
+.hero-explore-btn:hover,
+.hero-explore-btn:focus-visible {
+  background: var(--dark-color);
+  color: var(--white-color);
+  border-color: var(--dark-color);
+}
+
+/* ==========================================
+   HERO CARDS (Overlap Logic)
+   ========================================== */
+
+.hero-cards-section {
   position: relative;
-  z-index: 2;
-  width: 100%; 
-  max-width: 850px; 
-  margin-left: auto; 
-  margin-right: clamp(37rem, 46vw, 57rem); /* This controls the middle gap between text and image */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(1rem, 2.4vw, 1.75rem);
+  z-index: 3; /* Ensures cards sit above the hero and the image strip */
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: -60px; /* Pulls the cards up into the hero */
 }
 
-.home-hero-image-wrapper {
-  position: absolute;
-  right: -15vw; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(800px, 95vw, 1600px); 
-  height: clamp(800px, 95vw, 1600px);
-  z-index: 1;
-  pointer-events: none;
-}
+/* (Keep your existing .hero-card and .hero-cards-grid CSS as they are) */
 
-/* The image itself keeps the mask for the fading shape */
-.home-hero-image {
+/* ==========================================
+   NEW IMAGE STRIP SECTION
+   ========================================== */
+
+.home-hero-strip {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  -webkit-mask-image: radial-gradient(circle at center, black 25%, transparent 60%);
-  mask-image: radial-gradient(circle at center, black 25%, transparent 60%);
+  /* Pulls the strip up so the cards overlap it */
+  margin-top: -100px; 
+  /* Pushes the content down so the cards don't cover the text */
+  padding-top: 160px; 
+  padding-bottom: var(--space-xxl);
+  
+  /* Background Image Setup */
+  background-image: url('img/home.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }
 
-/* The Magic Fix: An overlay that uses your EXACT background color */
-.home-hero-image-wrapper::after {
-  content: '';
+/* Dark overlay for readability */
+.home-hero-strip-overlay {
   position: absolute;
   inset: 0;
-  background:  linear-gradient(to right, var(--accent-color-dark) 0%, transparent 30%),
-               radial-gradient(circle at center, transparent 20%, var(--accent-color-dark) 55%);
-  pointer-events: none;
-  z-index: 2;
+  background: rgba(0, 82, 86, 0.85); /* Teal tint overlay */
+  z-index: 1;
 }
 
-/* ----- Thin eyebrow pill ----- */
+.home-hero-strip-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
 
+/* Reused Eyebrow Style */
 .home-hero-eyebrow {
   display: inline-block;
-  padding: 0.35em 1.1em;
+  padding: 0.4em 1.2em;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.10);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -1198,196 +1236,38 @@ HOME PAGE
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.3;
-  white-space: nowrap;
 }
 
-/* ----- Title: always 3 lines ----- */
-
-.home-hero-title {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.08em;
+.home-hero-strip-quote {
   color: var(--white-color);
-  font-size: clamp(1.75rem, 5vw, 4.2rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.2;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 
-               0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
-
-.home-hero-title > span {
-  display: block;
-  white-space: nowrap;
-}
-
-.home-hero-separator {
-  display: block;
-  width: 100%;
-  max-width: 62ch;            
-  height: 3px;
-  background-color: var(--complementary-color);
-  border-radius: 2px;
-   margin: clamp(0.5rem, 1.5vw, 1rem) 0;
-}
-
-/* ----- Lede paragraph ----- */
-
-.home-hero-lede {
   margin: 0;
-  max-width: 62ch;
-  color: rgba(255, 255, 255, 0.90);
-  font-size: clamp(0.95rem, 0.75rem + 0.5vw, 1.15rem);
-  line-height: 1.8;
-  letter-spacing: 0.005em;
-  font-weight: 400;
-   text-wrap: pretty;
-   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  max-width: 900px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.home-hero-pillars {
-  display: block;
-  margin-bottom: 0.5em;
-  color: var(--white-color);
-  font-weight: 700;
-   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-.home-hero-pillars-sep {
-  margin: 0 0.45em;
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 400;
-}
-
-
-/* ----- Hero CTA wrapper (right-aligns the button to the lede) ----- */
-
-.home-hero-cta {
-  width: 100%;
-  max-width: 62ch;
-  text-align: right;
-  line-height: 0;      /* kills the inline descender gap */
-}
-
-/* ----- Button override for the dark hero background ----- */
-
-.hero-explore-btn {
-  width: auto;
-  min-width: 180px;
-  color: var(--white-color);
-  border-color: rgba(255, 255, 255, 0.85);
-   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  }
-
-.hero-explore-btn:hover,
-.hero-explore-btn:focus-visible {
-  background: var(--white-color);
-  color: var(--dark-color);
-  border-color: var(--white-color);
-  box-shadow: 0 4px 16px rgba(34, 40, 49, 0.35);
-}
+/* ==========================================
+   RESPONSIVE (Mobile)
+   ========================================== */
 
 @media (max-width: 768px) {
-
- .home-hero {
-    padding-top: 6rem;
-  }
-   .home-hero-eyebrow {
-    margin-bottom: 0.75rem;
-  }
-   .home-hero-pillars > span:not(.home-hero-pillars-sep) {
-    display: block;
-  }
-  .home-hero-pillars-sep {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .home-hero-inner {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .home-hero-text {
-    margin-left: 0;  
-    margin-right: 0; 
-    max-width: 100%;
-  }
-
-  .home-hero-image-wrapper {
-    position: absolute;
-    right: -25vw; /* Bleeds off the right edge on mobile */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 90vw;  /* Scales with phone width */
-    height: 90vw;
-    z-index: 1;
-    margin: 0;
-    order: unset; /* Removes the stacking */
-  }
-
-     .home-hero-image-wrapper::after {
-    display: none; 
-  }
-
-  .home-hero-image {
-    /* Shifts the fade to the right so the left side (where text is) remains perfectly clear */
-    -webkit-mask-image: radial-gradient(circle at 70% 50%, black 20%, transparent 65%);
-    mask-image: radial-gradient(circle at 70% 50%, black 20%, transparent 65%);
-  }
-}
-
-
-
-
-
-/* left image in the hero Hide by default */
-.home-hero-image-wrapper-left {
-  display: none;
-}
-
-/* Activate only on very wide screens */
-@media (min-width: 1800px) {
-  .home-hero-image-wrapper-left {
-    display: block;
-    position: absolute;
-    
-    /* Cap the left push so it stops moving off-screen after 400px */
-    left: clamp(-400px, -15vw, -100px); 
-    
-    top: 50%;
-    transform: translateY(-50%) scaleX(-1); 
-    
-    /* Increase the max size to 1200px so it grows on ultrawide screens */
-    width: clamp(350px, 45vw, 1000px);
-    height: clamp(350px, 45vw, 1000px);
-    
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.15; 
-  }
-
-  .home-hero-image-wrapper-left .home-hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    -webkit-mask-image: radial-gradient(circle at center, black 15%, transparent 50%);
-    mask-image: radial-gradient(circle at center, black 15%, transparent 50%);
+  .home-hero {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
   
-  .home-hero-image-wrapper-left::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, transparent 15%, var(--accent-color-dark) 60%);
-    pointer-events: none;
-    z-index: 2;
+  .hero-cards-section {
+    margin-top: -40px;
+  }
+  
+  .home-hero-strip {
+    margin-top: -80px;
+    padding-top: 130px;
   }
 }
-
 
 
 /* =========================================================
