@@ -8248,7 +8248,6 @@ BLOG Article (right side content)
    ROW PROCESS (numbered and iconed)
    ================================================================ */
 
-
 .row-process {
   margin: var(--space-xl) 0;
 }
@@ -8268,8 +8267,8 @@ BLOG Article (right side content)
   position: absolute;
   top: 1.5rem;
   bottom: 1.5rem;
-  left: 1.5rem;
-  width: 1px;
+  left: 1.5rem; /* Centers perfectly with the 3rem wide circle */
+  width: 2px; /* Kept as you requested */
   background: var(--accent-color);
   content: "";
 }
@@ -8277,16 +8276,17 @@ BLOG Article (right side content)
 .row-process-step {
   position: relative;
   display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  grid-template-columns: 3rem minmax(0, 1fr); /* 2 columns: icon/number, content */
   align-items: start;
   column-gap: var(--space-md);
-  padding: var(--space-md);
+  padding: var(--space-lg); /* Increased padding */
   border: var(--card-border);
   border-radius: var(--radius-md);
   background: var(--white-color);
   box-shadow: var(--card-shadow);
 }
 
+/* Base styles for both numbers and icons */
 .row-process-number,
 .row-process-icon {
   position: relative;
@@ -8301,13 +8301,18 @@ BLOG Article (right side content)
   border-radius: var(--radius-full);
 }
 
+/* 1. The faded number style */
 .row-process-number {
-  background: var(--accent-color);
-  color: var(--white-color);
-  font-size: 0.85rem;
-  font-weight: 700;
+  background: transparent;
+  color: var(--accent-color);
+  opacity: 0.3;
+  font-size: 3rem; /* Large */
+  font-weight: 800;
+  line-height: 0.8;
+  margin-top: -0.1em; /* Optical alignment with the title */
 }
 
+/* 2. The icon stays exactly as it was */
 .row-process-icon {
   background: var(--accent-color-light);
   color: var(--accent-color);
@@ -8321,20 +8326,22 @@ BLOG Article (right side content)
 .row-process-content h3 {
   margin: 0 0 var(--space-xs);
   color: var(--dark-color);
-  font-size: 1.05rem;
+  font-size: 1.1rem; /* Slightly larger */
   font-weight: 700;
 }
 
+/* 3. Muted paragraph text */
 .row-process-content p {
   margin: 0;
   color: var(--dark-color);
+  opacity: 0.8; 
 }
 
+/* 4. Button moves to the second row, aligned right */
 .row-process-step > .primary-button {
-  grid-column: 3;
-  grid-row: 1;
-  align-self: end;
-  justify-self: end;
+  grid-column: 2; 
+  justify-self: end; 
+  margin-top: var(--space-md);
 }
 
 @media (max-width: 768px) {
@@ -8343,31 +8350,27 @@ BLOG Article (right side content)
   }
 
   .row-process-step {
-    grid-template-columns: 2.6rem minmax(0, 1fr);
-    column-gap: var(--space-sm);
-    padding: var(--space-md);
+    grid-template-columns: 3rem minmax(0, 1fr); /* Kept same for consistency */
+    padding: var(--space-md); /* Slightly tighter on mobile */
+  }
+  
+  .row-process-number {
+    font-size: 2.5rem; /* Slightly smaller on mobile */
+    margin-top: 0;
   }
 
-  .row-process-number,
   .row-process-icon {
     width: 2.6rem;
     height: 2.6rem;
     flex-basis: 2.6rem;
-  }
-
-  .row-process-icon {
     font-size: 1rem;
   }
-
-  .row-process-step > .primary-button {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: end;
-    justify-self: end;
-    margin-top: var(--space-sm);
+  
+  /* Align line to the new smaller icon size */
+  .row-process-list::before {
+    left: 1.3rem;
   }
 }
-
 
 
 
