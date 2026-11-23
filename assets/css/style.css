@@ -1178,10 +1178,10 @@ HOME PAGE
 
 .hero-cards-section {
   position: relative;
-  z-index: 3; /* Sits above the strip */
+  z-index: 3; 
   padding-top: 0;
-  padding-bottom: 0;
-  margin-top: -60px; /* Pulls up into the hero */
+  padding-bottom: 0; /* Forces the gap to close */
+  margin-top: -60px; 
 }
 
 /* ==========================================
@@ -1192,18 +1192,18 @@ HOME PAGE
   position: relative;
   width: 100%;
   
-  /* 2. Math for 220px cards: Pull the strip up by 60px so it sits under the cards */
-  margin-top: -60px; 
+  /* Increased overlap from -60px to -80px */
+  margin-top: -80px; 
   
-  /* Give it PLENTY of top padding so the cards never cover the text */
-  padding-top: 200px; 
+  /* Massive top padding so the 220px cards never cover the text */
+  padding-top: 240px; 
   padding-bottom: var(--space-xxl);
   
   z-index: 1;
-  overflow: hidden; /* Keeps image inside */
+  overflow: hidden; 
 }
 
-/* 1. The Explicit Image */
+/* The Image */
 .home-hero-strip-bg {
   position: absolute;
   inset: 0;
@@ -1213,11 +1213,13 @@ HOME PAGE
   z-index: 0;
 }
 
-/* 1. The Overlay */
+/* The New Dark Grey Overlay */
 .home-hero-strip-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 82, 86, 0.85); /* Teal tint */
+  /* Uses your dark-color (grey/black) at 75% opacity. 
+     This kills the teal tint and makes the white text readable. */
+  background: rgba(34, 40, 49, 0.75); 
   z-index: 1;
 }
 
@@ -1230,31 +1232,6 @@ HOME PAGE
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-}
-
-.home-hero-eyebrow {
-  display: inline-block;
-  padding: 0.4em 1.2em;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(0.65rem, 0.55rem + 0.35vw, 0.82rem);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-
-.home-hero-strip-quote {
-  color: var(--white-color);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0;
-  max-width: 900px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================
@@ -1272,8 +1249,9 @@ HOME PAGE
   }
   
   .home-hero-strip {
-    margin-top: -40px; 
-    padding-top: 150px; /* Scales down the breathing room for mobile */
+    /* On mobile, we pull it up by -60px to ensure a strong overlap */
+    margin-top: -60px; 
+    padding-top: 180px; 
   }
 }
 
