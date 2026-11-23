@@ -792,13 +792,9 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 2.0em;
-  width: 2.0em;
-  height: 2.0em;
-  border-radius: 50%;
-  background: var(--accent-color-light);
+  flex-shrink: 0;
   color: var(--accent-color);
-  font-size: 0.7em;
+  font-size: 0.9em; /* Slightly larger than before since there is no circle */
   line-height: 1;
 }
 
