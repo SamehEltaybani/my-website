@@ -7834,20 +7834,66 @@ BLOG Article (right side content)
 
 
 
-/* ==========  PORTFOLIO - STACKED ACCORDION  ================ */
+/* ============================================
+   ACCORDIONS (SHARED STYLES)
+   ============================================ */
 
-
-
-.portfolio-stacked-accordion {
+.portfolio-stacked-accordion,
+.portfolio-wide-accordion {
     padding: var(--space-xl) 0;
 }
 
-.portfolio-stacked-accordion h2 {
+.portfolio-stacked-accordion h2,
+.portfolio-wide-accordion h2 {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-color);
     margin-bottom: var(--space-lg);
 }
+
+/* Shared Toggle Icon Logic */
+.stacked-accordion-toggle,
+.wide-accordion-toggle {
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: var(--dark-color);
+    opacity: 0.4;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover & Active states for the chevron */
+.stacked-accordion-header:hover .stacked-accordion-toggle,
+.stacked-accordion-header.active .stacked-accordion-toggle,
+.wide-accordion-header:hover .wide-accordion-toggle,
+.wide-accordion-header.active .wide-accordion-toggle {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Rotate when active */
+.stacked-accordion-header.active .stacked-accordion-toggle,
+.wide-accordion-header.active .wide-accordion-toggle {
+    transform: rotate(180deg);
+}
+
+/* Shared Inner Typography spacing */
+.stacked-accordion-body .primary-paragraph,
+.wide-accordion-body .primary-paragraph {
+    margin-bottom: var(--space-sm); /* Reduced gap between paragraph and list */
+}
+
+.stacked-accordion-body .primary-bullet-list,
+.wide-accordion-body .primary-bullet-list {
+    margin-bottom: 0;
+    gap: var(--space-xs);
+}
+
+/* ============================================
+   STACKED ACCORDION (Specific)
+   ============================================ */
 
 .stacked-accordion-wrapper {
     border: var(--card-border);
@@ -7856,7 +7902,6 @@ BLOG Article (right side content)
     background: var(--white-color);
 }
 
-/* ----- Each Row ----- */
 .stacked-accordion-item {
     border-bottom: 1px solid var(--accent-color-light);
 }
@@ -7864,8 +7909,6 @@ BLOG Article (right side content)
 .stacked-accordion-item:last-child {
     border-bottom: none;
 }
-
-/* ----- Header ----- */
 
 .stacked-accordion-header {
     display: flex;
@@ -7892,8 +7935,6 @@ BLOG Article (right side content)
     background: var(--accent-color-light);
 }
 
-/* ----- Icon in Circle ----- */
-
 .stacked-accordion-icon-circle {
     display: flex;
     align-items: center;
@@ -7913,103 +7954,23 @@ BLOG Article (right side content)
     color: var(--white-color);
 }
 
-/* ----- Title ----- */
-
 .stacked-accordion-title {
     flex: 1;
     font-weight: 500;
 }
 
-/* ----- Toggle Icon (+ / -) ----- */
-
-.stacked-accordion-toggle {
-    flex-shrink: 0;
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: var(--dark-color);
-    opacity: 0.3;
-    transition: opacity 0.25s ease, transform 0.3s ease;
-    width: 24px;
-    text-align: center;
-}
-
-.stacked-accordion-header.active .stacked-accordion-toggle {
-    opacity: 0.8;
-    transform: rotate(180deg);
-}
-
-.stacked-accordion-header:hover .stacked-accordion-toggle {
-    opacity: 0.6;
-}
-
-/* ----- Body (collapsible content) ----- */
-
 .stacked-accordion-body {
     display: none;
-    padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
 }
 
 .stacked-accordion-body.open {
     display: block;
 }
 
-
-@media (max-width: 768px) {
-    .stacked-accordion-header {
-        padding: var(--space-sm) var(--space-md);
-        font-size: 0.95rem;
-        gap: var(--space-sm);
-    }
-
-    .stacked-accordion-icon-circle {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-        font-size: 0.9rem;
-    }
-
-    .stacked-accordion-body {
-        padding: 0 var(--space-md) var(--space-sm) var(--space-md);
-    }
-
-    .stacked-accordion-toggle {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .stacked-accordion-header {
-        padding: var(--space-xs) var(--space-sm);
-        font-size: 0.85rem;
-    }
-
-    .stacked-accordion-icon-circle {
-        width: 30px;
-        height: 30px;
-        min-width: 30px;
-        font-size: 0.8rem;
-    }
-
-    .stacked-accordion-body {
-        padding: 0 var(--space-sm) var(--space-xs) var(--space-sm);
-    }
-}
-
-
 /* ============================================
-   PORTFOLIO - WIDE ACCORDION
+   WIDE ACCORDION (Specific)
    ============================================ */
-
-.portfolio-wide-accordion {
-    padding: var(--space-xl) 0;
-}
-
-.portfolio-wide-accordion h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: var(--space-lg);
-}
 
 .wide-accordion-wrapper {
     display: flex;
@@ -8017,20 +7978,18 @@ BLOG Article (right side content)
     gap: var(--space-md);
 }
 
-
 .wide-accordion-item {
     background: var(--white-color);
     border-radius: var(--radius-md);
     border: var(--card-border);
     box-shadow: var(--card-shadow);
     overflow: hidden;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: border-color 0.25s ease;
 }
 
 .wide-accordion-item:hover {
     border-color: var(--accent-color-light);
 }
-
 
 .wide-accordion-header {
     display: flex;
@@ -8057,7 +8016,6 @@ BLOG Article (right side content)
     background: var(--accent-color-very-light);
 }
 
-
 .wide-accordion-icon-circle {
     display: flex;
     align-items: center;
@@ -8077,78 +8035,37 @@ BLOG Article (right side content)
     color: var(--white-color);
 }
 
-
 .wide-accordion-title {
     flex: 1;
     font-weight: 500;
 }
 
-
-.wide-accordion-toggle {
-    flex-shrink: 0;
-    font-size: 1.4rem;
-    color: var(--dark-color);
-    opacity: 0.25;
-    transition: opacity 0.25s ease, transform 0.4s ease;
-    line-height: 1;
-}
-
-.wide-accordion-header.active .wide-accordion-toggle {
-    opacity: 0.8;
-    transform: rotate(90deg);
-    color: var(--accent-color);
-}
-
-.wide-accordion-header:hover .wide-accordion-toggle {
-    opacity: 0.5;
-}
-
 .wide-accordion-body {
     display: none;
-    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
 }
 
 .wide-accordion-body.open {
     display: block;
 }
 
-.wide-accordion-body p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.85;
-    margin-bottom: var(--space-sm);
-}
-
-.wide-accordion-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.wide-accordion-body ul li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    opacity: 0.75;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-}
-
-.wide-accordion-body ul li i {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-}
+/* ============================================
+   ACCORDIONS — Responsive
+   ============================================ */
 
 @media (max-width: 768px) {
+    .stacked-accordion-header,
     .wide-accordion-header {
         padding: var(--space-md);
         font-size: 0.95rem;
         gap: var(--space-sm);
+    }
+
+    .stacked-accordion-icon-circle {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 0.9rem;
     }
 
     .wide-accordion-icon-circle {
@@ -8158,19 +8075,24 @@ BLOG Article (right side content)
         font-size: 1rem;
     }
 
+    .stacked-accordion-body,
     .wide-accordion-body {
-        padding: 0 var(--space-md) var(--space-md) var(--space-md);
-    }
-
-    .wide-accordion-toggle {
-        font-size: 1.2rem;
+        padding: var(--space-sm) var(--space-md) var(--space-md);
     }
 }
 
 @media (max-width: 400px) {
+    .stacked-accordion-header,
     .wide-accordion-header {
         padding: var(--space-sm) var(--space-md);
         font-size: 0.85rem;
+    }
+
+    .stacked-accordion-icon-circle {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 0.8rem;
     }
 
     .wide-accordion-icon-circle {
@@ -8180,16 +8102,9 @@ BLOG Article (right side content)
         font-size: 0.85rem;
     }
 
-    .wide-accordion-toggle {
-        font-size: 1rem;
-    }
-
+    .stacked-accordion-body,
     .wide-accordion-body {
-        padding: 0 var(--space-sm) var(--space-sm) var(--space-sm);
-    }
-
-    .wide-accordion-body p {
-        font-size: 0.9rem;
+        padding: var(--space-sm) var(--space-md);
     }
 }
 
@@ -8199,20 +8114,8 @@ BLOG Article (right side content)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================
-   PORTFOLIO TABS (Modern Redesign)
+   PORTFOLIO TABS 
    ========================================== */
 
 .tabs {
