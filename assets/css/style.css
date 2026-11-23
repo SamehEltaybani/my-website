@@ -798,8 +798,8 @@ section,
   font-size: 0.75em;
   line-height: 1;
   border-radius: 50%;
-  border: 1.5px solid var(--white-color);
-  background: var(--accent-color-light);
+  border: 1.5px solid var(--accent-color-light);
+  background: var(--white-color);
   color: var(--accent-color);
 }
 
