@@ -795,12 +795,12 @@ section,
   flex-shrink: 0;
   width: 1.7em;
   height: 1.7em;
-  font-size: 0.75em;
+  font-size: 0.65em;
   line-height: 1;
   border-radius: 50%;
-  border: 1.5px solid var(--accent-color-light);
-  background: var(--white-color);
-  color: var(--accent-color);
+  border: 1.5px solid var(--accent-color);
+  background: var(--accent-color);
+  color: var(--white-color);
 }
 
 .primary-heading-icon i {
