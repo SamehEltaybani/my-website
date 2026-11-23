@@ -1124,8 +1124,9 @@ HOME PAGE
   padding: 
     clamp(6rem, 10vw, 9rem) 
     clamp(1rem, 5vw, 3rem) 
-    clamp(8rem, 12vw, 11rem); /* Extra bottom padding for card overlap */
-  text-align: center;
+    clamp(8rem, 12vw, 11rem); 
+    
+  text-align: left; /* 3. Left aligned */
 }
 
 .home-hero-name {
@@ -1141,8 +1142,8 @@ HOME PAGE
   color: rgba(255, 255, 255, 0.9);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
-  max-width: 900px; /* Prevents lines from getting too long on ultrawide screens */
-  margin: 0 auto var(--space-xl);
+  max-width: 900px; 
+  margin: 0 0 var(--space-xl) 0; /* Removed 'auto' to keep left aligned */
 }
 
 .home-hero-message strong {
@@ -1150,18 +1151,18 @@ HOME PAGE
   font-weight: 700;
 }
 
+/* 3. CTA Button Centered */
 .home-hero-cta {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
 }
 
-/* Keep button style, remove shadow */
 .hero-explore-btn {
   width: auto;
   min-width: 200px;
   color: var(--white-color);
   border-color: rgba(255, 255, 255, 0.85);
-  box-shadow: none; /* Shadow removed as requested */
+  box-shadow: none; 
 }
 
 .hero-explore-btn:hover,
@@ -1177,13 +1178,11 @@ HOME PAGE
 
 .hero-cards-section {
   position: relative;
-  z-index: 3; /* Ensures cards sit above the hero and the image strip */
+  z-index: 3; /* Sits above the strip */
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: -60px; /* Pulls the cards up into the hero */
+  margin-top: -60px; /* Pulls up into the hero */
 }
-
-/* (Keep your existing .hero-card and .hero-cards-grid CSS as they are) */
 
 /* ==========================================
    NEW IMAGE STRIP SECTION
@@ -1192,27 +1191,37 @@ HOME PAGE
 .home-hero-strip {
   position: relative;
   width: 100%;
-  /* Pulls the strip up so the cards overlap it */
-  margin-top: -100px; 
-  /* Pushes the content down so the cards don't cover the text */
-  padding-top: 160px; 
+  
+  /* 2. Math for 220px cards: Pull the strip up by 60px so it sits under the cards */
+  margin-top: -60px; 
+  
+  /* Give it PLENTY of top padding so the cards never cover the text */
+  padding-top: 200px; 
   padding-bottom: var(--space-xxl);
   
-  /* Background Image Setup */
-  background-image: url('img/home.webp');
-  background-size: cover;
-  background-position: center;
   z-index: 1;
+  overflow: hidden; /* Keeps image inside */
 }
 
-/* Dark overlay for readability */
+/* 1. The Explicit Image */
+.home-hero-strip-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 1. The Overlay */
 .home-hero-strip-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 82, 86, 0.85); /* Teal tint overlay */
+  background: rgba(0, 82, 86, 0.85); /* Teal tint */
   z-index: 1;
 }
 
+/* Content sits above image and overlay */
 .home-hero-strip-content {
   position: relative;
   z-index: 2;
@@ -1223,7 +1232,6 @@ HOME PAGE
   gap: var(--space-md);
 }
 
-/* Reused Eyebrow Style */
 .home-hero-eyebrow {
   display: inline-block;
   padding: 0.4em 1.2em;
@@ -1264,11 +1272,10 @@ HOME PAGE
   }
   
   .home-hero-strip {
-    margin-top: -80px;
-    padding-top: 130px;
+    margin-top: -40px; 
+    padding-top: 150px; /* Scales down the breathing room for mobile */
   }
 }
-
 
 /* =========================================================
    HERO QUICK-LINKS CARDS
