@@ -1192,15 +1192,13 @@ HOME PAGE
 .home-hero-strip {
   position: relative;
   width: 100%;
-  
-  /* INCREASED DESKTOP OVERLAP */
   margin-top: -160px; 
   
-  /* Reduced from 260px, but still enough to clear the cards */
-  padding-top: 200px; 
+  /* REDUCED TOP PADDING to shorten the strip */
+  padding-top: 180px; 
   
-  /* REDUCED HEIGHT */
-  padding-bottom: var(--space-lg); 
+  /* INCREASED BOTTOM PADDING for breathing room below text */
+  padding-bottom: clamp(4rem, 8vw, 6rem); 
   
   z-index: 1;
   overflow: hidden; 
@@ -1243,8 +1241,11 @@ HOME PAGE
   display: inline-block;
   padding: 0.4em 1.2em;
   border-radius: var(--radius-full);
-  background: rgba(34, 40, 49, 0.85); 
+  
+  /* WHITE TRANSLUCENT BACKGROUND */
+  background: rgba(255, 255, 255, 0.15); 
   border: 1px solid rgba(255, 255, 255, 0.3); 
+  
   color: var(--white-color) !important;
   font-size: clamp(0.65rem, 0.55rem + 0.35vw, 0.82rem);
   font-weight: 500;
@@ -1280,9 +1281,9 @@ HOME PAGE
   }
   
   .home-hero-strip {
-    margin-top: -100px; /* Keep perfect mobile overlap */
-    padding-top: 130px; /* Just enough to clear the cards */
-    padding-bottom: var(--space-md); /* Shorter mobile strip */
+    margin-top: -100px; 
+    padding-top: 120px; /* Shortened top */
+    padding-bottom: clamp(3rem, 6vw, 4rem); /* Increased bottom */
   }
 }
 
