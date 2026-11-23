@@ -1258,45 +1258,45 @@ HOME PAGE
 .home-hero-strip-quote {
   position: relative;
   color: var(--white-color);
-  
-  /* 1. Change to a serif italic font */
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
-  
-  /* 2. Reduce the size slightly and increase line-height */
   font-size: clamp(1.6rem, 3.2vw, 2.6rem); 
-  font-weight: 400;
+  
+  /* 1. Make the text heavier */
+  font-weight: 600; 
+  
   line-height: 1.5;
   letter-spacing: 0;
-  
-  /* 3. Keep it centered */
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* 4. The Massive, Distant Quotation Marks */
+/* 2. Inline Opening Quote (Superscript) */
 .home-hero-strip-quote::before {
   content: '“';
-  display: block;
+  display: inline; /* Keeps it on the same line */
   font-family: Georgia, serif;
-  font-size: 6rem;
-  line-height: 0.1; /* Pulls the text closer to the quote mark */
-  color: var(--accent-color-light); /* Faded teal watermark */
-  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  color: var(--accent-color);
+  vertical-align: super; /* Pushes it up */
+  margin-right: 0.1em;
   font-style: normal;
+  line-height: 0;
 }
 
+/* 3. Inline Closing Quote (Subscript) */
 .home-hero-strip-quote::after {
   content: '”';
-  display: block;
+  display: inline; /* Keeps it on the same line */
   font-family: Georgia, serif;
-  font-size: 6rem;
-  line-height: 0;
-  color: var(--accent-color-light); /* Faded teal watermark */
-  margin-top: 1.5rem;
+  font-size: 3rem;
+  color: var(--accent-color);
+  vertical-align: sub; /* Pushes it down */
+  margin-left: 0.1em;
   font-style: normal;
+  line-height: 0;
 }
 
 /* ==========================================
