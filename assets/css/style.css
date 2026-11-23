@@ -795,7 +795,7 @@ section,
   flex-shrink: 0;
   width: 1.7em;
   height: 1.7em;
-  font-size: 0.65em;
+  font-size: 0.75em;
   line-height: 1;
   border-radius: 50%;
   border: 1.5px solid var(--accent-color);
@@ -805,6 +805,7 @@ section,
 
 .primary-heading-icon i {
   opacity: 1.0; 
+  font-size: 0.85em;
 }
 
 .primary-heading-text {
