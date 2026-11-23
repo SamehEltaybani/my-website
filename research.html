@@ -1197,49 +1197,42 @@
 
            
 // ============================================
-// 2. WIDE ACCORDION - old 
+// 2. WIDE ACCORDION
 // ============================================
-            
-        const wideHeaders = document.querySelectorAll('.wide-accordion-header');
-        wideHeaders.forEach(function(header) {
-            header.addEventListener('click', function() {
-                const body = this.nextElementSibling;
-                const toggle = this.querySelector('.wide-accordion-toggle i');
+const wideHeaders = document.querySelectorAll('.wide-accordion-header');
+wideHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+        const body = this.nextElementSibling;
         
-                if (body.classList.contains('open')) {
-                    body.classList.remove('open');
-                    toggle.className = 'fa-solid fa-circle-chevron-down';
-                    this.classList.remove('active');
-                } else {
-                    body.classList.add('open');
-                    toggle.className = 'fa-solid fa-circle-chevron-right';
-                    this.classList.add('active');
-                }
-            });
-        });
-
+        // Only toggle the classes. CSS handles the icon rotation and color!
+        if (body.classList.contains('open')) {
+            body.classList.remove('open');
+            this.classList.remove('active');
+        } else {
+            body.classList.add('open');
+            this.classList.add('active');
+        }
+    });
+});
 
 // ============================================
 // 3. STACKED ACCORDION 
 // ============================================
-            
-            const stackedHeaders = document.querySelectorAll('.stacked-accordion-header');
-            stackedHeaders.forEach(function(header) {
-                header.addEventListener('click', function() {
-                    const body = this.nextElementSibling;
-                    const toggle = this.querySelector('.stacked-accordion-toggle');
-            
-                    if (body.classList.contains('open')) {
-                        body.classList.remove('open');
-                        toggle.textContent = '+';
-                        this.classList.remove('active');
-                    } else {
-                        body.classList.add('open');
-                        toggle.textContent = '−';
-                        this.classList.add('active');
-                    }
-                });
-            });
+const stackedHeaders = document.querySelectorAll('.stacked-accordion-header');
+stackedHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+        const body = this.nextElementSibling;
+        
+        // Only toggle the classes. CSS handles the icon rotation and color!
+        if (body.classList.contains('open')) {
+            body.classList.remove('open');
+            this.classList.remove('active');
+        } else {
+            body.classList.add('open');
+            this.classList.add('active');
+        }
+    });
+});
 
 
 // ============================================
