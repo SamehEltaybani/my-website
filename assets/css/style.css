@@ -2819,6 +2819,8 @@ HOME PAGE
 
 .connect-section {
   padding: var(--space-xxl) 0;
+  background-color: var(--white-color); /* Adds the full-width white background */
+  width: 100%;
 }
 
 .connect-grid {
@@ -2832,7 +2834,7 @@ HOME PAGE
 .connect-card {
   display: flex;
   flex-direction: column;
-  background: var(--white-color);
+  background: var(--bg-color);
   border: var(--card-border);
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
