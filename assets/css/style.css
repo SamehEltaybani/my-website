@@ -2819,7 +2819,7 @@ HOME PAGE
 
 .connect-section {
   padding: var(--space-xxl) 0;
-  background-color: var(--white-color); /* Adds the full-width white background */
+  background-color: var(--accent-color-very-light); /* Adds the full-width background */
   width: 100%;
 }
 
@@ -2834,7 +2834,7 @@ HOME PAGE
 .connect-card {
   display: flex;
   flex-direction: column;
-  background: var(--bg-color);
+  background: var(--white-color);
   border: var(--card-border);
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
