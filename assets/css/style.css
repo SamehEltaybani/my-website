@@ -2548,10 +2548,6 @@ HOME PAGE
 
 
 
-
-
-
-
 /* ============================================
    HOME: BLOG ARTICLES CAROUSEL SECTION
    ============================================ */
@@ -2817,6 +2813,283 @@ HOME PAGE
 
 
 
+/* ============================================
+   CONNECT & RESOURCES SECTION
+   ============================================ */
+
+.connect-section {
+  padding: var(--space-xxl) 0;
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+/* ----- The Card ----- */
+.connect-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white-color);
+  border: var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.connect-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(34, 40, 49, 0.15);
+  border-color: var(--accent-color);
+}
+
+/* ----- Image ----- */
+.connect-image-wrapper {
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.connect-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.connect-card:hover .connect-image-wrapper img {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* ----- Content ----- */
+.connect-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.connect-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin: 0 0 var(--space-xs) 0;
+  text-align: center;
+}
+
+.connect-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--dark-color);
+  opacity: 0.8;
+  text-align: center;
+  margin: 0 0 var(--space-lg) 0;
+  flex: 1; /* Pushes the button to the bottom */
+}
+
+.connect-btn {
+  align-self: center;
+  width: 100%; /* Makes the button span the card width */
+  max-width: 180px; /* But caps it so it doesn't look too stretched */
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+  .connect-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .connect-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .connect-image-wrapper {
+    height: 200px; /* Make image a bit taller when stacked on phone */
+  }
+}
+
+
+
+/* ============================================
+   CLOSING CTA (Call to Action at the end of the page)
+   ============================================ */
+
+
+.closing-cta {
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-lg) 0;
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+
+.cta-question {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: var(--space-sm);
+}
+
+.cta-action {
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  color: var(--dark-color);
+  opacity: 0.8; 
+}
+
+.cta-action p {
+  margin-bottom: var(--space-md); 
+}
+
+.cta-action i {
+  color: var(--accent-color);
+  margin: 0 0.2rem;
+}
+
+.cta-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast);
+  font-weight: 500;
+}
+
+.cta-link:hover {
+  color: var(--accent-color);
+  text-decoration-thickness: 4px;
+}
+
+@media (max-width: 768px) {
+  .closing-cta {
+    padding: var(--space-lg) 0 var(--space-md) 0;
+  }
+  
+  .cta-question {
+    font-size: 1.2rem;
+  }
+  
+  .cta-action {
+    font-size: 1rem; 
+    line-height: 1.6;
+  }
+
+    #closing-cta {
+    scroll-margin-top: 100px; 
+  }
+}
+
+@media (max-width: 400px) {
+  .cta-question {
+    font-size: 1rem;
+  }
+  
+  .cta-action {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ============================================
+404 PAGE - CUSTOM STYLES
+ ============================================ */
+
+        .error-section {
+            text-align: center;
+            padding: var(--space-xl) 0 var(--space-lg) 0;
+        }
+
+        .error-top {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .error-heading {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: var(--space-md);
+        }
+
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--white-color);
+            color: var(--dark-color);
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-full);
+            border: 2px solid var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            box-shadow: var(--card-shadow);
+        }
+
+        .error-btn:hover {
+            background: var(--accent-color);
+            color: var(--white-color);
+            box-shadow: 0 6px 20px var(--accent-color-light);
+        }
+
+        .error-btn i {
+            transition: transform var(--transition-fast);
+        }
+
+        .error-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .error-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 4px;
+            margin: var(--space-md) auto var(--space-lg) auto;
+            opacity: 0.4;
+        }
+
+
+        @media (max-width: 768px) {
+               .error-top {
+                font-size: 3rem;
+            }
+
+            .error-heading {
+                font-size: 1.6rem;
+            }
+
+            .error-btn {
+                font-size: 0.95rem;
+                padding: var(--space-xs) var(--space-lg);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .error-top {
+                font-size: 2rem;
+            }
+
+            .error-heading {
+                font-size: 1.3rem;
+            }
+        }
+
 
 /* ============================================
    EXPLORE THE SITE (2-Column Grid)
@@ -3013,177 +3286,6 @@ HOME PAGE
     padding-left: calc(32px + var(--space-md)); /* Matches the 32px icon */
   }
 }
-
-
-/* ============================================
-   CLOSING CTA (Call to Action at the end of the page)
-   ============================================ */
-
-
-.closing-cta {
-  text-align: center;
-  padding: var(--space-xl) 0 var(--space-lg) 0;
-  max-width: 800px; 
-  margin: 0 auto; 
-}
-
-.cta-question {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  margin-bottom: var(--space-sm);
-}
-
-.cta-action {
-  font-size: 1.1rem; 
-  line-height: 1.8; 
-  color: var(--dark-color);
-  opacity: 0.8; 
-}
-
-.cta-action p {
-  margin-bottom: var(--space-md); 
-}
-
-.cta-action i {
-  color: var(--accent-color);
-  margin: 0 0.2rem;
-}
-
-.cta-link {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
-  transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast);
-  font-weight: 500;
-}
-
-.cta-link:hover {
-  color: var(--accent-color);
-  text-decoration-thickness: 4px;
-}
-
-@media (max-width: 768px) {
-  .closing-cta {
-    padding: var(--space-lg) 0 var(--space-md) 0;
-  }
-  
-  .cta-question {
-    font-size: 1.2rem;
-  }
-  
-  .cta-action {
-    font-size: 1rem; 
-    line-height: 1.6;
-  }
-
-    #closing-cta {
-    scroll-margin-top: 100px; 
-  }
-}
-
-@media (max-width: 400px) {
-  .cta-question {
-    font-size: 1rem;
-  }
-  
-  .cta-action {
-    font-size: 0.95rem;
-  }
-}
-
-
-/* ============================================
-404 PAGE - CUSTOM STYLES
- ============================================ */
-
-        .error-section {
-            text-align: center;
-            padding: var(--space-xl) 0 var(--space-lg) 0;
-        }
-
-        .error-top {
-            font-size: 5rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            line-height: 1;
-            display: block;
-            margin-bottom: var(--space-sm);
-        }
-
-        .error-heading {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: var(--space-md);
-        }
-
-        .error-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            background: var(--white-color);
-            color: var(--dark-color);
-            padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-full);
-            border: 2px solid var(--accent-color);
-            font-size: 1.05rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all var(--transition-fast);
-            box-shadow: var(--card-shadow);
-        }
-
-        .error-btn:hover {
-            background: var(--accent-color);
-            color: var(--white-color);
-            box-shadow: 0 6px 20px var(--accent-color-light);
-        }
-
-        .error-btn i {
-            transition: transform var(--transition-fast);
-        }
-
-        .error-btn:hover i {
-            transform: translateX(4px);
-        }
-
-        .error-divider {
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 4px;
-            margin: var(--space-md) auto var(--space-lg) auto;
-            opacity: 0.4;
-        }
-
-
-        @media (max-width: 768px) {
-               .error-top {
-                font-size: 3rem;
-            }
-
-            .error-heading {
-                font-size: 1.6rem;
-            }
-
-            .error-btn {
-                font-size: 0.95rem;
-                padding: var(--space-xs) var(--space-lg);
-            }
-        }
-
-        @media (max-width: 400px) {
-            .error-top {
-                font-size: 2rem;
-            }
-
-            .error-heading {
-                font-size: 1.3rem;
-            }
-        }
-
 
 
 /* ====  WITHIN‑PAGE SEARCH BOX (Trigger) ===== */
