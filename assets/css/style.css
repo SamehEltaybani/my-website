@@ -1348,6 +1348,7 @@ HOME PAGE
 
 /* ----- Card ----- */
 
+/* ----- Card ----- */
 .hero-card {
   display: flex;
   flex-direction: column;
@@ -1366,13 +1367,17 @@ HOME PAGE
   text-decoration: none;
   color: var(--dark-color);
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  /* UPDATED: Added border-color and changed to var(--transition-fast) for snappier speed */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
+/* UPDATED: Matches the connect-card hover effect exactly */
 .hero-card:hover,
 .hero-card:focus-visible {
   transform: translateY(-4px);
-  box-shadow: 0 12px 26px rgba(34, 40, 49, 0.28);
+  box-shadow: 0 12px 26px rgba(34, 40, 49, 0.15); /* Softer shadow */
+  border-color: var(--accent-color); /* Teal border appears */
   outline: none;
 }
 
@@ -1381,30 +1386,29 @@ HOME PAGE
   color: var(--complementary-color);
 }
 
-/* ----- Card contents ----- */
-
 /* ----- Hero Card Image ----- */
 .hero-card-image-wrapper {
-  /* Break out of the card padding to span full width */
   width: calc(100% + 2 * clamp(0.75rem, 1.2vw, 1.1rem));
   margin: calc(-1 * clamp(1rem, 1.6vw, 1.5rem)) calc(-1 * clamp(0.75rem, 1.2vw, 1.1rem)) var(--space-sm);
-  
-  /* Set the height of the image band */
-  height: 120px; /* Adjust this to make the image taller or shorter */
+  height: 120px; 
   flex-shrink: 0;
-  
-  /* Round only the top corners to match the card */
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   overflow: hidden;
 }
 
+/* UPDATED: Added transition for the smooth zoom effect */
 .hero-card-img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease; 
 }
 
+/* NEW: The image zoom effect on hover */
+.hero-card:hover .hero-card-img {
+  transform: scale(1.05);
+}
 
 
 
