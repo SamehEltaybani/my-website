@@ -1355,21 +1355,18 @@ HOME PAGE
   align-items: center;
   justify-content: space-between;   
   gap: 0.75rem;
-
   height: 220px;
   padding: clamp(1rem, 1.6vw, 1.5rem) clamp(0.75rem, 1.2vw, 1.1rem);
-
   background: var(--white-color);
   border: var(--card-border);
   border-radius: var(--radius-sm);
   box-shadow: var(--card-shadow);
-
   text-decoration: none;
   color: var(--dark-color);
   text-align: center;
-  
-  /* UPDATED: Added border-color and changed to var(--transition-fast) for snappier speed */
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+   will-change: transform, box-shadow;
+   transform: translateZ(0);
 }
 
 /* UPDATED: Matches the connect-card hover effect exactly */
@@ -1403,6 +1400,7 @@ HOME PAGE
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease; 
+   backface-visibility: hidden;
 }
 
 /* NEW: The image zoom effect on hover */
