@@ -2468,52 +2468,44 @@ HOME PAGE
   font-size: 1.5rem;
 }
 
-/* Arrows */
+/* NEW: The Controls Wrapper */
+.home-pub-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* UPDATED: Removed absolute positioning, now a static flex item */
 .home-pub-btn {
-  position: absolute;
-  top: 65%; 
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 44px;
-  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--accent-color-dark); 
   border: none; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   color: var(--white-color); 
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .home-pub-btn:hover {
   background: var(--dark-color); 
-  transform: translateY(-50%) scale(1.05);
+  transform: scale(1.05);
 }
 
-.home-pub-prev { left: -22px; }
-.home-pub-next { right: -22px; }
-
-/* Dots (Enlarged) */
+/* UPDATED: Removed margin-top */
 .home-pub-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: var(--space-md);
-  position: relative;
-  z-index: 2;
-}
-
-.home-pub-dot {
-  width: 14px; /* Enlarged from 10px */
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(34,40,49,0.2);
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .home-pub-dot.active {
@@ -2542,10 +2534,6 @@ HOME PAGE
     flex: 0 0 85%;
     height: 400px; /* to match desktop ratio */
     scroll-snap-align: center; 
-  }
-  
-  .home-pub-btn {
-    display: none;
   }
 }
 
@@ -2734,52 +2722,44 @@ HOME PAGE
   font-size: 1.5rem;
 }
 
-/* Arrows */
+/* NEW: The Controls Wrapper */
+.home-blog-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* UPDATED */
 .home-blog-btn {
-  position: absolute;
-  top: 65%; 
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 44px;
-  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--accent-color-dark); 
   border: none; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   color: var(--white-color); 
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .home-blog-btn:hover {
   background: var(--dark-color); 
-  transform: translateY(-50%) scale(1.05);
+  transform: scale(1.05);
 }
 
-.home-blog-prev { left: -22px; }
-.home-blog-next { right: -22px; }
-
-/* Dots (Enlarged) */
+/* UPDATED: Removed margin-top */
 .home-blog-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: var(--space-md);
-  position: relative;
-  z-index: 2;
-}
-
-.home-blog-dot {
-  width: 14px; /* Enlarged from 10px */
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(34,40,49,0.2);
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .home-blog-dot.active {
@@ -2808,10 +2788,6 @@ HOME PAGE
     flex: 0 0 85%;
     height: 400px; /* to match desktop ratio */
     scroll-snap-align: center; 
-  }
-  
-  .home-blog-btn {
-    display: none;
   }
 } 
 
