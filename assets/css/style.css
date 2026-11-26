@@ -2508,6 +2508,15 @@ HOME PAGE
   gap: 10px;
 }
 
+.home-pub-dot {
+  width: 14px; 
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(34, 40, 49, 0.2);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
 .home-pub-dot.active {
   background: var(--accent-color);
   transform: scale(1.3);
@@ -2760,6 +2769,15 @@ HOME PAGE
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.home-blog-dot {
+  width: 14px; 
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(34, 40, 49, 0.2);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .home-blog-dot.active {
