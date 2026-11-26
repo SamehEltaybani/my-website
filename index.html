@@ -1134,16 +1134,18 @@ First-time user section:
   };
 
   // NEW: Function to handle button disabled states
-  const updateButtons = () => {
-    // Check if we are at the start (left edge)
-    if (Math.ceil(track.scrollLeft) <= 0) {
+    const updateButtons = () => {
+    // 1. Check left edge (0 is exact, so this works perfectly)
+    if (track.scrollLeft <= 1) {
       prevBtn.disabled = true;
     } else {
       prevBtn.disabled = false;
     }
 
-    // Check if we are at the end (right edge)
-    if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth) {
+    // 2. Check right edge using a generous 10px tolerance for sub-pixel math
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    
+    if (Math.ceil(track.scrollLeft) >= maxScroll - 10) {
       nextBtn.disabled = true;
     } else {
       nextBtn.disabled = false;
@@ -1270,14 +1272,18 @@ First-time user section:
   };
 
   // NEW: Function to handle button disabled states
-  const updateButtons = () => {
-    if (Math.ceil(track.scrollLeft) <= 0) {
+    const updateButtons = () => {
+    // 1. Check left edge (0 is exact, so this works perfectly)
+    if (track.scrollLeft <= 1) {
       prevBtn.disabled = true;
     } else {
       prevBtn.disabled = false;
     }
 
-    if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth) {
+    // 2. Check right edge using a generous 10px tolerance for sub-pixel math
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    
+    if (Math.ceil(track.scrollLeft) >= maxScroll - 10) {
       nextBtn.disabled = true;
     } else {
       nextBtn.disabled = false;
