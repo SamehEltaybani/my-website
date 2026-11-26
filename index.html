@@ -1123,20 +1123,31 @@ First-time user section:
     return card.offsetWidth + gap;
   };
 
-  // Function to update which dots are active based on visibility
   const updateDots = () => {
     const trackRect = track.getBoundingClientRect();
-    
     document.querySelectorAll('.home-pub-dot').forEach((dot, index) => {
       const cardRect = cards[index].getBoundingClientRect();
       const isVisible = (cardRect.left >= trackRect.left - 20) && (cardRect.right <= trackRect.right + 20);
-      
-      if (isVisible) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+      if (isVisible) dot.classList.add('active');
+      else dot.classList.remove('active');
     });
+  };
+
+  // NEW: Function to handle button disabled states
+  const updateButtons = () => {
+    // Check if we are at the start (left edge)
+    if (Math.ceil(track.scrollLeft) <= 0) {
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.disabled = false;
+    }
+
+    // Check if we are at the end (right edge)
+    if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
   };
 
   // Initialize on the 5th card
@@ -1147,6 +1158,7 @@ First-time user section:
     
     track.scrollTo({ left: cardCenter - trackCenter, behavior: 'instant' });
     updateDots();
+    updateButtons(); // Trigger button check on load
   }, 50);
 
   // Arrows
@@ -1168,7 +1180,14 @@ First-time user section:
     dotsContainer.appendChild(dot);
   });
 
-  track.addEventListener('scroll', updateDots);
+  // Add updateButtons to the scroll listener
+  track.addEventListener('scroll', () => {
+    updateDots();
+    updateButtons();
+  });
+
+  // Recalculate on window resize
+  window.addEventListener('resize', updateButtons);
 
   // ============================================
   // CLICK-AND-DRAG LOGIC
@@ -1182,22 +1201,16 @@ First-time user section:
     isDown = true;
     hasDragged = false;
     track.classList.add('grabbing');
-    
-    // Temporarily disable snapping for a smooth, continuous drag
     track.style.scrollSnapType = 'none';
     track.style.scrollBehavior = 'auto';
-    
     startX = e.clientX;
     scrollLeft = track.scrollLeft;
   });
 
-  // Stop dragging if the mouse leaves the track or is released
   const stopDrag = () => {
     if (!isDown) return;
     isDown = false;
     track.classList.remove('grabbing');
-    
-    // Re-enable snapping so it locks into place when let go
     track.style.scrollSnapType = 'x mandatory';
     track.style.scrollBehavior = 'smooth';
   };
@@ -1207,26 +1220,19 @@ First-time user section:
 
   track.addEventListener('mousemove', (e) => {
     if (!isDown) return;
-    
     const x = e.clientX;
-    const walk = (x - startX) * 2; // Multiply by 2 for a slightly faster drag feel
-    
-    // If the mouse moved more than 5 pixels, it's a drag, not a click
-    if (Math.abs(walk) > 5) {
-      hasDragged = true;
-    }
-    
-    e.preventDefault(); // Prevent text/image ghost-dragging
+    const walk = (x - startX) * 2;
+    if (Math.abs(walk) > 5) hasDragged = true;
+    e.preventDefault();
     track.scrollLeft = scrollLeft - walk;
   });
 
-  // Prevent link clicks if the user was dragging
   track.addEventListener('click', (e) => {
     if (hasDragged) {
       e.preventDefault();
       e.stopPropagation();
     }
-  }, true); // Use capture phase to catch the click before it reaches the link
+  }, true);
 });
 </script>
 
@@ -1253,23 +1259,31 @@ First-time user section:
     return card.offsetWidth + gap;
   };
 
-  // Function to update which dots are active based on visibility
   const updateDots = () => {
     const trackRect = track.getBoundingClientRect();
-    
     document.querySelectorAll('.home-blog-dot').forEach((dot, index) => {
       const cardRect = cards[index].getBoundingClientRect();
       const isVisible = (cardRect.left >= trackRect.left - 20) && (cardRect.right <= trackRect.right + 20);
-      
-      if (isVisible) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+      if (isVisible) dot.classList.add('active');
+      else dot.classList.remove('active');
     });
   };
 
-  // Initialize on the 5th card
+  // NEW: Function to handle button disabled states
+  const updateButtons = () => {
+    if (Math.ceil(track.scrollLeft) <= 0) {
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.disabled = false;
+    }
+
+    if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
+  };
+
   setTimeout(() => {
     const trackCenter = track.offsetWidth / 2;
     const card = cards[4];
@@ -1277,13 +1291,12 @@ First-time user section:
     
     track.scrollTo({ left: cardCenter - trackCenter, behavior: 'instant' });
     updateDots();
+    updateButtons(); // Trigger button check on load
   }, 50);
 
-  // Arrows
   prevBtn.addEventListener('click', () => track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }));
   nextBtn.addEventListener('click', () => track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' }));
 
-  // Generate Dots
   cards.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('home-blog-dot');
@@ -1298,7 +1311,12 @@ First-time user section:
     dotsContainer.appendChild(dot);
   });
 
-  track.addEventListener('scroll', updateDots);
+  track.addEventListener('scroll', () => {
+    updateDots();
+    updateButtons();
+  });
+
+  window.addEventListener('resize', updateButtons);
 
   // ============================================
   // CLICK-AND-DRAG LOGIC
@@ -1312,22 +1330,16 @@ First-time user section:
     isDown = true;
     hasDragged = false;
     track.classList.add('grabbing');
-    
-    // Temporarily disable snapping for a smooth, continuous drag
     track.style.scrollSnapType = 'none';
     track.style.scrollBehavior = 'auto';
-    
     startX = e.clientX;
     scrollLeft = track.scrollLeft;
   });
 
-  // Stop dragging if the mouse leaves the track or is released
   const stopDrag = () => {
     if (!isDown) return;
     isDown = false;
     track.classList.remove('grabbing');
-    
-    // Re-enable snapping so it locks into place when let go
     track.style.scrollSnapType = 'x mandatory';
     track.style.scrollBehavior = 'smooth';
   };
@@ -1337,26 +1349,19 @@ First-time user section:
 
   track.addEventListener('mousemove', (e) => {
     if (!isDown) return;
-    
     const x = e.clientX;
-    const walk = (x - startX) * 2; // Multiply by 2 for a slightly faster drag feel
-    
-    // If the mouse moved more than 5 pixels, it's a drag, not a click
-    if (Math.abs(walk) > 5) {
-      hasDragged = true;
-    }
-    
-    e.preventDefault(); // Prevent text/image ghost-dragging
+    const walk = (x - startX) * 2;
+    if (Math.abs(walk) > 5) hasDragged = true;
+    e.preventDefault();
     track.scrollLeft = scrollLeft - walk;
   });
 
-  // Prevent link clicks if the user was dragging
   track.addEventListener('click', (e) => {
     if (hasDragged) {
       e.preventDefault();
       e.stopPropagation();
     }
-  }, true); // Use capture phase to catch the click before it reaches the link
+  }, true);
 });
 </script> 
 
