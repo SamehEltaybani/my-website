@@ -2501,6 +2501,20 @@ HOME PAGE
   transform: scale(1.05);
 }
 
+.home-pub-btn:disabled,
+.home-blog-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: var(--accent-color-dark);
+  box-shadow: none;
+}
+
+.home-pub-btn:disabled:hover,
+.home-blog-btn:disabled:hover {
+  transform: none;
+  background: var(--accent-color-dark);
+}
+
 /* UPDATED: Removed margin-top */
 .home-pub-dots {
   display: flex;
