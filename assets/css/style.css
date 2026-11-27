@@ -1115,10 +1115,9 @@ HOME PAGE
 
 
 /* ==========================================
-   TEXT-ONLY HERO SECTION
+  HERO SECTION
    ========================================== */
 
-/* 1. Update .home-hero to hold the absolute image */
 .home-hero {
   position: relative;
   overflow: hidden;
@@ -1130,7 +1129,6 @@ HOME PAGE
   text-align: left; 
   }
 
-/* 2. Add the new Image and Overlay rules */
 .home-hero-bg {
   position: absolute;
   inset: 0;
@@ -1161,8 +1159,10 @@ HOME PAGE
   font-size: clamp(2rem, 8vw, 4.8rem); 
   line-height: 1.1;
   letter-spacing: -0.01em; 
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl); 
   white-space: nowrap; 
+  opacity: 0; 
+  animation: heroFadeUp 0.8s ease-out 0.1s forwards;
 }
 
 .home-hero-message {
@@ -1173,6 +1173,8 @@ HOME PAGE
   max-width: 900px; 
   margin: 0 0 var(--space-xl) 0; 
   font-weight: 500;
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out 0.3s forwards;
 }
 
 /* Hides the line break by default (Mobile behavior) */
@@ -1197,9 +1199,21 @@ HOME PAGE
   flex-direction: column;
   align-items: flex-start; 
   text-align: left;        
-  border-left: 4px solid var(--accent-color); 
+  position: relative; 
   padding-left: var(--space-md); 
   margin-left: 0; 
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out 0.5s forwards;
+}
+
+.hero-values-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; 
+  background: linear-gradient(to bottom, var(--accent-color) 0%, transparent 100%);
 }
 
 .hero-values-heading {
@@ -1272,17 +1286,28 @@ HOME PAGE
 }
 
 
-/* ==========================================
-   HERO CARDS (Overlap Logic)
-   ========================================== */
+/* ========   HERO ANIMATION KEYFRAMES  ========= */
 
-.hero-cards-section {
-  position: relative;
-  z-index: 3; 
-  padding-top: 0;
-  padding-bottom: 0; 
-  margin-top: -60px; 
-  margin-bottom: 0; 
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-name,
+  .home-hero-message,
+  .hero-values-wrapper {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -5185,7 +5210,6 @@ PUBLICATIONS PAGE
   color: var(--white-color); /* Forces the arrow to be white on hover */
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
   .search-modal-wrapper {
     width: 95%;
