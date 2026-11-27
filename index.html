@@ -62,19 +62,23 @@
 </div>
     
 
-<!-- ===== NEW TEXT-ONLY HERO ===== -->
+<!-- ===== HERO SECTION ===== -->
+    
 <section class="home-hero" aria-labelledby="home-hero-title">
-  <div class="container">
+  <!-- New Background Image & Overlay -->
+  <img src="img/home.webp" alt="" class="home-hero-bg">
+  <div class="home-hero-overlay"></div>
+
+  <!-- Content (Pushed to the front) -->
+  <div class="container" style="position: relative; z-index: 2;">
     <h1 class="home-hero-name" id="home-hero-title">Sameh Eltaybani</h1>
     
     <p class="home-hero-message">
       I combine <strong>Rigorous research · Robust data analysis · Compassionate teaching</strong> for the best outcomes of patients, their families, staff, and healthcare settings.
     </p>
 
-            <!-- NEW: Value-Driven Excellence Circles -->
     <div class="hero-values-wrapper">
       <p class="hero-values-heading">Value-Driven Excellence</p>
-      
       <div class="hero-values-circles">
         <div class="hero-value-item">
           <div class="hero-value-circle">
@@ -82,14 +86,12 @@
             <span class="hero-value-text">Integrity</span>
           </div>
         </div>
-        
         <div class="hero-value-item">
           <div class="hero-value-circle">
             <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
             <span class="hero-value-text">Impact</span>
           </div>
         </div>
-        
         <div class="hero-value-item">
           <div class="hero-value-circle">
             <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
@@ -98,8 +100,13 @@
         </div>
       </div>
     </div>
-      
-       
+    
+    <div class="home-hero-cta">
+      <a href="#explore" class="primary-button hero-explore-btn">
+        <span>Explore the site</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </section>
 
