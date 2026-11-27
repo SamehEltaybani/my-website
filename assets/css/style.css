@@ -1118,15 +1118,33 @@ HOME PAGE
    TEXT-ONLY HERO SECTION
    ========================================== */
 
+/* 1. Update .home-hero to hold the absolute image */
 .home-hero {
-  background-color: var(--accent-color-dark);
+  position: relative;
+  overflow: hidden;
   margin-top: -50px;
   padding: 
     clamp(6rem, 10vw, 9rem) 
     clamp(1rem, 5vw, 3rem) 
     clamp(8rem, 12vw, 11rem); 
-    
-  text-align: left; /* 3. Left aligned */
+  text-align: left; 
+  }
+
+/* 2. Add the new Image and Overlay rules */
+.home-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 40, 49, 0.4); /* Exactly the same as the strip */
+  z-index: 1;
 }
 
 .home-hero-name {
@@ -1254,123 +1272,7 @@ HOME PAGE
   margin-bottom: 0; /* Ensure no bottom margin pushes the strip away */
 }
 
-/* ==========================================
-   NEW IMAGE STRIP SECTION
-   ========================================== */
 
-.home-hero-strip {
-  position: relative;
-  width: 100%;
-  margin-top: -160px; 
-  
-  /* REDUCED TOP PADDING to shorten the strip */
-  padding-top: 180px; 
-  
-  /* INCREASED BOTTOM PADDING for breathing room below text */
-  padding-bottom: clamp(4rem, 8vw, 6rem); 
-  
-  z-index: 1;
-  overflow: hidden; 
-}
-
-/* The Image */
-.home-hero-strip-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* The New Dark Grey Overlay */
-.home-hero-strip-overlay {
-  position: absolute;
-  inset: 0;
-  /* Uses your dark-color (grey/black) at 75% opacity. 
-     This kills the teal tint and makes the white text readable. */
-  background: rgba(34, 40, 49, 0.4); 
-  z-index: 1;
-}
-
-/* Content sits above image and overlay */
-.home-hero-strip-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-
-/* Force the eyebrow pill styling */
-.home-hero-eyebrow {
-  display: inline-block;
-  padding: 0.4em 1.2em;
-  border-radius: var(--radius-full);
-  
-  /* Solid dark teal background for maximum contrast */
-  background: var(--accent-color-dark); 
-  border: 1px solid rgba(255, 255, 255, 0.4); 
-  
-  color: var(--white-color) !important;
-  
-  /* Increase font size and weight */
-  font-size: clamp(0.75rem, 0.65rem + 0.35vw, 0.9rem);
-  font-weight: 700;
-  
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.3;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds a tiny lift */
-}
-
-/* Force the quote styling */
-.home-hero-strip-quote {
-  position: relative;
-  color: var(--white-color);
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: clamp(1.6rem, 3.2vw, 2.6rem); 
-  
-  /* 1. Make the text heavier */
-  font-weight: 600; 
-  
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* 2. Inline Opening Quote (Superscript) */
-.home-hero-strip-quote::before {
-  content: '“';
-  display: inline; /* Keeps it on the same line */
-  font-family: Georgia, serif;
-  font-size: 3rem;
-  color: var(--accent-color);
-  vertical-align: super; /* Pushes it up */
-  margin-right: 0.1em;
-  font-style: normal;
-  line-height: 0;
-}
-
-/* 3. Inline Closing Quote (Subscript) */
-.home-hero-strip-quote::after {
-  content: '”';
-  display: inline; /* Keeps it on the same line */
-  font-family: Georgia, serif;
-  font-size: 3rem;
-  color: var(--accent-color);
-  vertical-align: sub; /* Pushes it down */
-  margin-left: 0.1em;
-  font-style: normal;
-  line-height: 0;
-}
 
 /* ==========================================
    RESPONSIVE (Mobile)
@@ -1384,12 +1286,6 @@ HOME PAGE
   
   .hero-cards-section {
     margin-top: -40px;
-  }
-  
-  .home-hero-strip {
-    margin-top: -100px; 
-    padding-top: 120px; /* Shortened top */
-    padding-bottom: clamp(3rem, 6vw, 4rem); /* Increased bottom */
   }
 }
 
