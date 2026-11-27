@@ -1149,10 +1149,14 @@ HOME PAGE
 
 .home-hero-name {
   color: var(--white-color);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
+  
+  /* ADD THESE TWO LINES */
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700; 
+  
+  font-size: clamp(2.8rem, 6.5vw, 4.8rem); /* Slightly larger since Serif fonts look smaller */
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em; /* Less negative spacing than before */
   margin-bottom: var(--space-lg);
 }
 
