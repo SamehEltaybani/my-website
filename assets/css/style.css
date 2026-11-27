@@ -1186,14 +1186,14 @@ HOME PAGE
   align-items: flex-start; 
   text-align: left;        
   
-  /* 1. The thick teal border */
-  border-left: 6px solid var(--accent-color); 
+  /* The thick teal border */
+  border-left: 4px solid var(--accent-color); 
   
-  /* 2. Push the content right so it doesn't touch the border */
+  /* Pushes the text/circles away from the border */
   padding-left: var(--space-lg); 
   
-  /* 3. Optional: Add a slight negative margin so the border aligns perfectly with the text above it */
-  margin-left: calc(-1 * var(--space-lg)); 
+  /* DELETE the margin-left line */
+  margin-left: 0; 
 }
 
 .hero-values-heading {
