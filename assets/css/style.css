@@ -1156,15 +1156,12 @@ HOME PAGE
 .home-hero-name {
   color: var(--white-color);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  
-  /* ADD THESE TWO LINES */
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700; 
-  
-  font-size: clamp(2.8rem, 6.5vw, 4.8rem); /* Slightly larger since Serif fonts look smaller */
+  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
   line-height: 1.1;
-  letter-spacing: -0.01em; /* Less negative spacing than before */
-  margin-bottom: var(--space-lg);
+  letter-spacing: -0.01em; 
+  margin-bottom: var(--space-xl);
 }
 
 .home-hero-message {
@@ -1173,14 +1170,12 @@ HOME PAGE
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 900px; 
-  margin: 0 0 var(--space-md) 0; 
+  margin: 0 0 var(--space-xl) 0; 
   font-weight: 500;
 }
 
 
-/* ==========================================
-   HERO VALUE CIRCLES
-   ========================================== */
+/* ===  HERO VALUE CIRCLES  ====== */
 
 .hero-values-wrapper {
   margin-top: var(--space-lg); 
@@ -1189,14 +1184,8 @@ HOME PAGE
   flex-direction: column;
   align-items: flex-start; 
   text-align: left;        
-  
-  /* The thick teal border */
   border-left: 4px solid var(--accent-color); 
-  
-  /* Pushes the text/circles away from the border */
   padding-left: var(--space-md); 
-  
-  /* DELETE the margin-left line */
   margin-left: 0; 
 }
 
@@ -1226,18 +1215,11 @@ HOME PAGE
   width: clamp(100px, 13vw, 140px);
   height: clamp(100px, 13vw, 140px);
   border-radius: 50%;
-  
-  /* 1. Increase background opacity for a brighter glass look */
   background: rgba(255, 255, 255, 0.15); 
-  border: 1px solid rgba(255, 255, 255, 0.5); /* Slightly thinner, brighter border */
-  
-  /* 2. Increase the blur */
+  border: 1px solid rgba(255, 255, 255, 0.25); 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  
-  /* 3. Add an inner shadow (inset) to create a 3D glass edge */
-  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.2);
-  
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1246,7 +1228,6 @@ HOME PAGE
   gap: 0.85rem; 
   color: var(--white-color);
 }
-/* 5. Hover effect completely removed */
 
 .hero-value-circle i {
   font-size: clamp(1.4rem, 2.5vw, 2rem); 
@@ -1263,23 +1244,20 @@ HOME PAGE
   padding: 0 4px;
 }
 
-/* ==========================================
-   MOBILE ADJUSTMENTS
-   ========================================== */
 
 @media (max-width: 600px) {
   .hero-values-circles {
-    /* 4. Increased gap between circles on mobile */
     gap: var(--space-md); 
   }
   
   .hero-value-circle {
     background: rgba(255, 255, 255, 0.08); 
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 0.75px solid rgba(255, 255, 255, 0.25);
     padding-top: 1.2rem; 
-    gap: 0.65rem; /* Slightly adjusted gap for smaller mobile circles */
+    gap: 0.65rem; 
   }
 }
+
 
 /* ==========================================
    HERO CARDS (Overlap Logic)
@@ -1291,14 +1269,8 @@ HOME PAGE
   padding-top: 0;
   padding-bottom: 0; 
   margin-top: -60px; 
-  margin-bottom: 0; /* Ensure no bottom margin pushes the strip away */
+  margin-bottom: 0; 
 }
-
-
-
-/* ==========================================
-   RESPONSIVE (Mobile)
-   ========================================== */
 
 @media (max-width: 768px) {
   .home-hero {
@@ -1311,6 +1283,8 @@ HOME PAGE
   }
 }
 
+
+
 /* =========================================================
    HERO QUICK-LINKS CARDS
    ========================================================= */
@@ -1318,7 +1292,7 @@ HOME PAGE
 .hero-cards-section {
   position: relative;
   z-index: 2;
-  padding-top: 0;                 /* overrides the global section padding */
+  padding-top: 0;                
   padding-bottom: var(--space-xxl);
   margin-top: -60px;
 }
@@ -1333,7 +1307,6 @@ HOME PAGE
     scroll-margin-top: 90px; /* Only for scrolling in the HOME page to not compete with TOC scrolling */
 }
 
-/* ----- Card ----- */
 
 /* ----- Card ----- */
 .hero-card {
