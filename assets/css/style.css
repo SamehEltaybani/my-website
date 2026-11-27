@@ -1160,24 +1160,25 @@ HOME PAGE
   margin-bottom: var(--space-xl);
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligns with your left-aligned hero text */
+  align-items: center; /* 5. Centers the entire block */
+  text-align: center;  /* 5. Centers the text */
 }
 
 .hero-values-heading {
   color: var(--white-color);
   font-size: clamp(0.85rem, 1.2vw, 1rem);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-transform: capitalize; /* 3. Removes all caps */
   margin-bottom: var(--space-md);
   opacity: 0.9;
 }
 
 .hero-values-circles {
   display: flex;
+  justify-content: center; /* 5. Centers the circles */
   align-items: center;
-  /* Desktop: No overlap, nice spacing */
-  gap: var(--space-md); 
+  gap: clamp(var(--space-sm), 2vw, var(--space-md)); /* 4. Always a gap, scales on mobile */
 }
 
 .hero-value-item {
@@ -1185,12 +1186,12 @@ HOME PAGE
 }
 
 .hero-value-circle {
-  /* Size scales down to fit the text, even on 320px phones */
-  width: clamp(85px, 11vw, 120px);
-  height: clamp(85px, 11vw, 120px);
+  /* 1. WIDER CIRCLES */
+  width: clamp(100px, 13vw, 140px);
+  height: clamp(100px, 13vw, 140px);
   border-radius: 50%;
   
-  /* Semi-transparent background so overlaps are visible */
+  /* Semi-transparent background */
   background: rgba(255, 255, 255, 0.08); 
   border: 2px solid rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(4px);
@@ -1198,8 +1199,9 @@ HOME PAGE
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
+  justify-content: flex-start; /* 2. Aligns content to the top */
+  padding-top: 1.5rem; /* 2. Pushes the icon down from the absolute top edge */
+  gap: 0.35rem;
   
   color: var(--white-color);
   transition: transform var(--transition-fast), background var(--transition-fast);
@@ -1212,42 +1214,36 @@ HOME PAGE
 }
 
 .hero-value-circle i {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: var(--accent-color); /* Icon pops in teal */
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--accent-color); 
 }
 
 .hero-value-text {
-  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize; /* 3. Capitalize first letter only */
   letter-spacing: 0.02em;
   text-align: center;
   line-height: 1.2;
   padding: 0 4px;
 }
 
+/* ==========================================
+   MOBILE ADJUSTMENTS
+   ========================================== */
+
 @media (max-width: 600px) {
+  /* 4. Removed negative margins to prevent overlap */
   .hero-values-circles {
-    gap: 0; /* Remove gap to allow overlap */
-  }
-
-  /* Pull circles 2 and 3 to the left to overlap */
-  .hero-value-item:nth-child(2) {
-    margin-left: -15px;
-    z-index: 2; /* Sits on top of circle 1 */
-  }
-
-  .hero-value-item:nth-child(3) {
-    margin-left: -15px;
-    z-index: 3; /* Sits on top of circle 2 */
+    gap: var(--space-xs); 
   }
   
   .hero-value-circle {
-    /* Add a solid background for mobile so text behind is hidden cleanly */
-    background: var(--accent-color-dark); 
-    /* Add a thicker border matching the hero bg to separate the overlaps */
-    border: 2px solid var(--accent-color-dark);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    /* Reverted to the semi-transparent look so it matches desktop */
+    background: rgba(255, 255, 255, 0.08); 
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+    padding-top: 1.2rem; /* Slightly less padding on mobile to fit */
   }
 }
 
@@ -1487,10 +1483,6 @@ HOME PAGE
 .hero-card:hover .hero-card-img {
   transform: scale(1.05);
 }
-
-
-
-
 
 
 .hero-card-title {
