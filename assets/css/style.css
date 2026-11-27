@@ -1158,10 +1158,11 @@ HOME PAGE
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700; 
-  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+  font-size: clamp(2rem, 8vw, 4.8rem); 
   line-height: 1.1;
   letter-spacing: -0.01em; 
   margin-bottom: var(--space-xl);
+  white-space: nowrap; 
 }
 
 .home-hero-message {
@@ -1172,6 +1173,18 @@ HOME PAGE
   max-width: 900px; 
   margin: 0 0 var(--space-xl) 0; 
   font-weight: 500;
+}
+
+/* Hides the line break by default (Mobile behavior) */
+.desktop-hero-break {
+  display: none;
+}
+
+/* Shows the line break only on screens wider than 768px (Desktop behavior) */
+@media (min-width: 769px) {
+  .desktop-hero-break {
+    display: block;
+  }
 }
 
 
