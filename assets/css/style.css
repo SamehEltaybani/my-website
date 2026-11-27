@@ -1162,6 +1162,7 @@ HOME PAGE
   line-height: 1.6;
   max-width: 900px; 
   margin: 0 0 var(--space-md) 0; /* Removed 'auto' to keep left aligned */
+  font-weight: 500;
 }
 
 .home-hero-message strong {
@@ -1208,22 +1209,25 @@ HOME PAGE
   height: clamp(100px, 13vw, 140px);
   border-radius: 50%;
   
-  background: rgba(255, 255, 255, 0.08); 
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
+  /* 1. Increase background opacity for a brighter glass look */
+  background: rgba(255, 255, 255, 0.15); 
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Slightly thinner, brighter border */
+  
+  /* 2. Increase the blur */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  /* 3. Add an inner shadow (inset) to create a 3D glass edge */
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.2);
   
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; 
   padding-top: 1.5rem; 
-  
-  /* 2. INCREASED GAP: Pushes the text down without moving the icon */
   gap: 0.85rem; 
-  
   color: var(--white-color);
 }
-
 /* 5. Hover effect completely removed */
 
 .hero-value-circle i {
