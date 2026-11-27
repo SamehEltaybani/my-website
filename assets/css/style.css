@@ -1180,11 +1180,20 @@ HOME PAGE
 
 .hero-values-wrapper {
   margin-top: var(--space-lg); 
-  margin-bottom: var(--space-sm); /* DECREASED: Less space below the circles */
+  margin-bottom: var(--space-md); 
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
   text-align: left;        
+  
+  /* 1. The thick teal border */
+  border-left: 6px solid var(--accent-color); 
+  
+  /* 2. Push the content right so it doesn't touch the border */
+  padding-left: var(--space-lg); 
+  
+  /* 3. Optional: Add a slight negative margin so the border aligns perfectly with the text above it */
+  margin-left: calc(-1 * var(--space-lg)); 
 }
 
 .hero-values-heading {
