@@ -1149,6 +1149,7 @@ HOME PAGE
 
 .home-hero-name {
   color: var(--white-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   
   /* ADD THESE TWO LINES */
   font-family: 'Playfair Display', Georgia, serif;
@@ -1161,7 +1162,8 @@ HOME PAGE
 }
 
 .home-hero-message {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 900px; 
@@ -1198,9 +1200,10 @@ HOME PAGE
 
 .hero-values-heading {
   color: var(--white-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
   font-size: clamp(1rem, 1.5vw, 1.25rem); /* INCREASED: Larger heading */
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: capitalize; 
   margin-bottom: var(--space-md);
   opacity: 0.9;
