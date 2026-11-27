@@ -1168,19 +1168,15 @@ HOME PAGE
 }
 
 .home-hero-message {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--white-color);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 900px; 
-  margin: 0 0 var(--space-md) 0; /* Removed 'auto' to keep left aligned */
+  margin: 0 0 var(--space-md) 0; 
   font-weight: 500;
 }
 
-.home-hero-message strong {
-  color: var(--white-color);
-  font-weight: 700;
-}
 
 /* ==========================================
    HERO VALUE CIRCLES
@@ -1198,7 +1194,7 @@ HOME PAGE
   border-left: 4px solid var(--accent-color); 
   
   /* Pushes the text/circles away from the border */
-  padding-left: var(--space-lg); 
+  padding-left: var(--space-md); 
   
   /* DELETE the margin-left line */
   margin-left: 0; 
