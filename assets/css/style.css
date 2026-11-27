@@ -1146,7 +1146,7 @@ HOME PAGE
    background: linear-gradient(
     to right, 
     rgba(34, 40, 49, 0.80) 0%, 
-    rgba(34, 40, 49, 0.60) 60%
+    rgba(34, 40, 49, 0.60) 60%,
     rgba(34, 40, 49, 0.30) 90%,
     rgba(34, 40, 49, 0.0) 100%
   );
