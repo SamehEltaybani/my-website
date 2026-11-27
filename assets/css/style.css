@@ -1162,7 +1162,7 @@ HOME PAGE
   margin-bottom: var(--space-xl); 
   white-space: nowrap; 
   opacity: 0; 
-  animation: heroFadeUp 0.8s ease-out 0.1s forwards;
+  animation: heroFadeUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.05s forwards;
 }
 
 .home-hero-message {
@@ -1174,7 +1174,7 @@ HOME PAGE
   margin: 0 0 var(--space-xl) 0; 
   font-weight: 500;
   opacity: 0;
-  animation: heroFadeUp 0.8s ease-out 0.3s forwards;
+  animation: heroFadeUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards;
 }
 
 /* Hides the line break by default (Mobile behavior) */
@@ -1203,7 +1203,7 @@ HOME PAGE
   padding-left: var(--space-md); 
   margin-left: 0; 
   opacity: 0;
-  animation: heroFadeUp 0.8s ease-out 0.5s forwards;
+  animation: heroFadeUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s forwards;
 }
 
 .hero-values-wrapper::before {
@@ -1288,10 +1288,11 @@ HOME PAGE
 
 /* ========   HERO ANIMATION KEYFRAMES  ========= */
 
+
 @keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(8px); /* Reduced from 20px for subtlety */
   }
   to {
     opacity: 1;
