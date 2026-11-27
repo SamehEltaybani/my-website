@@ -1143,7 +1143,7 @@ HOME PAGE
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 900px; 
-  margin: 0 0 var(--space-xl) 0; /* Removed 'auto' to keep left aligned */
+  margin: 0 0 var(--space-md) 0; /* Removed 'auto' to keep left aligned */
 }
 
 .home-hero-message strong {
@@ -1151,26 +1151,71 @@ HOME PAGE
   font-weight: 700;
 }
 
-/* 3. CTA Button Centered */
-.home-hero-cta {
+/* ==========================================
+   HERO VALUE CIRCLES (Overlapping)
+   ========================================== */
+
+.hero-values-circles {
   display: flex;
-  justify-content: center; 
+  justify-content: flex-start; /* Aligns with your left-aligned text */
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
-.hero-explore-btn {
-  width: auto;
-  min-width: 200px;
-  color: var(--white-color);
-  border-color: rgba(255, 255, 255, 0.85);
-  box-shadow: none; 
+.hero-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  
+  /* Creates the overlap. Scales smoothly between -12px on mobile and -24px on desktop */
+  margin-left: clamp(-24px, -2vw, -12px); 
 }
 
-.hero-explore-btn:hover,
-.hero-explore-btn:focus-visible {
-  background: var(--dark-color);
-  color: var(--white-color);
-  border-color: var(--dark-color);
+/* Prevents the first circle from pushing away from the left margin */
+.hero-value-item:first-child {
+  margin-left: 0;
 }
+
+.hero-value-circle {
+  /* Scales smoothly between 60px on mobile and 90px on desktop */
+  width: clamp(60px, 8vw, 90px);
+  height: clamp(60px, 8vw, 90px);
+  border-radius: 50%;
+  background: var(--accent-color); /* Teal background */
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.2rem, 2vw, 1.8rem); /* Scales the icon */
+  
+  /* A border matching the hero background separates the overlapping circles */
+  border: 3px solid var(--accent-color-dark); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast);
+  position: relative;
+}
+
+/* Z-Index ensures the right circles sit ON TOP of the left circles */
+.hero-value-item:nth-child(1) .hero-value-circle { z-index: 1; }
+.hero-value-item:nth-child(2) .hero-value-circle { z-index: 2; }
+.hero-value-item:nth-child(3) .hero-value-circle { z-index: 3; }
+
+.hero-value-item:hover .hero-value-circle {
+  transform: translateY(-4px); /* Subtle lift on hover */
+}
+
+.hero-value-text {
+  color: var(--white-color);
+  font-size: clamp(0.65rem, 0.8vw, 0.85rem);
+  font-weight: 600;
+  margin-top: var(--space-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+}
+
 
 /* ==========================================
    HERO CARDS (Overlap Logic)
