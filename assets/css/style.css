@@ -1143,7 +1143,12 @@ HOME PAGE
 .home-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(34, 40, 49, 0.7); /* Exactly the same as the strip */
+   background: linear-gradient(
+    to right, 
+    rgba(34, 40, 49, 0.85) 0%, 
+    rgba(34, 40, 49, 0.4) 45%, 
+    rgba(34, 40, 49, 0) 100%
+  );
   z-index: 1;
 }
 
